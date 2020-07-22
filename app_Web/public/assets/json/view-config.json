@@ -849,6 +849,16 @@
         "viewtag": "6c7b582273d0726bcf77214807cfe40c",
         "memo": ""
     },
+    "actionmyalltrendslistview": {
+        "title": "系统日志列表视图",
+        "caption": "系统日志",
+        "viewtype": "DELISTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ActionMyAllTrendsListView",
+        "viewfilename": "action-my-all-trends-list-view",
+        "viewtag": "6d466e003e0479fb8b1a16e49b889dc1",
+        "memo": ""
+    },
     "casemaindashboardview": {
         "title": "功能测试",
         "caption": "功能测试",

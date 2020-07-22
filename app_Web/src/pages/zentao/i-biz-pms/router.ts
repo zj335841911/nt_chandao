@@ -5635,20 +5635,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-main-info-view/test-report-main-info-view.vue'),
                 },
                 {
-                    path: 'actions/:action?/alltrendslistview/:alltrendslistview?',
-                    meta: {
-                        caption: 'entities.action.views.alltrendslistview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'actions', parameterName: 'action' },
-                            { pathName: 'alltrendslistview', parameterName: 'alltrendslistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/action-all-trends-list-view/action-all-trends-list-view.vue'),
-                },
-                {
                     path: 'products/:product?/releases/:release?/maininfoview/:maininfoview?',
                     meta: {
                         caption: 'entities.release.views.maininfoview.title',
@@ -6598,6 +6584,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-close-task-view/task-close-task-view.vue'),
+                },
+                {
+                    path: 'actions/:action?/myalltrendslistview/:myalltrendslistview?',
+                    meta: {
+                        caption: 'entities.action.views.myalltrendslistview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'myalltrendslistview', parameterName: 'myalltrendslistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-my-all-trends-list-view/action-my-all-trends-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/releasesubgridview/:releasesubgridview?',

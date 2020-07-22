@@ -801,6 +801,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6d466e003e0479fb8b1a16e49b889dc1',
+            viewmodule: 'zentao',
+            viewname: 'ActionMyAllTrendsListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
             viewtag: '6f78b25e86923ab600a2141d50fe49fd',
             viewmodule: 'zentao',
             viewname: 'CaseMainDashboardView',
@@ -1682,16 +1692,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'df57be69540a2e80fee7f3575162b93a',
-            viewmodule: 'zentao',
-            viewname: 'ActionAllTrendsListView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'f8b69912b3ca27b5d083c8fb1971c84a',
-            ],
-        },
-        {
             viewtag: 'df5a966e312ca9c5f5a41428bc2e2672',
             viewmodule: 'zentao',
             viewname: 'StoryRevIewView',
@@ -2174,10 +2174,10 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b82e9acf6c784b138b365d6011b296b',
+                '6d466e003e0479fb8b1a16e49b889dc1',
                 '79b3a14f0431747becc48f5b9f3aa990',
                 '81893d14e76cac341d4218a9c5ef185d',
                 'e2d75951e06d21bce0a31b09c67103bf',
-                'df57be69540a2e80fee7f3575162b93a',
                 'e444135470a806822b9b950e15c42a3e',
             ],
         },
