@@ -19,6 +19,8 @@ export default class ClassifyByTypeModel {
 			},
 			{
 				name: 'action',
+				prop: 'action',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'actor',
