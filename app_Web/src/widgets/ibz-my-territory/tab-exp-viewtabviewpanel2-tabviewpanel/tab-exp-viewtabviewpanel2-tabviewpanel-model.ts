@@ -129,6 +129,15 @@ export default class TabExpViewtabviewpanel2Model {
       {
         name: 'mystorys',
       },
+      {
+        name: 'products',
+      },
+      {
+        name: 'eprojects',
+      },
+      {
+        name: 'projects',
+      },
     ]
   }
 

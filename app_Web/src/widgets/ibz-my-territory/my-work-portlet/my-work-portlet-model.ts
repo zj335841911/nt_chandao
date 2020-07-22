@@ -129,6 +129,15 @@ export default class MyWorkModel {
       {
         name: 'mystorys',
       },
+      {
+        name: 'products',
+      },
+      {
+        name: 'eprojects',
+      },
+      {
+        name: 'projects',
+      },
     ]
   }
 
