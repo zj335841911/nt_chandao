@@ -194,6 +194,7 @@ export const viewstate: any = {
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
             ],
         },
@@ -1679,6 +1680,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'df57be69540a2e80fee7f3575162b93a',
+            viewmodule: 'zentao',
+            viewname: 'ActionAllTrendsListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
             viewtag: 'df5a966e312ca9c5f5a41428bc2e2672',
             viewmodule: 'zentao',
             viewname: 'StoryRevIewView',
@@ -2002,6 +2013,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0f3dff62ef8bcb1662cc82e57a34c56b',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4b82e9acf6c784b138b365d6011b296b',
+                'd8df5ca51341d33ccc19208dde3f2cce',
+            ],
+        },
+        {
             viewtag: '231eecf4805f0b378601ea1a7912077f',
             viewmodule: 'ibiz',
             viewname: 'ProjectTeamMainGridView',
@@ -2137,6 +2159,30 @@ export const viewstate: any = {
             viewtag: 'd337f5c3c125dc2641321f2d93b65476',
             viewmodule: 'ibiz',
             viewname: 'TestModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'd8df5ca51341d33ccc19208dde3f2cce',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4b82e9acf6c784b138b365d6011b296b',
+                '79b3a14f0431747becc48f5b9f3aa990',
+                '81893d14e76cac341d4218a9c5ef185d',
+                'e2d75951e06d21bce0a31b09c67103bf',
+                'df57be69540a2e80fee7f3575162b93a',
+                'e444135470a806822b9b950e15c42a3e',
+            ],
+        },
+        {
+            viewtag: 'e2d75951e06d21bce0a31b09c67103bf',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryListView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

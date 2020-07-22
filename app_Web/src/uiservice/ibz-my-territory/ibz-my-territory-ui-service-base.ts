@@ -89,6 +89,9 @@ export default class IbzMyTerritoryUIServiceBase extends UIService {
      * @memberof  IbzMyTerritoryUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzmyterritories'});
+        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzmyterritories'});
+        this.allViewMap.set(':',{viewname:'listview',srfappde:'ibzmyterritories'});
     }
 
     /**

@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory;
 @Data
 public class IbzMyTerritorySearchContext extends QueryWrapperContext<IbzMyTerritory> {
 
+	private String n_account_eq;//[账户]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("account", n_account_eq);
+        }
+    }
 	private String n_realname_like;//[真实姓名]
 	public void setN_realname_like(String n_realname_like) {
         this.n_realname_like = n_realname_like;

@@ -35,4 +35,18 @@ export default {
     role: "职位",
     clientstatus: "clientStatus",
   },
+	views: {
+		tabexpview: {
+			caption: "我的地盘",
+      		title: "我的地盘分页导航视图",
+		},
+		dashboardview: {
+			caption: "首页",
+      		title: "我的地盘数据看板视图",
+		},
+		listview: {
+			caption: "欢迎",
+      		title: "欢迎",
+		},
+	},
 };

@@ -1108,6 +1108,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
                 },
                 {
+                    path: 'testsuites/:testsuite?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.testsuite.views.editview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-suite-edit-view9/test-suite-edit-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/builds/:build?/editview/:editview?',
                     meta: {
                         caption: 'entities.build.views.editview.title',
@@ -1164,20 +1178,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/file-list-view9/file-list-view9.vue'),
-                },
-                {
-                    path: 'testsuites/:testsuite?/editview9/:editview9?',
-                    meta: {
-                        caption: 'entities.testsuite.views.editview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testsuites', parameterName: 'testsuite' },
-                            { pathName: 'editview9', parameterName: 'editview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-suite-edit-view9/test-suite-edit-view9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/maindashboardview/:maindashboardview?',
@@ -3886,6 +3886,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/listview/:listview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.listview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'listview', parameterName: 'listview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-list-view/ibz-my-territory-list-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
                         caption: 'entities.bug.views.assingtoview.title',
@@ -5285,6 +5299,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.tabexpview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'tabexpview', parameterName: 'tabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-tab-exp-view/ibz-my-territory-tab-exp-view.vue'),
+                },
+                {
                     path: 'projects/:project?/projectproducts/:projectproduct?/planlistview9/:planlistview9?',
                     meta: {
                         caption: 'entities.projectproduct.views.planlistview9.title',
@@ -5341,6 +5369,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
+                },
+                {
+                    path: 'ibzmyterritories/:ibzmyterritory?/dashboardview/:dashboardview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.dashboardview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'dashboardview', parameterName: 'dashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-dashboard-view/ibz-my-territory-dashboard-view.vue'),
                 },
                 {
                     path: 'projectstats/:projectstats?/editview9/:editview9?',
@@ -5591,6 +5633,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-report-main-info-view/test-report-main-info-view.vue'),
+                },
+                {
+                    path: 'actions/:action?/alltrendslistview/:alltrendslistview?',
+                    meta: {
+                        caption: 'entities.action.views.alltrendslistview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'alltrendslistview', parameterName: 'alltrendslistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-all-trends-list-view/action-all-trends-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/releases/:release?/maininfoview/:maininfoview?',
@@ -6761,6 +6817,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-close-view/story-close-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
+                    meta: {
+                        caption: 'entities.product.views.testleftsidebarlistview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/closeview/:closeview?',
                     meta: {
                         caption: 'entities.bug.views.closeview.title',
@@ -6834,20 +6904,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
-                },
-                {
-                    path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
-                    meta: {
-                        caption: 'entities.product.views.testleftsidebarlistview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/plansubeditview/:plansubeditview?',

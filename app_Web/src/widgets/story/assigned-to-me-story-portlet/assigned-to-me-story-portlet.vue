@@ -6,7 +6,7 @@ import { AssignedToMeStoryPortletBase } from './assigned-to-me-story-portlet-bas
  
 
 /**
- * db_assignedtomestoryportlet部件
+ * dashboard_sysportlet5部件
  *
  * @export
  * @class AssignedToMeStoryPortlet

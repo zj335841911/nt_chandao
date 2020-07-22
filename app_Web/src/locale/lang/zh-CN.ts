@@ -174,6 +174,7 @@ export default {
         menus: {
             zentao: {
                 top_menus: "顶部菜单",
+                menuitem9: "我的地盘",
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",

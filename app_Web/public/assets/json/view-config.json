@@ -2149,6 +2149,16 @@
         "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3",
         "memo": ""
     },
+    "ibzmyterritorytabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "我的地盘",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryTabExpView",
+        "viewfilename": "ibz-my-territory-tab-exp-view",
+        "viewtag": "0f3dff62ef8bcb1662cc82e57a34c56b",
+        "memo": ""
+    },
     "projectteammaingridview": {
         "title": "项目团队表格视图",
         "caption": "项目团队",
@@ -2307,6 +2317,26 @@
         "viewname": "TestModuleQuickCfgView",
         "viewfilename": "test-module-quick-cfg-view",
         "viewtag": "d337f5c3c125dc2641321f2d93b65476",
+        "memo": ""
+    },
+    "ibzmyterritorydashboardview": {
+        "title": "我的地盘数据看板视图",
+        "caption": "首页",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryDashboardView",
+        "viewfilename": "ibz-my-territory-dashboard-view",
+        "viewtag": "d8df5ca51341d33ccc19208dde3f2cce",
+        "memo": ""
+    },
+    "ibzmyterritorylistview": {
+        "title": "欢迎",
+        "caption": "欢迎",
+        "viewtype": "DELISTVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryListView",
+        "viewfilename": "ibz-my-territory-list-view",
+        "viewtag": "e2d75951e06d21bce0a31b09c67103bf",
         "memo": ""
     },
     "projectstatseditview9": {

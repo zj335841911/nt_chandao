@@ -64,4 +64,18 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/ibzmyterritories/select`,tempData,isloading);
     }
+
+    /**
+     * FetchWelcome接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async FetchWelcome(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/ibzmyterritories/select`,tempData,isloading);
+    }
 }
