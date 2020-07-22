@@ -448,7 +448,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "4cb497e84dfabd873bc62d5386d5551f"
         },
         "testtaskeditview_committest": {
-            "title": "testtask编辑视图",
+            "title": "提交测试",
             "caption": "测试版本",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",

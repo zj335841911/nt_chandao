@@ -183,5 +183,9 @@ zuul:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    dynadashboard:
+      path: /dynadashboards/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
   sensitive-headers:
     - Cookie,Set-Cookie,Authorization

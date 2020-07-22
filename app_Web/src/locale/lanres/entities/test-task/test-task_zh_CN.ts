@@ -32,7 +32,7 @@ export default {
 		},
 		editview_committest: {
 			caption: "测试版本",
-      		title: "testtask编辑视图",
+      		title: "提交测试",
 		},
 		maintabexpview: {
 			caption: "测试版本",

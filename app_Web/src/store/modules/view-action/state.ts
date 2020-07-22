@@ -244,6 +244,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2a60d576ef50d63f5e967cef38bc8fed',
+            viewmodule: 'zentao',
+            viewname: 'ProductChartView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
             viewmodule: 'zentao',
             viewname: 'ProductStatsTestEditView9',
@@ -1729,6 +1738,15 @@ export const viewstate: any = {
             refviews: [
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: 'd7f401156de51eb49cdb10a6fb9263ee',
+            viewmodule: 'zentao',
+            viewname: 'CompanyMainView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

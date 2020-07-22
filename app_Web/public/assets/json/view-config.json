@@ -550,7 +550,7 @@
         "memo": ""
     },
     "testtaskeditview_committest": {
-        "title": "testtask编辑视图",
+        "title": "提交测试",
         "caption": "测试版本",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

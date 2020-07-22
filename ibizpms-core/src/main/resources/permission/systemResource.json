@@ -323,6 +323,14 @@
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Activate" , "name":"状态变更（激活）" , "type":"USERCUSTOM" },{"id":"BatchUnlinkBug" , "name":"批量解除关联Bug" , "type":"USERCUSTOM" },{"id":"ChangeStatus" , "name":"状态变更" , "type":"USERCUSTOM" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"LinkBug" , "name":"关联Bug" , "type":"USERCUSTOM" },{"id":"LinkBugbyBug" , "name":"关联Bug（解决Bug）" , "type":"USERCUSTOM" },{"id":"LinkBugbyLeftBug" , "name":"关联Bug（遗留Bug）" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Terminate" , "name":"状态变更（停止维护）" , "type":"USERCUSTOM" },{"id":"UnlinkBug" , "name":"解除关联Bug" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
+    ,    {
+    "dename":"DynaDashboard",
+    "delogicname":"动态数据看板",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
     ],
     "appmenus":[
             

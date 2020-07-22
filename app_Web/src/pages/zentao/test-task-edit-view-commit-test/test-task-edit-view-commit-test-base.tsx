@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
- * testtask编辑视图视图基类
+ * 提交测试视图基类
  *
  * @export
  * @class TestTaskEditView_commitTestBase
@@ -65,6 +65,19 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @memberof TestTaskEditView_commitTestBase
      */    
     protected counterServiceArray: Array<any> = [];
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestTaskEditView_commitTestBase
+	 */
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
+        'project': { isRawValue: false, value: 'project' },
+        'build': { isRawValue: false, value: 'build' }
+    };
 
     /**
      * 视图模型数据

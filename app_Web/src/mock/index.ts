@@ -51,3 +51,4 @@ import './entity/bugs/bugs';
 import './entity/project-modules/project-modules';
 import './entity/ibz-docs/ibz-docs';
 import './entity/releases/releases';
+import './entity/dyna-dashboards/dyna-dashboards';

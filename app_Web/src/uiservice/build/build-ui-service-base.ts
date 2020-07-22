@@ -262,6 +262,7 @@ export default class BuildUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         Object.assign(context,{BUILD:"%build%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%build%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { build: '%build%' });

@@ -6,7 +6,7 @@ import { TestTaskEditView_commitTestBase } from './test-task-edit-view-commit-te
 import view_form from '@widgets/test-task/main-form/main-form.vue';
 
 /**
- * testtask编辑视图视图
+ * 提交测试视图
  *
  * @export
  * @class TestTaskEditView_commitTest

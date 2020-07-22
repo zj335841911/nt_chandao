@@ -42,6 +42,7 @@ import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
+import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
 import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
@@ -328,6 +329,7 @@ export default {
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
         release: release_en_US,
+        dynadashboard: dynadashboard_en_US,
     },
     components: components_en_US,
     codelist: codelist_en_US,
