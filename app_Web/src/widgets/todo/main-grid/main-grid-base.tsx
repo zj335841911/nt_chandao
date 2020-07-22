@@ -294,7 +294,7 @@ export class MainGridBase extends GridControllerBase {
             label: '待办名称',
             langtag: 'entities.todo.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            util: 'STAR',
             isEnableRowEdit: false,
         },
         {
