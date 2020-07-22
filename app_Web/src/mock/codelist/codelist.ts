@@ -400,7 +400,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "active",
                 label: "未解决",
                 text: "未解决",
-                "data":{"n_status_noteq":"active"},
+                "data":{"n_status_eq":"active"},
                 "codename":"Active",
                 value: "active",
                 
