@@ -53,30 +53,28 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
     @Override
     public AuthenticationUser loadUserByUsername(String username) {
         AuthenticationUser user = null;
+
+        if (username == null || username.trim().isEmpty()) {
+            throw new InternalServerErrorException("用户还未登录");
+        }
+
+        //登录UAA系统前，先查看ZT账户是否存在。
+        //获取UAA账号对应的ZT用户。
+        User ztUser = getZTUserInfo(username);
+
+        //使用UAA统一认证获取用户。
         try {
-            if (username == null || username.trim().isEmpty()) {
-                throw new InternalServerErrorException("用户还未登录");
+            if (ztUser != null) {
+                AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
+                String token = getRequestToken();
+                //构造权限用户。
+                user = constructSecurityContextUser(ztUser, token);
+
+                // 权限默认给管理员（权限未接入之前）
+                user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
             }
-
-            //登录UAA系统前，先查看ZT账户是否存在。
-            //获取UAA账号对应的ZT用户。
-            User ztUser = getZTUserInfo(username);
-            if (ztUser == null) {
-                //（二期）没有对应账号，后台新建账号，再登录
-                throw new RuntimeException("无法加载ZT用户信息。");
-
-            }
-
-            //使用UAA统一认证获取用户。
-            AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
-            String token = getRequestToken();
-            //构造权限用户。
-            user = constructSecurityContextUser(ztUser,token);
-
-            // 权限默认给管理员（权限未接入之前）
-            user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
-        } catch (RuntimeException e) {
-            log.error(e.getMessage());
+        } catch (Exception e) {
+            log.info("用户[%s]远程认证失败", username);
         }
 
         return user;
@@ -104,11 +102,24 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
             //（二期）没有对应账号，后台新建账号，再登录
             throw new BadRequestAlertException("当前用户没有关联ZT账户，请联系管理员。", null, null);
         }
+        String token = null;
+        AuthenticationInfo authenticationInfo = null;
 
-        //以代码提交账户，进行UAA认证。
-        AuthenticationInfo authenticationInfo = uaaFeignClient.v7Login(buildRemoteLoginParam(ztUser.getCommiter(), password));
+        try {
+            //以代码提交账户，进行UAA认证。
+            authenticationInfo = uaaFeignClient.v7Login(buildRemoteLoginParam(ztUser.getCommiter(), password));
+        } catch (Exception e) {
+            if (e.getMessage().contains("400")) {
+                throw new BadRequestAlertException("请检查用户名密码。", null, null);
+            } else {
+                throw new BadRequestAlertException("请检查远程登录相关配置。", null, null);
+            }
 
-        String token = authenticationInfo.getToken();
+        }
+
+        token = authenticationInfo.getToken();
+
+
         //ZT API登录。
         JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
 
@@ -235,9 +246,9 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
     /**
      * 构建用户信息，作为返回值。
      *
-     * @param userJO    ZT API获取的用户信息。
-     * @param token 从UAA系统生成的token
-     * @param domains   域名
+     * @param userJO  ZT API获取的用户信息。
+     * @param token   从UAA系统生成的token
+     * @param domains 域名
      * @return 作为页面用户信息数据源
      */
     private AuthenticationUser constructPageUserInfo(JSONObject userJO, String token, String domains) {
@@ -267,7 +278,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         return user;
     }
 
-    private AuthenticationUser constructSecurityContextUser(User ztUser,String token) {
+    private AuthenticationUser constructSecurityContextUser(User ztUser, String token) {
         //获取用户信息
         AuthenticationUser user = new AuthenticationUser();
         user.setUserid(ztUser.getId().toString());
@@ -305,4 +316,10 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         return authToken;
     }
 
+    public boolean isDefaultUser(String account) {
+        if ("admin".equals(account) || "guest".equals(account)) {
+            return true;
+        }
+        return false;
+    }
 }
