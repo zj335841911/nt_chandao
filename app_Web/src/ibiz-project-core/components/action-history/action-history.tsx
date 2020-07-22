@@ -62,7 +62,8 @@ export class ActionHistory extends Vue {
             }
         }
         this.items.forEach((item: ActionItem) => {
-            const data = this.actionType.find(code => Object.is(code.value, item.action));
+            let actionType: string = item.actiontype ? item.actiontype : item.action;
+            const data = this.actionType.find(code => Object.is(code.value, actionType));
             if (data) {
                 item.actionText = data.text;
             }
@@ -153,9 +154,10 @@ export class ActionHistory extends Vue {
      * @memberof ActionHistory
      */
     protected renderActionContent(item: ActionItem): any {
+        let actionType: string = item.actiontype ? item.actiontype : item.action;
         return <div class="action-content">
             <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}</div>
-            { (Object.is(item.action, 'changed') || Object.is(item.action, 'edited')  || Object.is(item.action, 'commented') || Object.is(item.action, 'assigned') || Object.is(item.action, 'reviewed')) && this.load ? <div class="show-history">
+            { (Object.is(actionType, 'changed') || Object.is(actionType, 'edited')  || Object.is(actionType, 'commented') || Object.is(actionType, 'assigned') || Object.is(actionType, 'reviewed')) && this.load ? <div class="show-history">
                 <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)} />
             </div> : null}
         </div>;
