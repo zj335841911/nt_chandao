@@ -570,11 +570,12 @@ public class ZenTaoHttpHelper {
     public static List<ZTCheckItem> genCommonCheckItems() {
         List<ZTCheckItem> ztCheckItems = new ArrayList<>();
 
-//        // 用户未登录
-//        ZTCheckItem checkItem1 = new ZTCheckItem();
-//        checkItem1.setItem("/zentao/user-deny-");
-//        checkItem1.setNegative(true);
-//        ztCheckItems.add(checkItem1);
+        // 用户未登录
+        ZTCheckItem checkItem1 = new ZTCheckItem();
+        checkItem1.setItem("/zentao/user-login-");
+        checkItem1.setNegative(true);
+        checkItem1.setErrorMessage(ZenTaoMessage.MSG_ERROR_0008);
+        ztCheckItems.add(checkItem1);
 
         // 用户无操作权限
         ZTCheckItem checkItem2 = new ZTCheckItem();
