@@ -382,6 +382,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "BugCodeList2",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "active",
+                label: "未解决",
+                text: "未解决",
+                "data":{"n_status_noteq":"active"},
+                "codename":"Active",
+                value: "active",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Project__status",
         emptytext: "未定义",
         "codelisttype":"static",

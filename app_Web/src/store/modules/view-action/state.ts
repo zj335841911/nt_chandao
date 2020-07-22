@@ -244,15 +244,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '2a60d576ef50d63f5e967cef38bc8fed',
-            viewmodule: 'zentao',
-            viewname: 'ProductChartView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
             viewmodule: 'zentao',
             viewname: 'ProductStatsTestEditView9',
@@ -415,6 +406,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '43c2d1a2b73b0363036aee72dc9312c5',
+            viewmodule: 'zentao',
+            viewname: 'BugBuildSubGridView_New_9212',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {
@@ -1019,9 +1021,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
+                '43c2d1a2b73b0363036aee72dc9312c5',
                 'fffe78c32fb25b287d0c5165d46f8dd2',
                 '5b139a407fa34f386f3f784f33841184',
-                '09b6c2af7dcc4b719d4c8aad2319f1c5',
                 'a74d54220e97fb172fdb2117118f665d',
             ],
         },
@@ -2228,7 +2230,7 @@ export const viewstate: any = {
                 '3aafb12bb0db2be013c0f5ced8c7dc50',
                 '81893d14e76cac341d4218a9c5ef185d',
                 'e2d75951e06d21bce0a31b09c67103bf',
-                '2a60d576ef50d63f5e967cef38bc8fed',
+                'e396b6f39451e3bf963aec602106adf0',
             ],
         },
         {

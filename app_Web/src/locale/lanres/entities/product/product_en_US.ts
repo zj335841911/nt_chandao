@@ -303,6 +303,12 @@ export default {
 			tip: "New",
 		},
 	},
+	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+	},
 	testleftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_testmanager: {
 			caption: "管理",
@@ -357,12 +363,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
 		},
 	},
 };

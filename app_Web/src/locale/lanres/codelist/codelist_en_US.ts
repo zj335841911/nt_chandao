@@ -56,6 +56,11 @@ export default {
         "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
         "empty": ""
     },
+    BugCodeList2: {
+        "All": "所有",
+        "active": "未解决",
+        "empty": ""
+    },
     Project__status: {
         "wait": "未开始",
         "doing": "进行中",

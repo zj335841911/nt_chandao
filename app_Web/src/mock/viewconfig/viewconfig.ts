@@ -351,6 +351,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoAssignToView",
             "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3"
         },
+        "bugbuildsubgridview_new_9212": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugBuildSubGridView_New_9212",
+            "viewtag": "43c2d1a2b73b0363036aee72dc9312c5"
+        },
         "burnchartview": {
             "title": "燃尽图",
             "caption": "燃尽图",
