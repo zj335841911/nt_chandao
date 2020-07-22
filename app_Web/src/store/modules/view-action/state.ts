@@ -1741,15 +1741,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'd7f401156de51eb49cdb10a6fb9263ee',
-            viewmodule: 'zentao',
-            viewname: 'CompanyMainView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'df5a966e312ca9c5f5a41428bc2e2672',
             viewmodule: 'zentao',
             viewname: 'StoryRevIewView',

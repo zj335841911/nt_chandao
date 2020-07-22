@@ -18,12 +18,10 @@ import BurnBurnDownChart from '@/widgets/burn/burn-down-chart-portlet/burn-down-
 import ActionActionHistory from '@/widgets/action/action-history-portlet/action-history-portlet.vue';
 import ActionProjectTrendsTimeline from '@/widgets/action/project-trends-timeline-portlet/project-trends-timeline-portlet.vue';
 import ActionProductTrendsTimeline from '@/widgets/action/product-trends-timeline-portlet/product-trends-timeline-portlet.vue';
-import CompanyCompanyInfo from '@/widgets/company/company-info-portlet/company-info-portlet.vue';
 import StoryBaseInfo from '@/widgets/story/base-info-portlet/base-info-portlet.vue';
 import StoryAssignedToMeStory from '@/widgets/story/assigned-to-me-story-portlet/assigned-to-me-story-portlet.vue';
 import StoryMainToolbar from '@/widgets/story/main-toolbar-portlet/main-toolbar-portlet.vue';
 import StoryStoryRelated from '@/widgets/story/story-related-portlet/story-related-portlet.vue';
-import StoryBaseInfo_EditMode from '@/widgets/story/base-info-edit-mode-portlet/base-info-edit-mode-portlet.vue';
 import StoryStoryspec from '@/widgets/story/storyspec-portlet/storyspec-portlet.vue';
 import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
@@ -41,7 +39,6 @@ import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portle
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
 import ProjectStatsStatsInfo from '@/widgets/project-stats/stats-info-portlet/stats-info-portlet.vue';
-import ProjectStatsTASKTIME from '@/widgets/project-stats/tasktime-portlet/tasktime-portlet.vue';
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
@@ -77,7 +74,6 @@ export const  PortletComponent = {
         v.component('app-test-task-main-detail-portlet', TestTaskMainDetail);
         v.component('app-test-task-action-bar-portlet', TestTaskActionBar);
         v.component('app-test-task-main-info-portlet', TestTaskMainInfo);
-        v.component('app-story-base-info-edit-mode-portlet', StoryBaseInfo_EditMode);
         v.component('app-burn-burn-down-chart-portlet', BurnBurnDownChart);
         v.component('app-action-project-trends-timeline-portlet', ActionProjectTrendsTimeline);
         v.component('app-project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
@@ -85,7 +81,6 @@ export const  PortletComponent = {
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('app-product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('app-story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
-        v.component('app-company-company-info-portlet', CompanyCompanyInfo);
         v.component('app-product-life-get-roadmap-portlet', ProductLifeGetRoadmap);
         v.component('app-action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
         v.component('app-product-product-main-toolbar-portlet', ProductProductMainToolbar);
@@ -95,7 +90,6 @@ export const  PortletComponent = {
         v.component('app-product-product-status-portlet', ProductProductStatus);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
-        v.component('app-project-stats-tasktime-portlet', ProjectStatsTASKTIME);
         v.component('app-project-stats-stats-info-portlet', ProjectStatsStatsInfo);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
@@ -112,12 +106,10 @@ export const  PortletComponent = {
         v.component('action-action-history-portlet', ActionActionHistory);
         v.component('action-project-trends-timeline-portlet', ActionProjectTrendsTimeline);
         v.component('action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
-        v.component('company-company-info-portlet', CompanyCompanyInfo);
         v.component('story-base-info-portlet', StoryBaseInfo);
         v.component('story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
         v.component('story-main-toolbar-portlet', StoryMainToolbar);
         v.component('story-story-related-portlet', StoryStoryRelated);
-        v.component('story-base-info-edit-mode-portlet', StoryBaseInfo_EditMode);
         v.component('story-storyspec-portlet', StoryStoryspec);
         v.component('project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
@@ -135,7 +127,6 @@ export const  PortletComponent = {
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
         v.component('project-stats-stats-info-portlet', ProjectStatsStatsInfo);
-        v.component('project-stats-tasktime-portlet', ProjectStatsTASKTIME);
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);

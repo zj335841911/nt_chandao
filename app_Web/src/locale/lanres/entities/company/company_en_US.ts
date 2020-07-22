@@ -39,7 +39,7 @@ export default {
       		title: "公司编辑视图",
 		},
 	},
-	main_form: {
+	main_edit_form: {
 		details: {
 			group1: "company基本信息", 
 			formpage1: "基本信息", 
@@ -63,7 +63,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_edit_form: {
+	main_form: {
 		details: {
 			group1: "company基本信息", 
 			formpage1: "基本信息", 
