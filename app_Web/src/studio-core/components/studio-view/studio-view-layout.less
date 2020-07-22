@@ -327,7 +327,8 @@
                     border: 0;
                 }
 
-                >.portlet-with-title, >.portlet-without-title {
+                >.portlet-with-title,
+                >.portlet-without-title {
                     border: 0;
                     border-top: 1px solid var(--view-dividing-line-color-bright);
                 }
@@ -349,7 +350,7 @@
             .portlet-without-title {
 
                 .portlet {
-    
+
                     .portlet-without-title {
                         padding: 0;
                         border-color: transparent;
@@ -357,9 +358,9 @@
 
                         .studio-view {
                             background: transparent;
-        
+
                             >.view-content {
-        
+
                                 .ivu-card.app-form-group {
                                     background: transparent;
                                 }
@@ -370,8 +371,7 @@
             }
         }
 
-        .portlet-without-title {
-            height: 100%;
+        .portlet-container {
 
             .portlet {
                 height: 100%;
@@ -426,6 +426,14 @@
                         }
                     }
                 }
+            }
+        }
+
+        .portlet-without-title {
+            height: 100%;
+
+            .portlet {
+                .studio-view.view-container.appportalview9 >.view-content .portlet-container .portlet;
             }
         }
     }
@@ -555,7 +563,7 @@
                 }
 
                 .studio-view.view-container.show-footer {
-    
+
                     >.view-content {
                         height: calc(100% - 46px);
                     }
@@ -564,6 +572,7 @@
         }
     }
 }
+
 // 数据选择
 .depickupview.studio-view.view-container {
 

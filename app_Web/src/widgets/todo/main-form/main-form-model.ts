@@ -51,9 +51,37 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'name',
-        prop: 'name',
-        dataType: 'TEXT',
+        name: 'formitem',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
+        name: 'formitem2',
+      },
+      {
+        name: 'formitem3',
+      },
+      {
+        name: 'formitem4',
+      },
+      {
+        name: 'formitem5',
+      },
+      {
+        name: 'formitem6',
+      },
+      {
+        name: 'formitem7',
+      },
+      {
+        name: 'formitem8',
+      },
+      {
+        name: 'formitem10',
+      },
+      {
+        name: 'formitem9',
       },
       {
         name: 'id',

@@ -16,9 +16,110 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.todo.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+        <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.todo.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.formitem" :disabled="detailsModel.formitem.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.formitem = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.todo.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="NONE">
+    <div style="">
+  <app-checkbox :value="this.data.formitem1" @change="($event)=>{this.data.formitem1 = $event} " :disabled="detailsModel.formitem1.disabled"></app-checkbox>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.todo.main_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="NONE">
+    <div style="">
+  <app-checkbox :value="this.data.formitem2" @change="($event)=>{this.data.formitem2 = $event} " :disabled="detailsModel.formitem2.disabled"></app-checkbox>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.todo.main_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.formitem3"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.formitem3.disabled"
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem4' :itemRules="this.rules.formitem4" class='' :caption="$t('entities.todo.main_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.formitem4"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.formitem4.disabled"
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem5' :itemRules="this.rules.formitem5" class='' :caption="$t('entities.todo.main_form.details.formitem5')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem5.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.formitem5"  @enter="onEnter($event)"    :disabled="detailsModel.formitem5.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem6' :itemRules="this.rules.formitem6" class='' :caption="$t('entities.todo.main_form.details.formitem6')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem6.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.formitem6"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.formitem6.disabled"
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='formitem7' :itemRules="this.rules.formitem7" class='' :caption="$t('entities.todo.main_form.details.formitem7')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem7.error" :isEmptyCaption="false" labelPos="LEFT">
+     <time-picker :value="data.formitem7" :transfer="true" :disabled="detailsModel.formitem7.disabled" format="HH:mm" placeholder="请选择时间..." style="min-width: 150px; width:70px;"  @on-change="(val) => {this.data.formitem7 = val}"></time-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='formitem8' :itemRules="this.rules.formitem8" class='' :caption="$t('entities.todo.main_form.details.formitem8')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem8.error" :isEmptyCaption="false" labelPos="NONE">
+     <time-picker :value="data.formitem8" :transfer="true" :disabled="detailsModel.formitem8.disabled" format="HH:mm" placeholder="请选择时间..." style="min-width: 150px; width:70px;"  @on-change="(val) => {this.data.formitem8 = val}"></time-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='formitem10' :itemRules="this.rules.formitem10" class='' :caption="$t('entities.todo.main_form.details.formitem10')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem10.error" :isEmptyCaption="false" labelPos="NONE">
+    <div style="">
+  <app-checkbox :value="this.data.formitem10" @change="($event)=>{this.data.formitem10 = $event} " :disabled="detailsModel.formitem10.disabled"></app-checkbox>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem9' :itemRules="this.rules.formitem9" class='' :caption="$t('entities.todo.main_form.details.formitem9')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem9.error" :isEmptyCaption="false" labelPos="LEFT">
+    <div style="">
+  <app-checkbox :value="this.data.formitem9" @change="($event)=>{this.data.formitem9 = $event} " :disabled="detailsModel.formitem9.disabled"></app-checkbox>
+</div>
 </app-form-item>
 
 </i-col>
