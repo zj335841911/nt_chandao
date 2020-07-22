@@ -38,6 +38,9 @@ export default {
     mybugs: "我的bugs",
     myebugs: "我的过期bug数",
     mystorys: "我的需求数",
+    products: "未关闭产品数",
+    eprojects: "过期项目数",
+    projects: "未关闭项目数",
   },
 	views: {
 		tabexpview: {

@@ -309,4 +309,28 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     mystorys?: any;
+
+    /**
+     * 未关闭产品数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    products?: any;
+
+    /**
+     * 过期项目数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    eprojects?: any;
+
+    /**
+     * 未关闭项目数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    projects?: any;
 }

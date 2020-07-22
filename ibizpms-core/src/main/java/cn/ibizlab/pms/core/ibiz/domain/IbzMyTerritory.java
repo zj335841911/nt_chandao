@@ -321,6 +321,27 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @JSONField(name = "mystorys")
     @JsonProperty("mystorys")
     private Integer mystorys;
+    /**
+     * 未关闭产品数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "products")
+    @JsonProperty("products")
+    private Integer products;
+    /**
+     * 过期项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eprojects")
+    @JsonProperty("eprojects")
+    private Integer eprojects;
+    /**
+     * 未关闭项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projects")
+    @JsonProperty("projects")
+    private Integer projects;
 
 
 
