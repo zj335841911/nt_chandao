@@ -110,7 +110,7 @@ export class AllTrendsPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return '200px';
         }
     }
 

@@ -22,6 +22,16 @@ public class TodoExService extends TodoServiceImpl {
     }
 
     /**
+     * 自定义行为[Activate]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Todo activate(Todo et) {
+        return super.activate(et);
+    }
+    /**
      * 自定义行为[AssignTo]用户扩展
      * @param et
      * @return
@@ -30,6 +40,16 @@ public class TodoExService extends TodoServiceImpl {
     @Transactional
     public Todo assignTo(Todo et) {
         return super.assignTo(et);
+    }
+    /**
+     * 自定义行为[Close]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Todo close(Todo et) {
+        return super.close(et);
     }
     /**
      * 自定义行为[Finish]用户扩展
