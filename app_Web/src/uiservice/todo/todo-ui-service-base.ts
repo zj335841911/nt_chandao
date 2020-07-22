@@ -113,9 +113,9 @@ export default class TodoUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('closed',{});
-        this.allDeMainStateOPPrivsMap.set('doing',{});
-        this.allDeMainStateOPPrivsMap.set('done',{});
-        this.allDeMainStateOPPrivsMap.set('wait',{});
+        this.allDeMainStateOPPrivsMap.set('doing',{'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'DELETE':1});
+        this.allDeMainStateOPPrivsMap.set('done',{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'FINISH':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1});
     }
 
     /**
