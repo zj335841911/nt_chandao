@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet7部件基类
+ * db_productstatusportlet部件基类
  *
  * @export
  * @class MainControlBase
@@ -110,7 +110,7 @@ export class ProductStatusChartPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return '370px';
         }
     }
 

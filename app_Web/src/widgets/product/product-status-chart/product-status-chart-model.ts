@@ -10,7 +10,7 @@ export default class ProductStatusModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof ProductStatusDashboard_sysportlet7_chartMode
+	 * @memberof ProductStatusDb_productstatusportlet_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

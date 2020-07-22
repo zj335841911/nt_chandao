@@ -3,11 +3,11 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatusChartPortletBase } from './product-status-chart-portlet-base';
-import view_dashboard_sysportlet7_chart from '@widgets/product/product-status-chart/product-status-chart.vue';
+import view_db_productstatusportlet_chart from '@widgets/product/product-status-chart/product-status-chart.vue';
  
 
 /**
- * dashboard_sysportlet7部件
+ * db_productstatusportlet部件
  *
  * @export
  * @class ProductStatusChartPortlet
@@ -15,7 +15,7 @@ import view_dashboard_sysportlet7_chart from '@widgets/product/product-status-ch
  */
 @Component({
     components: {
-        view_dashboard_sysportlet7_chart, 
+        view_db_productstatusportlet_chart, 
          
     }
 })

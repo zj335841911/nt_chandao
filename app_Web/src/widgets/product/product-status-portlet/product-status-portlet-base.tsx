@@ -1,60 +1,60 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ActionService from '@/service/action/action-service';
-import AllTrendsService from './all-trends-portlet-service';
-import ActionUIService from '@/uiservice/action/action-ui-service';
+import ProductService from '@/service/product/product-service';
+import ProductStatusService from './product-status-portlet-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet3部件基类
+ * dashboard_sysportlet7部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {AllTrendsPortletBase}
+ * @extends {ProductStatusPortletBase}
  */
-export class AllTrendsPortletBase extends MainControlBase {
+export class ProductStatusPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof AllTrendsPortletBase
+     * @memberof ProductStatusPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {AllTrendsService}
-     * @memberof AllTrendsPortletBase
+     * @type {ProductStatusService}
+     * @memberof ProductStatusPortletBase
      */
-    public service: AllTrendsService = new AllTrendsService({ $store: this.$store });
+    public service: ProductStatusService = new ProductStatusService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ActionService}
-     * @memberof AllTrendsPortletBase
+     * @type {ProductService}
+     * @memberof ProductStatusPortletBase
      */
-    public appEntityService: ActionService = new ActionService({ $store: this.$store });
+    public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof AllTrendsPortletBase
+     * @memberof ProductStatusPortletBase
      */
-    protected appDeName: string = 'action';
+    protected appDeName: string = 'product';
 
     /**
      * 长度
      *
      * @type {number}
-     * @memberof AllTrends
+     * @memberof ProductStatus
      */
     @Prop() public height?: number;
 
@@ -62,7 +62,7 @@ export class AllTrendsPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof AllTrends
+     * @memberof ProductStatus
      */
     @Prop() public width?: number;
 
@@ -72,7 +72,7 @@ export class AllTrendsPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -80,7 +80,7 @@ export class AllTrendsPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     public getDatas(): any[] {
         return [];
@@ -90,7 +90,7 @@ export class AllTrendsPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     public getData(): any {
         return {};
@@ -100,7 +100,7 @@ export class AllTrendsPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -110,14 +110,14 @@ export class AllTrendsPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '500px';
+            return '300px';
         }
     }
 
     /**
      * vue 生命周期
      *
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     public created() {
         this.afterCreated();
@@ -126,7 +126,7 @@ export class AllTrendsPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof AllTrendsBase
+     *  @memberof ProductStatusBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -145,7 +145,7 @@ export class AllTrendsPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -154,7 +154,7 @@ export class AllTrendsPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof AllTrendsBase
+     * @memberof ProductStatusBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

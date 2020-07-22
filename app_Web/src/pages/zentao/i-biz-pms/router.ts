@@ -2948,6 +2948,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
                 },
                 {
+                    path: 'products/:product?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.product.views.chartview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-chart-view/product-chart-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/maininfoeditview9/:maininfoeditview9?',
                     meta: {
                         caption: 'entities.case.views.maininfoeditview9.title',

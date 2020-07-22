@@ -73,6 +73,7 @@ export const PageComponents = {
         Vue.component('project-module-tree-exp-view', () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'));
         Vue.component('story-grid-view9-related', () => import('@pages/zentao/story-grid-view9-related/story-grid-view9-related.vue'));
         Vue.component('story-edit-view-story-change', () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'));
+        Vue.component('product-chart-view', () => import('@pages/zentao/product-chart-view/product-chart-view.vue'));
         Vue.component('case-main-info-edit-view9', () => import('@pages/zentao/case-main-info-edit-view9/case-main-info-edit-view9.vue'));
         Vue.component('branch-pmedit-view', () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'));
         Vue.component('test-task-edit-view-edit', () => import('@pages/zentao/test-task-edit-view-edit/test-task-edit-view-edit.vue'));

@@ -1,0 +1,11 @@
+<div class='portlet product-status ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            产品总览
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <product-chart-view :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-chart-view>
+        </div>
+</div>

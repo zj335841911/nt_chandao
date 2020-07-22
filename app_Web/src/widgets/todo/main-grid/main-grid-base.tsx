@@ -233,12 +233,12 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        assignTo: { name: 'assignTo',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        finish: { name: 'finish',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        activate: { name: 'activate',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        close: { name: 'close',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        edit: { name: 'edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        assignTo: { name: 'assignTo',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY'},
+        finish: { name: 'finish',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'FINISH', target: 'SINGLEKEY'},
+        activate: { name: 'activate',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY'},
+        close: { name: 'close',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
+        edit: { name: 'edit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UPDATE', target: 'SINGLEKEY'},
+        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DELETE', target: 'SINGLEKEY'}
     };
 
     /**
