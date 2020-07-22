@@ -1,10 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign placeholder += "," + field.ge...  [in template "TEMPLCODE_zh_CN" at line 34, column 34]
-----
+<studio-view viewName="taskpivottableview" viewTitle="任务表格视图" class='degridview task-pivot-table-view'>
+    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isGridSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="false"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave.apply(_self, arguments)"
+        updateAction=""
+        removeAction="Remove"
+        loaddraftAction=""
+        loadAction=""
+        createAction=""
+        fetchAction="FetchDefault"
+        :newdata="newdata.bind(_self)"
+        :opendata="opendata.bind(_self)"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
+</studio-view>
