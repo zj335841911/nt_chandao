@@ -58,8 +58,6 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
                 throw new InternalServerErrorException("用户还未登录");
             }
 
-            // 适配统一认证email crimson@ibizsys.net 与 禅道 crimson 关系
-
             //登录UAA系统前，先查看ZT账户是否存在。
             //获取UAA账号对应的ZT用户。
             User ztUser = getZTUserInfo(username);
@@ -186,7 +184,6 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      * 注意：根据commiter，查询到多个账号时，只返回符合条件的第一个账号。
      */
     private User getZTUserInfo(String loginname) {
-        UserMapper userMapper = SpringContextHolder.getBean(UserMapper.class);
         IUserService userService = SpringContextHolder.getBean(IUserService.class);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("account", loginname).or().eq("commiter", loginname);
@@ -214,8 +211,6 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
             throw new InternalServerErrorException("登录失败");
         }
 
-//        String zentaoSid = JSONObject.parseObject(rstSession.getResult().getString("data")).getString("sessionID");
-        System.out.println("sessionID相同："+token.equals(zentaoSid));
         ZTResult rstLogin = new ZTResult();
         JSONObject jo = new JSONObject();
         jo.put("account", loginname);
@@ -249,7 +244,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         //获取用户信息
         AuthenticationUser user = new AuthenticationUser();
         user.setUserid(userJO.getString("id"));
-        user.setUsername(userJO.getString("account"));
+        user.setUsername(userJO.getString("realname"));
         user.setLoginname(userJO.getString("account"));
         user.setDomain(domains);
         user.setEmail(userJO.getString("email"));
@@ -268,12 +263,9 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         sessionParams.put("ztuser", userJO);
         sessionParams.put("zentaoSid", DigestUtils.md5DigestAsHex(token.getBytes()));
         sessionParams.put("token", token);
-        System.out.println("token: "+token);
-        System.out.println("zentaoSid==============:"+DigestUtils.md5DigestAsHex(token.getBytes()));
         user.setSessionParams(sessionParams);
         return user;
     }
-
 
     private AuthenticationUser constructSecurityContextUser(User ztUser,String token) {
         //获取用户信息
@@ -292,9 +284,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
 
         sessionParams.put("ztuser", ztUser);
         String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
-        sessionParams.put("zentaoSid", DigestUtils.md5DigestAsHex(token.getBytes()));//SessionID 暂缺
-        System.out.println("token: "+token);
-        System.out.println("zentaoSid==============:"+zentaoSid);
+        sessionParams.put("zentaoSid", zentaoSid);
         user.setSessionParams(sessionParams);
         return user;
     }
