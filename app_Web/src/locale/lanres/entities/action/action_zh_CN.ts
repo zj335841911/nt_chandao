@@ -14,6 +14,10 @@ export default {
     lastcomment: "备注",
   },
 	views: {
+		myalltrendslistview: {
+			caption: "系统日志",
+      		title: "系统日志列表视图",
+		},
 		historylistview: {
 			caption: "系统日志",
       		title: "历史记录",

@@ -687,6 +687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMainTabExpView",
             "viewtag": "6c7b582273d0726bcf77214807cfe40c"
         },
+        "actionmyalltrendslistview": {
+            "title": "系统日志列表视图",
+            "caption": "系统日志",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ActionMyAllTrendsListView",
+            "viewtag": "6d466e003e0479fb8b1a16e49b889dc1"
+        },
         "casemaindashboardview": {
             "title": "功能测试",
             "caption": "功能测试",
