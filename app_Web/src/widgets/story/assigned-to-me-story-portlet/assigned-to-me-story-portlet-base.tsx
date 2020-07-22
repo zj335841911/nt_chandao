@@ -110,7 +110,7 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '100px';
+            return 'auto';
         }
     }
 

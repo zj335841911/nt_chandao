@@ -77,7 +77,7 @@ export class IbzMyTerritoryListViewBase extends ListViewBase {
 	 * @memberof IbzMyTerritoryListViewBase
 	 */
     protected customViewParams: any = {
-        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_account_eq': { isRawValue: false, value: 'srfloginname' }
     };
 
     /**

@@ -112,7 +112,7 @@ export default class BuildUIServiceBase extends UIService {
     }
 
     /**
-     * viewBugs
+     * 查看Bug
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -304,7 +304,20 @@ export default class BuildUIServiceBase extends UIService {
                 return response;
             });
         };
-        backend();
+        const view: any = {
+            viewname: 'test-task-edit-view',
+            title: actionContext.$t('entities.testtask.views.editview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
 

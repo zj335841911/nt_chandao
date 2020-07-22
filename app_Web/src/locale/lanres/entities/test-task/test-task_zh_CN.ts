@@ -55,6 +55,37 @@ export default {
       		title: "testtask编辑视图",
 		},
 	},
+	main_form: {
+		details: {
+			grouppanel2: "起止日期", 
+			grouppanel1: "分组面板", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			projecttname: "项目", 
+			buildname: "版本", 
+			owner: "负责人", 
+			pri: "优先级", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			status: "当前状态", 
+			product: "所属产品", 
+			name: "名称", 
+			desc: "描述", 
+			mailto: "抄送给", 
+			id: "编号", 
+			project: "所属项目", 
+			build: "版本", 
+		},
+		uiactions: {
+		},
+	},
 	maindetail_form: {
 		details: {
 			grouppanel1: "描述", 
@@ -130,37 +161,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
-		details: {
-			grouppanel2: "起止日期", 
-			grouppanel1: "分组面板", 
-			group1: "基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			projecttname: "项目", 
-			buildname: "版本", 
-			owner: "负责人", 
-			pri: "优先级", 
-			begin: "开始日期", 
-			end: "结束日期", 
-			status: "当前状态", 
-			product: "所属产品", 
-			name: "名称", 
-			desc: "描述", 
-			mailto: "抄送给", 
-			id: "编号", 
-			project: "所属项目", 
-			build: "版本", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -194,6 +194,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	editview_edittoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -216,12 +222,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

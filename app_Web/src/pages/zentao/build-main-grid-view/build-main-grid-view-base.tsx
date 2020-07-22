@@ -387,10 +387,10 @@ export class BuildMainGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'build-edit-view', 
+            viewname: 'build-main-tab-exp-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.build.views.editview.title'),
+            title: this.$t('entities.build.views.maintabexpview.title'),
             placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);

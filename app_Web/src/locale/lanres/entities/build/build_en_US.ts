@@ -100,7 +100,7 @@ export default {
 		uiactions: {
         build_linkstories: "关联需求",
         build_submittotesting: "提交测试",
-        build_viewbugs: "viewBugs",
+        build_viewbugs: "查看Bug",
         edit: "Edit",
         remove: "Remove",
 		},
