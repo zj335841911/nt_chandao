@@ -45,11 +45,6 @@ export default {
         "item": "分组步骤",
         "empty": ""
     },
-    ProjectTimeType: {
-        "CONSUMED": "消耗时间",
-        "LEFT": "剩余时间",
-        "empty": ""
-    },
     Product__acl: {
         "open": "默认设置(有产品视图权限，即可访问)",
         "private": "私有产品相关负责人和项目团队成员才能访问)",

@@ -318,33 +318,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "ProjectTimeType",
-        emptytext: "",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "CONSUMED",
-                label: "消耗时间",
-                text: "消耗时间",
-                "data":"",
-                "codename":"Consumed",
-                value: "CONSUMED",
-                
-                disabled: false,
-            },
-            {
-                id: "LEFT",
-                label: "剩余时间",
-                text: "剩余时间",
-                "data":"",
-                "codename":"Left",
-                value: "LEFT",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: "Product__acl",
         emptytext: "未定义",
         "codelisttype":"static",
