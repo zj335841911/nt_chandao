@@ -16,7 +16,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 /**
  * 实体[DynaDashboard] 服务对象接口
  */
-@FeignClient(value = "${ibiz.ref.service.r7rt_dyna:r7rt_dyna}", contextId = "DynaDashboard", fallback = DynaDashboardFallback.class)
+@FeignClient(value = "${ibiz.ref.service.r7rt-dyna:r7rt-dyna}", contextId = "DynaDashboard", fallback = DynaDashboardFallback.class)
 public interface DynaDashboardFeignClient {
 
 }
