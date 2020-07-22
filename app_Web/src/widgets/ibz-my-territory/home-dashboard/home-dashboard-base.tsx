@@ -98,7 +98,7 @@ export class HomeDashboardBase extends MainControlBase {
      * @type {string}
      * @memberof Home
      */
-    public utilServiceName:string = "";
+    public utilServiceName:string = "dynadashboard";
 
     /**
      * 获取多项数据
