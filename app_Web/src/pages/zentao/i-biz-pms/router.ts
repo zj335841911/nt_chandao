@@ -2948,20 +2948,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
                 },
                 {
-                    path: 'products/:product?/chartview/:chartview?',
-                    meta: {
-                        caption: 'entities.product.views.chartview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'chartview', parameterName: 'chartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-chart-view/product-chart-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/maininfoeditview9/:maininfoeditview9?',
                     meta: {
                         caption: 'entities.case.views.maininfoeditview9.title',
@@ -5496,6 +5482,81 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-grid-view9-sub-story/story-grid-view9-sub-story.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
+                    meta: {
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buildsubgridview_new_9212', parameterName: 'buildsubgridview_new_9212' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
+                    meta: {
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buildsubgridview_new_9212', parameterName: 'buildsubgridview_new_9212' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
+                    meta: {
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buildsubgridview_new_9212', parameterName: 'buildsubgridview_new_9212' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
+                    meta: {
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buildsubgridview_new_9212', parameterName: 'buildsubgridview_new_9212' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
+                    meta: {
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buildsubgridview_new_9212', parameterName: 'buildsubgridview_new_9212' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/gridview/:gridview?',

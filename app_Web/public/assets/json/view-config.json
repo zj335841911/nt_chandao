@@ -429,6 +429,16 @@
         "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3",
         "memo": ""
     },
+    "bugbuildsubgridview_new_9212": {
+        "title": "bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugBuildSubGridView_New_9212",
+        "viewfilename": "bug-build-sub-grid-view-new-9212",
+        "viewtag": "43c2d1a2b73b0363036aee72dc9312c5",
+        "memo": ""
+    },
     "burnchartview": {
         "title": "燃尽图",
         "caption": "燃尽图",

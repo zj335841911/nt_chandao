@@ -92,6 +92,10 @@ export default {
 			caption: "激活Bug",
       		title: "激活Bug",
 		},
+		buildsubgridview_new_9212: {
+			caption: "Bug",
+      		title: "bug表格视图",
+		},
 		buglifeeditview9: {
 			caption: "Bug",
       		title: "Bug的一生",
@@ -585,6 +589,12 @@ export default {
 		},
 	},
 	buildsubgridview_newtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	buildsubgridview_new_9212toolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
