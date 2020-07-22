@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainGridView",
             "viewtag": "417541fa331fc089b84936b8359403fa"
         },
+        "todoassigntoview": {
+            "title": "指派表单视图",
+            "caption": "指派给",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoAssignToView",
+            "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3"
+        },
         "burnchartview": {
             "title": "燃尽图",
             "caption": "燃尽图",
@@ -1287,6 +1295,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
         },
+        "todogridview": {
+            "title": "todo表格视图",
+            "caption": "待办事宜表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoGridView",
+            "viewtag": "bedf1f50199b74a65c2e17771144329c"
+        },
         "productmainview_edit": {
             "title": "产品编辑视图",
             "caption": "产品基本信息",
@@ -1462,6 +1478,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryRevIewView",
             "viewtag": "df5a966e312ca9c5f5a41428bc2e2672"
+        },
+        "todoeditview": {
+            "title": "todo编辑视图",
+            "caption": "待办事宜表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoEditView",
+            "viewtag": "e00040c0d616f2f1c0ad4b36c9e920b5"
         },
         "producteditview": {
             "title": "product编辑视图",
@@ -1862,6 +1886,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectModuleTreeExpView",
             "viewtag": "bb8860972029d9947daa3652a4b5d291"
+        },
+        "ibzmyterritorymywork": {
+            "title": "我的工作",
+            "caption": "我的工作",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryMyWork",
+            "viewtag": "c21e2ccc8e950461985b171f047bde56"
         },
         "testmodulequickcfgview": {
             "title": "需求模块",

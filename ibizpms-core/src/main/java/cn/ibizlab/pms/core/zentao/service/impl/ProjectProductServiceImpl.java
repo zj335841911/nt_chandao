@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -287,5 +288,6 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
 
 }
+
 
 

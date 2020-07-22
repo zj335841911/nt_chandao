@@ -117,6 +117,18 @@ export default class WelcomeModel {
       {
         name: 'clientstatus',
       },
+      {
+        name: 'mytasks',
+      },
+      {
+        name: 'mybugs',
+      },
+      {
+        name: 'myebugs',
+      },
+      {
+        name: 'mystorys',
+      },
     ]
   }
 

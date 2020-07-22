@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.LogSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ILogService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -183,5 +184,6 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
 
 
 }
+
 
 

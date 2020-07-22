@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IModuleService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -291,5 +292,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
 }
+
 
 

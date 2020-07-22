@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductLineSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProductLineService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 /**
@@ -105,4 +106,5 @@ public class ProductLineServiceImpl implements IProductLineService {
 
 
 }
+
 

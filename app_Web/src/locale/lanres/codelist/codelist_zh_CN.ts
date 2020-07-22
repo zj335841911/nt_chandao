@@ -83,6 +83,10 @@ export default {
     UserRealNameTask: {
         "empty": "",
     },
+    Beginendcheckbox: {
+        "on": "暂时不设定时间",
+        "empty": "",
+    },
     YesNo: {
         "1": "是",
         "0": "否",
@@ -158,6 +162,13 @@ export default {
         "others": "其他",
         "empty": "",
     },
+    Todo__status: {
+        "wait": "wait",
+        "doing": "doing",
+        "done": "done",
+        "closed": "closed",
+        "empty": "",
+    },
     Project__type: {
         "sprint": "短期项目",
         "waterfall": "长期项目",
@@ -227,6 +238,10 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    Datecheckbox: {
+        "on": "待定",
         "empty": "",
     },
     Story__pri: {

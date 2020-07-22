@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.TestResultSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ITestResultService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -258,5 +259,6 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
 
 }
+
 
 

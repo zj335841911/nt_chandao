@@ -117,6 +117,18 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'clientstatus',
       },
+      {
+        name: 'mytasks',
+      },
+      {
+        name: 'mybugs',
+      },
+      {
+        name: 'myebugs',
+      },
+      {
+        name: 'mystorys',
+      },
     ]
   }
 

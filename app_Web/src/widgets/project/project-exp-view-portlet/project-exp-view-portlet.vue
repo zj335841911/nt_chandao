@@ -6,7 +6,7 @@ import { ProjectExpViewPortletBase } from './project-exp-view-portlet-base';
  
 
 /**
- * db_projectexpportlet部件
+ * dashboard_sysportlet8部件
  *
  * @export
  * @class ProjectExpViewPortlet

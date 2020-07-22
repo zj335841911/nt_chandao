@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.UserSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IUserService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -219,5 +220,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
 }
+
 
 

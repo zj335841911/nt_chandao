@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.CaseSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ICaseService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -380,5 +381,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
 }
+
 
 

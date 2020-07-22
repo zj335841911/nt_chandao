@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.DocLibSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IDocLibService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -212,5 +213,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
 
 
 }
+
 
 

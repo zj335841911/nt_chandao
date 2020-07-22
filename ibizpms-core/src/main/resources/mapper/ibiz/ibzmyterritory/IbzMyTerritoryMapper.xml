@@ -25,6 +25,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyWork]-->
+	 <select id="searchMyWork"  parameterType="cn.ibizlab.pms.core.ibiz.filter.IbzMyTerritorySearchContext"  resultMap="IbzMyTerritoryResultMap">
+         select t1.* from (
+                <include refid="MyWork" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Welcome]-->
 	 <select id="searchWelcome"  parameterType="cn.ibizlab.pms.core.ibiz.filter.IbzMyTerritorySearchContext"  resultMap="IbzMyTerritoryResultMap">
          select t1.* from (
@@ -37,6 +46,11 @@
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ADDRESS`, t1.`AVATAR`, t1.`BIRTHDAY`, t1.`CLIENTLANG`, t1.`CLIENTSTATUS`, t1.`COMMITER`, t1.`DELETED`, t1.`DEPT`, t1.`DINGDING`, t1.`EMAIL`, t1.`FAILS`, t1.`GENDER`, t1.`ID`, t1.`IP`, t1.`JOIN`, t1.`LAST`, t1.`LOCKED`, t1.`MOBILE`, t1.`NICKNAME`, t1.`PASSWORD`, t1.`PHONE`, t1.`QQ`, t1.`RANZHI`, t1.`REALNAME`, t1.`ROLE`, t1.`SCORE`, t1.`SCORELEVEL`, t1.`SKYPE`, t1.`SLACK`, t1.`VISITS`, t1.`WEIXIN`, t1.`WHATSAPP`, t1.`ZIPCODE` FROM `zt_user` t1  
+			]]>
+    </sql>
+    <!--数据查询[MyWork]-->
+    <sql id="MyWork" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.`ACCOUNT`, 	t1.`ADDRESS`, 	t1.`AVATAR`, 	t1.`BIRTHDAY`, 	t1.`CLIENTLANG`, 	t1.`CLIENTSTATUS`, 	t1.`COMMITER`, 	t1.`DELETED`, 	t1.`DEPT`, 	t1.`DINGDING`, 	t1.`EMAIL`, 	t1.`FAILS`, 	t1.`GENDER`, 	t1.`ID`, 	t1.`IP`, 	t1.`JOIN`, 	t1.`LAST`, 	t1.`LOCKED`, 	t1.`MOBILE`, 	t1.`NICKNAME`, 	t1.`PASSWORD`, 	t1.`PHONE`, 	t1.`QQ`, 	t1.`RANZHI`, 	t1.`REALNAME`, 	t1.`ROLE`, 	t1.`SCORE`, 	t1.`SCORELEVEL`, 	t1.`SKYPE`, 	t1.`SLACK`, 	t1.`VISITS`, 	t1.`WEIXIN`, 	t1.`WHATSAPP`, 	t1.`ZIPCODE` , 	t11.mytasks, 	t21.mybugs, 	t31.myEbugs, 	t41.mystorys FROM 	`zt_user` t1 	left join (select t.assignedTo as account,COUNT(1) as mytasks from zt_task t group by t.assignedTo ) t11 on t1.account = t11.account 	left join (select t.assignedTo as account,COUNT(1) as mybugs from zt_bug t  group by t.assignedTo ) t21 on t1.account = t21.account 	left join (select t.assignedTo as account,COUNT(1) as myEbugs from zt_bug t where  t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.`status` = 'active'  group by t.assignedTo ) t31 on t1.account = t31.account 	left join (select t.assignedTo as account,COUNT(1) as mystorys from zt_story t group by t.assignedTo ) t41 on t1.account = t41.account
 			]]>
     </sql>
     <!--数据查询[View]-->

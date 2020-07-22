@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.BugSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IBugService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -713,5 +714,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
 
 }
+
 
 

@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * db_projectexpportlet部件基类
+ * dashboard_sysportlet8部件基类
  *
  * @export
  * @class MainControlBase
@@ -110,7 +110,7 @@ export class ProjectExpViewPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '390px';
+            return '300px';
         }
     }
 
