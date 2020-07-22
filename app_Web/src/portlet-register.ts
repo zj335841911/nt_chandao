@@ -5,6 +5,7 @@ import BugAssignedToMeBug from '@/widgets/bug/assigned-to-me-bug-portlet/assigne
 import TaskAssignToMe from '@/widgets/task/assign-to-me-portlet/assign-to-me-portlet.vue';
 import ProductTextExpView from '@/widgets/product/text-exp-view-portlet/text-exp-view-portlet.vue';
 import ProjectProjectExpView from '@/widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
+import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
 import ProductProductStatus from '@/widgets/product/product-status-portlet/product-status-portlet.vue';
 import CaseMeCreateCase from '@/widgets/case/me-create-case-portlet/me-create-case-portlet.vue';
 import CaseMainDetail from '@/widgets/case/main-detail-portlet/main-detail-portlet.vue';
@@ -12,7 +13,6 @@ import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-port
 import CaseMainInfo from '@/widgets/case/main-info-portlet/main-info-portlet.vue';
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
-import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
 import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
 import BurnBurnDownChart from '@/widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';
 import ActionActionHistory from '@/widgets/action/action-history-portlet/action-history-portlet.vue';
@@ -98,7 +98,6 @@ export const  PortletComponent = {
         v.component('case-main-info-portlet', CaseMainInfo);
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('product-product-info-portlet', ProductProductInfo);
-        v.component('product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('burn-burn-down-chart-portlet', BurnBurnDownChart);
         v.component('action-action-history-portlet', ActionActionHistory);
