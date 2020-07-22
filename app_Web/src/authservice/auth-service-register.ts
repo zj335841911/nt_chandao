@@ -83,6 +83,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('projectmodule', () => import('@/authservice/project-module/project-module-auth-service'));
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
+        this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
     }
 
     /**

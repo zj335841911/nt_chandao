@@ -42,6 +42,7 @@ import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
+import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
@@ -327,6 +328,7 @@ export default {
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         release: release_zh_CN,
+        dynadashboard: dynadashboard_zh_CN,
     },
     components: components_zh_CN,
     codelist: codelist_zh_CN,

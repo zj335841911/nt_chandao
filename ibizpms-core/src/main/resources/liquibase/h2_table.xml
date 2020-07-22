@@ -51,6 +51,9 @@
     <!--输出实体[ZT_DOCLIB]数据结构 -->
 
 
+    <!--输出实体[DYNADASHBOARD]数据结构 -->
+
+
     <!--输出实体[ZT_EFFORT]数据结构 -->
 
 
@@ -256,6 +259,7 @@
         <!--输出实体[ZT_DOC]外键关系 -->
         <!--输出实体[ZT_DOCCONTENT]外键关系 -->
         <!--输出实体[ZT_DOCLIB]外键关系 -->
+        <!--输出实体[DYNADASHBOARD]外键关系 -->
         <!--输出实体[ZT_EFFORT]外键关系 -->
         <!--输出实体[ZT_ENTRY]外键关系 -->
         <!--输出实体[ZT_EXTENSION]外键关系 -->

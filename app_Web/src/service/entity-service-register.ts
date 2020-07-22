@@ -83,6 +83,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
+        this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
     }
 
     /**
