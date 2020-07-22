@@ -2,7 +2,7 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-model="query" placeholder="真实姓名" search @on-search="onSearch($event)"/>
     <view_list 
         :viewState="viewState"  
         :viewparams="viewparams" 

@@ -1,5 +1,5 @@
 <studio-view viewName="releasegridview" viewTitle="release表格视图" class='degridview release-grid-view'>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-model="query" placeholder="发布名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 

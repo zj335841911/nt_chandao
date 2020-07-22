@@ -47,5 +47,138 @@ public class IbzMyTerritoryResource {
     @Lazy
     public IbzMyTerritoryMapping ibzmyterritoryMapping;
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Create-all')")
+    @ApiOperation(value = "新建我的地盘", tags = {"我的地盘" },  notes = "新建我的地盘")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories")
+    @Transactional
+    public ResponseEntity<IbzMyTerritoryDTO> create(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+        IbzMyTerritory domain = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
+		ibzmyterritoryService.create(domain);
+        IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Create-all')")
+    @ApiOperation(value = "批量新建我的地盘", tags = {"我的地盘" },  notes = "批量新建我的地盘")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<IbzMyTerritoryDTO> ibzmyterritorydtos) {
+        ibzmyterritoryService.createBatch(ibzmyterritoryMapping.toDomain(ibzmyterritorydtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Update-all')")
+    @ApiOperation(value = "更新我的地盘", tags = {"我的地盘" },  notes = "更新我的地盘")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmyterritories/{ibzmyterritory_id}")
+    @Transactional
+    public ResponseEntity<IbzMyTerritoryDTO> update(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id, @RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+		IbzMyTerritory domain  = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
+        domain .setId(ibzmyterritory_id);
+		ibzmyterritoryService.update(domain );
+		IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain );
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Update-all')")
+    @ApiOperation(value = "批量更新我的地盘", tags = {"我的地盘" },  notes = "批量更新我的地盘")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmyterritories/batch")
+    public ResponseEntity<Boolean> updateBatch(@RequestBody List<IbzMyTerritoryDTO> ibzmyterritorydtos) {
+        ibzmyterritoryService.updateBatch(ibzmyterritoryMapping.toDomain(ibzmyterritorydtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Remove-all')")
+    @ApiOperation(value = "删除我的地盘", tags = {"我的地盘" },  notes = "删除我的地盘")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzmyterritories/{ibzmyterritory_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.remove(ibzmyterritory_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Remove-all')")
+    @ApiOperation(value = "批量删除我的地盘", tags = {"我的地盘" },  notes = "批量删除我的地盘")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzmyterritories/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        ibzmyterritoryService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Get-all')")
+    @ApiOperation(value = "获取我的地盘", tags = {"我的地盘" },  notes = "获取我的地盘")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzmyterritories/{ibzmyterritory_id}")
+    public ResponseEntity<IbzMyTerritoryDTO> get(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id) {
+        IbzMyTerritory domain = ibzmyterritoryService.get(ibzmyterritory_id);
+        IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取我的地盘草稿", tags = {"我的地盘" },  notes = "获取我的地盘草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzmyterritories/getdraft")
+    public ResponseEntity<IbzMyTerritoryDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryMapping.toDto(ibzmyterritoryService.getDraft(new IbzMyTerritory())));
+    }
+
+    @ApiOperation(value = "检查我的地盘", tags = {"我的地盘" },  notes = "检查我的地盘")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.checkKey(ibzmyterritoryMapping.toDomain(ibzmyterritorydto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Save-all')")
+    @ApiOperation(value = "保存我的地盘", tags = {"我的地盘" },  notes = "保存我的地盘")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/save")
+    public ResponseEntity<Boolean> save(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.save(ibzmyterritoryMapping.toDomain(ibzmyterritorydto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Save-all')")
+    @ApiOperation(value = "批量保存我的地盘", tags = {"我的地盘" },  notes = "批量保存我的地盘")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<IbzMyTerritoryDTO> ibzmyterritorydtos) {
+        ibzmyterritoryService.saveBatch(ibzmyterritoryMapping.toDomain(ibzmyterritorydtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchDefault-all')")
+	@ApiOperation(value = "获取DEFAULT", tags = {"我的地盘" } ,notes = "获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchdefault")
+	public ResponseEntity<List<IbzMyTerritoryDTO>> fetchDefault(IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchDefault(context) ;
+        List<IbzMyTerritoryDTO> list = ibzmyterritoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchDefault-all')")
+	@ApiOperation(value = "查询DEFAULT", tags = {"我的地盘" } ,notes = "查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmyterritories/searchdefault")
+	public ResponseEntity<Page<IbzMyTerritoryDTO>> searchDefault(@RequestBody IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchWelcome-all')")
+	@ApiOperation(value = "获取欢迎", tags = {"我的地盘" } ,notes = "获取欢迎")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchwelcome")
+	public ResponseEntity<List<IbzMyTerritoryDTO>> fetchWelcome(IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchWelcome(context) ;
+        List<IbzMyTerritoryDTO> list = ibzmyterritoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchWelcome-all')")
+	@ApiOperation(value = "查询欢迎", tags = {"我的地盘" } ,notes = "查询欢迎")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmyterritories/searchwelcome")
+	public ResponseEntity<Page<IbzMyTerritoryDTO>> searchWelcome(@RequestBody IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchWelcome(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
