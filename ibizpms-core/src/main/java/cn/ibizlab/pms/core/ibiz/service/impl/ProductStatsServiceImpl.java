@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductStatsSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProductStatsService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -183,5 +184,6 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
 
 
 }
+
 
 

@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.Im_chatSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IIm_chatService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -183,5 +184,6 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
 
 
 }
+
 
 

@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.UserQuerySearchContext;
 import cn.ibizlab.pms.core.zentao.service.IUserQueryService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -183,5 +184,6 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
 
 
 }
+
 
 

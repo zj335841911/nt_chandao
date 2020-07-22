@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.IbzMyTerritorySearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IIbzMyTerritoryService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -152,6 +153,15 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     }
 
     /**
+     * 查询集合 我的工作
+     */
+    @Override
+    public Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWork(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 欢迎
      */
     @Override
@@ -192,5 +202,6 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
 
 }
+
 
 

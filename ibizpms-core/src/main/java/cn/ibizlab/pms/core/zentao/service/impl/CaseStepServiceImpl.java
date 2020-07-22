@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ICaseStepService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -166,6 +167,9 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         this.remove(new QueryWrapper<CaseStep>().eq("case",id));
     }
 
+    @Autowired
+    @Lazy
+    ICaseStepService proxyService;
 	@Override
     public void saveByIbizcase(BigInteger id,List<CaseStep> list) {
         if(list==null)
@@ -188,11 +192,11 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
                 _create.add(sub);
         }
         if(_update.size()>0)
-            this.updateBatch(_update);
+            proxyService.updateBatch(_update);
         if(_create.size()>0)
-            this.createBatch(_create);
+            proxyService.createBatch(_create);
         if(delIds.size()>0)
-            this.removeBatch(delIds);
+            proxyService.removeBatch(delIds);
 	}
 
 	@Override
@@ -227,11 +231,11 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
                 _create.add(sub);
         }
         if(_update.size()>0)
-            this.updateBatch(_update);
+            proxyService.updateBatch(_update);
         if(_create.size()>0)
-            this.createBatch(_create);
+            proxyService.createBatch(_create);
         if(delIds.size()>0)
-            this.removeBatch(delIds);
+            proxyService.removeBatch(delIds);
 	}
 
 
@@ -301,5 +305,6 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
 
 }
+
 
 

@@ -35,11 +35,19 @@ export default {
     gender: "男女",
     role: "职位",
     clientstatus: "clientStatus",
+    mytasks: "我的任务",
+    mybugs: "我的bugs",
+    myebugs: "我的过期bug数",
+    mystorys: "我的需求数",
   },
 	views: {
 		tabexpview: {
 			caption: "我的地盘",
       		title: "我的地盘",
+		},
+		mywork: {
+			caption: "我的工作",
+      		title: "我的工作",
 		},
 		dashboardview: {
 			caption: "首页",

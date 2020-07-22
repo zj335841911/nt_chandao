@@ -287,7 +287,7 @@
     "dename":"IbzMyTerritory",
     "delogicname":"我的地盘",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"Welcome" , "name":"欢迎"}],
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"MyWork" , "name":"我的工作"},{"id":"Welcome" , "name":"欢迎"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

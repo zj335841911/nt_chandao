@@ -277,4 +277,36 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     clientstatus?: any;
+
+    /**
+     * 我的任务
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    mytasks?: any;
+
+    /**
+     * 我的bugs
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    mybugs?: any;
+
+    /**
+     * 我的过期bug数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myebugs?: any;
+
+    /**
+     * 我的需求数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    mystorys?: any;
 }

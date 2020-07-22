@@ -400,6 +400,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '43582fa5b922cb77d0b1e704a7b6e5c3',
+            viewmodule: 'zentao',
+            viewname: 'TodoAssignToView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '441544d65ca067ea5ea625645b70e610',
             viewmodule: 'zentao',
             viewname: 'BurnChartView',
@@ -1539,6 +1548,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bedf1f50199b74a65c2e17771144329c',
+            viewmodule: 'zentao',
+            viewname: 'TodoGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e00040c0d616f2f1c0ad4b36c9e920b5',
+                '43582fa5b922cb77d0b1e704a7b6e5c3',
+            ],
+        },
+        {
             viewtag: 'c02574075c8c15c67231cd71be040763',
             viewmodule: 'zentao',
             viewname: 'ProductMainView_Edit',
@@ -1699,6 +1719,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e00040c0d616f2f1c0ad4b36c9e920b5',
+            viewmodule: 'zentao',
+            viewname: 'TodoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2022,6 +2051,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b82e9acf6c784b138b365d6011b296b',
+                'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',
             ],
         },
@@ -2158,6 +2188,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c21e2ccc8e950461985b171f047bde56',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryMyWork',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'd337f5c3c125dc2641321f2d93b65476',
             viewmodule: 'ibiz',
             viewname: 'TestModuleQuickCfgView',
@@ -2173,12 +2212,13 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '4b82e9acf6c784b138b365d6011b296b',
                 '6d466e003e0479fb8b1a16e49b889dc1',
                 '79b3a14f0431747becc48f5b9f3aa990',
+                '4b82e9acf6c784b138b365d6011b296b',
+                'c21e2ccc8e950461985b171f047bde56',
+                '3aafb12bb0db2be013c0f5ced8c7dc50',
                 '81893d14e76cac341d4218a9c5ef185d',
                 'e2d75951e06d21bce0a31b09c67103bf',
-                'e444135470a806822b9b950e15c42a3e',
             ],
         },
         {

@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.TaskTeamSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.ITaskTeamService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -154,6 +155,9 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
         this.remove(new QueryWrapper<TaskTeam>().eq("root",id));
     }
 
+    @Autowired
+    @Lazy
+    ITaskTeamService proxyService;
 	@Override
     public void saveByRoot(BigInteger id,List<TaskTeam> list) {
         if(list==null)
@@ -176,11 +180,11 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
                 _create.add(sub);
         }
         if(_update.size()>0)
-            this.updateBatch(_update);
+            proxyService.updateBatch(_update);
         if(_create.size()>0)
-            this.createBatch(_create);
+            proxyService.createBatch(_create);
         if(delIds.size()>0)
-            this.removeBatch(delIds);
+            proxyService.removeBatch(delIds);
 	}
 
 
@@ -225,5 +229,6 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
 
 
 }
+
 
 

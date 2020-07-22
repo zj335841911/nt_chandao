@@ -315,6 +315,50 @@ mock.onGet(new RegExp(/^\/ibzmyterritories\/fetchdefault(\?[\w-./?%&=,]*)*$/)).r
     return [status, records ?  records : []];
 });
     
+// FetchMyWork
+mock.onGet(new RegExp(/^\/ibzmyterritories\/fetchmywork$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmyterritory 方法: FetchMyWork");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMyWork
+mock.onGet(new RegExp(/^\/ibzmyterritories\/fetchmywork(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmyterritory 方法: FetchMyWork");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchWelcome
 mock.onGet(new RegExp(/^\/ibzmyterritories\/fetchwelcome$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmyterritory 方法: FetchWelcome");

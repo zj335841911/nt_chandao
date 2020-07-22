@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.BranchSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IBranchService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -252,5 +253,6 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
 
 }
+
 
 

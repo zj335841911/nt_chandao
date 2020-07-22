@@ -419,6 +419,16 @@
         "viewtag": "417541fa331fc089b84936b8359403fa",
         "memo": ""
     },
+    "todoassigntoview": {
+        "title": "指派表单视图",
+        "caption": "指派给",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TodoAssignToView",
+        "viewfilename": "todo-assign-to-view",
+        "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3",
+        "memo": ""
+    },
     "burnchartview": {
         "title": "燃尽图",
         "caption": "燃尽图",
@@ -1599,6 +1609,16 @@
         "viewtag": "bda78773fabbeee54079951afb35f954",
         "memo": ""
     },
+    "todogridview": {
+        "title": "todo表格视图",
+        "caption": "待办事宜表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TodoGridView",
+        "viewfilename": "todo-grid-view",
+        "viewtag": "bedf1f50199b74a65c2e17771144329c",
+        "memo": ""
+    },
     "productmainview_edit": {
         "title": "产品编辑视图",
         "caption": "产品基本信息",
@@ -1817,6 +1837,16 @@
         "viewname": "StoryRevIewView",
         "viewfilename": "story-rev-iew-view",
         "viewtag": "df5a966e312ca9c5f5a41428bc2e2672",
+        "memo": ""
+    },
+    "todoeditview": {
+        "title": "todo编辑视图",
+        "caption": "待办事宜表",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TodoEditView",
+        "viewfilename": "todo-edit-view",
+        "viewtag": "e00040c0d616f2f1c0ad4b36c9e920b5",
         "memo": ""
     },
     "producteditview": {
@@ -2317,6 +2347,16 @@
         "viewname": "ProjectModuleTreeExpView",
         "viewfilename": "project-module-tree-exp-view",
         "viewtag": "bb8860972029d9947daa3652a4b5d291",
+        "memo": ""
+    },
+    "ibzmyterritorymywork": {
+        "title": "我的工作",
+        "caption": "我的工作",
+        "viewtype": "DELISTVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryMyWork",
+        "viewfilename": "ibz-my-territory-my-work",
+        "viewtag": "c21e2ccc8e950461985b171f047bde56",
         "memo": ""
     },
     "testmodulequickcfgview": {

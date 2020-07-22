@@ -57,6 +57,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
+        tabviewpanel3:  false ,
         tabviewpanel2:  false ,
     }
 

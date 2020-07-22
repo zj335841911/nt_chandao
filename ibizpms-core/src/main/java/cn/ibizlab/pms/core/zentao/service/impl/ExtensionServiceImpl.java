@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.ExtensionSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IExtensionService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -183,5 +184,6 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
 
 
 }
+
 
 

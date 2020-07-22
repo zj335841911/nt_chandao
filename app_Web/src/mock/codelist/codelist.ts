@@ -562,6 +562,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "Beginendcheckbox",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "on",
+                label: "暂时不设定时间",
+                text: "暂时不设定时间",
+                "data":"",
+                "codename":"On",
+                value: "on",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "YesNo",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1132,6 +1149,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Todo__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "wait",
+                text: "wait",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "doing",
+                text: "doing",
+                "data":"",
+                "codename":"Doing",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "done",
+                text: "done",
+                "data":"",
+                "codename":"Done",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "closed",
+                text: "closed",
+                "data":"",
+                "codename":"Closed",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Project__type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1571,6 +1635,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Datecheckbox",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "on",
+                label: "待定",
+                text: "待定",
+                "data":"",
+                "codename":"On",
+                value: "on",
                 
                 disabled: false,
             },

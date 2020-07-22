@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProductModuleService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -284,5 +285,6 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
 
 }
+
 
 
