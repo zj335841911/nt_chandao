@@ -6818,6 +6818,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-grid-view-un-closed/product-grid-view-un-closed.vue'),
                 },
                 {
+                    path: 'products/:product?/testtasks/:testtask?/editview_committest/:editview_committest?',
+                    meta: {
+                        caption: 'entities.testtask.views.editview_committest.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'editview_committest', parameterName: 'editview_committest' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-edit-view-commit-test/test-task-edit-view-commit-test.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/editview_committest/:editview_committest?',
+                    meta: {
+                        caption: 'entities.testtask.views.editview_committest.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'editview_committest', parameterName: 'editview_committest' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-edit-view-commit-test/test-task-edit-view-commit-test.vue'),
+                },
+                {
                     path: 'products/:product?/productmodules/:productmodule?/gridviewbranch/:gridviewbranch?',
                     meta: {
                         caption: 'entities.productmodule.views.gridviewbranch.title',

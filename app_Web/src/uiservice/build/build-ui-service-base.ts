@@ -306,8 +306,8 @@ export default class BuildUIServiceBase extends UIService {
             });
         };
         const view: any = {
-            viewname: 'test-task-edit-view',
-            title: actionContext.$t('entities.testtask.views.editview.title'),
+            viewname: 'test-task-edit-view-commit-test',
+            title: actionContext.$t('entities.testtask.views.editview_committest.title'),
             height: 0,
             width: 0,
             placement: 'DRAWER_TOP'

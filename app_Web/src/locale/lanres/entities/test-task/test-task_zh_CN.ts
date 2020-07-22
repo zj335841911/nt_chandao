@@ -30,6 +30,10 @@ export default {
 			caption: "测试版本",
       		title: "测试版本编辑视图",
 		},
+		editview_committest: {
+			caption: "测试版本",
+      		title: "testtask编辑视图",
+		},
 		maintabexpview: {
 			caption: "测试版本",
       		title: "测试版本分页导航视图",
@@ -194,7 +198,7 @@ export default {
 		uiactions: {
 		},
 	},
-	editviewtoolbar_toolbar: {
+	editview_committesttoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
@@ -222,6 +226,12 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 };

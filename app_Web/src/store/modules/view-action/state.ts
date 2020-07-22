@@ -509,6 +509,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4d32793fc57ec1ae930a18608526d00e',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskEditView_commitTest',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '500950593bf64e5516bdb9b7db29b747',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanGridView',
@@ -1022,8 +1031,8 @@ export const viewstate: any = {
             refviews: [
                 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
                 '43c2d1a2b73b0363036aee72dc9312c5',
+                '4d32793fc57ec1ae930a18608526d00e',
                 'fffe78c32fb25b287d0c5165d46f8dd2',
-                '5b139a407fa34f386f3f784f33841184',
                 'a74d54220e97fb172fdb2117118f665d',
             ],
         },

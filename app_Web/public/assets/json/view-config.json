@@ -549,6 +549,16 @@
         "viewtag": "4cb497e84dfabd873bc62d5386d5551f",
         "memo": ""
     },
+    "testtaskeditview_committest": {
+        "title": "testtask编辑视图",
+        "caption": "测试版本",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskEditView_commitTest",
+        "viewfilename": "test-task-edit-view-commit-test",
+        "viewtag": "4d32793fc57ec1ae930a18608526d00e",
+        "memo": ""
+    },
     "productplansubplangridview": {
         "title": "子计划",
         "caption": "产品计划",
