@@ -72,7 +72,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.todo.main_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.todo.main_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.todo.main_grid.columns.name')}}
@@ -122,7 +122,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.todo.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.todo.main_grid.columns.uagridcolumn1')" :width="200"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.todo.main_grid.columns.uagridcolumn1')}}
@@ -132,32 +132,32 @@
                         <div style="text-align: center;">
                           <a v-show="scope.row.assignTo.visabled" :disabled="scope.row.assignTo.disabled" @click="uiAction(scope.row, 'assignTo', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_assignto')">
                             <i class='fa fa-hand-o-right'></i>
-                            {{$t('entities.todo.main_grid.uiactions.todo_assignto')}}
+                            
                           </a>
                           <divider v-show="scope.row.finish.visabled" type='vertical'></divider>
                           <a v-show="scope.row.finish.visabled" :disabled="scope.row.finish.disabled" @click="uiAction(scope.row, 'finish', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_finish')">
                             <i class='fa fa-check-square-o'></i>
-                            {{$t('entities.todo.main_grid.uiactions.todo_finish')}}
+                            
                           </a>
                           <divider v-show="scope.row.activate.visabled" type='vertical'></divider>
                           <a v-show="scope.row.activate.visabled" :disabled="scope.row.activate.disabled" @click="uiAction(scope.row, 'activate', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_activate')">
                             <i class='fa fa-plane'></i>
-                            {{$t('entities.todo.main_grid.uiactions.todo_activate')}}
+                            
                           </a>
                           <divider v-show="scope.row.close.visabled" type='vertical'></divider>
                           <a v-show="scope.row.close.visabled" :disabled="scope.row.close.disabled" @click="uiAction(scope.row, 'close', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_close')">
                             <i class='fa fa-close'></i>
-                            {{$t('entities.todo.main_grid.uiactions.todo_close')}}
+                            
                           </a>
                           <divider v-show="scope.row.edit.visabled" type='vertical'></divider>
                           <a v-show="scope.row.edit.visabled" :disabled="scope.row.edit.disabled" @click="uiAction(scope.row, 'edit', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_edit')">
                             <i class='fa fa-edit'></i>
-                            {{$t('entities.todo.main_grid.uiactions.todo_edit')}}
+                            
                           </a>
                           <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
                           <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_delete')">
                             <i class='fa fa-trash'></i>
-                            {{$t('entities.todo.main_grid.uiactions.todo_delete')}}
+                            
                           </a>
                         </div>
                     </template>
