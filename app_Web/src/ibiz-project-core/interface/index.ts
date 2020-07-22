@@ -44,6 +44,13 @@ export interface ActionItem extends Action {
      * @memberof ActionItem
      */
     children?: HistoryItem[];
+    /**
+     * 历史记录数据类型
+     *
+     * @type {string}
+     * @memberof ActionItem
+     */
+    actiontype?: string;
 }
 
 /**
