@@ -103,7 +103,6 @@ export const PageComponents = {
         Vue.component('ibz-my-territory-my-work', () => import('@pages/ibiz/ibz-my-territory-my-work/ibz-my-territory-my-work.vue'));
         Vue.component('story-pickup-grid-view2', () => import('@pages/zentao/story-pickup-grid-view2/story-pickup-grid-view2.vue'));
         Vue.component('project-cur-product-grid-view', () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'));
-        Vue.component('ibz-my-territory-list-view', () => import('@pages/ibiz/ibz-my-territory-list-view/ibz-my-territory-list-view.vue'));
         Vue.component('bug-assing-to-view', () => import('@pages/zentao/bug-assing-to-view/bug-assing-to-view.vue'));
         Vue.component('story-activite-view', () => import('@pages/zentao/story-activite-view/story-activite-view.vue'));
         Vue.component('story-release-sub-edit-view', () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'));
