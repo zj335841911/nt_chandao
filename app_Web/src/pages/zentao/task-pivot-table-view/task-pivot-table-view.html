@@ -1,5 +1,5 @@
 <studio-view viewName="taskpivottableview" viewTitle="任务表格视图" class='degridview task-pivot-table-view'>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-model="query" placeholder="任务名称" search @on-search="onSearch($event)"/>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
