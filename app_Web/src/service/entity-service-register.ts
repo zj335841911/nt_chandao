@@ -60,6 +60,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('company', () => import('@/service/company/company-service'));
         this.allEntityService.set('ibzcasestep', () => import('@/service/ibzcase-step/ibzcase-step-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
+        this.allEntityService.set('todo', () => import('@/service/todo/todo-service'));
         this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
         this.allEntityService.set('history', () => import('@/service/history/history-service'));

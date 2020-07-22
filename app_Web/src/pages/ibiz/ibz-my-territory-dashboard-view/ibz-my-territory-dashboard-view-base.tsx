@@ -6,7 +6,7 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 
 /**
- * 我的地盘数据看板视图视图基类
+ * 首页视图基类
  *
  * @export
  * @class IbzMyTerritoryDashboardViewBase

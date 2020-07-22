@@ -6,7 +6,7 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 
 /**
- * 我的地盘分页导航视图视图基类
+ * 我的地盘视图基类
  *
  * @export
  * @class IbzMyTerritoryTabExpViewBase

@@ -6,7 +6,7 @@ import { IbzMyTerritoryTabExpViewBase } from './ibz-my-territory-tab-exp-view-ba
 import view_tabexppanel from '@widgets/ibz-my-territory/tab-exp-viewtabexppanel-tabexppanel/tab-exp-viewtabexppanel-tabexppanel.vue';
 
 /**
- * 我的地盘分页导航视图视图
+ * 我的地盘视图
  *
  * @export
  * @class IbzMyTerritoryTabExpView

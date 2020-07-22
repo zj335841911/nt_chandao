@@ -1,26 +1,10 @@
-<studio-view viewName="ibzmyterritorylistview" viewTitle="欢迎" class='delistview ibz-my-territory-list-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
-    <view_list 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        createAction="Create"
-        removeAction="Remove"
-        updateAction="Update"
-        fetchAction="FetchWelcome"
-        :showBusyIndicator="true"
-        :newdata="newdata"
-        :opendata="opendata"
-        name="list"  
-        ref='list' 
-        @selectionchange="list_selectionchange($event)"  
-        @beforeload="list_beforeload($event)"  
-        @rowdblclick="list_rowdblclick($event)"  
-        @remove="list_remove($event)"  
-        @load="list_load($event)"  
-        @closeview="closeView($event)">
-    </view_list>
-</studio-view>
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if appde.getAllPSDEFields()??  [in template "TEMPLCODE_zh_CN" at line 32, column 1]
+----
