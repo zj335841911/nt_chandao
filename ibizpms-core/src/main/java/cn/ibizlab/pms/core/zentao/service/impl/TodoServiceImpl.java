@@ -120,6 +120,13 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
     @Override
     @Transactional
+    public Todo activate(Todo et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Todo assignTo(Todo et) {
         //自定义代码
         return et;
@@ -129,6 +136,13 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public boolean checkKey(Todo et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public Todo close(Todo et) {
+        //自定义代码
+        return et;
+    }
+
     @Override
     @Transactional
     public Todo finish(Todo et) {

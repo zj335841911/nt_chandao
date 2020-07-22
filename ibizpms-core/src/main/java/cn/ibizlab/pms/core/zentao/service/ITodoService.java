@@ -33,8 +33,10 @@ public interface ITodoService extends IService<Todo>{
     void removeBatch(Collection<BigInteger> idList) ;
     Todo get(BigInteger key) ;
     Todo getDraft(Todo et) ;
+    Todo activate(Todo et) ;
     Todo assignTo(Todo et) ;
     boolean checkKey(Todo et) ;
+    Todo close(Todo et) ;
     Todo finish(Todo et) ;
     boolean save(Todo et) ;
     void saveBatch(List<Todo> list) ;

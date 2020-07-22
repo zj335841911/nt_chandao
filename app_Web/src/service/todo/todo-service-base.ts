@@ -133,6 +133,19 @@ export default class TodoServiceBase extends EntityService {
     }
 
     /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/todos/${context.todo}/activate`,data,isloading);
+    }
+
+    /**
      * AssignTo接口方法
      *
      * @param {*} [context={}]
@@ -156,6 +169,19 @@ export default class TodoServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().post(`/todos/${context.todo}/checkkey`,data,isloading);
+    }
+
+    /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/todos/${context.todo}/close`,data,isloading);
     }
 
     /**

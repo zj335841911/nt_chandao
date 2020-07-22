@@ -110,7 +110,7 @@ export class WelcomePortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return '100px';
         }
     }
 

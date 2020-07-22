@@ -117,6 +117,18 @@ public class TodoResource {
         return ResponseEntity.status(HttpStatus.OK).body(todoMapping.toDto(todoService.getDraft(new Todo())));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Activate-all')")
+    @ApiOperation(value = "Activate", tags = {"待办事宜表" },  notes = "Activate")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/activate")
+    @Transactional
+    public ResponseEntity<TodoDTO> activate(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
+        Todo domain = todoMapping.toDomain(tododto);
+domain.setId(todo_id);
+        domain = todoService.activate(domain);
+        tododto = todoMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(tododto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-AssignTo-all')")
     @ApiOperation(value = "AssignTo", tags = {"待办事宜表" },  notes = "AssignTo")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/assignto")
@@ -133,6 +145,18 @@ domain.setId(todo_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody TodoDTO tododto) {
         return  ResponseEntity.status(HttpStatus.OK).body(todoService.checkKey(todoMapping.toDomain(tododto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Close-all')")
+    @ApiOperation(value = "Close", tags = {"待办事宜表" },  notes = "Close")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/close")
+    @Transactional
+    public ResponseEntity<TodoDTO> close(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
+        Todo domain = todoMapping.toDomain(tododto);
+domain.setId(todo_id);
+        domain = todoService.close(domain);
+        tododto = todoMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(tododto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Finish-all')")
