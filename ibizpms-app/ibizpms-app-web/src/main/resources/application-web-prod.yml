@@ -91,6 +91,10 @@ zuul:
       path: /stories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_todo:
+      path: /todos/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_subtask:
       path: /subtasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

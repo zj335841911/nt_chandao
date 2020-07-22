@@ -38,11 +38,11 @@ export default {
 	views: {
 		tabexpview: {
 			caption: "我的地盘",
-      		title: "我的地盘分页导航视图",
+      		title: "我的地盘",
 		},
 		dashboardview: {
 			caption: "首页",
-      		title: "我的地盘数据看板视图",
+      		title: "首页",
 		},
 		listview: {
 			caption: "欢迎",

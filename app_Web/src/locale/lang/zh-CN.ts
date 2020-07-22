@@ -19,6 +19,7 @@ import dept_zh_CN from '@locale/lanres/entities/dept/dept_zh_CN';
 import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
 import ibzcasestep_zh_CN from '@locale/lanres/entities/ibzcase-step/ibzcase-step_zh_CN';
 import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
+import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
 import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
@@ -303,6 +304,7 @@ export default {
         company: company_zh_CN,
         ibzcasestep: ibzcasestep_zh_CN,
         story: story_zh_CN,
+        todo: todo_zh_CN,
         subtask: subtask_zh_CN,
         project: project_zh_CN,
         history: history_zh_CN,

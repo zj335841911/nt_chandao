@@ -1728,7 +1728,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3"
         },
         "ibzmyterritorytabexpview": {
-            "title": "我的地盘分页导航视图",
+            "title": "我的地盘",
             "caption": "我的地盘",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "ibiz",
@@ -1864,7 +1864,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "d337f5c3c125dc2641321f2d93b65476"
         },
         "ibzmyterritorydashboardview": {
-            "title": "我的地盘数据看板视图",
+            "title": "首页",
             "caption": "首页",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "ibiz",

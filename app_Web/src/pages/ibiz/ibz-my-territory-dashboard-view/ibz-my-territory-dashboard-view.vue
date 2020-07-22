@@ -6,7 +6,7 @@ import { IbzMyTerritoryDashboardViewBase } from './ibz-my-territory-dashboard-vi
 import view_dashboard from '@widgets/ibz-my-territory/home-dashboard/home-dashboard.vue';
 
 /**
- * 我的地盘数据看板视图视图
+ * 首页视图
  *
  * @export
  * @class IbzMyTerritoryDashboardView

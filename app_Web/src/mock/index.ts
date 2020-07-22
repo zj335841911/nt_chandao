@@ -28,6 +28,7 @@ import './entity/depts/depts';
 import './entity/companys/companys';
 import './entity/ibzcase-steps/ibzcase-steps';
 import './entity/storys/storys';
+import './entity/todos/todos';
 import './entity/sub-tasks/sub-tasks';
 import './entity/projects/projects';
 import './entity/historys/historys';
