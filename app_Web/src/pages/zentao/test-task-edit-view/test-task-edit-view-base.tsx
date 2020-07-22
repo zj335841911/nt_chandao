@@ -66,19 +66,6 @@ export class TestTaskEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestTaskEditViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'BUILD': { isRawValue: false, value: 'build' },
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
-    };
-
     /**
      * 视图模型数据
      *
