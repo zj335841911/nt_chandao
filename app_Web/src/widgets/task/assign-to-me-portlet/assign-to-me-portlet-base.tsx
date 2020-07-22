@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * db_assignedtometaskportlet部件基类
+ * dashboard_sysportlet6部件基类
  *
  * @export
  * @class MainControlBase
@@ -110,7 +110,7 @@ export class AssignToMePortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '300px';
         }
     }
 

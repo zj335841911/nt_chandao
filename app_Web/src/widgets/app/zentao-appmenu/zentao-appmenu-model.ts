@@ -35,6 +35,27 @@ export default class ZentaoModel {
         	resourcetag: '',
         	items: [
                 		        {
+                	id: '885119A5-EBD5-42E2-A9AD-CECBF403ADE6',
+                	name: 'menuitem9',
+                	text: '我的地盘',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '我的地盘',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: '_6',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-my-territory-tab-exp-view',
+                	resourcetag: '',
+                }
+                ,
+                		        {
                 	id: '326619b4fb6af93bdeed04e5dcbf029a',
                 	name: 'menuitem3',
                 	text: '产品主页',
@@ -196,7 +217,7 @@ export default class ZentaoModel {
                 	iconcls: 'fa fa-cogs',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_6',
+                	appfunctag: '_7',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
@@ -254,7 +275,7 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_6',
+            appfunctag: '_7',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producttestleftsidebarlistview',
@@ -321,6 +342,18 @@ export default class ZentaoModel {
             routepath: '/ibizpms/:ibizpms?/productportalview/:productportalview?',
             parameters: [
                 { pathName: 'productportalview', parameterName: 'productportalview' },
+            ],
+        },
+        {
+            appfunctag: '_6',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritorytabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'tabexpview', parameterName: 'tabexpview' },
             ],
         },
         {

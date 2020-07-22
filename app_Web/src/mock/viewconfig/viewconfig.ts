@@ -1727,6 +1727,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestModuleEditView",
             "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3"
         },
+        "ibzmyterritorytabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "我的地盘",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryTabExpView",
+            "viewtag": "0f3dff62ef8bcb1662cc82e57a34c56b"
+        },
         "projectteammaingridview": {
             "title": "项目团队表格视图",
             "caption": "项目团队",
@@ -1854,6 +1862,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "TestModuleQuickCfgView",
             "viewtag": "d337f5c3c125dc2641321f2d93b65476"
+        },
+        "ibzmyterritorydashboardview": {
+            "title": "我的地盘数据看板视图",
+            "caption": "首页",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryDashboardView",
+            "viewtag": "d8df5ca51341d33ccc19208dde3f2cce"
+        },
+        "ibzmyterritorylistview": {
+            "title": "欢迎",
+            "caption": "欢迎",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryListView",
+            "viewtag": "e2d75951e06d21bce0a31b09c67103bf"
         },
         "projectstatseditview9": {
             "title": "项目统计编辑视图",

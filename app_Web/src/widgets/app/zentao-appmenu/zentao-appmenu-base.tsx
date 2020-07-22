@@ -15,8 +15,8 @@ export class ZentaoBase extends Vue {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {
-                case '_6': 
-                    this.click_6(item); break;
+                case '_7': 
+                    this.click_7(item); break;
                 case 'Auto5': 
                     this.clickAuto5(item); break;
                 case '_4': 
@@ -27,6 +27,8 @@ export class ZentaoBase extends Vue {
                     this.click_2(item); break;
                 case 'Auto1': 
                     this.clickAuto1(item); break;
+                case '_6': 
+                    this.click_6(item); break;
                 case '_5': 
                     this.click_5(item); break;
                 default:
@@ -45,7 +47,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_6(item: any = {}) {
+    public click_7(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -165,6 +167,29 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'productportalview', parameterName: 'productportalview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * 我的地盘
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_6(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'tabexpview', parameterName: 'tabexpview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

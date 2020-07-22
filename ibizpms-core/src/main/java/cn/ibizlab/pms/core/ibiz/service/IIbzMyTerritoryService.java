@@ -37,6 +37,7 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     boolean save(IbzMyTerritory et) ;
     void saveBatch(List<IbzMyTerritory> list) ;
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;
+    Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
