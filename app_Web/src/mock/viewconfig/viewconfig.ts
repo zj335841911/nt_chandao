@@ -447,6 +447,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyDeptUserTreeExpView",
             "viewtag": "4cb497e84dfabd873bc62d5386d5551f"
         },
+        "testtaskeditview_committest": {
+            "title": "testtask编辑视图",
+            "caption": "测试版本",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskEditView_commitTest",
+            "viewtag": "4d32793fc57ec1ae930a18608526d00e"
+        },
         "productplansubplangridview": {
             "title": "子计划",
             "caption": "产品计划",
