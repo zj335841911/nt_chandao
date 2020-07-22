@@ -131,7 +131,7 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.assignTo.visabled" :disabled="scope.row.assignTo.disabled" @click="uiAction(scope.row, 'assignTo', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_assignto')">
-                            <i class=''></i>
+                            <i class='fa fa-hand-o-right'></i>
                             {{$t('entities.todo.main_grid.uiactions.todo_assignto')}}
                           </a>
                           <divider v-show="scope.row.finish.visabled" type='vertical'></divider>

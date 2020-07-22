@@ -2223,23 +2223,14 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6d466e003e0479fb8b1a16e49b889dc1',
                 '79b3a14f0431747becc48f5b9f3aa990',
                 '4b82e9acf6c784b138b365d6011b296b',
+                '6d466e003e0479fb8b1a16e49b889dc1',
                 'c21e2ccc8e950461985b171f047bde56',
-                '3aafb12bb0db2be013c0f5ced8c7dc50',
                 '81893d14e76cac341d4218a9c5ef185d',
-                'e2d75951e06d21bce0a31b09c67103bf',
+                '3aafb12bb0db2be013c0f5ced8c7dc50',
+                'c539f1585371e9943b90177eaef08b6b',
                 'e396b6f39451e3bf963aec602106adf0',
-            ],
-        },
-        {
-            viewtag: 'e2d75951e06d21bce0a31b09c67103bf',
-            viewmodule: 'ibiz',
-            viewname: 'IbzMyTerritoryListView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
