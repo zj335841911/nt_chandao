@@ -20,6 +20,7 @@ export default {
     name: "项目名称",
     unconfirmedbugcnt: "未确认Bug总数",
     unclosedbugcnt: "未关闭Bug总数",
+    totalwh: "总工时",
   },
 	views: {
 		maindashboardview: {
@@ -48,7 +49,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			custom7: "任务最初预计总工时", 
+			custom7: "总工时", 
 			custom8: "任务消耗总工时", 
 			formitemex4: "已完成", 
 			totalestimate: "预计", 

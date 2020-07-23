@@ -157,4 +157,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     unclosedbugcnt?: any;
+
+    /**
+     * 总工时
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    totalwh?: any;
 }

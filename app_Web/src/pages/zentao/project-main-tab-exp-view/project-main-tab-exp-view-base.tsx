@@ -77,6 +77,17 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'project' }
     };
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProjectMainTabExpViewBase
+	 */
+    protected customViewParams: any = {
+        'n_product_eq': { isRawValue: true, value: 'null' }
+    };
+
     /**
      * 视图模型数据
      *
