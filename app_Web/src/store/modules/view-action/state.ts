@@ -305,6 +305,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '326af0ddc7ead19a61f479dddf7b1e3a',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_My',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '35ba93bac795e0deb7297d2d471b7180',
             viewmodule: 'zentao',
             viewname: 'TaskSubTaskNewView',
@@ -2132,6 +2143,7 @@ export const viewstate: any = {
                 'c9c1c725d243d98d75558fbc5293f8f9',
                 '79ffa9ee5970e791fe37a01b98d5fce4',
                 'bedf1f50199b74a65c2e17771144329c',
+                '326af0ddc7ead19a61f479dddf7b1e3a',
                 'd8df5ca51341d33ccc19208dde3f2cce',
             ],
         },

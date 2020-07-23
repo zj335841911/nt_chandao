@@ -55,6 +55,10 @@ export default {
 			caption: "测试用例",
       		title: "case编辑视图",
 		},
+		gridview9_my: {
+			caption: "测试用例",
+      		title: "测试用例表格视图",
+		},
 		curtesttaskgridview: {
 			caption: "功能测试",
       		title: "功能测试",

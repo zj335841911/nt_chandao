@@ -2864,6 +2864,66 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/gridview9_my/:gridview9_my?',
+                    meta: {
+                        caption: 'entities.case.views.gridview9_my.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'gridview9_my', parameterName: 'gridview9_my' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-grid-view9-my/case-grid-view9-my.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/gridview9_my/:gridview9_my?',
+                    meta: {
+                        caption: 'entities.case.views.gridview9_my.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'gridview9_my', parameterName: 'gridview9_my' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-grid-view9-my/case-grid-view9-my.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/gridview9_my/:gridview9_my?',
+                    meta: {
+                        caption: 'entities.case.views.gridview9_my.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'gridview9_my', parameterName: 'gridview9_my' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-grid-view9-my/case-grid-view9-my.vue'),
+                },
+                {
+                    path: 'cases/:case?/gridview9_my/:gridview9_my?',
+                    meta: {
+                        caption: 'entities.case.views.gridview9_my.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'gridview9_my', parameterName: 'gridview9_my' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-grid-view9-my/case-grid-view9-my.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
                     meta: {
                         caption: 'entities.bug.views.buildsubgridview_done.title',
@@ -5476,20 +5536,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
                 },
                 {
-                    path: 'ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
-                    meta: {
-                        caption: 'entities.ibzmyterritory.views.tabexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                            { pathName: 'tabexpview', parameterName: 'tabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-my-territory-tab-exp-view/ibz-my-territory-tab-exp-view.vue'),
-                },
-                {
                     path: 'projects/:project?/projectproducts/:projectproduct?/planlistview9/:planlistview9?',
                     meta: {
                         caption: 'entities.projectproduct.views.planlistview9.title',
@@ -5532,6 +5578,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-product-plan-list-view9/project-product-plan-list-view9.vue'),
+                },
+                {
+                    path: 'ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.tabexpview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'tabexpview', parameterName: 'tabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-tab-exp-view/ibz-my-territory-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/htmlview/:htmlview?',

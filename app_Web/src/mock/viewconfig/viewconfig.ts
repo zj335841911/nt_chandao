@@ -263,6 +263,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainInfoView9",
             "viewtag": "321ab2e4e87a29fef8eed086e951a006"
         },
+        "casegridview9_my": {
+            "title": "测试用例表格视图",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseGridView9_My",
+            "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a"
+        },
         "tasksubtasknewview": {
             "title": "子任务",
             "caption": "子任务",
