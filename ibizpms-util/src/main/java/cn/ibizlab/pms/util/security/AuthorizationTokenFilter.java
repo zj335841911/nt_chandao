@@ -39,11 +39,6 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
 
-        if (permitAll) {
-            chain.doFilter(request, response);
-            return;
-        }
-
         final String requestHeader = request.getHeader(this.tokenHeader);
 
         String username = null;
