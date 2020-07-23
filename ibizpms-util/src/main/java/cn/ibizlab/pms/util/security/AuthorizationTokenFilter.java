@@ -27,6 +27,9 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
     private final AuthTokenUtil authTokenUtil;
     private final String tokenHeader;
 
+    @Value("${ibiz.permitall:false}")
+    boolean permitAll;
+
     public AuthorizationTokenFilter(AuthenticationUserService userDetailsService, AuthTokenUtil authTokenUtil, @Value("${ibiz.jwt.header:Authorization}") String tokenHeader) {
         this.userDetailsService = userDetailsService;
         this.authTokenUtil = authTokenUtil;
@@ -35,6 +38,11 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+
+        if (permitAll) {
+            chain.doFilter(request, response);
+            return;
+        }
 
         final String requestHeader = request.getHeader(this.tokenHeader);
 

@@ -32,7 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AuthenticationUserService userDetailsService;
-
+    @Value("${ibiz.permitall:false}")
+    boolean permitAll;
     /**
      * 自定义基于JWT的安全过滤器
      */
@@ -86,50 +87,56 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+        if(permitAll){
+            httpSecurity
+                    // 禁用 CSRF
+                    .csrf().disable()
+                    .authorizeRequests().antMatchers("/**").permitAll();
+        }else {
+            httpSecurity
 
-        httpSecurity
+                    // 禁用 CSRF
+                    .csrf().disable()
 
-                // 禁用 CSRF
-                .csrf().disable()
+                    // 授权异常
+                    .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 
-                // 授权异常
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                    // 不创建会话
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
-                // 不创建会话
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                    // 过滤请求
+                    .authorizeRequests()
+                    .antMatchers(
+                            HttpMethod.GET,
+                            "/*.html",
+                            "/**/*.html",
+                            "/**/*.css",
+                            "/**/*.js",
+                            "/**/*.ico",
+                            "/**/assets/**",
+                            "/**/css/**",
+                            "/**/fonts/**",
+                            "/**/js/**",
+                            "/**/img/**",
+                            "/"
+                    ).permitAll()
+                    //放行登录请求
+                    .antMatchers(HttpMethod.POST, "/" + loginPath).permitAll()
+                    //放行注销请求
+                    .antMatchers(HttpMethod.GET, "/" + logoutPath).permitAll()
+                    // 文件操作
+                    .antMatchers("/" + downloadpath + "/**").permitAll()
+                    .antMatchers("/" + ztdownloadpath + "/**").permitAll()
+                    .antMatchers("/" + uploadpath).permitAll()
+                    .antMatchers("/" + ztuploadpath).permitAll()
+                    .antMatchers("/" + previewpath + "/**").permitAll()
+                    // 所有请求都需要认证
+                    .anyRequest().authenticated()
+                    // 防止iframe 造成跨域
+                    .and().headers().frameOptions().disable();
 
-                // 过滤请求
-                .authorizeRequests()
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/*.html",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "/**/*.ico",
-                        "/**/assets/**",
-                        "/**/css/**",
-                        "/**/fonts/**",
-                        "/**/js/**",
-                        "/**/img/**",
-                        "/"
-                ).permitAll()
-                //放行登录请求
-                .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
-                //放行注销请求
-                .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
-                // 文件操作
-                .antMatchers("/"+downloadpath+"/**").permitAll()
-                .antMatchers("/"+ztdownloadpath+"/**").permitAll()
-                .antMatchers("/"+uploadpath).permitAll()
-                .antMatchers("/"+ztuploadpath).permitAll()
-                .antMatchers("/"+previewpath+"/**").permitAll()
-                // 所有请求都需要认证
-                .anyRequest().authenticated()
-                // 防止iframe 造成跨域
-                .and().headers().frameOptions().disable();
-
-        httpSecurity
-                .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+            httpSecurity
+                    .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        }
     }
 }

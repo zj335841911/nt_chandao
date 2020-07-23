@@ -1,26 +1,31 @@
 zuul:
   routes:
-    v7:
-      path: /v7/**
+    common:
+      path: /**
       serviceId: pms-webapi
       stripPrefix: false
-    ibizutil:
-      path: /ibizutil/**
-      serviceId: pms-webapi
-      stripPrefix: false
+#    v7:
+#      path: /v7/**
+#      serviceId: pms-webapi-qml
+#      stripPrefix: false
+#    ibizutil:
+#      path: /ibizutil/**
+#      serviceId: pms-webapi-qml
+#      stripPrefix: false
+
 environment:
   - TZ=Asia/Shanghai
 
-
 ibiz:
+  permitall: true
   ref:
     service:
       pms-webapi: pms-webapi
-      uaa: ibzuaa-api-pms
+      uaa: ibzuaa-api
+#      user: pms-api-qml
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
-      # UAA认证模式：SimpleTokenUtil
+      # UAA认证模式：UAATokenUtil
       util: UAATokenUtil
-#      util: SimpleTokenUtil
-#    service: IBZUAAZTUserService
+#    service: ZTUserService
