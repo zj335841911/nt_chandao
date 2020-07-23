@@ -318,6 +318,100 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "BugQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "BYME",
+                label: "由我解决",
+                text: "由我解决",
+                "data":{"n_resolvedby_eq":"%srfloginname%"},
+                "codename":"Byme",
+                value: "BYME",
+                
+                disabled: false,
+            },
+            {
+                id: "WAITCLOSED",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Waitclosed",
+                value: "WAITCLOSED",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "StoryQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "指给我",
+                text: "指给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "IREVIEW",
+                label: "由我评审",
+                text: "由我评审",
+                "data":{"n_reviewedby_eq":"%srfloginname%"},
+                "codename":"Ireview",
+                value: "IREVIEW",
+                
+                disabled: false,
+            },
+            {
+                id: "ICLOSE",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Iclose",
+                value: "ICLOSE",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Product__acl",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1469,6 +1563,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Reject",
                 value: "reject",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "CaseQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "给我的用例",
+                text: "给我的用例",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "我建的用例",
+                text: "我建的用例",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
                 
                 disabled: false,
             },
@@ -4350,6 +4471,63 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Cancel",
                 value: "cancel",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TASK_QuickacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "CANCELLED",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Cancelled",
+                value: "CANCELLED",
+                
+                disabled: false,
+            },
+            {
+                id: "IFINISHED",
+                label: "由我完成",
+                text: "由我完成",
+                "data":{"n_finishedby_eq":"%srfloginname%"},
+                "codename":"Ifinished",
+                value: "IFINISHED",
+                
+                disabled: false,
+            },
+            {
+                id: "COMPLETED",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Completed",
+                value: "COMPLETED",
+                
+                disabled: false,
+            },
+            {
+                id: "CLOSED",
+                label: "由我取消",
+                text: "由我取消",
+                "data":{"n_canceledby_eq":"%srfloginname%"},
+                "codename":"Closed",
+                value: "CLOSED",
                 
                 disabled: false,
             },

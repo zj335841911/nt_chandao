@@ -45,6 +45,20 @@ export default {
         "item": "分组步骤",
         "empty": ""
     },
+    BugQuickpacketMy: {
+        "TOME": "指派给我",
+        "ICREATE": "由我创建",
+        "BYME": "由我解决",
+        "WAITCLOSED": "由我关闭",
+        "empty": ""
+    },
+    StoryQuickpacketMy: {
+        "TOME": "指给我",
+        "ICREATE": "由我创建",
+        "IREVIEW": "由我评审",
+        "ICLOSE": "由我关闭",
+        "empty": ""
+    },
     Product__acl: {
         "open": "默认设置(有产品视图权限，即可访问)",
         "private": "私有产品相关负责人和项目团队成员才能访问)",
@@ -208,6 +222,11 @@ export default {
         "revert": "撤销变更",
         "clarify": "有待明确",
         "reject": "拒绝",
+        "empty": ""
+    },
+    CaseQuickpacketMy: {
+        "TOME": "给我的用例",
+        "ICREATE": "我建的用例",
         "empty": ""
     },
     YesNo2: {
@@ -555,6 +574,14 @@ export default {
     Task__closed_reason: {
         "done": "已完成",
         "cancel": "已取消",
+        "empty": ""
+    },
+    TASK_QuickacketMy: {
+        "TOME": "指派给我",
+        "CANCELLED": "由我创建",
+        "IFINISHED": "由我完成",
+        "COMPLETED": "由我关闭",
+        "CLOSED": "由我取消",
         "empty": ""
     },
     UserRealNameProject: {

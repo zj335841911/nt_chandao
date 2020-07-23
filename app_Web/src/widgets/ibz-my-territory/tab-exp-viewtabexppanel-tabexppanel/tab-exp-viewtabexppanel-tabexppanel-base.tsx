@@ -56,11 +56,11 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof TabExpViewtabexppanel
      */
     protected isInit: any = {
-        tabviewpanel5:  true ,
-        tabviewpanel4:  false ,
-        tabviewpanel6:  false ,
-        tabviewpanel:  false ,
+        tabviewpanel:  true ,
         tabviewpanel3:  false ,
+        tabviewpanel4:  false ,
+        tabviewpanel5:  false ,
+        tabviewpanel6:  false ,
         tabviewpanel2:  false ,
     }
 
@@ -71,7 +71,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {string}
      * @memberof TabExpViewtabexppanel
      */
-    protected activatedTabViewPanel: string = 'tabviewpanel5';
+    protected activatedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 组件创建完毕
