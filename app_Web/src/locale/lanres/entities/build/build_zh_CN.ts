@@ -100,7 +100,6 @@ export default {
 			build_linkstories: "关联需求",
 			build_submittotesting: "提交测试",
 			build_viewbugs: "查看Bug",
-			edit: "编辑",
 			build_editbuild: "编辑版本",
 			remove: "删除",
 		},

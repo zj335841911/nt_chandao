@@ -4084,6 +4084,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "项目任务",
+                text: "项目任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "项目需求",
+                text: "项目需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__quickpacket",
         emptytext: "未定义",
         "codelisttype":"static",

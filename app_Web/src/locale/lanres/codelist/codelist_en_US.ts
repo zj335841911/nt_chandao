@@ -516,6 +516,13 @@ export default {
         "terminate": "停止维护",
         "empty": ""
     },
+    Type: {
+        "bug": "Bug",
+        "custom": "自定义",
+        "task": "项目任务",
+        "story": "项目需求",
+        "empty": ""
+    },
     Bug__quickpacket: {
         "All": "所有",
         "UNCLOSED": "未关闭",
