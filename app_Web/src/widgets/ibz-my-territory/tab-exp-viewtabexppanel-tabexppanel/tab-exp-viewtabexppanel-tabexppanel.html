@@ -1,6 +1,54 @@
 <div class='tabviewpanel'>
     <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='tabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel5' tab='tabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', 'BUG'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel5 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel5"
+    name="tabviewpanel5"  
+    ref='tabviewpanel5'
+    :expActive="activatedTabViewPanel === 'tabviewpanel5'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel5>
+        </tab-pane>
+        <tab-pane :index="1" name='tabviewpanel4' tab='tabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '任务'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel4 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel4"
+    name="tabviewpanel4"  
+    ref='tabviewpanel4'
+    :expActive="activatedTabViewPanel === 'tabviewpanel4'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel4>
+        </tab-pane>
+        <tab-pane :index="2" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '首页'),
@@ -24,7 +72,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  
+        <tab-pane :index="3" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '日程'),
@@ -48,7 +96,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  
+        <tab-pane :index="4" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '需求'),
