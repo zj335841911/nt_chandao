@@ -142,33 +142,6 @@ export class MainGridBase extends GridControllerBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ub91afbf_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"Build");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public grid_uagridcolumn1_ua6d943e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -217,33 +190,6 @@ export class MainGridBase extends GridControllerBase {
     }
 
     /**
-     * 编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof BuildMainGridViewBase
-     */
-    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { build: args[0].build })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-
-    /**
      * 删除
      *
      * @param {any[]} args 当前数据
@@ -281,7 +227,6 @@ export class MainGridBase extends GridControllerBase {
         linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
         Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
@@ -479,9 +424,6 @@ export class MainGridBase extends GridControllerBase {
         }
         if(Object.is('viewBugs', tag)) {
             this.grid_uagridcolumn1_uae9d930_click(row, tag, $event);
-        }
-        if(Object.is('Edit', tag)) {
-            this.grid_uagridcolumn1_ub91afbf_click(row, tag, $event);
         }
         if(Object.is('editBuild', tag)) {
             this.grid_uagridcolumn1_ua6d943e_click(row, tag, $event);
