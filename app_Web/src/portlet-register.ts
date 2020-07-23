@@ -7,6 +7,7 @@ import ProductTextExpView from '@/widgets/product/text-exp-view-portlet/text-exp
 import ProjectProjectExpView from '@/widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
 import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
 import ProductProductStatus from '@/widgets/product/product-status-portlet/product-status-portlet.vue';
+import ProjectStatsStatsInfo from '@/widgets/project-stats/stats-info-portlet/stats-info-portlet.vue';
 import CaseMeCreateCase from '@/widgets/case/me-create-case-portlet/me-create-case-portlet.vue';
 import CaseMainDetail from '@/widgets/case/main-detail-portlet/main-detail-portlet.vue';
 import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-portlet/dashboard-quick-action-portlet.vue';
@@ -38,7 +39,6 @@ import TestTaskMainInfo from '@/widgets/test-task/main-info-portlet/main-info-po
 import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portlet/to-test-test-task-portlet.vue';
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
-import ProjectStatsStatsInfo from '@/widgets/project-stats/stats-info-portlet/stats-info-portlet.vue';
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
@@ -123,7 +123,6 @@ export const  PortletComponent = {
         v.component('test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
-        v.component('project-stats-stats-info-portlet', ProjectStatsStatsInfo);
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);

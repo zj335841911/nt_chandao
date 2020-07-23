@@ -83,8 +83,8 @@ export default {
     UserRealNameTask: {
         "empty": "",
     },
-    Beginendcheckbox: {
-        "on": "暂时不设定时间",
+    Beginend_disable: {
+        "1": "暂时不设定时间",
         "empty": ""
     },
     YesNo: {
@@ -216,6 +216,10 @@ export default {
     },
     TestTask: {
         "empty": "",
+    },
+    Date_disable: {
+        "1": "待定",
+        "empty": ""
     },
     Product__status: {
         "normal": "正常",
@@ -391,6 +395,10 @@ export default {
         "186": "半年",
         "365": "一年",
         "empty": "按时间段"
+    },
+    Cycle_enable: {
+        "1": "周期",
+        "empty": ""
     },
     Action__type: {
         "created": "创建",

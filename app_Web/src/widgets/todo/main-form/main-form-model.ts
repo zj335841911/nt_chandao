@@ -51,37 +51,37 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'formitem',
+        name: 'date',
       },
       {
-        name: 'formitem1',
+        name: 'date_disable',
       },
       {
-        name: 'formitem2',
+        name: 'cycle_enable',
       },
       {
-        name: 'formitem3',
+        name: 'type',
       },
       {
-        name: 'formitem4',
+        name: 'pri',
       },
       {
-        name: 'formitem5',
+        name: 'name',
       },
       {
-        name: 'formitem6',
+        name: 'status',
       },
       {
-        name: 'formitem7',
+        name: 'begin',
       },
       {
-        name: 'formitem8',
+        name: 'end',
       },
       {
         name: 'formitem10',
       },
       {
-        name: 'formitem9',
+        name: 'private',
       },
       {
         name: 'id',
