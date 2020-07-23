@@ -72,21 +72,6 @@ export default class TaskServiceBase extends EntityService {
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -102,6 +87,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -126,28 +126,13 @@ export default class TaskServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && true){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -163,6 +148,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -187,28 +187,13 @@ export default class TaskServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && true){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -224,6 +209,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -248,27 +248,12 @@ export default class TaskServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -284,6 +269,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -308,8 +308,8 @@ export default class TaskServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/tasks`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
         return res;
     }
@@ -326,21 +326,6 @@ export default class TaskServiceBase extends EntityService {
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -356,6 +341,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -373,28 +373,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/tasks/${context.task}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -410,6 +395,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -427,28 +427,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -464,6 +449,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -481,27 +481,12 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -517,6 +502,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -534,8 +534,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/tasks/${context.task}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
     }
@@ -574,28 +574,28 @@ export default class TaskServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
             let res:any = await Http.getInstance().get(`/tasks/${context.task}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
     }
@@ -613,31 +613,31 @@ export default class TaskServiceBase extends EntityService {
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/getdraft`,isloading);
             res.data.task = data.task;
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/getdraft`,isloading);
             res.data.task = data.task;
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/getdraft`,isloading);
             res.data.task = data.task;
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         let res:any = await  Http.getInstance().get(`/tasks/getdraft`,isloading);
         res.data.task = data.task;
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
         return res;
     }
@@ -654,21 +654,6 @@ export default class TaskServiceBase extends EntityService {
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -684,6 +669,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -701,28 +701,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/activate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -738,6 +723,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -755,28 +755,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/activate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -792,6 +777,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -809,8 +809,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/activate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -829,21 +829,6 @@ export default class TaskServiceBase extends EntityService {
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -859,6 +844,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -876,28 +876,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/assignto`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -913,6 +898,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -930,28 +930,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/assignto`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -967,6 +952,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -984,8 +984,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/assignto`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -1004,21 +1004,6 @@ export default class TaskServiceBase extends EntityService {
     public async Cancel(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1034,6 +1019,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1051,28 +1051,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/cancel`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1088,6 +1073,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1105,28 +1105,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/cancel`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1142,6 +1127,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1159,8 +1159,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/cancel`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -1179,21 +1179,6 @@ export default class TaskServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1209,6 +1194,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1226,28 +1226,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1263,6 +1248,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1280,28 +1280,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1317,6 +1302,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1334,8 +1334,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -1354,21 +1354,6 @@ export default class TaskServiceBase extends EntityService {
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1384,6 +1369,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1401,28 +1401,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/close`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1438,6 +1423,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1455,28 +1455,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/close`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1492,6 +1477,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1509,8 +1509,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/close`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -1529,21 +1529,6 @@ export default class TaskServiceBase extends EntityService {
     public async DeleteEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1559,6 +1544,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1576,28 +1576,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/deleteestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1613,6 +1598,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1630,28 +1630,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/deleteestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1667,6 +1652,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1684,8 +1684,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/deleteestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -1704,21 +1704,6 @@ export default class TaskServiceBase extends EntityService {
     public async EditEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1734,6 +1719,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1751,28 +1751,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/editestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1788,6 +1773,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1805,28 +1805,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/editestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1842,6 +1827,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1859,8 +1859,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/editestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -1879,21 +1879,6 @@ export default class TaskServiceBase extends EntityService {
     public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1909,6 +1894,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1926,28 +1926,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/finish`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -1963,6 +1948,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -1980,28 +1980,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/finish`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2017,6 +2002,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2034,8 +2034,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/finish`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -2054,21 +2054,6 @@ export default class TaskServiceBase extends EntityService {
     public async Pause(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2084,6 +2069,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2101,28 +2101,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/pause`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2138,6 +2123,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2155,28 +2155,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/pause`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2192,6 +2177,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2209,8 +2209,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/pause`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -2229,21 +2229,6 @@ export default class TaskServiceBase extends EntityService {
     public async RecordEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2259,6 +2244,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2276,28 +2276,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/recordestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2313,6 +2298,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2330,28 +2330,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/recordestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2367,6 +2352,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2384,8 +2384,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/recordestimate`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -2404,21 +2404,6 @@ export default class TaskServiceBase extends EntityService {
     public async Restart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2434,6 +2419,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2451,28 +2451,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/restart`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2488,6 +2473,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2505,28 +2505,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/restart`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2542,6 +2527,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2559,8 +2559,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/restart`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
@@ -2579,21 +2579,6 @@ export default class TaskServiceBase extends EntityService {
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2609,6 +2594,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2626,28 +2626,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2663,6 +2648,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2680,28 +2680,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2717,6 +2702,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2734,27 +2734,12 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2770,6 +2755,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2787,8 +2787,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/tasks/${context.task}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
     }
@@ -2805,21 +2805,6 @@ export default class TaskServiceBase extends EntityService {
     public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2835,6 +2820,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2852,28 +2852,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/start`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.project && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2889,6 +2874,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2906,28 +2906,13 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/start`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
         if(context.story && context.task){
             let masterData:any = {};
-        let subtasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
-                subtasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subtasks = subtasksData;
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -2943,6 +2928,21 @@ export default class TaskServiceBase extends EntityService {
             }
         }
         masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
@@ -2960,8 +2960,8 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/start`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams ? res.data.ibztaskteams : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks ? res.data.subtasks : []));
             this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams ? res.data.taskteams : []));
             return res;
         }
