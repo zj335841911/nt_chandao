@@ -87,7 +87,6 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      * @param password UAA登录密码
      * @return token是最主要的数据。
      */
-    @Deprecated
     @Override
     public AuthenticationUser loadUserByLogin(String username, String password) {
         if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
@@ -96,7 +95,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         String domains = getDomains(username);
 
         //登录UAA系统前，先查看ZT账户是否存在。
-        //获取UAA账号对应的ZT用户，从account、commiter四个字段查询。
+        //获取UAA账号对应的ZT用户，从account、commiter 两个字段查询。
         User ztUser = getZTUserInfo(username);
         if (ztUser == null || ztUser.getCommiter() == null) {
             //（二期）没有对应账号，后台新建账号，再登录
@@ -282,7 +281,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         //获取用户信息
         AuthenticationUser user = new AuthenticationUser();
         user.setUserid(ztUser.getId().toString());
-        user.setUsername(ztUser.getAccount());
+        user.setUsername(ztUser.getRealname());
         user.setLoginname(ztUser.getAccount());
         user.setDomain("");
         user.setEmail(ztUser.getEmail());
@@ -294,8 +293,8 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         Map<String, Object> sessionParams = user.getSessionParams();
 
         sessionParams.put("ztuser", ztUser);
-        String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
-        sessionParams.put("zentaoSid", zentaoSid);
+//        String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
+//        sessionParams.put("zentaoSid", zentaoSid);
         user.setSessionParams(sessionParams);
         return user;
     }

@@ -12,6 +12,8 @@ environment:
 
 #API替换相关配置。
 ibiz:
+  # 是否放行所有请求
+  permitall: false
   # 是否使用UAA认证。
   uaa: true
   auth:
