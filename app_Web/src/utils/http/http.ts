@@ -109,16 +109,17 @@ export class Http {
      *
      * @param {string} url
      * @param {boolean} [isLoading]
+     * @param {*} [data]
      * @param {number} [serialNumber]
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public delete(url: string, isLoading?: boolean, serialNumber?: number): Promise<any> {
+    public delete(url: string, isLoading?: boolean, data?: any, serialNumber?: number): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if (isLoading) {
                 this.beginLoading();
             }
-            axios.delete(url)
+            axios.delete(url, { data: data ? data : {} })
                 .then((response) => {
                     this.doResponseResult(response, serialNumber);
                     resolve(response);

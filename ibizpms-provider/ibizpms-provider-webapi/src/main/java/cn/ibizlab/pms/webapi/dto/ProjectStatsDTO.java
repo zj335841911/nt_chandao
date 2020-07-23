@@ -175,6 +175,14 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("unclosedbugcnt")
     private Integer unclosedbugcnt;
 
+    /**
+     * 属性 [TOTALWH]
+     *
+     */
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+
 
     /**
      * 设置 [NAME]

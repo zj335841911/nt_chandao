@@ -52,8 +52,8 @@ export default class MainModel {
       },
       {
         name: 'custom7',
-        prop: 'totalestimate',
-        dataType: 'FLOAT',
+        prop: 'totalwh',
+        dataType: 'INT',
       },
       {
         name: 'custom8',
