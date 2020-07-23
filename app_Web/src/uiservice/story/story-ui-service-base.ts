@@ -117,6 +117,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_child',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'main2gridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'reviewview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'closeview',srfappde:'stories'});

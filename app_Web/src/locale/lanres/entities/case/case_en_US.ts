@@ -108,6 +108,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		mainmygridview: {
+			caption: "功能测试",
+      		title: "功能测试",
+		},
 		gridview: {
 			caption: "测试用例",
       		title: "case表格视图",

@@ -103,6 +103,7 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'cases'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases'});
     }
 

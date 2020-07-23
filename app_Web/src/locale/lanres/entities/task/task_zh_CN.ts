@@ -61,6 +61,10 @@ export default {
 			caption: "任务",
       		title: "任务",
 		},
+		mainmygridview: {
+			caption: "任务",
+      		title: "task表格视图",
+		},
 		maingridview9_child: {
 			caption: "任务",
       		title: "任务表格视图",
@@ -128,10 +132,6 @@ export default {
 		pausetaskview: {
 			caption: "暂停任务",
       		title: "暂停任务",
-		},
-		gridview9_myassignedtome: {
-			caption: "任务",
-      		title: "任务表格视图",
 		},
 		donetaskview: {
 			caption: "完成任务",
