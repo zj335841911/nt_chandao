@@ -83,6 +83,13 @@ export default {
     UserRealNameTask: {
         "empty": "",
     },
+    Pri: {
+        "1": "一般",
+        "4": "最低",
+        "2": "最高",
+        "3": "较高",
+        "empty": ""
+    },
     Beginend_disable: {
         "1": "暂时不设定时间",
         "empty": ""

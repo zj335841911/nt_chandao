@@ -112,14 +112,6 @@ export class ExpListBase extends ListControllerBase {
     }
 
     /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof ExpListBase
-     */
-    public limit: number = 1000;
-
-    /**
      * 排序方向
      *
      * @type {string}
