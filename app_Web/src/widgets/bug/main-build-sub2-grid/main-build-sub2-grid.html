@@ -133,8 +133,8 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.unlinkBug_build.visabled" :disabled="scope.row.unlinkBug_build.disabled" @click="uiAction(scope.row, 'unlinkBug_build', $event)" :title="$t('entities.bug.main_buildsub2_grid.uiactions.bug_unlinkbug_build')">
-                            <i class=''></i>
-                            {{$t('entities.bug.main_buildsub2_grid.uiactions.bug_unlinkbug_build')}}
+                            <i class='fa fa-unlink'></i>
+                            
                           </a>
                         </div>
                     </template>

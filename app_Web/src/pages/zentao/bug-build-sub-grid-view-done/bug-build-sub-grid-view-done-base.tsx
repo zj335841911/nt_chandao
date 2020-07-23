@@ -102,7 +102,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @memberof BugBuildSubGridView_Done
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-bug', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildlinkbugs', target: 'SINGLEKEY', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-bug', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildlinkbugs', target: 'NONE', class: '' } },
 
     };
 

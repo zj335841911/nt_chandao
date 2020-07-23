@@ -154,10 +154,7 @@ export default class BugUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { bug: '%bug%' });
-        Object.assign(params, { id: '%bug%' });
-        Object.assign(params, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
@@ -298,10 +295,7 @@ export default class BugUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { bug: '%bug%' });
-        Object.assign(params, { id: '%bug%' });
-        Object.assign(params, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
