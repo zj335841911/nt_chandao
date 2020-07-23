@@ -16,7 +16,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "All",
                 label: "我的项目",
                 text: "我的项目",
-                "data":{},
+                "data":{"n_account_eq":"%srfloginname%"},
                 "codename":"All",
                 value: "All",
                 

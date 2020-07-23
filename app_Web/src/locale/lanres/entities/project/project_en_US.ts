@@ -42,6 +42,10 @@ export default {
     srfarray: "关联数据数组",
     comment: "备注",
     period: "时间段",
+    account: "项目团队成员",
+    join: "加盟日",
+    hours: "可用工时/天",
+    role: "角色",
   },
 	views: {
 		tasktreeexpview: {
@@ -316,6 +320,21 @@ export default {
 			code: "项目代号",
 			status: "项目状态",
 			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
+	mainmy_grid: {
+		columns: {
+			id: "ID",
+			code: "项目代号",
+			name: "项目名称",
+			begin: "开始时间",
+			end: "结束日期",
+			status: "项目状态",
+			role: "角色",
+			join: "加盟日",
+			days: "可用工作日",
 		},
 		uiactions: {
 		},

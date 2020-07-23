@@ -138,6 +138,18 @@ export default class ProjectStatusBarModel {
       {
         name: 'period',
       },
+      {
+        name: 'account',
+      },
+      {
+        name: 'join',
+      },
+      {
+        name: 'hours',
+      },
+      {
+        name: 'role',
+      },
     ]
   }
 

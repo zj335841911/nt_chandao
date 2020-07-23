@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectMainMyGridViewBase } from './project-main-my-grid-view-base';
-import view_grid from '@widgets/project/main-grid/main-grid.vue';
+import view_grid from '@widgets/project/main-my-grid/main-my-grid.vue';
 
 /**
  * 项目视图
