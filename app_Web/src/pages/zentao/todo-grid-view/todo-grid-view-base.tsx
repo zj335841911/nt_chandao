@@ -341,8 +341,8 @@ export class TodoGridViewBase extends GridViewBase {
             { pathName: 'todos', parameterName: 'todo' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -358,8 +358,9 @@ export class TodoGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.todo.views.editview.title'),
+            placement: 'DRAWER_RIGHT',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 
@@ -386,8 +387,8 @@ export class TodoGridViewBase extends GridViewBase {
             { pathName: 'todos', parameterName: 'todo' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -403,8 +404,9 @@ export class TodoGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.todo.views.editview.title'),
+            placement: 'DRAWER_RIGHT',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 

@@ -34,6 +34,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
         }
     }
+	private String n_closedby_eq;//[由谁关闭]
+	public void setN_closedby_eq(String n_closedby_eq) {
+        this.n_closedby_eq = n_closedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_closedby_eq)){
+            this.getSearchCond().eq("closedby", n_closedby_eq);
+        }
+    }
 	private Integer n_confirmed_eq;//[是否确认]
 	public void setN_confirmed_eq(Integer n_confirmed_eq) {
         this.n_confirmed_eq = n_confirmed_eq;

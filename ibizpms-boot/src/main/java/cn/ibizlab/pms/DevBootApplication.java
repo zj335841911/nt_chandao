@@ -21,7 +21,6 @@ import java.util.List;
 @EnableTransactionManagement
 @EnableFeignClients(basePackages = {"cn.ibizlab.pms" })
 @SpringBootApplication(exclude = {
-            org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration.class,
 })
 @ComponentScan(basePackages = {"cn.ibizlab.pms"}
 //        ,excludeFilters={

@@ -69,17 +69,6 @@ export class TaskGridView9_MyAssignedToMeBase extends GridView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskGridView9_MyAssignedToMeBase
-	 */
-    protected customViewParams: any = {
-        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
-    };
-
     /**
      * 视图模型数据
      *
@@ -316,7 +305,7 @@ export class TaskGridView9_MyAssignedToMeBase extends GridView9Base {
      * @memberof TaskGridView9_MyAssignedToMeBase
      */
     protected loadQuickGroupModel(): void {
-        const quickGroupCodeList: any = { tag: 'Task_quickpacket', codelistType: 'STATIC' };
+        const quickGroupCodeList: any = { tag: 'TASK_QuickacketMy', codelistType: 'STATIC' };
         if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
