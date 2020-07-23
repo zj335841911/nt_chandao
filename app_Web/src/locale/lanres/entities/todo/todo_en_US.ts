@@ -41,8 +41,6 @@ export default {
 		details: {
 			group1: "指派给", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "待办名称", 

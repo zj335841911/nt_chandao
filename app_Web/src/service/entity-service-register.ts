@@ -75,6 +75,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('testsuite', () => import('@/service/test-suite/test-suite-service'));
         this.allEntityService.set('projectteam', () => import('@/service/project-team/project-team-service'));
         this.allEntityService.set('testtask', () => import('@/service/test-task/test-task-service'));
+        this.allEntityService.set('productline', () => import('@/service/product-line/product-line-service'));
         this.allEntityService.set('testreport', () => import('@/service/test-report/test-report-service'));
         this.allEntityService.set('projectstats', () => import('@/service/project-stats/project-stats-service'));
         this.allEntityService.set('testrun', () => import('@/service/test-run/test-run-service'));

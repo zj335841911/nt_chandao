@@ -63,7 +63,7 @@ export class GetRoadmapListBase extends ListControllerBase {
      * @type {string}
      * @memberof GetRoadmapListBase
      */
-    public minorSortDir: string = 'DESC';
+    public minorSortDir: string = 'ASC';
 
     /**
      * 排序字段
@@ -71,5 +71,5 @@ export class GetRoadmapListBase extends ListControllerBase {
      * @type {string}
      * @memberof GetRoadmapListBase
      */
-    public minorSortPSDEF: string = 'year';
+    public minorSortPSDEF: string = 'end';
 }

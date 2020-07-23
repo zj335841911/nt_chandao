@@ -101,6 +101,7 @@ export default {
 			build_submittotesting: "提交测试",
 			build_viewbugs: "查看Bug",
 			edit: "编辑",
+			build_editbuild: "编辑版本",
 			remove: "删除",
 		},
 	},
@@ -111,16 +112,16 @@ export default {
 		uiactions: {
 		},
 	},
-	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "创建版本",
-			tip: "创建版本",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "创建版本",
+			tip: "创建版本",
 		},
 	},
 };

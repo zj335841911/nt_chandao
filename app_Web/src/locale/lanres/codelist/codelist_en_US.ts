@@ -163,10 +163,10 @@ export default {
         "empty": ""
     },
     Todo__status: {
-        "wait": "wait",
-        "doing": "doing",
-        "done": "done",
-        "closed": "closed",
+        "wait": "未开始",
+        "doing": "进行中",
+        "done": "已完成",
+        "closed": "已关闭",
         "empty": ""
     },
     Project__type: {

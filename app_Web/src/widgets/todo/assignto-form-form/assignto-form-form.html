@@ -1,17 +1,7 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='todo_assigntoform' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" size="small" name='assigntoform' :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='assigntoform' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.todo.assigntoform_form.details.formpage1')
-                    ])
-                }">
-                    
+            
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.assigntoform_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
@@ -103,28 +93,5 @@
 </i-col>
 
 
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='assigntoform' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.todo.assigntoform_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.assigntoform_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group2" :data="data" :context="context" :viewparams="viewparams"/>
-    <row>
-            
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>

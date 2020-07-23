@@ -1155,8 +1155,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: "wait",
-                label: "wait",
-                text: "wait",
+                label: "未开始",
+                text: "未开始",
                 "data":"",
                 "codename":"Wait",
                 value: "wait",
@@ -1165,8 +1165,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "doing",
-                label: "doing",
-                text: "doing",
+                label: "进行中",
+                text: "进行中",
                 "data":"",
                 "codename":"Doing",
                 value: "doing",
@@ -1175,8 +1175,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "done",
-                label: "done",
-                text: "done",
+                label: "已完成",
+                text: "已完成",
                 "data":"",
                 "codename":"Done",
                 value: "done",
@@ -1185,8 +1185,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "closed",
-                label: "closed",
-                text: "closed",
+                label: "已关闭",
+                text: "已关闭",
                 "data":"",
                 "codename":"Closed",
                 value: "closed",

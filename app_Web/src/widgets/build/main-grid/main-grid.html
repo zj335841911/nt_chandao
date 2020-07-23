@@ -152,6 +152,11 @@
                             <i class='fa fa-edit'></i>
                             
                           </a>
+                          <divider v-show="scope.row.editBuild.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.editBuild.visabled" :disabled="scope.row.editBuild.disabled" @click="uiAction(scope.row, 'editBuild', $event)" :title="$t('entities.build.main_grid.uiactions.build_editbuild')">
+                            <i class='fa fa-edit'></i>
+                            {{$t('entities.build.main_grid.uiactions.build_editbuild')}}
+                          </a>
                           <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.build.main_grid.uiactions.remove')">
                             <i class='fa fa-remove'></i>
