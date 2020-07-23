@@ -21,8 +21,7 @@ ibiz:
   ref:
     service:
       pms-webapi: pms-webapi
-      uaa: ibzuaa-api
-#      user: pms-api-qml
+      uaa: ibzuaa-api-ldap
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
