@@ -6,11 +6,11 @@ zuul:
       stripPrefix: false
 #    v7:
 #      path: /v7/**
-#      serviceId: pms-webapi-qml
+#      serviceId: pms-webapi
 #      stripPrefix: false
 #    ibizutil:
 #      path: /ibizutil/**
-#      serviceId: pms-webapi-qml
+#      serviceId: pms-webapi
 #      stripPrefix: false
 
 environment:
@@ -20,8 +20,8 @@ ibiz:
   permitall: true
   ref:
     service:
-      pms-webapi: pms-webapi
-      uaa: ibzuaa-api-ldap
+      pms-webapi: pms-webapi-qml
+      uaa: ibzuaa-api-pms
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
