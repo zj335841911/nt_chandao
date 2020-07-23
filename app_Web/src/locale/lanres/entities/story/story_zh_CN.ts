@@ -163,6 +163,10 @@ export default {
 			caption: "细分需求",
       		title: "细分需求",
 		},
+		mainmygridview: {
+			caption: "需求",
+      		title: "story表格视图",
+		},
 		main2gridview: {
 			caption: "需求",
       		title: "story表格视图",

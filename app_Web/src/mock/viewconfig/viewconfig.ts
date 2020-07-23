@@ -199,6 +199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainEditView",
             "viewtag": "21e00a7239d9737bbfda5c1608b4129c"
         },
+        "taskmainmygridview": {
+            "title": "task表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskMainMyGridView",
+            "viewtag": "24a03de02dc02b92a3c228b944e78ed9"
+        },
         "moduleeditview": {
             "title": "模块",
             "caption": "模块",
@@ -1287,14 +1295,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMPickupView",
             "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad"
         },
-        "taskgridview9_myassignedtome": {
-            "title": "任务表格视图",
-            "caption": "任务",
-            "viewtype": "DEGRIDVIEW9",
-            "viewmodule": "zentao",
-            "viewname": "TaskGridView9_MyAssignedToMe",
-            "viewtag": "b9c3f71e82f3948a129edafd67ca624a"
-        },
         "storyplansubgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -1439,6 +1439,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectPortalView",
             "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64"
         },
+        "casemainmygridview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseMainMyGridView",
+            "viewtag": "cd3d221ec6771bb755a0e482b8bcd171"
+        },
+        "bugmainmygridview": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMainMyGridView",
+            "viewtag": "cdba1a5e90e147e5f3bf9f2c08c87f56"
+        },
         "releasemaintabexpview": {
             "title": "发布分页导航视图",
             "caption": "产品发布",
@@ -1502,6 +1518,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CompanyMainView9",
             "viewtag": "d7f401156de51eb49cdb10a6fb9263ee"
+        },
+        "storymainmygridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMainMyGridView",
+            "viewtag": "d86b9d1e9fad770e8fc97718cee8ed31"
         },
         "storymain2gridview": {
             "title": "story表格视图",

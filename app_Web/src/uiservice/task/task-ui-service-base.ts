@@ -91,6 +91,7 @@ export default class TaskUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'assigntaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks'});
@@ -108,7 +109,6 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'canceltaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'opentaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'pausetaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'donetaskview',srfappde:'tasks'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindetailview9',srfappde:'tasks'});

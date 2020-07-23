@@ -198,7 +198,7 @@ export class MainGridGridBase extends GridControllerBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainGridViewBase
+     * @memberof CaseMainMyGridViewBase
      */
     public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -218,7 +218,7 @@ export class MainGridGridBase extends GridControllerBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainGridViewBase
+     * @memberof CaseMainMyGridViewBase
      */
     public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;

@@ -145,6 +145,10 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
+		mainmygridview: {
+			caption: "Bug",
+      		title: "bug表格视图",
+		},
 		closeview: {
 			caption: "关闭Bug",
       		title: "关闭Bug",
