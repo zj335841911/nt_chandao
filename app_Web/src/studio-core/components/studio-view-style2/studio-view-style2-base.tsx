@@ -46,19 +46,20 @@ export class StudioViewStyle2Base extends StudioViewBase {
      */
     protected renderContent(): any {
         return [
-            (this.$slots.toolbar || this.$slots.quickSearch) ? <div class="view-top">
+            this.$slots.toolbar ? <div class="view-top">
                 {this.$slots.toolbar ? <div class="view-toolbar">{this.$slots.toolbar}</div> : null}
                 {this.$slots.quickSearch ? <div class="quick-search">
-                    <transition name="opacity-transition">
-                        {this.$slots.quickSearch}
-                    </transition>
+                    {this.$slots.quickSearch}
                 </div> : null}
             </div> : null,
-            this.isShowHeader ? <div class="view-header">
+            this.isShowHeader ? <div class={{ 'view-header': true, 'hidden-top': !this.$slots.toolbar }}>
                 {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
                 {this.$slots.dataPanel ? <div class="data-panel">{this.$slots.dataPanel}</div> : null}
                 {this.$slots.quickGroupSearch ? <div class="quick-group-search">
                     {this.$slots.quickGroupSearch}
+                </div> : null}
+                {!this.$slots.toolbar && this.$slots.quickSearch ? <div class="quick-search">
+                    {this.$slots.quickSearch}
                 </div> : null}
                 {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
             </div> : null,

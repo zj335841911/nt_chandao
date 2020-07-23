@@ -725,12 +725,6 @@ export default {
 			tip: "Edit {0}",
 		},
 	},
-	buildsubgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",

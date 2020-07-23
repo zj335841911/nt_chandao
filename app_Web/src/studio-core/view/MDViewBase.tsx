@@ -139,9 +139,7 @@ export class MDViewBase extends ViewBase {
             if ($event.data) {
                 Object.assign(this.quickGroupData, $event.data);
             }
-            if (this.isEmitQuickGroupValue) {
-                this.onSearch();
-            }
+            this.onSearch();
         }
         this.isEmitQuickGroupValue = true;
     }
