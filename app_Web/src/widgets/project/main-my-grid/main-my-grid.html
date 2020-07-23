@@ -128,15 +128,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('days')">
-                <el-table-column show-overflow-tooltip :prop="'days'" :label="$t('entities.project.mainmy_grid.columns.days')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('hours')">
+                <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.project.mainmy_grid.columns.hours')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.project.mainmy_grid.columns.days')}}
+                        {{$t('entities.project.mainmy_grid.columns.hours')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.days}}</span>
+                            <app-format-data dataType="DECIMAL" precision="0" :data="row.hours"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

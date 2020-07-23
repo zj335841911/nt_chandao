@@ -77,7 +77,8 @@ export class ProjectMainMyGridViewBase extends GridViewBase {
 	 * @memberof ProjectMainMyGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFLOGINNAME': { isRawValue: false, value: 'srfloginname' }
+        'SRFLOGINNAME': { isRawValue: false, value: 'srfloginname' },
+        'N_ACCOUNT_EQ': { isRawValue: false, value: 'srfloginname' }
     };
 
 	/**
@@ -88,7 +89,8 @@ export class ProjectMainMyGridViewBase extends GridViewBase {
 	 * @memberof ProjectMainMyGridViewBase
 	 */
     protected customViewParams: any = {
-        'srfloginname': { isRawValue: false, value: 'srfloginname' }
+        'srfloginname': { isRawValue: false, value: 'srfloginname' },
+        'n_account_eq': { isRawValue: false, value: 'srfloginname' }
     };
 
     /**
