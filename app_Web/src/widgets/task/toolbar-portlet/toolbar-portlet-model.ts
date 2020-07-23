@@ -168,9 +168,6 @@ export default class ToolbarModel {
       {
         name: 'taskteams',
       },
-      {
-        name: 'subtasks',
-      },
     ]
   }
 

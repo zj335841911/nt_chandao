@@ -168,9 +168,6 @@ export default class WorkInfoModel {
       {
         name: 'taskteams',
       },
-      {
-        name: 'subtasks',
-      },
     ]
   }
 
