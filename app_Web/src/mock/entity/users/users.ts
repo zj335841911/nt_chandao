@@ -554,3 +554,31 @@ mock.onGet(new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any)
     console.groupEnd();
     return [status, _items?_items:{}];
 });
+
+// GetByCommiter
+mock.onGet(new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})\/getbycommiter$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: GetByCommiter");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})\/getbycommiter$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});

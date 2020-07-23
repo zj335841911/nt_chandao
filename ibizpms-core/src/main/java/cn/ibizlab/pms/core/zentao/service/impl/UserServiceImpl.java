@@ -112,6 +112,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
     @Override
     @Transactional
+    public User getByCommiter(User et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(User et) {
         if(!saveOrUpdate(et))
             return false;

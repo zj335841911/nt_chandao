@@ -53,14 +53,19 @@ public interface ITaskService extends IService<Task>{
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
     List<Task> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
+    void saveByModule(BigInteger id,List<Task> list) ;
     List<Task> selectByFrombug(BigInteger id) ;
     void removeByFrombug(BigInteger id) ;
+    void saveByFrombug(BigInteger id,List<Task> list) ;
     List<Task> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;
+    void saveByProject(BigInteger id,List<Task> list) ;
     List<Task> selectByStory(BigInteger id) ;
     void removeByStory(BigInteger id) ;
+    void saveByStory(BigInteger id,List<Task> list) ;
     List<Task> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
+    void saveByParent(BigInteger id,List<Task> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

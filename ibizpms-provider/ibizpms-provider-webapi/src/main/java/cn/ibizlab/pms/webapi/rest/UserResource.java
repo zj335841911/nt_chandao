@@ -123,6 +123,18 @@ public class UserResource {
         return  ResponseEntity.status(HttpStatus.OK).body(userService.checkKey(userMapping.toDomain(userdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-GetByCommiter-all')")
+    @ApiOperation(value = "根据代码账户查询用户信息", tags = {"用户" },  notes = "根据代码账户查询用户信息")
+	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}/getbycommiter")
+    @Transactional
+    public ResponseEntity<UserDTO> getByCommiter(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
+        User domain = userMapping.toDomain(userdto);
+domain.setId(user_id);
+        domain = userService.getByCommiter(domain);
+        userdto = userMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(userdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
     @ApiOperation(value = "保存用户", tags = {"用户" },  notes = "保存用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/save")

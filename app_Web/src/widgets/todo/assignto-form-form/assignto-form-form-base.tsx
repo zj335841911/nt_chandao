@@ -136,4 +136,55 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof AssigntoFormEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'NOTEQ', 'on')) {
+                ret = true;
+            }
+            this.detailsModel.date.setDisabled(!ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'lbldisabledate')) {
+            let ret = false;
+            const _lbldisabledate = this.data.lbldisabledate;
+            if (this.$verify.testCond(_lbldisabledate, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.begin.setDisabled(!ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'lbldisabledate')) {
+            let ret = false;
+            const _lbldisabledate = this.data.lbldisabledate;
+            if (this.$verify.testCond(_lbldisabledate, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.end.setDisabled(!ret);
+        }
+
+
+
+    }
 }

@@ -34,6 +34,7 @@ public interface IUserService extends IService<User>{
     User get(BigInteger key) ;
     User getDraft(User et) ;
     boolean checkKey(User et) ;
+    User getByCommiter(User et) ;
     boolean save(User et) ;
     void saveBatch(List<User> list) ;
     Page<User> searchDefault(UserSearchContext context) ;

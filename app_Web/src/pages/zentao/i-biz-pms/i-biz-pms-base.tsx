@@ -205,7 +205,7 @@ export class IBizPMSBase extends Vue {
     setTimeout(() => {
       const el = document.getElementById('app-loading-x');
       if (el) {
-        el.remove();
+        el.style.display = 'none';
       }
     }, 300);
   }

@@ -50,7 +50,7 @@ export default class Login extends Vue {
      * @type {*}
      * @memberof Login
      */
-    public rules = {};
+    public rules: any = {};
 
     /**
      * 设置值规则
@@ -78,7 +78,7 @@ export default class Login extends Vue {
     }
 
     /**
-     *
+     * 组件挂载完毕
      *
      * @memberof Login
      */
@@ -87,9 +87,30 @@ export default class Login extends Vue {
         setTimeout(() => {
             const el = document.getElementById('app-loading-x');
             if (el) {
-                el.remove();
+                el.style.display = 'none';
             }
         }, 300);
+        window.addEventListener('keydown', this.onKeyDown);
+    }
+
+    /**
+     * 组件销毁
+     *
+     * @memberof Login
+     */
+    public destroyed(): void {
+        window.removeEventListener('keydown', this.onKeyDown);
+    }
+
+    /**
+     * 按键
+     *
+     * @memberof Login
+     */
+    public onKeyDown = (e: KeyboardEvent) => {
+        if (e.keyCode === 13) {
+            this.handleSubmit();
+        }
     }
 
     /**
@@ -98,7 +119,7 @@ export default class Login extends Vue {
      * @memberof Login
      */
     @Watch('$i18n.locale')
-    onLocaleChange(newval: any, val: any) {
+    public onLocaleChange() {
         this.setRules();
     }
 
@@ -108,6 +129,9 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public handleSubmit(): void {
+        if (!isExistAndNotEmpty(this.form.loginname) || !isExistAndNotEmpty(this.form.password)) {
+            return;
+        }
         const leftTime = new Date();
         leftTime.setTime(leftTime.getSeconds() - 1000);
         document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
@@ -244,7 +268,7 @@ export default class Login extends Vue {
                                             </small>
                                         </form-item>
                                         <form-item class="submit">
-                                            <i-button type="primary" long size="large" on-click={() => this.handleSubmit()}>登录</i-button>
+                                            <i-button disabled type="primary" long size="large" on-click={() => this.handleSubmit()}>登录</i-button>
                                         </form-item>
                                     </i-form>
                                     <row class="external-account">
