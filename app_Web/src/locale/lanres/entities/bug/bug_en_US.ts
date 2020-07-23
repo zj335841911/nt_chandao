@@ -141,6 +141,10 @@ export default {
 			caption: "相关Bug",
       		title: "相关Bug",
 		},
+		gridview9_myassignedtome: {
+			caption: "Bug",
+      		title: "Bug表格视图",
+		},
 		closeview: {
 			caption: "关闭Bug",
       		title: "关闭Bug",

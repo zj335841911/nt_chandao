@@ -1279,6 +1279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMPickupView",
             "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad"
         },
+        "taskgridview9_myassignedtome": {
+            "title": "任务表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskGridView9_MyAssignedToMe",
+            "viewtag": "b9c3f71e82f3948a129edafd67ca624a"
+        },
         "storyplansubgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -1390,6 +1398,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugGridView9_StoryRelated",
             "viewtag": "c959d7fe98c33b7befcad24e2596633e"
+        },
+        "buggridview9_myassignedtome": {
+            "title": "Bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugGridView9_MyAssignedToMe",
+            "viewtag": "c9c1c725d243d98d75558fbc5293f8f9"
         },
         "taskdonetaskview": {
             "title": "完成任务",
