@@ -30,6 +30,9 @@ export default class MyWorkModel {
 				name: 'eprojects',
 			},
 			{
+				name: 'realname',
+			},
+			{
 				name: 'mytasks',
 			},
 			{

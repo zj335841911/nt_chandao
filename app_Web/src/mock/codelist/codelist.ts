@@ -562,17 +562,17 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
-        srfkey: "Beginendcheckbox",
+        srfkey: "Beginend_disable",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "on",
+                id: "1",
                 label: "暂时不设定时间",
                 text: "暂时不设定时间",
                 "data":"",
-                "codename":"On",
-                value: "on",
+                "codename":"Item_1",
+                value: "1",
                 
                 disabled: false,
             },
@@ -1477,6 +1477,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"TestTask",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: "Date_disable",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "待定",
+                text: "待定",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Product__status",
@@ -2996,6 +3013,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_365",
                 value: "365",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Cycle_enable",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "周期",
+                text: "周期",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
                 
                 disabled: false,
             },
