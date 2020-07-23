@@ -50,14 +50,6 @@ export class ExpListBase extends ListControllerBase {
     protected appDeName: string = 'project';
 
     /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof ExpListBase
-     */
-    public limit: number = 1000;
-
-    /**
      * 排序方向
      *
      * @type {string}

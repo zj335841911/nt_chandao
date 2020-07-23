@@ -599,6 +599,57 @@
         "items": []
     }, 
     {
+        "srfkey": "Pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "一般",
+                "text": "一般",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "最低",
+                "text": "最低",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "2",
+                "label": "最高",
+                "text": "最高",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "较高",
+                "text": "较高",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Beginend_disable",
         "emptytext": "未定义",
         "codelisttype":"static",

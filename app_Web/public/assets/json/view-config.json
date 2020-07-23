@@ -959,6 +959,16 @@
         "viewtag": "79b3a14f0431747becc48f5b9f3aa990",
         "memo": ""
     },
+    "storygridview9_myassignedtome": {
+        "title": "需求表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "StoryGridView9_MyAssignedToMe",
+        "viewfilename": "story-grid-view9-my-assigned-to-me",
+        "viewtag": "79ffa9ee5970e791fe37a01b98d5fce4",
+        "memo": "视图参数中指定了过滤条件"
+    },
     "testsuiteeditview": {
         "title": "testsuite编辑视图",
         "caption": "测试套件",

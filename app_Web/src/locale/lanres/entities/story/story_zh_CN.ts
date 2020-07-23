@@ -95,6 +95,10 @@ export default {
 			caption: "需求",
       		title: "需求编辑视图",
 		},
+		gridview9_myassignedtome: {
+			caption: "需求",
+      		title: "需求表格视图",
+		},
 		curprojectgridview: {
 			caption: "需求",
       		title: "story表格视图",
