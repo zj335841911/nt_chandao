@@ -72,6 +72,7 @@ export default {
 			date: "日期", 
 			date_disable: "", 
 			cycle_enable: "", 
+			formitem: "过期时间", 
 			type: "类型", 
 			pri: "优先级", 
 			name: "待办名称", 

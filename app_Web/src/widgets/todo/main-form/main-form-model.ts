@@ -60,6 +60,9 @@ export default class MainModel {
         name: 'cycle_enable',
       },
       {
+        name: 'formitem',
+      },
+      {
         name: 'type',
       },
       {

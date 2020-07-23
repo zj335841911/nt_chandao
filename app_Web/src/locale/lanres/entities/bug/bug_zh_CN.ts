@@ -464,6 +464,33 @@ export default {
 		uiactions: {
 		},
 	},
+	main_buildsub2_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			bug_unlinkbug_build: "解除关联",
+		},
+	},
+	pickupgird_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			openedby: "创建",
+			assignedto: "指派",
+			status: "Bug状态",
+		},
+		uiactions: {
+		},
+	},
 	main_buildsub_grid: {
 		columns: {
 			id: "ID",
@@ -498,18 +525,6 @@ export default {
 		},
 		uiactions: {
 			bug_unlinkbug: "移除关联",
-		},
-	},
-	pickupgird_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			openedby: "创建",
-			assignedto: "指派",
-			status: "Bug状态",
-		},
-		uiactions: {
 		},
 	},
 	main_releasesub_grid: {
@@ -577,9 +592,9 @@ export default {
 		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
 		},
 	},
 	editviewtoolbar_toolbar: {

@@ -39,8 +39,16 @@ export default class MyWork2Model {
         prop: 'products'
       },
       {
+        name: 'field1',
+        prop: ''
+      },
+      {
         name: 'myebugs',
         prop: 'myebugs'
+      },
+      {
+        name: 'field2',
+        prop: ''
       },
       {
         name: 'eprojects',

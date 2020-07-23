@@ -22,16 +22,6 @@ public class BuildExService extends BuildServiceImpl {
     }
 
     /**
-     * 自定义行为[LinkStories]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Build linkStories(Build et) {
-        return super.linkStories(et);
-    }
-    /**
      * 自定义行为[LinkStory]用户扩展
      * @param et
      * @return

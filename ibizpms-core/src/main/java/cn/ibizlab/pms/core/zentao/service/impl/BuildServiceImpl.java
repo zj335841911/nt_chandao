@@ -141,13 +141,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
     @Override
     @Transactional
-    public Build linkStories(Build et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
     public Build linkStory(Build et) {
         //自定义代码
         return et;

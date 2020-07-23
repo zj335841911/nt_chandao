@@ -28,6 +28,12 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.todo.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.formitem" :disabled="detailsModel.formitem.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.formitem = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.todo.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
@@ -87,13 +93,39 @@
 </i-col>
 <i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.todo.main_form.details.begin')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
-     <time-picker :value="data.begin" :transfer="true" :disabled="detailsModel.begin.disabled" format="HH:mm" placeholder="请选择时间..." style="min-width: 150px; width:70px;"  @on-change="(val) => {this.data.begin = val}"></time-picker>
+    
+<dropdown-list 
+    v-model="data.begin"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.begin.disabled"
+    tag='BeginendDropList'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.todo.main_form.details.end')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="NONE">
-     <time-picker :value="data.end" :transfer="true" :disabled="detailsModel.end.disabled" format="HH:mm" placeholder="请选择时间..." style="min-width: 150px; width:70px;"  @on-change="(val) => {this.data.end = val}"></time-picker>
+    
+<dropdown-list 
+    v-model="data.end"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.end.disabled"
+    tag='BeginendDropList'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

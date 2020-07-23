@@ -76,6 +76,7 @@ export class MainEditFormBase extends EditFormControlBase {
         date: null,
         date_disable: null,
         cycle_enable: null,
+        formitem: null,
         type: null,
         pri: null,
         name: null,
@@ -95,6 +96,10 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        name: [
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -128,7 +133,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
         cycle_enable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem: new FormItemModel({ caption: '过期时间', detailType: 'FORMITEM', name: 'formitem', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -147,4 +154,61 @@ export class MainEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof MainEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'date_disable')) {
+            let ret = false;
+            const _date_disable = this.data.date_disable;
+            if (this.$verify.testCond(_date_disable, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.date.setDisabled(!ret);
+        }
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
+            let ret = false;
+            const _cycle_enable = this.data.cycle_enable;
+            if (this.$verify.testCond(_cycle_enable, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.formitem.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
+            let ret = false;
+            const _cycle_enable = this.data.cycle_enable;
+            if (this.$verify.testCond(_cycle_enable, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.type.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+    }
 }

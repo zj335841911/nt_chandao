@@ -141,6 +141,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
             et.setId(key);
         }
         else{
+            et.setTask(taskService.selectByStory(key));
         }
         return et;
     }
