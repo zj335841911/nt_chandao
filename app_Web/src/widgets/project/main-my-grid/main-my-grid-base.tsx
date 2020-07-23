@@ -164,9 +164,9 @@ export class MainMyGridBase extends GridControllerBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'days',
-            label: '可用工作日',
-            langtag: 'entities.project.mainmy_grid.columns.days',
+            name: 'hours',
+            label: '可用工时/天',
+            langtag: 'entities.project.mainmy_grid.columns.hours',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -213,7 +213,7 @@ export class MainMyGridBase extends GridControllerBase {
         'status':false,
         'role':false,
         'join':false,
-        'days':false,
+        'hours':false,
     };
 
     /**

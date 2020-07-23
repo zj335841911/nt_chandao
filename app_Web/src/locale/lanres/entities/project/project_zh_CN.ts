@@ -333,7 +333,7 @@ export default {
 			status: "项目状态",
 			role: "角色",
 			join: "加盟日",
-			days: "可用工作日",
+			hours: "可用工时/天",
 		},
 		uiactions: {
 		},

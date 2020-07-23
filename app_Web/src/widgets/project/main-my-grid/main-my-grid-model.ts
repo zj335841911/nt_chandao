@@ -32,6 +32,11 @@ export default class MainMyModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'DECIMAL',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
@@ -74,11 +79,6 @@ export default class MainMyModel {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'days',
-          prop: 'days',
-          dataType: 'INT',
         },
         {
           name: 'name',
