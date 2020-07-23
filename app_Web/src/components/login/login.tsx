@@ -268,7 +268,7 @@ export default class Login extends Vue {
                                             </small>
                                         </form-item>
                                         <form-item class="submit">
-                                            <i-button disabled type="primary" long size="large" on-click={() => this.handleSubmit()}>登录</i-button>
+                                            <i-button type="primary" long size="large" on-click={() => this.handleSubmit()}>登录</i-button>
                                         </form-item>
                                     </i-form>
                                     <row class="external-account">

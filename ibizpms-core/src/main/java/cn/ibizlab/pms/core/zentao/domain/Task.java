@@ -461,14 +461,6 @@ public class Task extends EntityMP implements Serializable {
     @TableField(exist = false)
     private List<cn.ibizlab.pms.core.ibiz.domain.TaskTeam> taskteam;
 
-    /**
-     * 任务
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private List<cn.ibizlab.pms.core.zentao.domain.Task> task;
-
 
     /**
      * 设置 [由谁取消]

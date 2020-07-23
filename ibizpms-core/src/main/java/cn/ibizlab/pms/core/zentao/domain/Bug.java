@@ -609,14 +609,6 @@ public class Bug extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.TestTask zttesttask;
 
 
-    /**
-     * 任务
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private List<cn.ibizlab.pms.core.zentao.domain.Task> task;
-
 
     /**
      * 设置 [严重程度]
