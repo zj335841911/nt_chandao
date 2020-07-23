@@ -333,4 +333,36 @@ export interface Project {
      * @memberof Project
      */
     period?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    account?: any;
+
+    /**
+     * 加盟日
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    join?: any;
+
+    /**
+     * 可用工时/天
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    hours?: any;
+
+    /**
+     * 角色
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    role?: any;
 }

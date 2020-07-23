@@ -356,6 +356,39 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("period")
     private String period;
 
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
+
+    /**
+     * 属性 [JOIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonProperty("join")
+    private Timestamp join;
+
+    /**
+     * 属性 [HOURS]
+     *
+     */
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    private Double hours;
+
+    /**
+     * 属性 [ROLE]
+     *
+     */
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    private String role;
+
 
     /**
      * 设置 [OPENEDVERSION]

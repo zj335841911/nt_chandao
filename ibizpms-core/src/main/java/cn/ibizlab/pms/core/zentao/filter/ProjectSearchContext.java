@@ -104,6 +104,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("period", n_period_eq);
         }
     }
+	private String n_account_eq;//[项目团队成员]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("account", n_account_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
