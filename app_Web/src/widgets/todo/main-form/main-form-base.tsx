@@ -205,7 +205,23 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'formitem10')) {
+            let ret = false;
+            const _formitem10 = this.data.formitem10;
+            if (this.$verify.testCond(_formitem10, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.begin.setDisabled(!ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'formitem10')) {
+            let ret = false;
+            const _formitem10 = this.data.formitem10;
+            if (this.$verify.testCond(_formitem10, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.end.setDisabled(!ret);
+        }
 
 
 
