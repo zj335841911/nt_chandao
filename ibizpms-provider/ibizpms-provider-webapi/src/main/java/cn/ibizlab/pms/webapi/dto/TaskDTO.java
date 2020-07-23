@@ -683,13 +683,6 @@ public class TaskDTO extends DTOBase implements Serializable {
 
 
     /**
-     *  [IBZ_SUBTASK]
-     */
-    @JsonProperty("subtasks")
-    @JSONField(name = "subtasks")
-	private List<SubTaskDTO> task ;
-
-    /**
      *  [IBZ_TASKTEAM]
      */
     @JsonProperty("ibztaskteams")

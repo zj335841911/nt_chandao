@@ -145,7 +145,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
             et.setId(key);
         }
         else{
-            et.setTask(taskService.selectByFrombug(key));
         }
         return et;
     }

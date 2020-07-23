@@ -163,7 +163,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
             et.setId(key);
         }
         else{
-            et.setTask(taskService.selectByProject(key));
         }
         return et;
     }

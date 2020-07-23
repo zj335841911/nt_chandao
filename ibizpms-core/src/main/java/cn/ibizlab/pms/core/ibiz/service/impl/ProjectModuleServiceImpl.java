@@ -66,7 +66,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        taskService.saveByModule(et.getId(),et.getTask());
         CachedBeanCopier.copy(get(et.getId()),et);
         fixpathLogic.execute(et);
         return true;
@@ -84,7 +83,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        taskService.saveByModule(et.getId(),et.getTask());
         CachedBeanCopier.copy(get(et.getId()),et);
         fixpathLogic.execute(et);
         return true;
@@ -117,7 +115,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
             et.setId(key);
         }
         else{
-            et.setTask(taskService.selectByModule(key));
         }
         return et;
     }
