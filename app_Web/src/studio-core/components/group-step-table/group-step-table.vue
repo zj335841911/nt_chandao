@@ -41,7 +41,7 @@
                         <div class="table-action">
                             <Icon type="md-add" @click="onAdd(item, index)"/>
                             <Icon type="md-move" class="table-tr-drag"/>
-                            <Icon type="md-close" @click="onRemove(item, index)"/>
+                            <Icon type="md-close"  :class="{'table-tr-remove': getItems(data).length <= 1}" @click="onRemove(item, index)"/>
                         </div>
                     </td>
                 </tr>
@@ -178,7 +178,9 @@ export default class GroupStepTable extends Vue {
      * @memberof GroupStepTable
      */
     public onRemove(row: any, index: number) {
-        this.$emit('remove', [row]);
+        if(this.data.length > 1){
+            this.$emit('remove', [row]);
+        }
     }
 
     /**
@@ -200,9 +202,22 @@ export default class GroupStepTable extends Vue {
     public onDraggable($event: any) {
         this.$forceUpdate();
     }
+
+    /**
+     * 更新组件数据时
+     * 
+     * @memberof GroupStepTable
+     */
+    public updated(){
+        if(!this.data || this.data.length == 0) {
+            if(this.isEdit === true){
+                this.onAdd({},-1);  
+            }
+        }
+    }
+
 }
 </script>
-
 <style lang="less">
 @import './group-step-table.less';
 </style>
