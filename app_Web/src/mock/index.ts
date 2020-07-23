@@ -43,6 +43,7 @@ import './entity/test-results/test-results';
 import './entity/test-suites/test-suites';
 import './entity/project-teams/project-teams';
 import './entity/test-tasks/test-tasks';
+import './entity/product-lines/product-lines';
 import './entity/test-reports/test-reports';
 import './entity/project-statss/project-statss';
 import './entity/test-runs/test-runs';

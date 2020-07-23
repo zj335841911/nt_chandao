@@ -102,6 +102,7 @@ export default {
         build_submittotesting: "提交测试",
         build_viewbugs: "查看Bug",
         edit: "Edit",
+        build_editbuild: "编辑版本",
         remove: "Remove",
 		},
 	},
@@ -112,16 +113,16 @@ export default {
 		uiactions: {
 		},
 	},
-	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
 		},
 	},
 };

@@ -75,6 +75,7 @@ export class UIServiceRegister {
         this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
         this.allUIService.set('projectteam', () => import('@/uiservice/project-team/project-team-ui-service'));
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
+        this.allUIService.set('productline', () => import('@/uiservice/product-line/product-line-ui-service'));
         this.allUIService.set('testreport', () => import('@/uiservice/test-report/test-report-ui-service'));
         this.allUIService.set('projectstats', () => import('@/uiservice/project-stats/project-stats-ui-service'));
         this.allUIService.set('testrun', () => import('@/uiservice/test-run/test-run-ui-service'));
