@@ -303,6 +303,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugActivationView",
             "viewtag": "37166f95166299e28f1a366b0b375d06"
         },
+        "projectmainmygridview": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectMainMyGridView",
+            "viewtag": "376e2623b256509cdf69e2de4c01d31b"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",

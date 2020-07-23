@@ -354,6 +354,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '376e2623b256509cdf69e2de4c01d31b',
+            viewmodule: 'zentao',
+            viewname: 'ProjectMainMyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
+                'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
             viewtag: '3aafb12bb0db2be013c0f5ced8c7dc50',
             viewmodule: 'zentao',
             viewname: 'ProjectListExpView',
@@ -2145,6 +2156,7 @@ export const viewstate: any = {
                 'cd3d221ec6771bb755a0e482b8bcd171',
                 'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',
+                '376e2623b256509cdf69e2de4c01d31b',
             ],
         },
         {

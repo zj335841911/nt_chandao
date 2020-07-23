@@ -52,6 +52,7 @@ export const PageComponents = {
         Vue.component('build-main-grid-view', () => import('@pages/zentao/build-main-grid-view/build-main-grid-view.vue'));
         Vue.component('bug-release-sub-grid-view-undone', () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'));
         Vue.component('product-edit-view', () => import('@pages/zentao/product-edit-view/product-edit-view.vue'));
+        Vue.component('project-main-my-grid-view', () => import('@pages/zentao/project-main-my-grid-view/project-main-my-grid-view.vue'));
         Vue.component('product-life-road-map-list-view', () => import('@pages/ibiz/product-life-road-map-list-view/product-life-road-map-list-view.vue'));
         Vue.component('task-main-edit-view', () => import('@pages/zentao/task-main-edit-view/task-main-edit-view.vue'));
         Vue.component('bug-resolve-view', () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'));

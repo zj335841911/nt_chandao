@@ -8,6 +8,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
+        srfkey: "ProjectQuickpaketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "我的项目",
+                text: "我的项目",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__status",
         emptytext: "未定义",
         "codelisttype":"static",

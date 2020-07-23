@@ -333,5 +333,26 @@ domain.setId(project_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchMyProject-all')")
+	@ApiOperation(value = "获取我的项目", tags = {"项目" } ,notes = "获取我的项目")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchmyproject")
+	public ResponseEntity<List<ProjectDTO>> fetchMyProject(ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchMyProject(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchMyProject-all')")
+	@ApiOperation(value = "查询我的项目", tags = {"项目" } ,notes = "查询我的项目")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchmyproject")
+	public ResponseEntity<Page<ProjectDTO>> searchMyProject(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchMyProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

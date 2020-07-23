@@ -1,4 +1,8 @@
 export default {
+    ProjectQuickpaketMy: {
+        "All": "我的项目",
+        "empty": ""
+    },
     Bug__status: {
         "active": "激活",
         "resolved": "已解决",

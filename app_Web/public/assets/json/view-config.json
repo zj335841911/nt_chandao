@@ -369,6 +369,16 @@
         "viewtag": "37166f95166299e28f1a366b0b375d06",
         "memo": ""
     },
+    "projectmainmygridview": {
+        "title": "项目",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectMainMyGridView",
+        "viewfilename": "project-main-my-grid-view",
+        "viewtag": "376e2623b256509cdf69e2de4c01d31b",
+        "memo": ""
+    },
     "projectburndownchartview": {
         "title": "燃尽图",
         "caption": "项目",
