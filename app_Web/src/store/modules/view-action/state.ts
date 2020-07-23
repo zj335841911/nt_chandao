@@ -930,6 +930,22 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '79ffa9ee5970e791fe37a01b98d5fce4',
+            viewmodule: 'zentao',
+            viewname: 'StoryGridView9_MyAssignedToMe',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5890a810365fec51e801d2cffce44fde',
+                'df5a966e312ca9c5f5a41428bc2e2672',
+                '538555af88ea31549a5bc7dbf1e6286a',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
+                'e54598b1e6d38d7c6ce8231b531b46bd',
+            ],
+        },
+        {
             viewtag: '7a983ef690626958a9897f58efe15e58',
             viewmodule: 'zentao',
             viewname: 'TestSuiteEditView',
@@ -1541,6 +1557,23 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b9c3f71e82f3948a129edafd67ca624a',
+            viewmodule: 'zentao',
+            viewname: 'TaskGridView9_MyAssignedToMe',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                '21e00a7239d9737bbfda5c1608b4129c',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
+                'abca63015fc84466991c6479f955f6d0',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+                '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
             viewtag: 'b9e94e3713c82ebab002631bda872b94',
             viewmodule: 'zentao',
             viewname: 'StoryPlanSubGridView',
@@ -1664,6 +1697,21 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
+            viewtag: 'c9c1c725d243d98d75558fbc5293f8f9',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_MyAssignedToMe',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {
@@ -2080,6 +2128,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'b9c3f71e82f3948a129edafd67ca624a',
+                'c9c1c725d243d98d75558fbc5293f8f9',
                 '79ffa9ee5970e791fe37a01b98d5fce4',
                 'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',

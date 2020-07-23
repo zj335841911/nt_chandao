@@ -130,6 +130,10 @@ export default {
 			caption: "暂停任务",
       		title: "暂停任务",
 		},
+		gridview9_myassignedtome: {
+			caption: "任务",
+      		title: "任务表格视图",
+		},
 		donetaskview: {
 			caption: "完成任务",
       		title: "完成任务",

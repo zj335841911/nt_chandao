@@ -1589,6 +1589,16 @@
         "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad",
         "memo": ""
     },
+    "taskgridview9_myassignedtome": {
+        "title": "任务表格视图",
+        "caption": "任务",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskGridView9_MyAssignedToMe",
+        "viewfilename": "task-grid-view9-my-assigned-to-me",
+        "viewtag": "b9c3f71e82f3948a129edafd67ca624a",
+        "memo": ""
+    },
     "storyplansubgridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -1727,6 +1737,16 @@
         "viewname": "BugGridView9_StoryRelated",
         "viewfilename": "bug-grid-view9-story-related",
         "viewtag": "c959d7fe98c33b7befcad24e2596633e",
+        "memo": ""
+    },
+    "buggridview9_myassignedtome": {
+        "title": "Bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_MyAssignedToMe",
+        "viewfilename": "bug-grid-view9-my-assigned-to-me",
+        "viewtag": "c9c1c725d243d98d75558fbc5293f8f9",
         "memo": ""
     },
     "taskdonetaskview": {
