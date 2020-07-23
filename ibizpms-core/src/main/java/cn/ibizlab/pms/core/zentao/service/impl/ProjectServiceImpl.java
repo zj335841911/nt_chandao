@@ -392,6 +392,15 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         return new PageImpl<Project>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 我的项目
+     */
+    @Override
+    public Page<Project> searchMyProject(ProjectSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Project> pages=baseMapper.searchMyProject(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Project>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

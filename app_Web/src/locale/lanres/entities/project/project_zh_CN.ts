@@ -51,6 +51,10 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
+		mainmygridview: {
+			caption: "项目",
+      		title: "项目",
+		},
 		burndownchartview: {
 			caption: "项目",
       		title: "燃尽图",
@@ -387,6 +391,20 @@ export default {
 			caption: "",
 			tip: "",
 		},
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
 			tip: "新建",

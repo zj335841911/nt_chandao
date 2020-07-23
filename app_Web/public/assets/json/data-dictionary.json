@@ -1,5 +1,23 @@
  [
         {
+        "srfkey": "ProjectQuickpaketMy",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "All",
+                "label": "我的项目",
+                "text": "我的项目",
+                "data":{},
+                "codename":"All",
+                "value": "All",
+                
+                "disabled": false,
+                "default": true
+            }
+        ]
+    }, 
+    {
         "srfkey": "Bug__status",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -348,7 +366,7 @@
                 "value": "TOME",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "ICREATE",
@@ -399,7 +417,7 @@
                 "value": "TOME",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "ICREATE",
@@ -1706,7 +1724,7 @@
                 "value": "TOME",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "ICREATE",
@@ -4885,7 +4903,7 @@
                 "value": "TOME",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "CANCELLED",

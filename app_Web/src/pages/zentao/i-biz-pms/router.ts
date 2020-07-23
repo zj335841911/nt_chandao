@@ -2012,6 +2012,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-edit-view/product-edit-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/mainmygridview/:mainmygridview?',
+                    meta: {
+                        caption: 'entities.project.views.mainmygridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-main-my-grid-view/project-main-my-grid-view.vue'),
+                },
+                {
                     path: 'productlives/:productlife?/roadmaplistview/:roadmaplistview?',
                     meta: {
                         caption: 'entities.productlife.views.roadmaplistview.title',

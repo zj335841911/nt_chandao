@@ -22,6 +22,7 @@ public interface ProjectMapper extends BaseMapper<Project>{
     Page<Project> searchBugProject(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper) ;
     Page<Project> searchCurProduct(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper) ;
     Page<Project> searchDefault(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper) ;
+    Page<Project> searchMyProject(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper) ;
     @Override
     Project selectById(Serializable id);
     @Override
