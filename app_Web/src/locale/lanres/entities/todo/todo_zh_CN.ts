@@ -113,6 +113,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
@@ -125,12 +131,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };
