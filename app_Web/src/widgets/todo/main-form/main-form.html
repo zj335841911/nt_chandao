@@ -14,17 +14,39 @@
 </i-col>
 <i-col v-show="detailsModel.date_disable.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='date_disable' :itemRules="this.rules.date_disable" class='' :caption="$t('entities.todo.main_form.details.date_disable')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.date_disable.error" :isEmptyCaption="false" labelPos="NONE">
-    <div style="">
-  <app-checkbox :value="this.data.date_disable" @change="($event)=>{this.data.date_disable = $event} " :disabled="detailsModel.date_disable.disabled"></app-checkbox>
-</div>
+    
+<dropdown-list 
+    v-model="data.date_disable"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.date_disable.disabled"
+    tag='Date_disable'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.cycle_enable.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='cycle_enable' :itemRules="this.rules.cycle_enable" class='' :caption="$t('entities.todo.main_form.details.cycle_enable')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.cycle_enable.error" :isEmptyCaption="false" labelPos="NONE">
-    <div style="">
-  <app-checkbox :value="this.data.cycle_enable" @change="($event)=>{this.data.cycle_enable = $event} " :disabled="detailsModel.cycle_enable.disabled"></app-checkbox>
-</div>
+    
+<dropdown-list 
+    v-model="data.cycle_enable"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.cycle_enable.disabled"
+    tag='Cycle_enable'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -131,9 +153,20 @@
 </i-col>
 <i-col v-show="detailsModel.formitem10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='formitem10' :itemRules="this.rules.formitem10" class='' :caption="$t('entities.todo.main_form.details.formitem10')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem10.error" :isEmptyCaption="false" labelPos="NONE">
-    <div style="">
-  <app-checkbox :value="this.data.formitem10" @change="($event)=>{this.data.formitem10 = $event} " :disabled="detailsModel.formitem10.disabled"></app-checkbox>
-</div>
+    
+<dropdown-list 
+    v-model="data.formitem10"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.formitem10.disabled"
+    tag='Beginend_disable'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

@@ -34,9 +34,20 @@
 </i-col>
 <i-col v-show="detailsModel.future.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='future' :itemRules="this.rules.future" class='' :caption="$t('entities.todo.assigntoform_form.details.future')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.future.error" :isEmptyCaption="true" labelPos="NONE">
-    <div style="">
-  <app-checkbox :value="this.data.future" @change="($event)=>{this.data.future = $event} " :disabled="detailsModel.future.disabled"></app-checkbox>
-</div>
+    
+<dropdown-list 
+    v-model="data.future"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.future.disabled"
+    tag='Datecheckbox'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -82,9 +93,20 @@
 </i-col>
 <i-col v-show="detailsModel.lbldisabledate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='lbldisabledate' :itemRules="this.rules.lbldisabledate" class='' :caption="$t('entities.todo.assigntoform_form.details.lbldisabledate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.lbldisabledate.error" :isEmptyCaption="false" labelPos="NONE">
-    <div style="">
-  <app-checkbox :value="this.data.lbldisabledate" @change="($event)=>{this.data.lbldisabledate = $event} " :disabled="detailsModel.lbldisabledate.disabled"></app-checkbox>
-</div>
+    
+<dropdown-list 
+    v-model="data.lbldisabledate"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.lbldisabledate.disabled"
+    tag='Beginend_disable'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
