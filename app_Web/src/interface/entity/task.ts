@@ -413,12 +413,4 @@ export interface Task {
      * @memberof Task
      */
     taskteams?: any;
-
-    /**
-     * 子任务
-     *
-     * @returns {*}
-     * @memberof Task
-     */
-    subtasks?: any;
 }

@@ -168,9 +168,6 @@ export default class MainInfoModel {
       {
         name: 'taskteams',
       },
-      {
-        name: 'subtasks',
-      },
     ]
   }
 
