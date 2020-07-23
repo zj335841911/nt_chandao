@@ -416,6 +416,31 @@ export default class ZentaoModel {
 		return menu;
 	}
 
+	/**
+	 * 查找默认打开菜单
+	 *
+	 * @param {any[]} [menus=this.items]
+	 * @returns {*}
+	 * @memberof ZentaoModel
+	 */
+	public findDefaultOpenMenu(menus: any[] = this.items): any {
+		let menu: any;
+		menus.every((item: any) => {
+			if (item.opendefault === true) {
+				menu = item;
+				return false;
+			}
+			if (item.items) {
+				menu = this.findMenuByFuncTag(item.items);
+				if (menu) {
+					return false;
+				}
+			}
+			return true;
+		});
+		return menu;
+	}
+
     /**
      * 获取所有菜单项集合
      *
