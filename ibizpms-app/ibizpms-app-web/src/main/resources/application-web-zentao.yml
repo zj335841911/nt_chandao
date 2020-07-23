@@ -1,17 +1,17 @@
 zuul:
   routes:
-    common:
-      path: /**
+#    common:
+#      path: /**
+#      serviceId: pms-webapi-qml
+#      stripPrefix: false
+    v7:
+      path: /v7/**
       serviceId: pms-webapi
       stripPrefix: false
-#    v7:
-#      path: /v7/**
-#      serviceId: pms-webapi
-#      stripPrefix: false
-#    ibizutil:
-#      path: /ibizutil/**
-#      serviceId: pms-webapi
-#      stripPrefix: false
+    ibizutil:
+      path: /ibizutil/**
+      serviceId: pms-webapi
+      stripPrefix: false
 
 environment:
   - TZ=Asia/Shanghai
