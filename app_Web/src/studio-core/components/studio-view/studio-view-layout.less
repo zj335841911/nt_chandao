@@ -504,25 +504,31 @@
 
     .app-list-exp-bar.ivu-split-wrapper {
 
-        .list-exp-bar-content {
-            height: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
+        .left-pane.ivu-split-pane {
+            display: flex;
+            flex-direction: column;
 
-            >.app-list {
-
-                .app-list-item.isSelect {
-                    position: relative;
-                    background-color: unset;
-                }
-
-                .app-list-item.isSelect::before {
-                    position: absolute;
-                    left: 0;
-                    top: 1px;
-                    bottom: 1px;
-                    content: ' ';
-                    border-left: 3px solid var(--view-background-color-active);
+            .list-exp-bar-content {
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
+                flex-grow: 1;
+                
+                >.app-list {
+    
+                    .app-list-item.isSelect {
+                        position: relative;
+                        background-color: unset;
+                    }
+    
+                    .app-list-item.isSelect::before {
+                        position: absolute;
+                        left: 0;
+                        top: 1px;
+                        bottom: 1px;
+                        content: ' ';
+                        border-left: 3px solid var(--view-background-color-active);
+                    }
                 }
             }
         }
