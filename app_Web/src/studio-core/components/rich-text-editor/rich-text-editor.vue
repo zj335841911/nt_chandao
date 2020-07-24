@@ -271,6 +271,13 @@ export default class RichTextEditor extends Vue {
     public ibizpublic: string = '';
 
     /**
+     * 上传的图片id与类型集合
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    public imgsrc: Array<any> = [];
+
+    /**
      * 生命周期
      *
      * @memberof RichTextEditor
@@ -339,6 +346,10 @@ export default class RichTextEditor extends Vue {
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
         const content: any = this.editor ? this.editor.getContent() : undefined;
+        const url = this.downloadUrl.substring(3);
+        if(newval) {
+            newval = newval.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
+        }
         if (!Object.is(newval,content)) {
             this.init();
         }
@@ -373,7 +384,7 @@ export default class RichTextEditor extends Vue {
             min_height: 400,
             branding: false,
             plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars'],
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image | preview code fullscreen',
             quickbars_insert_toolbar: false,
             quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
@@ -396,7 +407,16 @@ export default class RichTextEditor extends Vue {
             setup: (editor: any) => {
                 richtexteditor.editor = editor;
                 editor.on('blur', () => {
-                    const content = editor.getContent();
+                    let content = editor.getContent();
+                    const url = richtexteditor.downloadUrl.substring(3);
+                    let newContent: string = "";
+                    const imgsrc = richtexteditor.imgsrc;
+                    if(imgsrc && imgsrc.length > 0){
+                        imgsrc.forEach((item: any)=>{
+                            newContent = content.replace(url+"/"+item.id,"{"+item.id+item.type+"}");
+                            content = newContent;
+                        });
+                    }
                     richtexteditor.$emit('change', content);
                 });  
             },
@@ -416,10 +436,12 @@ export default class RichTextEditor extends Vue {
                 }
                 this.uploadUrl = _url;
                 richtexteditor.uploadFile(_url, formData).subscribe((file: any) => {
-                    let downloadUrl =   richtexteditor.downloadUrl;
+                    const item: any = { id: file.fileid, type: file.ext };
+                    richtexteditor.imgsrc.push(item);
+                    let downloadUrl =  richtexteditor.downloadUrl;
                     if (file.filename) {
-                        const id: string = file.fileid;
-                        const url: string = `${downloadUrl}/${id}`
+                        const id: string = file.fileid; 
+                        const url: string = `${downloadUrl}/${id}`;
                         success(url);
                     }
                     if (this.export_params.length > 0) {
