@@ -52,6 +52,8 @@ export default class MainModel {
       },
       {
         name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
       },
       {
         name: 'date_disable',
@@ -60,31 +62,67 @@ export default class MainModel {
         name: 'cycle_enable',
       },
       {
+        name: 'formitem3',
+      },
+      {
+        name: 'formitem4',
+      },
+      {
+        name: 'formitem5',
+      },
+      {
+        name: 'formitem2',
+      },
+      {
         name: 'formitem',
       },
       {
+        name: 'assigneddate',
+        prop: 'assigneddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'type',
+        prop: 'type',
+        dataType: 'TEXT',
       },
       {
         name: 'pri',
+        prop: 'pri',
+        dataType: 'INT',
       },
       {
         name: 'name',
+        prop: 'name',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'formitem1',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'begin',
+        prop: 'begin',
+        dataType: 'INT',
       },
       {
         name: 'end',
+        prop: 'end',
+        dataType: 'INT',
       },
       {
         name: 'formitem10',
       },
       {
         name: 'private',
+        prop: 'ibizprivate',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'id',

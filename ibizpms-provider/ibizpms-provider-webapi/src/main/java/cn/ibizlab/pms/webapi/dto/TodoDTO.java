@@ -195,6 +195,55 @@ public class TodoDTO extends DTOBase implements Serializable {
     @JsonProperty("config")
     private String config;
 
+    /**
+     * 属性 [CONFIG_DAY]
+     *
+     */
+    @JSONField(name = "config_day")
+    @JsonProperty("config_day")
+    private Integer configDay;
+
+    /**
+     * 属性 [CONFIG_BEFOREDAYS]
+     *
+     */
+    @JSONField(name = "config_beforedays")
+    @JsonProperty("config_beforedays")
+    private Integer configBeforedays;
+
+    /**
+     * 属性 [CONFIG_WEEK]
+     *
+     */
+    @JSONField(name = "config_week")
+    @JsonProperty("config_week")
+    private String configWeek;
+
+    /**
+     * 属性 [CONFIG_MONTH]
+     *
+     */
+    @JSONField(name = "config_month")
+    @JsonProperty("config_month")
+    private String configMonth;
+
+    /**
+     * 属性 [CONFIG_TYPE]
+     *
+     */
+    @JSONField(name = "config_type")
+    @JsonProperty("config_type")
+    private String configType;
+
+    /**
+     * 属性 [CONFIG_END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "config_end" , format="yyyy-MM-dd")
+    @JsonProperty("config_end")
+    private Timestamp configEnd;
+
 
     /**
      * 设置 [ACCOUNT]

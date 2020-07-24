@@ -172,7 +172,7 @@ export class ProjectMainMyGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'project',
             majorPSDEField: 'name',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -424,6 +424,14 @@ export class ProjectMainMyGridViewBase extends GridViewBase {
             _this.refresh(args);
         }
     }
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof ProjectMainMyGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

@@ -159,7 +159,7 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'story',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -442,6 +442,14 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
             _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
         }
     }
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof StoryCurProjectGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

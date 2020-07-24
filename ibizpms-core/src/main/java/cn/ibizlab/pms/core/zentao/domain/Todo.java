@@ -196,6 +196,49 @@ public class Todo extends EntityMP implements Serializable {
     @JSONField(name = "config")
     @JsonProperty("config")
     private String config;
+    /**
+     * 间隔天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_day")
+    @JsonProperty("config_day")
+    private Integer configDay;
+    /**
+     * 提前生成待办天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_beforedays")
+    @JsonProperty("config_beforedays")
+    private Integer configBeforedays;
+    /**
+     * 周期设置周几
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_week")
+    @JsonProperty("config_week")
+    private String configWeek;
+    /**
+     * 周期设置月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_month")
+    @JsonProperty("config_month")
+    private String configMonth;
+    /**
+     * 周期类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_type")
+    @JsonProperty("config_type")
+    private String configType;
+    /**
+     * 过期时间
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "config_end" , format="yyyy-MM-dd")
+    @JsonProperty("config_end")
+    private Timestamp configEnd;
 
 
 

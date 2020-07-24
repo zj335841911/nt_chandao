@@ -321,6 +321,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			product: "所属产品", 
 			id: "Bug编号", 
 			resolution: "解决方案", 
 			resolvedbuild: "解决版本", 

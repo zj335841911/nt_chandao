@@ -132,7 +132,7 @@ export class CaseMainMyGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'case',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -297,6 +297,14 @@ export class CaseMainMyGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof CaseMainMyGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

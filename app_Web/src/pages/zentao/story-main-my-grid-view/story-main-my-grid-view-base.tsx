@@ -143,7 +143,7 @@ export class StoryMainMyGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'story',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -308,6 +308,14 @@ export class StoryMainMyGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof StoryMainMyGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

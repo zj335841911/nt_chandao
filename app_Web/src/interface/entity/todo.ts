@@ -173,4 +173,52 @@ export interface Todo {
      * @memberof Todo
      */
     config?: any;
+
+    /**
+     * 间隔天数
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_day?: any;
+
+    /**
+     * 提前生成待办天数
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_beforedays?: any;
+
+    /**
+     * 周期设置周几
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_week?: any;
+
+    /**
+     * 周期设置月
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_month?: any;
+
+    /**
+     * 周期类型
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_type?: any;
+
+    /**
+     * 过期时间
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_end?: any;
 }

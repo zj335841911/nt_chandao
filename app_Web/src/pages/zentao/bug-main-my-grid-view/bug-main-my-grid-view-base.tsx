@@ -132,7 +132,7 @@ export class BugMainMyGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'bug',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -297,6 +297,14 @@ export class BugMainMyGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof BugMainMyGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

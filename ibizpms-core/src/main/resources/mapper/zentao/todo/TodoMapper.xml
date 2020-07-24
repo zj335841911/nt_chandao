@@ -12,6 +12,12 @@
     <resultMap id="TodoResultMap" type="cn.ibizlab.pms.core.zentao.domain.Todo" autoMapping="true">
         <id property="id" column="id" /><!--主键字段映射-->
 		<result property="ibizprivate" column="private" />
+		<result property="configDay" column="config_day" />
+		<result property="configBeforedays" column="config_beforedays" />
+		<result property="configWeek" column="config_week" />
+		<result property="configMonth" column="config_month" />
+		<result property="configType" column="config_type" />
+		<result property="configEnd" column="config_end" />
             
 		
     </resultMap>

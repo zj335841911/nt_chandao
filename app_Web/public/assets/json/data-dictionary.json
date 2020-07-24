@@ -775,12 +775,360 @@
         "codelisttype":"static",
         "items": [
              {
-                "id": "1",
+                "id": "on",
                 "label": "暂时不设定时间",
                 "text": "暂时不设定时间",
                 "data":"",
+                "codename":"On",
+                "value": "on",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "CodeList47",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1号",
+                "text": "1号",
+                "data":"",
                 "codename":"Item_1",
                 "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "2",
+                "label": "2号",
+                "text": "2号",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3号",
+                "text": "3号",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "4号",
+                "text": "4号",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "5",
+                "label": "5号",
+                "text": "5号",
+                "data":"",
+                "codename":"Item_5",
+                "value": "5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "6",
+                "label": "6号",
+                "text": "6号",
+                "data":"",
+                "codename":"Item_6",
+                "value": "6",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "7",
+                "label": "7号",
+                "text": "7号",
+                "data":"",
+                "codename":"Item_7",
+                "value": "7",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "8",
+                "label": "8号",
+                "text": "8号",
+                "data":"",
+                "codename":"Item_8",
+                "value": "8",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "9",
+                "label": "9号",
+                "text": "9号",
+                "data":"",
+                "codename":"Item_9",
+                "value": "9",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "10",
+                "label": "10号",
+                "text": "10号",
+                "data":"",
+                "codename":"Item_10",
+                "value": "10",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "11",
+                "label": "11号",
+                "text": "11号",
+                "data":"",
+                "codename":"Item_11",
+                "value": "11",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "12",
+                "label": "12号",
+                "text": "12号",
+                "data":"",
+                "codename":"Item_12",
+                "value": "12",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "13",
+                "label": "13号",
+                "text": "13号",
+                "data":"",
+                "codename":"Item_13",
+                "value": "13",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "14",
+                "label": "14号",
+                "text": "14号",
+                "data":"",
+                "codename":"Item_14",
+                "value": "14",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "15",
+                "label": "15号",
+                "text": "15号",
+                "data":"",
+                "codename":"Item_15",
+                "value": "15",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "16",
+                "label": "16号",
+                "text": "16号",
+                "data":"",
+                "codename":"Item_16",
+                "value": "16",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "17",
+                "label": "17号",
+                "text": "17号",
+                "data":"",
+                "codename":"Item_17",
+                "value": "17",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "18",
+                "label": "18号",
+                "text": "18号",
+                "data":"",
+                "codename":"Item_18",
+                "value": "18",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "19",
+                "label": "19号",
+                "text": "19号",
+                "data":"",
+                "codename":"Item_19",
+                "value": "19",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "20",
+                "label": "20号",
+                "text": "20号",
+                "data":"",
+                "codename":"Item_20",
+                "value": "20",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "21",
+                "label": "21号",
+                "text": "21号",
+                "data":"",
+                "codename":"Item_21",
+                "value": "21",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "22",
+                "label": "22号",
+                "text": "22号",
+                "data":"",
+                "codename":"Item_22",
+                "value": "22",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "23",
+                "label": "23号",
+                "text": "23号",
+                "data":"",
+                "codename":"Item_23",
+                "value": "23",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "24",
+                "label": "24号",
+                "text": "24号",
+                "data":"",
+                "codename":"Item_24",
+                "value": "24",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "25",
+                "label": "25号",
+                "text": "25号",
+                "data":"",
+                "codename":"Item_25",
+                "value": "25",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "26",
+                "label": "26号",
+                "text": "26号",
+                "data":"",
+                "codename":"Item_26",
+                "value": "26",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "27",
+                "label": "27号",
+                "text": "27号",
+                "data":"",
+                "codename":"Item_27",
+                "value": "27",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "28",
+                "label": "28号",
+                "text": "28号",
+                "data":"",
+                "codename":"Item_28",
+                "value": "28",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "29",
+                "label": "29号",
+                "text": "29号",
+                "data":"",
+                "codename":"Item_29",
+                "value": "29",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "30",
+                "label": "30号",
+                "text": "30号",
+                "data":"",
+                "codename":"Item_30",
+                "value": "30",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "31",
+                "label": "31号",
+                "text": "31号",
+                "data":"",
+                "codename":"Item_31",
+                "value": "31",
                 
                 "disabled": false,
                 "default": false
@@ -1777,6 +2125,90 @@
         "items": []
     }, 
     {
+        "srfkey": "CodeList46",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "2",
+                "label": "星期一",
+                "text": "星期一",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "星期二",
+                "text": "星期二",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "星期三",
+                "text": "星期三",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "5",
+                "label": "星期四",
+                "text": "星期四",
+                "data":"",
+                "codename":"Item_5",
+                "value": "5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "6",
+                "label": "星期五",
+                "text": "星期五",
+                "data":"",
+                "codename":"Item_6",
+                "value": "6",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "7",
+                "label": "星期六",
+                "text": "星期六",
+                "data":"",
+                "codename":"Item_7",
+                "value": "7",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "1",
+                "label": "星期日",
+                "text": "星期日",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Role",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1798,12 +2230,12 @@
         "codelisttype":"static",
         "items": [
              {
-                "id": "1",
+                "id": "on",
                 "label": "待定",
                 "text": "待定",
                 "data":"",
-                "codename":"Item_1",
-                "value": "1",
+                "codename":"On",
+                "value": "on",
                 
                 "disabled": false,
                 "default": false
@@ -1980,24 +2412,6 @@
                 "data":"",
                 "codename":"Item_4",
                 "value": 4,
-                
-                "disabled": false,
-                "default": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Datecheckbox",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "on",
-                "label": "待定",
-                "text": "待定",
-                "data":"",
-                "codename":"On",
-                "value": "on",
                 
                 "disabled": false,
                 "default": false
@@ -4958,6 +5372,24 @@
         "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser",
         "items": []
+    }, 
+    {
+        "srfkey": "Private_choose",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "是",
+                "text": "是",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
     }, 
     {
         "srfkey": "Testcase__type",

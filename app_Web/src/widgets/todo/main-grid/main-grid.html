@@ -93,7 +93,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.begin}}</span>
+                        <template >
+            <codelist :value="row.begin" tag='BeginendDropList' codelistType='STATIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -105,7 +107,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.end}}</span>
+                        <template >
+            <codelist :value="row.end" tag='BeginendDropList' codelistType='STATIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

@@ -144,7 +144,7 @@ export class ProductLifeRoadMapListView9Base extends ListView9Base {
             },
             keyPSDEField: 'productlife',
             majorPSDEField: 'productlifename',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
