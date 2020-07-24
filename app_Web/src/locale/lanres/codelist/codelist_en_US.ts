@@ -620,6 +620,13 @@ export default {
         "cancel": "已取消",
         "empty": ""
     },
+    TodoQuickpacketMy: {
+        "All": "所有待办",
+        "thisyear": "本年度",
+        "BYME": "待定",
+        "cycle": "周期",
+        "empty": ""
+    },
     TASK_QuickacketMy: {
         "TOME": "指派给我",
         "CANCELLED": "由我创建",

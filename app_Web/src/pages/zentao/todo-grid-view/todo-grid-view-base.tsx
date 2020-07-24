@@ -69,6 +69,28 @@ export class TodoGridViewBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TodoGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'N_ACCOUNT_EQ': { isRawValue: false, value: 'srfloginname' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TodoGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_account_eq': { isRawValue: false, value: 'srfloginname' }
+    };
+
     /**
      * 视图模型数据
      *
@@ -150,7 +172,7 @@ export class TodoGridViewBase extends GridViewBase {
             searchform: this.$refs.searchform,
             keyPSDEField: 'todo',
             majorPSDEField: 'name',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -446,6 +468,38 @@ export class TodoGridViewBase extends GridViewBase {
             xData.refresh(args);
         } else if (_this.refresh && _this.refresh instanceof Function) {
             _this.refresh(args);
+        }
+    }
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof TodoGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
+
+    /**
+     * 加载快速分组模型
+     *
+     * @protected
+     * @memberof TodoGridViewBase
+     */
+    protected loadQuickGroupModel(): void {
+        const quickGroupCodeList: any = { tag: 'TodoQuickpacketMy', codelistType: 'STATIC' };
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
         }
     }
 }
