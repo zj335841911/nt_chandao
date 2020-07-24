@@ -23,10 +23,6 @@ export default {
     totalwh: "总工时",
   },
 	views: {
-		maindashboardview: {
-			caption: "项目统计",
-      		title: "项目统计数据看板视图",
-		},
 		editview9: {
 			caption: "项目统计",
       		title: "项目统计编辑视图",

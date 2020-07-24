@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
 import Main_RowEditService from './main-row-edit-grid-service';
 import IBZCaseStepUIService from '@/uiservice/ibzcase-step/ibzcase-step-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {Main_RowEditGridBase}
  */
-export class Main_RowEditGridBase extends GridControllerBase {
+export class Main_RowEditGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -55,7 +55,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof GridControlBase
      */
     protected localStorageTag: string = 'ibz_casestep_main_rowedit_grid';
 

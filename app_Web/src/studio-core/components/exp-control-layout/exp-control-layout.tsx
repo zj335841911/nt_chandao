@@ -123,7 +123,7 @@ export class ExpControlLayout extends Vue {
      */
     public mounted(): void {
         const el: any = this.$el;
-        let split = 1;
+        let split = 0.7;
         if (this.ctrlWidth > 0 && this.mode === 'horizontal') {
             split = parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
         } else if (this.ctrlHeight > 0 && this.mode === 'vertical') {

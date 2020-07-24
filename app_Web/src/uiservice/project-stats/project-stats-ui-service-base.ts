@@ -89,7 +89,6 @@ export default class ProjectStatsUIServiceBase extends UIService {
      * @memberof  ProjectStatsUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projectstats'});
         this.allViewMap.set(':',{viewname:'editview9',srfappde:'projectstats'});
     }
 
