@@ -104,6 +104,21 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
+        name: 'task',
+        prop: 'task',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'bug',
+        prop: 'bug',
+        dataType: 'TEXT',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
@@ -140,6 +155,11 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'idvalue',
+        prop: 'idvalue',
+        dataType: 'INT',
       },
       {
         name: 'todo',

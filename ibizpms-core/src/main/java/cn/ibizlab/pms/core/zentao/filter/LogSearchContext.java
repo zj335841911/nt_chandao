@@ -41,4 +41,3 @@ public class LogSearchContext extends QueryWrapperContext<Log> {
 
 
 
-

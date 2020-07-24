@@ -30,4 +30,3 @@ public class IBzDocSearchContext extends SearchContextBase {
 }
 
 
-

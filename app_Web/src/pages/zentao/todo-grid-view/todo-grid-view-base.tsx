@@ -341,8 +341,8 @@ export class TodoGridViewBase extends GridViewBase {
             { pathName: 'todos', parameterName: 'todo' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+        const openPopupModal = (view: any, data: any) => {
+            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -354,13 +354,12 @@ export class TodoGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'todo-edit-view', 
+            viewname: 'todo-todo-create-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.todo.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            title: this.$t('entities.todo.views.todocreateview.title'),
         };
-        openDrawer(view, data);
+        openPopupModal(view, data);
     }
 
 

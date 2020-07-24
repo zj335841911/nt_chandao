@@ -51,4 +51,3 @@ public class JenkinsSearchContext extends QueryWrapperContext<Jenkins> {
 
 
 
-

@@ -1023,6 +1023,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryAssignToView",
             "viewtag": "90d6a9dc6032a7a7e19fee6ac22fccc0"
         },
+        "todotodocreateview": {
+            "title": "todo编辑视图",
+            "caption": "待办事宜表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoTodoCreateView",
+            "viewtag": "927d6e92ed15eeb2397da22824122b27"
+        },
         "storyreleasesubeditview": {
             "title": "需求",
             "caption": "需求",

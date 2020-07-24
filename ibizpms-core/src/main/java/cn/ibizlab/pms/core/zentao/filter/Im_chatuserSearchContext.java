@@ -69,4 +69,3 @@ public class Im_chatuserSearchContext extends QueryWrapperContext<Im_chatuser> {
 
 
 
-

@@ -41,4 +41,3 @@ public class UserGroupSearchContext extends QueryWrapperContext<UserGroup> {
 
 
 
-

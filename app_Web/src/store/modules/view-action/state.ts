@@ -1215,6 +1215,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '927d6e92ed15eeb2397da22824122b27',
+            viewmodule: 'zentao',
+            viewname: 'TodoTodoCreateView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '928e6614bcfbd67af3b596cf5dc5a46b',
             viewmodule: 'zentao',
             viewname: 'StoryReleaseSubEditView',
@@ -1611,6 +1620,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e00040c0d616f2f1c0ad4b36c9e920b5',
+                '927d6e92ed15eeb2397da22824122b27',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
             ],
         },

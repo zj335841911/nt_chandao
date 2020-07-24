@@ -41,4 +41,3 @@ public class ConfigSearchContext extends QueryWrapperContext<Config> {
 
 
 
-

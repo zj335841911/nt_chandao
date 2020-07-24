@@ -37,6 +37,10 @@ export default {
 			caption: "指派给",
       		title: "指派表单视图",
 		},
+		todocreateview: {
+			caption: "待办事宜表",
+      		title: "todo编辑视图",
+		},
 		gridview: {
 			caption: "待办事宜表",
       		title: "todo表格视图",
@@ -63,6 +67,32 @@ export default {
 			begin: "起止时间", 
 			end: "", 
 			lbldisabledate: "暂时不设定时间", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	editform_form: {
+		details: {
+			group1: "编辑待办", 
+			formpage1: "添加待办", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			date: "日期", 
+			type: "类型", 
+			pri: "优先级", 
+			name: "待办名称", 
+			formitem: "描述", 
+			status: "状态", 
+			begin: "起止时间", 
+			end: "", 
+			formitem10: "", 
+			private: "", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -95,6 +125,9 @@ export default {
 			assigneddate: "指派日期", 
 			type: "类型", 
 			pri: "优先级", 
+			task: "项目任务", 
+			story: "项目需求", 
+			bug: "bug", 
 			name: "待办名称", 
 			formitem1: "描述", 
 			status: "状态", 
@@ -103,6 +136,7 @@ export default {
 			formitem10: "", 
 			private: "私人事务", 
 			id: "编号", 
+			idvalue: "关联编号", 
 		},
 		uiactions: {
 		},
@@ -153,6 +187,12 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	todocreateviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 };
