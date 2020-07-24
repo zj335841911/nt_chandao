@@ -308,4 +308,13 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TestTaskGridView9_UnTestedBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }
