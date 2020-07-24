@@ -51,11 +51,6 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'idvalue',
-        prop: 'idvalue',
-        dataType: 'INT',
-      },
-      {
         name: 'date',
         prop: 'date',
         dataType: 'DATE',
@@ -66,6 +61,11 @@ export default class MainModel {
       {
         name: 'cycle_enable',
         prop: 'cycle',
+        dataType: 'INT',
+      },
+      {
+        name: 'idvalue',
+        prop: 'idvalue',
         dataType: 'INT',
       },
       {

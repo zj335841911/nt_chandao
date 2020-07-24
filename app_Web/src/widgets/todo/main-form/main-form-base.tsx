@@ -73,10 +73,10 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        idvalue: null,
         date: null,
         date_disable: null,
         cycle_enable: null,
+        idvalue: null,
         formitem3: null,
         formitem4: null,
         formitem5: null,
@@ -146,13 +146,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        idvalue: new FormItemModel({ caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         date_disable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'date_disable', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         cycle_enable: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        idvalue: new FormItemModel({ caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem3: new FormItemModel({ caption: '周期间隔(天)', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -223,7 +223,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'date_disable')) {
             let ret = false;
             const _date_disable = this.data.date_disable;
@@ -232,6 +231,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.date.setDisabled(!ret);
         }
+
 
 
 
@@ -288,7 +288,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = true;
             const _type = this.data.type;
-            if (this.$verify.testCond(_type, 'EQ', 'custom')) {
+            if (this.$verify.testCond(_type, 'NOTEQ', 'custom')) {
                 ret = false;
             }
             this.rules.name.some((rule: any) => {
