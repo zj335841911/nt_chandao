@@ -51,6 +51,11 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'idvalue',
+        prop: 'idvalue',
+        dataType: 'INT',
+      },
+      {
         name: 'date',
         prop: 'date',
         dataType: 'DATE',
@@ -150,11 +155,6 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'idvalue',
-        prop: 'idvalue',
-        dataType: 'INT',
       },
       {
         name: 'todo',

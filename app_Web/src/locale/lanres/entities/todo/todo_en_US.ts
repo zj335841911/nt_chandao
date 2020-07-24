@@ -114,6 +114,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			idvalue: "关联编号", 
 			date: "日期", 
 			date_disable: "", 
 			cycle_enable: "周期", 
@@ -135,7 +136,6 @@ export default {
 			formitem10: "", 
 			private: "私人事务", 
 			id: "编号", 
-			idvalue: "关联编号", 
 		},
 		uiactions: {
 		},

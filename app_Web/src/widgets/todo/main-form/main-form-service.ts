@@ -2,6 +2,8 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TodoService from '@/service/todo/todo-service';
 import MainModel from './main-form-model';
+import TaskService from '@/service/task/task-service';
+import StoryService from '@/service/story/story-service';
 import BugService from '@/service/bug/bug-service';
 
 
@@ -41,6 +43,22 @@ export default class MainService extends ControlService {
         super(opts);
         this.model = new MainModel();
     }
+
+    /**
+     * 任务服务对象
+     *
+     * @type {TaskService}
+     * @memberof MainService
+     */
+    public taskService: TaskService = new TaskService();
+
+    /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof MainService
+     */
+    public storyService: StoryService = new StoryService();
 
     /**
      * Bug服务对象
@@ -89,6 +107,12 @@ export default class MainService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.taskService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
+        }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        }
         if (Object.is(serviceName, 'BugService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.bugService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'bug');
         }
