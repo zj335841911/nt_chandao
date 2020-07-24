@@ -90,8 +90,9 @@ export class MainEditFormBase extends EditFormControlBase {
         name: null,
         formitem1: null,
         status: null,
-        begin: null,
-        end: null,
+        formitem6: null,
+        formitem7: null,
+        formitemex1: null,
         formitem10: null,
         private: null,
         id: null,
@@ -105,6 +106,18 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        task: [
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+        ],
+        bug: [
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
@@ -168,11 +181,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        task: new FormItemModel({ caption: '项目任务', detailType: 'FORMITEM', name: 'task', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        task: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'task', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        story: new FormItemModel({ caption: '项目需求', detailType: 'FORMITEM', name: 'story', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        story: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'story', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        bug: new FormItemModel({ caption: 'bug', detailType: 'FORMITEM', name: 'bug', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        bug: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'bug', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         name: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -180,9 +193,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        begin: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem6: new FormItemModel({ caption: '开始', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '结束', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem7: new FormItemModel({ caption: '结束', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitemex1: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem10: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem10', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -259,6 +274,19 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = true;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'NOTEQ', 'task')) {
+                ret = false;
+            }
+            this.rules.task.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
             const _type = this.data.type;
             if (this.$verify.testCond(_type, 'EQ', 'task')) {
@@ -268,6 +296,19 @@ export class MainEditFormBase extends EditFormControlBase {
         }
 
         if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = true;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'NOTEQ', 'story')) {
+                ret = false;
+            }
+            this.rules.story.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
             const _type = this.data.type;
             if (this.$verify.testCond(_type, 'EQ', 'story')) {
@@ -276,6 +317,19 @@ export class MainEditFormBase extends EditFormControlBase {
             this.detailsModel.story.setVisible(ret);
         }
 
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = true;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'NOTEQ', 'bug')) {
+                ret = false;
+            }
+            this.rules.bug.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
             const _type = this.data.type;
@@ -301,7 +355,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
             const _type = this.data.type;
-            if (this.$verify.testCond(_type, 'EQ', 'custom')) {
+            if (this.$verify.testCond(_type, 'EQ', 'custom') || this.$verify.testCond(_type, 'ISNULL', '')) {
                 ret = true;
             }
             this.detailsModel.name.setVisible(ret);
@@ -309,23 +363,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'formitem10')) {
-            let ret = false;
-            const _formitem10 = this.data.formitem10;
-            if (this.$verify.testCond(_formitem10, 'NOTEQ', 'on')) {
-                ret = true;
-            }
-            this.detailsModel.begin.setDisabled(!ret);
-        }
 
-        if (Object.is(name, '') || Object.is(name, 'formitem10')) {
-            let ret = false;
-            const _formitem10 = this.data.formitem10;
-            if (this.$verify.testCond(_formitem10, 'NOTEQ', 'on')) {
-                ret = true;
-            }
-            this.detailsModel.end.setDisabled(!ret);
-        }
+
 
 
 
