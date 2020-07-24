@@ -1,23 +1,22 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TodoService from '@/service/todo/todo-service';
-import MainModel from './main-form-model';
-import BugService from '@/service/bug/bug-service';
+import EditFormModel from './edit-form-form-model';
 
 
 /**
- * Main 部件服务对象
+ * EditForm 部件服务对象
  *
  * @export
- * @class MainService
+ * @class EditFormService
  */
-export default class MainService extends ControlService {
+export default class EditFormService extends ControlService {
 
     /**
      * 待办事宜表服务对象
      *
      * @type {TodoService}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     public appEntityService: TodoService = new TodoService({ $store: this.getStore() });
 
@@ -25,30 +24,22 @@ export default class MainService extends ControlService {
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of MainService.
+     * Creates an instance of EditFormService.
      * 
      * @param {*} [opts={}]
-     * @memberof MainService
+     * @memberof EditFormService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new MainModel();
+        this.model = new EditFormModel();
     }
-
-    /**
-     * Bug服务对象
-     *
-     * @type {BugService}
-     * @memberof MainService
-     */
-    public bugService: BugService = new BugService();
 
     /**
      * 处理数据
@@ -56,7 +47,7 @@ export default class MainService extends ControlService {
      * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -85,13 +76,10 @@ export default class MainService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  MainService
+     * @memberof  EditFormService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'BugService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.bugService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'bug');
-        }
 
         return Promise.reject([])
     }
@@ -105,7 +93,7 @@ export default class MainService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -137,7 +125,7 @@ export default class MainService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -169,7 +157,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -199,7 +187,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -228,7 +216,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -258,7 +246,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -288,7 +276,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
@@ -322,7 +310,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof EditFormService
      */
     @Errorlog
     public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -349,7 +337,7 @@ export default class MainService extends ControlService {
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof MainService
+     * @memberof EditFormService
      */
     public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
         let mode: any = this.getMode();

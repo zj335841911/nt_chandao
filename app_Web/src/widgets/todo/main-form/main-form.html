@@ -224,6 +224,43 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.task.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='task' :itemRules="this.rules.task" class='' :caption="$t('entities.todo.main_form.details.task')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.task.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.task"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.task.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.story.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='story' :itemRules="this.rules.story" class='' :caption="$t('entities.todo.main_form.details.story')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.story.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.story"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.story.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.bug.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='bug' :itemRules="this.rules.bug" class='' :caption="$t('entities.todo.main_form.details.bug')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.bug.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ N_ASSIGNEDTO_EQ:"%srfloginname%" }' 
+  :localParam ='{ n_assignedto_eq:"%srfloginname%" }' 
+  :disabled="detailsModel.bug.disabled"
+  name='bug' 
+  deMajorField='title'
+  deKeyField='bug'
+  :service="service"
+  :acParams="{ serviceName: 'BugService', interfaceName: 'FetchDefault'}"
+  valueitem='idvalue' 
+  :value="data.bug" 
+  editortype="dropdown"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.todo.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>

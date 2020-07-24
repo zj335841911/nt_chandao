@@ -51,4 +51,3 @@ public class JobSearchContext extends QueryWrapperContext<Job> {
 
 
 
-

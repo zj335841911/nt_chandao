@@ -51,4 +51,3 @@ public class HistorySearchContext extends QueryWrapperContext<History> {
 
 
 
-

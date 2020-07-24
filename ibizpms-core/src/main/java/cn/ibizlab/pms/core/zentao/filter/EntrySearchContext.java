@@ -58,4 +58,3 @@ public class EntrySearchContext extends QueryWrapperContext<Entry> {
 
 
 
-

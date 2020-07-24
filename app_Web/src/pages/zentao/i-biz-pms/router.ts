@@ -5148,6 +5148,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/todocreateview/:todocreateview?',
+                    meta: {
+                        caption: 'entities.todo.views.todocreateview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'todocreateview', parameterName: 'todocreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-todo-create-view/todo-todo-create-view.vue'),
+                },
+                {
                     path: 'products/:product?/testlistexpview/:testlistexpview?',
                     meta: {
                         caption: 'entities.product.views.testlistexpview.title',

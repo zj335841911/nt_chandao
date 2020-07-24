@@ -284,4 +284,3 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
 
 
 
-

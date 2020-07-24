@@ -58,4 +58,3 @@ public class BurnSearchContext extends QueryWrapperContext<Burn> {
 
 
 
-

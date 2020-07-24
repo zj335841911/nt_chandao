@@ -136,6 +136,7 @@ export const PageComponents = {
         Vue.component('product-plan-grid-view', () => import('@pages/zentao/product-plan-grid-view/product-plan-grid-view.vue'));
         Vue.component('bug-main-edit-view', () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'));
         Vue.component('project-team-main-grid-view', () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'));
+        Vue.component('todo-todo-create-view', () => import('@pages/zentao/todo-todo-create-view/todo-todo-create-view.vue'));
         Vue.component('product-test-list-exp-view', () => import('@pages/zentao/product-test-list-exp-view/product-test-list-exp-view.vue'));
         Vue.component('task-main-info-view9', () => import('@pages/zentao/task-main-info-view9/task-main-info-view9.vue'));
         Vue.component('bug-plan-sub-grid-view', () => import('@pages/zentao/bug-plan-sub-grid-view/bug-plan-sub-grid-view.vue'));
