@@ -1773,7 +1773,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchStoryModule",
+        "appdedataset":"FetchBugModule",
         "items": []
     }, 
     {
