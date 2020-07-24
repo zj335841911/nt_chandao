@@ -6,7 +6,6 @@ import TaskAssignToMe from '@/widgets/task/assign-to-me-portlet/assign-to-me-por
 import ProductTextExpView from '@/widgets/product/text-exp-view-portlet/text-exp-view-portlet.vue';
 import ProjectProjectExpView from '@/widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
 import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
-import ProductProductStatus from '@/widgets/product/product-status-portlet/product-status-portlet.vue';
 import ProjectStatsStatsInfo from '@/widgets/project-stats/stats-info-portlet/stats-info-portlet.vue';
 import CaseMeCreateCase from '@/widgets/case/me-create-case-portlet/me-create-case-portlet.vue';
 import CaseMainDetail from '@/widgets/case/main-detail-portlet/main-detail-portlet.vue';
@@ -87,7 +86,6 @@ export const  PortletComponent = {
         v.component('app-product-product-info-portlet', ProductProductInfo);
         v.component('app-test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
-        v.component('app-product-product-status-portlet', ProductProductStatus);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-project-stats-stats-info-portlet', ProjectStatsStatsInfo);

@@ -72,12 +72,4 @@ export class GetRoadmapListBase extends ListControlBase {
      * @memberof GetRoadmapListBase
      */
     public minorSortPSDEF: string = 'end';
-
-    /**
-     * this引用
-     *
-     * @type {number}
-     * @memberof GetRoadmapBase
-     */
-    public thisRef: any = this;
 }

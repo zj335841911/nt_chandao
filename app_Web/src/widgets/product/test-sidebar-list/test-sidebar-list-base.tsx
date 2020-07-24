@@ -72,12 +72,4 @@ export class TestSidebarListBase extends ListControlBase {
      * @memberof TestSidebarListBase
      */
     public minorSortPSDEF: string = 'id';
-
-    /**
-     * this引用
-     *
-     * @type {number}
-     * @memberof TestSidebarBase
-     */
-    public thisRef: any = this;
 }

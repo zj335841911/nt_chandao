@@ -64,12 +64,4 @@ export class PlanListBase extends ListControlBase {
      * @memberof PlanListBase
      */
     public minorSortDir: string = '';
-
-    /**
-     * this引用
-     *
-     * @type {number}
-     * @memberof PlanBase
-     */
-    public thisRef: any = this;
 }

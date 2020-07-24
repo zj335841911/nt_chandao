@@ -126,12 +126,4 @@ export class TestExpListBase extends ListControlBase {
      * @memberof TestExpListBase
      */
     public minorSortPSDEF: string = 'id';
-
-    /**
-     * this引用
-     *
-     * @type {number}
-     * @memberof TestExpBase
-     */
-    public thisRef: any = this;
 }

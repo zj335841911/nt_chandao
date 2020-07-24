@@ -5,7 +5,7 @@
                   :viewState="viewState"  
                   :viewparams="viewparams" 
                   :context="context" 
-                  :parentRef="thisRef"
+                  :parentRef="_self"
                   :inputData="item"
                   @panelDataChange="($event)=>{onPanelDataChange(item,$event)}"
                   name="list_itempanel"  

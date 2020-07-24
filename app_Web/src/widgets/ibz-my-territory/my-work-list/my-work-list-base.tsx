@@ -64,12 +64,4 @@ export class MyWorkListBase extends ListControlBase {
      * @memberof MyWorkListBase
      */
     public minorSortDir: string = '';
-
-    /**
-     * this引用
-     *
-     * @type {number}
-     * @memberof MyWorkBase
-     */
-    public thisRef: any = this;
 }
