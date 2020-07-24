@@ -308,4 +308,13 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TaskGridView9_AssignedToMeBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }
