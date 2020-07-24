@@ -297,4 +297,22 @@ export default class TestModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/testmodules/fetchroot_nobranch`,tempData,isloading);
     }
+
+    /**
+     * FetchTestModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestModuleServiceBase
+     */
+    public async FetchTestModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/testmodules/fetchtestmodule`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/testmodules/fetchtestmodule`,tempData,isloading);
+    }
 }

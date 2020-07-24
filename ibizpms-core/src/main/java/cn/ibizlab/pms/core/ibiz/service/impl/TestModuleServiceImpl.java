@@ -224,6 +224,15 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
         return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 TestModule
+     */
+    @Override
+    public Page<TestModule> searchTestModule(TestModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchTestModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

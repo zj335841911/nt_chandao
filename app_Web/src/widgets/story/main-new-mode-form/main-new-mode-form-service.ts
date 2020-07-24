@@ -101,8 +101,8 @@ export default class Main_NewModeService extends ControlService {
         if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
         }
-        if (Object.is(serviceName, 'ProductModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.productmoduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'productmodule');
+        if (Object.is(serviceName, 'ProductModuleService') && Object.is(interfaceName, 'FetchStoryModule')) {
+            return this.doItems(this.productmoduleService.FetchStoryModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'productmodule');
         }
 
         return Promise.reject([])

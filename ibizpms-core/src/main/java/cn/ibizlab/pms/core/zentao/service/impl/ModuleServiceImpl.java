@@ -209,6 +209,15 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
     /**
+     * 查询集合 BugModule
+     */
+    @Override
+    public Page<Module> searchBugModule(ModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

@@ -41,6 +41,7 @@ public interface ITestModuleService extends IService<TestModule>{
     Page<TestModule> searchDefault(TestModuleSearchContext context) ;
     Page<TestModule> searchRoot(TestModuleSearchContext context) ;
     Page<TestModule> searchRoot_NoBranch(TestModuleSearchContext context) ;
+    Page<TestModule> searchTestModule(TestModuleSearchContext context) ;
     List<TestModule> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
     List<TestModule> selectByRoot(BigInteger id) ;

@@ -297,4 +297,22 @@ export default class ProductModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productmodules/fetchroot_nobranch`,tempData,isloading);
     }
+
+    /**
+     * FetchStoryModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchstorymodule`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productmodules/fetchstorymodule`,tempData,isloading);
+    }
 }

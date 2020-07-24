@@ -37,6 +37,15 @@
          where  parent=#{id}
      </select>
 
+    <!--数据集合[BugModule]-->
+	 <select id="searchBugModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+         select t1.* from (
+                <include refid="BugModule" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
          select t1.* from (
@@ -73,6 +82,13 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据查询[BugModule]-->
+    <sql id="BugModule" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.`BRANCH`, 	t1.`DELETED`, 	t1.`GRADE`, 	t1.`ID`, 	CONCAT('/',(select GROUP_CONCAT(tt.name SEPARATOR '/') from zt_module tt where FIND_IN_SET(tt.id,t1.path) and tt.type = 'story' GROUP BY tt.root)) as `NAME`, 	t1.`ORDER`, 	t1.`OWNER`, 	t1.`PARENT`, 	t11.`NAME` AS `PARENTNAME`, 	t1.`PATH`, 	t1.`ROOT`, 	t1.`SHORT`, 	t1.`TYPE`  FROM 	`zt_module` t1 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
+					 WHERE 	t1.DELETED = '0'
+						 AND t1.type = 'story'
+			]]>
+    </sql>
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t11.`NAME` AS `PARENTNAME`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID  
