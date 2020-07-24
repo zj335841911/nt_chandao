@@ -145,7 +145,7 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'bug',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -370,6 +370,14 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
             _this.refresh(args);
         }
     }
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof BugBuildSubGridView_New_9212Base
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

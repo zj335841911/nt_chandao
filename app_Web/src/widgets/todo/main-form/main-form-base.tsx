@@ -76,10 +76,16 @@ export class MainEditFormBase extends EditFormControlBase {
         date: null,
         date_disable: null,
         cycle_enable: null,
+        formitem3: null,
+        formitem4: null,
+        formitem5: null,
+        formitem2: null,
         formitem: null,
+        assigneddate: null,
         type: null,
         pri: null,
         name: null,
+        formitem1: null,
         status: null,
         begin: null,
         end: null,
@@ -109,6 +115,16 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
+        tabpage1: new FormTabPageModel({ caption: '天', detailType: 'TABPAGE', name: 'tabpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        tabpage2: new FormTabPageModel({ caption: '周', detailType: 'TABPAGE', name: 'tabpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        tabpage3: new FormTabPageModel({ caption: '月', detailType: 'TABPAGE', name: 'tabpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        tabpanel1: new FormTabPanelModel({ caption: '', detailType: 'TABPANEL', name: 'tabpanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, tabPages: [{ name: 'tabpage1', index: 0, visible: true }, { name: 'tabpage2', index: 1, visible: true }, { name: 'tabpage3', index: 2, visible: true }] }),
+
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
+
         group1: new FormGroupPanelModel({ caption: '添加待办', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '添加待办', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -133,7 +149,17 @@ export class MainEditFormBase extends EditFormControlBase {
 
         cycle_enable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        formitem3: new FormItemModel({ caption: '周期间隔(天)', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem4: new FormItemModel({ caption: '周期间隔', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem5: new FormItemModel({ caption: '周期间隔', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem2: new FormItemModel({ caption: '提前生成待办(天)', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         formitem: new FormItemModel({ caption: '过期时间', detailType: 'FORMITEM', name: 'formitem', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -141,11 +167,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         name: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        formitem1: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         begin: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        end: new FormItemModel({ caption: '结束', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem10: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem10', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -168,6 +196,19 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
+            let ret = false;
+            const _cycle_enable = this.data.cycle_enable;
+            if (this.$verify.testCond(_cycle_enable, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel1.setVisible(ret);
+        }
+
+
+
+
+
 
 
 
@@ -176,11 +217,15 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'date_disable')) {
             let ret = false;
             const _date_disable = this.data.date_disable;
-            if (this.$verify.testCond(_date_disable, 'NOTEQ', '1')) {
+            if (this.$verify.testCond(_date_disable, 'NOTEQ', 'on')) {
                 ret = true;
             }
             this.detailsModel.date.setDisabled(!ret);
         }
+
+
+
+
 
 
 
@@ -193,6 +238,7 @@ export class MainEditFormBase extends EditFormControlBase {
             this.detailsModel.formitem.setVisible(ret);
         }
 
+
         if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
             let ret = false;
             const _cycle_enable = this.data.cycle_enable;
@@ -201,6 +247,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.type.setVisible(ret);
         }
+
 
 
 

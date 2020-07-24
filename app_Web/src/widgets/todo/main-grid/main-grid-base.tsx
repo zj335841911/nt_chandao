@@ -406,6 +406,22 @@ export class MainGridBase extends GridControllerBase {
                 valueSeparator: ',',
             },
             {
+                name: 'begin',
+                srfkey: 'BeginendDropList',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'end',
+                srfkey: 'BeginendDropList',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
                 name: 'status',
                 srfkey: 'Todo__status',
                 codelistType : 'STATIC',

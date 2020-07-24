@@ -163,7 +163,7 @@ export class StoryMainGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'story',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -494,6 +494,14 @@ export class StoryMainGridViewBase extends GridViewBase {
             _this.isExpandSearchForm = !_this.isExpandSearchForm;
         }
     }
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof StoryMainGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

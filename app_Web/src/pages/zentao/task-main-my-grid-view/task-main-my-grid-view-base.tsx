@@ -132,7 +132,7 @@ export class TaskMainMyGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'task',
             majorPSDEField: 'name',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -297,6 +297,14 @@ export class TaskMainMyGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof TaskMainMyGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
 
     /**
      * 加载快速分组模型

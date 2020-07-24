@@ -156,7 +156,7 @@ export class GridControllerBase extends MDControlBase {
      * @type {boolean}
      * @memberof GridControllerBase
      */
-    public isDragendCol: boolean = false;
+    public isDragendCol: boolean = true;
 
     /**
      * 所有列成员

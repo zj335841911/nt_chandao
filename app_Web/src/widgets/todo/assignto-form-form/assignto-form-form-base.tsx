@@ -125,13 +125,13 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        future: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'future', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        future: new FormItemModel({ caption: '待定', detailType: 'FORMITEM', name: 'future', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         begin: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         end: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        lbldisabledate: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'lbldisabledate', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        lbldisabledate: new FormItemModel({ caption: '暂时不设定时间', detailType: 'FORMITEM', name: 'lbldisabledate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
@@ -169,7 +169,7 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'lbldisabledate')) {
             let ret = false;
             const _lbldisabledate = this.data.lbldisabledate;
-            if (this.$verify.testCond(_lbldisabledate, 'NOTEQ', '1')) {
+            if (this.$verify.testCond(_lbldisabledate, 'NOTEQ', 'on')) {
                 ret = true;
             }
             this.detailsModel.begin.setDisabled(!ret);
@@ -178,7 +178,7 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'lbldisabledate')) {
             let ret = false;
             const _lbldisabledate = this.data.lbldisabledate;
-            if (this.$verify.testCond(_lbldisabledate, 'NOTEQ', '1')) {
+            if (this.$verify.testCond(_lbldisabledate, 'NOTEQ', 'on')) {
                 ret = true;
             }
             this.detailsModel.end.setDisabled(!ret);
