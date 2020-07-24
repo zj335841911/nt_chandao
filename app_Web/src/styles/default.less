@@ -281,7 +281,16 @@ div::-webkit-scrollbar-thumb {
                     >.el-table__row:hover {
 
                         >td {
-                            background-color: var(--view-background-color-tint);
+                            color: var(--view-font-color-active);
+                            background-color: var(--view-background-color-active);
+                        }
+                    }
+
+                    >.el-table__row.current-row {
+
+                        >td {
+                            color: var(--view-font-color-active);
+                            background-color: var(--view-background-color-active);
                         }
                     }
                 }

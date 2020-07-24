@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import IBZTaskTeamService from '@/service/ibztask-team/ibztask-team-service';
 import MainEditRowService from './main-edit-row-grid-service';
 import IBZTaskTeamUIService from '@/uiservice/ibztask-team/ibztask-team-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {MainEditRowGridBase}
  */
-export class MainEditRowGridBase extends GridControllerBase {
+export class MainEditRowGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -55,7 +55,7 @@ export class MainEditRowGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof GridControlBase
      */
     protected localStorageTag: string = 'ibz_taskteam_maineditrow_grid';
 

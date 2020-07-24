@@ -2309,16 +2309,6 @@
         "viewtag": "231eecf4805f0b378601ea1a7912077f",
         "memo": ""
     },
-    "projectstatsmaindashboardview": {
-        "title": "项目统计数据看板视图",
-        "caption": "项目统计",
-        "viewtype": "DEPORTALVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "ProjectStatsMainDashboardView",
-        "viewfilename": "project-stats-main-dashboard-view",
-        "viewtag": "37df93bfc6d8126c9303eab0c5363df8",
-        "memo": ""
-    },
     "testmodulegridview": {
         "title": "测试模块表格视图",
         "caption": "测试模块",
