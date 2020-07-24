@@ -309,6 +309,50 @@ mock.onPost(new RegExp(/^\/modules\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((co
     return [status, data];
 });
     
+// FetchBugModule
+mock.onGet(new RegExp(/^\/modules\/fetchbugmodule$/)).reply((config: any) => {
+    console.groupCollapsed("实体:module 方法: FetchBugModule");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchBugModule
+mock.onGet(new RegExp(/^\/modules\/fetchbugmodule(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:module 方法: FetchBugModule");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/modules\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:module 方法: FetchDefault");

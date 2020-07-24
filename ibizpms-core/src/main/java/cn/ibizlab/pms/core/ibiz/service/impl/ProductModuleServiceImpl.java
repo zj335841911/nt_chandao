@@ -227,6 +227,15 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
         return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 StoryModule
+     */
+    @Override
+    public Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

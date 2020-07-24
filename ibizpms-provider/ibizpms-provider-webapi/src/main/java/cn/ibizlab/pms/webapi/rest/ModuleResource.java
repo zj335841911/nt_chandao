@@ -150,6 +150,27 @@ domain.setId(module_id);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchBugModule-all')")
+	@ApiOperation(value = "获取BugModule", tags = {"模块" } ,notes = "获取BugModule")
+    @RequestMapping(method= RequestMethod.GET , value="/modules/fetchbugmodule")
+	public ResponseEntity<List<ModuleDTO>> fetchBugModule(ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchBugModule(context) ;
+        List<ModuleDTO> list = moduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchBugModule-all')")
+	@ApiOperation(value = "查询BugModule", tags = {"模块" } ,notes = "查询BugModule")
+    @RequestMapping(method= RequestMethod.POST , value="/modules/searchbugmodule")
+	public ResponseEntity<Page<ModuleDTO>> searchBugModule(@RequestBody ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchBugModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/modules/fetchdefault")
