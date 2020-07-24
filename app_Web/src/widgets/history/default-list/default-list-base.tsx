@@ -72,4 +72,12 @@ export class DEFAULTListBase extends ListControlBase {
      * @memberof DEFAULTListBase
      */
     public minorSortPSDEF: string = 'id';
+
+    /**
+     * this引用
+     *
+     * @type {number}
+     * @memberof DEFAULTBase
+     */
+    public thisRef: any = this;
 }

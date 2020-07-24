@@ -64,4 +64,12 @@ export class ListListBase extends ListControlBase {
      * @memberof ListListBase
      */
     public minorSortDir: string = '';
+
+    /**
+     * this引用
+     *
+     * @type {number}
+     * @memberof ListBase
+     */
+    public thisRef: any = this;
 }

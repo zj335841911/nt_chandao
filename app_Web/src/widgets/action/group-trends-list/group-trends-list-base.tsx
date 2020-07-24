@@ -72,4 +72,12 @@ export class GroupTrendsListBase extends ListControlBase {
      * @memberof GroupTrendsListBase
      */
     public minorSortPSDEF: string = 'date';
+
+    /**
+     * this引用
+     *
+     * @type {number}
+     * @memberof GroupTrendsBase
+     */
+    public thisRef: any = this;
 }

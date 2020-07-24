@@ -25,7 +25,7 @@ export class ExpControlBase extends ControlBase {
      * @type {number}
      * @memberof ExpControlBase
      */
-    public ctrlWidth: number = 0;
+    public ctrlWidth: number = 500;
 
     /**
      * 控件高度
@@ -33,7 +33,7 @@ export class ExpControlBase extends ControlBase {
      * @type {number}
      * @memberof ExpControlBase
      */
-    public ctrlHeight: number = 0;
+    public ctrlHeight: number = 500;
 
     /**
      * 导航过滤项
@@ -76,14 +76,6 @@ export class ExpControlBase extends ControlBase {
     public navigateParams: any = null;
 
     /**
-     * 分割宽度
-     *
-     * @type {number}
-     * @memberof ExpControlBase
-     */
-    public split: number = 0.3;
-
-    /**
      * 呈现模式，可选值：horizontal或者vertical
      * 
      * @public
@@ -108,15 +100,4 @@ export class ExpControlBase extends ControlBase {
      * @memberof ExpControlBase
      */
     public searchText: string = "";
-
-    /**
-     * split值变化事件
-     *
-     * @memberof ExpControlBase
-     */
-    public onSplitChange() {
-        if (this.split) {
-            this.$store.commit("setViewSplit", { viewUID: this.viewUID, viewSplit: this.split });
-        }
-    }
 }

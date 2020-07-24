@@ -72,4 +72,12 @@ export class SidebarListBase extends ListControlBase {
      * @memberof SidebarListBase
      */
     public minorSortPSDEF: string = 'id';
+
+    /**
+     * this引用
+     *
+     * @type {number}
+     * @memberof SidebarBase
+     */
+    public thisRef: any = this;
 }
