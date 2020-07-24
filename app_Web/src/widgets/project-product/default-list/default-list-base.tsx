@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, ListControllerBase } from '@/studio-core';
+import { Watch, ListControlBase } from '@/studio-core';
 import ProjectProductService from '@/service/project-product/project-product-service';
 import DEFAULTService from './default-list-service';
 import ProjectProductUIService from '@/uiservice/project-product/project-product-ui-service';
@@ -10,10 +10,10 @@ import ProjectProductUIService from '@/uiservice/project-product/project-product
  * list部件基类
  *
  * @export
- * @class ListControllerBase
+ * @class ListControlBase
  * @extends {DEFAULTListBase}
  */
-export class DEFAULTListBase extends ListControllerBase {
+export class DEFAULTListBase extends ListControlBase {
 
     /**
      * 获取部件类型

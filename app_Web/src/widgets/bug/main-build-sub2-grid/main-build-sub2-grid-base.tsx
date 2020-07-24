@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import Main_BuildSub2Service from './main-build-sub2-grid-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {Main_BuildSub2GridBase}
  */
-export class Main_BuildSub2GridBase extends GridControllerBase {
+export class Main_BuildSub2GridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -101,7 +101,7 @@ export class Main_BuildSub2GridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof Main_BuildSub2Base
      */
     protected localStorageTag: string = 'zt_bug_main_buildsub2_grid';
 

@@ -221,4 +221,28 @@ export interface Todo {
      * @memberof Todo
      */
     config_end?: any;
+
+    /**
+     * bug
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    bug?: any;
+
+    /**
+     * 项目任务
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    task?: any;
+
+    /**
+     * 项目需求
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    story?: any;
 }

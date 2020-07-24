@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MainService from './main-grid-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {MainGridBase}
  */
-export class MainGridBase extends GridControllerBase {
+export class MainGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -246,7 +246,7 @@ export class MainGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof MainBase
      */
     protected localStorageTag: string = 'zt_task_main_grid';
 

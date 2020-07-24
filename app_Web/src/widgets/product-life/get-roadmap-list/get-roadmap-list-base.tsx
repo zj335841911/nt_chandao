@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, ListControllerBase } from '@/studio-core';
+import { Watch, ListControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapService from './get-roadmap-list-service';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
@@ -10,10 +10,10 @@ import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-servi
  * list2部件基类
  *
  * @export
- * @class ListControllerBase
+ * @class ListControlBase
  * @extends {GetRoadmapListBase}
  */
-export class GetRoadmapListBase extends ListControllerBase {
+export class GetRoadmapListBase extends ListControlBase {
 
     /**
      * 获取部件类型

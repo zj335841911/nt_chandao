@@ -244,6 +244,30 @@ public class TodoDTO extends DTOBase implements Serializable {
     @JsonProperty("config_end")
     private Timestamp configEnd;
 
+    /**
+     * 属性 [BUG]
+     *
+     */
+    @JSONField(name = "bug")
+    @JsonProperty("bug")
+    private String bug;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+
+    /**
+     * 属性 [STORY]
+     *
+     */
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    private String story;
+
 
     /**
      * 设置 [ACCOUNT]

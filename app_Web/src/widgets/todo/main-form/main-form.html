@@ -70,14 +70,16 @@
             
     <i-col v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.todo.main_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="false" labelPos="LEFT">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getPSAppDEField().getPSDEFie...  [in template "TEMPLCODE_zh_CN" at line 7, column 1]
-----
+    <input-box 
+  v-model="data.formitem3"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.formitem3.disabled" 
+  type='number' 
+  :precision="0"
+   
+  style="">
+</input-box>
 </app-form-item>
 
 </i-col>
@@ -152,14 +154,16 @@ FTL stack trace ("~" means nesting-related):
 </i-col>
 <i-col v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.todo.main_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="LEFT">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getPSAppDEField().getPSDEFie...  [in template "TEMPLCODE_zh_CN" at line 7, column 1]
-----
+    <input-box 
+  v-model="data.formitem2"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.formitem2.disabled" 
+  type='number' 
+  :precision="0"
+   
+  style="">
+</input-box>
 </app-form-item>
 
 </i-col>

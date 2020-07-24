@@ -60,21 +60,33 @@ export default class MainModel {
       },
       {
         name: 'cycle_enable',
+        prop: 'cycle',
+        dataType: 'INT',
       },
       {
         name: 'formitem3',
+        prop: 'config_day',
+        dataType: 'INT',
       },
       {
         name: 'formitem4',
+        prop: 'config_week',
+        dataType: 'TEXT',
       },
       {
         name: 'formitem5',
+        prop: 'config_month',
+        dataType: 'TEXT',
       },
       {
         name: 'formitem2',
+        prop: 'config_beforedays',
+        dataType: 'INT',
       },
       {
         name: 'formitem',
+        prop: 'config_end',
+        dataType: 'DATE',
       },
       {
         name: 'assigneddate',

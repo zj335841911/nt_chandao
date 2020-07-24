@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import SubTaskService from '@/service/sub-task/sub-task-service';
 import SubTaskNewService from './sub-task-new-grid-service';
 import SubTaskUIService from '@/uiservice/sub-task/sub-task-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {SubTaskNewGridBase}
  */
-export class SubTaskNewGridBase extends GridControllerBase {
+export class SubTaskNewGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -72,7 +72,7 @@ export class SubTaskNewGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof SubTaskNewBase
      */
     protected localStorageTag: string = 'ibz_subtask_subtasknew_grid';
 
