@@ -1,0 +1,100 @@
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='product_dashboardinfo' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.product.dashboardinfo_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='name' :value="data.name" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col v-show="detailsModel.po.visible" :style="{}"  :sm="{ span: 24, offset: 0 }" :md="{ span: 24, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.dashboardinfo_form.details.po')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='po' :value="data.po" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.rd.visible" :style="{}"  :sm="{ span: 24, offset: 0 }" :md="{ span: 24, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.dashboardinfo_form.details.rd')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='rd' :value="data.rd" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.qd.visible" :style="{}"  :sm="{ span: 24, offset: 0 }" :md="{ span: 24, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.dashboardinfo_form.details.qd')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='qd' :value="data.qd" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col v-show="detailsModel.linename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='linename' :itemRules="this.rules.linename" class='' :caption="$t('entities.product.dashboardinfo_form.details.linename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linename.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='linename' :value="data.linename" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.createdby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='createdby' :itemRules="this.rules.createdby" class='' :caption="$t('entities.product.dashboardinfo_form.details.createdby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.createdby.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='createdby' :value="data.createdby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.createddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='createddate' :itemRules="this.rules.createddate" class='' :caption="$t('entities.product.dashboardinfo_form.details.createddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.createddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='createddate' :value="data.createddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.product.dashboardinfo_form.details.acl')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='acl' :value="data.acl" tag='Product__acl' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+            
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>
