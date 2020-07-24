@@ -1,3 +1,4 @@
+import { Prop } from 'vue-property-decorator';
 import { ExpControlBase } from './ExpControlBase';
 
 /**
@@ -8,5 +9,70 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ExpControlBase}
  */
 export class GridExpBarControlBase extends ExpControlBase {
+    /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof GridExpBarControlBase
+     */
+    @Prop()
+    public newdata: any;
 
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof GridExpBarControlBase
+     */
+    @Prop()
+    public opendata: any;
+
+    /**
+     * 是否单选
+     * 
+     * @public
+     * @type {(boolean)}
+     * @memberof GridExpBarControlBase
+     */
+    public isGridSingleSelect: boolean = true;
+
+    /**
+     * 部件创建完毕
+     *
+     * @memberof GridExpBarControlBase
+     */
+    public ctrlCreated(): void {
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+                this.viewState.next({ tag: 'gridexpbar_grid', action: action, data: data });
+            });
+        }
+    }
+
+    /**
+     * 执行搜索
+     *
+     * @memberof GridExpBarControlBase
+     */
+    public onSearch($event: any) {
+        const grid: any = this.$refs.gridexpbar_grid;
+        if (grid) {
+            grid.load({ query: this.searchText });
+        }
+    }
+
+    /**
+     * gridexpbar的load完成事件
+     *
+     * @param {*} args
+     * @param {*} [e]
+     * @param {*} [data]
+     * @memberof GridExpBarControlBase
+     */
+    public gridexpbar_load(args: any, e?: any, data?: any) {
+        this.$emit('load', args);
+    }
 }
