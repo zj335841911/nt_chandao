@@ -178,12 +178,6 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.assigneddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='assigneddate' :itemRules="this.rules.assigneddate" class='' :caption="$t('entities.todo.main_form.details.assigneddate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assigneddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.assigneddate" :disabled="detailsModel.assigneddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.assigneddate = val1 }"></date-picker>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.todo.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     

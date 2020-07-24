@@ -89,11 +89,6 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
-        name: 'assigneddate',
-        prop: 'assigneddate',
-        dataType: 'DATETIME',
-      },
-      {
         name: 'type',
         prop: 'type',
         dataType: 'TEXT',

@@ -81,7 +81,6 @@ export class MainEditFormBase extends EditFormControlBase {
         formitem5: null,
         formitem2: null,
         formitem: null,
-        assigneddate: null,
         type: null,
         pri: null,
         task: null,
@@ -162,8 +161,6 @@ export class MainEditFormBase extends EditFormControlBase {
         formitem2: new FormItemModel({ caption: '提前生成待办(天)', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem: new FormItemModel({ caption: '过期时间', detailType: 'FORMITEM', name: 'formitem', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -249,7 +246,6 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.formitem.setVisible(ret);
         }
-
 
         if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
             let ret = false;

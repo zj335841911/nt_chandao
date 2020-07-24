@@ -140,10 +140,22 @@
 
 </i-col>
 <i-col v-show="detailsModel.private.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='private' :itemRules="this.rules.private" class='' :caption="$t('entities.todo.editform_form.details.private')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.private.error" :isEmptyCaption="false" labelPos="NONE">
-    <div style="">
-  <app-checkbox :value="this.data.private" @change="($event)=>{this.data.private = $event} " :disabled="detailsModel.private.disabled"></app-checkbox>
-</div>
+    <app-form-item name='private' :itemRules="this.rules.private" class='' :caption="$t('entities.todo.editform_form.details.private')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.private.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-checkbox-list 
+  v-model="data.private" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.private.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='Private_choose' 
+  codelistType='STATIC' 
+  mode=""
+  name="private" 
+  style="">
+</app-checkbox-list>
 </app-form-item>
 
 </i-col>
