@@ -70,6 +70,7 @@ import { AppFooter } from './components/layout/app-footer/app-footer';
 import { AppBreadcrumb } from './components/app-breadcrumb/app-breadcrumb';
 import { MenuIcon } from './components/menu-icon/menu-icon';
 import { UserInfo } from './components/user-info/user-info';
+import { ExpControlLayout } from './components/exp-control-layout/exp-control-layout';
 import { StudioViewStyle2 } from './components/studio-view-style2/studio-view-style2';
 import { StudioView } from './components/studio-view/studio-view';
 import { StudioEmbedView } from './components/studio-embed-view/studio-embed-view';
@@ -106,6 +107,7 @@ export const StudioCore = {
         v.component('app-content-bottom-exp', AppContentBottomExp);
         v.component('app-footer', AppFooter);
         v.component('app-breadcrumb', AppBreadcrumb);
+        v.component('exp-control-layout', ExpControlLayout);
         v.component('menu-icon', MenuIcon);
         v.component('user-info', UserInfo);
         v.component('studio-view-style2', StudioViewStyle2);

@@ -48,13 +48,13 @@ export default class DataPanelEngine extends ViewEngine {
      */
     public init(opt: any = {}): void {
         super.init(opt);
-        this.addListener();
         if (opt.form) {
             this.form = opt.form;
         }
         if (opt.datapanel) {
             this.dataPanel = opt.datapanel;
         }
+        this.addListener();
     }
 
     /**
