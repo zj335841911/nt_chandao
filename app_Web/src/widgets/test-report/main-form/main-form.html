@@ -2,31 +2,31 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testreport.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.testreport.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="SPAN" format="" :refFormItem="['begin','end']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='owner' :itemRules="this.rules.owner" class='' :caption="$t('entities.testreport.main_form.details.owner')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.owner.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='owner' :value="data.owner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.members.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.members.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='members' :itemRules="this.rules.members" class='' :caption="$t('entities.testreport.main_form.details.members')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.members.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='members' :value="data.members" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.testreport.main_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
@@ -50,7 +50,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='report' :itemRules="this.rules.report" class='' :caption="$t('entities.testreport.main_form.details.report')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.report.error" :isEmptyCaption="false" labelPos="LEFT">
     <html-container :content="data.report"></html-container>
 </app-form-item>

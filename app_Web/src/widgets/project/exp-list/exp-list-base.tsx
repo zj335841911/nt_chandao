@@ -64,12 +64,4 @@ export class ExpListBase extends ListControlBase {
      * @memberof ExpListBase
      */
     public minorSortPSDEF: string = 'id';
-
-    /**
-     * this引用
-     *
-     * @type {number}
-     * @memberof ExpBase
-     */
-    public thisRef: any = this;
 }

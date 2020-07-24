@@ -260,15 +260,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '2a60d576ef50d63f5e967cef38bc8fed',
-            viewmodule: 'zentao',
-            viewname: 'ProductChartView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
             viewmodule: 'zentao',
             viewname: 'ProductStatsTestEditView9',

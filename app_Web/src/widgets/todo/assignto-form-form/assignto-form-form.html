@@ -2,11 +2,11 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.assigntoform_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col v-show="detailsModel.assignto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.assignto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-item name='assignto' :itemRules="this.rules.assignto" class='' :caption="$t('entities.todo.assigntoform_form.details.assignto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
@@ -26,13 +26,13 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.todo.assigntoform_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.future.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.future.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='future' :itemRules="this.rules.future" class='' :caption="$t('entities.todo.assigntoform_form.details.future')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.future.error" :isEmptyCaption="false" labelPos="NONE">
     
 <app-checkbox-list 
@@ -52,7 +52,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.todo.assigntoform_form.details.begin')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
@@ -72,7 +72,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.todo.assigntoform_form.details.end')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.end.error" :isEmptyCaption="true" labelPos="NONE">
     
 <dropdown-list 
@@ -92,7 +92,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.lbldisabledate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.lbldisabledate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='lbldisabledate' :itemRules="this.rules.lbldisabledate" class='' :caption="$t('entities.todo.assigntoform_form.details.lbldisabledate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.lbldisabledate.error" :isEmptyCaption="false" labelPos="NONE">
     
 <app-checkbox-list 
