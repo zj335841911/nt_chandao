@@ -30,3 +30,6 @@ import view_dashboard_sysportlet1 from '@widgets/burn/burn-down-chart-portlet/bu
 @VueLifeCycleProcessing()
 export default class MainDashboard extends MainDashboardBase { }
 </script>
+<style lang='less'>
+@import './main-dashboard.less';
+</style>
