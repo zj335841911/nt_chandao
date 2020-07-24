@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
 import MainRowService from './main-row-grid-service';
 import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {MainRowGridBase}
  */
-export class MainRowGridBase extends GridControllerBase {
+export class MainRowGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -120,7 +120,7 @@ export class MainRowGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof MainRowBase
      */
     protected localStorageTag: string = 'ibz_testmodule_mainrow_grid';
 

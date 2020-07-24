@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, ListControllerBase } from '@/studio-core';
+import { Watch, ListControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import GroupTrendsService from './group-trends-list-service';
 import ActionUIService from '@/uiservice/action/action-ui-service';
@@ -10,10 +10,10 @@ import ActionUIService from '@/uiservice/action/action-ui-service';
  * list部件基类
  *
  * @export
- * @class ListControllerBase
+ * @class ListControlBase
  * @extends {GroupTrendsListBase}
  */
-export class GroupTrendsListBase extends ListControllerBase {
+export class GroupTrendsListBase extends ListControlBase {
 
     /**
      * 获取部件类型

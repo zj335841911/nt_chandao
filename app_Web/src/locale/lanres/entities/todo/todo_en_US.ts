@@ -28,6 +28,9 @@ export default {
     config_month: "周期设置月",
     config_type: "周期类型",
     config_end: "过期时间",
+    bug: "bug",
+    task: "项目任务",
+    story: "项目需求",
   },
 	views: {
 		assigntoview: {
@@ -83,7 +86,7 @@ export default {
 			srfsourcekey: "", 
 			date: "日期", 
 			date_disable: "", 
-			cycle_enable: "", 
+			cycle_enable: "周期", 
 			formitem3: "周期间隔(天)", 
 			formitem4: "周期间隔", 
 			formitem5: "周期间隔", 

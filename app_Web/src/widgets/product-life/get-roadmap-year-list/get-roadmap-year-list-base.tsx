@@ -67,6 +67,22 @@ export class GetRoadmapYearListBase extends MainControlBase {
     @Prop({ default: 'default' })
     protected mode!: string;
 
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof GetRoadmapYear
+     */    
+    public sortDir2:string = 'asc';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof GetRoadmapYear
+     */    
+    public sortField2: string = 'end';
+
 
     /**
      * 获取多项数据
@@ -307,8 +323,8 @@ export class GetRoadmapYearListBase extends MainControlBase {
             Object.assign(arg, { page: this.curPage - 1, size: this.limit });
         }
         // 设置排序
-        if (!Object.is(this.sortDir, '') && !Object.is(this.sortField, '')) {
-          const sort: string = this.sortField+","+this.sortDir;
+        if (!Object.is(this.sortDir2, '') && !Object.is(this.sortField2, '')) {
+          const sort: string = this.sortField2+","+this.sortDir2;
             Object.assign(arg, { sort: sort });
         }
         arg.viewparams = this.viewparams || {};

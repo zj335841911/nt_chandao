@@ -50,8 +50,9 @@ export { OptionViewBase } from './view/OptionViewBase';
 // 部件基类
 export { MainControlBase } from './widgets/MainControlBase';
 export { FormControlBase } from './widgets/FormControlBase';
-export { GridControllerBase } from './widgets/GridControllerBase';
-export { ListControllerBase } from './widgets/ListControllerBase';
+export { GridControlBase } from './widgets/GridControlBase';
+export { GridExpBarControlBase } from './widgets/GridExpBarControlBase';
+export { ListControlBase } from './widgets/ListControlBase';
 export { EditFormControlBase } from './widgets/EditFormControlBase';
 export { MDControlBase } from './widgets/MDControlBase';
 export { PanelControlBase } from './widgets/PanelControlBase';
