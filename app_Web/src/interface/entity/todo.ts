@@ -223,7 +223,7 @@ export interface Todo {
     config_end?: any;
 
     /**
-     * bug
+     * 待办名称
      *
      * @returns {*}
      * @memberof Todo
@@ -231,7 +231,7 @@ export interface Todo {
     bug?: any;
 
     /**
-     * 项目任务
+     * 待办名称
      *
      * @returns {*}
      * @memberof Todo
@@ -239,10 +239,18 @@ export interface Todo {
     task?: any;
 
     /**
-     * 项目需求
+     * 待办名称
      *
      * @returns {*}
      * @memberof Todo
      */
     story?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    date1?: any;
 }

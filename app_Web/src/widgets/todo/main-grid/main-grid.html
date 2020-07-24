@@ -35,15 +35,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('date')">
-                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.todo.main_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('date1')">
+                <el-table-column show-overflow-tooltip :prop="'date1'" :label="$t('entities.todo.main_grid.columns.date1')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.todo.main_grid.columns.date')}}
+                        {{$t('entities.todo.main_grid.columns.date1')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
+                        <span>{{row.date1}}</span>
                     </template>
                 </el-table-column>
             </template>

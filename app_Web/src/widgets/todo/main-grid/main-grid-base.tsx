@@ -266,9 +266,9 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'date',
+            name: 'date1',
             label: '日期',
-            langtag: 'entities.todo.main_grid.columns.date',
+            langtag: 'entities.todo.main_grid.columns.date1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -364,7 +364,7 @@ export class MainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'id':false,
-        'date':false,
+        'date1':false,
         'type':false,
         'pri':false,
         'name':false,

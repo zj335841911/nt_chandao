@@ -268,6 +268,14 @@ public class TodoDTO extends DTOBase implements Serializable {
     @JsonProperty("story")
     private String story;
 
+    /**
+     * 属性 [DATE1]
+     *
+     */
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    private String date1;
+
 
     /**
      * 设置 [ACCOUNT]

@@ -52,11 +52,6 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'date',
-          prop: 'date',
-          dataType: 'DATE',
-        },
-        {
           name: 'srfmstag',
         },
         {
@@ -79,6 +74,11 @@ export default class MainModel {
           name: 'end',
           prop: 'end',
           dataType: 'INT',
+        },
+        {
+          name: 'date1',
+          prop: 'date1',
+          dataType: 'TEXT',
         },
         {
           name: 'begin',
