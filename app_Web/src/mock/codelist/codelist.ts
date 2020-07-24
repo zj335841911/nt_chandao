@@ -4871,6 +4871,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "TodoQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有待办",
+                text: "所有待办",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "thisyear",
+                label: "本年度",
+                text: "本年度",
+                "data":{"thisyear":"thisyear"},
+                "codename":"Thisyear",
+                value: "thisyear",
+                
+                disabled: false,
+            },
+            {
+                id: "BYME",
+                label: "待定",
+                text: "待定",
+                "data":{"n_date_eq":"2030-01-01"},
+                "codename":"Byme",
+                value: "BYME",
+                
+                disabled: false,
+            },
+            {
+                id: "cycle",
+                label: "周期",
+                text: "周期",
+                "data":{"n_type_eq":"cycle"},
+                "codename":"Cycle",
+                value: "cycle",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "TASK_QuickacketMy",
         emptytext: "未定义",
         "codelisttype":"static",

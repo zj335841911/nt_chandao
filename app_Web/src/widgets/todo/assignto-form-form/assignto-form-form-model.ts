@@ -57,8 +57,8 @@ export default class AssigntoFormModel {
       },
       {
         name: 'date',
-        prop: 'assigneddate',
-        dataType: 'DATETIME',
+        prop: 'date',
+        dataType: 'DATE',
       },
       {
         name: 'future',
