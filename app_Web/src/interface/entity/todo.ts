@@ -183,7 +183,7 @@ export interface Todo {
     config_day?: any;
 
     /**
-     * 提前生成待办天数
+     * 提前
      *
      * @returns {*}
      * @memberof Todo

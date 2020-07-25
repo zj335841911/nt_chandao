@@ -56,6 +56,34 @@ export default class EditFormModel {
         dataType: 'DATE',
       },
       {
+        name: 'config_day',
+        prop: 'config_day',
+        dataType: 'INT',
+      },
+      {
+        name: 'config_week',
+        prop: 'config_week',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'config_month',
+        prop: 'config_month',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'config_beforedays',
+        prop: 'config_beforedays',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'config_end',
+        prop: 'config_end',
+        dataType: 'DATE',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'TEXT',

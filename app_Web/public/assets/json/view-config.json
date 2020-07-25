@@ -239,6 +239,16 @@
         "viewtag": "21e00a7239d9737bbfda5c1608b4129c",
         "memo": ""
     },
+    "storympickupview3": {
+        "title": "关联需求",
+        "caption": "关联需求",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryMPickupView3",
+        "viewfilename": "story-mpickup-view3",
+        "viewtag": "2419b3758d42fb7e5a590153d28bd945",
+        "memo": ""
+    },
     "taskmainmygridview": {
         "title": "task表格视图",
         "caption": "任务",
@@ -498,6 +508,16 @@
         "viewfilename": "test-task-edit-view9-detail",
         "viewtag": "451eacde0c0c638e29bdfc9cbc789c13",
         "memo": ""
+    },
+    "storypickupgridview3": {
+        "title": "需求",
+        "caption": "需求",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryPickupGridView3",
+        "viewfilename": "story-pickup-grid-view3",
+        "viewtag": "4571c6ac173283165334a20d5b218f3b",
+        "memo": "用于【版本】关联【需求】，显示项目下的所有需求。"
     },
     "bugeditview": {
         "title": "Bug",

@@ -1314,6 +1314,63 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "TypeAll",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "项目任务",
+                text: "项目任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "项目需求",
+                text: "项目需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "cycle",
+                label: "周期",
+                text: "周期",
+                "data":"",
+                "codename":"Cycle",
+                value: "cycle",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "CurProductBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -4685,22 +4742,22 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: "bug",
-                label: "Bug",
-                text: "Bug",
-                "data":"",
-                "codename":"Bug",
-                value: "bug",
-                
-                disabled: false,
-            },
-            {
                 id: "custom",
                 label: "自定义",
                 text: "自定义",
                 "data":"",
                 "codename":"Custom",
                 value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
                 
                 disabled: false,
             },

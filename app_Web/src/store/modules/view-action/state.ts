@@ -234,6 +234,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2419b3758d42fb7e5a590153d28bd945',
+            viewmodule: 'zentao',
+            viewname: 'StoryMPickupView3',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4571c6ac173283165334a20d5b218f3b',
+            ],
+        },
+        {
             viewtag: '24a03de02dc02b92a3c228b944e78ed9',
             viewmodule: 'zentao',
             viewname: 'TaskMainMyGridView',
@@ -468,6 +478,15 @@ export const viewstate: any = {
             viewtag: '451eacde0c0c638e29bdfc9cbc789c13',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView9_Detail',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '4571c6ac173283165334a20d5b218f3b',
+            viewmodule: 'zentao',
+            viewname: 'StoryPickupGridView3',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -758,6 +777,7 @@ export const viewstate: any = {
             refviews: [
                 '928e6614bcfbd67af3b596cf5dc5a46b',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
+                '2419b3758d42fb7e5a590153d28bd945',
             ],
         },
         {

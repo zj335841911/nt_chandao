@@ -204,7 +204,7 @@ public class Todo extends EntityMP implements Serializable {
     @JsonProperty("config_day")
     private Integer configDay;
     /**
-     * 提前生成待办天数
+     * 提前
      */
     @TableField(exist = false)
     @JSONField(name = "config_beforedays")

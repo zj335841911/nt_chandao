@@ -81,6 +81,7 @@ export class MainEditFormBase extends EditFormControlBase {
         formitem4: null,
         formitem5: null,
         formitem2: null,
+        formitem6: null,
         formitem: null,
         type: null,
         pri: null,
@@ -138,7 +139,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         tabpanel1: new FormTabPanelModel({ caption: '', detailType: 'TABPANEL', name: 'tabpanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, tabPages: [{ name: 'tabpage1', index: 0, visible: true }, { name: 'tabpage2', index: 1, visible: true }, { name: 'tabpage3', index: 2, visible: true }] }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '周期设置', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
 
@@ -168,13 +169,15 @@ export class MainEditFormBase extends EditFormControlBase {
 
         idvalue: new FormItemModel({ caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem3: new FormItemModel({ caption: '周期间隔(天)', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem4: new FormItemModel({ caption: '周期间隔', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem5: new FormItemModel({ caption: '周期间隔', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem5: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem2: new FormItemModel({ caption: '提前生成待办(天)', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem2: new FormItemModel({ caption: '提前', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem6: new FormItemModel({ caption: '天生成待办', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem: new FormItemModel({ caption: '过期时间', detailType: 'FORMITEM', name: 'formitem', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -246,6 +249,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.date.setDisabled(!ret);
         }
+
 
 
 
@@ -366,7 +370,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'formitem10')) {
             let ret = false;
             const _formitem10 = this.data.formitem10;
-            if (this.$verify.testCond(_formitem10, 'NOTEQ', 'no')) {
+            if (this.$verify.testCond(_formitem10, 'NOTEQ', 'on')) {
                 ret = true;
             }
             this.detailsModel.begin.setDisabled(!ret);

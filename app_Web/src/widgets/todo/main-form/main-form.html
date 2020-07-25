@@ -53,7 +53,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.tabpanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -68,8 +68,8 @@
                 ])
             }">
             
-    <i-col class="form-layout-container" v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.todo.main_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="false" labelPos="LEFT">
+    <i-col class="form-layout-container" v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.todo.main_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box 
   v-model="data.formitem3"  
   @enter="onEnter($event)"  
@@ -96,7 +96,7 @@
             }">
             
     <i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem4' :itemRules="this.rules.formitem4" class='' :caption="$t('entities.todo.main_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitem4' :itemRules="this.rules.formitem4" class='' :caption="$t('entities.todo.main_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
   v-model="data.formitem4" 
@@ -128,7 +128,7 @@
             }">
             
     <i-col class="form-layout-container" v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem5' :itemRules="this.rules.formitem5" class='' :caption="$t('entities.todo.main_form.details.formitem5')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem5.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitem5' :itemRules="this.rules.formitem5" class='' :caption="$t('entities.todo.main_form.details.formitem5')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem5.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
   v-model="data.formitem5" 
@@ -152,7 +152,7 @@
         </tab-pane>
 </tabs>
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.todo.main_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
   v-model="data.formitem2"  
@@ -164,6 +164,13 @@
    
   style="">
 </input-box>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.formitem6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='formitem6' :itemRules="this.rules.formitem6" class='' :caption="$t('entities.todo.main_form.details.formitem6')" uiStyle="DEFAULT" :labelWidth="90" :isShowCaption="true" :error="detailsModel.formitem6.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='formitem6' :value="data.formitem6" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

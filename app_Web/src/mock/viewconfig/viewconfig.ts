@@ -199,6 +199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainEditView",
             "viewtag": "21e00a7239d9737bbfda5c1608b4129c"
         },
+        "storympickupview3": {
+            "title": "关联需求",
+            "caption": "关联需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMPickupView3",
+            "viewtag": "2419b3758d42fb7e5a590153d28bd945"
+        },
         "taskmainmygridview": {
             "title": "task表格视图",
             "caption": "任务",
@@ -406,6 +414,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskEditView9_Detail",
             "viewtag": "451eacde0c0c638e29bdfc9cbc789c13"
+        },
+        "storypickupgridview3": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPickupGridView3",
+            "viewtag": "4571c6ac173283165334a20d5b218f3b"
         },
         "bugeditview": {
             "title": "Bug",

@@ -399,7 +399,7 @@ export class MainGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'type',
-                srfkey: 'Type',
+                srfkey: 'TypeAll',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
