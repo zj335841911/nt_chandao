@@ -1,9 +1,9 @@
 zuul:
   routes:
-#    common:
-#      path: /**
-#      serviceId: pms-webapi-qml
-#      stripPrefix: false
+    common:
+      path: /appdata
+      serviceId: pms-webapi
+      stripPrefix: false
     v7:
       path: /v7/**
       serviceId: pms-webapi
