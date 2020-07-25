@@ -968,6 +968,36 @@ export default class BugServiceBase extends EntityService {
     }
 
     /**
+     * FetchBuildLinkResolvedBugs接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildLinkResolvedBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+    }
+
+    /**
      * FetchBuildOpenBugs接口方法
      *
      * @param {*} [context={}]

@@ -6,14 +6,14 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 10, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.todo.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.date_disable.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='date_disable' :itemRules="this.rules.date_disable" class='' :caption="$t('entities.todo.main_form.details.date_disable')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.date_disable.error" :isEmptyCaption="false" labelPos="NONE">
+<i-col class="form-layout-container" v-show="detailsModel.date_disable.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+    <app-form-item name='date_disable' :itemRules="this.rules.date_disable" class='' :caption="$t('entities.todo.main_form.details.date_disable')" uiStyle="DEFAULT" :labelWidth="2" :isShowCaption="true" :error="detailsModel.date_disable.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
   v-model="data.date_disable" 
@@ -32,8 +32,8 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.cycle_enable.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='cycle_enable' :itemRules="this.rules.cycle_enable" class='' :caption="$t('entities.todo.main_form.details.cycle_enable')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.cycle_enable.error" :isEmptyCaption="false" labelPos="NONE">
+<i-col class="form-layout-container" v-show="detailsModel.cycle_enable.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+    <app-form-item name='cycle_enable' :itemRules="this.rules.cycle_enable" class='' :caption="$t('entities.todo.main_form.details.cycle_enable')" uiStyle="DEFAULT" :labelWidth="2" :isShowCaption="true" :error="detailsModel.cycle_enable.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-checkbox-list 
   v-model="data.cycle_enable" 
@@ -95,7 +95,7 @@
                 ])
             }">
             
-    <i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-item name='formitem4' :itemRules="this.rules.formitem4" class='' :caption="$t('entities.todo.main_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-checkbox-list 
@@ -127,7 +127,7 @@
                 ])
             }">
             
-    <i-col class="form-layout-container" v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <i-col class="form-layout-container" v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-item name='formitem5' :itemRules="this.rules.formitem5" class='' :caption="$t('entities.todo.main_form.details.formitem5')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem5.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-checkbox-list 
@@ -218,7 +218,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.task.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.task.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='task' :itemRules="this.rules.task" class='' :caption="$t('entities.todo.main_form.details.task')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.task.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -243,7 +243,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.story.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.story.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='story' :itemRules="this.rules.story" class='' :caption="$t('entities.todo.main_form.details.story')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.story.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -268,7 +268,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.bug.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.bug.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='bug' :itemRules="this.rules.bug" class='' :caption="$t('entities.todo.main_form.details.bug')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.bug.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -293,13 +293,13 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.todo.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.todo.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.formitem1" @change="(val) =>{this.data.formitem1 =val}" :disabled="detailsModel.formitem1.disabled" :data="JSON.stringify(this.data)"  name="formitem1" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
 </app-form-item>
@@ -329,7 +329,7 @@
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 10, offset: 0 }">
     <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.todo.main_form.details.begin')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
@@ -369,7 +369,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitem10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='formitem10' :itemRules="this.rules.formitem10" class='' :caption="$t('entities.todo.main_form.details.formitem10')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem10.error" :isEmptyCaption="true" labelPos="NONE">
     
 <app-checkbox-list 

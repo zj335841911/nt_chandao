@@ -162,9 +162,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        date_disable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'date_disable', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        date_disable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'date_disable', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        cycle_enable: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        cycle_enable: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         idvalue: new FormItemModel({ caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
