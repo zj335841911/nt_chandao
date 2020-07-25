@@ -41,6 +41,13 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
             this.getSearchCond().eq("type", n_type_eq);
         }
     }
+	private String n_type_noteq;//[类型]
+	public void setN_type_noteq(String n_type_noteq) {
+        this.n_type_noteq = n_type_noteq;
+        if(!ObjectUtils.isEmpty(this.n_type_noteq)){
+            this.getSearchCond().ne("type", n_type_noteq);
+        }
+    }
 	private String n_status_eq;//[状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
