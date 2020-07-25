@@ -87,6 +87,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			date: "日期", 
+			cycle: "周期", 
 			config_type: "周期类型", 
 			config_day: "", 
 			config_week: "", 

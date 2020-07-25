@@ -740,6 +740,12 @@ export default {
 			tip: "编辑",
 		},
 	},
+	buildsubgridviewtoolbar_toolbar: {
+		deuiaction1_buildlinkstories: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+	},
 	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
