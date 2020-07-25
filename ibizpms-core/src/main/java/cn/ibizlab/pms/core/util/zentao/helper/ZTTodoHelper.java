@@ -33,22 +33,22 @@ final public class ZTTodoHelper {
     // 接口ACTION
     // ----------
 
-    private final static String  ACTION_CREATE = "create";
-    private final static String  ACTION_BATCHCREATE = "batchCreate";
-    private final static String  ACTION_EDIT = "edit";
-    private final static String  ACTION_BATCHEDIT = "batchEdit";
-    private final static String  ACTION_ACTIVATE = "activate";
-    private final static String  ACTION_CLOSE = "close";
-    private final static String  ACTION_ASSIGNTO = "assignTo";
-    private final static String  ACTION_VIEW = "view";
-    private final static String  ACTION_DELETE = "delete";
-    private final static String  ACTION_FINISH = "finish";
-    private final static String  ACTION_BATCHFINISH = "batchFinish";
-    private final static String  ACTION_BATCHCLOSE = "batchClose";
-    private final static String  ACTION_IMPORT2TODAY = "import2Today";
-    private final static String  ACTION_EXPORT = "export";
-    private final static String  ACTION_AJAXGETDETAIL = "ajaxGetDetail";
-    private final static String  ACTION_CREATECYCLE = "createCycle";
+    private final static String ACTION_CREATE = "create";
+    private final static String ACTION_BATCHCREATE = "batchCreate";
+    private final static String ACTION_EDIT = "edit";
+    private final static String ACTION_BATCHEDIT = "batchEdit";
+    private final static String ACTION_ACTIVATE = "activate";
+    private final static String ACTION_CLOSE = "close";
+    private final static String ACTION_ASSIGNTO = "assignTo";
+    private final static String ACTION_VIEW = "view";
+    private final static String ACTION_DELETE = "delete";
+    private final static String ACTION_FINISH = "finish";
+    private final static String ACTION_BATCHFINISH = "batchFinish";
+    private final static String ACTION_BATCHCLOSE = "batchClose";
+    private final static String ACTION_IMPORT2TODAY = "import2Today";
+    private final static String ACTION_EXPORT = "export";
+    private final static String ACTION_AJAXGETDETAIL = "ajaxGetDetail";
+    private final static String ACTION_CREATECYCLE = "createCycle";
 
 
     // ----------
@@ -180,32 +180,38 @@ final public class ZTTodoHelper {
         ACTION_PARAMS_CREATE.put("private", null);
 
         // EDIT
-        ACTION_PARAMS_EDIT.put("date",null);
-        ACTION_PARAMS_EDIT.put("type",null);
-        ACTION_PARAMS_EDIT.put("pri",null);
-        ACTION_PARAMS_EDIT.put("name",null);
-        ACTION_PARAMS_EDIT.put("desc",null);
-        ACTION_PARAMS_EDIT.put("status",null);
-        ACTION_PARAMS_EDIT.put("begin",null);
-        ACTION_PARAMS_EDIT.put("end",null);
-        ACTION_PARAMS_EDIT.put("private",null);
+        ACTION_PARAMS_EDIT.put("date", null);
+        ACTION_PARAMS_EDIT.put("type", null);
+        ACTION_PARAMS_EDIT.put("pri", null);
+        ACTION_PARAMS_EDIT.put("name", null);
+        ACTION_PARAMS_EDIT.put("desc", null);
+        ACTION_PARAMS_EDIT.put("status", null);
+        ACTION_PARAMS_EDIT.put("begin", null);
+        ACTION_PARAMS_EDIT.put("end", null);
+        ACTION_PARAMS_EDIT.put("private", null);
+        ACTION_PARAMS_EDIT.put("config[day]", null);
+        ACTION_PARAMS_EDIT.put("config[week][]", null);
+        ACTION_PARAMS_EDIT.put("config[month][]", null);
+        ACTION_PARAMS_EDIT.put("config[type]", null);
+        ACTION_PARAMS_EDIT.put("config[beforeDays]", null);
+        ACTION_PARAMS_EDIT.put("config[end]", null);
 
         // ASSIGNTO
-        ACTION_PARAMS_ASSIGNTO.put("assignedTo",null);
-        ACTION_PARAMS_ASSIGNTO.put("date",null);
-        ACTION_PARAMS_ASSIGNTO.put("begin",null);
-        ACTION_PARAMS_ASSIGNTO.put("end",null);
-        ACTION_PARAMS_ASSIGNTO.put("future",null);
-        ACTION_PARAMS_ASSIGNTO.put("lblDisableDate",null);
+        ACTION_PARAMS_ASSIGNTO.put("assignedTo", null);
+        ACTION_PARAMS_ASSIGNTO.put("date", null);
+        ACTION_PARAMS_ASSIGNTO.put("begin", null);
+        ACTION_PARAMS_ASSIGNTO.put("end", null);
+        ACTION_PARAMS_ASSIGNTO.put("future", null);
+        ACTION_PARAMS_ASSIGNTO.put("lblDisableDate", null);
 
         // BATCHCREATE
-        ACTION_PARAMS_BATCHCREATE.put("date",null);
-        ACTION_PARAMS_BATCHCREATE.put("types[]",null);
-        ACTION_PARAMS_BATCHCREATE.put("pris[]",null);
-        ACTION_PARAMS_BATCHCREATE.put("names[]",null);
-        ACTION_PARAMS_BATCHCREATE.put("descs[]",null);
-        ACTION_PARAMS_BATCHCREATE.put("begins[]",null);
-        ACTION_PARAMS_BATCHCREATE.put("ends[]",null);
+        ACTION_PARAMS_BATCHCREATE.put("date", null);
+        ACTION_PARAMS_BATCHCREATE.put("types[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("pris[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("names[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("descs[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("begins[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("ends[]", null);
 
     }
 
@@ -215,37 +221,48 @@ final public class ZTTodoHelper {
 
     static {
         // CREATE
-        ACTION_URL_PARAMS_CREATE.add("date");
+        //ACTION_URL_PARAMS_CREATE.add("date");
         ACTION_URL_PARAMS_CREATE.add("account");
 
         // EDIT
-        ACTION_URL_PARAMS_EDIT.add("todoID");
+        ACTION_URL_PARAMS_EDIT.add("id");
 
         // ASSIGNTO
-        ACTION_URL_PARAMS_ASSIGNTO.add("todoID");
+        ACTION_URL_PARAMS_ASSIGNTO.add("id");
 
         // FINISH
-        ACTION_URL_PARAMS_FINISH.add("todoID");
+        ACTION_URL_PARAMS_FINISH.add("id");
 
         // DELETE
-        ACTION_URL_PARAMS_DELETE.add("todoID");
+        ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
 
         // ACTIVATE
-        ACTION_URL_PARAMS_ACTIVATE.add("todoID");
+        ACTION_URL_PARAMS_ACTIVATE.add("id");
 
         // BATCHCREATE
         ACTION_URL_PARAMS_BATCHCREATE.add("date");
         ACTION_URL_PARAMS_BATCHCREATE.add("account");
 
         // CLOSE
-        ACTION_URL_PARAMS_CLOSE.add("todoID");
+        ACTION_URL_PARAMS_CLOSE.add("id");
+    }
+
+    // ----------
+    // 接口行为POST参数日期格式设置
+    // ----------
+    static {
+        PARAMS_DATEFORMAT.put("date", "yyyy-MM-dd");
+        PARAMS_DATEFORMAT.put("config[end]", "yyyy-MM-dd");
     }
 
     // ----------
     // 接口实现
     // ----------
 
+    static {
+
+    }
 
     /**
      * create 创建
