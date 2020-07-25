@@ -422,6 +422,14 @@ export class MainGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
+                name: 'pri',
+                srfkey: 'Pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
                 name: 'begin',
                 srfkey: 'BeginendDropList',
                 codelistType : 'STATIC',
