@@ -4936,7 +4936,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "All",
                 label: "所有待办",
                 text: "所有待办",
-                "data":{},
+                "data":{"n_type_noteq":"cycle"},
                 "codename":"All",
                 value: "All",
                 
