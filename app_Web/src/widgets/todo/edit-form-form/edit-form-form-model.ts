@@ -56,6 +56,11 @@ export default class EditFormModel {
         dataType: 'DATE',
       },
       {
+        name: 'config_type',
+        prop: 'config_type',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'config_day',
         prop: 'config_day',
         dataType: 'INT',

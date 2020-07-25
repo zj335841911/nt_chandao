@@ -69,6 +69,30 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugBuildSubGridView_DoneBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' },
+        'PRODUCT': { isRawValue: false, value: 'product' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugBuildSubGridView_DoneBase
+	 */
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *

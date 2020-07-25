@@ -75,10 +75,7 @@ export default {
 	},
 	editform_form: {
 		details: {
-			tabpage1: "天", 
-			tabpage2: "周", 
-			tabpage3: "月", 
-			tabpanel1: "", 
+			grouppanel3: "分组面板", 
 			grouppanel2: "周期设置", 
 			grouppanel1: "分组面板", 
 			group1: "编辑待办", 
@@ -91,6 +88,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			date: "日期", 
+			config_type: "周期类型", 
 			config_day: "", 
 			config_week: "", 
 			config_month: "", 
@@ -113,10 +111,7 @@ export default {
 	},
 	main_form: {
 		details: {
-			tabpage1: "天", 
-			tabpage2: "周", 
-			tabpage3: "月", 
-			tabpanel1: "", 
+			grouppanel3: "分组面板", 
 			grouppanel1: "周期设置", 
 			grouppanel2: "分组面板", 
 			group1: "", 
@@ -131,6 +126,7 @@ export default {
 			date: "日期", 
 			date_disable: "", 
 			cycle_enable: "", 
+			config_type: "周期类型", 
 			idvalue: "关联编号", 
 			formitem3: "", 
 			formitem4: "", 

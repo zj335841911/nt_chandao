@@ -5318,6 +5318,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "CycleType",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "day",
+                label: "天",
+                text: "天",
+                "data":"",
+                "codename":"Day",
+                value: "day",
+                
+                disabled: false,
+            },
+            {
+                id: "week",
+                label: "周",
+                text: "周",
+                "data":"",
+                "codename":"Week",
+                value: "week",
+                
+                disabled: false,
+            },
+            {
+                id: "month",
+                label: "月度",
+                text: "月度",
+                "data":"",
+                "codename":"Month",
+                value: "month",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Story__stage",
         emptytext: "未定义",
         "codelisttype":"static",
