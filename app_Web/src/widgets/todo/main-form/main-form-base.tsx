@@ -408,4 +408,20 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
     }
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('status')) {
+            this.data['status'] = 'wait';
+        }
+        if (this.data.hasOwnProperty('begin')) {
+            this.data['begin'] = 0600;
+        }
+        if (this.data.hasOwnProperty('end')) {
+            this.data['end'] = 0600;
+        }
+    }
 }
