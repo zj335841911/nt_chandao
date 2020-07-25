@@ -142,11 +142,11 @@ export class EditFormEditFormBase extends EditFormControlBase {
 
         config_type: new FormItemModel({ caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        config_day: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_day', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        config_day: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_day', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        config_week: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_week', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        config_week: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_week', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        config_month: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_month', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        config_month: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_month', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         config_beforedays: new FormItemModel({ caption: '提前', detailType: 'FORMITEM', name: 'config_beforedays', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -215,8 +215,32 @@ export class EditFormEditFormBase extends EditFormControlBase {
         }
 
 
+        if (Object.is(name, '') || Object.is(name, 'config_type')) {
+            let ret = false;
+            const _config_type = this.data.config_type;
+            if (this.$verify.testCond(_config_type, 'EQ', 'day')) {
+                ret = true;
+            }
+            this.detailsModel.config_day.setVisible(ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'config_type')) {
+            let ret = false;
+            const _config_type = this.data.config_type;
+            if (this.$verify.testCond(_config_type, 'EQ', 'week')) {
+                ret = true;
+            }
+            this.detailsModel.config_week.setVisible(ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'config_type')) {
+            let ret = false;
+            const _config_type = this.data.config_type;
+            if (this.$verify.testCond(_config_type, 'EQ', 'month')) {
+                ret = true;
+            }
+            this.detailsModel.config_month.setVisible(ret);
+        }
 
 
 
