@@ -89,6 +89,9 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
+        name: 'formitem6',
+      },
+      {
         name: 'formitem',
         prop: 'config_end',
         dataType: 'DATE',

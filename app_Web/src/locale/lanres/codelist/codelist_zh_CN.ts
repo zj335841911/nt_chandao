@@ -181,6 +181,14 @@ export default {
     ProductBranch: {
         "empty": "",
     },
+    TypeAll: {
+        "custom": "自定义",
+        "bug": "Bug",
+        "task": "项目任务",
+        "story": "项目需求",
+        "cycle": "周期",
+        "empty": "",
+    },
     CurProductBuild: {
         "empty": "",
     },
@@ -595,8 +603,8 @@ export default {
         "empty": "",
     },
     Type: {
-        "bug": "Bug",
         "custom": "自定义",
+        "bug": "Bug",
         "task": "项目任务",
         "story": "项目需求",
         "empty": "",

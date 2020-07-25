@@ -55,6 +55,10 @@ export default {
 			caption: "需求",
       		title: "需求编辑视图",
 		},
+		mpickupview3: {
+			caption: "关联需求",
+      		title: "关联需求",
+		},
 		reportsubgridview: {
 			caption: "需求",
       		title: "story表格视图",
@@ -62,6 +66,10 @@ export default {
 		mainview: {
 			caption: "需求",
       		title: "需求数据看板视图",
+		},
+		pickupgridview3: {
+			caption: "需求",
+      		title: "需求",
 		},
 		editview: {
 			caption: "需求",

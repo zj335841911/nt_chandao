@@ -333,10 +333,7 @@ export default class BuildUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { build: '%build%' });
-        Object.assign(params, { id: '%build%' });
-        Object.assign(params, { name: '%name%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
@@ -376,7 +373,20 @@ export default class BuildUIServiceBase extends UIService {
                 return response;
             });
         };
-        backend();
+        const view: any = {
+            viewname: 'story-mpickup-view3',
+            title: actionContext.$t('entities.story.views.mpickupview3.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
 
