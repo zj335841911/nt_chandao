@@ -4950,7 +4950,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "thisyear",
                 label: "本年度",
                 text: "本年度",
-                "data":{"thisyear":"thisyear"},
+                "data":{"thisyear":"thisyear","n_type_noteq":"cycle"},
                 "codename":"Thisyear",
                 value: "thisyear",
                 
@@ -4960,7 +4960,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "BYME",
                 label: "待定",
                 text: "待定",
-                "data":{"n_date_eq":"2030-01-01"},
+                "data":{"n_date_eq":"2030-01-01","n_type_noteq":"cycle"},
                 "codename":"Byme",
                 value: "BYME",
                 
