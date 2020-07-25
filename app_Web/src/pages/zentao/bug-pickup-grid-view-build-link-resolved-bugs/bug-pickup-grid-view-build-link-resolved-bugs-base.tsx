@@ -66,6 +66,18 @@ export class BugPickupGridView_buildLinkResolvedBugsBase extends PickupGridViewB
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugPickupGridView_buildLinkResolvedBugsBase
+	 */
+    protected customViewParams: any = {
+        'srfparentkey': { isRawValue: false, value: 'id' },
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *

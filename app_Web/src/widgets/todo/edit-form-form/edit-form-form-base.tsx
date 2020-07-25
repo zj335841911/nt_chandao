@@ -74,6 +74,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         date: null,
+        cycle: null,
         config_type: null,
         config_day: null,
         config_week: null,
@@ -139,6 +140,8 @@ export class EditFormEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        cycle: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'cycle', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         config_type: new FormItemModel({ caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -213,6 +216,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.date.setDisabled(!ret);
         }
+
 
 
         if (Object.is(name, '') || Object.is(name, 'config_type')) {

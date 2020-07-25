@@ -56,6 +56,11 @@ export default class EditFormModel {
         dataType: 'DATE',
       },
       {
+        name: 'cycle',
+        prop: 'cycle',
+        dataType: 'INT',
+      },
+      {
         name: 'config_type',
         prop: 'config_type',
         dataType: 'SSCODELIST',
