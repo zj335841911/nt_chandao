@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.Module;
 @Data
 public class ModuleSearchContext extends QueryWrapperContext<Module> {
 
+	private String n_root_eq;//[所属根]
+	public void setN_root_eq(String n_root_eq) {
+        this.n_root_eq = n_root_eq;
+        if(!ObjectUtils.isEmpty(this.n_root_eq)){
+            this.getSearchCond().eq("root", n_root_eq);
+        }
+    }
 	private String n_name_like;//[模块名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;

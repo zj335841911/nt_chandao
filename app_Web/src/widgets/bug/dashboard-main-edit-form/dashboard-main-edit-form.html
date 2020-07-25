@@ -135,8 +135,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%", BRANCH:"%branch%" }' 
-    :localParam ='{ product:"%product%", branch:"%branch%" }' 
+    :localContext ='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
+    :localParam ='{ product:"%product%", n_root_eq:"%product%", branch:"%branch%", n_branch_eq:"%branch%" }' 
     :disabled="detailsModel.module.disabled"
     valueType="number"
     tag='BugModule'
