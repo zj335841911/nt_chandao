@@ -526,6 +526,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4b87d5ed612c8f0bc1a3c01344372a26',
+            viewmodule: 'zentao',
+            viewname: 'BugMPickupView2',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b4a2b69da4d3cd9c597b5113df650e00',
+            ],
+        },
+        {
             viewtag: '4b8db6d139edb8adadbef2f0c0b3350a',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Activate',
@@ -1529,6 +1539,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b4a2b69da4d3cd9c597b5113df650e00',
+            viewmodule: 'zentao',
+            viewname: 'BugPickupGridView_buildLinkResolvedBugs',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b507b8efc20db47d7b01d67561638cd6',
             viewmodule: 'zentao',
             viewname: 'BugReleaseSubGridView_Undone',
@@ -2080,7 +2099,7 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
-                '21d716ac12c793af54b112a5a3599674',
+                '4b87d5ed612c8f0bc1a3c01344372a26',
             ],
         },
         {

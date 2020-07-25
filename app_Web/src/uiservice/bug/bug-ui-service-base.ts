@@ -99,11 +99,13 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'buildsubgridview_new_9212',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'buglifeeditview9',srfappde:'bugs'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'mpickupview2',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'testreportsubgridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_done',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolveview',srfappde:'bugs'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs'});
@@ -197,8 +199,8 @@ export default class BugUIServiceBase extends UIService {
             });
         };
         const view: any = {
-            viewname: 'bug-mpickup-view',
-            title: actionContext.$t('entities.bug.views.mpickupview.title'),
+            viewname: 'bug-mpickup-view2',
+            title: actionContext.$t('entities.bug.views.mpickupview2.title'),
             height: 0,
             width: 0,
             placement: 'DRAWER_TOP'

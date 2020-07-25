@@ -559,6 +559,16 @@
         "viewtag": "4b82e9acf6c784b138b365d6011b296b",
         "memo": "视图参数中指定了过滤条件"
     },
+    "bugmpickupview2": {
+        "title": "关联Bug",
+        "caption": "关联Bug",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugMPickupView2",
+        "viewfilename": "bug-mpickup-view2",
+        "viewtag": "4b87d5ed612c8f0bc1a3c01344372a26",
+        "memo": ""
+    },
     "projecteditview_activate": {
         "title": "项目",
         "caption": "项目",
@@ -1587,6 +1597,16 @@
         "viewname": "CompanyEditView",
         "viewfilename": "company-edit-view",
         "viewtag": "b39a7a76c2175803831235ae3aeef05b",
+        "memo": ""
+    },
+    "bugpickupgridview_buildlinkresolvedbugs": {
+        "title": "bug选择表格视图",
+        "caption": "Bug",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugPickupGridView_buildLinkResolvedBugs",
+        "viewfilename": "bug-pickup-grid-view-build-link-resolved-bugs",
+        "viewtag": "b4a2b69da4d3cd9c597b5113df650e00",
         "memo": ""
     },
     "bugreleasesubgridview_undone": {
