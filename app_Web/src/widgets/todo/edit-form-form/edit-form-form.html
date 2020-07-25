@@ -16,64 +16,51 @@
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.editform_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.tabpanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <tabs :animated="false" name='tabpanel1' v-show="detailsModel.tabpanel1.visible" class=''  
-    :value="detailsModel.tabpanel1.activiedPage" @on-click="detailsModel.tabpanel1.clickPage($event)">
-        <tab-pane v-show="detailsModel.tabpage1.visible" name='tabpage1' :index="0" tab='tabpanel1' class=''  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                  $t('entities.todo.editform_form.details.tabpage1')
-                ])
-            }">
-            
-    <i-col class="form-layout-container" v-show="detailsModel.config_day.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.config_type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='config_type' :itemRules="this.rules.config_type" class='' :caption="$t('entities.todo.editform_form.details.config_type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.config_type.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-radio-group 
+  v-model="data.config_type"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams"   
+  :disabled="detailsModel.config_type.disabled"  
+  name="config_type" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='CycleType' 
+  codelistType='STATIC' 
+  style="">
+</app-radio-group>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.editform_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.config_day.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='config_day' :itemRules="this.rules.config_day" class='' :caption="$t('entities.todo.editform_form.details.config_day')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.config_day.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box v-model="data.config_day"  @enter="onEnter($event)"   unit="天"  :disabled="detailsModel.config_day.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
 </i-col>
-
-
-        </tab-pane>
-        <tab-pane v-show="detailsModel.tabpage2.visible" name='tabpage2' :index="1" tab='tabpanel1' class=''  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                  $t('entities.todo.editform_form.details.tabpage2')
-                ])
-            }">
-            
-    <i-col class="form-layout-container" v-show="detailsModel.config_week.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.config_week.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='config_week' :itemRules="this.rules.config_week" class='' :caption="$t('entities.todo.editform_form.details.config_week')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.config_week.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box v-model="data.config_week"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.config_week.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
-
-
-        </tab-pane>
-        <tab-pane v-show="detailsModel.tabpage3.visible" name='tabpage3' :index="2" tab='tabpanel1' class=''  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                  $t('entities.todo.editform_form.details.tabpage3')
-                ])
-            }">
-            
-    <i-col class="form-layout-container" v-show="detailsModel.config_month.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.config_month.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='config_month' :itemRules="this.rules.config_month" class='' :caption="$t('entities.todo.editform_form.details.config_month')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.config_month.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box v-model="data.config_month"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.config_month.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
+    
+    </row>
+</app-form-group>
 
-
-        </tab-pane>
-</tabs>
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.config_beforedays.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='config_beforedays' :itemRules="this.rules.config_beforedays" class='' :caption="$t('entities.todo.editform_form.details.config_beforedays')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.config_beforedays.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -83,8 +70,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.todo.editform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="90" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem' :value="data.formitem" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+    <div style="">{{data.formitem}}</div>
 </app-form-item>
 
 </i-col>

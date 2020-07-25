@@ -683,6 +683,12 @@ export default {
         "CLOSED": "已关闭",
         "empty": "",
     },
+    CycleType: {
+        "day": "天",
+        "week": "周",
+        "month": "月度",
+        "empty": "",
+    },
     Story__stage: {
         "wait": "未开始",
         "planned": "已计划",

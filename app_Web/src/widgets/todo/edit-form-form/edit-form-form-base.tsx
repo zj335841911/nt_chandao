@@ -74,6 +74,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         date: null,
+        config_type: null,
         config_day: null,
         config_week: null,
         config_month: null,
@@ -113,13 +114,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
      * @memberof EditFormEditFormBase
      */
     public detailsModel: any = {
-        tabpage1: new FormTabPageModel({ caption: '天', detailType: 'TABPAGE', name: 'tabpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        tabpage2: new FormTabPageModel({ caption: '周', detailType: 'TABPAGE', name: 'tabpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        tabpage3: new FormTabPageModel({ caption: '月', detailType: 'TABPAGE', name: 'tabpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        tabpanel1: new FormTabPanelModel({ caption: '', detailType: 'TABPANEL', name: 'tabpanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, tabPages: [{ name: 'tabpage1', index: 0, visible: true }, { name: 'tabpage2', index: 1, visible: true }, { name: 'tabpage3', index: 2, visible: true }] }),
+        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.editform_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '周期设置', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.editform_form', extractMode: 'ITEM', details: [] } }),
 
@@ -144,6 +139,8 @@ export class EditFormEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        config_type: new FormItemModel({ caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         config_day: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'config_day', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -189,9 +186,6 @@ export class EditFormEditFormBase extends EditFormControlBase {
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
-
-
-
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
             const _type = this.data.type;
@@ -219,6 +213,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.date.setDisabled(!ret);
         }
+
 
 
 

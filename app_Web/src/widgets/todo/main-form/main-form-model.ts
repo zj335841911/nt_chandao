@@ -64,6 +64,11 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
+        name: 'config_type',
+        prop: 'config_type',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'idvalue',
         prop: 'idvalue',
         dataType: 'INT',

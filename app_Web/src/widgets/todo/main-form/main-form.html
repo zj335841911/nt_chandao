@@ -56,19 +56,30 @@
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.tabpanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <tabs :animated="false" name='tabpanel1' v-show="detailsModel.tabpanel1.visible" class=''  
-    :value="detailsModel.tabpanel1.activiedPage" @on-click="detailsModel.tabpanel1.clickPage($event)">
-        <tab-pane v-show="detailsModel.tabpage1.visible" name='tabpage1' :index="0" tab='tabpanel1' class=''  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                  $t('entities.todo.main_form.details.tabpage1')
-                ])
-            }">
-            
-    <i-col class="form-layout-container" v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.config_type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-item name='config_type' :itemRules="this.rules.config_type" class='' :caption="$t('entities.todo.main_form.details.config_type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.config_type.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-radio-group 
+  v-model="data.config_type"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams"   
+  :disabled="detailsModel.config_type.disabled"  
+  name="config_type" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='CycleType' 
+  codelistType='STATIC' 
+  style="">
+</app-radio-group>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.todo.main_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box 
   v-model="data.formitem3"  
@@ -83,19 +94,7 @@
 </app-form-item>
 
 </i-col>
-
-
-        </tab-pane>
-        <tab-pane v-show="detailsModel.tabpage2.visible" name='tabpage2' :index="1" tab='tabpanel1' class=''  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                  $t('entities.todo.main_form.details.tabpage2')
-                ])
-            }">
-            
-    <i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-item name='formitem4' :itemRules="this.rules.formitem4" class='' :caption="$t('entities.todo.main_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
@@ -115,19 +114,7 @@
 </app-form-item>
 
 </i-col>
-
-
-        </tab-pane>
-        <tab-pane v-show="detailsModel.tabpage3.visible" name='tabpage3' :index="2" tab='tabpanel1' class=''  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                  $t('entities.todo.main_form.details.tabpage3')
-                ])
-            }">
-            
-    <i-col class="form-layout-container" v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-item name='formitem5' :itemRules="this.rules.formitem5" class='' :caption="$t('entities.todo.main_form.details.formitem5')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem5.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
@@ -147,10 +134,10 @@
 </app-form-item>
 
 </i-col>
+    
+    </row>
+</app-form-group>
 
-
-        </tab-pane>
-</tabs>
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.todo.main_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -169,8 +156,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitem6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='formitem6' :itemRules="this.rules.formitem6" class='' :caption="$t('entities.todo.main_form.details.formitem6')" uiStyle="DEFAULT" :labelWidth="90" :isShowCaption="true" :error="detailsModel.formitem6.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem6' :value="data.formitem6" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+    <div style="">{{data.formitem6}}</div>
 </app-form-item>
 
 </i-col>
