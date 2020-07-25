@@ -332,8 +332,8 @@ export default class BuildUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{ID:"%id%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",id:"%id%"});
+        Object.assign(context,{ID:"%srfparantkey%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",id:"%srfparantkey%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
