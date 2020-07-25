@@ -134,17 +134,14 @@ export default class MainModel {
         dataType: 'SSCODELIST',
       },
       {
-        name: 'formitem6',
+        name: 'begin',
         prop: 'begin',
-        dataType: 'INT',
+        dataType: 'NSCODELIST',
       },
       {
-        name: 'formitem7',
+        name: 'end',
         prop: 'end',
-        dataType: 'INT',
-      },
-      {
-        name: 'formitemex1',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'formitem10',

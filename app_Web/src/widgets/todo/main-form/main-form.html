@@ -325,14 +325,52 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.todo.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DROPDOWNLIST" format="" :refFormItem="['formitem6','formitem7']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.todo.main_form.details.begin')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.begin"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.begin.disabled"
+    valueType="number"
+    tag='BeginendDropList'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='formitem10' :itemRules="this.rules.formitem10" class='' :caption="$t('entities.todo.main_form.details.formitem10')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem10.error" :isEmptyCaption="false" labelPos="NONE">
+<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.todo.main_form.details.end')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.end"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.end.disabled"
+    valueType="number"
+    tag='BeginendDropList'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.formitem10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+    <app-form-item name='formitem10' :itemRules="this.rules.formitem10" class='' :caption="$t('entities.todo.main_form.details.formitem10')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitem10.error" :isEmptyCaption="true" labelPos="NONE">
     
 <app-checkbox-list 
   v-model="data.formitem10" 
@@ -349,6 +387,11 @@
   style="">
 </app-checkbox-list>
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.private.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">

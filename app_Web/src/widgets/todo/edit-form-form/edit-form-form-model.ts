@@ -52,33 +52,51 @@ export default class EditFormModel {
       },
       {
         name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
       },
       {
         name: 'type',
+        prop: 'type',
+        dataType: 'TEXT',
       },
       {
         name: 'pri',
+        prop: 'pri',
+        dataType: 'INT',
       },
       {
         name: 'name',
+        prop: 'name',
+        dataType: 'TEXT',
       },
       {
-        name: 'formitem',
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'begin',
+        prop: 'begin',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'end',
+        prop: 'end',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'formitem10',
       },
       {
         name: 'private',
+        prop: 'ibizprivate',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'id',

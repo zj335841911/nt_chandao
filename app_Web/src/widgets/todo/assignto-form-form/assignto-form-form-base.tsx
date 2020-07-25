@@ -129,7 +129,7 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
 
         begin: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        end: new FormItemModel({ caption: '~', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         lbldisabledate: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'lbldisabledate', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

@@ -73,7 +73,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.todo.assigntoform_form.details.end')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.end.error" :isEmptyCaption="true" labelPos="NONE">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.todo.assigntoform_form.details.end')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="NONE">
     
 <dropdown-list 
     v-model="data.end"
