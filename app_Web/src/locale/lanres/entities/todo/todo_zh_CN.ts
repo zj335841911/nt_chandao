@@ -31,6 +31,7 @@ export default {
     task: "待办名称",
     story: "待办名称",
     date1: "日期",
+    date_disable: "待定",
   },
 	views: {
 		assigntoview: {

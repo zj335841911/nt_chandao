@@ -66,6 +66,30 @@ export class BugMPickupView2Base extends MPickupViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugMPickupView2Base
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' },
+        'SRFPARANTKEY': { isRawValue: false, value: 'srfparantkey' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugMPickupView2Base
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' },
+        'srfparantkey': { isRawValue: false, value: 'srfparantkey' }
+    };
+
     /**
      * 视图模型数据
      *

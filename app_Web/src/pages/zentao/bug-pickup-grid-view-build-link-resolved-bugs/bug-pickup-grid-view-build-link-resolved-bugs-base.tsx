@@ -74,7 +74,7 @@ export class BugPickupGridView_buildLinkResolvedBugsBase extends PickupGridViewB
 	 * @memberof BugPickupGridView_buildLinkResolvedBugsBase
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'id' },
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
         'project': { isRawValue: false, value: 'project' }
     };
 

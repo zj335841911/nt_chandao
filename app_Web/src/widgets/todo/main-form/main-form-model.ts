@@ -57,6 +57,8 @@ export default class MainModel {
       },
       {
         name: 'date_disable',
+        prop: 'date_disable',
+        dataType: 'TEXT',
       },
       {
         name: 'cycle_enable',
