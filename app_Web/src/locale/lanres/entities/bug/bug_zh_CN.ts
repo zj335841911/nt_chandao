@@ -104,6 +104,10 @@ export default {
 			caption: "Bug",
       		title: "Bug",
 		},
+		mpickupview2: {
+			caption: "关联Bug",
+      		title: "关联Bug",
+		},
 		testreportsubgridview: {
 			caption: "Bug",
       		title: "bug表格视图",
@@ -123,6 +127,10 @@ export default {
 		gridview9_assignedtome: {
 			caption: "Bug",
       		title: "Bug表格视图",
+		},
+		pickupgridview_buildlinkresolvedbugs: {
+			caption: "Bug",
+      		title: "bug选择表格视图",
 		},
 		releasesubgridview_undone: {
 			caption: "Bug",

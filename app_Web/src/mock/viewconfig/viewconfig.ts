@@ -455,6 +455,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryGridView9_AssignedToMe",
             "viewtag": "4b82e9acf6c784b138b365d6011b296b"
         },
+        "bugmpickupview2": {
+            "title": "关联Bug",
+            "caption": "关联Bug",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMPickupView2",
+            "viewtag": "4b87d5ed612c8f0bc1a3c01344372a26"
+        },
         "projecteditview_activate": {
             "title": "项目",
             "caption": "项目",
@@ -1278,6 +1286,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CompanyEditView",
             "viewtag": "b39a7a76c2175803831235ae3aeef05b"
+        },
+        "bugpickupgridview_buildlinkresolvedbugs": {
+            "title": "bug选择表格视图",
+            "caption": "Bug",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugPickupGridView_buildLinkResolvedBugs",
+            "viewtag": "b4a2b69da4d3cd9c597b5113df650e00"
         },
         "bugreleasesubgridview_undone": {
             "title": "bug表格视图",

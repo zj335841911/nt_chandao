@@ -118,7 +118,7 @@ export default {
 			srfsourcekey: "", 
 			date: "日期", 
 			date_disable: "", 
-			cycle_enable: "周期", 
+			cycle_enable: "", 
 			idvalue: "关联编号", 
 			formitem3: "周期间隔(天)", 
 			formitem4: "周期间隔", 
