@@ -552,6 +552,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
 
     /**
+     * 查询集合 版本关联已完成的需求（选择数据源）
+     */
+    @Override
+    public Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildLinkCompletedStories(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 版本可关联的需求（产品内）
      */
     @Override
