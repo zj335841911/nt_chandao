@@ -178,17 +178,27 @@ public class ZenTaoHttpHelper {
                             List<Double> listKeys = new ArrayList<>(set);
                             listKeys.sort(COMPARATOR_DOUBLE);
                             for (Double dKey : listKeys) {
+                                Object tmpValue = map.get(dKey);
+                                if (tmpValue != null && tmpValue instanceof String) {
+                                    tmpValue = formatRichText((String) tmpValue);
+                                }
                                 if (dKey.intValue() == dKey) {
-                                    formatJo.put(tmpKey + "[" + dKey.intValue() + "]", map.get(dKey));
+                                    formatJo.put(tmpKey + "[" + dKey.intValue() + "]", tmpValue);
                                 } else {
-                                    formatJo.put(tmpKey + "[" + dKey + "]", map.get(dKey));
+                                    formatJo.put(tmpKey + "[" + dKey + "]", tmpValue);
                                 }
                             }
                         }
                     } else {
+                        if (value != null && value instanceof String) {
+                            value = formatRichText((String) value);
+                        }
                         formatJo.put(key, value);
                     }
                 } else {
+                    if (value != null && value instanceof String) {
+                        value = formatRichText((String) value);
+                    }
                     formatJo.put(key, value);
                 }
             }
@@ -585,5 +595,14 @@ public class ZenTaoHttpHelper {
         ztCheckItems.add(checkItem2);
 
         return ztCheckItems;
+    }
+
+    public static String formatRichText(String source) {
+        if (source == null || source.isEmpty()) {
+            return source;
+        }
+        String regex = "\\{(\\d+)(\\..+)\\}";
+        source = source.replaceAll(regex, "/zentao/file-read-$1$2");
+        return source;
     }
 }
