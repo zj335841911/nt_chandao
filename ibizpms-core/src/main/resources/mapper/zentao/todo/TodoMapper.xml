@@ -18,6 +18,7 @@
 		<result property="configMonth" column="config_month" />
 		<result property="configType" column="config_type" />
 		<result property="configEnd" column="config_end" />
+		<result property="dateDisable" column="date_disable" />
             
 		
     </resultMap>

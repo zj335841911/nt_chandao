@@ -253,4 +253,12 @@ export interface Todo {
      * @memberof Todo
      */
     date1?: any;
+
+    /**
+     * 待定
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    date_disable?: any;
 }

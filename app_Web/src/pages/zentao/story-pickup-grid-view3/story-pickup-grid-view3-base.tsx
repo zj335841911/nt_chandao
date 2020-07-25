@@ -74,7 +74,7 @@ export class StoryPickupGridView3Base extends PickupGridViewBase {
 	 * @memberof StoryPickupGridView3Base
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'id' },
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
         'project': { isRawValue: false, value: 'project' }
     };
 
