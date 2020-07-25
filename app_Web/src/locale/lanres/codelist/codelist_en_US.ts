@@ -103,9 +103,9 @@ export default {
     },
     Pri: {
         "1": "一般",
-        "4": "最低",
         "2": "最高",
         "3": "较高",
+        "4": "最低",
         "empty": ""
     },
     Beginend_disable: {

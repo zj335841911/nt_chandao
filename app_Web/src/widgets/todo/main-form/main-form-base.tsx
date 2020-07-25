@@ -417,11 +417,5 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('status')) {
             this.data['status'] = 'wait';
         }
-        if (this.data.hasOwnProperty('begin')) {
-            this.data['begin'] = 0600;
-        }
-        if (this.data.hasOwnProperty('end')) {
-            this.data['end'] = 0600;
-        }
     }
 }

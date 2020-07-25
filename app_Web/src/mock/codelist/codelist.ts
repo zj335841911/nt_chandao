@@ -683,17 +683,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "一般",
                 "data":"",
                 "codename":"Item_1",
+                "color": "rgba(25, 65, 152, 1)",
                 value: "1",
-                
-                disabled: false,
-            },
-            {
-                id: "4",
-                label: "最低",
-                text: "最低",
-                "data":"",
-                "codename":"Item_4",
-                value: "4",
                 
                 disabled: false,
             },
@@ -703,6 +694,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "最高",
                 "data":"",
                 "codename":"Item_2",
+                "color": "rgba(247, 5, 5, 1)",
                 value: "2",
                 
                 disabled: false,
@@ -713,7 +705,19 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "较高",
                 "data":"",
                 "codename":"Item_3",
+                "color": "rgba(255, 0, 43, 0.68)",
                 value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "最低",
+                text: "最低",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(41, 137, 46, 1)",
+                value: "4",
                 
                 disabled: false,
             },
@@ -4946,10 +4950,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "thisyear",
                 label: "本年度",
                 text: "本年度",
-                "data":{
-"thisyear":"thisyear"
-"n_type_noteq":"cycle"
-},
+                "data":{"thisyear":"thisyear"},
                 "codename":"Thisyear",
                 value: "thisyear",
                 
@@ -4959,10 +4960,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "BYME",
                 label: "待定",
                 text: "待定",
-                "data":{
-"n_date_eq":"2030-01-01"
-"n_type_noteq":"cycle"
-},
+                "data":{"n_date_eq":"2030-01-01"},
                 "codename":"Byme",
                 value: "BYME",
                 
