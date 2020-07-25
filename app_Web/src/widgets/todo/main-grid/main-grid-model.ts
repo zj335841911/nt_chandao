@@ -73,7 +73,7 @@ export default class MainModel {
         {
           name: 'end',
           prop: 'end',
-          dataType: 'INT',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'date1',
@@ -83,7 +83,7 @@ export default class MainModel {
         {
           name: 'begin',
           prop: 'begin',
-          dataType: 'INT',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'todo',

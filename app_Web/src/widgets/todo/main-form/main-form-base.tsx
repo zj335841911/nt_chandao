@@ -90,9 +90,8 @@ export class MainEditFormBase extends EditFormControlBase {
         name: null,
         formitem1: null,
         status: null,
-        formitem6: null,
-        formitem7: null,
-        formitemex1: null,
+        begin: null,
+        end: null,
         formitem10: null,
         private: null,
         id: null,
@@ -140,6 +139,8 @@ export class MainEditFormBase extends EditFormControlBase {
         tabpanel1: new FormTabPanelModel({ caption: '', detailType: 'TABPANEL', name: 'tabpanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, tabPages: [{ name: 'tabpage1', index: 0, visible: true }, { name: 'tabpage2', index: 1, visible: true }, { name: 'tabpage3', index: 2, visible: true }] }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.main_form', extractMode: 'ITEM', details: [] } }),
 
@@ -193,11 +194,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
         status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem6: new FormItemModel({ caption: '开始', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        begin: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem7: new FormItemModel({ caption: '结束', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        formitemex1: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        end: new FormItemModel({ caption: '~', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem10: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem10', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -228,6 +227,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
 
 
 
@@ -342,7 +342,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = true;
             const _type = this.data.type;
-            if (this.$verify.testCond(_type, 'NOTEQ', 'custom')) {
+            if (this.$verify.testCond(_type, 'NOTEQ', 'custom') && this.$verify.testCond(_type, 'ISNOTNULL', '')) {
                 ret = false;
             }
             this.rules.name.some((rule: any) => {
@@ -363,8 +363,23 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'formitem10')) {
+            let ret = false;
+            const _formitem10 = this.data.formitem10;
+            if (this.$verify.testCond(_formitem10, 'NOTEQ', 'no')) {
+                ret = true;
+            }
+            this.detailsModel.begin.setDisabled(!ret);
+        }
 
-
+        if (Object.is(name, '') || Object.is(name, 'formitem10')) {
+            let ret = false;
+            const _formitem10 = this.data.formitem10;
+            if (this.$verify.testCond(_formitem10, 'NOTEQ', 'on')) {
+                ret = true;
+            }
+            this.detailsModel.end.setDisabled(!ret);
+        }
 
 
 

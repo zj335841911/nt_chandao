@@ -66,12 +66,12 @@ export default class AssigntoFormModel {
       {
         name: 'begin',
         prop: 'begin',
-        dataType: 'INT',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'end',
         prop: 'end',
-        dataType: 'INT',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'lbldisabledate',
