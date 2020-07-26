@@ -12,7 +12,26 @@
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.testtask.buildsubmit_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.productname"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.productname.disabled" type='text'  style=""></input-box>
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ N_ID_EQ:"%product%" }' 
+  :localParam ='{ n_id_eq:"%product%" }' 
+  :disabled="detailsModel.productname.disabled"
+  name='productname' 
+  deMajorField='name'
+  deKeyField='product'
+  :service="service"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  valueitem='product' 
+  :value="data.productname" 
+  editortype="dropdown"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>
