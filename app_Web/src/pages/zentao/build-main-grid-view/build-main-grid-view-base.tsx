@@ -77,6 +77,7 @@ export class BuildMainGridViewBase extends GridViewBase {
 	 * @memberof BuildMainGridViewBase
 	 */
     protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
         'project': { isRawValue: false, value: 'project' }
     };
 
