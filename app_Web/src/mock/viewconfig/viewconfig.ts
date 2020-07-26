@@ -327,6 +327,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainMyGridView",
             "viewtag": "376e2623b256509cdf69e2de4c01d31b"
         },
+        "tasktodoeditview": {
+            "title": "任务编辑视图",
+            "caption": "待办转任务",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskTodoEditView",
+            "viewtag": "3a8aaf8bc175455ca2be6ace38f821a1"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",
@@ -1343,6 +1351,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainDetailEditView9",
             "viewtag": "b54ba4ee901e1a450acac8723a4ae97a"
         },
+        "bugtodoeditview": {
+            "title": "待办提交",
+            "caption": "待办提交",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugTodoEditView",
+            "viewtag": "b5709ef6b436135e1738304e61b5f200"
+        },
         "productdashboardinfomainview9": {
             "title": "产品信息",
             "caption": "产品",
@@ -1432,7 +1448,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "c2e4200fb7c9760b4931b43561289980"
         },
         "todogridview9": {
-            "title": "待办事宜表表格视图",
+            "title": "我的待办",
             "caption": "我的待办",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",

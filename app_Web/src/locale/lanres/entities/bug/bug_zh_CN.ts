@@ -136,6 +136,10 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		todoeditview: {
+			caption: "待办提交",
+      		title: "待办提交",
+		},
 		resolveview: {
 			caption: "解决Bug",
       		title: "解决Bug",
@@ -481,6 +485,48 @@ export default {
 		uiactions: {
 		},
 	},
+	pendingsubmission_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			group1: "bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			branch: "", 
+			product: "所属产品", 
+			modulename: "所属模块", 
+			module: "所属模块", 
+			project: "所属项目", 
+			openedbuild: "影响版本", 
+			projectname: "项目", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			steps: "重现步骤", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
+			id: "Bug编号", 
+			story: "相关需求", 
+			task: "相关任务", 
+		},
+		uiactions: {
+		},
+	},
 	main_buildsub2_grid: {
 		columns: {
 			id: "ID",
@@ -681,5 +727,7 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+	},
+	todoeditviewtoolbar_toolbar: {
 	},
 };

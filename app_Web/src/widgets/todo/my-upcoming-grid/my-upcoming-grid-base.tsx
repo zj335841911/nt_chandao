@@ -77,6 +77,22 @@ export class MyUpcomingGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_todo_myupcoming_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MyUpcomingGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof MyUpcomingGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -91,6 +107,14 @@ export class MyUpcomingGridBase extends GridControlBase {
      * @memberof MyUpcomingGridBase
      */
     public minorSortPSDEF: string = 'id';
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MyUpcomingGridBase
+     */
+    public limit: number = 10;
 
     /**
      * 是否显示标题

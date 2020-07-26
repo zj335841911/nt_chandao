@@ -246,6 +246,62 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_u1e6202a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TodoUIService  = new TodoUIService();
+        curUIService.Todo_toBug(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_u5b0a56a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TodoUIService  = new TodoUIService();
+        curUIService.Todo_toTask(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 当前数据
@@ -321,6 +377,16 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet2_u1e6202a_click",
+        text: "转Bug",
+        iconcls: null,
+        icon: null,
+        },
+        { viewlogicname:"dashboard_sysportlet2_u5b0a56a_click",
+        text: "转任务",
+        iconcls: null,
+        icon: null,
         }
     ];
 
@@ -350,6 +416,12 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet2_uad9b866_click')){
             this.dashboard_sysportlet2_uad9b866_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u1e6202a_click')){
+            this.dashboard_sysportlet2_u1e6202a_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u5b0a56a_click')){
+            this.dashboard_sysportlet2_u5b0a56a_click(null);
         }
     }
 

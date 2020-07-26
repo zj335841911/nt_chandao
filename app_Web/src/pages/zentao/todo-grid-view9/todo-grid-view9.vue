@@ -6,7 +6,7 @@ import { TodoGridView9Base } from './todo-grid-view9-base';
 import view_grid from '@widgets/todo/my-upcoming-grid/my-upcoming-grid.vue';
 
 /**
- * 待办事宜表表格视图视图
+ * 我的待办视图
  *
  * @export
  * @class TodoGridView9

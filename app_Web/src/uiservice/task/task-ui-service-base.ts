@@ -94,6 +94,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'tasks'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'closetaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
