@@ -76,6 +76,7 @@ export class MyWork2PanelBase extends PanelControlBase {
         myebugs: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         rawitem7: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         eprojects: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem8: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
@@ -89,6 +90,7 @@ export class MyWork2PanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 
