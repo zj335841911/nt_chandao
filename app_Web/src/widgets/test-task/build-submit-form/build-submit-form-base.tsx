@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
-import MainService from './main-form-service';
+import BuildSUBMITService from './build-submit-form-service';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainEditFormBase}
+ * @extends {BuildSUBMITEditFormBase}
  */
-export class MainEditFormBase extends EditFormControlBase {
+export class BuildSUBMITEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainEditFormBase
+     * @type {BuildSUBMITService}
+     * @memberof BuildSUBMITEditFormBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: BuildSUBMITService = new BuildSUBMITService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TestTaskService}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     protected appDeName: string = 'testtask';
 
@@ -54,7 +54,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 界面UI服务对象
      *
      * @type {TestTaskUIService}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
 
@@ -63,7 +63,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -73,6 +73,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        productname: null,
         projecttname: null,
         buildname: null,
         owner: null,
@@ -94,7 +95,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     public rules: any = {
         projecttname: [
@@ -123,14 +124,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     public detailsModel: any = {
-        grouppanel2: new FormGroupPanelModel({ caption: '起止日期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel2: new FormGroupPanelModel({ caption: '起止日期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.buildsubmit_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.buildsubmit_form', extractMode: 'ITEM', details: [] } }),
 
-        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.buildsubmit_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -147,6 +148,8 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         projecttname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecttname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -180,7 +183,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
     /**
      * 新建默认值
-     * @memberof MainEditFormBase
+     * @memberof BuildSUBMITEditFormBase
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('project')) {
@@ -189,11 +192,11 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('build')) {
             this.data['build'] = this.viewparams['build'];
         }
+        if (this.data.hasOwnProperty('status')) {
+            this.data['status'] = 'wait';
+        }
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];
-        }
-        if (this.data.hasOwnProperty('name')) {
-            this.data['name'] = this.viewparams['name'];
         }
     }
 }
