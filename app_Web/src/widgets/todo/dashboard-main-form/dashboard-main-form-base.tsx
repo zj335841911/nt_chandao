@@ -86,10 +86,6 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditFormBase
      */
     public rules: any = {
-        name: [
-            { required: true, type: 'string', message: '描述 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**

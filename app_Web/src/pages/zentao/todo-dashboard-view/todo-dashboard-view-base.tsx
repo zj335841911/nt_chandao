@@ -66,6 +66,18 @@ export class TodoDashboardViewBase extends DashboardViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TodoDashboardViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'todo' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'todo' }
+    };
+
     /**
      * 视图模型数据
      *

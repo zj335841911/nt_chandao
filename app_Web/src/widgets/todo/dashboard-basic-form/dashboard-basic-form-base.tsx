@@ -82,6 +82,13 @@ export class DashboardBasicEditFormBase extends EditFormControlBase {
         end: null,
         assignedto: null,
         assigneddate: null,
+        config_type: null,
+        date1: null,
+        config_end: null,
+        config_day: null,
+        config_week: null,
+        config_month: null,
+        config_beforedays: null,
         id: null,
         todo:null,
     };
@@ -102,6 +109,10 @@ export class DashboardBasicEditFormBase extends EditFormControlBase {
      * @memberof DashboardBasicEditFormBase
      */
     public detailsModel: any = {
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.dashboardbasic_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '周期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.dashboardbasic_form', extractMode: 'ITEM', details: [] } }),
+
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -136,7 +147,91 @@ export class DashboardBasicEditFormBase extends EditFormControlBase {
 
         assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        config_type: new FormItemModel({ caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        date1: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'date1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        config_end: new FormItemModel({ caption: '~', detailType: 'FORMITEM', name: 'config_end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        config_day: new FormItemModel({ caption: '周期设置', detailType: 'FORMITEM', name: 'config_day', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        config_week: new FormItemModel({ caption: '周期设置', detailType: 'FORMITEM', name: 'config_week', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        config_month: new FormItemModel({ caption: '周期设置', detailType: 'FORMITEM', name: 'config_month', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        config_beforedays: new FormItemModel({ caption: '提前', detailType: 'FORMITEM', name: 'config_beforedays', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof DashboardBasicEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = false;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'EQ', 'cycle')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel2.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'config_type')) {
+            let ret = false;
+            const _config_type = this.data.config_type;
+            if (this.$verify.testCond(_config_type, 'EQ', 'day')) {
+                ret = true;
+            }
+            this.detailsModel.config_day.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'config_type')) {
+            let ret = false;
+            const _config_type = this.data.config_type;
+            if (this.$verify.testCond(_config_type, 'EQ', 'week')) {
+                ret = true;
+            }
+            this.detailsModel.config_week.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'config_type')) {
+            let ret = false;
+            const _config_type = this.data.config_type;
+            if (this.$verify.testCond(_config_type, 'EQ', 'month')) {
+                ret = true;
+            }
+            this.detailsModel.config_month.setVisible(ret);
+        }
+
+
+
+    }
 }

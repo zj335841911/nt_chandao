@@ -93,7 +93,42 @@ export default class DashboardBasicModel {
       {
         name: 'assigneddate',
         prop: 'assigneddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
+      },
+      {
+        name: 'config_type',
+        prop: 'config_type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'date1',
+        prop: 'date',
+        dataType: 'DATE',
+      },
+      {
+        name: 'config_end',
+        prop: 'config_end',
+        dataType: 'DATE',
+      },
+      {
+        name: 'config_day',
+        prop: 'config_day',
+        dataType: 'INT',
+      },
+      {
+        name: 'config_week',
+        prop: 'config_week',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'config_month',
+        prop: 'config_month',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'config_beforedays',
+        prop: 'config_beforedays',
+        dataType: 'INT',
       },
       {
         name: 'id',
