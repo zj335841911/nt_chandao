@@ -24,6 +24,9 @@ export default class MyWorkModel {
 				name: 'myebugs',
 			},
 			{
+				name: 'myetasks',
+			},
+			{
 				name: 'mystorys',
 			},
 			{

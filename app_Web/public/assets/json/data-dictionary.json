@@ -1844,6 +1844,7 @@
                 "text": "进行中",
                 "data":"",
                 "codename":"Doing",
+                "color": "rgba(245, 18, 18, 1)",
                 "value": "doing",
                 
                 "disabled": false,
@@ -1855,6 +1856,7 @@
                 "text": "已完成",
                 "data":"",
                 "codename":"Done",
+                "color": "rgba(4, 251, 17, 1)",
                 "value": "done",
                 
                 "disabled": false,

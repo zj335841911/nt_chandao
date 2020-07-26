@@ -320,7 +320,7 @@ public class IbzMyTerritoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "myebugs")
     @JsonProperty("myebugs")
-    private Integer myebugs;
+    private String myebugs;
 
     /**
      * 属性 [MYSTORYS]
@@ -344,7 +344,7 @@ public class IbzMyTerritoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "eprojects")
     @JsonProperty("eprojects")
-    private Integer eprojects;
+    private String eprojects;
 
     /**
      * 属性 [PROJECTS]
@@ -353,6 +353,14 @@ public class IbzMyTerritoryDTO extends DTOBase implements Serializable {
     @JSONField(name = "projects")
     @JsonProperty("projects")
     private Integer projects;
+
+    /**
+     * 属性 [MYETASKS]
+     *
+     */
+    @JSONField(name = "myetasks")
+    @JsonProperty("myetasks")
+    private String myetasks;
 
 
     /**

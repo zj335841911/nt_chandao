@@ -88,6 +88,7 @@ export class TodoGridView9Base extends GridView9Base {
 	 * @memberof TodoGridView9Base
 	 */
     protected customViewParams: any = {
+        'n_status_noteq': { isRawValue: true, value: 'done' },
         'n_date_noteq': { isRawValue: true, value: '2030-01-01' },
         'n_account_eq': { isRawValue: false, value: 'srfloginname' },
         'n_type_noteq': { isRawValue: true, value: 'cycle' }

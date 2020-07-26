@@ -138,6 +138,9 @@ export default class MyWorkModel {
       {
         name: 'projects',
       },
+      {
+        name: 'myetasks',
+      },
     ]
   }
 

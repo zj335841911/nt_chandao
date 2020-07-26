@@ -39,15 +39,15 @@ export default class MyWork2Model {
         prop: 'products'
       },
       {
-        name: 'field1',
-        prop: ''
+        name: 'myetasks',
+        prop: 'myetasks'
       },
       {
         name: 'myebugs',
         prop: 'myebugs'
       },
       {
-        name: 'field2',
+        name: 'field1',
         prop: ''
       },
       {

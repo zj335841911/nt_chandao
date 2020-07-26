@@ -333,4 +333,12 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     projects?: any;
+
+    /**
+     * 我的过期任务数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myetasks?: any;
 }
