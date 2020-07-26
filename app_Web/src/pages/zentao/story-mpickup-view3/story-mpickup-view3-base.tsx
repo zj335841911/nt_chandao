@@ -75,7 +75,8 @@ export class StoryMPickupView3Base extends MPickupViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' }
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
+        'build': { isRawValue: false, value: 'build' }
     };
 
     /**

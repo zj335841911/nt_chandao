@@ -75,7 +75,8 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' },
+        'project': { isRawValue: false, value: 'project' },
+        'name': { isRawValue: false, value: 'name' },
         'build': { isRawValue: false, value: 'build' }
     };
 
