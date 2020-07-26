@@ -71,6 +71,15 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
             this.getSearchCond().eq("date", n_date_eq);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_date_noteq;//[日期]
+	public void setN_date_noteq(Timestamp n_date_noteq) {
+        this.n_date_noteq = n_date_noteq;
+        if(!ObjectUtils.isEmpty(this.n_date_noteq)){
+            this.getSearchCond().ne("date", n_date_noteq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

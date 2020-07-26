@@ -3781,6 +3781,20 @@ const router = new Router({
                     component: () => import('@pages/ungroup/test-portal-view/test-portal-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.todo.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-grid-view9/todo-grid-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.project.views.maindashboardview.title',

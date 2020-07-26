@@ -98,10 +98,6 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
      * @memberof BuildSUBMITEditFormBase
      */
     public rules: any = {
-        projecttname: [
-            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
-        ],
         buildname: [
             { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '版本 值不能为空', trigger: 'blur' },

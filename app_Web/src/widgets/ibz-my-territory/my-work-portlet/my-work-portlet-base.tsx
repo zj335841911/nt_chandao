@@ -110,7 +110,7 @@ export class MyWorkPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '100px';
+            return '150px';
         }
     }
 

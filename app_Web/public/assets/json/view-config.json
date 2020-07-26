@@ -1779,6 +1779,16 @@
         "viewtag": "c2e4200fb7c9760b4931b43561289980",
         "memo": ""
     },
+    "todogridview9": {
+        "title": "待办事宜表表格视图",
+        "caption": "我的待办",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TodoGridView9",
+        "viewfilename": "todo-grid-view9",
+        "viewtag": "c3f0a8956b863fa05a7d961df90a3975",
+        "memo": ""
+    },
     "producttestlistexpview": {
         "title": "测试统计",
         "caption": "测试统计",

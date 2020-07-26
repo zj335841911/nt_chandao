@@ -41,6 +41,7 @@ public interface ITodoService extends IService<Todo>{
     boolean save(Todo et) ;
     void saveBatch(List<Todo> list) ;
     Page<Todo> searchDefault(TodoSearchContext context) ;
+    Page<Todo> searchMyUpcoming(TodoSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
