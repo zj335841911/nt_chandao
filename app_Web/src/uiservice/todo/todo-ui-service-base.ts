@@ -188,7 +188,7 @@ export default class TodoUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.bug.views.todoeditview.title'),
-                placement: 'DRAWER_TOP',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
@@ -447,7 +447,7 @@ export default class TodoUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.task.views.todoeditview.title'),
-                placement: 'DRAWER_TOP',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
