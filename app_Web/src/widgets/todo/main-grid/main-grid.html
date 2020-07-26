@@ -83,7 +83,14 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.name}}</span>
+                        <app-column-link deKeyField='todo' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'todo-dashboard-view', height: 0,width: 0,title: $t('entities.todo.views.dashboardview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'todos', parameterName: 'todo' },
+            { pathName: 'dashboardview', parameterName: 'dashboardview' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.name}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>
@@ -157,8 +164,8 @@
                             <i class='fa fa-close'></i>
                             
                           </a>
-                          <divider v-show="scope.row.edit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.edit.visabled" :disabled="scope.row.edit.disabled" @click="uiAction(scope.row, 'edit', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_edit')">
+                          <divider v-show="scope.row.edit1.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.edit1.visabled" :disabled="scope.row.edit1.disabled" @click="uiAction(scope.row, 'edit1', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_edit1')">
                             <i class='fa fa-edit'></i>
                             
                           </a>

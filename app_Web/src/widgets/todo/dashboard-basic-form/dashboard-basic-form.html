@@ -1,0 +1,71 @@
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='todo_dashboardbasic' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.todo.dashboardbasic_form.details.pri')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='pri' :value="data.pri" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.todo.dashboardbasic_form.details.status')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='status' :value="data.status" tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.todo.dashboardbasic_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='type' :value="data.type" tag='Type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.account.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='account' :itemRules="this.rules.account" class='' :caption="$t('entities.todo.dashboardbasic_form.details.account')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.account.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='account' :value="data.account" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.todo.dashboardbasic_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='date' :value="data.date" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 0 }">
+    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.todo.dashboardbasic_form.details.begin')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='begin' :value="data.begin" tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 10, offset: 0 }">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.todo.dashboardbasic_form.details.end')" uiStyle="DEFAULT" :labelWidth="26" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='end' :value="data.end" tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.todo.dashboardbasic_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='assignedto' :value="data.assignedto" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.assigneddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='assigneddate' :itemRules="this.rules.assigneddate" class='' :caption="$t('entities.todo.dashboardbasic_form.details.assigneddate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assigneddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='assigneddate' :value="data.assigneddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+
+
+    </row>
+</i-form>

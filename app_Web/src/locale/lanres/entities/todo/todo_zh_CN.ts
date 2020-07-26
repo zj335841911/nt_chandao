@@ -34,9 +34,17 @@ export default {
     date_disable: "待定",
   },
 	views: {
+		baseeditview9: {
+			caption: "基本信息",
+      		title: "待办事宜表编辑视图",
+		},
 		assigntoview: {
 			caption: "指派给",
       		title: "指派表单视图",
+		},
+		desceditview9: {
+			caption: "基本信息",
+      		title: "待办事宜表编辑视图",
 		},
 		todocreateview: {
 			caption: "待办事宜表",
@@ -50,10 +58,13 @@ export default {
 			caption: "待办事宜表",
       		title: "编辑待办",
 		},
+		dashboardview: {
+			caption: "待办事宜表",
+      		title: "待办事宜表数据看板视图",
+		},
 	},
-	assigntoform_form: {
+	dashboardbasic_form: {
 		details: {
-			group1: "指派给", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -62,12 +73,33 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			assignto: "指派给", 
+			pri: "优先级", 
+			status: "状态", 
+			type: "类型", 
+			account: "所有者", 
 			date: "日期", 
-			future: "", 
 			begin: "起止时间", 
 			end: "~", 
-			lbldisabledate: "", 
+			assignedto: "指派给", 
+			assigneddate: "指派日期", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	dashboardmain_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "描述", 
+			desc: "", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -105,6 +137,28 @@ export default {
 			end: "~", 
 			formitem10: "", 
 			private: "私人事务", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	assigntoform_form: {
+		details: {
+			group1: "指派给", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignto: "指派给", 
+			date: "日期", 
+			future: "", 
+			begin: "起止时间", 
+			end: "~", 
+			lbldisabledate: "", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -169,7 +223,7 @@ export default {
 			todo_finish: "完成",
 			todo_activate: "激活",
 			todo_close: "关闭",
-			todo_edit: "编辑",
+			todo_edit1: "编辑",
 			todo_delete: "删除",
 		},
 	},

@@ -22,6 +22,10 @@ import StoryAssignedToMeStory from '@/widgets/story/assigned-to-me-story-portlet
 import StoryMainToolbar from '@/widgets/story/main-toolbar-portlet/main-toolbar-portlet.vue';
 import StoryStoryRelated from '@/widgets/story/story-related-portlet/story-related-portlet.vue';
 import StoryStoryspec from '@/widgets/story/storyspec-portlet/storyspec-portlet.vue';
+import TodoTodoaction from '@/widgets/todo/todoaction-portlet/todoaction-portlet.vue';
+import TodoTodoBase from '@/widgets/todo/todo-base-portlet/todo-base-portlet.vue';
+import TodoTodoDesc from '@/widgets/todo/todo-desc-portlet/todo-desc-portlet.vue';
+import TodoTodoDashboardActions from '@/widgets/todo/todo-dashboard-actions-portlet/todo-dashboard-actions-portlet.vue';
 import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
 import ProjectDashBoradInfoView from '@/widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
@@ -87,6 +91,10 @@ export const  PortletComponent = {
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
+        v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
+        v.component('app-todo-todoaction-portlet', TodoTodoaction);
+        v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
+        v.component('app-todo-todo-base-portlet', TodoTodoBase);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
         v.component('case-main-detail-portlet', CaseMainDetail);
@@ -104,6 +112,10 @@ export const  PortletComponent = {
         v.component('story-main-toolbar-portlet', StoryMainToolbar);
         v.component('story-story-related-portlet', StoryStoryRelated);
         v.component('story-storyspec-portlet', StoryStoryspec);
+        v.component('todo-todoaction-portlet', TodoTodoaction);
+        v.component('todo-todo-base-portlet', TodoTodoBase);
+        v.component('todo-todo-desc-portlet', TodoTodoDesc);
+        v.component('todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
         v.component('project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);

@@ -89,10 +89,13 @@ export default class TodoUIServiceBase extends UIService {
      * @memberof  TodoUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'baseeditview9',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'desceditview9',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'todocreateview',srfappde:'todos'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'todos'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'todos'});
     }
 
     /**
@@ -193,7 +196,7 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_edit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Todo_edit1(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};

@@ -101,6 +101,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '10ec8362fe511f35dcf896a048770011',
+            viewmodule: 'zentao',
+            viewname: 'TodoBaseEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '122af527bf38b47ddc53c882847b490e',
             viewmodule: 'zentao',
             viewname: 'BugMainEditView',
@@ -1037,6 +1046,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7c7a1fdf074c475a128c920a952762fa',
+            viewmodule: 'zentao',
+            viewname: 'TodoDescEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '7caeaef893043533e8f388d25523328c',
             viewmodule: 'zentao',
             viewname: 'ProductGridView',
@@ -1650,6 +1668,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e00040c0d616f2f1c0ad4b36c9e920b5',
+                'ebf37bf3881bb27c09db9bbe5d0b0f77',
                 '927d6e92ed15eeb2397da22824122b27',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
             ],
@@ -1977,6 +1996,20 @@ export const viewstate: any = {
             refviews: [
                 '3d56b0e37a56b9be1a28589c04f573fa',
                 'f810cda19770327ea00f51d89a003efe',
+            ],
+        },
+        {
+            viewtag: 'ebf37bf3881bb27c09db9bbe5d0b0f77',
+            viewmodule: 'zentao',
+            viewname: 'TodoDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e00040c0d616f2f1c0ad4b36c9e920b5',
+                '10ec8362fe511f35dcf896a048770011',
+                '7c7a1fdf074c475a128c920a952762fa',
+                '43582fa5b922cb77d0b1e704a7b6e5c3',
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
