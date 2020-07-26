@@ -631,6 +631,7 @@ export default {
     TodoQuickpacketMy: {
         "All": "所有待办",
         "thisyear": "本年度",
+        "Unfinished": "未完",
         "BYME": "待定",
         "cycle": "周期",
         "empty": "",
