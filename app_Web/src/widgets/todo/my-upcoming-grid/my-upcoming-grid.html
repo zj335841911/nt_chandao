@@ -34,7 +34,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('begin')">
-                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.todo.myupcoming_grid.columns.begin')" :width="50"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.todo.myupcoming_grid.columns.begin')" :width="60"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.todo.myupcoming_grid.columns.begin')}}

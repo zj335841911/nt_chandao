@@ -74,8 +74,24 @@ export class TodoDashboardViewBase extends DashboardViewBase {
 	 * @memberof TodoDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
+        'NAME': { isRawValue: false, value: 'name' },
+        'ASSIGNEDTO': { isRawValue: false, value: 'assignedto' },
+        'DESC': { isRawValue: false, value: 'desc' },
         'OBJECTTYPE': { isRawValue: true, value: 'todo' },
         'SRFPARENTKEY': { isRawValue: false, value: 'todo' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TodoDashboardViewBase
+	 */
+    protected customViewParams: any = {
+        'assignedto': { isRawValue: false, value: 'assignedto' },
+        'desc': { isRawValue: false, value: 'desc' },
+        'name': { isRawValue: false, value: 'name' }
     };
 
     /**
