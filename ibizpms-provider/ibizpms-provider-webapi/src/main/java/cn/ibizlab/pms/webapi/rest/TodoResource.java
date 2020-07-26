@@ -207,5 +207,26 @@ domain.setId(todo_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyUpcoming-all')")
+	@ApiOperation(value = "获取MyUpcoming", tags = {"待办事宜表" } ,notes = "获取MyUpcoming")
+    @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmyupcoming")
+	public ResponseEntity<List<TodoDTO>> fetchMyUpcoming(TodoSearchContext context) {
+        Page<Todo> domains = todoService.searchMyUpcoming(context) ;
+        List<TodoDTO> list = todoMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyUpcoming-all')")
+	@ApiOperation(value = "查询MyUpcoming", tags = {"待办事宜表" } ,notes = "查询MyUpcoming")
+    @RequestMapping(method= RequestMethod.POST , value="/todos/searchmyupcoming")
+	public ResponseEntity<Page<TodoDTO>> searchMyUpcoming(@RequestBody TodoSearchContext context) {
+        Page<Todo> domains = todoService.searchMyUpcoming(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

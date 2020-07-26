@@ -1431,6 +1431,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestSuiteMainDashboardView",
             "viewtag": "c2e4200fb7c9760b4931b43561289980"
         },
+        "todogridview9": {
+            "title": "待办事宜表表格视图",
+            "caption": "我的待办",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TodoGridView9",
+            "viewtag": "c3f0a8956b863fa05a7d961df90a3975"
+        },
         "producttestlistexpview": {
             "title": "测试统计",
             "caption": "测试统计",

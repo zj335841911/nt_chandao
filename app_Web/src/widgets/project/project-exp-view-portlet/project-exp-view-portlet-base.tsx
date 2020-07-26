@@ -110,7 +110,7 @@ export class ProjectExpViewPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '380px';
+            return 'auto';
         }
     }
 

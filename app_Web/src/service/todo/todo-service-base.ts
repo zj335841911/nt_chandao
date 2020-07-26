@@ -226,4 +226,18 @@ export default class TodoServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/todos/fetchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchMyUpcoming接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async FetchMyUpcoming(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/todos/fetchmyupcoming`,tempData,isloading);
+    }
 }

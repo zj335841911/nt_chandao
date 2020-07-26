@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { HomeDashboardBase } from './home-dashboard-base';
 import view_dashboard_sysportlet9 from '@widgets/product/text-exp-view-portlet/text-exp-view-portlet.vue';
+import view_dashboard_sysportlet10 from '@widgets/todo/my-upcoming-portlet/my-upcoming-portlet.vue';
 import view_dashboard_sysportlet8 from '@widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
 import view_dashboard_sysportlet6 from '@widgets/task/assign-to-me-portlet/assign-to-me-portlet.vue';
 import view_dashboard_sysportlet7 from '@widgets/product/product-exp-view-portlet/product-exp-view-portlet.vue';
@@ -23,6 +24,7 @@ import view_dashboard_sysportlet3 from '@widgets/action/all-trends-portlet/all-t
 @Component({
     components: {
         view_dashboard_sysportlet9, 
+        view_dashboard_sysportlet10, 
         view_dashboard_sysportlet8, 
         view_dashboard_sysportlet6, 
         view_dashboard_sysportlet7, 

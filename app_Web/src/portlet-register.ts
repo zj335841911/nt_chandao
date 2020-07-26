@@ -6,6 +6,7 @@ import TaskAssignToMe from '@/widgets/task/assign-to-me-portlet/assign-to-me-por
 import ProductTextExpView from '@/widgets/product/text-exp-view-portlet/text-exp-view-portlet.vue';
 import ProjectProjectExpView from '@/widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
 import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
+import TodoMyUpcoming from '@/widgets/todo/my-upcoming-portlet/my-upcoming-portlet.vue';
 import CaseMeCreateCase from '@/widgets/case/me-create-case-portlet/me-create-case-portlet.vue';
 import CaseMainDetail from '@/widgets/case/main-detail-portlet/main-detail-portlet.vue';
 import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-portlet/dashboard-quick-action-portlet.vue';
@@ -95,6 +96,7 @@ export const  PortletComponent = {
         v.component('app-todo-todoaction-portlet', TodoTodoaction);
         v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
         v.component('app-todo-todo-base-portlet', TodoTodoBase);
+        v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
         v.component('case-main-detail-portlet', CaseMainDetail);

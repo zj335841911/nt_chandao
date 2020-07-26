@@ -1,60 +1,60 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ProductService from '@/service/product/product-service';
-import ProductExpViewService from './product-exp-view-portlet-service';
-import ProductUIService from '@/uiservice/product/product-ui-service';
+import TodoService from '@/service/todo/todo-service';
+import MyUpcomingService from './my-upcoming-portlet-service';
+import TodoUIService from '@/uiservice/todo/todo-ui-service';
 import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet7部件基类
+ * dashboard_sysportlet10部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {ProductExpViewPortletBase}
+ * @extends {MyUpcomingPortletBase}
  */
-export class ProductExpViewPortletBase extends MainControlBase {
+export class MyUpcomingPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProductExpViewPortletBase
+     * @memberof MyUpcomingPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductExpViewService}
-     * @memberof ProductExpViewPortletBase
+     * @type {MyUpcomingService}
+     * @memberof MyUpcomingPortletBase
      */
-    public service: ProductExpViewService = new ProductExpViewService({ $store: this.$store });
+    public service: MyUpcomingService = new MyUpcomingService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProductService}
-     * @memberof ProductExpViewPortletBase
+     * @type {TodoService}
+     * @memberof MyUpcomingPortletBase
      */
-    public appEntityService: ProductService = new ProductService({ $store: this.$store });
+    public appEntityService: TodoService = new TodoService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductExpViewPortletBase
+     * @memberof MyUpcomingPortletBase
      */
-    protected appDeName: string = 'product';
+    protected appDeName: string = 'todo';
 
     /**
      * 长度
      *
      * @type {number}
-     * @memberof ProductExpView
+     * @memberof MyUpcoming
      */
     @Prop() public height?: number;
 
@@ -62,7 +62,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof ProductExpView
+     * @memberof MyUpcoming
      */
     @Prop() public width?: number;
 
@@ -72,7 +72,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -80,7 +80,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     public getDatas(): any[] {
         return [];
@@ -90,7 +90,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     public getData(): any {
         return {};
@@ -100,7 +100,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -117,7 +117,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     public created() {
         this.afterCreated();
@@ -126,7 +126,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProductExpViewBase
+     *  @memberof MyUpcomingBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -145,7 +145,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -154,7 +154,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductExpViewBase
+     * @memberof MyUpcomingBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

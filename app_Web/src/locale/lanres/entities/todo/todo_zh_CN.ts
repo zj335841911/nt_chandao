@@ -54,6 +54,10 @@ export default {
 			caption: "待办事宜表",
       		title: "todo表格视图",
 		},
+		gridview9: {
+			caption: "我的待办",
+      		title: "待办事宜表表格视图",
+		},
 		editview: {
 			caption: "待办事宜表",
       		title: "编辑待办",
@@ -211,6 +215,16 @@ export default {
 			formitem10: "", 
 			private: "私人事务", 
 			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	myupcoming_grid: {
+		columns: {
+			date1: "日期",
+			begin: "开始",
+			pri: "优先级",
+			name: "待办名称",
 		},
 		uiactions: {
 		},
