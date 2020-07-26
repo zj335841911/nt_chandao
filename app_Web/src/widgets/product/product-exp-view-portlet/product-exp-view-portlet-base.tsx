@@ -110,7 +110,7 @@ export class ProductExpViewPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '380px';
+            return '360px';
         }
     }
 
