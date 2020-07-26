@@ -47,10 +47,6 @@ export default class MyWork2Model {
         prop: 'myebugs'
       },
       {
-        name: 'field1',
-        prop: ''
-      },
-      {
         name: 'eprojects',
         prop: 'eprojects'
       }

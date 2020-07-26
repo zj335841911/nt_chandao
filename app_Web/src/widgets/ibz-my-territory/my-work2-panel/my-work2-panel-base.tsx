@@ -74,7 +74,7 @@ export class MyWork2PanelBase extends PanelControlBase {
         products: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         myetasks: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         myebugs: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        field1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem7: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         eprojects: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
