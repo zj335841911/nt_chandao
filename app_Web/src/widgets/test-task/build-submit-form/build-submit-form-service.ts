@@ -2,6 +2,7 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TestTaskService from '@/service/test-task/test-task-service';
 import BuildSUBMITModel from './build-submit-form-model';
+import ProductService from '@/service/product/product-service';
 import ProjectService from '@/service/project/project-service';
 import BuildService from '@/service/build/build-service';
 
@@ -42,6 +43,14 @@ export default class BuildSUBMITService extends ControlService {
         super(opts);
         this.model = new BuildSUBMITModel();
     }
+
+    /**
+     * 产品服务对象
+     *
+     * @type {ProductService}
+     * @memberof BuildSUBMITService
+     */
+    public productService: ProductService = new ProductService();
 
     /**
      * 项目服务对象
@@ -98,6 +107,9 @@ export default class BuildSUBMITService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        }
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
