@@ -187,7 +187,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_edit(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_edit1(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -237,7 +237,7 @@ export class MainGridBase extends GridControlBase {
         finish: { name: 'finish',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'FINISH', target: 'SINGLEKEY'},
         activate: { name: 'activate',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY'},
         close: { name: 'close',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
-        edit: { name: 'edit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UPDATE', target: 'SINGLEKEY'},
+        edit1: { name: 'edit1',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UPDATE', target: 'SINGLEKEY'},
         delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DELETE', target: 'SINGLEKEY'}
     };
 
@@ -479,7 +479,7 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('close', tag)) {
             this.grid_uagridcolumn1_u651627d_click(row, tag, $event);
         }
-        if(Object.is('edit', tag)) {
+        if(Object.is('edit1', tag)) {
             this.grid_uagridcolumn1_ue75a757_click(row, tag, $event);
         }
         if(Object.is('delete', tag)) {

@@ -1,0 +1,11 @@
+<div class='portlet todo-dashboard-actions ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            操作栏
+            </span>
+        </p>
+        <div class="portlet-with-title">
+            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick.apply(_self, arguments)"></app-actionbar>
+        </div>
+</div>
