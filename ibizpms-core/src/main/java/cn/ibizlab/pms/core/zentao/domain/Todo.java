@@ -162,8 +162,8 @@ public class Todo extends EntityMP implements Serializable {
      * 指派日期
      */
     @TableField(value = "assigneddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "assigneddate" , format="yyyy-MM-dd")
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
     /**
@@ -432,7 +432,7 @@ public class Todo extends EntityMP implements Serializable {
         if (this.assigneddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(assigneddate);
     }
     /**

@@ -66,6 +66,8 @@ export default {
 	},
 	dashboardbasic_form: {
 		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "周期", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -83,6 +85,13 @@ export default {
 			end: "~", 
 			assignedto: "指派给", 
 			assigneddate: "指派日期", 
+			config_type: "周期类型", 
+			date1: "起止时间", 
+			config_end: "~", 
+			config_day: "周期设置", 
+			config_week: "周期设置", 
+			config_month: "周期设置", 
+			config_beforedays: "提前", 
 			id: "编号", 
 		},
 		uiactions: {

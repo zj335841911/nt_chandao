@@ -83,12 +83,12 @@ export default class MainModel {
       {
         name: 'formitem4',
         prop: 'config_week',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'formitem5',
         prop: 'config_month',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'formitem2',

@@ -73,12 +73,12 @@ export default class EditFormModel {
       {
         name: 'config_week',
         prop: 'config_week',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'config_month',
         prop: 'config_month',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'config_beforedays',

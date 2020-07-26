@@ -157,8 +157,8 @@ public class TodoDTO extends DTOBase implements Serializable {
      * 属性 [ASSIGNEDDATE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "assigneddate" , format="yyyy-MM-dd")
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
 
