@@ -138,6 +138,9 @@ export default class TabExpViewtabviewpanel2Model {
       {
         name: 'projects',
       },
+      {
+        name: 'myetasks',
+      },
     ]
   }
 

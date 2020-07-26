@@ -138,6 +138,9 @@ export default class HomeModel {
       {
         name: 'projects',
       },
+      {
+        name: 'myetasks',
+      },
     ]
   }
 

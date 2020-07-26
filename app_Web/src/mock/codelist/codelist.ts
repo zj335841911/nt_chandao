@@ -1705,6 +1705,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "进行中",
                 "data":"",
                 "codename":"Doing",
+                "color": "rgba(245, 18, 18, 1)",
                 value: "doing",
                 
                 disabled: false,
@@ -1715,6 +1716,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已完成",
                 "data":"",
                 "codename":"Done",
+                "color": "rgba(4, 251, 17, 1)",
                 value: "done",
                 
                 disabled: false,

@@ -313,7 +313,7 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "myebugs")
     @JsonProperty("myebugs")
-    private Integer myebugs;
+    private String myebugs;
     /**
      * 我的需求数
      */
@@ -334,7 +334,7 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "eprojects")
     @JsonProperty("eprojects")
-    private Integer eprojects;
+    private String eprojects;
     /**
      * 未关闭项目数
      */
@@ -342,6 +342,13 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @JSONField(name = "projects")
     @JsonProperty("projects")
     private Integer projects;
+    /**
+     * 我的过期任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myetasks")
+    @JsonProperty("myetasks")
+    private String myetasks;
 
 
 
