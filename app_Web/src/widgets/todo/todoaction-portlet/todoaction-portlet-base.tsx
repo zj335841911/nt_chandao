@@ -110,7 +110,7 @@ export class TodoactionPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return 'auto';
         }
     }
 
