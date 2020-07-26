@@ -57,7 +57,7 @@ export default {
 		},
 		gridview9: {
 			caption: "我的待办",
-      		title: "待办事宜表表格视图",
+      		title: "我的待办",
 		},
 		editview: {
 			caption: "待办事宜表",
