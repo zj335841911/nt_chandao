@@ -199,7 +199,6 @@
     <sql id="BuildLinkCompletedStories" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BRANCH`, t41.`NAME` AS `BRANCHNAME`, t1.`CHILDSTORIES`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`DELETED`, t1.`DUPLICATESTORY`, t1.`ESTIMATE`, t1.`FROMBUG`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_STORY WHERE  PARENT = t1.`ID` AND DELETED = '0') THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`KEYWORDS`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LINKSTORIES`, t1.`MAILTO`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t21.`TITLE` AS `PARENTNAME`, t11.`PATH`, t1.`PLAN`, t1.`PRI`, t31.`NAME` AS `PRODOCTNAME`, t1.`PRODUCT`, t1.`REVIEWEDBY`, t1.`REVIEWEDDATE`, t1.`SOURCE`, t1.`SOURCENOTE`, t1.`STAGE`, t1.`STAGEDBY`, t1.`STATUS`, t1.`SUBSTATUS`, t1.`TITLE`, t1.`TOBUG`, t1.`TYPE`, t1.`VERSION`, t1.`VERSION` AS `VERSIONC` FROM `zt_story` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID  LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID  LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID   WHERE  t1.DELETED = '0'  AND t1.id IN ( SELECT tt.story FROM zt_projectstory tt WHERE tt.project = #{srf.datacontext.project} )  AND  t1.product = ( SELECT t2.product FROM zt_build t2 WHERE t2.id = #{srf.webcontext.srfparentkey} ) 
 					 WHERE 	t1.DELETED = '0'
-						 AND ( t1.`PRODUCT` = #{srf.datacontext.product} )
 			]]>
     </sql>
     <!--数据查询[BuildLinkableStories]-->
