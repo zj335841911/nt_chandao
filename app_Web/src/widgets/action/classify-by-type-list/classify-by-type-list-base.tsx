@@ -64,7 +64,7 @@ export class ClassifyByTypeListBase extends ListControlBase {
      * @type {string}
      * @memberof ClassifyByTypeListBase
      */
-    public minorSortDir: string = 'DESC';
+    public minorSortDir: string = 'ASC';
 
     /**
      * 排序字段
