@@ -26,6 +26,14 @@ export class ExpControlLayout extends Vue {
      * @type {number}
      * @memberof ExpControlLayout
      */
+    public defaultSplit: number = 0.6;
+
+    /**
+     * 默认分割比例
+     *
+     * @type {number}
+     * @memberof ExpControlLayout
+     */
     public split: number = 1;
 
     /**
@@ -34,7 +42,7 @@ export class ExpControlLayout extends Vue {
      * @type {number}
      * @memberof ExpControlLayout
      */
-    public oldSplit: number = 0.7;
+    public oldSplit: number = this.defaultSplit;
 
     /**
      * 视图是否显示
@@ -123,16 +131,15 @@ export class ExpControlLayout extends Vue {
      */
     public mounted(): void {
         const el: any = this.$el;
-        let split = 0.7;
         if (this.ctrlWidth > 0 && this.mode === 'horizontal') {
-            split = parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
+            this.defaultSplit = 1 - parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
         } else if (this.ctrlHeight > 0 && this.mode === 'vertical') {
-            split = parseFloat(((el.offsetHeight - this.ctrlHeight) / el.offsetHeight).toFixed(2));
+            this.defaultSplit = 1 - parseFloat(((el.offsetHeight - this.ctrlHeight) / el.offsetHeight).toFixed(2));
         }
         if (this.showView) {
-            this.split = split;
+            this.split = this.defaultSplit;
         } else {
-            this.oldSplit = split;
+            this.oldSplit = this.defaultSplit;
         }
     }
 
@@ -144,14 +151,31 @@ export class ExpControlLayout extends Vue {
      * @memberof ExpControlLayout
      */
     protected renderSplit(): any {
-        return <split class={{ 'exp-control-layout': true, 'animation': this.showAnimation }} v-model={this.split} mode={this.mode}>
+        let showHeader = false;
+        if (this.$slots.title || this.$slots.toolbar || this.$slots.quickSearch) {
+            showHeader = true;
+        }
+        return <split class={{ 'exp-control-layout': true, 'animation': this.showAnimation }} v-model={this.split} mode={this.mode} min={(this.ctrlHeight > 0 || this.ctrlWidth > 0) ? this.defaultSplit : null}>
             <template slot={this.mode === 'horizontal' ? 'left' : 'top'}>
-                <div class="exp">
-                    {this.$slots.exp}
+                <div class="exp-control-layout-exp">
+                    {showHeader ? <div class="exp-header">
+                        {this.$slots.title ? <div class="exp-header-title">
+                            {this.$slots.title}
+                        </div> : null}
+                        {this.$slots.toolbar ? <div class="exp-toolbar">
+                            {this.$slots.toolbar}
+                        </div> : null}
+                        {this.$slots.quickSearch ? <div class="exp-quick-search">
+                            {this.$slots.quickSearch}
+                        </div> : null}
+                    </div> : null}
+                    <div class={{ 'exp-content': true, 'hidden-header': !showHeader }}>
+                        {this.$slots.expContent}
+                    </div>
                 </div>
             </template>
             <template slot={this.mode === 'horizontal' ? 'right' : 'bottom'}>
-                <div class="view">
+                <div class="exp-control-layout-view">
                     {this.$slots.default}
                 </div>
             </template>
