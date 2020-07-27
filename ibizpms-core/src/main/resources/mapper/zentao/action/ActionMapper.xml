@@ -58,14 +58,11 @@
 
     <!--数据集合[Type]-->
 	 <select id="searchType"  parameterType="cn.ibizlab.pms.core.zentao.filter.ActionSearchContext"  resultMap="ActionResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="Type" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by date  desc  
      </select>
 
     <!--数据查询[Default]-->
