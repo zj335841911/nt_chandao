@@ -744,6 +744,20 @@ export default {
 			tip: "编辑",
 		},
 	},
+	kanbanviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	buildsubgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联需求",
@@ -833,20 +847,6 @@ export default {
 		},
 	},
 	reportsubgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	kanbanviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

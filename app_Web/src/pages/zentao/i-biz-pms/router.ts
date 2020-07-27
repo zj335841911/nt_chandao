@@ -498,6 +498,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-open-task-view/task-open-task-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/kanbanview/:kanbanview?',
+                    meta: {
+                        caption: 'entities.story.views.kanbanview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'kanbanview', parameterName: 'kanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-kanban-view/story-kanban-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/kanbanview/:kanbanview?',
+                    meta: {
+                        caption: 'entities.story.views.kanbanview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'kanbanview', parameterName: 'kanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-kanban-view/story-kanban-view.vue'),
+                },
+                {
                     path: 'products/:product?/testtasks/:testtask?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.testtask.views.maindashboardview.title',

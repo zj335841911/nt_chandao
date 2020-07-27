@@ -308,6 +308,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '300e4e1f02be8e316e1e76b49c5c5ccc',
+            viewmodule: 'zentao',
+            viewname: 'StoryKanbanView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
             viewtag: '305dc1599e61a77edfa456866233516c',
             viewmodule: 'zentao',
             viewname: 'StoryReportSubGridView',
@@ -2236,6 +2246,7 @@ export const viewstate: any = {
                 'bb8860972029d9947daa3652a4b5d291',
                 '231eecf4805f0b378601ea1a7912077f',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
+                '300e4e1f02be8e316e1e76b49c5c5ccc',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '441544d65ca067ea5ea625645b70e610',
             ],
