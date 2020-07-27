@@ -159,7 +159,7 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'story',
             majorPSDEField: 'title',
-            isLoadDefault: false,
+            isLoadDefault: true,
         });
     }
 
@@ -440,38 +440,6 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
             _this.opendata([{ ...data }], params, $event, xData);
         } else {
             _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-
-    /**
-     * 是否启用快速分组
-     *
-     * @type {boolean}
-     * @memberof StoryCurProjectGridViewBase
-     */
-    public isEnableQuickGroup: boolean = true;
-
-    /**
-     * 加载快速分组模型
-     *
-     * @protected
-     * @memberof StoryCurProjectGridViewBase
-     */
-    protected loadQuickGroupModel(): void {
-        const quickGroupCodeList: any = { tag: 'Story__quickpacket', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
-            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
-            if (codelist) {
-                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
-            } else {
-                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
-            }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
-            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
-                this.quickGroupModel = res;
-            }).catch((error:any) => {
-                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
-            });
         }
     }
 }

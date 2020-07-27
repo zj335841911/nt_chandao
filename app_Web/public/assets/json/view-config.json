@@ -499,6 +499,16 @@
         "viewtag": "417541fa331fc089b84936b8359403fa",
         "memo": ""
     },
+    "storycurprojectwgridview": {
+        "title": "story表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryCurProjectWGridView",
+        "viewfilename": "story-cur-project-wgrid-view",
+        "viewtag": "427e28cc5267cfc2a6d6da6fde36ef9f",
+        "memo": ""
+    },
     "todoassigntoview": {
         "title": "指派表单视图",
         "caption": "指派给",
@@ -1027,6 +1037,16 @@
         "viewname": "CaseCurSuitGridView",
         "viewfilename": "case-cur-suit-grid-view",
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
+        "memo": ""
+    },
+    "storytabexpview": {
+        "title": "需求分页导航视图",
+        "caption": "需求",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryTabExpView",
+        "viewfilename": "story-tab-exp-view",
+        "viewtag": "76bd64e6d21e10838e42517992e58c65",
         "memo": ""
     },
     "actionhistorylistview": {
