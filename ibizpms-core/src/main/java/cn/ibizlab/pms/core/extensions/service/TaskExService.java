@@ -154,7 +154,9 @@ public class TaskExService extends TaskServiceImpl {
                 for (TaskTeam taskTeam : list) {
                     team.add(taskTeam.getAccount());
                     teamEstimate.add(taskTeam.getEstimate());
-                    estimate += taskTeam.getEstimate();
+                    if(taskTeam.getEstimate() != null) {
+                        estimate += taskTeam.getEstimate();
+                    }
                 }
                 jo.put("estimate", estimate);
                 jo.put("team", team);
