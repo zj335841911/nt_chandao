@@ -118,9 +118,9 @@ export default class TodoUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('closed',{});
-        this.allDeMainStateOPPrivsMap.set('doing',{'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'DELETE':1});
+        this.allDeMainStateOPPrivsMap.set('doing',{'TOBUG':1,'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'TOTASK':1,'DELETE':1});
         this.allDeMainStateOPPrivsMap.set('done',{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'FINISH':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1});
     }
 
     /**
@@ -239,6 +239,9 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     if(window.opener){
                         window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
                         window.close();
@@ -367,6 +370,9 @@ export default class TodoUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '关闭成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -501,6 +507,9 @@ export default class TodoUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -565,6 +574,9 @@ export default class TodoUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '激活成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -629,6 +641,9 @@ export default class TodoUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '完成成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
