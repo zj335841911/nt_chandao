@@ -308,6 +308,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '300e4e1f02be8e316e1e76b49c5c5ccc',
+            viewmodule: 'zentao',
+            viewname: 'StoryKanbanView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
             viewtag: '305dc1599e61a77edfa456866233516c',
             viewmodule: 'zentao',
             viewname: 'StoryReportSubGridView',
@@ -984,6 +995,17 @@ export const viewstate: any = {
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+            ],
+        },
+        {
+            viewtag: '76bd64e6d21e10838e42517992e58c65',
+            viewmodule: 'zentao',
+            viewname: 'StoryTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '300e4e1f02be8e316e1e76b49c5c5ccc',
+                '7b1cc190cbffe1cd122d87a9d03b2d21',
             ],
         },
         {
@@ -2226,11 +2248,11 @@ export const viewstate: any = {
                 '5ef23f01b2cffa48351b3272dfeeaf14',
                 '64204774cc4b97f20aa3becb41b184d5',
                 '7088260bcd6a0303378af2f8e207f479',
+                '76bd64e6d21e10838e42517992e58c65',
                 '8104f8c4c275f6ba17fb969edf52eb37',
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
                 '231eecf4805f0b378601ea1a7912077f',
-                '7b1cc190cbffe1cd122d87a9d03b2d21',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '441544d65ca067ea5ea625645b70e610',
             ],

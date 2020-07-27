@@ -149,8 +149,8 @@ export default class ModuleUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'modules', parameterName: 'module' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
                     if (!result || !Object.is(result.ret, 'OK')) {
                         return;
@@ -165,11 +165,12 @@ export default class ModuleUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'module-line-grid-view', 
-                height: 700, 
-                width: 900,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.module.views.linegridview.title'),
+                placement: 'DRAWER_TOP',
             };
-            openPopupModal(view, data);
+            openDrawer(view, data);
     }
 
 
