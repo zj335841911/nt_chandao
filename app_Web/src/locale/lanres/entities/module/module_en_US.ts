@@ -98,6 +98,10 @@ export default {
 			caption: "保存行",
 			tip: "保存行",
 		},
+		deuiaction1: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -126,7 +130,7 @@ export default {
 		},
 		uiactions: {
         module_seline: "维护产品线",
-        refreshparent: "刷新",
+        refreshall: "刷新",
 		},
 	},
 };

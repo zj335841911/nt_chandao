@@ -119,7 +119,7 @@ export class ProductLineTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"Module");
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"Module");
     }
 
     /**
@@ -133,15 +133,18 @@ export class ProductLineTreeBase extends MainControlBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof ModuleTreeExpViewBase
      */
-    public RefreshParent(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (xData && xData.refresh_parent && xData.refresh_parent instanceof Function) {
-            xData.refresh_parent();
+    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
+            xData.refresh_all();
             return;
         }
         const _this: any = this;
-        if (_this.refresh_parent && _this.refresh_parent instanceof Function) {
-            _this.refresh_parent();
+        if (_this.refresh_all && _this.refresh_all instanceof Function) {
+            _this.refresh_all();
             return;
+        }
+        if (_this.engine) {
+            _this.engine.load();
         }
     }
 
