@@ -111,6 +111,12 @@ export default {
 		uiactions: {
 		},
 	},
+	buildsubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
