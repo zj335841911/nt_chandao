@@ -6,7 +6,7 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
 import ModuleUIService from '@/uiservice/module/module-ui-service';
 
 /**
- * 模块树导航视图视图基类
+ * 所有产品视图基类
  *
  * @export
  * @class ModuleTreeExpViewBase

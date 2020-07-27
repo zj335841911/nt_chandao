@@ -319,6 +319,16 @@
         "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21",
         "memo": ""
     },
+    "storykanbanview": {
+        "title": "需求看板视图",
+        "caption": "需求",
+        "viewtype": "DEKANBANVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryKanbanView",
+        "viewfilename": "story-kanban-view",
+        "viewtag": "300e4e1f02be8e316e1e76b49c5c5ccc",
+        "memo": ""
+    },
     "storyreportsubgridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -450,8 +460,8 @@
         "memo": ""
     },
     "moduletreeexpview": {
-        "title": "模块树导航视图",
-        "caption": "产品",
+        "title": "所有产品",
+        "caption": "所有产品",
         "viewtype": "DETREEEXPVIEW",
         "viewmodule": "zentao",
         "viewname": "ModuleTreeExpView",
