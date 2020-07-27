@@ -19,6 +19,11 @@ export default class StoryKanBanModel {
         prop: 'title'
       },
       {
+        name: 'pri',
+        codelist:{tag:'Story__pri',codelistType:'STATIC'},
+        prop: 'pri'
+      },
+      {
         name: 'status',
         codelist:{tag:'Story__status',codelistType:'STATIC'},
         prop: 'status'

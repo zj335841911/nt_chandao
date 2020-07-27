@@ -24,7 +24,20 @@
                       <i-col v-show="detailsModel.container2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
                     <row style="height:100%;">
                               
-                        <i-col v-show="detailsModel.status.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 20, offset: 0 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.pri.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.pri" name="pri" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='Story__pri' codelistType='STATIC' style=""> </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.status.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 16, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -37,7 +50,7 @@
                         
                         </i-col>
                               
-                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -56,7 +69,7 @@
                         
                         </i-col>
                               
-                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 1, offset: 0 }" style="" class="app-layoutpanel-button">
+                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-button">
                             <i-button type="primary" long @click="uiAction(null, 'ProjectUnlinkStory', $event)" >
                             <i class="fa fa-unlink"></i>
                         </i-button>
