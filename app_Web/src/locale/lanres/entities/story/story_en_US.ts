@@ -770,6 +770,20 @@ export default {
 			tip: "Edit {0}",
 		},
 	},
+	curprojectwgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "Edit",
+			tip: "Edit {0}",
+		},
+	},
 	kanbanviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
@@ -876,20 +890,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	curprojectwgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "Edit",
-			tip: "Edit {0}",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {

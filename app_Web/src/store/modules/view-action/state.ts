@@ -489,6 +489,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '427e28cc5267cfc2a6d6da6fde36ef9f',
+            viewmodule: 'zentao',
+            viewname: 'StoryCurProjectWGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
             viewtag: '43582fa5b922cb77d0b1e704a7b6e5c3',
             viewmodule: 'zentao',
             viewname: 'TodoAssignToView',
@@ -1005,6 +1016,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '427e28cc5267cfc2a6d6da6fde36ef9f',
                 '300e4e1f02be8e316e1e76b49c5c5ccc',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
             ],

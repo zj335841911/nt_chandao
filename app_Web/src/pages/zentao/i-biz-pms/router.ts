@@ -7483,6 +7483,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-my-all-trends-list-view/action-my-all-trends-list-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/curprojectwgridview/:curprojectwgridview?',
+                    meta: {
+                        caption: 'entities.story.views.curprojectwgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'curprojectwgridview', parameterName: 'curprojectwgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-cur-project-wgrid-view/story-cur-project-wgrid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/curprojectwgridview/:curprojectwgridview?',
+                    meta: {
+                        caption: 'entities.story.views.curprojectwgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'curprojectwgridview', parameterName: 'curprojectwgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-cur-project-wgrid-view/story-cur-project-wgrid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/builds/:build?/mainview/:mainview?',
                     meta: {
                         caption: 'entities.build.views.mainview.title',

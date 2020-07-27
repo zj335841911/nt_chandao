@@ -196,6 +196,7 @@ export const PageComponents = {
         Vue.component('task-close-task-view', () => import('@pages/zentao/task-close-task-view/task-close-task-view.vue'));
         Vue.component('story-release-sub-grid-view', () => import('@pages/zentao/story-release-sub-grid-view/story-release-sub-grid-view.vue'));
         Vue.component('action-my-all-trends-list-view', () => import('@pages/zentao/action-my-all-trends-list-view/action-my-all-trends-list-view.vue'));
+        Vue.component('story-cur-project-wgrid-view', () => import('@pages/zentao/story-cur-project-wgrid-view/story-cur-project-wgrid-view.vue'));
         Vue.component('build-main-view', () => import('@pages/zentao/build-main-view/build-main-view.vue'));
         Vue.component('action-project-trends-list-view9', () => import('@pages/zentao/action-project-trends-list-view9/action-project-trends-list-view9.vue'));
         Vue.component('test-task-edit-view-commit-test', () => import('@pages/zentao/test-task-edit-view-commit-test/test-task-edit-view-commit-test.vue'));
