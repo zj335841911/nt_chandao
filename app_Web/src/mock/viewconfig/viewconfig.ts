@@ -407,6 +407,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainGridView",
             "viewtag": "417541fa331fc089b84936b8359403fa"
         },
+        "storycurprojectwgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryCurProjectWGridView",
+            "viewtag": "427e28cc5267cfc2a6d6da6fde36ef9f"
+        },
         "todoassigntoview": {
             "title": "指派表单视图",
             "caption": "指派给",
@@ -830,6 +838,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseCurSuitGridView",
             "viewtag": "74e206764fd747fa31467bd5a9f371df"
+        },
+        "storytabexpview": {
+            "title": "需求分页导航视图",
+            "caption": "需求",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryTabExpView",
+            "viewtag": "76bd64e6d21e10838e42517992e58c65"
         },
         "actionhistorylistview": {
             "title": "历史记录",

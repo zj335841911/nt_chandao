@@ -94,6 +94,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'kanbanview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'reportsubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'curprojectwgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'pickupgridview3',srfappde:'stories'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'stories'});
@@ -103,6 +104,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'buildsubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9_storyspec',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'curprojectgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview_editmode',srfappde:'stories'});

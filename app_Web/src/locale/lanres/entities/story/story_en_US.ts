@@ -72,6 +72,10 @@ export default {
 			caption: "需求",
       		title: "需求数据看板视图",
 		},
+		curprojectwgridview: {
+			caption: "需求",
+      		title: "story表格视图",
+		},
 		pickupgridview3: {
 			caption: "需求",
       		title: "需求",
@@ -107,6 +111,10 @@ export default {
 		mainview9_storyspec: {
 			caption: "需求",
       		title: "需求编辑视图",
+		},
+		tabexpview: {
+			caption: "需求",
+      		title: "需求分页导航视图",
 		},
 		gridview9_myassignedtome: {
 			caption: "需求",
@@ -589,7 +597,7 @@ export default {
         story_opencasecreateview: "建用例",
 		},
 	},
-	main_grid: {
+	projectstory_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -600,15 +608,10 @@ export default {
 			estimate: "预计",
 			status: "状态",
 			stage: "阶段",
-			modulename: "所属模块名称",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        story_changestorydetail: "变更",
-        story_reviewstory: "评审",
-        story_closestory: "关闭",
-        story_openbaseinfoeditview: "编辑",
-        story_opencasecreateview: "建用例",
+        story_projectunlinkstory: "移除",
 		},
 	},
 	main_buildsub_grid: {
@@ -643,6 +646,28 @@ export default {
 			title: "需求名称",
 		},
 		uiactions: {
+		},
+	},
+	main_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        story_changestorydetail: "变更",
+        story_reviewstory: "评审",
+        story_closestory: "关闭",
+        story_openbaseinfoeditview: "编辑",
+        story_opencasecreateview: "建用例",
 		},
 	},
 	main_plansub_grid: {
@@ -745,20 +770,6 @@ export default {
 			tip: "Edit {0}",
 		},
 	},
-	kanbanviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	buildsubgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联需求",
@@ -851,6 +862,34 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	kanbanviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	curprojectwgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "Edit",
+			tip: "Edit {0}",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {
