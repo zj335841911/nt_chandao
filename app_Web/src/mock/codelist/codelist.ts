@@ -1781,6 +1781,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "草稿",
                 "data":"",
                 "codename":"Draft",
+                "color": "rgba(185, 111, 241, 1)",
                 value: "draft",
                 
                 disabled: false,
@@ -1801,6 +1802,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已关闭",
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(203, 198, 198, 0.84)",
                 value: "closed",
                 
                 disabled: false,
@@ -1811,6 +1813,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已变更",
                 "data":"",
                 "codename":"Changed",
+                "color": "rgba(217, 68, 68, 1)",
                 value: "changed",
                 
                 disabled: false,
