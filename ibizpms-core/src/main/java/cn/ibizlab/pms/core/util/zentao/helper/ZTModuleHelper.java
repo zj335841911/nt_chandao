@@ -52,17 +52,17 @@ final public class ZTModuleHelper {
     // 接口行为HTTP方法（GET、POST）
     // ----------
 
-    private final static HttpMethod ACTION_HTTPMETHOD_BROWSE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BROWSETASK = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BROWSE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BROWSETASK = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_FIX = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_FIX = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_UPDATEORDER = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_MANAGECHILD = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETOPTIONMENU = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDROPMENU = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETMODULES = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETSONMODULES = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETOPTIONMENU = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDROPMENU = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETMODULES = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETSONMODULES = HttpMethod.GET;
 
     // ----------
     // 接口行为POST参数
