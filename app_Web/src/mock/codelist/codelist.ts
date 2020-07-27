@@ -4962,7 +4962,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "Unfinished",
                 label: "未完",
                 text: "未完",
-                "data":{"n_status_eq":"wait","n_type_noteq":"cycle"},
+                "data":{"n_status_eq":"wait","n_type_noteq":"cycle","n_date_noteq":"2030-01-01"},
                 "codename":"Unfinished",
                 value: "Unfinished",
                 

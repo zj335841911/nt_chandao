@@ -78,7 +78,7 @@
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.dashboardbasic_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.date1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.date1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 9, offset: 0 }">
     <app-form-item name='date1' :itemRules="this.rules.date1" class='' :caption="$t('entities.todo.dashboardbasic_form.details.date1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date1.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='date1' :value="data.date1" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>

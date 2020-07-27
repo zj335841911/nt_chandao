@@ -367,6 +367,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportMainInfoView",
             "viewtag": "3d56b0e37a56b9be1a28589c04f573fa"
         },
+        "moduletreeexpview": {
+            "title": "模块树导航视图",
+            "caption": "产品",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ModuleTreeExpView",
+            "viewtag": "3e2436a62be2ed493eda83693261274e"
+        },
         "storymainview": {
             "title": "需求数据看板视图",
             "caption": "需求",

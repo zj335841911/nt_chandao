@@ -20,6 +20,10 @@ export default {
 			caption: "模块",
       		title: "模块",
 		},
+		treeexpview: {
+			caption: "产品",
+      		title: "模块树导航视图",
+		},
 		gridview: {
 			caption: "模块",
       		title: "模块",
@@ -90,6 +94,15 @@ export default {
 		deuiaction2: {
 			caption: "编辑",
 			tip: "编辑",
+		},
+	},
+	productline_treeview: {
+		nodes: {
+			root: "默认根节点",
+			all: "所有产品",
+		},
+		uiactions: {
+			refreshparent: "刷新",
 		},
 	},
 };
