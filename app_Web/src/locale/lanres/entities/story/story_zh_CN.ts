@@ -741,7 +741,7 @@ export default {
 		},
 	},
 	buildsubgridviewtoolbar_toolbar: {
-		deuiaction1_buildlinkstories: {
+		deuiaction1: {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
