@@ -4,7 +4,6 @@ import { GridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
-import BuildUIService from '@/uiservice/build/build-ui-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
@@ -127,7 +126,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'linkstory', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
 
     };
 
@@ -267,8 +266,8 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:BuildUIService  = new BuildUIService();
-        curUIService.Build_linkstory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_buildLinkStories(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**

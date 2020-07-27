@@ -1,5 +1,7 @@
 <template>
-  <textarea :id="id"></textarea>
+    <div :class="editorClass">
+        <textarea :id="id"></textarea>
+    </div>
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
@@ -195,9 +197,16 @@ export default class AppRichTextEditor extends Vue {
     /**
      * 上传的图片id与类型集合
      * @type {string}
-     * @memberof RichTextEditor
+     * @memberof AppRichTextEditor
      */
     public imgsrc: Array<any> = [];
+
+    /**
+     * 编辑器样式类
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public editorClass: string = 'app-rich-text-editor';
 
     /**
      * 生命周期
@@ -246,8 +255,31 @@ export default class AppRichTextEditor extends Vue {
      */
     public mounted() {
         this.init();
+        const ele: any = this.isDrawer(this.$el);
+        let index: number = ele.style.transform.indexOf('translateX');
+        if(index >= 0) {
+            let num: string = ele.style.transform.substring(index + 12, index + 15);
+            this.editorClass = this.editorClass + (-parseInt(num));
+        }
     }
     
+    /**
+     * 是否抽屉打开
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public isDrawer(ele: any): any {
+        let pele: any = ele.parentNode;
+        if(!pele) {
+            return false;
+        }
+        if(pele.className.indexOf('studio-drawer-content') >= 0) {
+            return pele;
+        }
+        return this.isDrawer(pele);
+        
+    }
+ 
     /**
      * 生命周期：销毁富文本
      * 
@@ -460,5 +492,23 @@ export default class AppRichTextEditor extends Vue {
 <style lang="less">
 .tox-statusbar__text-container{
     display: none !important;
+}
+.app-rich-text-editor-100 {
+    .tox-fullscreen {
+        height: 100% !important;
+        transform: translateX(100%);
+    }
+    .tox-blocker {
+        transform: translateX(100%);
+    }
+}
+.app-rich-text-editor-200 {
+    .tox-fullscreen {
+        height: 100% !important;
+        transform: translateX(200%);
+    }
+    .tox-blocker {
+        transform: translateX(200%);
+    }
 }
 </style>

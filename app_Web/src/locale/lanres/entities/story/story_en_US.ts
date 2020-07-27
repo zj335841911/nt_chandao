@@ -741,6 +741,12 @@ export default {
 			tip: "Edit {0}",
 		},
 	},
+	buildsubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+	},
 	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
