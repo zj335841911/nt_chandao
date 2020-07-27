@@ -181,7 +181,7 @@ export default class BugUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:BugService =  new BugService();
-            curService.ReleaseLinkBugbyBug(context,data, true).then((response: any) => {
+            curService.BuildLinkBug(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
