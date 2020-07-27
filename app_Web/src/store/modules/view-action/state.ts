@@ -269,6 +269,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2671388d4c12a6f139e6fd806c524dc7',
+            viewmodule: 'zentao',
+            viewname: 'ModuleEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cb6c278fd7205b3de3fc041816d15dd8',
+            ],
+        },
+        {
             viewtag: '28557f7c31a387e1deb552076d51f9f1',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Putoff',
@@ -411,6 +421,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: '3e2436a62be2ed493eda83693261274e',
+            viewmodule: 'zentao',
+            viewname: 'ModuleTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7caeaef893043533e8f388d25523328c',
+                '8eb13e4fe49406265e2ed5fb1e0a6b53',
             ],
         },
         {
@@ -1212,8 +1233,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
-                '7caeaef893043533e8f388d25523328c',
                 'e042a1dee405b0a853f315b39a375783',
+                '3e2436a62be2ed493eda83693261274e',
             ],
         },
         {
@@ -1251,6 +1272,16 @@ export const viewstate: any = {
             refviews: [
                 '770a170098d148e438a7666b248e6519',
                 'ac71a1cfaecb07640c14f75b8f202b1e',
+            ],
+        },
+        {
+            viewtag: '8eb13e4fe49406265e2ed5fb1e0a6b53',
+            viewmodule: 'zentao',
+            viewname: 'ModuleLineGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2671388d4c12a6f139e6fd806c524dc7',
             ],
         },
         {

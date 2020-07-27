@@ -1,4 +1,7 @@
 <studio-view viewName="producttestlistexpview" viewTitle="测试统计" class='delistexpview product-test-list-exp-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
     <view_listexpbar 
         :viewState="viewState"  
         :viewparams="viewparams" 

@@ -89,6 +89,16 @@ export default {
 		uiactions: {
 		},
 	},
+	linegridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -109,22 +119,13 @@ export default {
 			tip: "Edit {0}",
 		},
 	},
-	linegridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-		deuiaction3: {
-			caption: "保存行",
-			tip: "保存行",
-		},
-	},
 	productline_treeview: {
 		nodes: {
 			root: "默认根节点",
 			all: "所有产品",
 		},
 		uiactions: {
+        module_seline: "维护产品线",
         refreshparent: "刷新",
 		},
 	},
