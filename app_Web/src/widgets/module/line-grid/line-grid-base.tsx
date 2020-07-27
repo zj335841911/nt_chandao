@@ -88,7 +88,7 @@ export class LineGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.module.line_grid.columns.name',
             show: true,
-            util: 'PX',
+            util: 'STAR',
             isEnableRowEdit: true,
         },
         {
