@@ -158,11 +158,14 @@
 
     <!--数据集合[BuildBugs]-->
 	 <select id="searchBuildBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="BuildBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[BuildLinkResolvedBugs]-->
@@ -176,47 +179,62 @@
 
     <!--数据集合[BuildOpenBugs]-->
 	 <select id="searchBuildOpenBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="BuildOpenBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ReleaseBugs]-->
 	 <select id="searchReleaseBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ReleaseBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ReleaseLeftBugs]-->
 	 <select id="searchReleaseLeftBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ReleaseLeftBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ReportBugs]-->
 	 <select id="searchReportBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ReportBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据查询[BuildBugs]-->

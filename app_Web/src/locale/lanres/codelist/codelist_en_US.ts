@@ -749,6 +749,16 @@ export default {
         "4": "4",
         "empty": ""
     },
+    StoryStageKane: {
+        "projected": "已立项",
+        "developing": "研发中",
+        "developed": "研发完毕",
+        "testing": "测试中",
+        "tested": "测试完毕",
+        "verified": "已验收",
+        "released": "已发布",
+        "empty": ""
+    },
     Testcase__result: {
         "n/a": "忽略",
         "pass": "通过",
