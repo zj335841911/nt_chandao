@@ -227,7 +227,7 @@ export class MainGridBase extends GridControlBase {
         linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
+        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
 
