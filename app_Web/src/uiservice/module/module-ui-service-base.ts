@@ -92,6 +92,7 @@ export default class ModuleUIServiceBase extends UIService {
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'modules'});
         this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'modules'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'modules'});
+        this.allViewMap.set(':',{viewname:'linegridview',srfappde:'modules'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'modules'});
         this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'modules'});
     }

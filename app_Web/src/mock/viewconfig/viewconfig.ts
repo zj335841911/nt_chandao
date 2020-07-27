@@ -1071,6 +1071,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainEditView",
             "viewtag": "8e070a3e9ad67b127db723463198f9ac"
         },
+        "modulelinegridview": {
+            "title": "产品线",
+            "caption": "产品线",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ModuleLineGridView",
+            "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53"
+        },
         "storyassigntoview": {
             "title": "指派",
             "caption": "指派",

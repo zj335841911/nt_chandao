@@ -28,6 +28,10 @@ export default {
 			caption: "模块",
       		title: "模块",
 		},
+		linegridview: {
+			caption: "产品线",
+      		title: "产品线",
+		},
 		pickupgridview: {
 			caption: "模块",
       		title: "模块选择",
@@ -69,6 +73,14 @@ export default {
 		uiactions: {
 		},
 	},
+	line_grid: {
+		columns: {
+			name: "名称",
+			short: "简称",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -94,6 +106,16 @@ export default {
 		deuiaction2: {
 			caption: "编辑",
 			tip: "编辑",
+		},
+	},
+	linegridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
 		},
 	},
 	productline_treeview: {

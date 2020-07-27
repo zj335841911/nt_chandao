@@ -254,6 +254,15 @@ export default {
         "1": "1",
         "empty": ""
     },
+    Module__type: {
+        "line": "产品线",
+        "story": "需求",
+        "task": "任务",
+        "doc": "文档目录",
+        "case": "测试用例",
+        "bug": "Bug",
+        "empty": ""
+    },
     Task__status: {
         "wait": "未开始",
         "doing": "进行中",
