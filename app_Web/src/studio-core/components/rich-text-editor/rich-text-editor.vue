@@ -39,7 +39,9 @@
                 </DropdownMenu>
             </Dropdown>
         </div>
-        <textarea :id="id"></textarea>
+        <div :class="editorClass">
+            <textarea :id="id"></textarea>
+        </div>
     </div>
 </template>
 <script lang = 'ts'>
@@ -278,6 +280,13 @@ export default class RichTextEditor extends Vue {
     public imgsrc: Array<any> = [];
 
     /**
+     * 编辑器样式类
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    public editorClass: string = 'app-rich-text-editor';
+
+    /**
      * 生命周期
      *
      * @memberof RichTextEditor
@@ -321,10 +330,33 @@ export default class RichTextEditor extends Vue {
     /**
      * 生命周期：初始化富文本
      * 
-     * @memberof RichTextEditor
+     * @memberof AppRichTextEditor
      */
     public mounted() {
         this.init();
+        const ele: any = this.isDrawer(this.$el);
+        let index: number = ele.style.transform.indexOf('translateX');
+        if(index >= 0) {
+            let num: string = ele.style.transform.substring(index + 12, index + 15);
+            this.editorClass = this.editorClass + (-parseInt(num));
+        }
+    }
+    
+    /**
+     * 是否抽屉打开
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public isDrawer(ele: any): any {
+        let pele: any = ele.parentNode;
+        if(!pele) {
+            return false;
+        }
+        if(pele.className.indexOf('studio-drawer-content') >= 0) {
+            return pele;
+        }
+        return this.isDrawer(pele);
+        
     }
     
     /**
