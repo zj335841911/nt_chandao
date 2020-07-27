@@ -6,7 +6,7 @@ import { ModuleTreeExpViewBase } from './module-tree-exp-view-base';
 import view_treeexpbar from '@widgets/module/tree-exp-viewtreeexpbar-treeexpbar/tree-exp-viewtreeexpbar-treeexpbar.vue';
 
 /**
- * 模块树导航视图视图
+ * 所有产品视图
  *
  * @export
  * @class ModuleTreeExpView

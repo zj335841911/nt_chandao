@@ -263,6 +263,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainGridView9_Child",
             "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21"
         },
+        "storykanbanview": {
+            "title": "需求看板视图",
+            "caption": "需求",
+            "viewtype": "DEKANBANVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryKanbanView",
+            "viewtag": "300e4e1f02be8e316e1e76b49c5c5ccc"
+        },
         "storyreportsubgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -368,8 +376,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "3d56b0e37a56b9be1a28589c04f573fa"
         },
         "moduletreeexpview": {
-            "title": "模块树导航视图",
-            "caption": "产品",
+            "title": "所有产品",
+            "caption": "所有产品",
             "viewtype": "DETREEEXPVIEW",
             "viewmodule": "zentao",
             "viewname": "ModuleTreeExpView",

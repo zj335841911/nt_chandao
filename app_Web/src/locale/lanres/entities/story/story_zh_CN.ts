@@ -59,6 +59,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		kanbanview: {
+			caption: "需求",
+      		title: "需求看板视图",
+		},
 		reportsubgridview: {
 			caption: "需求",
       		title: "story表格视图",
@@ -829,6 +833,20 @@ export default {
 		},
 	},
 	reportsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	kanbanviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

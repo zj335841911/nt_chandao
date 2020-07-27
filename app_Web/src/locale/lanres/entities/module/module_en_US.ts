@@ -22,8 +22,8 @@ export default {
       		title: "模块",
 		},
 		treeexpview: {
-			caption: "产品",
-      		title: "模块树导航视图",
+			caption: "所有产品",
+      		title: "所有产品",
 		},
 		gridview: {
 			caption: "模块",
