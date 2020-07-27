@@ -107,83 +107,110 @@
 
     <!--数据集合[BuildStories]-->
 	 <select id="searchBuildStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="BuildStories" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ByModule]-->
 	 <select id="searchByModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ByModule" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[GetProductStories]-->
 	 <select id="searchGetProductStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="GetProductStories" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ProjectStories]-->
 	 <select id="searchProjectStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ProjectStories" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ReleaseStories]-->
 	 <select id="searchReleaseStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ReleaseStories" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[ReportStories]-->
 	 <select id="searchReportStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="ReportStories" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[StoryChild]-->
 	 <select id="searchStoryChild"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="StoryChild" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[StoryRelated]-->
 	 <select id="searchStoryRelated"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="StoryRelated" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[TaskRelatedStory]-->

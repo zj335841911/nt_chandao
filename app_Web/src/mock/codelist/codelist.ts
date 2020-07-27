@@ -5801,6 +5801,90 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "StoryStageKane",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "projected",
+                label: "已立项",
+                text: "已立项",
+                "data":"",
+                "codename":"Projected",
+                "color": "rgba(139, 173, 237, 1)",
+                value: "projected",
+                
+                disabled: false,
+            },
+            {
+                id: "developing",
+                label: "研发中",
+                text: "研发中",
+                "data":"",
+                "codename":"Developing",
+                "color": "rgba(63, 77, 238, 1)",
+                value: "developing",
+                
+                disabled: false,
+            },
+            {
+                id: "developed",
+                label: "研发完毕",
+                text: "研发完毕",
+                "data":"",
+                "codename":"Developed",
+                "color": "rgba(73, 227, 101, 1)",
+                value: "developed",
+                
+                disabled: false,
+            },
+            {
+                id: "testing",
+                label: "测试中",
+                text: "测试中",
+                "data":"",
+                "codename":"Testing",
+                "color": "rgba(224, 198, 54, 1)",
+                value: "testing",
+                
+                disabled: false,
+            },
+            {
+                id: "tested",
+                label: "测试完毕",
+                text: "测试完毕",
+                "data":"",
+                "codename":"Tested",
+                "color": "rgba(234, 233, 237, 1)",
+                value: "tested",
+                
+                disabled: false,
+            },
+            {
+                id: "verified",
+                label: "已验收",
+                text: "已验收",
+                "data":"",
+                "codename":"Verified",
+                "color": "rgba(109, 108, 108, 1)",
+                value: "verified",
+                
+                disabled: false,
+            },
+            {
+                id: "released",
+                label: "已发布",
+                text: "已发布",
+                "data":"",
+                "codename":"Released",
+                "color": "rgba(11, 11, 11, 1)",
+                value: "released",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testcase__result",
         emptytext: "未定义",
         "codelisttype":"static",
