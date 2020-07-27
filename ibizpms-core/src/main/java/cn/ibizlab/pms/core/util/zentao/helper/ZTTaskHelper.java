@@ -284,6 +284,7 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_EDIT.put("multiple", 0);
         ACTION_PARAMS_EDIT.put("teamLeft[]", null);
         ACTION_PARAMS_EDIT.put("teamConsumed[]", 0);
+        ACTION_PARAMS_EDIT.put("comment", null);
 
 
         // ASSIGNTO
