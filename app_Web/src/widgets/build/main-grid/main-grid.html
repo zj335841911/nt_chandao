@@ -63,14 +63,10 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                <span>!!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: @getDeResParameters dataview  [in template "TEMPLCODE_zh_CN" at line 4, column 302]
-            ----</span>
+                                <span><app-column-link deKeyField='build' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}" valueitem="srfkey">
+            <span>{{row.name}}</span>
+            </app-column-link>
+            </span>
                         </template>
                     </template>
                 </el-table-column>
