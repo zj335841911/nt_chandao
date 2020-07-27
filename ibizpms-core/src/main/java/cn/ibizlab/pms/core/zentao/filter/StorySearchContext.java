@@ -69,6 +69,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("status", n_status_eq);
         }
     }
+	private String n_status_noteq;//[当前状态]
+	public void setN_status_noteq(String n_status_noteq) {
+        this.n_status_noteq = n_status_noteq;
+        if(!ObjectUtils.isEmpty(this.n_status_noteq)){
+            this.getSearchCond().ne("status", n_status_noteq);
+        }
+    }
 	private String n_title_like;//[需求名称]
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
