@@ -165,8 +165,8 @@ export default class ModuleUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'module-line-grid-view', 
-                height: 500, 
-                width: 500,  
+                height: 700, 
+                width: 900,  
                 title: actionContext.$t('entities.module.views.linegridview.title'),
             };
             openPopupModal(view, data);

@@ -3021,6 +3021,32 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTASK接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/tasks/fetchprojecttask`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/tasks/fetchprojecttask`,tempData,isloading);
+    }
+
+    /**
      * FetchRootTask接口方法
      *
      * @param {*} [context={}]
@@ -3120,6 +3146,28 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.project && true){
+            return Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+        }
+        return Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+    }
+
+    /**
+     * FetchTempProjectTASK接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchTempProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
         }
