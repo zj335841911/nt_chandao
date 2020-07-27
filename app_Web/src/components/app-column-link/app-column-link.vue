@@ -55,6 +55,14 @@ export default class AppColumnLink extends Vue {
     @Prop({default:{}}) public viewparams?:any;
 
     /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof AppColumnLink
+     */
+    @Prop() public localParam!:any;
+
+    /**
      * 应用实体主键属性名称
      *
      * @type {string}
@@ -281,6 +289,11 @@ export default class AppColumnLink extends Vue {
         // 合并表单参数
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+        // 附加参数处理
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,JSON.parse(JSON.stringify(this.localParam)));
+            Object.assign(arg.param,_param);
+        }
         return true;
     }
 

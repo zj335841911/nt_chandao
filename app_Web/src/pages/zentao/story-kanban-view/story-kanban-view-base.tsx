@@ -376,11 +376,11 @@ export class StoryKanbanViewBase extends KanBanViewBase {
             });
         }
         const view: any = {
-            viewname: 'story-edit-view', 
+            viewname: 'story-main-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.story.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            title: this.$t('entities.story.views.mainview.title'),
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }

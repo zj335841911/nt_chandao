@@ -23,6 +23,9 @@ export default class StoryKanBanModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'status',
+			},
+			{
 				name: 'estimate',
 			},
 			{
