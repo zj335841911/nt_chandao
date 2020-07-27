@@ -126,7 +126,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridView
      */
     public toolBarModels: any = {
-        deuiaction1_buildlinkstories: { name: 'deuiaction1_buildlinkstories', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
 
     };
 
@@ -181,8 +181,8 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction1_buildlinkstories')) {
-            this.toolbar_deuiaction1_buildlinkstories_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
         }
     }
 
@@ -249,7 +249,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction1_buildlinkstories_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];

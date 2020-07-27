@@ -1,6 +1,7 @@
 .exp-control-layout.animation {
 
-    .ivu-split-pane, .ivu-split-trigger-con {
+    .ivu-split-pane,
+    .ivu-split-trigger-con {
         transition: all .5s ease-in-out;
     }
 }
@@ -10,9 +11,48 @@
     height: 100%;
     display: flex;
 
-    .exp, .view {
+    .exp-control-layout-exp,
+    .exp-control-layout-view {
         height: 100%;
         width: 100%;
+    }
+
+    .exp-control-layout-exp {
+        display: flex;
+        flex-direction: column;
+
+        .exp-header {
+            height: 40px;
+            padding: 3px 8px;
+        }
+
+        .exp-content {
+            height: calc(100% - 40px);
+        }
+
+        .exp-header-title,
+        .exp-quick-search {
+            float: left;
+            padding-right: 8px;
+            height: 100%;
+        }
+
+        .exp-header-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .exp-quick-search {
+            
+            .ivu-input-wrapper {
+                vertical-align: -5px;
+            }
+        }
+
+        .exp-toolbar {
+            float: right;
+            height: 100%;
+        }
     }
 
     .grid-exp-bar-content {
