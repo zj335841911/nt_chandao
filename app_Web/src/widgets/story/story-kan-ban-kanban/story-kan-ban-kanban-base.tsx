@@ -715,6 +715,62 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      */
     public getUpdateView(group: any) {
         switch(group) {
+            case 'developing': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
+            case 'released': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
+            case 'verified': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
+            case 'tested': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
+            case 'testing': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
+            case 'developed': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
+            case 'projected': 
+                return {
+                    viewname: 'story-assign-to-view',
+                    title: this.$t('entities.story.views.assigntoview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
         }
     }
 
