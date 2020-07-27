@@ -270,35 +270,39 @@ export class StudioDrawer extends Vue {
      */
     protected renderViews(h: CreateElement): any {
         return this.showViewList.map((view: any, i: number) => {
-            const props: any = { openMode: 'MODAL', viewUsage: 2, viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparams: view.viewparams };
-            const style: any = { 'z-index': i + 1 };
-            return <div class={{ 'studio-drawer-item': true, 'active': this.activeIndex === i }}>
-                {h(view.viewname, {
-                    key: view.viewname + i,
-                    ref: view.viewname + i,
-                    style,
-                    props,
-                    on: {
-                        viewdataschange: (data: any) => {
-                            this.closeModalData = data;
-                        },
-                        close: () => {
-                            if ((this.viewList.length - 1) < i) {
-                                return;
+            try {
+                const props: any = { openMode: 'MODAL', viewUsage: 2, viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparam: JSON.stringify(view.viewparams) };
+                const style: any = { 'z-index': i + 1 };
+                return <div class={{ 'studio-drawer-item': true, 'active': this.activeIndex === i }}>
+                    {h(view.viewname, {
+                        key: view.viewname + i,
+                        ref: view.viewname + i,
+                        style,
+                        props,
+                        on: {
+                            viewdataschange: (data: any) => {
+                                this.closeModalData = data;
+                            },
+                            close: () => {
+                                if ((this.viewList.length - 1) < i) {
+                                    return;
+                                }
+                                if (this.viewList.length === 1) {
+                                    this.isShow = false;
+                                    setTimeout(() => this.closeView(view), 500);
+                                } else {
+                                    this.closeView(view);
+                                }
+                            },
+                            viewModelChange: () => {
+                                this.$forceUpdate();
                             }
-                            if (this.viewList.length === 1) {
-                                this.isShow = false;
-                                setTimeout(() => this.closeView(view), 500);
-                            } else {
-                                this.closeView(view);
-                            }
-                        },
-                        viewModelChange: () => {
-                            this.$forceUpdate();
                         }
-                    }
-                })}
-            </div>;
+                    })}
+                </div>;
+            } catch (err) {
+                console.warn('上飘窗打开视图参数转换异常', err);
+            }
         });
     }
 
