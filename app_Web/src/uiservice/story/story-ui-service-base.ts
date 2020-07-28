@@ -750,7 +750,7 @@ export default class StoryUIServiceBase extends UIService {
         let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
           actionContext.$Modal.confirm({
               title: '警告',
-              content: '确认移除当前需求吗？',
+              content: '您确认移除该需求吗？',
               onOk: () => {resolve(true);},
               onCancel: () => {resolve(false);}
           });

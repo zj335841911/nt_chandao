@@ -1,20 +1,19 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='action_main' style="">
     <input style="display:none;" />
     <row >
-        <div style="height: 100%;display: flex;flex-direction: column;">
-    
-<div class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}">
-<app-form-group :model="detailsModel.grouppanel2" layoutType="FLEX" titleStyle="" class=' form-padding' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+            
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class=' form-padding' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
-    <div style="height: 100%;display: flex;">
-        <div class="form-layout-container" v-show="detailsModel.lastcomment.visible" :style="{}">
-<app-form-item name='lastcomment' :itemRules="this.rules.lastcomment" class='' :caption="$t('entities.action.main_form.details.lastcomment')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastcomment.error" :isEmptyCaption="true" labelPos="LEFT">
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.lastcomment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='lastcomment' :itemRules="this.rules.lastcomment" class='' :caption="$t('entities.action.main_form.details.lastcomment')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastcomment.error" :isEmptyCaption="true" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.lastcomment" @change="(val) =>{this.data.lastcomment =val}" :disabled="detailsModel.lastcomment.disabled" :data="JSON.stringify(this.data)"  name="lastcomment" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
 </app-form-item>
 
-</div>
-<div class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}">
-<app-form-group :model="detailsModel.grouppanel1" layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <div style="height: 100%;display: flex;justify-content: flex-end;">
         <div class="form-layout-container" v-show="detailsModel.button1.visible" :style="{'width': '100px',}">
@@ -37,14 +36,13 @@
     </div>
 </app-form-group>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
+</i-col>
 
-</div>
 
     </row>
 </i-form>
