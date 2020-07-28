@@ -1,11 +1,11 @@
 <div class='panel-container' style="">
     <row class="app-layoutpanel" style="height:100%;">
-        <i-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container form-padding">
-            <row style="height:100%;padding:8px 8px 8px 8px">
-                      <i-col v-show="detailsModel.container2.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-container container-right-border">
-                    <row style="height:100%;">
+        <div v-show="detailsModel.container1.visible" class="app-layoutpanel-container" style="">
+            <div style="height:100%;display: flex;">
+                      <div v-show="detailsModel.container2.visible" class="app-layoutpanel-container" style="flex-grow: 1;">
+                    <div style="height:100%;display: flex;flex-direction: column;">
                               
-                        <i-col v-show="detailsModel.realname.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field title-font-weight">
+                        <div v-show="detailsModel.realname.visible" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field  panelitem-20px">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -16,49 +16,49 @@
                         </div>
                         
                         
-                        </i-col>
-                    </row>
-                </i-col>
-                      <i-col v-show="detailsModel.container3.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 18, offset: 0 }" style="" class="app-layoutpanel-container">
-                    <row style="height:100%;">
+                        </div>
+                    </div>
+                </div>
+                      <div v-show="detailsModel.container3.visible" class="app-layoutpanel-container" style="">
+                    <div style="height:100%;display: flex;">
                               
-                        <i-col v-show="detailsModel.rawitem1.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                        <div v-show="detailsModel.rawitem1.visible" style="" class="app-layoutpanel-rowitem">
                             今天剩余工作总计
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem2.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="text-align:center" class="app-layoutpanel-rowitem text-center">
+                        <div v-show="detailsModel.rawitem2.visible" style="text-align:center" class="app-layoutpanel-rowitem text-center">
                             我的任务
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem3.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="text-align:center" class="app-layoutpanel-rowitem text-center">
+                        <div v-show="detailsModel.rawitem3.visible" style="text-align:center" class="app-layoutpanel-rowitem text-center">
                             我的bug
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem4.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="text-align:center" class="app-layoutpanel-rowitem text-center">
+                        <div v-show="detailsModel.rawitem4.visible" style="text-align:center" class="app-layoutpanel-rowitem text-center">
                             我的需求
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem5.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="text-align:center" class="app-layoutpanel-rowitem text-center">
+                        <div v-show="detailsModel.rawitem5.visible" style="text-align:center" class="app-layoutpanel-rowitem text-center">
                             未关闭的项目
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem6.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="text-align:center" class="app-layoutpanel-rowitem text-center">
+                        <div v-show="detailsModel.rawitem6.visible" style="text-align:center" class="app-layoutpanel-rowitem text-center">
                             未关闭的产品
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.mytasks.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field big-bold-font">
+                        <div v-show="detailsModel.mytasks.visible" style="text-align:center" class="app-layoutpanel-field  text-center">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -69,9 +69,9 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.mybugs.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field big-bold-font">
+                        <div v-show="detailsModel.mybugs.visible" style="text-align:center" class="app-layoutpanel-field  text-center">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -82,9 +82,9 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.mystorys.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field big-bold-font">
+                        <div v-show="detailsModel.mystorys.visible" style="text-align:center" class="app-layoutpanel-field  text-center">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -95,9 +95,9 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.projects.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field big-bold-font">
+                        <div v-show="detailsModel.projects.visible" style="text-align:center" class="app-layoutpanel-field  text-center">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -108,9 +108,9 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.products.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-field big-bold-font">
+                        <div v-show="detailsModel.products.visible" style="text-align:center" class="app-layoutpanel-field  text-center">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -121,9 +121,9 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.myetasks.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field red-font-border-radius">
+                        <div v-show="detailsModel.myetasks.visible" style="color:rgba(238, 18, 18, 1);text-align:center" class="app-layoutpanel-field  text-center-red">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -134,9 +134,9 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.myebugs.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field red-font-border-radius">
+                        <div v-show="detailsModel.myebugs.visible" style="color:rgba(238, 18, 18, 1);text-align:center" class="app-layoutpanel-field  text-center-red">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -147,15 +147,15 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem7.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-rowitem red-font-border-radius">
+                        <div v-show="detailsModel.rawitem7.visible" style="color:rgba(238, 18, 18, 1);text-align:center" class="app-layoutpanel-rowitem text-center-red">
                             --
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.eprojects.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field red-font-border-radius">
+                        <div v-show="detailsModel.eprojects.visible" style="color:rgba(238, 18, 18, 1);text-align:center" class="app-layoutpanel-field  text-center-red">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -166,16 +166,16 @@
                         </div>
                         
                         
-                        </i-col>
+                        </div>
                               
-                        <i-col v-show="detailsModel.rawitem8.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-rowitem red-font-border-radius">
+                        <div v-show="detailsModel.rawitem8.visible" style="color:rgba(238, 18, 18, 1);text-align:center" class="app-layoutpanel-rowitem text-center-red">
                             --
                         
                         
-                        </i-col>
-                    </row>
-                </i-col>
-            </row>
-        </i-col>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </row>
 </div>
