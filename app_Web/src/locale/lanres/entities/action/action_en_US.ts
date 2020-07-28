@@ -50,8 +50,9 @@ export default {
 	},
 	main_form: {
 		details: {
-			button2: "Save And Close", 
 			button1: "关闭", 
+			button2: "Save And Close", 
+			grouppanel1: "分组面板", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "id", 
@@ -61,12 +62,11 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			lastcomment: "", 
-			formitem: "", 
 			id: "id", 
 		},
 		uiactions: {
-        saveandexit: "Save And Close",
         exit: "返回",
+        saveandexit: "Save And Close",
 		},
 	},
 };

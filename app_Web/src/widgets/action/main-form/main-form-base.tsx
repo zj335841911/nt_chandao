@@ -58,6 +58,33 @@ export class MainEditFormBase extends EditFormControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Action");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public form_button2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -78,31 +105,23 @@ export class MainEditFormBase extends EditFormControlBase {
     }
 
     /**
-     * 逻辑事件
+     * 返回
      *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ActionEditViewBase
      */
-    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
         }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Action");
     }
+
 
     /**
      * 保存并关闭
@@ -139,25 +158,6 @@ export class MainEditFormBase extends EditFormControlBase {
     }
 
     /**
-     * 返回
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ActionEditViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
-
-    /**
      * 界面UI服务对象
      *
      * @type {ActionUIService}
@@ -181,7 +181,6 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         lastcomment: null,
-        formitem: null,
         id: null,
         action:null,
     };
@@ -202,9 +201,11 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
+        button1: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'Exit' } }),
+
         button2: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
 
-        button1: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'Exit' } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.action.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -224,21 +225,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
         lastcomment: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'lastcomment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
-
-	/**
-	 * 表单 保存 事件
-	 *
-	 * @memberof @memberof MainEditFormBase
-	 */
-    public button2_click($event: any): void {
-        this.form_button2_click(null, null, $event);
-
-    }
 
 	/**
 	 * 表单 关闭 事件
@@ -247,6 +236,16 @@ export class MainEditFormBase extends EditFormControlBase {
 	 */
     public button1_click($event: any): void {
         this.form_button1_click(null, null, $event);
+
+    }
+
+	/**
+	 * 表单 保存 事件
+	 *
+	 * @memberof @memberof MainEditFormBase
+	 */
+    public button2_click($event: any): void {
+        this.form_button2_click(null, null, $event);
 
     }
 }
