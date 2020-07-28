@@ -51,6 +51,7 @@ export default {
     allmodules: "所有模块",
     multiple: "多人任务",
     taskteams: "项目团队成员",
+    modulename1: "所属模块",
   },
 	views: {
 		subtasknewview: {

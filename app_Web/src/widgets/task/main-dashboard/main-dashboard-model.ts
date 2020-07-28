@@ -168,6 +168,9 @@ export default class MainModel {
       {
         name: 'taskteams',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

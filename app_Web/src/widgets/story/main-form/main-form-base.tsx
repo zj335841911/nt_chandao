@@ -76,7 +76,7 @@ export class MainEditFormBase extends EditFormControlBase {
         prodoctname: null,
         branch: null,
         branchname: null,
-        modulename: null,
+        modulename1: null,
         plan: null,
         source: null,
         sourcenote: null,
@@ -152,7 +152,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        modulename1: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         plan: new FormItemModel({ caption: '所属计划', detailType: 'FORMITEM', name: 'plan', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

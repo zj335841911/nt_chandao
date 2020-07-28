@@ -62,6 +62,7 @@ export default {
     taskname: "相关任务",
     modulename: "模块名称",
     branchname: "平台/分支",
+    modulename1: "模块名称",
   },
 	views: {
 		plansubgridview: {

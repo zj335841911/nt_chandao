@@ -501,4 +501,12 @@ export interface Bug {
      * @memberof Bug
      */
     branchname?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    modulename1?: any;
 }

@@ -66,9 +66,9 @@ export default class MainInfoModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'modulename',
-        prop: 'modulename',
-        dataType: 'PICKUPTEXT',
+        name: 'modulename1',
+        prop: 'modulename1',
+        dataType: 'TEXT',
       },
       {
         name: 'storyname',

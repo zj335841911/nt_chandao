@@ -168,6 +168,9 @@ export default class WorkInfoModel {
       {
         name: 'taskteams',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 
