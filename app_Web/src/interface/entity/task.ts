@@ -413,4 +413,12 @@ export interface Task {
      * @memberof Task
      */
     taskteams?: any;
+
+    /**
+     * 所属模块
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    modulename1?: any;
 }

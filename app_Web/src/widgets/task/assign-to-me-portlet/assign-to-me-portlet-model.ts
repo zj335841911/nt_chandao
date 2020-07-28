@@ -168,6 +168,9 @@ export default class AssignToMeModel {
       {
         name: 'taskteams',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

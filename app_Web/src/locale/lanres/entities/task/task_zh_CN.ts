@@ -51,6 +51,7 @@ export default {
     allmodules: "所有模块",
     multiple: "多人任务",
     taskteams: "项目团队成员",
+    modulename1: "所属模块",
   },
 	views: {
 		assigntaskview: {
@@ -437,7 +438,7 @@ export default {
 			srfsourcekey: "", 
 			name: "任务名称", 
 			projectname: "所属项目", 
-			modulename: "所属模块", 
+			modulename1: "所属模块", 
 			storyname: "相关需求", 
 			assignedto: "指派给", 
 			type: "任务类型", 

@@ -168,6 +168,9 @@ export default class ToolbarModel {
       {
         name: 'taskteams',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

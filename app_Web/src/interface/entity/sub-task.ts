@@ -413,4 +413,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     taskteams?: any;
+
+    /**
+     * 所属模块
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    modulename1?: any;
 }

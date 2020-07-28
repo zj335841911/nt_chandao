@@ -548,7 +548,6 @@ export class MainGridBase extends GridControlBase {
             this.items.forEach((item: any) => {
                 this.setActionState(item);
             });
-            console.log(this.items)
             this.$emit('load', this.items);
             // 向上下文中填充当前数据
             this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });

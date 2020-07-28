@@ -411,6 +411,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "multiple")
     @JsonProperty("multiple")
     private Integer multiple;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
 
     /**
      * 
