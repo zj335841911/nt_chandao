@@ -451,6 +451,16 @@ export default class RichTextEditor extends Vue {
                     }
                     richtexteditor.$emit('change', content);
                 });  
+                editor.on('FullscreenStateChanged',($event: any)=>{
+                    let editorAction: any = richtexteditor.$el.getElementsByClassName("editor-custom-action");
+                    if($event.state && editorAction){
+                        editorAction[0].style.zIndex = "1300";
+                        editorAction[0].style.position = "fixed";
+                    }else if(editorAction){
+                        editorAction[0].style.zIndex = "2";
+                        editorAction[0].style.position = "absolute";
+                    }
+                })
             },
 
             images_upload_handler: (bolbinfo: any, success: any, failure: any) => {
@@ -534,7 +544,6 @@ export default class RichTextEditor extends Vue {
                 }
             });
         }
-        console.log(this.appTemplate);
     }
 
     /**
@@ -571,7 +580,6 @@ export default class RichTextEditor extends Vue {
         }
         templParams.title = templateTitle;
         templParams.content = templateContent;
-        console.log(templParams);
         const response: any = await this.userTplService.Create({}, templParams, false);
         if(response && response.status === 200){
             this.$Notice.success({
