@@ -55,9 +55,17 @@ export default class TaskKanBanModel {
 				dataType: 'ACID',
 			},
 			{
+				name: 'id',
+			},
+			{
 				name: 'mailto',
 				prop: 'mailto',
 				dataType: 'LONGTEXT',
+			},
+			{
+				name: 'project',
+				prop: 'project',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'assignedto',
@@ -67,11 +75,6 @@ export default class TaskKanBanModel {
 			{
 				name: 'story',
 				prop: 'story',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'project',
-				prop: 'project',
 				dataType: 'PICKUP',
 			},
 			{
