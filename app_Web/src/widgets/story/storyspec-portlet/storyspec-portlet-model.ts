@@ -162,6 +162,9 @@ export default class StoryspecModel {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

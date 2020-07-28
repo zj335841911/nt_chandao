@@ -49,6 +49,7 @@ export default {
     files: "附件",
     branchname: "平台/分支",
     versionc: "版本号",
+    modulename1: "所属模块名称",
   },
 	views: {
 		mainview9_related: {

@@ -9,6 +9,8 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        rowKey="id"
+        :treeProps="{children: 'items', hasChildren: 'hasChildren'}"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  

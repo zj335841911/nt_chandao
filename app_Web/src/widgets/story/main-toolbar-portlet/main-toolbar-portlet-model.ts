@@ -162,6 +162,9 @@ export default class MainToolbarModel {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

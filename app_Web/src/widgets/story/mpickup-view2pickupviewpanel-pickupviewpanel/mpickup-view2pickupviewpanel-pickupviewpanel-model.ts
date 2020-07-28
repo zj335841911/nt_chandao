@@ -162,6 +162,9 @@ export default class MPickupView2pickupviewpanelModel {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 
