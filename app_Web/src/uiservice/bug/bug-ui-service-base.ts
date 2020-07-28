@@ -300,6 +300,17 @@ export default class BugUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Bug_unlinkBug_build(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确认移除该Bug吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -338,6 +349,9 @@ export default class BugUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '解除关联成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
