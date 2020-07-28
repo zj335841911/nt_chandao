@@ -52,6 +52,7 @@ export default {
 			button1: "关闭", 
 			button2: "保存", 
 			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "id", 
