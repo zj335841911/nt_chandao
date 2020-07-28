@@ -93,7 +93,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
      * @memberof Main_BuildSub2Base
      */  
     public ActionModel: any = {
-        unlinkBug_build: { name: 'unlinkBug_build',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'}
+        unlinkBug_build: { name: 'unlinkBug_build',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };
 
     /**
@@ -154,7 +154,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
         },
         {
             name: 'status',
-            label: 'Bug状态',
+            label: '状态',
             langtag: 'entities.bug.main_buildsub2_grid.columns.status',
             show: true,
             util: 'PX',
@@ -162,7 +162,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
         },
         {
             name: 'openedby',
-            label: '由谁创建',
+            label: '创建',
             langtag: 'entities.bug.main_buildsub2_grid.columns.openedby',
             show: true,
             util: 'PX',
