@@ -828,7 +828,7 @@ export default class StoryUIServiceBase extends UIService {
         let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
           actionContext.$Modal.confirm({
               title: '警告',
-              content: '确认移除改需求吗？',
+              content: '确认移除当前需求吗？',
               onOk: () => {resolve(true);},
               onCancel: () => {resolve(false);}
           });
@@ -840,6 +840,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{BUILD:"%srfparentkey%"});
+        Object.assign(params,{build:"%srfparentkey% "});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });

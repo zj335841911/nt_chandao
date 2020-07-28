@@ -99,6 +99,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         project: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         module: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        srfkey: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         story: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         pri: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         desc: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
@@ -133,6 +134,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
+
 
 
 
