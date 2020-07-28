@@ -809,14 +809,6 @@ export default {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "批量移除",
-			tip: "批量移除",
-		},
 	},
 	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {

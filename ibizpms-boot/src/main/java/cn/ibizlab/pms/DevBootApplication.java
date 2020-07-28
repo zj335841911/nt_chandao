@@ -28,6 +28,7 @@ import java.util.List;
 //        }
 )
 @Import({
+        com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration.class,
         org.springframework.cloud.openfeign.FeignClientsConfiguration.class
 })
 @EnableAsync
