@@ -23,8 +23,8 @@
 	 <select id="selectByAction" resultMap="HistoryResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  action=#{id}
+			 ) t1
+			 where  action=#{id}
      </select>
 
     <!--数据集合[Default]-->

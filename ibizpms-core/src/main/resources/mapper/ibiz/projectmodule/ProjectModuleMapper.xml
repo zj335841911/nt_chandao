@@ -26,15 +26,15 @@
 	 <select id="selectByParent" resultMap="ProjectModuleResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  parent=#{id}
+			 ) t1
+			 where  parent=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT] -->
 	 <select id="selectByRoot" resultMap="ProjectModuleResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  root=#{id}
+			 ) t1
+			 where  root=#{id}
      </select>
 
     <!--数据集合[ByPath]-->

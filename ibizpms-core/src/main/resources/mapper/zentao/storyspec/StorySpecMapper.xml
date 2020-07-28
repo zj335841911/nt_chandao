@@ -22,8 +22,8 @@
 	 <select id="selectByStory" resultMap="StorySpecResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  story=#{id}
+			 ) t1
+			 where  story=#{id}
      </select>
 
     <!--数据集合[Default]-->

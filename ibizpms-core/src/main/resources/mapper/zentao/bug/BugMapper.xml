@@ -61,111 +61,108 @@
 	 <select id="selectByBranch" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  branch=#{id}
+			 ) t1
+			 where  branch=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_BUG_DUPLICATEBUG] -->
 	 <select id="selectByDuplicatebug" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  duplicatebug=#{id}
+			 ) t1
+			 where  duplicatebug=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_CASE_CASEID] -->
 	 <select id="selectByIbizcase" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  case=#{id}
+			 ) t1
+			 where  case=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_ENTRY_ENTRYID] -->
 	 <select id="selectByEntry" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  entry=#{id}
+			 ) t1
+			 where  entry=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_MODULE_MODULE] -->
 	 <select id="selectByModule" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  module=#{id}
+			 ) t1
+			 where  module=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN] -->
 	 <select id="selectByPlan" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  plan=#{id}
+			 ) t1
+			 where  plan=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_PRODUCT_PRODUCT] -->
 	 <select id="selectByProduct" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  product=#{id}
+			 ) t1
+			 where  product=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_PROJECT_PROJECT] -->
 	 <select id="selectByProject" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  project=#{id}
+			 ) t1
+			 where  project=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_REPO_REPO] -->
 	 <select id="selectByRepo" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  repo=#{id}
+			 ) t1
+			 where  repo=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_STORY_STORY] -->
 	 <select id="selectByStory" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  story=#{id}
+			 ) t1
+			 where  story=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_STORY_TOSTORY] -->
 	 <select id="selectByTostory" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  tostory=#{id}
+			 ) t1
+			 where  tostory=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_TASK_TASK] -->
 	 <select id="selectByTask" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  task=#{id}
+			 ) t1
+			 where  task=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_TASK_TOTASK] -->
 	 <select id="selectByTotask" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  totask=#{id}
+			 ) t1
+			 where  totask=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_TESTTASK_TESTTASK] -->
 	 <select id="selectByTesttask" resultMap="BugResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  testtask=#{id}
+			 ) t1
+			 where  testtask=#{id}
      </select>
 
     <!--数据集合[BuildBugs]-->
 	 <select id="searchBuildBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="BuildBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[BuildLinkResolvedBugs]-->
@@ -179,62 +176,47 @@
 
     <!--数据集合[BuildOpenBugs]-->
 	 <select id="searchBuildOpenBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="BuildOpenBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[ReleaseBugs]-->
 	 <select id="searchReleaseBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="ReleaseBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[ReleaseLeftBugs]-->
 	 <select id="searchReleaseLeftBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="ReleaseLeftBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[ReportBugs]-->
 	 <select id="searchReportBugs"  parameterType="cn.ibizlab.pms.core.zentao.filter.BugSearchContext"  resultMap="BugResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="ReportBugs" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据查询[BuildBugs]-->

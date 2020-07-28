@@ -326,7 +326,6 @@ export class ProjectStatusBarChartBase extends MainControlBase {
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
         Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
-        Object.assign(arg,{sort: 'id,desc'});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});

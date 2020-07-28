@@ -28,22 +28,22 @@
 	 <select id="selectByProduct" resultMap="ProjectStoryResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  product=#{id}
+			 ) t1
+			 where  product=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_PROJECTSTORY_ZT_PROJECT_PROJECT] -->
 	 <select id="selectByProject" resultMap="ProjectStoryResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  project=#{id}
+			 ) t1
+			 where  project=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_PROJECTSTORY_ZT_STORY_STORY] -->
 	 <select id="selectByStory" resultMap="ProjectStoryResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  story=#{id}
+			 ) t1
+			 where  story=#{id}
      </select>
 
     <!--数据集合[Default]-->

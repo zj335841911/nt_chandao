@@ -22,8 +22,8 @@
 	 <select id="selectByParent" resultMap="ProjectResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  parent=#{id}
+			 ) t1
+			 where  parent=#{id}
      </select>
 
     <!--数据集合[BugProject]-->
@@ -37,26 +37,20 @@
 
     <!--数据集合[CurProduct]-->
 	 <select id="searchCurProduct"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext"  resultMap="ProjectResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="CurProduct" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext"  resultMap="ProjectResultMap">
-	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-		 )t1
-		 order by id  desc  
      </select>
 
     <!--数据集合[MyProject]-->

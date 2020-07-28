@@ -20,10 +20,13 @@
 
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_PRODUCT_ZT_MODULE_LINE] -->
 	 <select id="selectByLine" resultMap="ProductResultMap">
+	select * from (
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  line=#{id}
+			 ) t1
+			 where  line=#{id}
+		 )t1
+		 order by id  desc  
      </select>
 
     <!--数据集合[CurProject]-->
