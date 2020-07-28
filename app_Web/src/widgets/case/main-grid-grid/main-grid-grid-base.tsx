@@ -485,6 +485,14 @@ export class MainGridGridBase extends GridControlBase {
                 valueSeparator: ",",
             },
             {
+                name: 'lastrunner',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
                 name: 'lastrunresult',
                 srfkey: 'Testcase__result',
                 codelistType : 'STATIC',

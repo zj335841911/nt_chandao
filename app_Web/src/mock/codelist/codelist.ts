@@ -2044,7 +2044,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "TOME",
                 label: "给我的用例",
                 text: "给我的用例",
-                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "data":{"n_lastrunner_eq":"%srfloginname%"},
                 "codename":"Tome",
                 value: "TOME",
                 
@@ -2415,6 +2415,63 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Item_4",
                 "color": "rgba(80, 133, 63, 1)",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TestQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "ALL",
+                label: "全部",
+                text: "全部",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "待测测试单",
+                text: "待测测试单",
+                "data":{"n_status_eq":"wait"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "IREVIEW",
+                label: "测试中测试单",
+                text: "测试中测试单",
+                "data":{"n_status_eq":"doning"},
+                "codename":"Ireview",
+                value: "IREVIEW",
+                
+                disabled: false,
+            },
+            {
+                id: "ICLOSE",
+                label: "被阻塞测试单",
+                text: "被阻塞测试单",
+                "data":{"n_status_eq":"blocked"},
+                "codename":"Iclose",
+                value: "ICLOSE",
+                
+                disabled: false,
+            },
+            {
+                id: "Tested",
+                label: "已测测试单",
+                text: "已测测试单",
+                "data":{"n_status_eq":"done"},
+                "codename":"Tested",
+                value: "Tested",
                 
                 disabled: false,
             },
@@ -6090,6 +6147,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "未开始",
                 "data":"",
                 "codename":"Wait",
+                "color": "rgba(220, 214, 214, 1)",
                 value: "wait",
                 
                 disabled: false,
@@ -6100,6 +6158,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "进行中",
                 "data":"",
                 "codename":"Doing",
+                "color": "rgba(208, 20, 20, 1)",
                 value: "doing",
                 
                 disabled: false,
@@ -6110,6 +6169,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已完成",
                 "data":"",
                 "codename":"Done",
+                "color": "rgba(30, 234, 12, 1)",
                 value: "done",
                 
                 disabled: false,
@@ -6120,6 +6180,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "被阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(221, 217, 10, 1)",
                 value: "blocked",
                 
                 disabled: false,

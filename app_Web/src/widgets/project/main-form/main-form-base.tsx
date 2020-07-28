@@ -108,10 +108,6 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
         ],
-        period: [
-            { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -204,19 +200,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'end')) {
-            let ret = true;
-            const _end = this.data.end;
-            if (this.$verify.testCond(_end, 'ISNOTNULL', '')) {
-                ret = false;
-            }
-            this.rules.period.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
-        }
 
 
 

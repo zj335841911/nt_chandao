@@ -436,7 +436,7 @@ export default {
 			productname: "产品", 
 			branch: "平台/分支", 
 			branchname: "平台/分支", 
-			module: "所属模块", 
+			modulename1: "模块名称", 
 			plan: "所属计划", 
 			type: "Bug类型", 
 			severity: "严重程度", 

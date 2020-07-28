@@ -100,6 +100,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例",
 		},
+		mainmynewgridview: {
+			caption: "功能测试",
+      		title: "功能测试",
+		},
 		maindetaileditview9: {
 			caption: "测试用例",
       		title: "测试用例编辑视图",

@@ -22,9 +22,17 @@ export default {
     comment: "备注",
   },
 	views: {
+		myygridview: {
+			caption: "测试版本",
+      		title: "testtask表格视图",
+		},
 		gridview9_untested: {
 			caption: "测试版本",
       		title: "测试版本表格视图",
+		},
+		mydgridview: {
+			caption: "测试版本",
+      		title: "testtask表格视图",
 		},
 		editview9_detail: {
 			caption: "测试版本",
@@ -264,6 +272,42 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	mydgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction4: {
+			caption: "删除",
+			tip: "删除",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	myygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction4: {
+			caption: "删除",
+			tip: "删除",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 };
