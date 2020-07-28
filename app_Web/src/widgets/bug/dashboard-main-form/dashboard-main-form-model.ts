@@ -81,9 +81,9 @@ export default class DashboardMainModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'module',
-        prop: 'module',
-        dataType: 'PICKUP',
+        name: 'modulename1',
+        prop: 'modulename1',
+        dataType: 'TEXT',
       },
       {
         name: 'plan',

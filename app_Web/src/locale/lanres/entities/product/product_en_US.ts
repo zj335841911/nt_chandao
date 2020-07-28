@@ -109,6 +109,10 @@ export default {
 			caption: "测试统计",
       		title: "测试统计",
 		},
+		mytesttabexpview: {
+			caption: "测试",
+      		title: "测试",
+		},
 		editview: {
 			caption: "产品",
       		title: "product编辑视图",

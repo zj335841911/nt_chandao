@@ -191,6 +191,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_Related",
             "viewtag": "1f87f07919b8496e5bf832f95686fada"
         },
+        "testtaskmyygridview": {
+            "title": "testtask表格视图",
+            "caption": "测试版本",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskMyYGridView",
+            "viewtag": "1fdd9d52c2aa726e0d0372fb9e3ad916"
+        },
         "bugmpickupview": {
             "title": "关联Bug",
             "caption": "关联Bug",
@@ -286,6 +294,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskGridView9_UnTested",
             "viewtag": "3091670967914b91fb4b6f46751dcd7e"
+        },
+        "testtaskmydgridview": {
+            "title": "testtask表格视图",
+            "caption": "测试版本",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskMyDGridView",
+            "viewtag": "30c07c840301a6ba07383d123bf9bba1"
         },
         "taskmaininfoview9": {
             "title": "任务编辑视图",
@@ -1359,6 +1375,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskPauseTaskView",
             "viewtag": "b03bf2445d2e295fccbb6280b2601248"
         },
+        "casemainmynewgridview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseMainMyNewGridView",
+            "viewtag": "b137ebd68f63e15d9233d1092e565d15"
+        },
         "companyeditview": {
             "title": "company编辑视图",
             "caption": "公司信息",
@@ -1598,6 +1622,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BranchPickupView",
             "viewtag": "d0851a0acfe0e92a6a5ba34b1552bc66"
+        },
+        "productmytesttabexpview": {
+            "title": "测试",
+            "caption": "测试",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductMyTestTabExpView",
+            "viewtag": "d21c783cde14166ba9deb09e746a0f28"
         },
         "groupeditview": {
             "title": "group编辑视图",

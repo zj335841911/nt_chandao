@@ -1,5 +1,8 @@
 <studio-view viewName="testtaskgridview" viewTitle="testtask表格视图" class='degridview test-task-grid-view'>
     <i-input slot="quickSearch" v-model="query" placeholder="名称" search @on-search="onSearch($event)"/>
+    <template slot="quickGroupSearch">
+        <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
+    </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 

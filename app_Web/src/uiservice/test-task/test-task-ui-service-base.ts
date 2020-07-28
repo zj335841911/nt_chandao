@@ -89,7 +89,9 @@ export default class TestTaskUIServiceBase extends UIService {
      * @memberof  TestTaskUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'myygridview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'gridview9_untested',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'mydgridview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'editview9_detail',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'editview_committest',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'testtasks'});

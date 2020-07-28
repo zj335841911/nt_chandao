@@ -342,6 +342,14 @@ export default {
         "4": "4",
         "empty": ""
     },
+    TestQuickpacket: {
+        "ALL": "全部",
+        "ICREATE": "待测测试单",
+        "IREVIEW": "测试中测试单",
+        "ICLOSE": "被阻塞测试单",
+        "Tested": "已测测试单",
+        "empty": ""
+    },
     BeginendDropList: {
         "0600": "06:00",
         "0610": "06:10",

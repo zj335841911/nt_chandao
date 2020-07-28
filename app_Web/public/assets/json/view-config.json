@@ -229,6 +229,16 @@
         "viewtag": "1f87f07919b8496e5bf832f95686fada",
         "memo": ""
     },
+    "testtaskmyygridview": {
+        "title": "testtask表格视图",
+        "caption": "测试版本",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskMyYGridView",
+        "viewfilename": "test-task-my-ygrid-view",
+        "viewtag": "1fdd9d52c2aa726e0d0372fb9e3ad916",
+        "memo": ""
+    },
     "bugmpickupview": {
         "title": "关联Bug",
         "caption": "关联Bug",
@@ -347,6 +357,16 @@
         "viewname": "TestTaskGridView9_UnTested",
         "viewfilename": "test-task-grid-view9-un-tested",
         "viewtag": "3091670967914b91fb4b6f46751dcd7e",
+        "memo": ""
+    },
+    "testtaskmydgridview": {
+        "title": "testtask表格视图",
+        "caption": "测试版本",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskMyDGridView",
+        "viewfilename": "test-task-my-dgrid-view",
+        "viewtag": "30c07c840301a6ba07383d123bf9bba1",
         "memo": ""
     },
     "taskmaininfoview9": {
@@ -1689,6 +1709,16 @@
         "viewtag": "b03bf2445d2e295fccbb6280b2601248",
         "memo": ""
     },
+    "casemainmynewgridview": {
+        "title": "功能测试",
+        "caption": "功能测试",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseMainMyNewGridView",
+        "viewfilename": "case-main-my-new-grid-view",
+        "viewtag": "b137ebd68f63e15d9233d1092e565d15",
+        "memo": ""
+    },
     "companyeditview": {
         "title": "company编辑视图",
         "caption": "公司信息",
@@ -1987,6 +2017,16 @@
         "viewname": "BranchPickupView",
         "viewfilename": "branch-pickup-view",
         "viewtag": "d0851a0acfe0e92a6a5ba34b1552bc66",
+        "memo": ""
+    },
+    "productmytesttabexpview": {
+        "title": "测试",
+        "caption": "测试",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductMyTestTabExpView",
+        "viewfilename": "product-my-test-tab-exp-view",
+        "viewtag": "d21c783cde14166ba9deb09e746a0f28",
         "memo": ""
     },
     "groupeditview": {
