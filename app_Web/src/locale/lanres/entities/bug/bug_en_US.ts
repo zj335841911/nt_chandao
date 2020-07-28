@@ -536,7 +536,7 @@ export default {
 			status: "状态",
 			openedby: "创建",
 			openeddate: "创建日期",
-			assignedto: "指派给",
+			resolvedby: "解决",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {

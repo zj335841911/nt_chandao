@@ -66,11 +66,6 @@ export default class Main_BuildSub2Model {
           dataType: 'ACID',
         },
         {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
@@ -139,6 +134,11 @@ export default class Main_BuildSub2Model {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

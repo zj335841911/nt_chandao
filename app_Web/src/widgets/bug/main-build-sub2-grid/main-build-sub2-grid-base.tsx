@@ -177,9 +177,9 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'assignedto',
-            label: '指派给',
-            langtag: 'entities.bug.main_buildsub2_grid.columns.assignedto',
+            name: 'resolvedby',
+            label: '解决',
+            langtag: 'entities.bug.main_buildsub2_grid.columns.resolvedby',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -232,7 +232,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
         'status':false,
         'openedby':false,
         'openeddate':false,
-        'assignedto':false,
+        'resolvedby':false,
         'uagridcolumn1':false,
     };
 
@@ -284,7 +284,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
                 valueSeparator: ",",
             },
             {
-                name: 'assignedto',
+                name: 'resolvedby',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
