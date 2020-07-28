@@ -141,6 +141,11 @@ export default class Main_ReleaseSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'entry',
           prop: 'entry',
           dataType: 'PICKUP',
