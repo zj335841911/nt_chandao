@@ -16,7 +16,7 @@
     <app-form-group :model="detailsModel.grouppanel1" layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <div style="height: 100%;display: flex;justify-content: flex-end;">
-        <div class="form-layout-container" v-show="detailsModel.button1.visible" :style="{'width': '100px',}">
+        <div class="form-layout-container" v-show="detailsModel.button1.visible" :style="{'width': '40px',}">
     <i-button type="primary" @click="button1_click($event)"
          style="">
         <i class="fa fa-sign-out" style="margin-right: 2px;"></i>   
@@ -24,7 +24,7 @@
     </i-button>
 
 </div>
-<div class="form-layout-container" v-show="detailsModel.button2.visible" :style="{'width': '100px',}">
+<div class="form-layout-container" v-show="detailsModel.button2.visible" :style="{'width': '33px',}">
     <i-button type="primary" @click="button2_click($event)"
          style="">
         <i class="fa fa-save" style="margin-right: 2px;"></i>   
