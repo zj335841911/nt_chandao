@@ -21,6 +21,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Job;
@@ -122,9 +123,7 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Job et) {
         if (null == et) {
             return false;
