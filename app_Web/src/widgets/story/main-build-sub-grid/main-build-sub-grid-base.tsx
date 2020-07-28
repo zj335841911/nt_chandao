@@ -51,6 +51,34 @@ export class Main_BuildSubGridBase extends GridControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u4de0e38_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_buildUnlinkStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
      * 界面UI服务对象
      *
      * @type {StoryUIService}
@@ -65,6 +93,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @memberof Main_BuildSubBase
      */  
     public ActionModel: any = {
+        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };
 
     /**
@@ -131,6 +160,46 @@ export class Main_BuildSubGridBase extends GridControlBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.main_buildsub_grid.columns.openedby',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.main_buildsub_grid.columns.estimate',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.main_buildsub_grid.columns.status',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.main_buildsub_grid.columns.stage',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.story.main_buildsub_grid.columns.uagridcolumn1',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -169,6 +238,11 @@ export class Main_BuildSubGridBase extends GridControlBase {
         'pri':false,
         'title':false,
         'modulename':false,
+        'openedby':false,
+        'estimate':false,
+        'status':false,
+        'stage':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -202,7 +276,46 @@ export class Main_BuildSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+            {
+                name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'stage',
+                srfkey: 'Story__stage',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_BuildSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('buildUnlinkStory', tag)) {
+            this.grid_uagridcolumn1_u4de0e38_click(row, tag, $event);
+        }
+    }
 }

@@ -37,12 +37,27 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',
@@ -66,14 +81,19 @@ export default class Main_BuildSubModel {
           dataType: 'ACID',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'modulename',
@@ -91,13 +111,13 @@ export default class Main_BuildSubModel {
           dataType: 'TEXT',
         },
         {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
+          name: 'branch',
+          prop: 'branch',
           dataType: 'PICKUP',
         },
         {
-          name: 'branch',
-          prop: 'branch',
+          name: 'duplicatestory',
+          prop: 'duplicatestory',
           dataType: 'PICKUP',
         },
         {

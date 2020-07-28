@@ -619,8 +619,14 @@ export default {
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+			openedby: "创建",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			story_buildunlinkstory: "解绑需求",
 		},
 	},
 	pickupgrid_grid: {
@@ -801,6 +807,14 @@ export default {
 		deuiaction1: {
 			caption: "关联需求",
 			tip: "关联需求",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "批量移除",
+			tip: "批量移除",
 		},
 	},
 	releasesubeditviewtoolbar_toolbar: {
