@@ -17,7 +17,6 @@ import java.util.List;
 
 @Slf4j
 @Import({
-    com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration.class,
     FeignClientsConfiguration.class
 })
 @EnableDiscoveryClient

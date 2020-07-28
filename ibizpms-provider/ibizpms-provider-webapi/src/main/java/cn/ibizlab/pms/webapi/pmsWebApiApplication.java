@@ -33,7 +33,6 @@ import java.util.List;
             org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration.class,
 })
 @Import({
-        com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration.class,
         org.springframework.cloud.openfeign.FeignClientsConfiguration.class
 })
 @EnableFeignClients(basePackages = {"cn.ibizlab.pms" })
