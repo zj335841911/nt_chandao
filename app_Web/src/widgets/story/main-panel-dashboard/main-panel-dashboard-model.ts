@@ -162,6 +162,9 @@ export default class MainPanelModel {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

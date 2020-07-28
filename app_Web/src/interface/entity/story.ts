@@ -397,4 +397,12 @@ export interface Story {
      * @memberof Story
      */
     versionc?: any;
+
+    /**
+     * 所属模块名称
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    modulename1?: any;
 }

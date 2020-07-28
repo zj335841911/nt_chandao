@@ -162,6 +162,9 @@ export default class TabExpViewtabviewpanel3Model {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

@@ -401,6 +401,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "versionc")
     @JsonProperty("versionc")
     private String versionc;
+    /**
+     * 所属模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
 
     /**
      * 

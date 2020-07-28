@@ -162,6 +162,9 @@ export default class StoryRelatedModel {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

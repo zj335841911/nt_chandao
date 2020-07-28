@@ -145,6 +145,10 @@ export default class MainModel {
           prop:'sort'
         },
         {
+          name:'items',
+          prop:'items'
+        },
+        {
           name:'srfparentdata',
           prop:'srfparentdata'
         },

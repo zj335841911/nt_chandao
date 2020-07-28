@@ -162,6 +162,9 @@ export default class BaseInfoModel {
       {
         name: 'versionc',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 
