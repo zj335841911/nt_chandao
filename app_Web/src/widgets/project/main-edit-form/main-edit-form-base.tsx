@@ -222,6 +222,19 @@ export class Main_EditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'end')) {
+            let ret = true;
+            const _end = this.data.end;
+            if (this.$verify.testCond(_end, 'ISNOTNULL', '')) {
+                ret = false;
+            }
+            this.rules.period.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
 
 
 
