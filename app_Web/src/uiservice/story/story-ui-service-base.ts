@@ -840,8 +840,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUILD:"%build%"});
-        Object.assign(params,{build:"%build% "});
+        Object.assign(context,{BUILD:"%srfparentkey%",PRODUCT:"null"});
+        Object.assign(params,{product:"null ",build:"%srfparentkey% "});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
