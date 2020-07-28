@@ -304,7 +304,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(params,{build:"%srfparentkey SRFNAVCTX.build=srfparentkey%"});
+        Object.assign(context,{BUILD:"%srfparentkey%"});
+        Object.assign(params,{build:"%srfparentkey%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });
