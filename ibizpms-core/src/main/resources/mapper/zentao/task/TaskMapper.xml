@@ -34,36 +34,36 @@
 	 <select id="selectByModule" resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  module=#{id}
+			 ) t1
+			 where  module=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_ZT_BUG_FROMBUG] -->
 	 <select id="selectByFrombug" resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  frombug=#{id}
+			 ) t1
+			 where  frombug=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_ZT_PROJECT_PROJECT] -->
 	 <select id="selectByProject" resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  project=#{id}
+			 ) t1
+			 where  project=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_ZT_STORY_STORY] -->
 	 <select id="selectByStory" resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  story=#{id}
+			 ) t1
+			 where  story=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N__ZT_TASK__ZT_TASK__PARENT] -->
 	 <select id="selectByParent" resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  parent=#{id}
+			 ) t1
+			 where  parent=#{id}
      </select>
 
     <!--数据集合[ByModule]-->

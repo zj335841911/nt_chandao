@@ -40,50 +40,50 @@
 	 <select id="selectByBranch" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  branch=#{id}
+			 ) t1
+			 where  branch=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_CASE_ZT_BUG_FROMBUG] -->
 	 <select id="selectByFrombug" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  frombug=#{id}
+			 ) t1
+			 where  frombug=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_CASE_ZT_CASE_FROMCAEID] -->
 	 <select id="selectByFromcaseid" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  fromcaseid=#{id}
+			 ) t1
+			 where  fromcaseid=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_CASE_ZT_MODULE_MODULE] -->
 	 <select id="selectByModule" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  module=#{id}
+			 ) t1
+			 where  module=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_CASE_ZT_PRODUCT_PRODUCT] -->
 	 <select id="selectByProduct" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  product=#{id}
+			 ) t1
+			 where  product=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_CASE_ZT_STORY_STORY] -->
 	 <select id="selectByStory" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  story=#{id}
+			 ) t1
+			 where  story=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_CASE_ZT_TESTSUITE_LIB] -->
 	 <select id="selectByLib" resultMap="CaseResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  lib=#{id}
+			 ) t1
+			 where  lib=#{id}
      </select>
 
     <!--数据集合[CurSuite]-->
