@@ -5015,7 +5015,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "All",
                 label: "所有待办",
                 text: "所有待办",
-                "data":{"n_type_noteq":"cycle"},
+                "data":{"n_cycle_eq":"0"},
                 "codename":"All",
                 value: "All",
                 
@@ -5025,7 +5025,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "thisyear",
                 label: "本年度",
                 text: "本年度",
-                "data":{"thisyear":"thisyear","n_type_noteq":"cycle"},
+                "data":{"thisyear":"thisyear","n_cycle_eq":"0"},
                 "codename":"Thisyear",
                 value: "thisyear",
                 
@@ -5035,7 +5035,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "Unfinished",
                 label: "未完",
                 text: "未完",
-                "data":{"n_status_eq":"wait","n_type_noteq":"cycle","n_date_noteq":"2030-01-01"},
+                "data":{"n_status_eq":"wait","n_cycle_eq":"0","n_date_noteq":"2030-01-01"},
                 "codename":"Unfinished",
                 value: "Unfinished",
                 
@@ -5045,7 +5045,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "BYME",
                 label: "待定",
                 text: "待定",
-                "data":{"n_date_eq":"2030-01-01","n_type_noteq":"cycle"},
+                "data":{"n_date_eq":"2030-01-01","n_cycle_eq":"0"},
                 "codename":"Byme",
                 value: "BYME",
                 
@@ -5055,7 +5055,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "cycle",
                 label: "周期",
                 text: "周期",
-                "data":{"n_type_eq":"cycle"},
+                "data":{"n_cycle_eq":"1"},
                 "codename":"Cycle",
                 value: "cycle",
                 
