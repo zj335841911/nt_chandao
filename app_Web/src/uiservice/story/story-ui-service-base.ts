@@ -874,6 +874,9 @@ export default class StoryUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '解绑需求成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
