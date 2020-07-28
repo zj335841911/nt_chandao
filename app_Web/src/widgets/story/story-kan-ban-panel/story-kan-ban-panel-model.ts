@@ -33,6 +33,10 @@ export default class StoryKanBanModel {
         prop: 'estimate'
       },
       {
+        name: 'srfkey',
+        prop: 'id'
+      },
+      {
         name: 'id',
         prop: 'id'
       }

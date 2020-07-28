@@ -96,6 +96,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
         button1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        srfkey: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         id: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
@@ -109,6 +110,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 
