@@ -49,8 +49,9 @@ export default {
 	},
 	main_form: {
 		details: {
-			button2: "保存", 
 			button1: "关闭", 
+			button2: "保存", 
+			grouppanel1: "分组面板", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "id", 
@@ -60,12 +61,11 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			lastcomment: "", 
-			formitem: "", 
 			id: "id", 
 		},
 		uiactions: {
-			saveandexit: "保存并关闭",
 			exit: "返回",
+			saveandexit: "保存并关闭",
 		},
 	},
 };

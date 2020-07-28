@@ -56,9 +56,6 @@ export default class MainModel {
         dataType: 'HTMLTEXT',
       },
       {
-        name: 'formitem',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
