@@ -135,6 +135,9 @@ public class ZenTaoHttpHelper {
         jo = formatDateField(jo, dataFormatMap);
         // 数组解析
         jo = formatArrayIntoPJSON(jo, jo, 0d, 0);
+
+        // 匹配指定id的情况，例如 resolvedBy[229]:admin
+        String keyRegex = "(.+)\\[(.+)\\]";
         // 若为空时，default值填充
         JSONObject formatJo = new JSONObject(new LinkedHashMap<>());
         for (String key : templateMap.keySet()) {
@@ -143,6 +146,12 @@ public class ZenTaoHttpHelper {
             if (jo.containsKey(key) || jo.containsKey(key.toLowerCase())) {
                 value = jo.get(key.toLowerCase()) != null ? jo.get(key.toLowerCase()) : jo.get(key);
             } else {
+                if (key.matches(keyRegex)) {
+                    String key1 = key.replaceAll(keyRegex, "$1") + "[]";
+                    if (jo.containsKey(key1) || jo.containsKey(key1.toLowerCase())) {
+                        value = jo.get(key1.toLowerCase()) != null ? jo.get(key1.toLowerCase()) : jo.get(key1);
+                    }
+                }
                 // 数组字段（参数带[]模式。非[]模式，则走普通处理）
                 if (key.endsWith("[]")) {
                     String tmpKey = key.substring(0, key.length() - 2);
@@ -169,9 +178,9 @@ public class ZenTaoHttpHelper {
             if (value == null) {
                 formatJo.put(key, templateMap.get(key));
             } else {
-                if (key.endsWith("[]")) {
+                if (key.endsWith("[]") || key.matches(keyRegex)) {
                     if (value instanceof Map) {
-                        String tmpKey = key.substring(0, key.length() - 2);
+                        String tmpKey = key.substring(0, key.indexOf("["));
                         Map<Double, Object> map = (Map<Double, Object>) value;
                         Set<Double> set = map.keySet();
                         if (set != null) {
@@ -201,6 +210,30 @@ public class ZenTaoHttpHelper {
                     }
                     formatJo.put(key, value);
                 }
+            }
+        }
+        // 匹配指定id的情况，例如 resolvedBy[229]:admin
+        JSONObject formatJo2 = new JSONObject();
+        formatJo2.putAll(formatJo);
+        for (String key : templateMap.keySet()) {
+            if (!key.matches(keyRegex)) {
+                continue;
+            }
+            String key1 = key.replaceAll(keyRegex, "$1");
+            String key2 = key.replaceAll(keyRegex, "$2");
+            for (String fjKey : formatJo2.keySet()) {
+                if (!fjKey.matches(keyRegex)) {
+                    continue;
+                }
+                String fjKey1 = fjKey.replaceAll(keyRegex, "$1");
+                String fjKey2 = fjKey.replaceAll(keyRegex, "$2");
+                if (!fjKey1.equals(key2) || !formatJo.containsKey(key1 + "[" + fjKey2 + "]")) {
+                    continue;
+                }
+                Object fjValue = formatJo.get(fjKey);
+                Object fjValue2 = formatJo.get(key1 + "[" + fjKey2 + "]");
+                formatJo.remove(key1 + "[" + fjKey2 + "]");
+                formatJo.put(key1 + "[" + fjValue + "]", fjValue2);
             }
         }
         return formatJo;
