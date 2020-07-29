@@ -303,6 +303,7 @@ export class ProductStatusChartBase extends MainControlBase {
         Object.assign(arg, parentdata);
         Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
         Object.assign(arg,{sort: 'id,desc'});
+        Object.assign(arg,{size:1000});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});
