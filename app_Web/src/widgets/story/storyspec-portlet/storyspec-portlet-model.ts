@@ -165,6 +165,9 @@ export default class StoryspecModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 

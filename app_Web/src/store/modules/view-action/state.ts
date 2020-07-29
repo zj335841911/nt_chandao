@@ -328,6 +328,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '90d6a9dc6032a7a7e19fee6ac22fccc0',
                 '4863a523ac490ebce771717756f0c6a8',
@@ -523,6 +524,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
             ],
@@ -1109,6 +1111,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
             ],
@@ -1893,6 +1896,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'cad4ce05432f03f140d6ee3ad5dfe8c5',
+            viewmodule: 'zentao',
+            viewname: 'StoryProjectEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

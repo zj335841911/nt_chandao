@@ -165,6 +165,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 

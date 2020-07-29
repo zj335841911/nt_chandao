@@ -165,6 +165,9 @@ export default class MainToolbarModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 

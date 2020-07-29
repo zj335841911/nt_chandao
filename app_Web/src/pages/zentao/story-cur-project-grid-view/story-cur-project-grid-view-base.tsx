@@ -113,10 +113,9 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
      * @memberof StoryCurProjectGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ProjectCreateView', target: 'NONE', class: '' } },
 
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -259,7 +258,8 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ProjectCreateView(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -287,7 +287,7 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -397,7 +397,7 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
 
 
     /**
-     * 新建
+     * 刷新
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -407,39 +407,12 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof StoryCurProjectGridViewBase
      */
-    public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-         const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
-            _this.newdata([{ ...data }],[{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryCurProjectGridViewBase
-     */
-    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
+    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { story: args[0].story })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (_this.refresh && _this.refresh instanceof Function) {
+            _this.refresh(args);
         }
     }
 }

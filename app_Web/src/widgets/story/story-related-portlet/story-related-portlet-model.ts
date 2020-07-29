@@ -165,6 +165,9 @@ export default class StoryRelatedModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 
