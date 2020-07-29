@@ -359,7 +359,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealNameProject',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

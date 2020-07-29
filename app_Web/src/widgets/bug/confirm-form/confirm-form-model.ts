@@ -81,6 +81,11 @@ export default class ConfirmModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
