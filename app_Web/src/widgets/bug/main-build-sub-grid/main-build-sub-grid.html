@@ -97,18 +97,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('openeddate')">
-                <el-table-column show-overflow-tooltip :prop="'openeddate'" :label="$t('entities.bug.main_buildsub_grid.columns.openeddate')" :width="120"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.bug.main_buildsub_grid.columns.openeddate')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.openeddate"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.bug.main_buildsub_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -120,6 +108,71 @@
                         <template >
             <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('resolvedby')">
+                <el-table-column show-overflow-tooltip :prop="'resolvedby'" :label="$t('entities.bug.main_buildsub_grid.columns.resolvedby')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_buildsub_grid.columns.resolvedby')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.resolvedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('resolution')">
+                <el-table-column show-overflow-tooltip :prop="'resolution'" :label="$t('entities.bug.main_buildsub_grid.columns.resolution')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_buildsub_grid.columns.resolution')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.resolution" tag='Bug__resolution' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.main_buildsub_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_buildsub_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.ConfirmBug.visabled" :disabled="scope.row.ConfirmBug.disabled" @click="uiAction(scope.row, 'ConfirmBug', $event)" :title="$t('entities.bug.main_buildsub_grid.uiactions.bug_confirmbug')">
+                            <i class='fa fa-eye'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.ResolveBug.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.ResolveBug.visabled" :disabled="scope.row.ResolveBug.disabled" @click="uiAction(scope.row, 'ResolveBug', $event)" :title="$t('entities.bug.main_buildsub_grid.uiactions.bug_resolvebug')">
+                            <i class='fa fa-check-square-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.CloseBug.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CloseBug.visabled" :disabled="scope.row.CloseBug.disabled" @click="uiAction(scope.row, 'CloseBug', $event)" :title="$t('entities.bug.main_buildsub_grid.uiactions.bug_closebug')">
+                            <i class='fa fa-power-off'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Copy.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Copy.visabled" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.bug.main_buildsub_grid.uiactions.copy')">
+                            <i class='fa fa-copy'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Edit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.bug.main_buildsub_grid.uiactions.edit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                        </div>
                     </template>
                 </el-table-column>
             </template>
