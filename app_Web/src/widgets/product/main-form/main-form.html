@@ -25,7 +25,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.linename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='linename' :itemRules="this.rules.linename" class='' :caption="$t('entities.product.main_form.details.linename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.linename.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
@@ -33,18 +33,17 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.linename.disabled"
-  name='linename'
+  name='linename' 
   deMajorField='name'
   deKeyField='module'
   :service="service"
   :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchLine'}"
   valueitem='line' 
-  :value="data.linename"
-  :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
+  :value="data.linename" 
+  editortype="dropdown"
+  style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
-
 </app-form-item>
 
 </i-col>

@@ -63,6 +63,14 @@ export default {
 		uiactions: {
 		},
 	},
+	line_grid: {
+		columns: {
+			name: "名称",
+			short: "简称",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			name: "模块名称",
@@ -70,14 +78,6 @@ export default {
 			grade: "级别",
 			order: "排序",
 			owner: "负责人",
-		},
-		uiactions: {
-		},
-	},
-	line_grid: {
-		columns: {
-			name: "名称",
-			short: "简称",
 		},
 		uiactions: {
 		},

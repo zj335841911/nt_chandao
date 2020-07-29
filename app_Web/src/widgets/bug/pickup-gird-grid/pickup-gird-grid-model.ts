@@ -106,11 +106,6 @@ export default class PickupGirdModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
@@ -129,6 +124,11 @@ export default class PickupGirdModel {
           name: 'repo',
           prop: 'repo',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

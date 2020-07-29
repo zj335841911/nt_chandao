@@ -62,21 +62,28 @@ export class MyWork2PanelBase extends PanelControlBase {
         realname: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         rawitem1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container9: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         rawitem2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem4: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem5: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem6: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         mytasks: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        mybugs: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        mystorys: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        projects: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        products: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         myetasks: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container4: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        mybugs: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         myebugs: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container5: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem4: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        mystorys: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         rawitem7: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container6: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem5: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        projects: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         eprojects: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container7: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem6: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        products: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         rawitem8: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container8: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container10: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
@@ -90,6 +97,13 @@ export class MyWork2PanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
 
 
 

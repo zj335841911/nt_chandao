@@ -132,9 +132,9 @@ export class PickupGirdGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'assignedto',
-            label: '指派',
-            langtag: 'entities.bug.pickupgird_grid.columns.assignedto',
+            name: 'resolvedby',
+            label: '解决者',
+            langtag: 'entities.bug.pickupgird_grid.columns.resolvedby',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -185,7 +185,7 @@ export class PickupGirdGridBase extends GridControlBase {
         'pri':false,
         'title':false,
         'openedby':false,
-        'assignedto':false,
+        'resolvedby':false,
         'status':false,
     };
 
@@ -229,7 +229,7 @@ export class PickupGirdGridBase extends GridControlBase {
                 valueSeparator: ",",
             },
             {
-                name: 'assignedto',
+                name: 'resolvedby',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
