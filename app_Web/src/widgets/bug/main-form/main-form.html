@@ -13,7 +13,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 9, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
@@ -21,18 +21,17 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.productname.disabled"
-  name='productname'
+  name='productname' 
   deMajorField='name'
   deKeyField='product'
   :service="service"
   :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='product' 
-  :value="data.productname"
-  :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
+  :value="data.productname" 
+  editortype="dropdown"
+  style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
-
 </app-form-item>
 
 </i-col>
@@ -97,7 +96,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.main_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
@@ -105,18 +104,17 @@
   :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.projectname.disabled"
-  name='projectname'
+  name='projectname' 
   deMajorField='name'
   deKeyField='project'
   :service="service"
   :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
   valueitem='project' 
-  :value="data.projectname"
-  :pickupView="{ viewname: 'project-grid-view', title: $t('entities.project.views.gridview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'gridview', parameterName: 'gridview' } ], placement:'' }"
-  style=""  
+  :value="data.projectname" 
+  editortype="dropdown"
+  style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
-
 </app-form-item>
 
 </i-col>
