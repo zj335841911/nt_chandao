@@ -1861,6 +1861,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view/story-main-view.vue'),
                 },
                 {
+                    path: 'productlives/:productlife?/roadmapslistview9/:roadmapslistview9?',
+                    meta: {
+                        caption: 'entities.productlife.views.roadmapslistview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productlives', parameterName: 'productlife' },
+                            { pathName: 'roadmapslistview9', parameterName: 'roadmapslistview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-life-road-map-slist-view9/product-life-road-map-slist-view9.vue'),
+                },
+                {
                     path: 'products/:product?/testreports/:testreport?/editview/:editview?',
                     meta: {
                         caption: 'entities.testreport.views.editview.title',
@@ -4853,20 +4867,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/storyto-story-edit-view/storyto-story-edit-view.vue'),
-                },
-                {
-                    path: 'productlives/:productlife?/roadmaplistview9/:roadmaplistview9?',
-                    meta: {
-                        caption: 'entities.productlife.views.roadmaplistview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productlives', parameterName: 'productlife' },
-                            { pathName: 'roadmaplistview9', parameterName: 'roadmaplistview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-life-road-map-list-view9/product-life-road-map-list-view9.vue'),
                 },
                 {
                     path: 'projectportalview/:projectportalview?',

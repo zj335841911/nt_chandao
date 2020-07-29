@@ -4,7 +4,7 @@ import { Watch, MainControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapYearService from './get-roadmap-year-list-service';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
-import GetRoadmapSService from '@/widgets/product-life/get-roadmap-s-list/get-roadmap-s-list-service';
+import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadmap-list-service';
 
 
 /**
@@ -53,10 +53,10 @@ export class GetRoadmapYearListBase extends MainControlBase {
     /**
      * 建构部件服务对象
      *
-     * @type {GetRoadmapSService}
+     * @type {GetRoadmapService}
      * @memberof GetRoadmapYear
      */
-    public service2: GetRoadmapSService = new GetRoadmapSService({ $store: this.$store });
+    public service2: GetRoadmapService = new GetRoadmapService({ $store: this.$store });
 
     /**
      * 列表展示模式
@@ -73,7 +73,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      * @type {string}
      * @memberof GetRoadmapYear
      */    
-    public sortDir2:string = 'desc';
+    public sortDir2:string = 'asc';
 
     /**
      * 排序字段
@@ -81,7 +81,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      * @type {string}
      * @memberof GetRoadmapYear
      */    
-    public sortField2: string = 'begin';
+    public sortField2: string = 'end';
 
 
     /**
@@ -347,7 +347,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      */
     public load(opt: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView9视图列表fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView视图列表fetchAction参数未配置' });
             return;
         }        
         const arg: any = {...opt};
@@ -407,7 +407,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView9视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView视图表格removeAction参数未配置' });
             return;
         }
         if (datas.length === 0) {

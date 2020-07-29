@@ -16,6 +16,10 @@ export default {
     end: "结束日期",
   },
 	views: {
+		roadmapslistview9: {
+			caption: "产品生命周期",
+      		title: "路线图",
+		},
 		roadmaplistview: {
 			caption: "产品生命周期",
       		title: "路线图",

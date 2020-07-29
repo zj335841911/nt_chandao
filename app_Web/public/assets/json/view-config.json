@@ -2479,6 +2479,16 @@
         "viewtag": "fa64e271c22e6aaa89873d2556edf529",
         "memo": ""
     },
+    "productliferoadmapslistview9": {
+        "title": "路线图",
+        "caption": "产品生命周期",
+        "viewtype": "DELISTVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProductLifeRoadMapSListView9",
+        "viewfilename": "product-life-road-map-slist-view9",
+        "viewtag": "fae08b50e13943a0678a96d852e8808d",
+        "memo": "视图参数转换"
+    },
     "projectmaintabexpview": {
         "title": "项目",
         "caption": "项目",

@@ -1788,10 +1788,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '985c8eb7591e5e00de8e3cda638d5727',
                 'c02574075c8c15c67231cd71be040763',
                 '3fa1a1978a4380209df04704e2f8059f',
                 'b5d2389c0dd12ae614b319090ecc2361',
+                'fae08b50e13943a0678a96d852e8808d',
                 '97af408e6a6cb088c824cacd1807f353',
                 '770a170098d148e438a7666b248e6519',
             ],
@@ -2342,6 +2342,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'fae08b50e13943a0678a96d852e8808d',
+            viewmodule: 'zentao',
+            viewname: 'ProductLifeRoadMapSListView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'fd0b8748ff96edcde009d39903a9f211',
             viewmodule: 'zentao',
             viewname: 'ProjectMainTabExpView',
@@ -2494,15 +2503,6 @@ export const viewstate: any = {
             viewtag: '97f38c5fa6f63f69e18299306eae9077',
             viewmodule: 'ibiz',
             viewname: 'TaskTeamGridView9_Look',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: '985c8eb7591e5e00de8e3cda638d5727',
-            viewmodule: 'ibiz',
-            viewname: 'ProductLifeRoadMapListView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

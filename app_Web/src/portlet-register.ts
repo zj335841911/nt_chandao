@@ -31,7 +31,6 @@ import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
 import ProjectDashBoradInfoView from '@/widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
 import ProjectProjectStatusBar from '@/widgets/project/project-status-bar-portlet/project-status-bar-portlet.vue';
-import ProductLifeGetRoadmap from '@/widgets/product-life/get-roadmap-portlet/get-roadmap-portlet.vue';
 import TaskToolbar from '@/widgets/task/toolbar-portlet/toolbar-portlet.vue';
 import TaskMainInfo from '@/widgets/task/main-info-portlet/main-info-portlet.vue';
 import TaskMainDetail from '@/widgets/task/main-detail-portlet/main-detail-portlet.vue';
@@ -42,6 +41,7 @@ import TestTaskMainInfo from '@/widgets/test-task/main-info-portlet/main-info-po
 import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portlet/to-test-test-task-portlet.vue';
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
+import ProductLineGetRoadmaps from '@/widgets/product-line/get-roadmaps-portlet/get-roadmaps-portlet.vue';
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
@@ -84,7 +84,7 @@ export const  PortletComponent = {
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('app-product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('app-story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
-        v.component('app-product-life-get-roadmap-portlet', ProductLifeGetRoadmap);
+        v.component('app-product-line-get-roadmaps-portlet', ProductLineGetRoadmaps);
         v.component('app-action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
         v.component('app-product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('app-product-product-info-portlet', ProductProductInfo);
@@ -122,7 +122,6 @@ export const  PortletComponent = {
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
         v.component('project-project-status-bar-portlet', ProjectProjectStatusBar);
-        v.component('product-life-get-roadmap-portlet', ProductLifeGetRoadmap);
         v.component('task-toolbar-portlet', TaskToolbar);
         v.component('task-main-info-portlet', TaskMainInfo);
         v.component('task-main-detail-portlet', TaskMainDetail);
@@ -133,6 +132,7 @@ export const  PortletComponent = {
         v.component('test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
+        v.component('product-line-get-roadmaps-portlet', ProductLineGetRoadmaps);
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
