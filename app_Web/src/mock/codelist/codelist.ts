@@ -2421,6 +2421,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "ProjectProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchProjectPlan",
+        "items": []
+    },
+    {
         srfkey: "TestQuickpacket",
         emptytext: "未定义",
         "codelisttype":"static",

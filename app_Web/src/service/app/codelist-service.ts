@@ -8,6 +8,7 @@ import CurProductBuild from '@/codelist/cur-product-build';
 import BugModule from '@/codelist/bug-module';   
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
+import ProjectProductPlan from '@/codelist/project-product-plan';   
 import Product from '@/codelist/product';   
 import CurCaseVersion from '@/codelist/cur-case-version';   
 import ProductPlan from '@/codelist/product-plan';   
@@ -144,6 +145,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public TestTask: TestTask = new TestTask();
+
+    /**
+     * 代码表--项目产品计划（动态）
+     *
+     * @type {ProjectProductPlan}
+     * @memberof CodeListService
+     */
+    public ProjectProductPlan: ProjectProductPlan = new ProjectProductPlan();
 
     /**
      * 代码表--产品（动态）

@@ -791,6 +791,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskPivotTableView",
             "viewtag": "64204774cc4b97f20aa3becb41b184d5"
         },
+        "storyprojectmpickupview3": {
+            "title": "关联需求",
+            "caption": "关联需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectMPickupView3",
+            "viewtag": "645efdb73a5b13723410903dff447667"
+        },
         "bugstepsinfoeditview": {
             "title": "Bug编辑视图",
             "caption": "重现步骤",
@@ -1279,6 +1287,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainGridView",
             "viewtag": "a4af2d93ae66c9877ee99bfe7b93d22c"
         },
+        "storyprojectpickupgridview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectPickupGridView",
+            "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d"
+        },
         "buildmainview": {
             "title": "版本编辑视图",
             "caption": "版本",
@@ -1470,6 +1486,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "UserPickupGridView",
             "viewtag": "bd3043a0eb4bed8abd005228a4e729af"
+        },
+        "storyprojectplanview": {
+            "title": "需求关闭",
+            "caption": "需求关闭",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectPlanView",
+            "viewtag": "bd6f41c3367241b8eddd61eb6e80f029"
         },
         "modulepickupgridview": {
             "title": "模块选择",

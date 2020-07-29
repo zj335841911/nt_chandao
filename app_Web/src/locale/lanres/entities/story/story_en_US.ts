@@ -114,6 +114,10 @@ export default {
 			caption: "需求",
       		title: "需求编辑视图",
 		},
+		projectmpickupview3: {
+			caption: "关联需求",
+      		title: "关联需求",
+		},
 		tabexpview: {
 			caption: "需求",
       		title: "需求分页导航视图",
@@ -166,6 +170,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		projectpickupgridview: {
+			caption: "需求",
+      		title: "需求",
+		},
 		mpickupview2: {
 			caption: "关联需求",
       		title: "关联需求",
@@ -181,6 +189,10 @@ export default {
 		plansubgridview: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		projectplanview: {
+			caption: "需求关闭",
+      		title: "需求关闭",
 		},
 		projecteditview: {
 			caption: "需求",
@@ -614,6 +626,25 @@ export default {
 			verify: "验收标准", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	projectplan_form: {
+		details: {
+			group1: "需求基本信息", 
+			formpage1: "按照计划关联", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			title: "需求名称", 
+			project: "项目", 
+			plan: "所属计划", 
 			id: "编号", 
 		},
 		uiactions: {

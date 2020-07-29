@@ -104,6 +104,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'buildsubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9_storyspec',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'projectmpickupview3',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'curprojectgridview',srfappde:'stories'});
@@ -117,10 +118,12 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'pickupgridview2',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_related',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'projectpickupgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mpickupview2',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'editview9',srfappde:'stories'});
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'projectplanview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'projecteditview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_child',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'stories'});
