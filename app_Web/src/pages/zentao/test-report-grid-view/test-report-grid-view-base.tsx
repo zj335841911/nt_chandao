@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * testreport表格视图视图基类
+ * 测试报告表格视图视图基类
  *
  * @export
  * @class TestReportGridViewBase

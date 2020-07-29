@@ -6,7 +6,7 @@ import { TestReportGridViewBase } from './test-report-grid-view-base';
 import view_grid from '@widgets/test-report/main-grid/main-grid.vue';
 
 /**
- * testreport表格视图视图
+ * 测试报告表格视图视图
  *
  * @export
  * @class TestReportGridView

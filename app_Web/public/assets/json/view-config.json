@@ -230,7 +230,7 @@
         "memo": ""
     },
     "testtaskmyygridview": {
-        "title": "testtask表格视图",
+        "title": "测试单表格视图",
         "caption": "测试版本",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -270,7 +270,7 @@
         "memo": ""
     },
     "taskmainmygridview": {
-        "title": "task表格视图",
+        "title": "任务表格视图",
         "caption": "任务",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -360,7 +360,7 @@
         "memo": ""
     },
     "testtaskmydgridview": {
-        "title": "testtask表格视图",
+        "title": "测试单表格视图",
         "caption": "测试版本",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -460,7 +460,7 @@
         "memo": ""
     },
     "projectpickupgridview": {
-        "title": "project选择表格视图",
+        "title": "项目选择表格视图",
         "caption": "项目",
         "viewtype": "DEPICKUPGRIDVIEW",
         "viewmodule": "zentao",
@@ -600,7 +600,7 @@
         "memo": "临时充当主信息展示页面"
     },
     "testreportgridview": {
-        "title": "testreport表格视图",
+        "title": "测试报告表格视图",
         "caption": "测试报告",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -630,7 +630,7 @@
         "memo": ""
     },
     "taskgridview": {
-        "title": "task表格视图",
+        "title": "任务表格视图",
         "caption": "任务",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -840,7 +840,7 @@
         "memo": ""
     },
     "userpickupview": {
-        "title": "user数据选择视图",
+        "title": "用户数据选择视图",
         "caption": "用户",
         "viewtype": "DEPICKUPVIEW",
         "viewmodule": "zentao",
@@ -880,7 +880,7 @@
         "memo": ""
     },
     "projectpickupview": {
-        "title": "project数据选择视图",
+        "title": "项目数据选择视图",
         "caption": "项目",
         "viewtype": "DEPICKUPVIEW",
         "viewmodule": "zentao",
@@ -900,7 +900,7 @@
         "memo": ""
     },
     "testtaskeditview": {
-        "title": "testtask编辑视图",
+        "title": "测试单编辑视图",
         "caption": "测试版本",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -1120,7 +1120,7 @@
         "memo": "视图参数中指定了过滤条件"
     },
     "testsuiteeditview": {
-        "title": "testsuite编辑视图",
+        "title": "测试套件编辑视图",
         "caption": "测试套件",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -1270,7 +1270,7 @@
         "memo": ""
     },
     "productplangridview": {
-        "title": "productplan表格视图",
+        "title": "产品计划表格视图",
         "caption": "产品计划",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1280,7 +1280,7 @@
         "memo": ""
     },
     "groupmaingridview": {
-        "title": "group表格视图",
+        "title": "群组表格视图",
         "caption": "群组",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1290,7 +1290,7 @@
         "memo": ""
     },
     "usereditview": {
-        "title": "user编辑视图",
+        "title": "用户编辑视图",
         "caption": "用户信息",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -1510,7 +1510,7 @@
         "memo": ""
     },
     "releasegridview": {
-        "title": "release表格视图",
+        "title": "发布表格视图",
         "caption": "发布",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1530,7 +1530,7 @@
         "memo": ""
     },
     "releaseeditview": {
-        "title": "release编辑视图",
+        "title": "发布编辑视图",
         "caption": "发布",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -1570,7 +1570,7 @@
         "memo": ""
     },
     "testsuitegridview": {
-        "title": "testsuite表格视图",
+        "title": "测试套件表格视图",
         "caption": "测试套件",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1670,7 +1670,7 @@
         "memo": ""
     },
     "testtaskgridview": {
-        "title": "testtask表格视图",
+        "title": "测试单表格视图",
         "caption": "测试版本",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1840,7 +1840,7 @@
         "memo": ""
     },
     "userpickupgridview": {
-        "title": "user选择表格视图",
+        "title": "用户选择表格视图",
         "caption": "用户",
         "viewtype": "DEPICKUPGRIDVIEW",
         "viewmodule": "zentao",
@@ -1870,7 +1870,7 @@
         "memo": ""
     },
     "todogridview": {
-        "title": "todo表格视图",
+        "title": "待办事宜表格视图",
         "caption": "待办事宜表",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -2070,7 +2070,7 @@
         "memo": ""
     },
     "groupeditview": {
-        "title": "group编辑视图",
+        "title": "群组编辑视图",
         "caption": "分组信息",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2080,7 +2080,7 @@
         "memo": ""
     },
     "usermaingridview": {
-        "title": "user表格视图",
+        "title": "用户表格视图",
         "caption": "用户",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -2210,7 +2210,7 @@
         "memo": ""
     },
     "deptpickupgridview": {
-        "title": "dept选择表格视图",
+        "title": "部门选择表格视图",
         "caption": "部门",
         "viewtype": "DEPICKUPGRIDVIEW",
         "viewmodule": "zentao",
@@ -2240,7 +2240,7 @@
         "memo": ""
     },
     "testtaskeditview_edit": {
-        "title": "testtask编辑视图",
+        "title": "测试单编辑视图",
         "caption": "测试版本",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2270,7 +2270,7 @@
         "memo": ""
     },
     "taskeditview": {
-        "title": "task编辑视图",
+        "title": "任务编辑视图",
         "caption": "任务",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2360,7 +2360,7 @@
         "memo": ""
     },
     "testreporteditview": {
-        "title": "testreport编辑视图",
+        "title": "测试报告编辑视图",
         "caption": "测试报告",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * release表格视图视图基类
+ * 发布表格视图视图基类
  *
  * @export
  * @class ReleaseGridViewBase

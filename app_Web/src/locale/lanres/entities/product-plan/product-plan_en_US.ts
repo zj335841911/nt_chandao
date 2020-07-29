@@ -24,7 +24,7 @@ export default {
 		},
 		gridview: {
 			caption: "产品计划",
-      		title: "productplan表格视图",
+      		title: "产品计划表格视图",
 		},
 		editview: {
 			caption: "产品计划",

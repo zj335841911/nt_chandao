@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * task表格视图视图基类
+ * 任务表格视图视图基类
  *
  * @export
  * @class TaskMainMyGridViewBase

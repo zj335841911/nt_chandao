@@ -6,7 +6,7 @@ import { ReleaseGridViewBase } from './release-grid-view-base';
 import view_grid from '@widgets/release/main-grid/main-grid.vue';
 
 /**
- * release表格视图视图
+ * 发布表格视图视图
  *
  * @export
  * @class ReleaseGridView

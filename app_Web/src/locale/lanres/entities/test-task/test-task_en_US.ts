@@ -25,7 +25,7 @@ export default {
 	views: {
 		myygridview: {
 			caption: "测试版本",
-      		title: "testtask表格视图",
+      		title: "测试单表格视图",
 		},
 		gridview9_untested: {
 			caption: "测试版本",
@@ -33,7 +33,7 @@ export default {
 		},
 		mydgridview: {
 			caption: "测试版本",
-      		title: "testtask表格视图",
+      		title: "测试单表格视图",
 		},
 		editview9_detail: {
 			caption: "测试版本",
@@ -49,7 +49,7 @@ export default {
 		},
 		editview: {
 			caption: "测试版本",
-      		title: "testtask编辑视图",
+      		title: "测试单编辑视图",
 		},
 		editview9_info: {
 			caption: "测试版本",
@@ -61,11 +61,11 @@ export default {
 		},
 		gridview: {
 			caption: "测试版本",
-      		title: "testtask表格视图",
+      		title: "测试单表格视图",
 		},
 		editview_edit: {
 			caption: "测试版本",
-      		title: "testtask编辑视图",
+      		title: "测试单编辑视图",
 		},
 	},
 	buildsubmit_form: {

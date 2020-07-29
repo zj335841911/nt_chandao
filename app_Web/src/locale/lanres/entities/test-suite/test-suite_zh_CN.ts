@@ -18,11 +18,11 @@ export default {
 		},
 		editview: {
 			caption: "测试套件",
-      		title: "testsuite编辑视图",
+      		title: "测试套件编辑视图",
 		},
 		gridview: {
 			caption: "测试套件",
-      		title: "testsuite表格视图",
+      		title: "测试套件表格视图",
 		},
 		maindashboardview: {
 			caption: "测试套件",

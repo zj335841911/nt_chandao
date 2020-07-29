@@ -65,7 +65,7 @@ export default {
 		},
 		mainmygridview: {
 			caption: "任务",
-      		title: "task表格视图",
+      		title: "任务表格视图",
 		},
 		maingridview9_child: {
 			caption: "任务",
@@ -81,7 +81,7 @@ export default {
 		},
 		gridview: {
 			caption: "任务",
-      		title: "task表格视图",
+      		title: "任务表格视图",
 		},
 		closetaskview: {
 			caption: "关闭任务",
@@ -145,7 +145,7 @@ export default {
 		},
 		editview: {
 			caption: "任务",
-      		title: "task编辑视图",
+      		title: "任务编辑视图",
 		},
 		maindetailview9: {
 			caption: "任务",

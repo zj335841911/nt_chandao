@@ -1,4 +1,4 @@
-<studio-view viewName="todogridview" viewTitle="todo表格视图" class='degridview todo-grid-view'>
+<studio-view viewName="todogridview" viewTitle="待办事宜表格视图" class='degridview todo-grid-view'>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="待办名称" search @on-search="onSearch($event)"/>
     <template slot="quickGroupSearch">
         <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>

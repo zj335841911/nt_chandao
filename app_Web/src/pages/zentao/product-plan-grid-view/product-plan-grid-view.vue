@@ -6,7 +6,7 @@ import { ProductPlanGridViewBase } from './product-plan-grid-view-base';
 import view_grid from '@widgets/product-plan/main-grid/main-grid.vue';
 
 /**
- * productplan表格视图视图
+ * 产品计划表格视图视图
  *
  * @export
  * @class ProductPlanGridView

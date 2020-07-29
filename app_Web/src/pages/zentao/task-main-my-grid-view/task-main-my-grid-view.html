@@ -1,4 +1,4 @@
-<studio-view viewName="taskmainmygridview" viewTitle="task表格视图" class='degridview task-main-my-grid-view'>
+<studio-view viewName="taskmainmygridview" viewTitle="任务表格视图" class='degridview task-main-my-grid-view'>
     <i-input slot="quickSearch" v-model="query" placeholder="任务名称" search @on-search="onSearch($event)"/>
     <template slot="quickGroupSearch">
         <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>

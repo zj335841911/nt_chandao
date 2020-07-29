@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import ReleaseUIService from '@/uiservice/release/release-ui-service';
 
 /**
- * release编辑视图视图基类
+ * 发布编辑视图视图基类
  *
  * @export
  * @class ReleaseEditViewBase

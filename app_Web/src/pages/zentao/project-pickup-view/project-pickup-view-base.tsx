@@ -6,7 +6,7 @@ import PickupViewEngine from '@engine/view/pickup-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
- * project数据选择视图视图基类
+ * 项目数据选择视图视图基类
  *
  * @export
  * @class ProjectPickupViewBase
