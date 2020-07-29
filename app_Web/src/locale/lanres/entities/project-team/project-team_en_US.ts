@@ -64,9 +64,17 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		deuiaction1_managermember: {
+		deuiaction3_managermember: {
 			caption: "团队管理",
 			tip: "团队管理",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 };

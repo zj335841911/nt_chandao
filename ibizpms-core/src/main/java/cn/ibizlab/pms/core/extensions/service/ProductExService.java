@@ -4,6 +4,7 @@ import cn.ibizlab.pms.core.zentao.service.impl.ProductServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Product;
 import org.springframework.stereotype.Service;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
 import java.util.*;

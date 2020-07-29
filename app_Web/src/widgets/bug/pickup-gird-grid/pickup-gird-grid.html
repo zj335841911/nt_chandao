@@ -75,16 +75,16 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('assignedto')">
-                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.bug.pickupgird_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('resolvedby')">
+                <el-table-column show-overflow-tooltip :prop="'resolvedby'" :label="$t('entities.bug.pickupgird_grid.columns.resolvedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.bug.pickupgird_grid.columns.assignedto')}}
+                        {{$t('entities.bug.pickupgird_grid.columns.resolvedby')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.resolvedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>

@@ -550,7 +550,7 @@ export default {
 			pri: "P",
 			title: "Bug标题",
 			openedby: "创建",
-			assignedto: "指派",
+			resolvedby: "解决者",
 			status: "Bug状态",
 		},
 		uiactions: {

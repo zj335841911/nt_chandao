@@ -51,6 +51,7 @@ public interface IStoryService extends IService<Story>{
     boolean checkKey(Story et) ;
     Story close(Story et) ;
     Story getStorySpec(Story et) ;
+    Story importPlanStories(Story et) ;
     Story linkStory(Story et) ;
     Story projectBatchUnlinkStory(Story et) ;
     Story projectLinkStory(Story et) ;

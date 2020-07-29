@@ -23,8 +23,16 @@ export default class MyWork2Model {
         prop: 'mytasks'
       },
       {
+        name: 'myetasks',
+        prop: 'myetasks'
+      },
+      {
         name: 'mybugs',
         prop: 'mybugs'
+      },
+      {
+        name: 'myebugs',
+        prop: 'myebugs'
       },
       {
         name: 'mystorys',
@@ -35,20 +43,12 @@ export default class MyWork2Model {
         prop: 'projects'
       },
       {
-        name: 'products',
-        prop: 'products'
-      },
-      {
-        name: 'myetasks',
-        prop: 'myetasks'
-      },
-      {
-        name: 'myebugs',
-        prop: 'myebugs'
-      },
-      {
         name: 'eprojects',
         prop: 'eprojects'
+      },
+      {
+        name: 'products',
+        prop: 'products'
       }
     ]
   }
