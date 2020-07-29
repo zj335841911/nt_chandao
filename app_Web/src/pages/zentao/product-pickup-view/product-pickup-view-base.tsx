@@ -6,7 +6,7 @@ import PickupViewEngine from '@engine/view/pickup-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
- * product数据选择视图视图基类
+ * 产品数据选择视图视图基类
  *
  * @export
  * @class ProductPickupViewBase

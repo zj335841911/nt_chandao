@@ -572,7 +572,7 @@ export default {
 			bug_resolvebug: "解决",
 			bug_closebug: "关闭",
 			copy: "拷贝",
-			edit: "编辑",
+			bug_mainedit: "编辑",
 		},
 	},
 	storyrelated_grid: {

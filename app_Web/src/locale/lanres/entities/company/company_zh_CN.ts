@@ -31,7 +31,7 @@ export default {
 		},
 		editview: {
 			caption: "公司信息",
-      		title: "company编辑视图",
+      		title: "公司编辑视图",
 		},
 		mainview9: {
 			caption: "公司",

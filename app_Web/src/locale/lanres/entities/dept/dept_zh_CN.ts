@@ -15,15 +15,15 @@ export default {
 	views: {
 		pickupview: {
 			caption: "部门",
-      		title: "dept数据选择视图",
+      		title: "部门数据选择视图",
 		},
 		maingridview: {
 			caption: "部门",
-      		title: "dept表格视图",
+      		title: "部门表格视图",
 		},
 		editview: {
 			caption: "部门信息",
-      		title: "dept编辑视图",
+      		title: "部门编辑视图",
 		},
 		pickupgridview: {
 			caption: "部门",

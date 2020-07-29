@@ -47,7 +47,7 @@ export default {
 		},
 		testgridview: {
 			caption: "产品",
-      		title: "product表格视图",
+      		title: "产品表格视图",
 		},
 		chartview: {
 			caption: "产品",
@@ -83,7 +83,7 @@ export default {
 		},
 		pickupview: {
 			caption: "产品",
-      		title: "product数据选择视图",
+      		title: "产品数据选择视图",
 		},
 		leftsidebarlistview: {
 			caption: "产品",
@@ -91,7 +91,7 @@ export default {
 		},
 		pickupgridview: {
 			caption: "产品",
-      		title: "product选择表格视图",
+      		title: "产品选择表格视图",
 		},
 		dashboardinfomainview9: {
 			caption: "产品",
@@ -115,7 +115,7 @@ export default {
 		},
 		editview: {
 			caption: "产品",
-      		title: "product编辑视图",
+      		title: "产品编辑视图",
 		},
 		listexpview: {
 			caption: "产品统计",

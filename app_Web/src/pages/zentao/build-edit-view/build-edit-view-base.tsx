@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import BuildUIService from '@/uiservice/build/build-ui-service';
 
 /**
- * build编辑视图视图基类
+ * 版本编辑视图视图基类
  *
  * @export
  * @class BuildEditViewBase
