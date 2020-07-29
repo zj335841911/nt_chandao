@@ -106,6 +106,7 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'editview_4791',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'bugs'});
@@ -794,8 +795,8 @@ export default class BugUIServiceBase extends UIService {
             });
         };
         const view: any = {
-            viewname: 'bug-edit-view',
-            title: actionContext.$t('entities.bug.views.editview.title'),
+            viewname: 'bug-edit-view-4791',
+            title: actionContext.$t('entities.bug.views.editview_4791.title'),
             height: 0,
             width: 0,
             placement: 'DRAWER_TOP'
