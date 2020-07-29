@@ -681,9 +681,9 @@ export default {
 		},
 	},
 	buildsubgridview_new_9212toolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		deuiaction1: {
+			caption: "提Bug",
+			tip: "提Bug",
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
