@@ -57,5 +57,21 @@ export default class StoryService extends StoryServiceBase {
         return res;
     }
 
+    /**
+     * ImportPlanStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ImportPlanStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+
+        context.story = 0;
+        data.id = 0;
+        return Http.getInstance().post(`/stories/${context.story}/importplanstories`,data,isloading);
+    }
+
 
 }

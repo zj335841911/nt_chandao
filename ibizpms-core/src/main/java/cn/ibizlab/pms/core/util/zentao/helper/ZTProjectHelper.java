@@ -426,6 +426,7 @@ final public class ZTProjectHelper {
 
         // LINKSTORY
         ACTION_PARAMS_LINKSTORY.put("stories[]", null);
+        ACTION_PARAMS_LINKSTORY.put("products[stories]", null);
 
         // BATCHUNLINKSTORY
         ACTION_PARAMS_BATCHUNLINKSTORY.put("storyIdList[]", null);

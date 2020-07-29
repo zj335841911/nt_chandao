@@ -208,6 +208,54 @@ public class StoryExService extends StoryServiceImpl {
 
     @Override
     @Transactional
+    public Story projectLinkStory(Story et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    JSONObject jo2 = new JSONObject();
+                    jo2.put("stories", map.get("id"));
+                    if(map.get("product") != null) {
+                        jo2.put("products", map.get("product"));
+                    }
+                    jsonArray.add(jo2);
+                }
+            }
+            jo.put("srfarray", jsonArray);
+        }
+        if(et.get("project") != null) {
+            jo.put("id", et.get("project"));
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.projectLinkStory(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story projectUnlinkStory(Story et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        jo.put("id", et.getProject());
+        jo.put("story", et.getId());
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.projectUnlinkStory(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Story unlinkStory(Story et) {
         if (et.get("productplan") != null) {
             et.setPlan(String.valueOf(et.get("productplan")));
