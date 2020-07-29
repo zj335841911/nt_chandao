@@ -179,7 +179,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('project')) {
-            this.data['project'] = this.viewparams['srfparentkey'];
+            this.data['project'] = this.viewparams['project'];
         }
     }
 }
