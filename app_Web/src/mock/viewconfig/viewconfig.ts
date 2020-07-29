@@ -1279,6 +1279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestSuiteGridView",
             "viewtag": "a3bd82ec712d2e3ad12e716655e960fc"
         },
+        "bugeditview_4791": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugEditView_4791",
+            "viewtag": "a46256cb1bcfceabf09ad93f33e766a1"
+        },
         "productportalview": {
             "title": "产品主页",
             "caption": "产品主页",

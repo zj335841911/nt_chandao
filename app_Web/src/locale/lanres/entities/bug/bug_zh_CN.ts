@@ -133,6 +133,10 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
+		editview_4791: {
+			caption: "Bug",
+      		title: "Bug",
+		},
 		pickupgridview_buildlinkresolvedbugs: {
 			caption: "Bug",
       		title: "bug选择表格视图",
@@ -682,6 +686,12 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	editview_4791toolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	buildsubgridview_new_9212toolbar_toolbar: {

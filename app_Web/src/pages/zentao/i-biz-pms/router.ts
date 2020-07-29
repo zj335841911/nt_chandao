@@ -3137,6 +3137,81 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/editview_4791/:editview_4791?',
+                    meta: {
+                        caption: 'entities.bug.views.editview_4791.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'editview_4791', parameterName: 'editview_4791' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/editview_4791/:editview_4791?',
+                    meta: {
+                        caption: 'entities.bug.views.editview_4791.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'editview_4791', parameterName: 'editview_4791' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/editview_4791/:editview_4791?',
+                    meta: {
+                        caption: 'entities.bug.views.editview_4791.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'editview_4791', parameterName: 'editview_4791' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/editview_4791/:editview_4791?',
+                    meta: {
+                        caption: 'entities.bug.views.editview_4791.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'editview_4791', parameterName: 'editview_4791' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/editview_4791/:editview_4791?',
+                    meta: {
+                        caption: 'entities.bug.views.editview_4791.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'editview_4791', parameterName: 'editview_4791' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/gridview9_related/:gridview9_related?',
                     meta: {
                         caption: 'entities.story.views.gridview9_related.title',
