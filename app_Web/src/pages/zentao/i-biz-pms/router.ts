@@ -1872,7 +1872,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/product-life-road-map-slist-view9/product-life-road-map-slist-view9.vue'),
+                    component: () => import('@pages/ibiz/product-life-road-map-slist-view9/product-life-road-map-slist-view9.vue'),
                 },
                 {
                     path: 'products/:product?/testreports/:testreport?/editview/:editview?',

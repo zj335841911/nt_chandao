@@ -89,5 +89,26 @@ public class ProductLifeResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productlifeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-searchGetRoadmapS-all') and hasPermission(#context,'pms-ProductLife-Get')")
+	@ApiOperation(value = "获取获取产品路线", tags = {"产品生命周期" } ,notes = "获取获取产品路线")
+    @RequestMapping(method= RequestMethod.POST , value="/productlives/fetchgetroadmaps")
+	public ResponseEntity<List<ProductLifeDTO>> fetchGetRoadmapS(ProductLifeSearchContext context) {
+        Page<ProductLife> domains = productlifeService.searchGetRoadmapS(context) ;
+        List<ProductLifeDTO> list = productlifeMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-searchGetRoadmapS-all') and hasPermission(#context,'pms-ProductLife-Get')")
+	@ApiOperation(value = "查询获取产品路线", tags = {"产品生命周期" } ,notes = "查询获取产品路线")
+    @RequestMapping(method= RequestMethod.POST , value="/productlives/searchgetroadmaps")
+	public ResponseEntity<Page<ProductLifeDTO>> searchGetRoadmapS(@RequestBody ProductLifeSearchContext context) {
+        Page<ProductLife> domains = productlifeService.searchGetRoadmapS(context) ;
+	    return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new PageImpl(productlifeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
