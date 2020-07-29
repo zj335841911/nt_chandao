@@ -583,7 +583,7 @@ export default {
 			srfsourcekey: "", 
 			title: "需求名称", 
 			project: "项目", 
-			plan: "所属计划", 
+			plan: "", 
 			id: "编号", 
 		},
 		uiactions: {
