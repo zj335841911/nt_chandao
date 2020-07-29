@@ -9,6 +9,7 @@ import BugModule from '@/codelist/bug-module';
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
 import ProjectProductPlan from '@/codelist/project-product-plan';   
+import BugUserRealName from '@/codelist/bug-user-real-name';   
 import Product from '@/codelist/product';   
 import CurCaseVersion from '@/codelist/cur-case-version';   
 import ProductPlan from '@/codelist/product-plan';   
@@ -153,6 +154,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public ProjectProductPlan: ProjectProductPlan = new ProjectProductPlan();
+
+    /**
+     * 代码表--用户真实名称（动态）（Bug）
+     *
+     * @type {BugUserRealName}
+     * @memberof CodeListService
+     */
+    public BugUserRealName: BugUserRealName = new BugUserRealName();
 
     /**
      * 代码表--产品（动态）
