@@ -288,7 +288,7 @@ export default class StoryUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'story-project-plan-view', 
-                height: 100, 
+                height: 110, 
                 width: 600,  
                 title: actionContext.$t('entities.story.views.projectplanview.title'),
             };
