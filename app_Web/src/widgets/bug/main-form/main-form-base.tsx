@@ -227,11 +227,11 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault(){                    
-        if (this.data.hasOwnProperty('productname')) {
-            this.data['productname'] = this.viewparams['product'];
+        if (this.data.hasOwnProperty('product')) {
+            this.data['product'] = this.viewparams['product'];
         }
-        if (this.data.hasOwnProperty('projectname')) {
-            this.data['projectname'] = this.viewparams['project'];
+        if (this.data.hasOwnProperty('project')) {
+            this.data['project'] = this.viewparams['project'];
         }
     }
 }
