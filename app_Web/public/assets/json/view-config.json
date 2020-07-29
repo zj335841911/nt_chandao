@@ -709,6 +709,16 @@
         "viewtag": "507c506d62dc910a814332e6ae242266",
         "memo": ""
     },
+    "bugeditview_1162": {
+        "title": "Bug",
+        "caption": "Bug",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugEditView_1162",
+        "viewfilename": "bug-edit-view-1162",
+        "viewtag": "50a62354d8e47841634e14c022dad22b",
+        "memo": "临时充当主信息展示页面"
+    },
     "bugtestreportsubgridview": {
         "title": "bug表格视图",
         "caption": "Bug",
