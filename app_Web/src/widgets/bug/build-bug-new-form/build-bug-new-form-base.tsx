@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
-import MainService from './main-form-service';
+import BuildBugNewService from './build-bug-new-form-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainEditFormBase}
+ * @extends {BuildBugNewEditFormBase}
  */
-export class MainEditFormBase extends EditFormControlBase {
+export class BuildBugNewEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainEditFormBase
+     * @type {BuildBugNewService}
+     * @memberof BuildBugNewEditFormBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: BuildBugNewService = new BuildBugNewService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     protected appDeName: string = 'bug';
 
@@ -54,7 +54,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
@@ -63,7 +63,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -105,7 +105,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     public rules: any = {
         openedbuild: [
@@ -122,14 +122,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     public detailsModel: any = {
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.buildbugnew_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.buildbugnew_form', extractMode: 'ITEM', details: [] } }),
 
-        group1: new FormGroupPanelModel({ caption: 'bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.main_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: 'bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.buildbugnew_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -203,7 +203,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 重置表单项值
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (Object.is(name, 'product')) {
@@ -224,7 +224,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
     /**
      * 新建默认值
-     * @memberof MainEditFormBase
+     * @memberof BuildBugNewEditFormBase
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('project')) {

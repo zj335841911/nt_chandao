@@ -4,7 +4,7 @@ import { Watch, MainControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapYearService from './get-roadmap-year-list-service';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
-import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadmap-list-service';
+import GetRoadmapSService from '@/widgets/product-life/get-roadmap-s-list/get-roadmap-s-list-service';
 
 
 /**
@@ -53,10 +53,10 @@ export class GetRoadmapYearListBase extends MainControlBase {
     /**
      * 建构部件服务对象
      *
-     * @type {GetRoadmapService}
+     * @type {GetRoadmapSService}
      * @memberof GetRoadmapYear
      */
-    public service2: GetRoadmapService = new GetRoadmapService({ $store: this.$store });
+    public service2: GetRoadmapSService = new GetRoadmapSService({ $store: this.$store });
 
     /**
      * 列表展示模式
@@ -73,7 +73,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      * @type {string}
      * @memberof GetRoadmapYear
      */    
-    public sortDir2:string = 'asc';
+    public sortDir2:string = 'desc';
 
     /**
      * 排序字段
@@ -81,7 +81,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      * @type {string}
      * @memberof GetRoadmapYear
      */    
-    public sortField2: string = 'end';
+    public sortField2: string = 'begin';
 
 
     /**
