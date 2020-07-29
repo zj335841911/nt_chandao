@@ -204,119 +204,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
-		details: {
-			grouppanel1: "分组面板", 
-			grouppanel2: "分组面板", 
-			group1: "bug基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "修改日期", 
-			srforikey: "", 
-			srfkey: "Bug编号", 
-			srfmajortext: "Bug标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			productname: "产品", 
-			branch: "", 
-			product: "所属产品", 
-			modulename: "所属模块", 
-			module: "所属模块", 
-			project: "所属项目", 
-			openedbuild: "影响版本", 
-			projectname: "项目", 
-			assignedto: "指派给", 
-			deadline: "截止日期", 
-			type: "Bug类型", 
-			os: "操作系统", 
-			browser: "浏览器", 
-			title: "Bug标题", 
-			severity: "严重程度", 
-			pri: "优先级", 
-			steps: "重现步骤", 
-			storyname: "相关需求", 
-			taskname: "相关任务", 
-			mailto: "抄送给", 
-			keywords: "关键词", 
-			id: "Bug编号", 
-			story: "相关需求", 
-			task: "相关任务", 
-		},
-		uiactions: {
-		},
-	},
-	confirm_form: {
-		details: {
-			druipart1: "", 
-			grouppanel6: "历史记录", 
-			group1: "Bug基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "修改日期", 
-			srforikey: "", 
-			srfkey: "Bug编号", 
-			srfmajortext: "Bug标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			assignedto: "指派给", 
-			type: "Bug类型", 
-			pri: "优先级", 
-			mailto: "抄送给", 
-			comment: "备注", 
-			id: "Bug编号", 
-		},
-		uiactions: {
-		},
-	},
-	resolve_form: {
-		details: {
-			grouppanel1: "分组面板", 
-			druipart1: "", 
-			grouppanel6: "历史记录", 
-			group1: "Bug基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "修改日期", 
-			srforikey: "", 
-			srfkey: "Bug编号", 
-			srfmajortext: "Bug标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			product: "所属产品", 
-			id: "Bug编号", 
-			resolution: "解决方案", 
-			resolvedbuild: "解决版本", 
-			resolveddate: "解决日期", 
-			assignedto: "指派给", 
-			files: "附件", 
-			comment: "备注", 
-		},
-		uiactions: {
-		},
-	},
-	close_form: {
-		details: {
-			druipart1: "", 
-			grouppanel6: "历史记录", 
-			group1: "Bug基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "修改日期", 
-			srforikey: "", 
-			srfkey: "Bug编号", 
-			srfmajortext: "Bug标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			comment: "备注", 
-			id: "Bug编号", 
-		},
-		uiactions: {
-		},
-	},
 	dashboardmainedit_form: {
 		details: {
 			druipart1: "", 
@@ -377,6 +264,53 @@ export default {
 		uiactions: {
 		},
 	},
+	close_form: {
+		details: {
+			druipart1: "", 
+			grouppanel6: "历史记录", 
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			comment: "备注", 
+			id: "Bug编号", 
+		},
+		uiactions: {
+		},
+	},
+	resolve_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			druipart1: "", 
+			grouppanel6: "历史记录", 
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "所属产品", 
+			id: "Bug编号", 
+			resolution: "解决方案", 
+			resolvedbuild: "解决版本", 
+			resolveddate: "解决日期", 
+			assignedto: "指派给", 
+			files: "附件", 
+			comment: "备注", 
+		},
+		uiactions: {
+		},
+	},
 	assignto_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -393,6 +327,30 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			assignedto: "指派给", 
+			mailto: "抄送给", 
+			comment: "备注", 
+			id: "Bug编号", 
+		},
+		uiactions: {
+		},
+	},
+	confirm_form: {
+		details: {
+			druipart1: "", 
+			grouppanel6: "历史记录", 
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			type: "Bug类型", 
+			pri: "优先级", 
 			mailto: "抄送给", 
 			comment: "备注", 
 			id: "Bug编号", 
@@ -420,6 +378,48 @@ export default {
 			assignedto: "指派给", 
 			files: "附件", 
 			comment: "备注", 
+		},
+		uiactions: {
+		},
+	},
+	main_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			group1: "bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			branch: "", 
+			product: "所属产品", 
+			modulename: "所属模块", 
+			module: "所属模块", 
+			project: "所属项目", 
+			openedbuild: "影响版本", 
+			projectname: "项目", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			steps: "重现步骤", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
+			id: "Bug编号", 
+			story: "相关需求", 
+			task: "相关任务", 
 		},
 		uiactions: {
 		},
@@ -536,46 +536,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_plansub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			bug_unlinkbug: "移除关联",
-		},
-	},
-	pickupgird_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			openedby: "创建",
-			resolvedby: "解决者",
-			status: "Bug状态",
-		},
-		uiactions: {
-		},
-	},
-	main_releasesub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
-		},
-		uiactions: {
-		},
-	},
 	main_buildsub2_grid: {
 		columns: {
 			id: "ID",
@@ -589,6 +549,18 @@ export default {
 		},
 		uiactions: {
 			bug_unlinkbug_build: "解除关联",
+		},
+	},
+	pickupgird_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			openedby: "创建",
+			resolvedby: "解决者",
+			status: "Bug状态",
+		},
+		uiactions: {
 		},
 	},
 	main_buildsub_grid: {
@@ -615,6 +587,34 @@ export default {
 		columns: {
 			id: "ID",
 			title: "Bug标题",
+		},
+		uiactions: {
+		},
+	},
+	main_plansub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			bug_unlinkbug: "移除关联",
+		},
+	},
+	main_releasesub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
 		},
 		uiactions: {
 		},
@@ -670,42 +670,16 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_planrelationbug: {
-			caption: "关联Bug",
-			tip: "关联Bug",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+	buildsubgridview_donetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
 		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
-		},
-	},
-	releasesubgridview_donetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	releasesubgridview_undonetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	buildsubgridview_donetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "关联bug",
-			tip: "关联bug",
 		},
 	},
 	buildsubgridview_newtoolbar_toolbar: {
@@ -724,6 +698,32 @@ export default {
 		deuiaction1: {
 			caption: "提Bug",
 			tip: "提Bug",
+		},
+	},
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationbug: {
+			caption: "关联Bug",
+			tip: "关联Bug",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubgridview_donetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubgridview_undonetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 	gridviewtoolbar_toolbar: {
