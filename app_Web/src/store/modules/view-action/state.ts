@@ -606,7 +606,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '846ddf8e555650608d4f75c4595c1270',
-                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
@@ -1569,7 +1568,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '846ddf8e555650608d4f75c4595c1270',
-                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
