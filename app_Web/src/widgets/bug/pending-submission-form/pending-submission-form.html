@@ -96,7 +96,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.pendingsubmission_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
@@ -104,18 +104,17 @@
   :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.projectname.disabled"
-  name='projectname'
+  name='projectname' 
   deMajorField='name'
   deKeyField='project'
   :service="service"
   :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
   valueitem='project' 
-  :value="data.projectname"
-  :pickupView="{ viewname: 'project-grid-view', title: $t('entities.project.views.gridview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'gridview', parameterName: 'gridview' } ], placement:'' }"
-  style=""  
+  :value="data.projectname" 
+  editortype="dropdown"
+  style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
-
 </app-form-item>
 
 </i-col>

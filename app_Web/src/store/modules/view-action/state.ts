@@ -120,7 +120,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '5a8a29268a7563b62fc0160233958830',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -448,15 +447,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e444135470a806822b9b950e15c42a3e',
-            ],
-        },
-        {
-            viewtag: '3b346aee2b79b7b6b59bc870b4c67f72',
-            viewmodule: 'zentao',
-            viewname: 'ProjectPickupGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -860,16 +850,6 @@ export const viewstate: any = {
             refviews: [
                 'a2c585e16c82b5dec03db7146b9a6fa4',
                 '95d25c1556e049e220af04b99b06edeb',
-            ],
-        },
-        {
-            viewtag: '5a8a29268a7563b62fc0160233958830',
-            viewmodule: 'zentao',
-            viewname: 'ProjectPickupView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '3b346aee2b79b7b6b59bc870b4c67f72',
             ],
         },
         {
