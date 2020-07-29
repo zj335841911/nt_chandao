@@ -1153,6 +1153,30 @@ div::-webkit-scrollbar-thumb {
 // 数据视图部件
 .app-data-view {
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+
+    .data-view-container {
+        
+        .ivu-col {
+            margin-bottom: 10px;
+        }
+        
+        .single-card-data {
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+
+            .single-card-img {
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
 
     .app-data-empty {
         height: 100%;

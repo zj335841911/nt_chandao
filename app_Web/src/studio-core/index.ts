@@ -58,6 +58,7 @@ export { MDControlBase } from './widgets/MDControlBase';
 export { PanelControlBase } from './widgets/PanelControlBase';
 export { SearchFormControlBase } from './widgets/SearchFormControlBase';
 export { TabExpPanelControlBase } from './widgets/TabExpPanelControlBase';
+export { DataViewExpBarControlBase } from './widgets/DataViewExpBarControlBase';
 // 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';
