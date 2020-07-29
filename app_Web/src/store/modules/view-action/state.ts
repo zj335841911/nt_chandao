@@ -328,6 +328,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '645efdb73a5b13723410903dff447667',
+                'bd6f41c3367241b8eddd61eb6e80f029',
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '90d6a9dc6032a7a7e19fee6ac22fccc0',
@@ -524,6 +526,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '645efdb73a5b13723410903dff447667',
+                'bd6f41c3367241b8eddd61eb6e80f029',
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
@@ -944,6 +948,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '645efdb73a5b13723410903dff447667',
+            viewmodule: 'zentao',
+            viewname: 'StoryProjectMPickupView3',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a4cd2a6ada3f3e12ffb3315d55da2f0d',
+            ],
+        },
+        {
             viewtag: '6558930042f15c2297572f51d7e77df5',
             viewmodule: 'zentao',
             viewname: 'BugStepsInfoEditView',
@@ -1111,6 +1125,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '645efdb73a5b13723410903dff447667',
+                'bd6f41c3367241b8eddd61eb6e80f029',
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
@@ -1566,6 +1582,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a4cd2a6ada3f3e12ffb3315d55da2f0d',
+            viewmodule: 'zentao',
+            viewname: 'StoryProjectPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a6d8bd7fa388f638832b33dddaa6df86',
             viewmodule: 'zentao',
             viewname: 'BuildMainView',
@@ -1775,6 +1800,15 @@ export const viewstate: any = {
                 'b5d2389c0dd12ae614b319090ecc2361',
                 '97af408e6a6cb088c824cacd1807f353',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'bd6f41c3367241b8eddd61eb6e80f029',
+            viewmodule: 'zentao',
+            viewname: 'StoryProjectPlanView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

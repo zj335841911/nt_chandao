@@ -4324,6 +4324,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-pickup-grid-view2/story-pickup-grid-view2.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/projectplanview/:projectplanview?',
+                    meta: {
+                        caption: 'entities.story.views.projectplanview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projectplanview', parameterName: 'projectplanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-plan-view/story-project-plan-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/projectplanview/:projectplanview?',
+                    meta: {
+                        caption: 'entities.story.views.projectplanview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projectplanview', parameterName: 'projectplanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-plan-view/story-project-plan-view.vue'),
+                },
+                {
                     path: 'projects/:project?/curproductgridview/:curproductgridview?',
                     meta: {
                         caption: 'entities.project.views.curproductgridview.title',
@@ -5692,6 +5721,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-info-view9/task-main-info-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/projectmpickupview3/:projectmpickupview3?',
+                    meta: {
+                        caption: 'entities.story.views.projectmpickupview3.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projectmpickupview3', parameterName: 'projectmpickupview3' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-mpickup-view3/story-project-mpickup-view3.vue'),
+                },
+                {
+                    path: 'stories/:story?/projectmpickupview3/:projectmpickupview3?',
+                    meta: {
+                        caption: 'entities.story.views.projectmpickupview3.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projectmpickupview3', parameterName: 'projectmpickupview3' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-mpickup-view3/story-project-mpickup-view3.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
                         caption: 'entities.bug.views.plansubgridview.title',
@@ -6793,6 +6851,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-rev-iew-view/story-rev-iew-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/projectpickupgridview/:projectpickupgridview?',
+                    meta: {
+                        caption: 'entities.story.views.projectpickupgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projectpickupgridview', parameterName: 'projectpickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-pickup-grid-view/story-project-pickup-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/projectpickupgridview/:projectpickupgridview?',
+                    meta: {
+                        caption: 'entities.story.views.projectpickupgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projectpickupgridview', parameterName: 'projectpickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-pickup-grid-view/story-project-pickup-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/maindetaileditview9/:maindetaileditview9?',
