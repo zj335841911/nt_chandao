@@ -66,18 +66,6 @@ export class BugEditView_4791Base extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugEditView_4791Base
-	 */
-    protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' }
-    };
-
     /**
      * 视图模型数据
      *

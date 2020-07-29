@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugEditView_4791Base } from './bug-edit-view-4791-base';
-import view_form from '@widgets/bug/main-form/main-form.vue';
+import view_form from '@widgets/bug/build-bug-new-form/build-bug-new-form.vue';
 
 /**
  * Bug视图
