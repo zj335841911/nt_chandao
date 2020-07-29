@@ -226,6 +226,31 @@ export default {
       		title: "需求激活",
 		},
 	},
+	taskstoryspec_form: {
+		details: {
+			_druipart2: "", 
+			_grouppanel1: "附件", 
+			grouppanel11: "需求描述", 
+			druipart1: "", 
+			grouppanel1: "相关用例", 
+			grouppanel21: "验收标准", 
+			group11: "需求描述信息", 
+			grouppanel31: "需求描述", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	storyspec_editmode_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -511,17 +536,18 @@ export default {
 		uiactions: {
 		},
 	},
-	taskstoryspec_form: {
+	related_form: {
 		details: {
-			_druipart2: "", 
-			_grouppanel1: "附件", 
-			grouppanel11: "需求描述", 
 			druipart1: "", 
-			grouppanel1: "相关用例", 
-			grouppanel21: "验收标准", 
-			group11: "需求描述信息", 
-			grouppanel31: "需求描述", 
-			formpage1: "基本信息", 
+			group1: "项目任务", 
+			formpage1: "项目任务", 
+			druipart4: "", 
+			druipart5: "", 
+			druipart2: "", 
+			grouppanel1: "相关Bug", 
+			druipart3: "", 
+			grouppanel2: "相关用例", 
+			formpage2: "相关信息", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "需求名称", 
@@ -529,8 +555,8 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			spec: "需求描述", 
-			verify: "验收标准", 
+			linkstories: "相关需求", 
+			childstories: "细分需求", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -589,32 +615,6 @@ export default {
 		uiactions: {
 		},
 	},
-	related_form: {
-		details: {
-			druipart1: "", 
-			group1: "项目任务", 
-			formpage1: "项目任务", 
-			druipart4: "", 
-			druipart5: "", 
-			druipart2: "", 
-			grouppanel1: "相关Bug", 
-			druipart3: "", 
-			grouppanel2: "相关用例", 
-			formpage2: "相关信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "需求名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			linkstories: "相关需求", 
-			childstories: "细分需求", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	bugtostory_form: {
 		details: {
 			group1: "需求基本信息", 
@@ -667,63 +667,6 @@ export default {
 			story_opencasecreateview: "建用例",
 		},
 	},
-	projectstory_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			plan: "计划",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			story_projectunlinkstory: "移除",
-		},
-	},
-	pickupgrid_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			plan: "所属计划",
-			modulename: "所属模块名称",
-			title: "需求名称",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-		},
-		uiactions: {
-		},
-	},
-	main_buildsub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
-			openedby: "创建",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			story_buildunlinkstory: "解绑需求",
-		},
-	},
-	storyrelated_grid: {
-		columns: {
-			id: "编号",
-			title: "需求名称",
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -763,6 +706,22 @@ export default {
 			story_unlinkstory: "移除关联",
 		},
 	},
+	pickupgrid_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			plan: "所属计划",
+			modulename: "所属模块名称",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+		},
+		uiactions: {
+		},
+	},
 	main_releasesub_grid: {
 		columns: {
 			id: "ID",
@@ -771,6 +730,47 @@ export default {
 			modulename: "所属模块名称",
 		},
 		uiactions: {
+		},
+	},
+	main_buildsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+			openedby: "创建",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			story_buildunlinkstory: "解绑需求",
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "编号",
+			title: "需求名称",
+		},
+		uiactions: {
+		},
+	},
+	projectstory_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			story_projectunlinkstory: "移除",
 		},
 	},
 	main_reportsub_grid: {
@@ -818,6 +818,8 @@ export default {
 		uiactions: {
 		},
 	},
+	editview9toolbar_toolbar: {
+	},
 	editview_storychangetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -825,80 +827,6 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	editview9toolbar_toolbar: {
-	},
-	projecteditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	curprojectgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction3: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-		deuiaction4: {
-			caption: "按照计划关联",
-			tip: "按照计划关联",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	curprojectwgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction3: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-		deuiaction4: {
-			caption: "按照计划关联",
-			tip: "按照计划关联",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	kanbanviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction3: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-		deuiaction4: {
-			caption: "按照计划关联",
-			tip: "按照计划关联",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	buildsubgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-	},
-	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
@@ -969,6 +897,78 @@ export default {
 		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	buildsubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+	},
+	projecteditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	curprojectgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	curprojectwgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	kanbanviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

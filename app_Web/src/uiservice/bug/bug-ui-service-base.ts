@@ -799,7 +799,7 @@ export default class BugUIServiceBase extends UIService {
             title: actionContext.$t('entities.bug.views.editview_4791.title'),
             height: 0,
             width: 0,
-            placement: 'DRAWER_TOP'
+            placement: 'DRAWER_RIGHT'
         };
         const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
         appdrawer.subscribe((result: any) => {
