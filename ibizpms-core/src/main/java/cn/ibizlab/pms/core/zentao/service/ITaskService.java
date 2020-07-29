@@ -49,6 +49,7 @@ public interface ITaskService extends IService<Task>{
     Task start(Task et) ;
     Page<Task> searchByModule(TaskSearchContext context) ;
     Page<Task> searchDefault(TaskSearchContext context) ;
+    Page<Task> searchDefaultRow(TaskSearchContext context) ;
     Page<Task> searchProjectTASK(TaskSearchContext context) ;
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
