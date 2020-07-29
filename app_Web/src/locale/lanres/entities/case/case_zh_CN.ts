@@ -120,35 +120,6 @@ export default {
       		title: "功能测试表格视图",
 		},
 	},
-	mainnew_form: {
-		details: {
-			druipart1: "用例步骤", 
-			grouppanel1: "分组面板", 
-			group1: "测试用例基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "用例编号", 
-			srfmajortext: "用例标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			product: "所属产品", 
-			productname: "产品名称", 
-			module: "所属模块", 
-			modulename: "模块名称", 
-			type: "用例类型", 
-			story: "相关需求", 
-			storyname: "需求名称", 
-			title: "用例标题", 
-			pri: "优先级", 
-			precondition: "前置条件", 
-			keywords: "关键词", 
-			id: "用例编号", 
-		},
-		uiactions: {
-		},
-	},
 	maininfo_form: {
 		details: {
 			druipart1: "用例步骤", 
@@ -264,6 +235,35 @@ export default {
 		uiactions: {
 		},
 	},
+	mainnew_form: {
+		details: {
+			druipart1: "用例步骤", 
+			grouppanel1: "分组面板", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "所属产品", 
+			productname: "产品名称", 
+			module: "所属模块", 
+			modulename: "模块名称", 
+			type: "用例类型", 
+			story: "相关需求", 
+			storyname: "需求名称", 
+			title: "用例标题", 
+			pri: "优先级", 
+			precondition: "前置条件", 
+			keywords: "关键词", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			pri: "P",
@@ -343,12 +343,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mainnewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -356,6 +350,12 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	mainnewviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
