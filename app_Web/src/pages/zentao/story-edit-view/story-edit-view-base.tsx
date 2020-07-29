@@ -66,6 +66,30 @@ export class StoryEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' },
+        'SRFPARENTDENAME': { isRawValue: true, value: 'Project' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryEditViewBase
+	 */
+    protected customViewParams: any = {
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
+        'srfparentdename': { isRawValue: true, value: 'Project' }
+    };
+
     /**
      * 视图模型数据
      *
