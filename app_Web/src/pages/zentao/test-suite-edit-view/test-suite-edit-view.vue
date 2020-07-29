@@ -6,7 +6,7 @@ import { TestSuiteEditViewBase } from './test-suite-edit-view-base';
 import view_form from '@widgets/test-suite/main-form/main-form.vue';
 
 /**
- * testsuite编辑视图视图
+ * 测试套件编辑视图视图
  *
  * @export
  * @class TestSuiteEditView

@@ -6,7 +6,7 @@ import { TestSuiteGridViewBase } from './test-suite-grid-view-base';
 import view_grid from '@widgets/test-suite/main-grid/main-grid.vue';
 
 /**
- * testsuite表格视图视图
+ * 测试套件表格视图视图
  *
  * @export
  * @class TestSuiteGridView

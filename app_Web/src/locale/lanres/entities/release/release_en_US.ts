@@ -25,11 +25,11 @@ export default {
 		},
 		gridview: {
 			caption: "发布",
-      		title: "release表格视图",
+      		title: "发布表格视图",
 		},
 		editview: {
 			caption: "发布",
-      		title: "release编辑视图",
+      		title: "发布编辑视图",
 		},
 		maintabexpview: {
 			caption: "产品发布",

@@ -53,7 +53,7 @@ export default {
 		},
 		gridview: {
 			caption: "待办事宜表",
-      		title: "todo表格视图",
+      		title: "待办事宜表格视图",
 		},
 		gridview9: {
 			caption: "我的待办",

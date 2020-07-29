@@ -10,11 +10,11 @@ export default {
 	views: {
 		maingridview: {
 			caption: "群组",
-      		title: "group表格视图",
+      		title: "群组表格视图",
 		},
 		editview: {
 			caption: "分组信息",
-      		title: "group编辑视图",
+      		title: "群组编辑视图",
 		},
 	},
 	main_form: {

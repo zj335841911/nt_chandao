@@ -6,7 +6,7 @@ import { TestTaskEditViewBase } from './test-task-edit-view-base';
 import view_form from '@widgets/test-task/main-form/main-form.vue';
 
 /**
- * testtask编辑视图视图
+ * 测试单编辑视图视图
  *
  * @export
  * @class TestTaskEditView

@@ -7,7 +7,7 @@ import view_grid from '@widgets/project/main-grid/main-grid.vue';
 import view_searchform from '@widgets/project/default-searchform/default-searchform.vue';
 
 /**
- * project选择表格视图视图
+ * 项目选择表格视图视图
  *
  * @export
  * @class ProjectPickupGridView

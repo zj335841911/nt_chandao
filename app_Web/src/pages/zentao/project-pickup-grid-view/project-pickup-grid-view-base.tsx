@@ -6,7 +6,7 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
- * project选择表格视图视图基类
+ * 项目选择表格视图视图基类
  *
  * @export
  * @class ProjectPickupGridViewBase

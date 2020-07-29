@@ -28,7 +28,7 @@ export default {
 		},
 		pickupgridview: {
 			caption: "部门",
-      		title: "dept选择表格视图",
+      		title: "部门选择表格视图",
 		},
 	},
 	main_form: {

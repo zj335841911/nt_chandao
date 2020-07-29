@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
- * testtask编辑视图视图基类
+ * 测试单编辑视图视图基类
  *
  * @export
  * @class TestTaskEditView_EditBase

@@ -6,7 +6,7 @@ import { ProjectPickupViewBase } from './project-pickup-view-base';
 import view_pickupviewpanel from '@widgets/project/pickup-viewpickupviewpanel-pickupviewpanel/pickup-viewpickupviewpanel-pickupviewpanel.vue';
 
 /**
- * project数据选择视图视图
+ * 项目数据选择视图视图
  *
  * @export
  * @class ProjectPickupView

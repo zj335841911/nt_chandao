@@ -69,7 +69,7 @@ export default {
 		},
 		pickupgridview: {
 			caption: "项目",
-      		title: "project选择表格视图",
+      		title: "项目选择表格视图",
 		},
 		editview_activate: {
 			caption: "项目",
@@ -81,7 +81,7 @@ export default {
 		},
 		pickupview: {
 			caption: "项目",
-      		title: "project数据选择视图",
+      		title: "项目数据选择视图",
 		},
 		mainview_edit: {
 			caption: "项目",

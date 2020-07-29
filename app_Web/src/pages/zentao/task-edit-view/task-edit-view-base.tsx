@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
- * task编辑视图视图基类
+ * 任务编辑视图视图基类
  *
  * @export
  * @class TaskEditViewBase

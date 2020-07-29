@@ -7,7 +7,7 @@ import view_grid from '@widgets/todo/main-grid/main-grid.vue';
 import view_searchform from '@widgets/todo/default-searchform/default-searchform.vue';
 
 /**
- * todo表格视图视图
+ * 待办事宜表格视图视图
  *
  * @export
  * @class TodoGridView

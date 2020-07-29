@@ -6,7 +6,7 @@ import { TestTaskGridViewBase } from './test-task-grid-view-base';
 import view_grid from '@widgets/test-task/main-grid/main-grid.vue';
 
 /**
- * testtask表格视图视图
+ * 测试单表格视图视图
  *
  * @export
  * @class TestTaskGridView

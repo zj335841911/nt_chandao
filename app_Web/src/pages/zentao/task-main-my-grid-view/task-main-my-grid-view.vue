@@ -6,7 +6,7 @@ import { TaskMainMyGridViewBase } from './task-main-my-grid-view-base';
 import view_grid from '@widgets/task/main-grid/main-grid.vue';
 
 /**
- * task表格视图视图
+ * 任务表格视图视图
  *
  * @export
  * @class TaskMainMyGridView

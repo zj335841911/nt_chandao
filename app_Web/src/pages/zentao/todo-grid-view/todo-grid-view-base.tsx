@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * todo表格视图视图基类
+ * 待办事宜表格视图视图基类
  *
  * @export
  * @class TodoGridViewBase

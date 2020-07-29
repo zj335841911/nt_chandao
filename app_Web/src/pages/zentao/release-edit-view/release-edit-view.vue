@@ -6,7 +6,7 @@ import { ReleaseEditViewBase } from './release-edit-view-base';
 import view_form from '@widgets/release/main-form/main-form.vue';
 
 /**
- * release编辑视图视图
+ * 发布编辑视图视图
  *
  * @export
  * @class ReleaseEditView
