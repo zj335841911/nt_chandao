@@ -979,6 +979,16 @@
         "viewtag": "64204774cc4b97f20aa3becb41b184d5",
         "memo": ""
     },
+    "storyprojectmpickupview3": {
+        "title": "关联需求",
+        "caption": "关联需求",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryProjectMPickupView3",
+        "viewfilename": "story-project-mpickup-view3",
+        "viewtag": "645efdb73a5b13723410903dff447667",
+        "memo": ""
+    },
     "bugstepsinfoeditview": {
         "title": "Bug编辑视图",
         "caption": "重现步骤",
@@ -1589,6 +1599,16 @@
         "viewtag": "a4af2d93ae66c9877ee99bfe7b93d22c",
         "memo": ""
     },
+    "storyprojectpickupgridview": {
+        "title": "需求",
+        "caption": "需求",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryProjectPickupGridView",
+        "viewfilename": "story-project-pickup-grid-view",
+        "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d",
+        "memo": "用于【项目】关联【需求】，显示项目下的所有需求。"
+    },
     "buildmainview": {
         "title": "版本编辑视图",
         "caption": "版本",
@@ -1827,6 +1847,16 @@
         "viewname": "UserPickupGridView",
         "viewfilename": "user-pickup-grid-view",
         "viewtag": "bd3043a0eb4bed8abd005228a4e729af",
+        "memo": ""
+    },
+    "storyprojectplanview": {
+        "title": "需求关闭",
+        "caption": "需求关闭",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryProjectPlanView",
+        "viewfilename": "story-project-plan-view",
+        "viewtag": "bd6f41c3367241b8eddd61eb6e80f029",
         "memo": ""
     },
     "modulepickupgridview": {
