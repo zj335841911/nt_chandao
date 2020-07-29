@@ -571,6 +571,25 @@ export default {
 		uiactions: {
 		},
 	},
+	projectplan_form: {
+		details: {
+			group1: "需求基本信息", 
+			formpage1: "按照计划关联", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			title: "需求名称", 
+			project: "项目", 
+			plan: "所属计划", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	related_form: {
 		details: {
 			druipart1: "", 
@@ -631,25 +650,6 @@ export default {
 		uiactions: {
 		},
 	},
-	projectplan_form: {
-		details: {
-			group1: "需求基本信息", 
-			formpage1: "按照计划关联", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "需求名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			title: "需求名称", 
-			project: "项目", 
-			plan: "所属计划", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main3_grid: {
 		columns: {
 			id: "ID",
@@ -685,22 +685,6 @@ export default {
         story_projectunlinkstory: "移除",
 		},
 	},
-	main_buildsub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
-			openedby: "创建",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-        story_buildunlinkstory: "解绑需求",
-		},
-	},
 	pickupgrid_grid: {
 		columns: {
 			id: "ID",
@@ -715,6 +699,22 @@ export default {
 			stage: "阶段",
 		},
 		uiactions: {
+		},
+	},
+	main_buildsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+			openedby: "创建",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        story_buildunlinkstory: "解绑需求",
 		},
 	},
 	storyrelated_grid: {
@@ -844,6 +844,14 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -854,6 +862,14 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -863,6 +879,14 @@ export default {
 		deuiaction1: {
 			caption: "新建",
 			tip: "新建",
+		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
 		},
 		deuiaction2: {
 			caption: "刷新",
