@@ -11,6 +11,24 @@ import { ControlBase } from './ControlBase';
 export class ExpControlBase extends ControlBase {
 
     /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof ExpControlBase
+     */
+    @Prop()
+    public newdata: any;
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof ExpControlBase
+     */
+    @Prop()
+    public opendata: any;
+
+    /**
      * 视图唯一标识
      *
      * @type {string}

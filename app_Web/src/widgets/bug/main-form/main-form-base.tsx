@@ -221,4 +221,17 @@ export class MainEditFormBase extends EditFormControlBase {
             this.onFormItemValueChange({ name: 'task', value: null });
         }
     }
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('productname')) {
+            this.data['productname'] = this.viewparams['product'];
+        }
+        if (this.data.hasOwnProperty('projectname')) {
+            this.data['projectname'] = this.viewparams['project'];
+        }
+    }
 }

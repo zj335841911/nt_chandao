@@ -9,23 +9,6 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ExpControlBase}
  */
 export class GridExpBarControlBase extends ExpControlBase {
-    /**
-     * 打开新建数据视图
-     *
-     * @type {any}
-     * @memberof GridExpBarControlBase
-     */
-    @Prop()
-    public newdata: any;
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @type {any}
-     * @memberof GridExpBarControlBase
-     */
-    @Prop()
-    public opendata: any;
 
     /**
      * 是否单选
