@@ -191,8 +191,8 @@ export default {
       		title: "story表格视图",
 		},
 		projectplanview: {
-			caption: "需求关闭",
-      		title: "需求关闭",
+			caption: "按照计划关联",
+      		title: "按照计划关联",
 		},
 		projecteditview: {
 			caption: "需求",

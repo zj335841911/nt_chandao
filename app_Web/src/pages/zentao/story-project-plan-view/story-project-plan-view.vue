@@ -6,7 +6,7 @@ import { StoryProjectPlanViewBase } from './story-project-plan-view-base';
 import view_form from '@widgets/story/project-plan-form/project-plan-form.vue';
 
 /**
- * 需求关闭视图
+ * 按照计划关联视图
  *
  * @export
  * @class StoryProjectPlanView
