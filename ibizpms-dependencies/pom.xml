@@ -19,7 +19,7 @@
     </parent>
 
     <properties>
-        <!--  Spring Cloud Alibaba(2.1.x.RELEASE) & Spring Cloud(Spring Cloud Greenwich) & Spring Boot(2.1.x.RELEASE) compatibility -->
+        <!--  Spring Cloud Alibaba(2.2.x.RELEASE) & Spring Cloud(Spring Cloud Greenwich) & Spring Boot(2.2.x.RELEASE) compatibility -->
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
 
         <spring-cloud-openfeign.version>2.2.1.RELEASE</spring-cloud-openfeign.version>
