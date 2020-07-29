@@ -572,7 +572,7 @@ export default {
 	},
 	projectplan_form: {
 		details: {
-			group1: "需求基本信息", 
+			group1: "(此操作会将所选计划下面的需求全部关联到此项目中)", 
 			formpage1: "按照计划关联", 
 			srforikey: "", 
 			srfkey: "编号", 

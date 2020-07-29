@@ -96,7 +96,7 @@ export class ProjectPlanEditFormBase extends EditFormControlBase {
      * @memberof ProjectPlanEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '需求基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.projectplan_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '(此操作会将所选计划下面的需求全部关联到此项目中)', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.projectplan_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '按照计划关联', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
