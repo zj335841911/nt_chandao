@@ -1488,8 +1488,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "bd3043a0eb4bed8abd005228a4e729af"
         },
         "storyprojectplanview": {
-            "title": "需求关闭",
-            "caption": "需求关闭",
+            "title": "按照计划关联",
+            "caption": "按照计划关联",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
             "viewname": "StoryProjectPlanView",

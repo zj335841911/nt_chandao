@@ -6,7 +6,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
- * 需求关闭视图基类
+ * 按照计划关联视图基类
  *
  * @export
  * @class StoryProjectPlanViewBase
@@ -67,15 +67,16 @@ export class StoryProjectPlanViewBase extends OptionViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
+	 * 自定义视图导航参数集合
 	 *
      * @protected
 	 * @type {*}
 	 * @memberof StoryProjectPlanViewBase
 	 */
-    protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' },
+        'story': { isRawValue: true, value: '0' },
+        'objecttype': { isRawValue: true, value: 'story' }
     };
 
     /**

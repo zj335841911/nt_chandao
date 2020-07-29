@@ -244,6 +244,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{STORY:"0",PROJECT:"%project%"});
+        Object.assign(params,{project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -286,8 +288,8 @@ export default class StoryUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'story-project-plan-view', 
-                height: 600, 
-                width: 800,  
+                height: 200, 
+                width: 600,  
                 title: actionContext.$t('entities.story.views.projectplanview.title'),
             };
             openPopupModal(view, data);
