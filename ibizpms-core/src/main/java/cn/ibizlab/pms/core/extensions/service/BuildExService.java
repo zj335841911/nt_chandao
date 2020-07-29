@@ -32,7 +32,6 @@ public class BuildExService extends BuildServiceImpl {
     @Override
     @Transactional
     public Build linkStory(Build et) {
-        //storiesid存到哪里？
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = (JSONObject) JSONObject.toJSON(et);
