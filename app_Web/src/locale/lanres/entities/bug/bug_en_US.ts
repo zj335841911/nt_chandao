@@ -356,6 +356,7 @@ export default {
 			pri: "优先级", 
 			mailto: "抄送给", 
 			comment: "备注", 
+			project: "所属项目", 
 			id: "Bug编号", 
 		},
 		uiactions: {

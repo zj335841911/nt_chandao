@@ -3021,6 +3021,32 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchDefaultRow接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchdefaultrow`,tempData,isloading);
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/tasks/fetchdefaultrow`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/stories/${context.story}/tasks/fetchdefaultrow`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/tasks/fetchdefaultrow`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTASK接口方法
      *
      * @param {*} [context={}]
@@ -3146,6 +3172,28 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.project && true){
+            return Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+        }
+        return Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+    }
+
+    /**
+     * FetchTempDefaultRow接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchTempDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
         }
