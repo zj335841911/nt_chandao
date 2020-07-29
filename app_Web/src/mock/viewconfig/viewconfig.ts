@@ -575,6 +575,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskCloseTaskView",
             "viewtag": "507c506d62dc910a814332e6ae242266"
         },
+        "bugeditview_1162": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugEditView_1162",
+            "viewtag": "50a62354d8e47841634e14c022dad22b"
+        },
         "bugtestreportsubgridview": {
             "title": "bug表格视图",
             "caption": "Bug",

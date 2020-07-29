@@ -110,6 +110,10 @@ export default {
 			caption: "关联Bug",
       		title: "关联Bug",
 		},
+		editview_1162: {
+			caption: "Bug",
+      		title: "Bug",
+		},
 		testreportsubgridview: {
 			caption: "Bug",
       		title: "bug表格视图",
@@ -738,5 +742,11 @@ export default {
 		},
 	},
 	todoeditviewtoolbar_toolbar: {
+	},
+	editview_1162toolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
 	},
 };
