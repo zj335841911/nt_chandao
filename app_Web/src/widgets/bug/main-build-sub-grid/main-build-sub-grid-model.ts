@@ -32,6 +32,11 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -99,11 +104,6 @@ export default class Main_BuildSubModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
         },
         {
           name: 'status',
