@@ -1991,6 +1991,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BranchPickupGridView",
             "viewtag": "fa64e271c22e6aaa89873d2556edf529"
         },
+        "productliferoadmapslistview9": {
+            "title": "路线图",
+            "caption": "产品生命周期",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProductLifeRoadMapSListView9",
+            "viewtag": "fae08b50e13943a0678a96d852e8808d"
+        },
         "projectmaintabexpview": {
             "title": "项目",
             "caption": "项目",

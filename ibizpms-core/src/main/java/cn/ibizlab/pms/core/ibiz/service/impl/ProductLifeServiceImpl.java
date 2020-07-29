@@ -161,6 +161,15 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     }
 
     /**
+     * 查询集合 获取产品路线
+     */
+    @Override
+    public Page<ProductLife> searchGetRoadmapS(ProductLifeSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmapS(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 RoadMapYear
      */
     @Override

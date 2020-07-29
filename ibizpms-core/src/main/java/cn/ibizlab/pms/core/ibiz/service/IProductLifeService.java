@@ -38,6 +38,7 @@ public interface IProductLifeService extends IService<ProductLife>{
     void saveBatch(List<ProductLife> list) ;
     Page<ProductLife> searchDefault(ProductLifeSearchContext context) ;
     Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) ;
+    Page<ProductLife> searchGetRoadmapS(ProductLifeSearchContext context) ;
     Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) ;
     /**
      *自定义查询SQL

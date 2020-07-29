@@ -21,6 +21,7 @@ public interface ProductLifeMapper extends BaseMapper<ProductLife>{
 
     Page<ProductLife> searchDefault(IPage page, @Param("srf") ProductLifeSearchContext context, @Param("ew") Wrapper<ProductLife> wrapper) ;
     Page<ProductLife> searchGetRoadmap(IPage page, @Param("srf") ProductLifeSearchContext context, @Param("ew") Wrapper<ProductLife> wrapper) ;
+    Page<ProductLife> searchGetRoadmapS(IPage page, @Param("srf") ProductLifeSearchContext context, @Param("ew") Wrapper<ProductLife> wrapper) ;
     Page<ProductLife> searchRoadMapYear(IPage page, @Param("srf") ProductLifeSearchContext context, @Param("ew") Wrapper<ProductLife> wrapper) ;
     @Override
     ProductLife selectById(Serializable id);
