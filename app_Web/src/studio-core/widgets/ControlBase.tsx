@@ -16,7 +16,7 @@ export class ControlBase extends Vue {
      * @memberof ControlBase
      */
     @Prop()
-    public name?: string;
+    public name!: string;
 
     /**
      * 视图通讯对象

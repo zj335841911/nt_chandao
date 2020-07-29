@@ -223,7 +223,7 @@ export class FormControlBase extends MainControlBase {
      * @memberof FormControlBase
      */
     public formValidateStatus(): boolean {
-        const form: any = this.$refs.form;
+        const form: any = this.$refs[this.name];
         let validatestate: boolean = true;
         form.validate((valid: boolean) => {
             validatestate = valid ? true : false;

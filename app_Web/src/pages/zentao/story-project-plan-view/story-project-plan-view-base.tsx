@@ -75,7 +75,6 @@ export class StoryProjectPlanViewBase extends OptionViewBase {
 	 */
     protected customViewParams: any = {
         'project': { isRawValue: false, value: 'project' },
-        'story': { isRawValue: true, value: '0' },
         'objecttype': { isRawValue: true, value: 'story' }
     };
 

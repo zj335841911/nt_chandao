@@ -7,7 +7,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.projectplan_form.details.plan')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.projectplan_form.details.plan')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.plan"
