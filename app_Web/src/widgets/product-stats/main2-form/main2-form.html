@@ -17,7 +17,7 @@
 </div>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 6, offset: 9 }" :xl="{ span: 6, offset: 9 }">
+<i-col class="form-layout-container" v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
     <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='MainInfo' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='storycnt' :value="data.storycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
