@@ -99,7 +99,7 @@ export default class ModuleExpService extends ControlService {
 	public TREENODE_ROOT_NOBRANCH: string = 'Root_NoBranch';
 
     /**
-     * 所以模块节点分隔符号
+     * 所有模块节点分隔符号
      *
      * @public
      * @type {string}
@@ -292,13 +292,13 @@ export default class ModuleExpService extends ControlService {
     @Errorlog
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充所以模块
+			// 填充所有模块
             let AllRsNavContext:any = {};
             let AllRsNavParams:any = {};
             let AllRsParams:any = {};
 			await this.fillAllNodes(context, filter, list ,AllRsNavContext,AllRsNavParams,AllRsParams);
 		} else {
-			// 填充所以模块
+			// 填充所有模块
             let AllRsNavContext:any = {};
             let AllRsNavParams:any = {};
             let AllRsParams:any = {};
@@ -600,7 +600,7 @@ export default class ModuleExpService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[所以模块]
+     * 填充 树视图节点[所有模块]
      *
      * @public
      * @param {any{}} context     
@@ -643,7 +643,7 @@ export default class ModuleExpService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[所以模块]子节点
+     * 填充 树视图节点[所有模块]子节点
      *
      * @public
      * @param {any{}} context         

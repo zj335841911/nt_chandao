@@ -41,6 +41,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("color", n_color_eq);
         }
     }
+	private BigInteger n_id_noteq;//[编号]
+	public void setN_id_noteq(BigInteger n_id_noteq) {
+        this.n_id_noteq = n_id_noteq;
+        if(!ObjectUtils.isEmpty(this.n_id_noteq)){
+            this.getSearchCond().ne("id", n_id_noteq);
+        }
+    }
 	private String n_finishedby_eq;//[由谁完成]
 	public void setN_finishedby_eq(String n_finishedby_eq) {
         this.n_finishedby_eq = n_finishedby_eq;

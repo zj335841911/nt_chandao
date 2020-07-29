@@ -123,7 +123,7 @@ export default {
 	moduleexp_treeview: {
 		nodes: {
 			root: "默认根节点",
-			all: "所以模块",
+			all: "所有模块",
 			branch: "平台",
 		},
 		uiactions: {
