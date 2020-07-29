@@ -2342,15 +2342,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'fae08b50e13943a0678a96d852e8808d',
-            viewmodule: 'zentao',
-            viewname: 'ProductLifeRoadMapSListView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'fd0b8748ff96edcde009d39903a9f211',
             viewmodule: 'zentao',
             viewname: 'ProjectMainTabExpView',
@@ -2590,6 +2581,15 @@ export const viewstate: any = {
             viewtag: 'e444135470a806822b9b950e15c42a3e',
             viewmodule: 'ibiz',
             viewname: 'ProjectStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'fae08b50e13943a0678a96d852e8808d',
+            viewmodule: 'ibiz',
+            viewname: 'ProductLifeRoadMapSListView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [
