@@ -306,6 +306,7 @@ export default {
 			resolvedbuild: "解决版本", 
 			resolveddate: "解决日期", 
 			assignedto: "指派给", 
+			project: "所属项目", 
 			files: "附件", 
 			comment: "备注", 
 		},
@@ -328,6 +329,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			assignedto: "指派给", 
+			project: "所属项目", 
 			mailto: "抄送给", 
 			comment: "备注", 
 			id: "Bug编号", 
@@ -378,6 +380,7 @@ export default {
 			resolvedbuild: "影响版本", 
 			assignedto: "指派给", 
 			files: "附件", 
+			project: "所属项目", 
 			comment: "备注", 
 		},
 		uiactions: {

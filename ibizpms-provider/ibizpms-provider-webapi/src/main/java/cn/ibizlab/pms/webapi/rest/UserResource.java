@@ -150,6 +150,27 @@ domain.setId(user_id);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchBugUser-all')")
+	@ApiOperation(value = "获取Bug用户", tags = {"用户" } ,notes = "获取Bug用户")
+    @RequestMapping(method= RequestMethod.GET , value="/users/fetchbuguser")
+	public ResponseEntity<List<UserDTO>> fetchBugUser(UserSearchContext context) {
+        Page<User> domains = userService.searchBugUser(context) ;
+        List<UserDTO> list = userMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchBugUser-all')")
+	@ApiOperation(value = "查询Bug用户", tags = {"用户" } ,notes = "查询Bug用户")
+    @RequestMapping(method= RequestMethod.POST , value="/users/searchbuguser")
+	public ResponseEntity<Page<UserDTO>> searchBugUser(@RequestBody UserSearchContext context) {
+        Page<User> domains = userService.searchBugUser(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"用户" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/users/fetchdefault")

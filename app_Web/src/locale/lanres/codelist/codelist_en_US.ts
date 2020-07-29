@@ -353,6 +353,9 @@ export default {
         "Tested": "已测测试单",
         "empty": ""
     },
+    BugUserRealName: {
+        "empty": "",
+    },
     BeginendDropList: {
         "0600": "06:00",
         "0610": "06:10",

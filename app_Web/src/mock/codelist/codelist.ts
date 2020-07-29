@@ -2486,6 +2486,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "BugUserRealName",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchBugUser",
+        "items": []
+    },
+    {
         srfkey: "BeginendDropList",
         emptytext: "未定义",
         "codelisttype":"static",

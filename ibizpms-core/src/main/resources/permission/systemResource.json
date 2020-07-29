@@ -183,7 +183,7 @@
     "dename":"User",
     "delogicname":"用户",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"GetByCommiter" , "name":"根据源代码账户获取登录名"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUser_Task" , "name":"项目团队成员"},{"id":"TaskTeam" , "name":"TASKTEAM"}],
+    "dedataset":[{"id":"BugUser" , "name":"Bug用户"},{"id":"Default" , "name":"DEFAULT"},{"id":"GetByCommiter" , "name":"根据源代码账户获取登录名"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUser_Task" , "name":"项目团队成员"},{"id":"TaskTeam" , "name":"TASKTEAM"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetByCommiter" , "name":"根据代码账户查询用户信息" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

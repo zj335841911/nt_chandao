@@ -86,6 +86,11 @@ export default class ResolveModel {
         dataType: 'TEXT',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'files',
       },
       {
