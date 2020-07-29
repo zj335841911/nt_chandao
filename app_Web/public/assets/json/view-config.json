@@ -30,7 +30,7 @@
         "memo": ""
     },
     "caseeditview": {
-        "title": "case编辑视图",
+        "title": "功能测试编辑视图",
         "caption": "测试用例",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -150,7 +150,7 @@
         "memo": ""
     },
     "deptpickupview": {
-        "title": "dept数据选择视图",
+        "title": "部门数据选择视图",
         "caption": "部门",
         "viewtype": "DEPICKUPVIEW",
         "viewmodule": "zentao",
@@ -190,7 +190,7 @@
         "memo": ""
     },
     "producttestgridview": {
-        "title": "product表格视图",
+        "title": "产品表格视图",
         "caption": "产品",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -920,7 +920,7 @@
         "memo": ""
     },
     "deptmaingridview": {
-        "title": "dept表格视图",
+        "title": "部门表格视图",
         "caption": "部门",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1220,7 +1220,7 @@
         "memo": ""
     },
     "productpickupview": {
-        "title": "product数据选择视图",
+        "title": "产品数据选择视图",
         "caption": "产品",
         "viewtype": "DEPICKUPVIEW",
         "viewmodule": "zentao",
@@ -1250,7 +1250,7 @@
         "memo": ""
     },
     "buildmaingridview": {
-        "title": "build表格视图",
+        "title": "版本表格视图",
         "caption": "版本",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1370,7 +1370,7 @@
         "memo": ""
     },
     "productpickupgridview": {
-        "title": "product选择表格视图",
+        "title": "产品选择表格视图",
         "caption": "产品",
         "viewtype": "DEPICKUPGRIDVIEW",
         "viewmodule": "zentao",
@@ -1740,7 +1740,7 @@
         "memo": ""
     },
     "companyeditview": {
-        "title": "company编辑视图",
+        "title": "公司编辑视图",
         "caption": "公司信息",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -1820,7 +1820,7 @@
         "memo": ""
     },
     "depteditview": {
-        "title": "dept编辑视图",
+        "title": "部门编辑视图",
         "caption": "部门信息",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2050,7 +2050,7 @@
         "memo": ""
     },
     "branchpickupview": {
-        "title": "branch数据选择视图",
+        "title": "平台数据选择视图",
         "caption": "产品的分支和平台信息",
         "viewtype": "DEPICKUPVIEW",
         "viewmodule": "zentao",
@@ -2170,7 +2170,7 @@
         "memo": ""
     },
     "producteditview": {
-        "title": "product编辑视图",
+        "title": "产品编辑视图",
         "caption": "产品",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2260,7 +2260,7 @@
         "memo": ""
     },
     "buildeditview": {
-        "title": "build编辑视图",
+        "title": "版本编辑视图",
         "caption": "版本",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2380,7 +2380,7 @@
         "memo": ""
     },
     "casegridview": {
-        "title": "case表格视图",
+        "title": "功能测试表格视图",
         "caption": "测试用例",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -2450,7 +2450,7 @@
         "memo": ""
     },
     "branchpickupgridview": {
-        "title": "branch选择表格视图",
+        "title": "平台选择表格视图",
         "caption": "产品的分支和平台信息",
         "viewtype": "DEPICKUPGRIDVIEW",
         "viewmodule": "zentao",

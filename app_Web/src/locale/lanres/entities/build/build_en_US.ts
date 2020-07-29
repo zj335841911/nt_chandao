@@ -19,7 +19,7 @@ export default {
 	views: {
 		maingridview: {
 			caption: "版本",
-      		title: "build表格视图",
+      		title: "版本表格视图",
 		},
 		mainview: {
 			caption: "版本",
@@ -27,7 +27,7 @@ export default {
 		},
 		editview: {
 			caption: "版本",
-      		title: "build编辑视图",
+      		title: "版本编辑视图",
 		},
 		maintabexpview: {
 			caption: "版本",

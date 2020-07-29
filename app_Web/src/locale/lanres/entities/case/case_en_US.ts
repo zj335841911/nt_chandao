@@ -54,7 +54,7 @@ export default {
 	views: {
 		editview: {
 			caption: "测试用例",
-      		title: "case编辑视图",
+      		title: "功能测试编辑视图",
 		},
 		gridview9_my: {
 			caption: "测试用例",
@@ -118,7 +118,7 @@ export default {
 		},
 		gridview: {
 			caption: "测试用例",
-      		title: "case表格视图",
+      		title: "功能测试表格视图",
 		},
 	},
 	mainnew_form: {

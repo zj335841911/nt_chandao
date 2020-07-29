@@ -6,7 +6,7 @@ import { ProductEditViewBase } from './product-edit-view-base';
 import view_form from '@widgets/product/main-form/main-form.vue';
 
 /**
- * product编辑视图视图
+ * 产品编辑视图视图
  *
  * @export
  * @class ProductEditView

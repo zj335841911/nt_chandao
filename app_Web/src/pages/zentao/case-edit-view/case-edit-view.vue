@@ -6,7 +6,7 @@ import { CaseEditViewBase } from './case-edit-view-base';
 import view_form from '@widgets/case/main-form/main-form.vue';
 
 /**
- * case编辑视图视图
+ * 功能测试编辑视图视图
  *
  * @export
  * @class CaseEditView

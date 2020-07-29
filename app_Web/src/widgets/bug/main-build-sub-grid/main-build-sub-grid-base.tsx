@@ -169,7 +169,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7995dea_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uea0faba_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -185,7 +185,8 @@ export class Main_BuildSubGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"Bug");
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -222,33 +223,6 @@ export class Main_BuildSubGridBase extends GridControlBase {
     }
 
     /**
-     * 编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugBuildSubGridView_New_9212Base
-     */
-    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { bug: args[0].bug })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-
-    /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
@@ -267,7 +241,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
         ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESOLVE', target: 'SINGLEKEY'},
         CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
         Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };
 
     /**
@@ -516,8 +490,8 @@ export class Main_BuildSubGridBase extends GridControlBase {
         if(Object.is('Copy', tag)) {
             this.grid_uagridcolumn1_udb5e3af_click(row, tag, $event);
         }
-        if(Object.is('Edit', tag)) {
-            this.grid_uagridcolumn1_u7995dea_click(row, tag, $event);
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_uea0faba_click(row, tag, $event);
         }
     }
 }

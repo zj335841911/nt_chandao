@@ -7,7 +7,7 @@ import view_grid from '@widgets/build/main-grid/main-grid.vue';
 import view_searchform from '@widgets/build/default-searchform/default-searchform.vue';
 
 /**
- * build表格视图视图
+ * 版本表格视图视图
  *
  * @export
  * @class BuildMainGridView

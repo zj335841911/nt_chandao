@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
- * product编辑视图视图基类
+ * 产品编辑视图视图基类
  *
  * @export
  * @class ProductEditViewBase

@@ -6,7 +6,7 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
- * product选择表格视图视图基类
+ * 产品选择表格视图视图基类
  *
  * @export
  * @class ProductPickupGridViewBase

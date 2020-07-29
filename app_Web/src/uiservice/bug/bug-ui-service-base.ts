@@ -790,7 +790,20 @@ export default class BugUIServiceBase extends UIService {
                 return response;
             });
         };
-        backend();
+        const view: any = {
+            viewname: 'bug-edit-view',
+            title: actionContext.$t('entities.bug.views.editview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
     /**
