@@ -103,9 +103,8 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @memberof StoryKanbanView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ProjectCreateView', target: 'NONE', class: '' } },
 
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
@@ -249,7 +248,8 @@ export class StoryKanbanViewBase extends KanBanViewBase {
           datas = [params];
         }
         // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ProjectCreateView(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -386,26 +386,6 @@ export class StoryKanbanViewBase extends KanBanViewBase {
     }
 
 
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryKanbanViewBase
-     */
-    public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-         const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
-            _this.newdata([{ ...data }],[{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
-        }
-    }
     /**
      * 刷新
      *

@@ -165,6 +165,9 @@ export default class MainPanelModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 

@@ -405,4 +405,12 @@ export interface Story {
      * @memberof Story
      */
     modulename1?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    project?: any;
 }

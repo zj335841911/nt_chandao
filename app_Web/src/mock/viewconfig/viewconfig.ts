@@ -1567,6 +1567,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskDoneTaskView",
             "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
         },
+        "storyprojecteditview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectEditView",
+            "viewtag": "cad4ce05432f03f140d6ee3ad5dfe8c5"
+        },
         "modulepickupview": {
             "title": "模块选择",
             "caption": "模块",

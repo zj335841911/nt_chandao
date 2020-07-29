@@ -1949,6 +1949,16 @@
         "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f",
         "memo": ""
     },
+    "storyprojecteditview": {
+        "title": "需求",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryProjectEditView",
+        "viewfilename": "story-project-edit-view",
+        "viewtag": "cad4ce05432f03f140d6ee3ad5dfe8c5",
+        "memo": ""
+    },
     "modulepickupview": {
         "title": "模块选择",
         "caption": "模块",

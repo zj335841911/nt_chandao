@@ -6161,6 +6161,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/projecteditview/:projecteditview?',
+                    meta: {
+                        caption: 'entities.story.views.projecteditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projecteditview', parameterName: 'projecteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-edit-view/story-project-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/projecteditview/:projecteditview?',
+                    meta: {
+                        caption: 'entities.story.views.projecteditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'projecteditview', parameterName: 'projecteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-project-edit-view/story-project-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/productmodules/:productmodule?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.productmodule.views.gridview.title',

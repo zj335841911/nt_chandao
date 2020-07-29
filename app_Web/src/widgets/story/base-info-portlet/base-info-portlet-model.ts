@@ -165,6 +165,9 @@ export default class BaseInfoModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 
