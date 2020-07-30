@@ -89,6 +89,7 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
      * @memberof  IbzProjectMemberUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'editview9',srfappde:'ibzprojectmembers'});
     }
 
     /**
@@ -107,6 +108,14 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
     public initDeMainStateOPPrivsMap(){
     }
 
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${appDataEntity.getMajorPSAppDEField(...  [in template "TEMPLCODE_zh_CN" at line 88, column 107]
+----
 
     /**
      * 获取指定数据的重定向页面
