@@ -2542,15 +2542,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'c21e2ccc8e950461985b171f047bde56',
-            viewmodule: 'ibiz',
-            viewname: 'IbzMyTerritoryMyWork',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'd337f5c3c125dc2641321f2d93b65476',
             viewmodule: 'ibiz',
             viewname: 'TestModuleQuickCfgView',
@@ -2569,8 +2560,8 @@ export const viewstate: any = {
                 '79b3a14f0431747becc48f5b9f3aa990',
                 '4b82e9acf6c784b138b365d6011b296b',
                 '6d466e003e0479fb8b1a16e49b889dc1',
-                'c21e2ccc8e950461985b171f047bde56',
                 'c3f0a8956b863fa05a7d961df90a3975',
+                'e9f72c81d94c56a08c355c2ba2e20d07',
                 '81893d14e76cac341d4218a9c5ef185d',
                 '3aafb12bb0db2be013c0f5ced8c7dc50',
                 'c539f1585371e9943b90177eaef08b6b',
@@ -2581,6 +2572,15 @@ export const viewstate: any = {
             viewtag: 'e444135470a806822b9b950e15c42a3e',
             viewmodule: 'ibiz',
             viewname: 'ProjectStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'e9f72c81d94c56a08c355c2ba2e20d07',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryListView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -60,5 +60,9 @@ export default {
 			caption: "欢迎",
       		title: "欢迎",
 		},
+		listview9: {
+			caption: "我的工作",
+      		title: "我的工作",
+		},
 	},
 };
