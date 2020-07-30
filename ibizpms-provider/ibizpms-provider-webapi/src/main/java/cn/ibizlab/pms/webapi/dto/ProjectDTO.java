@@ -389,6 +389,38 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("role")
     private String role;
 
+    /**
+     * 属性 [TOTALCONSUMED]
+     *
+     */
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Double totalconsumed;
+
+    /**
+     * 属性 [TOTALWH]
+     *
+     */
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+
+    /**
+     * 属性 [TOTALLEFT]
+     *
+     */
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Double totalleft;
+
+    /**
+     * 属性 [TOTALESTIMATE]
+     *
+     */
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Double totalestimate;
+
 
     /**
      * 设置 [OPENEDVERSION]

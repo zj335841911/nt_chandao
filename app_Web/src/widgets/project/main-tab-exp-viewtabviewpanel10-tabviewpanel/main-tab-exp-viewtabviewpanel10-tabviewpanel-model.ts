@@ -150,6 +150,18 @@ export default class MainTabExpViewtabviewpanel10Model {
       {
         name: 'role',
       },
+      {
+        name: 'totalconsumed',
+      },
+      {
+        name: 'totalwh',
+      },
+      {
+        name: 'totalleft',
+      },
+      {
+        name: 'totalestimate',
+      },
     ]
   }
 

@@ -591,6 +591,8 @@ export class MainGridBase extends GridControlBase {
         Object.assign(item, this.getActionState(item));
         if(item.items && item.items.length > 0) {
             item.items.forEach((data: any) => {
+                let _data: any = this.service.handleResponseData('', data);
+                Object.assign(data, _data);
                 this.setActionState(data);
             })
         }

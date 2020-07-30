@@ -46,6 +46,10 @@ export default {
     join: "加盟日",
     hours: "可用工时/天",
     role: "角色",
+    totalconsumed: "任务消耗总工时",
+    totalwh: "总工时",
+    totalleft: "任务预计剩余总工时",
+    totalestimate: "任务最初预计总工时",
   },
 	views: {
 		tasktreeexpview: {
