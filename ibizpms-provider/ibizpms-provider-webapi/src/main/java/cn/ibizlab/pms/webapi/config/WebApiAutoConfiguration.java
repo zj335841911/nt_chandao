@@ -15,9 +15,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.springframework.context.annotation.Import;
 
-@Import({
-    com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration.class,
-})
 @Configuration
 @ConditionalOnClass(WebApiRestConfiguration.class)
 @ConditionalOnWebApplication
