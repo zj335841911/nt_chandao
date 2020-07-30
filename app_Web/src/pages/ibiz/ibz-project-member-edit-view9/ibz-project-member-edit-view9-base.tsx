@@ -66,6 +66,28 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzProjectMemberEditView9Base
+	 */
+    protected customViewNavContexts: any = {
+        'ID': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzProjectMemberEditView9Base
+	 */
+    protected customViewParams: any = {
+        'id': { isRawValue: false, value: 'srfparentkey' }
+    };
+
     /**
      * 视图模型数据
      *
