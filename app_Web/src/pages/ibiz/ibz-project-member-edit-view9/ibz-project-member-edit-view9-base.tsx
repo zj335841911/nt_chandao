@@ -30,7 +30,15 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      * @memberof IbzProjectMemberEditView9Base
      */
     protected appDeKey: string = 'id';
-// 应用实体「IbzProjectMember」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzProjectMemberEditView9Base
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象
@@ -115,6 +123,7 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'ibzprojectmember',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }

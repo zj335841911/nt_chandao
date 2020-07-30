@@ -26,6 +26,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
+			srfmajortext: "项目名称", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 
