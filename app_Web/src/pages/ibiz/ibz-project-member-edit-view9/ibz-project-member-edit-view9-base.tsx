@@ -74,7 +74,8 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
 	 * @memberof IbzProjectMemberEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'ID': { isRawValue: false, value: 'srfparentkey' }
+        'ID': { isRawValue: false, value: 'srfparentkey' },
+        'IBZPROJECTMEMBER': { isRawValue: false, value: 'srfparentkey' }
     };
 
 	/**
@@ -85,7 +86,8 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
 	 * @memberof IbzProjectMemberEditView9Base
 	 */
     protected customViewParams: any = {
-        'id': { isRawValue: false, value: 'srfparentkey' }
+        'id': { isRawValue: false, value: 'srfparentkey' },
+        'ibzprojectmember': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**
