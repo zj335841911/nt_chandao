@@ -6,77 +6,77 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprojectmember.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.pm.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.pm.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='pm' :itemRules="this.rules.pm" class='' :caption="$t('entities.ibzprojectmember.main_form.details.pm')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.pm.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='pm' :value="data.pm" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.po.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.ibzprojectmember.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='po' :value="data.po" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.qd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.qd.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.ibzprojectmember.main_form.details.qd')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='qd' :value="data.qd" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.rd.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.ibzprojectmember.main_form.details.rd')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='rd' :value="data.rd" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.fristmember.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.fristmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='fristmember' :itemRules="this.rules.fristmember" class='' :caption="$t('entities.ibzprojectmember.main_form.details.fristmember')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.fristmember.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='fristmember' :value="data.fristmember" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.secondmember.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.secondmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='secondmember' :itemRules="this.rules.secondmember" class='' :caption="$t('entities.ibzprojectmember.main_form.details.secondmember')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.secondmember.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='secondmember' :value="data.secondmember" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.thirdmember.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.thirdmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='thirdmember' :itemRules="this.rules.thirdmember" class='' :caption="$t('entities.ibzprojectmember.main_form.details.thirdmember')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.thirdmember.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='thirdmember' :value="data.thirdmember" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.fourthmember.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.fourthmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='fourthmember' :itemRules="this.rules.fourthmember" class='' :caption="$t('entities.ibzprojectmember.main_form.details.fourthmember')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.fourthmember.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='fourthmember' :value="data.fourthmember" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.fifthmember.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.fifthmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='fifthmember' :itemRules="this.rules.fifthmember" class='' :caption="$t('entities.ibzprojectmember.main_form.details.fifthmember')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.fifthmember.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='fifthmember' :value="data.fifthmember" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.sixthmember.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.sixthmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='sixthmember' :itemRules="this.rules.sixthmember" class='' :caption="$t('entities.ibzprojectmember.main_form.details.sixthmember')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.sixthmember.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='sixthmember' :value="data.sixthmember" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 11, offset: 1 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
         <i class="fa fa-plus" style="margin-right: 2px;"></i>   
