@@ -63,6 +63,10 @@ zuul:
       path: /productstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_projectmember:
+      path: /ibzprojectmembers/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_action:
       path: /actions/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

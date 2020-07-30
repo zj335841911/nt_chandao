@@ -53,6 +53,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('branch', () => import('@/authservice/branch/branch-auth-service'));
         this.allAuthService.set('productstats', () => import('@/authservice/product-stats/product-stats-auth-service'));
+        this.allAuthService.set('ibzprojectmember', () => import('@/authservice/ibz-project-member/ibz-project-member-auth-service'));
         this.allAuthService.set('action', () => import('@/authservice/action/action-auth-service'));
         this.allAuthService.set('group', () => import('@/authservice/group/group-auth-service'));
         this.allAuthService.set('casestep', () => import('@/authservice/case-step/case-step-auth-service'));
