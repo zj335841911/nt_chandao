@@ -131,8 +131,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         button1: new FormButtonModel({ caption: '团队管理', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'TeamManagement', actiontarget: 'SINGLEKEY' } }),
 
         group1: new FormGroupPanelModel({ caption: '项目相关成员基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzprojectmember.main_form', extractMode: 'ITEM', details: [] } }),
@@ -186,15 +184,6 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
-        if (Object.is(name, '') || Object.is(name, 'pm')) {
-            let ret = false;
-            const _pm = this.data.pm;
-            if (this.$verify.testCond(_pm, 'ISNOTNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.rawitem1.setVisible(ret);
-        }
-
 
 
 

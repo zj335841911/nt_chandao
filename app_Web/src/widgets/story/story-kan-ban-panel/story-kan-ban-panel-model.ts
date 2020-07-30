@@ -37,8 +37,8 @@ export default class StoryKanBanModel {
         prop: 'id'
       },
       {
-        name: 'id',
-        prop: 'id'
+        name: 'story',
+        prop: 'story'
       }
     ]
   }
