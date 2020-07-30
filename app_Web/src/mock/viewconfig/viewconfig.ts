@@ -2199,6 +2199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectStatsEditView9",
             "viewtag": "e444135470a806822b9b950e15c42a3e"
         },
+        "ibzmyterritorylistview9": {
+            "title": "我的工作",
+            "caption": "我的工作",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryListView9",
+            "viewtag": "e9f72c81d94c56a08c355c2ba2e20d07"
+        },
         "productliferoadmapslistview9": {
             "title": "路线图",
             "caption": "产品生命周期",

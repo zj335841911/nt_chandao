@@ -1502,6 +1502,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-build-sub-grid-view/story-build-sub-grid-view.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/listview9/:listview9?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.listview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'listview9', parameterName: 'listview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-list-view9/ibz-my-territory-list-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/pausetaskview/:pausetaskview?',
                     meta: {
                         caption: 'entities.task.views.pausetaskview.title',
@@ -4354,20 +4368,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-main-detail-view9/task-main-detail-view9.vue'),
-                },
-                {
-                    path: 'ibzmyterritories/:ibzmyterritory?/mywork/:mywork?',
-                    meta: {
-                        caption: 'entities.ibzmyterritory.views.mywork.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                            { pathName: 'mywork', parameterName: 'mywork' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-my-territory-my-work/ibz-my-territory-my-work.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview2/:pickupgridview2?',

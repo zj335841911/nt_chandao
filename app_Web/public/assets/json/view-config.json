@@ -2739,6 +2739,16 @@
         "viewtag": "e444135470a806822b9b950e15c42a3e",
         "memo": ""
     },
+    "ibzmyterritorylistview9": {
+        "title": "我的工作",
+        "caption": "我的工作",
+        "viewtype": "DELISTVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryListView9",
+        "viewfilename": "ibz-my-territory-list-view9",
+        "viewtag": "e9f72c81d94c56a08c355c2ba2e20d07",
+        "memo": ""
+    },
     "productliferoadmapslistview9": {
         "title": "路线图",
         "caption": "产品生命周期",
