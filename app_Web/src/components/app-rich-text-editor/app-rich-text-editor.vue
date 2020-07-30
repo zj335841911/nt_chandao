@@ -256,10 +256,12 @@ export default class AppRichTextEditor extends Vue {
     public mounted() {
         this.init();
         const ele: any = this.isDrawer(this.$el);
-        let index: number = ele.style.transform.indexOf('translateX');
-        if(index >= 0) {
-            let num: string = ele.style.transform.substring(index + 12, index + 15);
-            this.editorClass = this.editorClass + (-parseInt(num));
+        if(ele) {
+            let index: number = ele.style.transform.indexOf('translateX');
+            if(index >= 0) {
+                let num: string = ele.style.transform.substring(index + 12, index + 15);
+                this.editorClass = this.editorClass + (-parseInt(num));
+            }
         }
     }
     
@@ -273,7 +275,7 @@ export default class AppRichTextEditor extends Vue {
         if(!pele) {
             return false;
         }
-        if(pele.className.indexOf('studio-drawer-content') >= 0) {
+        if(pele.className && pele.className.indexOf('studio-drawer-content') >= 0) {
             return pele;
         }
         return this.isDrawer(pele);
