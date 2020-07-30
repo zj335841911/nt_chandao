@@ -69,11 +69,6 @@ export default class TestMain2Model {
         dataType: 'INT',
       },
       {
-        name: 'yesterdayresolvedbugcnt',
-        prop: 'yesterdayresolvedbugcnt',
-        dataType: 'INT',
-      },
-      {
         name: 'custom3',
         prop: 'bugcnt',
         dataType: 'INT',

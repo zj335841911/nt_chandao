@@ -97,21 +97,33 @@ export default class DashBoardInfoModel {
       },
       {
         name: 'formitem',
+        prop: 'totalestimate',
+        dataType: 'FLOAT',
       },
       {
         name: 'formitem1',
+        prop: 'totalconsumed',
+        dataType: 'FLOAT',
       },
       {
         name: 'formitem2',
+        prop: 'totalleft',
+        dataType: 'FLOAT',
       },
       {
         name: 'formitem3',
+        prop: 'storycnt',
+        dataType: 'INT',
       },
       {
         name: 'formitem4',
+        prop: 'taskcnt',
+        dataType: 'INT',
       },
       {
         name: 'formitem5',
+        prop: 'bugcnt',
+        dataType: 'INT',
       },
       {
         name: 'acl',

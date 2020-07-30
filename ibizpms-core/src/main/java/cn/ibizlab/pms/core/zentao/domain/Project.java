@@ -370,6 +370,34 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "role")
     @JsonProperty("role")
     private String role;
+    /**
+     * 任务消耗总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Double totalconsumed;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+    /**
+     * 任务预计剩余总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Double totalleft;
+    /**
+     * 任务最初预计总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Double totalestimate;
 
     /**
      * 
