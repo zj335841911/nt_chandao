@@ -83,6 +83,48 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     @JSONField(name = "qd")
     @JsonProperty("qd")
     private String qd;
+    /**
+     * 团队成员（一）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fristmember")
+    @JsonProperty("fristmember")
+    private String fristmember;
+    /**
+     * 团队成员（二）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "secondmember")
+    @JsonProperty("secondmember")
+    private String secondmember;
+    /**
+     * 团队成员（三）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirdmember")
+    @JsonProperty("thirdmember")
+    private String thirdmember;
+    /**
+     * 团队成员（四）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourthmember")
+    @JsonProperty("fourthmember")
+    private String fourthmember;
+    /**
+     * 团队成员（五）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fifthmember")
+    @JsonProperty("fifthmember")
+    private String fifthmember;
+    /**
+     * 团队成员（六）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixthmember")
+    @JsonProperty("sixthmember")
+    private String sixthmember;
 
 
 

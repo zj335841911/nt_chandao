@@ -21,6 +21,7 @@ import './entity/story-specs/story-specs';
 import './entity/user-tpls/user-tpls';
 import './entity/branchs/branchs';
 import './entity/product-statss/product-statss';
+import './entity/ibz-project-members/ibz-project-members';
 import './entity/actions/actions';
 import './entity/groups/groups';
 import './entity/case-steps/case-steps';
