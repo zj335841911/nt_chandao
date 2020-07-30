@@ -34,6 +34,7 @@ public interface IProductStatsService extends IService<ProductStats>{
     ProductStats get(BigInteger key) ;
     ProductStats getDraft(ProductStats et) ;
     boolean checkKey(ProductStats et) ;
+    ProductStats getTestStats(ProductStats et) ;
     boolean save(ProductStats et) ;
     void saveBatch(List<ProductStats> list) ;
     Page<ProductStats> searchDefault(ProductStatsSearchContext context) ;

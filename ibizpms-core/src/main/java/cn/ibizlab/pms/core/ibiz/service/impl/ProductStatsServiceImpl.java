@@ -113,6 +113,13 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     }
     @Override
     @Transactional
+    public ProductStats getTestStats(ProductStats et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(ProductStats et) {
         if(!saveOrUpdate(et))
             return false;
