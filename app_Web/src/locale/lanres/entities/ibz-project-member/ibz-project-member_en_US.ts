@@ -22,6 +22,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			rawitem1: "", 
 			button1: "团队管理", 
 			group1: "项目相关成员基本信息", 
 			formpage1: "基本信息", 
