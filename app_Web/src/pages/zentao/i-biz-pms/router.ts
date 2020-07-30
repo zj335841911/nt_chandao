@@ -4911,6 +4911,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-grid-view-by-module/story-main-grid-view-by-module.vue'),
                 },
                 {
+                    path: 'ibzprojectmembers/:ibzprojectmember?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.ibzprojectmember.views.editview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprojectmembers', parameterName: 'ibzprojectmember' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-project-member-edit-view9/ibz-project-member-edit-view9.vue'),
+                },
+                {
                     path: 'actions/:action?/editview/:editview?',
                     meta: {
                         caption: 'entities.action.views.editview.title',

@@ -1264,6 +1264,7 @@ export const viewstate: any = {
                 'edd664c8fc682d166b3a027dd08bbd8b',
                 '28557f7c31a387e1deb552076d51f9f1',
                 '9a8c28c2365d7dc8bb5619f39576b558',
+                '24f12a249a654cadf0a0f9e132221c10',
                 '5b7c1b586dc5e23998a2765d235eaa7e',
                 '770a170098d148e438a7666b248e6519',
                 '4b8db6d139edb8adadbef2f0c0b3350a',
@@ -2422,6 +2423,16 @@ export const viewstate: any = {
             viewtag: '231eecf4805f0b378601ea1a7912077f',
             viewmodule: 'ibiz',
             viewname: 'ProjectTeamMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ac21af5f9696e38031a7c2291ed02d64',
+            ],
+        },
+        {
+            viewtag: '24f12a249a654cadf0a0f9e132221c10',
+            viewmodule: 'ibiz',
+            viewname: 'IbzProjectMemberEditView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

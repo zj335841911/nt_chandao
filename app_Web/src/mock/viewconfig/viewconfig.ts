@@ -2055,6 +2055,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectTeamMainGridView",
             "viewtag": "231eecf4805f0b378601ea1a7912077f"
         },
+        "ibzprojectmembereditview9": {
+            "title": "项目相关成员编辑视图（相关成员）",
+            "caption": "相关成员",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzProjectMemberEditView9",
+            "viewtag": "24f12a249a654cadf0a0f9e132221c10"
+        },
         "testmodulegridview": {
             "title": "测试模块表格视图",
             "caption": "测试模块",

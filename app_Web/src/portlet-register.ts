@@ -15,6 +15,7 @@ import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-po
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
 import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
 import BurnBurnDownChart from '@/widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';
+import IbzProjectMemberRelatedMembers from '@/widgets/ibz-project-member/related-members-portlet/related-members-portlet.vue';
 import ActionActionHistory from '@/widgets/action/action-history-portlet/action-history-portlet.vue';
 import ActionProjectTrendsTimeline from '@/widgets/action/project-trends-timeline-portlet/project-trends-timeline-portlet.vue';
 import ActionProductTrendsTimeline from '@/widgets/action/product-trends-timeline-portlet/product-trends-timeline-portlet.vue';
@@ -79,6 +80,7 @@ export const  PortletComponent = {
         v.component('app-test-task-main-info-portlet', TestTaskMainInfo);
         v.component('app-burn-burn-down-chart-portlet', BurnBurnDownChart);
         v.component('app-action-project-trends-timeline-portlet', ActionProjectTrendsTimeline);
+        v.component('app-ibz-project-member-related-members-portlet', IbzProjectMemberRelatedMembers);
         v.component('app-project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('app-project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
@@ -106,6 +108,7 @@ export const  PortletComponent = {
         v.component('product-product-info-portlet', ProductProductInfo);
         v.component('product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('burn-burn-down-chart-portlet', BurnBurnDownChart);
+        v.component('ibz-project-member-related-members-portlet', IbzProjectMemberRelatedMembers);
         v.component('action-action-history-portlet', ActionActionHistory);
         v.component('action-project-trends-timeline-portlet', ActionProjectTrendsTimeline);
         v.component('action-product-trends-timeline-portlet', ActionProductTrendsTimeline);

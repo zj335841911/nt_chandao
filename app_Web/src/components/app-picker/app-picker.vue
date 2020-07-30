@@ -338,7 +338,7 @@ export default class AppPicker extends Vue {
             query = '';
         }
         this.inputState = false;
-        Object.assign(_param, { query: query });
+        Object.assign(_param, { query: query, size: 1000 });
         // 错误信息国际化
         let error: string = (this.$t('components.appPicker.error') as any);
         let miss: string = (this.$t('components.appPicker.miss') as any);
