@@ -378,3 +378,31 @@ mock.onGet(new RegExp(/^\/productstats\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((confi
     console.groupEnd();
     return [status, _items?_items:{}];
 });
+
+// GetTestStats
+mock.onGet(new RegExp(/^\/productstats\/([a-zA-Z0-9\-\;]{1,35})\/getteststats$/)).reply((config: any) => {
+    console.groupCollapsed("实体:productstats 方法: GetTestStats");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/productstats\/([a-zA-Z0-9\-\;]{1,35})\/getteststats$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});

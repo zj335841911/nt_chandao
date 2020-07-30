@@ -146,6 +146,20 @@ export default class ProductStatsServiceBase extends EntityService {
     }
 
     /**
+     * GetTestStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductStatsServiceBase
+     */
+    public async GetTestStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/productstats/${context.productstats}/getteststats`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
