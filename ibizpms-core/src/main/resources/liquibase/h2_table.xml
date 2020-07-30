@@ -80,6 +80,9 @@
     <!--输出实体[IBZ_MYTERRITORY]数据结构 -->
 
 
+    <!--输出实体[IBZ_PROJECTMEMBER]数据结构 -->
+
+
     <!--输出实体[ZT_IM_CHAT]数据结构 -->
 
 
@@ -268,6 +271,7 @@
         <!--输出实体[ZT_GROUPPRIV]外键关系 -->
         <!--输出实体[ZT_HISTORY]外键关系 -->
         <!--输出实体[IBZ_MYTERRITORY]外键关系 -->
+        <!--输出实体[IBZ_PROJECTMEMBER]外键关系 -->
         <!--输出实体[ZT_IM_CHAT]外键关系 -->
         <!--输出实体[ZT_IM_CHATUSER]外键关系 -->
         <!--输出实体[ZT_IM_CLIENT]外键关系 -->
