@@ -81,6 +81,17 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
         createdby: null,
         createddate: null,
         acl: null,
+        activestorycnt: null,
+        productplancnt: null,
+        relatedbugcnt: null,
+        changedstorycnt: null,
+        relatedprojects: null,
+        cases: null,
+        draftstorycnt: null,
+        builds: null,
+        docs: null,
+        closedstorycnt: null,
+        releasecnt: null,
         id: null,
         product:null,
     };
@@ -105,9 +116,9 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
 
         grouppanel2: new FormGroupPanelModel({ caption: '负责人', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel3: new FormGroupPanelModel({ caption: '产品信息', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel3: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel4: new FormGroupPanelModel({ caption: '其他信息', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel4: new FormGroupPanelModel({ caption: '其他信息', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -140,6 +151,28 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
         createddate: new FormItemModel({ caption: '创建日期', detailType: 'FORMITEM', name: 'createddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         acl: new FormItemModel({ caption: '访问控制', detailType: 'FORMITEM', name: 'acl', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        activestorycnt: new FormItemModel({ caption: '激活需求', detailType: 'FORMITEM', name: 'activestorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        productplancnt: new FormItemModel({ caption: '计划数', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        relatedbugcnt: new FormItemModel({ caption: '相关Bug', detailType: 'FORMITEM', name: 'relatedbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        changedstorycnt: new FormItemModel({ caption: '已变更需求', detailType: 'FORMITEM', name: 'changedstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        relatedprojects: new FormItemModel({ caption: '关联项目数', detailType: 'FORMITEM', name: 'relatedprojects', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        cases: new FormItemModel({ caption: '用例数', detailType: 'FORMITEM', name: 'cases', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        draftstorycnt: new FormItemModel({ caption: '草稿需求', detailType: 'FORMITEM', name: 'draftstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        builds: new FormItemModel({ caption: 'BUILD数', detailType: 'FORMITEM', name: 'builds', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        docs: new FormItemModel({ caption: '文档数', detailType: 'FORMITEM', name: 'docs', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        closedstorycnt: new FormItemModel({ caption: '已关闭需求', detailType: 'FORMITEM', name: 'closedstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        releasecnt: new FormItemModel({ caption: '发布数', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 

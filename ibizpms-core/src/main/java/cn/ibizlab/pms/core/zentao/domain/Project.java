@@ -398,6 +398,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "totalestimate")
     @JsonProperty("totalestimate")
     private Double totalestimate;
+    /**
+     * 可用工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Double totalhours;
 
     /**
      * 

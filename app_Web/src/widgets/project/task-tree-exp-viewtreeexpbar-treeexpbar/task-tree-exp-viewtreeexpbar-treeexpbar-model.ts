@@ -162,6 +162,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 

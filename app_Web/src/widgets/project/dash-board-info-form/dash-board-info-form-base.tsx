@@ -91,6 +91,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
         begin: null,
         end: null,
         days: null,
+        totalhours: null,
         formitem: null,
         formitem1: null,
         formitem2: null,
@@ -170,6 +171,8 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         days: new FormItemModel({ caption: '可用工作日', detailType: 'FORMITEM', name: 'days', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        totalhours: new FormItemModel({ caption: '可用工时', detailType: 'FORMITEM', name: 'totalhours', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitem: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

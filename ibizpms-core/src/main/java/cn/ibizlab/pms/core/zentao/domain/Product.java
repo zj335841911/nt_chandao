@@ -230,6 +230,69 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 相关Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "relatedbugcnt")
+    @JsonProperty("relatedbugcnt")
+    private Integer relatedbugcnt;
+    /**
+     * 已变更需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    private Integer changedstorycnt;
+    /**
+     * 草稿需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "draftstorycnt")
+    @JsonProperty("draftstorycnt")
+    private Integer draftstorycnt;
+    /**
+     * 已关闭需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+    /**
+     * 关联项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "relatedprojects")
+    @JsonProperty("relatedprojects")
+    private Integer relatedprojects;
+    /**
+     * 用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "cases")
+    @JsonProperty("cases")
+    private Integer cases;
+    /**
+     * BUILD数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "builds")
+    @JsonProperty("builds")
+    private Integer builds;
+    /**
+     * 发布数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releases")
+    @JsonProperty("releases")
+    private Integer releases;
+    /**
+     * 文档数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "docs")
+    @JsonProperty("docs")
+    private Integer docs;
 
     /**
      * 产品线

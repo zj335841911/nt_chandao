@@ -162,6 +162,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 

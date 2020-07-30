@@ -162,6 +162,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 
