@@ -97,7 +97,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
         container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         srfkey: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        id: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        story: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
 
