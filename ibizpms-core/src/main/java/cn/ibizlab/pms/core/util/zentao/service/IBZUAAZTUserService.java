@@ -16,9 +16,11 @@ import cn.ibizlab.pms.util.security.SpringContextHolder;
 import cn.ibizlab.pms.util.service.AuthenticationUserService;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -94,7 +96,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         }
         String domains = getDomains(username);
 
-        //登录UAA系统前，先查看ZT账户是否存在。
+        //STEP1:登录UAA系统前，先查看ZT账户是否存在。
         //获取UAA账号对应的ZT用户，从account、commiter 两个字段查询。
         User ztUser = getZTUserInfo(username);
         if (ztUser == null || ztUser.getCommiter() == null) {
@@ -104,28 +106,32 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         String token = null;
         AuthenticationInfo authenticationInfo = null;
 
+        //STEP2:以代码提交账户，进行UAA认证。
         try {
-            //以代码提交账户，进行UAA认证。
             authenticationInfo = uaaFeignClient.v7Login(buildRemoteLoginParam(ztUser.getCommiter(), password));
         } catch (Exception e) {
-            if (e.getMessage().contains("400")) {
-                throw new BadRequestAlertException("请检查用户名密码。", null, null);
-            } else {
-                throw new BadRequestAlertException("请检查远程登录相关配置。", null, null);
+            if(e instanceof FeignException){
+                FeignException feignException = (FeignException)e;
+                if(400==feignException.status()){
+                    throw new BadRequestAlertException("UAA认证失败，请检查用户名或密码。",null,null);
+                }else{
+                    throw new BadRequestAlertException("UAA认证系统发生了系统异常，请稍后尝试。",null,null);
+                }
+            }else{
+                throw new BadRequestAlertException("UAA认证失败，请检查远程登录相关配置。", null, null);
             }
 
         }
-
         token = authenticationInfo.getToken();
 
 
-        //ZT API登录。
+        //STEP4:ZT API登录(设置Token）。
         JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
 
-        //构造前端需要的用户数据。
+        //STEP5：构造前端需要的用户数据。
         AuthenticationUser pageUser = constructPageUserInfo(userJO, token, domains);
 
-        // 权限默认给管理员（权限未接入之前）
+        //STEP6：权限默认给管理员（权限未接入之前）
         pageUser.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
         return pageUser;
     }
