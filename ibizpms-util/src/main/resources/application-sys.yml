@@ -17,10 +17,14 @@ spring:
         max-wait: 300ms
         max-idle: 16
         min-idle: 8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   datasource:
     username: zentao
     password: '123456'
-    url: jdbc:mysql://172.16.180.217:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://172.16.180.217:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat,wall,log4j2
     #配置初始化大小/最小/最大
@@ -103,20 +107,4 @@ server:
     mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
     min-response-size: 10240
 
-seata:
-  enabled: false    #是否开启全局事务
-  application-id: pms        #服务标识
-  tx-service-group: pmsgroup #事务组
-  service:
-    vgroup-mapping:
-      pmsgroup: default   #指定事务组对应的Tc Server集群
-  registry:
-    type: nacos   #注册中心
-    nacos:
-      application: seata-server  #Tc Server服务标识
-      server-addr: localhost     #注册中心地址
-      group: DEFAULT_GROUP             #服务组
-      namespace:      #服务命名空间
-      userName: ""     #用户名
-      password: ""     #密码
 
