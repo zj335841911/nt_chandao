@@ -38,6 +38,9 @@ export default {
 	testmain2_form: {
 		details: {
 			group1: "产品统计基本信息", 
+			grouppanel4: "分组面板", 
+			grouppanel5: "分组面板", 
+			grouppanel1: "分组面板", 
 			grouppanel3: "分组面板", 
 			grouppanel2: "分组面板", 
 			formpage1: "基本信息", 
@@ -52,6 +55,7 @@ export default {
 			custom2: "指派给我的Bug数", 
 			formitemex1: "所有", 
 			assigntomebugcnt: "指派给我", 
+			yesterdayresolvedbugcnt: "昨天解决Bug数", 
 			custom3: "所有Bug数", 
 			custom4: "未解决Bug数", 
 			formitemex2: "", 
