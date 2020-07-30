@@ -686,7 +686,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
                 const view: any = { ...this.getUpdateView(name) };
                 const _context: any = JSON.parse(JSON.stringify(this.context));
                 const _param: any = JSON.parse(JSON.stringify(this.viewparams));
-                Object.assign(_context, { srfkey: item.srfkey });
+                Object.assign(_context, { story: item.srfkey });
                 let container: Subject<any>;
                 if (view.placement && !Object.is(view.placement, '') && Object.is(view.placement, 'DRAWER')) {
                     container = this.$appdrawer.openDrawer(view, _context, _param);
