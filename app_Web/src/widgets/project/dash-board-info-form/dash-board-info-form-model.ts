@@ -96,6 +96,11 @@ export default class DashBoardInfoModel {
         dataType: 'INT',
       },
       {
+        name: 'totalhours',
+        prop: 'totalhours',
+        dataType: 'DECIMAL',
+      },
+      {
         name: 'formitem',
         prop: 'totalestimate',
         dataType: 'FLOAT',

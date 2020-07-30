@@ -232,6 +232,78 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [RELATEDBUGCNT]
+     *
+     */
+    @JSONField(name = "relatedbugcnt")
+    @JsonProperty("relatedbugcnt")
+    private Integer relatedbugcnt;
+
+    /**
+     * 属性 [CHANGEDSTORYCNT]
+     *
+     */
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    private Integer changedstorycnt;
+
+    /**
+     * 属性 [DRAFTSTORYCNT]
+     *
+     */
+    @JSONField(name = "draftstorycnt")
+    @JsonProperty("draftstorycnt")
+    private Integer draftstorycnt;
+
+    /**
+     * 属性 [CLOSEDSTORYCNT]
+     *
+     */
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+
+    /**
+     * 属性 [RELATEDPROJECTS]
+     *
+     */
+    @JSONField(name = "relatedprojects")
+    @JsonProperty("relatedprojects")
+    private Integer relatedprojects;
+
+    /**
+     * 属性 [CASES]
+     *
+     */
+    @JSONField(name = "cases")
+    @JsonProperty("cases")
+    private Integer cases;
+
+    /**
+     * 属性 [BUILDS]
+     *
+     */
+    @JSONField(name = "builds")
+    @JsonProperty("builds")
+    private Integer builds;
+
+    /**
+     * 属性 [RELEASES]
+     *
+     */
+    @JSONField(name = "releases")
+    @JsonProperty("releases")
+    private Integer releases;
+
+    /**
+     * 属性 [DOCS]
+     *
+     */
+    @JSONField(name = "docs")
+    @JsonProperty("docs")
+    private Integer docs;
+
 
     /**
      * 设置 [QD]

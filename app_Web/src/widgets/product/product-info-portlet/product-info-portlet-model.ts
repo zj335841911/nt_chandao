@@ -93,6 +93,33 @@ export default class ProductInfoModel {
       {
         name: 'comment',
       },
+      {
+        name: 'relatedbugcnt',
+      },
+      {
+        name: 'changedstorycnt',
+      },
+      {
+        name: 'draftstorycnt',
+      },
+      {
+        name: 'closedstorycnt',
+      },
+      {
+        name: 'relatedprojects',
+      },
+      {
+        name: 'cases',
+      },
+      {
+        name: 'builds',
+      },
+      {
+        name: 'releases',
+      },
+      {
+        name: 'docs',
+      },
     ]
   }
 

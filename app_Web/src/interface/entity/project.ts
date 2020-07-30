@@ -397,4 +397,12 @@ export interface Project {
      * @memberof Project
      */
     totalestimate?: any;
+
+    /**
+     * 可用工时
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    totalhours?: any;
 }

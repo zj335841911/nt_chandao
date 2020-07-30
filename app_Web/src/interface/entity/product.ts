@@ -213,4 +213,76 @@ export interface Product {
      * @memberof Product
      */
     comment?: any;
+
+    /**
+     * 相关Bug数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    relatedbugcnt?: any;
+
+    /**
+     * 已变更需求
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    changedstorycnt?: any;
+
+    /**
+     * 草稿需求
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    draftstorycnt?: any;
+
+    /**
+     * 已关闭需求
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    closedstorycnt?: any;
+
+    /**
+     * 关联项目数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    relatedprojects?: any;
+
+    /**
+     * 用例数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    cases?: any;
+
+    /**
+     * BUILD数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    builds?: any;
+
+    /**
+     * 发布数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    releases?: any;
+
+    /**
+     * 文档数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    docs?: any;
 }

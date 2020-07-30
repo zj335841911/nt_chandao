@@ -162,6 +162,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 

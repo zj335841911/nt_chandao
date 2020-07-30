@@ -162,6 +162,9 @@ export default class MainModel {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 

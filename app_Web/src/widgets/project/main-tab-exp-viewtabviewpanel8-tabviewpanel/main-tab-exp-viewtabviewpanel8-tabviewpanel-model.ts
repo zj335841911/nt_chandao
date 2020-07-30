@@ -162,6 +162,9 @@ export default class MainTabExpViewtabviewpanel8Model {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 

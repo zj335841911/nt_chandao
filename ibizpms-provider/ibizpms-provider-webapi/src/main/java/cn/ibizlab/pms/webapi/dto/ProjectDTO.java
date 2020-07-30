@@ -421,6 +421,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("totalestimate")
     private Double totalestimate;
 
+    /**
+     * 属性 [TOTALHOURS]
+     *
+     */
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Double totalhours;
+
 
     /**
      * 设置 [OPENEDVERSION]

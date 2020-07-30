@@ -49,6 +49,7 @@ export default {
     totalwh: "总工时",
     totalleft: "任务预计剩余总工时",
     totalestimate: "任务最初预计总工时",
+    totalhours: "可用工时",
   },
 	views: {
 		tasktreeexpview: {
@@ -260,6 +261,7 @@ export default {
 			begin: "开始时间", 
 			end: "结束日期", 
 			days: "可用工作日", 
+			totalhours: "可用工时", 
 			formitem: "预计", 
 			formitem1: "消耗", 
 			formitem2: "剩余", 

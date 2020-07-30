@@ -162,6 +162,9 @@ export default class UnClosedProjectModel {
       {
         name: 'totalestimate',
       },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 
