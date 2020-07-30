@@ -115,6 +115,10 @@ zuul:
       path: /users/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_doclib:
+      path: /doclibs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_productmodule:
       path: /productmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

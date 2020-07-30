@@ -66,6 +66,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
         this.allAuthService.set('history', () => import('@/authservice/history/history-auth-service'));
         this.allAuthService.set('user', () => import('@/authservice/user/user-auth-service'));
+        this.allAuthService.set('doclib', () => import('@/authservice/doc-lib/doc-lib-auth-service'));
         this.allAuthService.set('productmodule', () => import('@/authservice/product-module/product-module-auth-service'));
         this.allAuthService.set('module', () => import('@/authservice/module/module-auth-service'));
         this.allAuthService.set('testmodule', () => import('@/authservice/test-module/test-module-auth-service'));
