@@ -34,6 +34,7 @@ import './entity/sub-tasks/sub-tasks';
 import './entity/projects/projects';
 import './entity/historys/historys';
 import './entity/users/users';
+import './entity/doc-libs/doc-libs';
 import './entity/product-modules/product-modules';
 import './entity/modules/modules';
 import './entity/test-modules/test-modules';
