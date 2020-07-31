@@ -421,17 +421,43 @@ div::-webkit-scrollbar-thumb {
 
         >.ivu-select-item {
             color: var(--form-editor-font-color);
+            .el-checkbox.is-disabled {
+                .el-checkbox__inner {
+                    cursor: pointer;
+                    border-color: #409EFF;
+                }
+                .el-checkbox__inner::after {
+                    cursor: pointer;
+                    border-color: #409EFF;
+                }
+                .el-checkbox__label {
+                    color: var(--form-editor-font-color);
+                }
+            }
         }
 
         >.ivu-select-item:hover {
             color: #fff;
             background: var(--form-editor-active-color);
+            .el-checkbox.is-disabled {
+                .el-checkbox__label {
+                    color: #fff;
+                }
+            }
         }
 
-        >.ivu-select-item.ivu-select-item-selected,
         >.ivu-select-item.ivu-select-item-focus {
+            background: var(--form-editor-background-color);
+        }
+        
+        >.ivu-select-item.ivu-select-item-selected {
             color: #fff;
             background: var(--form-editor-active-color);
+            .el-checkbox.is-disabled {
+                .el-checkbox__label {
+                    color: #fff;
+                }
+            }
         }
     }
 }
