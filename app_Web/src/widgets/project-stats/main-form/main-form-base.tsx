@@ -161,7 +161,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         totalleft: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'totalleft', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        yesterdayctaskcnt: new FormItemModel({ caption: '昨日完成任务数', detailType: 'FORMITEM', name: 'yesterdayctaskcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        yesterdayctaskcnt: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'yesterdayctaskcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         taskcnt: new FormItemModel({ caption: '总任务', detailType: 'FORMITEM', name: 'taskcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
