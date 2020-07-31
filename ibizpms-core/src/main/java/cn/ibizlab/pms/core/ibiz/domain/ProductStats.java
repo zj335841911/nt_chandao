@@ -211,6 +211,13 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "yesterdayresolvedbugcnt")
     @JsonProperty("yesterdayresolvedbugcnt")
     private Integer yesterdayresolvedbugcnt;
+    /**
+     * 已延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "postponedprojectcnt")
+    @JsonProperty("postponedprojectcnt")
+    private Integer postponedprojectcnt;
 
 
 

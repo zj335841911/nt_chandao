@@ -183,6 +183,27 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "totalwh")
     @JsonProperty("totalwh")
     private Integer totalwh;
+    /**
+     * 已发布需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasedstorycnt")
+    @JsonProperty("releasedstorycnt")
+    private Integer releasedstorycnt;
+    /**
+     * 昨日完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayctaskcnt")
+    @JsonProperty("yesterdayctaskcnt")
+    private Integer yesterdayctaskcnt;
+    /**
+     * 昨天解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayrbugcnt")
+    @JsonProperty("yesterdayrbugcnt")
+    private Integer yesterdayrbugcnt;
 
 
 

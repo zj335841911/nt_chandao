@@ -79,6 +79,11 @@ export default class MainModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'yesterdayctaskcnt',
+        prop: 'yesterdayctaskcnt',
+        dataType: 'INT',
+      },
+      {
         name: 'taskcnt',
         prop: 'taskcnt',
         dataType: 'INT',

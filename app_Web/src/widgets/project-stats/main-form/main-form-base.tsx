@@ -79,6 +79,7 @@ export class MainEditFormBase extends EditFormControlBase {
         totalestimate: null,
         totalconsumed: null,
         totalleft: null,
+        yesterdayctaskcnt: null,
         taskcnt: null,
         custom1: null,
         custom2: null,
@@ -120,8 +121,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
         grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         grouppanel1: new FormGroupPanelModel({ caption: '任务统计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -161,6 +160,8 @@ export class MainEditFormBase extends EditFormControlBase {
         totalconsumed: new FormItemModel({ caption: '消耗', detailType: 'FORMITEM', name: 'totalconsumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         totalleft: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'totalleft', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yesterdayctaskcnt: new FormItemModel({ caption: '昨日完成任务数', detailType: 'FORMITEM', name: 'yesterdayctaskcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         taskcnt: new FormItemModel({ caption: '总任务', detailType: 'FORMITEM', name: 'taskcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

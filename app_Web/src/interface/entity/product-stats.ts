@@ -197,4 +197,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     yesterdayresolvedbugcnt?: any;
+
+    /**
+     * 已延期
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    postponedprojectcnt?: any;
 }

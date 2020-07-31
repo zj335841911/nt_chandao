@@ -165,4 +165,28 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     totalwh?: any;
+
+    /**
+     * 已发布需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    releasedstorycnt?: any;
+
+    /**
+     * 昨日完成任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    yesterdayctaskcnt?: any;
+
+    /**
+     * 昨天解决Bug数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    yesterdayrbugcnt?: any;
 }
