@@ -266,33 +266,26 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("relatedprojects")
     private Integer relatedprojects;
     /**
-     * 用例数
+     * 文档数
      */
     @TableField(exist = false)
-    @JSONField(name = "cases")
-    @JsonProperty("cases")
-    private Integer cases;
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
     /**
      * BUILD数
      */
     @TableField(exist = false)
-    @JSONField(name = "builds")
-    @JsonProperty("builds")
-    private Integer builds;
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
     /**
-     * 发布数
+     * 用例数
      */
     @TableField(exist = false)
-    @JSONField(name = "releases")
-    @JsonProperty("releases")
-    private Integer releases;
-    /**
-     * 文档数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "docs")
-    @JsonProperty("docs")
-    private Integer docs;
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
 
     /**
      * 产品线

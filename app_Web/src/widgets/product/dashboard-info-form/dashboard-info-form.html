@@ -124,10 +124,10 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.cases.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='cases' :itemRules="this.rules.cases" class='' :caption="$t('entities.product.dashboardinfo_form.details.cases')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.cases.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.casecnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='casecnt' :itemRules="this.rules.casecnt" class='' :caption="$t('entities.product.dashboardinfo_form.details.casecnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.casecnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='cases' :value="data.cases" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='casecnt' :value="data.casecnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -138,17 +138,17 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.builds.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='builds' :itemRules="this.rules.builds" class='' :caption="$t('entities.product.dashboardinfo_form.details.builds')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.builds.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.buildcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='buildcnt' :itemRules="this.rules.buildcnt" class='' :caption="$t('entities.product.dashboardinfo_form.details.buildcnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='builds' :value="data.builds" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='buildcnt' :value="data.buildcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.docs.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='docs' :itemRules="this.rules.docs" class='' :caption="$t('entities.product.dashboardinfo_form.details.docs')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.docs.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.doccnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='doccnt' :itemRules="this.rules.doccnt" class='' :caption="$t('entities.product.dashboardinfo_form.details.doccnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.doccnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='docs' :value="data.docs" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='doccnt' :value="data.doccnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

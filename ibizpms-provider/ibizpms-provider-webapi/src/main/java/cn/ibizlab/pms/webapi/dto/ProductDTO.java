@@ -273,36 +273,28 @@ public class ProductDTO extends DTOBase implements Serializable {
     private Integer relatedprojects;
 
     /**
-     * 属性 [CASES]
+     * 属性 [DOCCNT]
      *
      */
-    @JSONField(name = "cases")
-    @JsonProperty("cases")
-    private Integer cases;
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
 
     /**
-     * 属性 [BUILDS]
+     * 属性 [BUILDCNT]
      *
      */
-    @JSONField(name = "builds")
-    @JsonProperty("builds")
-    private Integer builds;
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
 
     /**
-     * 属性 [RELEASES]
+     * 属性 [CASECNT]
      *
      */
-    @JSONField(name = "releases")
-    @JsonProperty("releases")
-    private Integer releases;
-
-    /**
-     * 属性 [DOCS]
-     *
-     */
-    @JSONField(name = "docs")
-    @JsonProperty("docs")
-    private Integer docs;
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
 
 
     /**

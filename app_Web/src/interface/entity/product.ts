@@ -255,12 +255,12 @@ export interface Product {
     relatedprojects?: any;
 
     /**
-     * 用例数
+     * 文档数
      *
      * @returns {*}
      * @memberof Product
      */
-    cases?: any;
+    doccnt?: any;
 
     /**
      * BUILD数
@@ -268,21 +268,13 @@ export interface Product {
      * @returns {*}
      * @memberof Product
      */
-    builds?: any;
+    buildcnt?: any;
 
     /**
-     * 发布数
+     * 用例数
      *
      * @returns {*}
      * @memberof Product
      */
-    releases?: any;
-
-    /**
-     * 文档数
-     *
-     * @returns {*}
-     * @memberof Product
-     */
-    docs?: any;
+    casecnt?: any;
 }

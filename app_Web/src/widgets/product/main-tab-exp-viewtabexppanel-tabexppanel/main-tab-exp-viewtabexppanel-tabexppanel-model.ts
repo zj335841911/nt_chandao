@@ -109,16 +109,13 @@ export default class MainTabExpViewtabexppanelModel {
         name: 'relatedprojects',
       },
       {
-        name: 'cases',
+        name: 'doccnt',
       },
       {
-        name: 'builds',
+        name: 'buildcnt',
       },
       {
-        name: 'releases',
-      },
-      {
-        name: 'docs',
+        name: 'casecnt',
       },
     ]
   }
