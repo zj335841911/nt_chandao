@@ -417,6 +417,7 @@ export default class RichTextEditor extends Vue {
             branding: false,
             plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars'],
             toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image | preview code fullscreen',
+            contextmenu:'cut copy paste pastetext inserttable link ',
             quickbars_insert_toolbar: false,
             quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
