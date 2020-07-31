@@ -107,6 +107,11 @@ export default class Main2Model {
         dataType: 'INT',
       },
       {
+        name: 'postponedprojectcnt',
+        prop: 'postponedprojectcnt',
+        dataType: 'INT',
+      },
+      {
         name: 'resprojectcnt',
         prop: 'resprojectcnt',
         dataType: 'INT',

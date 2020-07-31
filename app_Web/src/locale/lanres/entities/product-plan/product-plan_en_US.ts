@@ -26,6 +26,10 @@ export default {
 			caption: "产品计划",
       		title: "产品计划表格视图",
 		},
+		projectgridview9: {
+			caption: "项目",
+      		title: "产品计划表格视图（项目）",
+		},
 		editview: {
 			caption: "产品计划",
       		title: "计划",
@@ -73,6 +77,13 @@ export default {
 			end: "结束日期", 
 			desc: "描述", 
 			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	mainproject_grid: {
+		columns: {
+			title: "名称",
 		},
 		uiactions: {
 		},

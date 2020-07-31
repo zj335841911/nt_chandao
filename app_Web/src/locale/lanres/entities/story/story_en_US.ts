@@ -668,12 +668,12 @@ export default {
         story_opencasecreateview: "建用例",
 		},
 	},
-	projectstory_grid: {
+	main_plansub_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
+			modulename: "所属模块名称",
 			title: "需求名称",
-			plan: "计划",
 			openedby: "创建",
 			assignedto: "指派",
 			estimate: "预计",
@@ -682,7 +682,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        story_projectunlinkstory: "移除",
+        story_unlinkstory: "移除关联",
 		},
 	},
 	pickupgrid_grid: {
@@ -699,6 +699,23 @@ export default {
 			stage: "阶段",
 		},
 		uiactions: {
+		},
+	},
+	projectstory_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        story_projectunlinkstory: "移除",
 		},
 	},
 	main_buildsub_grid: {
@@ -745,23 +762,6 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
-		},
-	},
-	main_plansub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			modulename: "所属模块名称",
-			title: "需求名称",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-        story_unlinkstory: "移除关联",
 		},
 	},
 	main_releasesub_grid: {
@@ -838,6 +838,34 @@ export default {
 		},
 	},
 	editview9toolbar_toolbar: {
+	},
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationstory: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	plansubeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
 	},
 	projecteditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -945,34 +973,6 @@ export default {
 		deuiaction2: {
 			caption: "Edit",
 			tip: "Edit {0}",
-		},
-	},
-	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_planrelationstory: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	plansubeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	releasesubgridviewtoolbar_toolbar: {

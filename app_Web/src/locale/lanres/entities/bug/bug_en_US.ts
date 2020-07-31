@@ -583,6 +583,33 @@ export default {
 		uiactions: {
 		},
 	},
+	main_plansub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        bug_unlinkbug: "移除关联",
+		},
+	},
+	pickupgird_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			openedby: "创建",
+			resolvedby: "解决者",
+			status: "Bug状态",
+		},
+		uiactions: {
+		},
+	},
 	main_buildsub2_grid: {
 		columns: {
 			id: "ID",
@@ -596,18 +623,6 @@ export default {
 		},
 		uiactions: {
         bug_unlinkbug_build: "解除关联",
-		},
-	},
-	pickupgird_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			openedby: "创建",
-			resolvedby: "解决者",
-			status: "Bug状态",
-		},
-		uiactions: {
 		},
 	},
 	main_buildsub_grid: {
@@ -636,21 +651,6 @@ export default {
 			title: "Bug标题",
 		},
 		uiactions: {
-		},
-	},
-	main_plansub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-        bug_unlinkbug: "移除关联",
 		},
 	},
 	main_releasesub_grid: {
@@ -717,16 +717,30 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	buildsubgridview_donetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "关联bug",
-			tip: "关联bug",
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationbug: {
+			caption: "关联Bug",
+			tip: "关联Bug",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	buildsubgridview_donetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
 		},
 	},
 	buildsubgridview_newtoolbar_toolbar: {
@@ -745,20 +759,6 @@ export default {
 		deuiaction1: {
 			caption: "提Bug",
 			tip: "提Bug",
-		},
-	},
-	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_planrelationbug: {
-			caption: "关联Bug",
-			tip: "关联Bug",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
 		},
 	},
 	releasesubgridview_donetoolbar_toolbar: {
