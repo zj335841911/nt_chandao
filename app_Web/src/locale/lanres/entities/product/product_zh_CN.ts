@@ -223,6 +223,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			button1: "管理", 
 			grouppanel1: "分组面板", 
 			group1: "product基本信息", 
 			formpage1: "基本信息", 
@@ -246,6 +247,7 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
+			product_manager: "管理",
 		},
 	},
 	mainproject_grid: {
@@ -319,6 +321,20 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	gridviewtoolbar_toolbar: {
+		deuiaction4: {
+			caption: "删除",
+			tip: "删除",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	testgridviewtoolbar_toolbar: {
 		tbitem4: {
 			caption: "编辑",
@@ -353,20 +369,6 @@ export default {
 		deuiaction3_testmanager: {
 			caption: "管理",
 			tip: "管理",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
 		},
 		seperator1: {
 			caption: "",

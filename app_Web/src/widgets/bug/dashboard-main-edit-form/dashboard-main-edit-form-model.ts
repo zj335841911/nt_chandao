@@ -106,6 +106,11 @@ export default class DashboardMainEditModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'plan',
         prop: 'plan',
         dataType: 'PICKUP',
