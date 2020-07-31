@@ -85,11 +85,13 @@ export class MainEditFormBase extends EditFormControlBase {
         custom2: null,
         formitemex1: null,
         undonetaskcnt: null,
+        releasedstorycnt: null,
         storycnt: null,
         custom3: null,
         custom4: null,
         formitemex2: null,
         unclosedstorycnt: null,
+        yesterdayrbugcnt: null,
         bugcnt: null,
         custom5: null,
         custom6: null,
@@ -175,6 +177,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         undonetaskcnt: new FormItemModel({ caption: '未完成', detailType: 'FORMITEM', name: 'undonetaskcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        releasedstorycnt: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'releasedstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         storycnt: new FormItemModel({ caption: '总需求', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         custom3: new FormItemModel({ caption: '需求总数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -184,6 +188,8 @@ export class MainEditFormBase extends EditFormControlBase {
         formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         unclosedstorycnt: new FormItemModel({ caption: '未关闭', detailType: 'FORMITEM', name: 'unclosedstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yesterdayrbugcnt: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'yesterdayrbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         bugcnt: new FormItemModel({ caption: '所有', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

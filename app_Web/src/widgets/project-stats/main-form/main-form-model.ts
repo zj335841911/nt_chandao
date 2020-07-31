@@ -107,6 +107,11 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
+        name: 'releasedstorycnt',
+        prop: 'releasedstorycnt',
+        dataType: 'INT',
+      },
+      {
         name: 'storycnt',
         prop: 'storycnt',
         dataType: 'INT',
@@ -127,6 +132,11 @@ export default class MainModel {
       {
         name: 'unclosedstorycnt',
         prop: 'unclosedstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yesterdayrbugcnt',
+        prop: 'yesterdayrbugcnt',
         dataType: 'INT',
       },
       {
