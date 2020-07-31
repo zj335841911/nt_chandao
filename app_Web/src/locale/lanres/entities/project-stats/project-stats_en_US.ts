@@ -56,7 +56,7 @@ export default {
 			totalestimate: "预计", 
 			totalconsumed: "消耗", 
 			totalleft: "剩余", 
-			yesterdayctaskcnt: "昨日完成任务数", 
+			yesterdayctaskcnt: "", 
 			taskcnt: "总任务", 
 			custom1: "任务总数", 
 			custom2: "已结束任务总数", 
