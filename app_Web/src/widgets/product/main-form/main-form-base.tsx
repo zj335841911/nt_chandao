@@ -75,7 +75,7 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:ProductUIService  = new ProductUIService();
-        curUIService.Product_Manager(datas,contextJO, paramJO,  $event, xData,this,"Product");
+        curUIService.Product_SeLine(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
 
     /**
@@ -139,7 +139,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        button1: new FormButtonModel({ caption: '管理', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'Manager', actiontarget: 'NONE' } }),
+        button1: new FormButtonModel({ caption: '维护产品线', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'SeLine', actiontarget: 'NONE' } }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } }),
 
@@ -186,7 +186,7 @@ export class MainEditFormBase extends EditFormControlBase {
     };
 
 	/**
-	 * 表单 管理 事件
+	 * 表单 维护产品线 事件
 	 *
 	 * @memberof @memberof MainEditFormBase
 	 */

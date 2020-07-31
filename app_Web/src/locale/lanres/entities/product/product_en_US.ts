@@ -158,6 +158,7 @@ export default {
 	},
 	main_edit_form: {
 		details: {
+			button1: "维护产品线", 
 			grouppanel1: "分组面板", 
 			group1: "product基本信息", 
 			formpage1: "基本信息", 
@@ -182,6 +183,7 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
+        product_seline: "维护产品线",
 		},
 	},
 	dashboardinfo_form: {
@@ -224,7 +226,7 @@ export default {
 	},
 	main_form: {
 		details: {
-			button1: "管理", 
+			button1: "维护产品线", 
 			grouppanel1: "分组面板", 
 			group1: "product基本信息", 
 			formpage1: "基本信息", 
@@ -248,7 +250,7 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
-        product_manager: "管理",
+        product_seline: "维护产品线",
 		},
 	},
 	mainproject_grid: {
@@ -322,20 +324,6 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	testgridviewtoolbar_toolbar: {
 		tbitem4: {
 			caption: "Edit",
@@ -370,6 +358,20 @@ export default {
 		deuiaction3_testmanager: {
 			caption: "管理",
 			tip: "管理",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
 		},
 		seperator1: {
 			caption: "",

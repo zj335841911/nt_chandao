@@ -1,8 +1,4 @@
 <studio-embed-view viewName="productplanprojectgridview9" viewTitle="产品计划表格视图（项目）" class='degridview9 product-plan-project-grid-view9'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)" placeholder="名称" />
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
