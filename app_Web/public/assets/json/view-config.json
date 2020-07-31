@@ -89,6 +89,16 @@
         "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5",
         "memo": ""
     },
+    "productprojectgridview9": {
+        "title": "产品表格视图（项目）",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProductProjectGridView9",
+        "viewfilename": "product-project-grid-view9",
+        "viewtag": "0b1b51910ca13751bfd6d356dcadbbce",
+        "memo": ""
+    },
     "testsuiteeditview9": {
         "title": "测试套件编辑视图",
         "caption": "测试套件",

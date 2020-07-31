@@ -49,6 +49,10 @@ export default {
 			caption: "iBiz软件生产管理",
       		title: "iBiz软件生产管理",
 		},
+		projectgridview9: {
+			caption: "项目",
+      		title: "产品表格视图（项目）",
+		},
 		testdashboardview: {
 			caption: "产品",
       		title: "产品测试数据看板视图",
@@ -256,6 +260,14 @@ export default {
 		uiactions: {
 		},
 	},
+	mainproject_grid: {
+		columns: {
+			name: "产品名称",
+			code: "产品代号",
+		},
+		uiactions: {
+		},
+	},
 	test_grid: {
 		columns: {
 			name: "产品名称",
@@ -297,6 +309,12 @@ export default {
 		},
 	},
 	mainview_edittoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
@@ -344,12 +362,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	gridviewtoolbar_toolbar: {
