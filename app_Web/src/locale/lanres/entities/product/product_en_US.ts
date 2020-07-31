@@ -250,6 +250,14 @@ export default {
 		uiactions: {
 		},
 	},
+	mainproject_grid: {
+		columns: {
+			name: "产品名称",
+			code: "产品代号",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			name: "产品名称",
@@ -257,14 +265,6 @@ export default {
 			status: "状态",
 			type: "产品类型",
 			linename: "产品线",
-		},
-		uiactions: {
-		},
-	},
-	mainproject_grid: {
-		columns: {
-			name: "产品名称",
-			code: "产品代号",
 		},
 		uiactions: {
 		},

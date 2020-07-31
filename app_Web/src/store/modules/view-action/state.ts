@@ -28,15 +28,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '03c110360a714011ed9c30b8207d3703',
-            viewmodule: 'zentao',
-            viewname: 'ProjectProductPlanListView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '07004de8a7d23e97b76460f888c8b290',
             viewmodule: 'zentao',
             viewname: 'BugPlanSubGridView',
@@ -82,6 +73,16 @@ export const viewstate: any = {
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
+            viewtag: '0b1b51910ca13751bfd6d356dcadbbce',
+            viewmodule: 'zentao',
+            viewname: 'ProductProjectGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e042a1dee405b0a853f315b39a375783',
             ],
         },
         {
@@ -1349,6 +1350,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '908a34af4784424622d2f7905335d023',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanProjectGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'aad9a5713d6828d3119b811b26915215',
+            ],
+        },
+        {
             viewtag: '90d6a9dc6032a7a7e19fee6ac22fccc0',
             viewmodule: 'zentao',
             viewname: 'StoryAssignToView',
@@ -1997,15 +2008,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'd0454a2ae9eb44aca3613b27169f3b18',
-            viewmodule: 'zentao',
-            viewname: 'ProjectProductListView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'd21c783cde14166ba9deb09e746a0f28',
             viewmodule: 'zentao',
             viewname: 'ProductMyTestTabExpView',
@@ -2235,8 +2237,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'd0454a2ae9eb44aca3613b27169f3b18',
-                '03c110360a714011ed9c30b8207d3703',
+                '0b1b51910ca13751bfd6d356dcadbbce',
+                '908a34af4784424622d2f7905335d023',
             ],
         },
         {

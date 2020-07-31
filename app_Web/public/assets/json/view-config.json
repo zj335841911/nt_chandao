@@ -1419,6 +1419,16 @@
         "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53",
         "memo": ""
     },
+    "productplanprojectgridview9": {
+        "title": "产品计划表格视图（项目）",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProductPlanProjectGridView9",
+        "viewfilename": "product-plan-project-grid-view9",
+        "viewtag": "908a34af4784424622d2f7905335d023",
+        "memo": ""
+    },
     "storyassigntoview": {
         "title": "指派",
         "caption": "指派",

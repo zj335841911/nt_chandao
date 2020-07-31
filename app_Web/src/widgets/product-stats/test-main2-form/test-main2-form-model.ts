@@ -69,6 +69,11 @@ export default class TestMain2Model {
         dataType: 'INT',
       },
       {
+        name: 'yesterdayresolvedbugcnt',
+        prop: 'yesterdayresolvedbugcnt',
+        dataType: 'INT',
+      },
+      {
         name: 'custom3',
         prop: 'bugcnt',
         dataType: 'INT',
@@ -87,6 +92,11 @@ export default class TestMain2Model {
         dataType: 'INT',
       },
       {
+        name: 'yesterdayconfirmbugcnt',
+        prop: 'yesterdayconfirmbugcnt',
+        dataType: 'INT',
+      },
+      {
         name: 'custom5',
         prop: 'bugcnt',
         dataType: 'INT',
@@ -102,6 +112,11 @@ export default class TestMain2Model {
       {
         name: 'unconfirmbugcnt',
         prop: 'unconfirmbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yesterdayclosedbugcnt',
+        prop: 'yesterdayclosedbugcnt',
         dataType: 'INT',
       },
       {

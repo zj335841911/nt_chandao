@@ -13,14 +13,14 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 9, offset: 0 }">
     <app-form-item name='code' :itemRules="this.rules.code" class='' :caption="$t('entities.project.dashboardinfo_form.details.code')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.code.error" :isEmptyCaption="false" labelPos="NONE">
     
 <app-span name='code' :value="data.code" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 13, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.project.dashboardinfo_form.details.name')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="NONE">
     
 <app-span name='name' :value="data.name" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
@@ -56,15 +56,14 @@
     <app-form-group :model="detailsModel.grouppanel6" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel6')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{'height': '150px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem='project' 
-    :parentdata='{"srfparentdefname":"PROJECT","srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT","SRFDER1NID":"DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT"}'
+    :parentdata='{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
-        { pathName: 'products', parameterName: 'product' },
     ]"
     :context="context"
     :viewparams="viewparams"
@@ -72,13 +71,13 @@
     :localParam ='{}'
     parameterName='project'
     parentName="Project"  
-    refviewtype='DELISTVIEW9' 
+    refviewtype='DEGRIDVIEW9' 
     refreshitems='' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='project-product-list-view9' 
+    viewname='product-project-grid-view9' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
-    style="height:150px;overflow: auto;">
+    style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
@@ -91,13 +90,13 @@
     <app-form-group :model="detailsModel.grouppanel7" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel7.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel7')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel7" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{'height': '150px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem='project' 
-    :parentdata='{"srfparentdefname":"PROJECT","srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT","SRFDER1NID":"DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT"}'
+    :parentdata='{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
         { pathName: 'products', parameterName: 'product' },
     ]"
@@ -107,13 +106,13 @@
     :localParam ='{}'
     parameterName='project'
     parentName="Project"  
-    refviewtype='DELISTVIEW9' 
+    refviewtype='DEGRIDVIEW9' 
     refreshitems='' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='project-product-plan-list-view9' 
+    viewname='product-plan-project-grid-view9' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
-    style="height:150px;overflow: auto;">
+    style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
