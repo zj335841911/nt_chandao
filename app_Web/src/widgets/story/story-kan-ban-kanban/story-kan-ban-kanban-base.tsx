@@ -516,7 +516,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
         const arg: any = { ...opt };
         Object.assign(arg, { viewparams: this.viewparams });
         let _context = JSON.parse(JSON.stringify(this.context));
-        Object.assign(_context, { story: opt.task });
+        Object.assign(_context, { story: opt.story });
         const post: Promise<any> = this.service.update(this.updateGroupAction, _context, arg, this.showBusyIndicator);
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
