@@ -116,8 +116,8 @@ export default class DashboardInfoModel {
         dataType: 'INT',
       },
       {
-        name: 'cases',
-        prop: 'cases',
+        name: 'casecnt',
+        prop: 'casecnt',
         dataType: 'INT',
       },
       {
@@ -126,13 +126,13 @@ export default class DashboardInfoModel {
         dataType: 'INT',
       },
       {
-        name: 'builds',
-        prop: 'builds',
+        name: 'buildcnt',
+        prop: 'buildcnt',
         dataType: 'INT',
       },
       {
-        name: 'docs',
-        prop: 'docs',
+        name: 'doccnt',
+        prop: 'doccnt',
         dataType: 'INT',
       },
       {

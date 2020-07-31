@@ -86,10 +86,10 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
         relatedbugcnt: null,
         changedstorycnt: null,
         relatedprojects: null,
-        cases: null,
+        casecnt: null,
         draftstorycnt: null,
-        builds: null,
-        docs: null,
+        buildcnt: null,
+        doccnt: null,
         closedstorycnt: null,
         releasecnt: null,
         id: null,
@@ -162,13 +162,13 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
 
         relatedprojects: new FormItemModel({ caption: '关联项目数', detailType: 'FORMITEM', name: 'relatedprojects', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        cases: new FormItemModel({ caption: '用例数', detailType: 'FORMITEM', name: 'cases', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        casecnt: new FormItemModel({ caption: '用例数', detailType: 'FORMITEM', name: 'casecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         draftstorycnt: new FormItemModel({ caption: '草稿需求', detailType: 'FORMITEM', name: 'draftstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        builds: new FormItemModel({ caption: 'BUILD数', detailType: 'FORMITEM', name: 'builds', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        buildcnt: new FormItemModel({ caption: 'BUILD数', detailType: 'FORMITEM', name: 'buildcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        docs: new FormItemModel({ caption: '文档数', detailType: 'FORMITEM', name: 'docs', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        doccnt: new FormItemModel({ caption: '文档数', detailType: 'FORMITEM', name: 'doccnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         closedstorycnt: new FormItemModel({ caption: '已关闭需求', detailType: 'FORMITEM', name: 'closedstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
