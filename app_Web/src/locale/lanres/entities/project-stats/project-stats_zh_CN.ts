@@ -32,6 +32,7 @@ export default {
 			grouppanel6: "分组面板", 
 			grouppanel5: "分组面板", 
 			grouppanel4: "分组面板", 
+			rawitem1: "", 
 			grouppanel1: "任务统计", 
 			grouppanel2: "需求统计", 
 			grouppanel3: "bug统计", 
