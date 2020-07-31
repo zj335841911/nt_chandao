@@ -20,6 +20,9 @@ export default {
     unconfirmedbugcnt: "未确认Bug总数",
     unclosedbugcnt: "未关闭Bug总数",
     totalwh: "总工时",
+    releasedstorycnt: "已发布需求数",
+    yesterdayctaskcnt: "昨日完成任务数",
+    yesterdayrbugcnt: "昨天解决Bug数",
   },
 	views: {
 		editview9: {
@@ -32,7 +35,6 @@ export default {
 			grouppanel6: "分组面板", 
 			grouppanel5: "分组面板", 
 			grouppanel4: "分组面板", 
-			rawitem1: "", 
 			grouppanel1: "任务统计", 
 			rawitem2: "", 
 			grouppanel2: "需求统计", 
@@ -53,6 +55,7 @@ export default {
 			totalestimate: "预计", 
 			totalconsumed: "消耗", 
 			totalleft: "剩余", 
+			yesterdayctaskcnt: "昨日完成任务数", 
 			taskcnt: "总任务", 
 			custom1: "任务总数", 
 			custom2: "已结束任务总数", 

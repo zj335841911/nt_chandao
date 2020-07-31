@@ -24,6 +24,7 @@ export default {
     yesterdayclosedbugcnt: "昨天关闭Bug数",
     yesterdayconfirmbugcnt: "昨天确认Bug数",
     yesterdayresolvedbugcnt: "昨天解决Bug数",
+    postponedprojectcnt: "已延期",
   },
 	views: {
 		testeditview9: {
