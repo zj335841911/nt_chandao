@@ -77,6 +77,8 @@ export default class DashboardMainEditModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'product',

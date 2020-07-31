@@ -60,6 +60,15 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
 
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof StepsInfoEditFormBase
+     */
+    protected drCount: number = 1;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -95,6 +104,8 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      * @memberof StepsInfoEditFormBase
      */
     public detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.stepsinfo_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),

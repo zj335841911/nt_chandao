@@ -502,6 +502,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "modulename1")
     @JsonProperty("modulename1")
     private String modulename1;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 

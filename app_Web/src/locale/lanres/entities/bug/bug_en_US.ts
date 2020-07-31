@@ -64,6 +64,7 @@ export default {
     modulename: "模块名称",
     branchname: "平台/分支",
     modulename1: "模块名称",
+    files: "附件",
   },
 	views: {
 		plansubgridview: {
@@ -189,6 +190,7 @@ export default {
 	},
 	stepsinfo_form: {
 		details: {
+			druipart1: "", 
 			group1: "Bug基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "修改日期", 
