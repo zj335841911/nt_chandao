@@ -502,7 +502,9 @@ export default class RichTextEditor extends Vue {
             },
             init_instance_callback: (editor: any) => {
                 richtexteditor.editor = editor;
+                const url = richtexteditor.downloadUrl.substring(3);
                 let value = (richtexteditor.value && richtexteditor.value.length > 0) ? richtexteditor.value : '';
+                value = value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
                 if (richtexteditor.editor) {
                     richtexteditor.editor.setContent(value);
                 }
