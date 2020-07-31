@@ -204,6 +204,9 @@ export default class DashboardBugLifeModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

@@ -92,6 +92,8 @@ export default class ResolveModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'comment',

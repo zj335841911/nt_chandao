@@ -509,4 +509,12 @@ export interface Bug {
      * @memberof Bug
      */
     modulename1?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    files?: any;
 }

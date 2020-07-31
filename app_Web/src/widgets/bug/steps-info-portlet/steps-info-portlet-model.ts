@@ -204,6 +204,9 @@ export default class StepsInfoModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

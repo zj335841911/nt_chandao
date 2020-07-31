@@ -204,6 +204,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

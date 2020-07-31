@@ -204,6 +204,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

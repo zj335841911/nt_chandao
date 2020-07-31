@@ -204,6 +204,9 @@ export default class ActionHistoryListModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 
