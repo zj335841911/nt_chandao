@@ -171,10 +171,35 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof Main_NewModeEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'branch', value: null });
+        }
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'plan', value: null });
+        }
+    }
+
+    /**
      * 新建默认值
      * @memberof Main_NewModeEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['productmodule'];
+        }
+        if (this.data.hasOwnProperty('branch')) {
+            this.data['branch'] = this.viewparams['branch'];
+        }
         if (this.data.hasOwnProperty('plan')) {
             this.data['plan'] = this.viewparams['plan'];
         }

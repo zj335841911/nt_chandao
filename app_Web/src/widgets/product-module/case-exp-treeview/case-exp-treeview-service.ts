@@ -236,6 +236,8 @@ export default class CaseExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -387,6 +389,8 @@ export default class CaseExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -519,6 +523,8 @@ export default class CaseExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, {navigateContext: {BRANCH:"0"} });
+            Object.assign(treeNode, {navigateParams: {branch:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);

@@ -87,7 +87,9 @@ export class StoryEditViewBase extends EditViewBase {
 	 */
     protected customViewParams: any = {
         'srfparentdename': { isRawValue: true, value: 'Project' },
-        'project': { isRawValue: false, value: 'project' }
+        'project': { isRawValue: false, value: 'project' },
+        'productmodule': { isRawValue: false, value: 'productmodule' },
+        'branch': { isRawValue: false, value: 'branch' }
     };
 
     /**

@@ -335,6 +335,28 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof Main_EditModeEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'branch', value: null });
+        }
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'plan', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'linkstories', value: null });
+        }
+    }
+
+    /**
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
