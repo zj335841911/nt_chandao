@@ -78,6 +78,17 @@ export class BugEditViewBase extends EditViewBase {
         'PRODUCT': { isRawValue: false, value: 'product' }
     };
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugEditViewBase
+	 */
+    protected customViewParams: any = {
+        'productmodule': { isRawValue: true, value: 'productmodule' }
+    };
+
     /**
      * 视图模型数据
      *
