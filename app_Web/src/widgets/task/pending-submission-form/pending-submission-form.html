@@ -196,7 +196,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.task.pendingsubmission_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
+    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
 </i-col>
