@@ -198,7 +198,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
             this.data['module'] = this.viewparams['productmodule'];
         }
         if (this.data.hasOwnProperty('branch')) {
-            this.data['branch'] = this.viewparams['branch'];
+            this.data['branch'] = this.viewparams['storybranch'];
         }
         if (this.data.hasOwnProperty('plan')) {
             this.data['plan'] = this.viewparams['plan'];

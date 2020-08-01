@@ -75,7 +75,8 @@ export class StoryEditViewBase extends EditViewBase {
 	 */
     protected customViewNavContexts: any = {
         'PROJECT': { isRawValue: false, value: 'project' },
-        'SRFPARENTDENAME': { isRawValue: true, value: 'Project' }
+        'SRFPARENTDENAME': { isRawValue: true, value: 'Project' },
+        'BRANCH': { isRawValue: false, value: 'branch' }
     };
 
 	/**
@@ -89,7 +90,7 @@ export class StoryEditViewBase extends EditViewBase {
         'srfparentdename': { isRawValue: true, value: 'Project' },
         'project': { isRawValue: false, value: 'project' },
         'productmodule': { isRawValue: false, value: 'productmodule' },
-        'branch': { isRawValue: false, value: 'branch' }
+        'storybranch': { isRawValue: false, value: 'branch' }
     };
 
     /**
