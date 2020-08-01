@@ -304,7 +304,7 @@ export class MainBranchGridBase extends GridControlBase {
             row['parent'] = this.viewparams['srfparentkey'];
         }
         if (row.hasOwnProperty('branch')) {
-            row['branch'] = this.viewparams['srfparentkey'];
+            row['branch'] = this.viewparams['branch'];
         }
         if (row.hasOwnProperty('type')) {
             row['type'] = this.viewparams['moduletype'];
