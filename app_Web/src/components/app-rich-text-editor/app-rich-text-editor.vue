@@ -340,6 +340,7 @@ export default class AppRichTextEditor extends Vue {
             branding: false,
             plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars', 'fullscreen'],
             toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image | preview code fullscreen',
+            contextmenu:'cut copy paste pastetext inserttable link ',
             quickbars_insert_toolbar: false,
             quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
@@ -414,7 +415,9 @@ export default class AppRichTextEditor extends Vue {
             },
             init_instance_callback: (editor: any) => {
                 richtexteditor.editor = editor;
+                const url = richtexteditor.downloadUrl.substring(3);
                 let value = (richtexteditor.value && richtexteditor.value.length > 0) ? richtexteditor.value : '';
+                value = value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
                 if (richtexteditor.editor) {
                     richtexteditor.editor.setContent(value);
                 }
@@ -512,5 +515,8 @@ export default class AppRichTextEditor extends Vue {
     .tox-blocker {
         transform: translateX(200%);
     }
+}
+.tox-menu {
+    min-width: 300px !important;
 }
 </style>

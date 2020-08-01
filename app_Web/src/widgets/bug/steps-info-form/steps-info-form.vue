@@ -20,3 +20,6 @@ import { StepsInfoEditFormBase } from './steps-info-form-base';
 @VueLifeCycleProcessing()
 export default class StepsInfoEditForm extends StepsInfoEditFormBase { }
 </script>
+<style lang='less'>
+@import './steps-info-form.less';
+</style>
