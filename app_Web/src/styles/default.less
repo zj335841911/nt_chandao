@@ -213,7 +213,8 @@ div::-webkit-scrollbar-thumb {
                                             background-color: var(--form-editor-background-color);
                                             border: 1px solid var(--form-editor-border-color);
                                         }
-                                        >.el-checkbox__inner::after{
+
+                                        >.el-checkbox__inner::after {
                                             border: 1px solid var(--form-editor-font-color);
                                             border-left: 0;
                                             border-top: 0;
@@ -258,12 +259,13 @@ div::-webkit-scrollbar-thumb {
                                             background-color: var(--form-editor-background-color);
                                             border: 1px solid var(--view-background-color-bright);
                                         }
-                                        >.el-checkbox__inner::after{
-                                          border: 1px solid var(--form-editor-font-color);
-                                          border-left: 0;
-                                          border-top: 0;
+
+                                        >.el-checkbox__inner::after {
+                                            border: 1px solid var(--form-editor-font-color);
+                                            border-left: 0;
+                                            border-top: 0;
                                         }
-                                        
+
                                     }
                                 }
                             }
@@ -421,15 +423,18 @@ div::-webkit-scrollbar-thumb {
 
         >.ivu-select-item {
             color: var(--form-editor-font-color);
+
             .el-checkbox.is-disabled {
                 .el-checkbox__inner {
                     cursor: pointer;
                     border-color: #409EFF;
                 }
+
                 .el-checkbox__inner::after {
                     cursor: pointer;
                     border-color: #409EFF;
                 }
+
                 .el-checkbox__label {
                     color: var(--form-editor-font-color);
                 }
@@ -439,6 +444,7 @@ div::-webkit-scrollbar-thumb {
         >.ivu-select-item:hover {
             color: #fff;
             background: var(--form-editor-active-color);
+
             .el-checkbox.is-disabled {
                 .el-checkbox__label {
                     color: #fff;
@@ -449,10 +455,11 @@ div::-webkit-scrollbar-thumb {
         >.ivu-select-item.ivu-select-item-focus {
             background: var(--form-editor-background-color);
         }
-        
+
         >.ivu-select-item.ivu-select-item-selected {
             color: #fff;
             background: var(--form-editor-active-color);
+
             .el-checkbox.is-disabled {
                 .el-checkbox__label {
                     color: #fff;
@@ -693,7 +700,8 @@ div::-webkit-scrollbar-thumb {
 
                     >.ivu-select-selection {
                         background: var(--form-editor-background-color);
-                        border-color: var(--form-editor-border-color);;
+                        border-color: var(--form-editor-border-color);
+                        ;
 
                         .ivu-select-placeholder {
                             color: var(--form-editor-placeholder-font-color);
@@ -715,14 +723,16 @@ div::-webkit-scrollbar-thumb {
                 }
 
                 // 数值编辑器
-                .ivu-input-number, .ivu-input-number-input, .ivu-input-number-handler-wrap {
+                .ivu-input-number,
+                .ivu-input-number-input,
+                .ivu-input-number-handler-wrap {
                     background-color: var(--form-editor-background-color);
                     color: var(--form-editor-font-color);
                 }
 
                 .ivu-input-number {
                     border-color: var(--form-editor-border-color);
-                    
+
                     .ivu-input-number-input {
                         text-align: left;
                     }
@@ -730,8 +740,9 @@ div::-webkit-scrollbar-thumb {
                     .ivu-input-number-handler {
                         color: var(--form-editor-placeholder-font-color);
                     }
-                    
-                    .ivu-input-number-handler-wrap, .ivu-input-number-handler.ivu-input-number-handler-down {
+
+                    .ivu-input-number-handler-wrap,
+                    .ivu-input-number-handler.ivu-input-number-handler-down {
                         border-color: var(--form-editor-active-color);
                     }
                 }
@@ -1184,11 +1195,11 @@ div::-webkit-scrollbar-thumb {
     padding: 5px;
 
     .data-view-container {
-        
+
         .ivu-col {
             margin-bottom: 10px;
         }
-        
+
         .single-card-data {
             height: 100%;
             width: 100%;
@@ -1237,10 +1248,13 @@ div::-webkit-scrollbar-thumb {
 
 // 列表导航栏样式
 .app-list-exp-bar {
-    > .ivu-split-horizontal {
-        > .left-pane {
+
+    >.ivu-split-horizontal {
+
+        >.left-pane {
             padding-right: 8px;
-            > .container-header {
+
+            >.container-header {
                 margin-bottom: 6px;
             }
         }

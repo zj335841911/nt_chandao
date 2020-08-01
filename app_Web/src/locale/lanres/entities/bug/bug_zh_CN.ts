@@ -200,8 +200,9 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "", 
+			title: "", 
 			steps: "", 
-			id: "Bug编号", 
 		},
 		uiactions: {
 		},
@@ -488,7 +489,6 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			product: "所属产品", 
-			title: "Bug标题", 
 			productname: "产品", 
 			branch: "平台/分支", 
 			branchname: "平台/分支", 

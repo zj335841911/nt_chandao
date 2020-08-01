@@ -313,8 +313,32 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'ISNULL', '') || this.$verify.testCond(_multiple, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.estimate.setDisabled(!ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '0') || this.$verify.testCond(_multiple, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.consumed.setDisabled(!ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '0') || this.$verify.testCond(_multiple, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.left.setDisabled(!ret);
+        }
 
 
 

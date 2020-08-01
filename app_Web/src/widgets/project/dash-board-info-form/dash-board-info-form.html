@@ -234,7 +234,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.project.dashboardinfo_form.details.acl')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="NONE">
     
-<app-span name='acl' :value="data.acl" tag='Product__acl' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='acl' :value="data.acl" tag='Project__acl' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

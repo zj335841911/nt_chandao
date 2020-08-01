@@ -65,7 +65,7 @@ export default {
     },
     Product__acl: {
         "open": "默认设置(有产品视图权限，即可访问)",
-        "private": "私有产品相关负责人和项目团队成员才能访问)",
+        "private": "私有产品(相关负责人和项目团队成员才能访问)",
         "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
         "empty": ""
     },
@@ -355,6 +355,12 @@ export default {
     },
     BugUserRealName: {
         "empty": "",
+    },
+    Project__acl: {
+        "open": "默认设置(有项目视图权限，即可访问)",
+        "private": "私有项目(只有项目团队成员才能访问)",
+        "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
+        "empty": ""
     },
     BeginendDropList: {
         "0600": "06:00",

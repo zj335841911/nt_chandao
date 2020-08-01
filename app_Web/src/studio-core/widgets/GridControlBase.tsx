@@ -257,11 +257,11 @@ export class GridControlBase extends MDControlBase {
     protected ctrlCreated(): void {
         super.ctrlCreated();
         this.setColState();
-        this.$acc.commandLocal(() => {
+        this.accLocalTags.push(this.$acc.commandLocal(() => {
             if (this.isActive) {
                 this.load();
             }
-        }, 'all', this.appDeName.toUpperCase());
+        }, 'all', this.appDeName.toUpperCase()));
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

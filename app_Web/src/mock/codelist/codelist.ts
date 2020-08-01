@@ -445,8 +445,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "private",
-                label: "私有产品相关负责人和项目团队成员才能访问)",
-                text: "私有产品相关负责人和项目团队成员才能访问)",
+                label: "私有产品(相关负责人和项目团队成员才能访问)",
+                text: "私有产品(相关负责人和项目团队成员才能访问)",
                 "data":"",
                 "codename":"Private",
                 value: "private",
@@ -2492,6 +2492,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"User",
         "appdedataset":"FetchBugUser",
         "items": []
+    },
+    {
+        srfkey: "Project__acl",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "open",
+                label: "默认设置(有项目视图权限，即可访问)",
+                text: "默认设置(有项目视图权限，即可访问)",
+                "data":"",
+                "codename":"Open",
+                value: "open",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有项目(只有项目团队成员才能访问)",
+                text: "私有项目(只有项目团队成员才能访问)",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义白名单(团队成员和白名单的成员可以访问)",
+                text: "自定义白名单(团队成员和白名单的成员可以访问)",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "BeginendDropList",
