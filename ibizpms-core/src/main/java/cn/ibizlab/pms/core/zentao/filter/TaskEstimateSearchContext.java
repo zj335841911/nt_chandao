@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 @Data
 public class TaskEstimateSearchContext extends QueryWrapperContext<TaskEstimate> {
 
+	private BigInteger n_id_like;//[编号]
+	public void setN_id_like(BigInteger n_id_like) {
+        this.n_id_like = n_id_like;
+        if(!ObjectUtils.isEmpty(this.n_id_like)){
+            this.getSearchCond().like("id", n_id_like);
+        }
+    }
 	private BigInteger n_task_eq;//[任务]
 	public void setN_task_eq(BigInteger n_task_eq) {
         this.n_task_eq = n_task_eq;
