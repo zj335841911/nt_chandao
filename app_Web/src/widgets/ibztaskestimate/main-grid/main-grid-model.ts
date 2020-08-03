@@ -27,15 +27,15 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'work',
           prop: 'work',
           dataType: 'LONGTEXT',
           isEditable:true
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'consumed',
