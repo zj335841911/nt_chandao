@@ -66,6 +66,28 @@ export class TaskEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'MODULE': { isRawValue: false, value: 'module' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskEditViewBase
+	 */
+    protected customViewParams: any = {
+        'module': { isRawValue: false, value: 'module' }
+    };
+
     /**
      * 视图模型数据
      *
