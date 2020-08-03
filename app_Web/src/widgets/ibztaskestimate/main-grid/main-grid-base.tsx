@@ -1,9 +1,9 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControlBase } from '@/studio-core';
-import IBZTaskestimateService from '@/service/ibztaskestimate/ibztaskestimate-service';
+import IBZTASKESTIMATEService from '@/service/ibztaskestimate/ibztaskestimate-service';
 import MainService from './main-grid-service';
-import IBZTaskestimateUIService from '@/uiservice/ibztaskestimate/ibztaskestimate-ui-service';
+import IBZTASKESTIMATEUIService from '@/uiservice/ibztaskestimate/ibztaskestimate-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -36,10 +36,10 @@ export class MainGridBase extends GridControlBase {
     /**
      * 实体服务对象
      *
-     * @type {IBZTaskestimateService}
+     * @type {IBZTASKESTIMATEService}
      * @memberof MainGridBase
      */
-    public appEntityService: IBZTaskestimateService = new IBZTaskestimateService({ $store: this.$store });
+    public appEntityService: IBZTASKESTIMATEService = new IBZTASKESTIMATEService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -51,30 +51,13 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'ibztaskestimate';
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {IBZTaskestimateUIService}
-     * @memberof MainBase
-     */  
-    public appUIService:IBZTaskestimateUIService = new IBZTaskestimateUIService(this.$store);
-
-    /**
-     * 界面行为模型
-     *
-     * @type {*}
-     * @memberof MainBase
-     */  
-    public ActionModel: any = {
-    };
-
-    /**
      * 本地缓存标识
      *
      * @protected
      * @type {string}
-     * @memberof MainBase
+     * @memberof GridControlBase
      */
-    protected localStorageTag: string = 'ibztaskestimate_main_grid';
+    protected localStorageTag: string = 'ibz_taskestimate_main_grid';
 
     /**
      * 所有列成员
@@ -85,35 +68,39 @@ export class MainGridBase extends GridControlBase {
     public allColumns: any[] = [
         {
             name: 'date',
+            property: 'date',
             label: '日期',
             langtag: 'entities.ibztaskestimate.main_grid.columns.date',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
+            width: 100,
         },
         {
             name: 'consumed',
+            property: 'consumed',
             label: '总计消耗',
             langtag: 'entities.ibztaskestimate.main_grid.columns.consumed',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
+            width: 100,
         },
         {
             name: 'left',
+            property: 'left',
             label: '预计剩余',
             langtag: 'entities.ibztaskestimate.main_grid.columns.left',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
+            width: 100,
         },
         {
             name: 'work',
+            property: 'work',
             label: '备注',
             langtag: 'entities.ibztaskestimate.main_grid.columns.work',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
+            width: 100,
         },
     ]
 
@@ -128,7 +115,6 @@ export class MainGridBase extends GridControlBase {
           id: new FormItemModel(),
           work: new FormItemModel(),
           consumed: new FormItemModel(),
-          task: new FormItemModel(),
           left: new FormItemModel(),
           date: new FormItemModel(),
           srfkey: new FormItemModel(),
@@ -153,10 +139,6 @@ export class MainGridBase extends GridControlBase {
         consumed: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'blur' },
-        ],
-        task: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务 值不能为空', trigger: 'blur' },
         ],
         left: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'change' },
@@ -211,4 +193,83 @@ export class MainGridBase extends GridControlBase {
         ]);
     }
 
+    /**
+     * 添加数据
+     * @param {*}  row 行数据
+     * @memberof Main
+     */
+    public add({ row, index }: { row: any, index: number }, func: Function) {
+        if(!this.loaddraftAction){
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格loaddraftAction参数未配置' });
+            return;
+        }
+        let _this = this;
+        let param: any = {};
+        Object.assign(param,{viewparams:this.viewparams});
+        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), param, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data = response.data;
+            this.createDefault(data);
+            data.rowDataState = "create";
+            if(row.type) {
+                if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                    data.type = 'item';
+                } else {
+                    data.type = 'step';
+                }
+            }
+            if(func instanceof Function) {
+                func(data);
+            }
+            _this.gridItemsModel.push(_this.getGridRowModel());
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
+
+    /**
+     * 保存
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @returns
+     * @memberof Main
+     */
+    public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        for (const item of this.items) {
+            if(Object.is(item.rowDataState, 'create')) {
+                continue;
+            }
+            let _removeAction = this.removeAction;
+            let _keys = item.srfkey;
+            const _context: any = JSON.parse(JSON.stringify(this.context));
+            await this.service.delete(_removeAction, Object.assign(_context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
+        }
+        let successItems: any = [];
+        for (const item of this.items) {
+            const _context: any = JSON.parse(JSON.stringify(this.context));
+            let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
+            if (Object.is(item.rowDataState, 'create')) {
+                Data.id = null;
+            }
+            Object.assign(Data, { viewparams: this.viewparams });
+            let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), Data, this.showBusyIndicator);
+            successItems.push(JSON.parse(JSON.stringify(response.data)));
+        }
+        this.$emit('save', successItems);
+    }
 }

@@ -47,7 +47,6 @@ export default class MainModel {
           name: 'task',
           prop: 'task',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'left',

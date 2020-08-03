@@ -2,82 +2,82 @@ import { Environment } from '@/environments/environment';
 import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
-import IBZTaskestimateService from '@/service/ibztaskestimate/ibztaskestimate-service';
-import IBZTaskestimateAuthService from '@/authservice/ibztaskestimate/ibztaskestimate-auth-service';
+import IBZTASKESTIMATEService from '@/service/ibztaskestimate/ibztaskestimate-service';
+import IBZTASKESTIMATEAuthService from '@/authservice/ibztaskestimate/ibztaskestimate-auth-service';
 
 /**
  * 任务预计UI服务对象基类
  *
  * @export
- * @class IBZTaskestimateUIServiceBase
+ * @class IBZTASKESTIMATEUIServiceBase
  */
-export default class IBZTaskestimateUIServiceBase extends UIService {
+export default class IBZTASKESTIMATEUIServiceBase extends UIService {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */
-    public dataService:IBZTaskestimateService = new IBZTaskestimateService();
+    public dataService:IBZTASKESTIMATEService = new IBZTASKESTIMATEService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * 主状态操作标识Map
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */ 
     public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  IBZTaskestimateUIServiceBase.
+     * Creates an instance of  IBZTASKESTIMATEUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.authService = new IBZTaskestimateAuthService(opts);
+        this.authService = new IBZTASKESTIMATEAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
         this.initDeMainStateOPPrivsMap();
@@ -86,16 +86,16 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
     /**
      * 初始化视图Map
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibztaskestimates'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskestimates'});
     }
 
     /**
      * 初始化主状态集合
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -103,7 +103,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
     /**
      * 初始化主状态操作标识
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
     }
@@ -114,7 +114,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
@@ -146,7 +146,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -158,7 +158,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -192,7 +192,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  IBZTaskestimateUIServiceBase
+     * @memberof  IBZTASKESTIMATEUIServiceBase
      */  
     public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
@@ -228,7 +228,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
     * 获取数据对象当前操作标识
     * 
     * @param data 当前数据
-    * @memberof  IBZTaskestimateUIServiceBase
+    * @memberof  IBZTASKESTIMATEUIServiceBase
     */  
    public getDEMainStateOPPrivs(data:any){
         if(this.getDEMainStateTag(data)){
@@ -242,7 +242,7 @@ export default class IBZTaskestimateUIServiceBase extends UIService {
     * 获取数据对象所有的操作标识
     * 
     * @param data 当前数据
-    * @memberof  IBZTaskestimateUIServiceBase
+    * @memberof  IBZTASKESTIMATEUIServiceBase
     */ 
    public getAllOPPrivs(data:any){
        return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));

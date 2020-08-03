@@ -37,6 +37,7 @@ import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/entities/project-team/project-team_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
+import ibztaskestimate_zh_CN from '@locale/lanres/entities/ibztaskestimate/ibztaskestimate_zh_CN';
 import productline_zh_CN from '@locale/lanres/entities/product-line/product-line_zh_CN';
 import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
@@ -328,6 +329,7 @@ export default {
         testsuite: testsuite_zh_CN,
         projectteam: projectteam_zh_CN,
         testtask: testtask_zh_CN,
+        ibztaskestimate: ibztaskestimate_zh_CN,
         productline: productline_zh_CN,
         testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,
