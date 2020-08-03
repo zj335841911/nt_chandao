@@ -2,82 +2,82 @@ import { Environment } from '@/environments/environment';
 import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
-import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
-import TaskEstimateAuthService from '@/authservice/task-estimate/task-estimate-auth-service';
+import IBZTaskEstimateService from '@/service/ibztask-estimate/ibztask-estimate-service';
+import IBZTaskEstimateAuthService from '@/authservice/ibztask-estimate/ibztask-estimate-auth-service';
 
 /**
  * 任务预计UI服务对象基类
  *
  * @export
- * @class TaskEstimateUIServiceBase
+ * @class IBZTaskEstimateUIServiceBase
  */
-export default class TaskEstimateUIServiceBase extends UIService {
+export default class IBZTaskEstimateUIServiceBase extends UIService {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */
-    public dataService:TaskEstimateService = new TaskEstimateService();
+    public dataService:IBZTaskEstimateService = new IBZTaskEstimateService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * 主状态操作标识Map
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */ 
     public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  TaskEstimateUIServiceBase.
+     * Creates an instance of  IBZTaskEstimateUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.authService = new TaskEstimateAuthService(opts);
+        this.authService = new IBZTaskEstimateAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
         this.initDeMainStateOPPrivsMap();
@@ -86,15 +86,16 @@ export default class TaskEstimateUIServiceBase extends UIService {
     /**
      * 初始化视图Map
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskestimates'});
     }
 
     /**
      * 初始化主状态集合
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -102,7 +103,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
     /**
      * 初始化主状态操作标识
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
     }
@@ -113,12 +114,12 @@ export default class TaskEstimateUIServiceBase extends UIService {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
         // 进行数据查询
-        let result:any = await this.dataService.Get({taskestimate:srfkey});
+        let result:any = await this.dataService.Get({ibztaskestimate:srfkey});
         const curData:any = result.data;
         //判断当前数据模式,默认为true，todo
         const iRealDEModel:boolean = true;
@@ -145,7 +146,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -157,7 +158,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -191,7 +192,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  TaskEstimateUIServiceBase
+     * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
@@ -227,7 +228,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
     * 获取数据对象当前操作标识
     * 
     * @param data 当前数据
-    * @memberof  TaskEstimateUIServiceBase
+    * @memberof  IBZTaskEstimateUIServiceBase
     */  
    public getDEMainStateOPPrivs(data:any){
         if(this.getDEMainStateTag(data)){
@@ -241,7 +242,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
     * 获取数据对象所有的操作标识
     * 
     * @param data 当前数据
-    * @memberof  TaskEstimateUIServiceBase
+    * @memberof  IBZTaskEstimateUIServiceBase
     */ 
    public getAllOPPrivs(data:any){
        return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));

@@ -1,10 +1,10 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import IBZTASKESTIMATEService from '@/service/ibztaskestimate/ibztaskestimate-service';
-import IBZTASKESTIMATEAuthService from '@/authservice/ibztaskestimate/ibztaskestimate-auth-service';
+import IBZTaskEstimateService from '@/service/ibztask-estimate/ibztask-estimate-service';
+import IBZTaskEstimateAuthService from '@/authservice/ibztask-estimate/ibztask-estimate-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
-import IBZTASKESTIMATEUIService from '@/uiservice/ibztaskestimate/ibztaskestimate-ui-service';
+import IBZTaskEstimateUIService from '@/uiservice/ibztask-estimate/ibztask-estimate-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -46,18 +46,18 @@ export class TaskEstimateGridView9Base extends GridView9Base {
     /**
      * 实体服务对象
      *
-     * @type {IBZTASKESTIMATEService}
+     * @type {IBZTaskEstimateService}
      * @memberof TaskEstimateGridView9Base
      */
-    protected appEntityService: IBZTASKESTIMATEService = new IBZTASKESTIMATEService;
+    protected appEntityService: IBZTaskEstimateService = new IBZTaskEstimateService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IBZTASKESTIMATEUIService
+     * @type IBZTaskEstimateUIService
      * @memberof TaskEstimateGridView9Base
      */
-    public appUIService: IBZTASKESTIMATEUIService = new IBZTASKESTIMATEUIService(this.$store);
+    public appUIService: IBZTaskEstimateUIService = new IBZTaskEstimateUIService(this.$store);
 
 
     /**
@@ -242,7 +242,7 @@ export class TaskEstimateGridView9Base extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZTASKESTIMATE");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZTaskEstimate");
     }
 
     /**
