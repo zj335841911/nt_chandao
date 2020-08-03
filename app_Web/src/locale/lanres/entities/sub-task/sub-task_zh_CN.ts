@@ -52,7 +52,7 @@ export default {
     multiple: "多人任务",
     taskteams: "项目团队成员",
     modulename1: "所属模块",
-    taskestimates: "预计工时",
+    ibztaskestimates: "工时",
   },
 	views: {
 		subtasknewview: {
