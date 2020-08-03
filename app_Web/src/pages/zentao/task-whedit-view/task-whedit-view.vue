@@ -6,7 +6,7 @@ import { TaskWHEditViewBase } from './task-whedit-view-base';
 import view_form from '@widgets/task/task-estimate-form/task-estimate-form.vue';
 
 /**
- * 任务编辑视图（工时）视图
+ * 工时视图
  *
  * @export
  * @class TaskWHEditView

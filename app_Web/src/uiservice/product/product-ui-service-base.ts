@@ -132,8 +132,8 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{'EDIT':0,'DELETE':0,'CLOSED':1,'CREATE':1,'DELETE':0,'EDIT':0,'READ':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('normal',{'EDIT':0,'CLOSED':0,'DELETE':0,'CLOSED':0,'CREATE':1,'DELETE':0,'EDIT':0,'READ':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',{'CLOSED':1,'CREATE':1,'DELETE':0,'EDIT':0,'READ':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'CLOSED':0,'CREATE':1,'DELETE':0,'EDIT':0,'READ':1,'UPDATE':1});
     }
 
     /**

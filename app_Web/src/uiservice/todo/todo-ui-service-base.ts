@@ -118,9 +118,9 @@ export default class TodoUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'TOBUG':1,'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'TOTASK':1,'DELETE':1,'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('done',{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1,'ACTIVATE':1,'ASSIGNTO':0,'CLOSE':1,'CREATE':0,'DELETE':1,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1,'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('done',{'ACTIVATE':1,'ASSIGNTO':0,'CLOSE':1,'CREATE':0,'DELETE':1,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
     }
 
     /**

@@ -113,7 +113,7 @@ export default {
 		},
 		wheditview: {
 			caption: "工时",
-      		title: "任务编辑视图（工时）",
+      		title: "工时",
 		},
 		activationtaskview: {
 			caption: "激活任务",

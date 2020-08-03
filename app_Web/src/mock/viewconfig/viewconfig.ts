@@ -1024,7 +1024,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "7e14015af219d302f7d81ff40cdcc418"
         },
         "taskwheditview": {
-            "title": "任务编辑视图（工时）",
+            "title": "工时",
             "caption": "工时",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1110,6 +1110,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryReleaseSubGridView",
             "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
+        },
+        "taskestimategridview9": {
+            "title": "任务预计表格视图",
+            "caption": "工时",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskEstimateGridView9",
+            "viewtag": "8b96b7671df722e66d78808ee0636349"
         },
         "taskworkinfoeditview9": {
             "title": "工时信息",

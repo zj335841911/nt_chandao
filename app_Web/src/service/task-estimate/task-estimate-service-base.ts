@@ -68,6 +68,9 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().get(`/taskestimates/${context.taskestimate}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -136,6 +139,18 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/taskestimates`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -176,6 +191,11 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -204,6 +224,8 @@ export default class TaskEstimateServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
+            let res:any = Http.getInstance().delete(`/taskestimates/${context.taskestimate}`,isloading);
+            return res;
     }
 
     /**
@@ -236,6 +258,9 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -272,6 +297,10 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        let res:any = await  Http.getInstance().get(`/taskestimates/getdraft`,isloading);
+        res.data.taskestimate = data.taskestimate;
+        
+        return res;
     }
 
     /**
@@ -312,6 +341,8 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -352,6 +383,11 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -384,5 +420,8 @@ export default class TaskEstimateServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimates/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

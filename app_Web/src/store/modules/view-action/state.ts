@@ -809,9 +809,9 @@ export const viewstate: any = {
                 'f27febc6ab4d30f9e419caf1e6930a94',
                 '7f425ca5154c34294ce6c0817d6cb875',
                 '843526ee13bf0af6fe937470853bf36b',
-                '21e00a7239d9737bbfda5c1608b4129c',
                 'c9c256aef78723e1bf9ddc1d38667c3f',
                 'a97ff9ae4f22d5974b51af2c0fae1aa2',
+                '21e00a7239d9737bbfda5c1608b4129c',
                 'b03bf2445d2e295fccbb6280b2601248',
                 '770a170098d148e438a7666b248e6519',
                 '35ba93bac795e0deb7297d2d471b7180',
@@ -963,15 +963,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '02b7ecd8e994b90558a9d6c23705f600',
-            ],
-        },
-        {
-            viewtag: '69fa6ad7cf2e6502d04d18f025f24bb7',
-            viewmodule: 'zentao',
-            viewname: 'TaskEstimateGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -1211,7 +1202,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '69fa6ad7cf2e6502d04d18f025f24bb7',
+                '8b96b7671df722e66d78808ee0636349',
             ],
         },
         {
@@ -1301,6 +1292,15 @@ export const viewstate: any = {
             refviews: [
                 '928e6614bcfbd67af3b596cf5dc5a46b',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
+            ],
+        },
+        {
+            viewtag: '8b96b7671df722e66d78808ee0636349',
+            viewmodule: 'zentao',
+            viewname: 'TaskEstimateGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

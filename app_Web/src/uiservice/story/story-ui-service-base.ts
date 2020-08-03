@@ -152,10 +152,10 @@ export default class StoryUIServiceBase extends UIService {
      * @memberof  StoryUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',{'CHANGED':1,'CLOSED':1,'DELETE':1,'EDIT':1,'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('changed',{'CHANGED':1,'DELETE':1,'EDIT':1,'CLOSED':1,'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':1,'EDIT':1,'ACTIVE':1,'ACTIVE':1,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('draft',{'EDIT':1,'DELETE':1,'CLOSED':1,'CHANGED':1,'ACTIVE':1,'ACTIVE':1,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('active',{'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('changed',{'DELETE':1,'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':1,'ACTIVE':1,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('draft',{'ACTIVE':1,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
     }
 
     /**
