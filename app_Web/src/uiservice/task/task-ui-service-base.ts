@@ -103,6 +103,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'kanbanview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'wheditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'activationtaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'workinfoeditview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'tasks'});
@@ -136,12 +137,12 @@ export default class TaskUIServiceBase extends UIService {
      * @memberof  TaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CLOSE':1,'SUBTASKS':1});
-        this.allDeMainStateOPPrivsMap.set('closed',{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1});
-        this.allDeMainStateOPPrivsMap.set('doing',{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1});
-        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':1,'EDIT':1,'ASSIGN':1,'ACTIVATION':1,'SUBTASKS':1,'DELETE':1});
-        this.allDeMainStateOPPrivsMap.set('pause',{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1});
+        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CLOSE':1,'SUBTASKS':1,'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1,'ACTIVATION':1,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('doing',{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1,'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':1,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':1,'EDIT':1,'ASSIGN':1,'ACTIVATION':1,'SUBTASKS':1,'DELETE':1,'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('pause',{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1,'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':1,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait',{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1,'ACTIVATION':1,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':1,'SUBTASKS':1,'UPDATE':0});
     }
 
     /**
@@ -195,10 +196,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -262,10 +259,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -329,10 +322,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -396,10 +385,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -463,10 +448,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -531,10 +512,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -598,10 +575,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -610,6 +583,69 @@ export default class TaskUIServiceBase extends UIService {
                 height: 600, 
                 width: 800,  
                 title: actionContext.$t('entities.task.views.forwardview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 工时
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_WorkHours(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-whedit-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.wheditview.title'),
             };
             openPopupModal(view, data);
     }
@@ -665,10 +701,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -732,10 +764,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -799,10 +827,6 @@ export default class TaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -906,7 +930,7 @@ export default class TaskUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

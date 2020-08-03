@@ -49,7 +49,6 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -107,6 +106,15 @@ export class ResolveEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ResolveBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

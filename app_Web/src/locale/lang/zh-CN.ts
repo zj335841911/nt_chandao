@@ -2,6 +2,7 @@ import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team_zh_CN';
+import ibztaskestimate_zh_CN from '@locale/lanres/entities/ibztaskestimate/ibztaskestimate_zh_CN';
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
@@ -19,6 +20,7 @@ import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
 import dept_zh_CN from '@locale/lanres/entities/dept/dept_zh_CN';
 import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
 import ibzcasestep_zh_CN from '@locale/lanres/entities/ibzcase-step/ibzcase-step_zh_CN';
+import taskestimate_zh_CN from '@locale/lanres/entities/task-estimate/task-estimate_zh_CN';
 import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
 import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
@@ -70,6 +72,7 @@ export default {
             deleteError: "删除失败！",
             delDataFail: "删除数据失败",
             noData: "暂无数据",
+            startsuccess:"启动成功"
         },
         local:{
             new: "新建",
@@ -291,6 +294,7 @@ export default {
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
         ibztaskteam: ibztaskteam_zh_CN,
+        ibztaskestimate: ibztaskestimate_zh_CN,
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
@@ -308,6 +312,7 @@ export default {
         dept: dept_zh_CN,
         company: company_zh_CN,
         ibzcasestep: ibzcasestep_zh_CN,
+        taskestimate: taskestimate_zh_CN,
         story: story_zh_CN,
         todo: todo_zh_CN,
         subtask: subtask_zh_CN,

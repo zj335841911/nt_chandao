@@ -23,6 +23,14 @@ export class FormControlBase extends MainControlBase {
     public formState: Subject<any> = new Subject();
 
     /**
+     * 实体值规则
+     *
+     * @type {*}
+     * @memberof FormControlBase
+     */
+    public deRules: any = {};
+
+    /**
      * 忽略表单项值变化
      *
      * @type {boolean}
@@ -362,7 +370,7 @@ export class FormControlBase extends MainControlBase {
      * @memberof FormControlBase
      */
     public async checkItem(name: string): Promise<any> {
-        const validator = new schema({ [name]: this.rules[name] });
+        const validator = new schema({ [name]: this.rules()[name] });
         try {
             await validator.validate({ [name]: this.data[name] });
             return true;
@@ -463,7 +471,7 @@ export class FormControlBase extends MainControlBase {
      */
     public load(opt: any = {}): void {
         if (!this.loadAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc:  (this.$t('app.formpage.notconfig.loadaction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.notconfig.loadaction') as string) });
             return;
         }
         const arg: any = { ...opt };
@@ -540,6 +548,74 @@ export class FormControlBase extends MainControlBase {
                 return;
             }
         });
+    }
+
+    /**
+     * 校验属性值规则
+     *
+     * @param {string} name
+     * @param {*} [rule=this.deRules]
+     * @param {string} [op="AND"]
+     * @returns {{isPast:boolean,infoMessage:string}}
+     * @memberof FormControlBase
+     */
+    public verifyDeRules(name: string, rule: any = this.deRules, op: string = "AND"): { isPast: boolean, infoMessage: string } {
+        let falg: any = { infoMessage: "" };
+        if (!rule[name]) {
+            return falg;
+        }
+        let opValue = op == 'AND' ? true : false;
+        let startOp = (val: boolean) => {
+            if (falg.isPast) {
+                if (opValue) {
+                    falg.isPast = falg && val;
+                } else {
+                    falg.isPast = falg || val;
+                }
+            } else {
+                falg.isPast = val;
+            }
+        }
+        rule[name].forEach((item: any) => {
+            let dataValue = item.deName ? this.data[this.service.getItemNameByDeName(item.deName)] : "";
+            // 常规规则
+            if (item.type == 'SIMPLE') {
+                startOp(!this.$verify.checkFieldSimpleRule(dataValue, item.condOP, item.paramValue, item.ruleInfo, item.paramType, this.data, item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 数值范围
+            if (item.type == 'VALUERANGE2') {
+                startOp(!this.$verify.checkFieldValueRangeRule(dataValue, item.minValue, item.isIncludeMinValue, item.maxValue, item.isIncludeMaxValue, item.ruleInfo, item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 正则式
+            if (item.type == "REGEX") {
+                startOp(!this.$verify.checkFieldRegExRule(dataValue, item.regExCode, item.ruleInfo, item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 长度
+            if (item.type == "STRINGLENGTH") {
+                startOp(!this.$verify.checkFieldStringLengthRule(dataValue, item.minValue, item.isIncludeMinValue, item.maxValue, item.isIncludeMaxValue, item.ruleInfo, item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 系统值规则
+            if (item.type == "SYSVALUERULE") {
+                startOp(!this.$verify.checkFieldSysValueRule(dataValue, item.sysRule.regExCode, item.ruleInfo, item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 分组
+            if (item.type == 'GROUP') {
+                falg = this.verifyDeRules('group', item)
+                if (item.isNotMode) {
+                    falg.isPast = !falg.isPast;
+                }
+            }
+
+        });
+        if (!falg.hasOwnProperty("isPast")) {
+            falg.isPast = true;
+        }
+        return falg;
     }
 
 }

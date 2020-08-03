@@ -49,7 +49,8 @@ export default class ProductLifeServiceBase extends EntityService {
      */
     public async FetchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -63,7 +64,8 @@ export default class ProductLifeServiceBase extends EntityService {
      */
     public async FetchRoadMapYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productlives/fetchroadmapyear`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productlives/fetchroadmapyear`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -77,7 +79,8 @@ export default class ProductLifeServiceBase extends EntityService {
      */
     public async FetchGetRoadmapS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productlives/fetchgetroadmaps`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productlives/fetchgetroadmaps`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -90,7 +93,9 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/productlives/${context.productlife}/select`,isloading);
+            let res:any = Http.getInstance().get(`/productlives/${context.productlife}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -103,7 +108,5 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productlives/select`,tempData,isloading);
     }
 }

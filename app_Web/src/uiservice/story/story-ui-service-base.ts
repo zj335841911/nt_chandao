@@ -152,10 +152,10 @@ export default class StoryUIServiceBase extends UIService {
      * @memberof  StoryUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',{'CHANGED':1,'CLOSED':1,'DELETE':1,'EDIT':1});
-        this.allDeMainStateOPPrivsMap.set('changed',{'CHANGED':1,'DELETE':1,'EDIT':1,'CLOSED':1});
-        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':1,'EDIT':1,'ACTIVE':1});
-        this.allDeMainStateOPPrivsMap.set('draft',{'EDIT':1,'DELETE':1,'CLOSED':1,'CHANGED':1,'ACTIVE':1});
+        this.allDeMainStateOPPrivsMap.set('active',{'CHANGED':1,'CLOSED':1,'DELETE':1,'EDIT':1,'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('changed',{'CHANGED':1,'DELETE':1,'EDIT':1,'CLOSED':1,'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':1,'EDIT':1,'ACTIVE':1,'ACTIVE':1,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('draft',{'EDIT':1,'DELETE':1,'CLOSED':1,'CHANGED':1,'ACTIVE':1,'ACTIVE':1,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
     }
 
     /**
@@ -209,10 +209,6 @@ export default class StoryUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -278,10 +274,6 @@ export default class StoryUIServiceBase extends UIService {
                     const _this: any = actionContext;
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
                     }
                     return result.datas;
                 });
@@ -508,10 +500,6 @@ export default class StoryUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -575,10 +563,6 @@ export default class StoryUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -645,10 +629,6 @@ export default class StoryUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -713,10 +693,6 @@ export default class StoryUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -1019,10 +995,6 @@ export default class StoryUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -1088,10 +1060,6 @@ export default class StoryUIServiceBase extends UIService {
                     const _this: any = actionContext;
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
                     }
                     return result.datas;
                 });
@@ -1240,10 +1208,6 @@ export default class StoryUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -1347,7 +1311,7 @@ export default class StoryUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

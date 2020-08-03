@@ -17,7 +17,7 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.projectname.disabled"
-  name='projectname' 
+  name='projectname'
   deMajorField='name'
   deKeyField='project'
   :service="service"
@@ -62,7 +62,7 @@
   :localContext ='{ PROJECT:"%project%", ALLMODULES:"%allmodules%" }' 
   :localParam ='{ project:"%project%", allmodules:"%allmodules%" }' 
   :disabled="detailsModel.modulename.disabled"
-  name='modulename' 
+  name='modulename'
   deMajorField='name'
   deKeyField='projectmodule'
   :service="service"
@@ -80,6 +80,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.allmodules.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='allmodules' :itemRules="this.rules.allmodules" class='' :caption="$t('entities.task.main_form.details.allmodules')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.allmodules.error" :isEmptyCaption="false" labelPos="RIGHT">
     <app-switch name='allmodules' :value="this.data.allmodules" @change="($event)=>{this.data.allmodules = $event} " :disabled="detailsModel.allmodules.disabled" style=""></app-switch>
+
 </app-form-item>
 
 </i-col>
@@ -106,6 +107,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.multiple.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='multiple' :itemRules="this.rules.multiple" class='' :caption="$t('entities.task.main_form.details.multiple')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.multiple.error" :isEmptyCaption="false" labelPos="RIGHT">
     <app-switch name='multiple' :value="this.data.multiple" @change="($event)=>{this.data.multiple = $event} " :disabled="detailsModel.multiple.disabled" style=""></app-switch>
+
 </app-form-item>
 
 </i-col>
@@ -155,7 +157,7 @@
   :localContext ='{ PROJECT:"%project%", MODULE:"%module%" }' 
   :localParam ='{ project:"%project%", module:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
-  name='storyname' 
+  name='storyname'
   deMajorField='title'
   deKeyField='story'
   :service="service"
@@ -171,7 +173,15 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 14, offset: 0 }" :xl="{ span: 14, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.task.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -197,13 +207,23 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.task.main_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
+    <input-box 
+    v-model="data.estimate"  
+    @enter="onEnter($event)"  
+     unit="小时"  
+    :disabled="detailsModel.estimate.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",version:"editor"}' :exportparams='{objecttype:"task",version:"editor"}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -229,6 +249,7 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>

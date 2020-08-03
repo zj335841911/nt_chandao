@@ -49,7 +49,6 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      * @memberof TestMain2EditFormBase
      */
     protected appDeName: string = 'productstats';
-
     /**
      * 界面UI服务对象
      *
@@ -104,6 +103,15 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof TestMain2Base
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

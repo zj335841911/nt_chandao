@@ -171,6 +171,9 @@ export default class MainModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'taskestimates',
+      },
     ]
   }
 

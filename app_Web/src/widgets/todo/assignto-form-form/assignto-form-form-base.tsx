@@ -49,7 +49,6 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
      * @memberof AssigntoFormEditFormBase
      */
     protected appDeName: string = 'todo';
-
     /**
      * 界面UI服务对象
      *
@@ -95,6 +94,15 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof AssigntoFormBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

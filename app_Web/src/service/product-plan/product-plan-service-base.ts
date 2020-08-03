@@ -49,9 +49,13 @@ export default class ProductPlanServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/select`,isloading);
+            
+            return res;
         }
-            return Http.getInstance().get(`/productplans/${context.productplan}/select`,isloading);
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -66,21 +70,6 @@ export default class ProductPlanServiceBase extends EntityService {
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
@@ -90,25 +79,11 @@ export default class ProductPlanServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans?res.data.subproductplans:[]));
+            
             return res;
         }
         let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -118,7 +93,8 @@ export default class ProductPlanServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans?res.data.subproductplans:[]));
+        
         return res;
     }
 
@@ -134,45 +110,15 @@ export default class ProductPlanServiceBase extends EntityService {
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
         let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
     }
 
@@ -187,9 +133,11 @@ export default class ProductPlanServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
-            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
+            return res;
         }
-            return Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
+            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
+            return res;
     }
 
     /**
@@ -204,11 +152,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
     }
 
@@ -225,12 +173,12 @@ export default class ProductPlanServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
             res.data.productplan = data.productplan;
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
         let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
         res.data.productplan = data.productplan;
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+        
         return res;
     }
 
@@ -246,27 +194,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -281,27 +215,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -316,27 +236,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -351,27 +257,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkbug`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -386,27 +278,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkstory`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -421,45 +299,15 @@ export default class ProductPlanServiceBase extends EntityService {
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
         let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
     }
 
@@ -475,27 +323,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkbug`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -510,27 +344,13 @@ export default class ProductPlanServiceBase extends EntityService {
     public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkstory`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
+            
             return res;
         }
-            return Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -545,10 +365,12 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchCurProductPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/fetchcurproductplan`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchcurproductplan`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productplans/fetchcurproductplan`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productplans/fetchcurproductplan`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -563,10 +385,12 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -581,9 +405,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchProjectPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectplan`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectplan`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
+        return res;
     }
 }

@@ -17,14 +17,20 @@
         <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 1, offset: 0 }">
     <app-form-item name='id' :itemRules="this.rules.id" class='panelitem-borad' :caption="$t('entities.story.main_editmode_form.details.id')" uiStyle="DEFAULT" :labelWidth="2" :isShowCaption="true" :error="detailsModel.id.error" :isEmptyCaption="true" labelPos="LEFT">
     
-<app-span name='id' :value="data.id" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="height:32px;width:40px;"></app-span>
+<app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="height:32px;width:40px;">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='panelitem-20px' :caption="$t('entities.story.main_editmode_form.details.title')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="true" labelPos="LEFT">
     
-<app-span name='title' :value="data.title" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -177,7 +183,7 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.prodoctname.disabled"
-  name='prodoctname' 
+  name='prodoctname'
   deMajorField='name'
   deKeyField='product'
   :service="service"
@@ -222,7 +228,7 @@
   :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
-  name='modulename' 
+  name='modulename'
   deMajorField='name'
   deKeyField='productmodule'
   :service="service"
@@ -279,7 +285,15 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.sourcenote.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.main_editmode_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.sourcenote"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.sourcenote.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.sourcenote"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.sourcenote.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -345,13 +359,30 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.story.main_editmode_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
+    <input-box 
+    v-model="data.estimate"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.estimate.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.story.main_editmode_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.keywords"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.keywords.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -371,6 +402,7 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>
@@ -390,7 +422,10 @@
         <i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.story.main_editmode_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='openedby' :value="data.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='openedby' :value="data.openedby" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -453,6 +488,7 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>

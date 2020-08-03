@@ -48,7 +48,9 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/files/${context.file}/select`,isloading);
+            let res:any = Http.getInstance().get(`/files/${context.file}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -71,6 +73,7 @@ export default class FileServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/files`,data,isloading);
+        
         return res;
     }
 
@@ -87,6 +90,7 @@ export default class FileServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/files/${context.file}`,data,isloading);
+            
             return res;
     }
 
@@ -100,7 +104,8 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().delete(`/files/${context.file}`,isloading);
+            let res:any = Http.getInstance().delete(`/files/${context.file}`,isloading);
+            return res;
     }
 
     /**
@@ -114,6 +119,7 @@ export default class FileServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/files/${context.file}`,isloading);
+            
             return res;
     }
 
@@ -129,6 +135,7 @@ export default class FileServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/files/getdraft`,isloading);
         res.data.file = data.file;
+        
         return res;
     }
 
@@ -142,7 +149,8 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().post(`/files/${context.file}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/files/${context.file}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -158,6 +166,7 @@ export default class FileServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/files/${context.file}/save`,data,isloading);
+            
             return res;
     }
 
@@ -172,7 +181,8 @@ export default class FileServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/files/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/files/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -186,6 +196,7 @@ export default class FileServiceBase extends EntityService {
      */
     public async FetchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
+        return res;
     }
 }

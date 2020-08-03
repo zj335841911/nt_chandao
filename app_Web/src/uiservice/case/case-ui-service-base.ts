@@ -126,10 +126,10 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',{'RUN':1,'UPDATE':1,'RESULT':1});
-        this.allDeMainStateOPPrivsMap.set('investigate',{'RESULT':1,'RUN':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('normal',{'RUN':1,'UPDATE':1,'RESULT':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{});
+        this.allDeMainStateOPPrivsMap.set('blocked',{'RUN':1,'UPDATE':1,'RESULT':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'RESULT':1,'RUN':1,'UPDATE':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'RUN':1,'UPDATE':1,'RESULT':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
     }
 
     /**
@@ -183,10 +183,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -248,10 +244,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -315,10 +307,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -384,11 +372,7 @@ export default class CaseUIServiceBase extends UIService {
                     }
                     const _this: any = actionContext;
                     if (_this.Refresh && _this.Refresh instanceof Function) {
-                        _this.Refresh(result.datas,context,params, $event, xData,actionContext);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
+                        _this.Refresh(result.datas[0],context,params, $event, xData,actionContext);
                     }
                     return result.datas;
                 });
@@ -454,10 +438,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -562,7 +542,7 @@ export default class CaseUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

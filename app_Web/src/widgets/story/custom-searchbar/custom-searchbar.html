@@ -9,10 +9,10 @@
   
   :disabled="detailsModel.ideq.disabled" 
   type='number' 
-  :precision="0"
    
   style="">
 </input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'pri')">
                     
@@ -100,7 +100,15 @@
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'titlelike')">
-                    <input-box v-model="data.titlelike"  @enter="onEnter($event)"    :disabled="detailsModel.titlelike.disabled" type='text'  style="width:100px;"></input-box>
+                    <input-box 
+    v-model="data.titlelike"  
+    @enter="onEnter($event)"  
+      
+    :disabled="detailsModel.titlelike.disabled" 
+    type='text' 
+    style="width:100px;">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'statuseq')">
                     
@@ -120,7 +128,15 @@
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'keywords')">
-                    <input-box v-model="data.keywords"  @enter="onEnter($event)"    :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+                    <input-box 
+    v-model="data.keywords"  
+    @enter="onEnter($event)"  
+      
+    :disabled="detailsModel.keywords.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
                 </template>
             </template>
         </filter-tree>

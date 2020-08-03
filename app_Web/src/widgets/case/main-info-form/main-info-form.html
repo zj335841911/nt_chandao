@@ -29,7 +29,10 @@
 <i-col class="form-layout-container" v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.maininfo_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='precondition' :value="data.precondition" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='precondition' :value="data.precondition" dataType="LONGTEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>

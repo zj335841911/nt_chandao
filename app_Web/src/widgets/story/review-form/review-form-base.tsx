@@ -49,7 +49,6 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -118,6 +117,15 @@ export class ReviewEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ReviewBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

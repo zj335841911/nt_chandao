@@ -8,13 +8,22 @@
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.task.mainedit_form.details.name')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="NONE">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.multiple.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='multiple' :itemRules="this.rules.multiple" class='' :caption="$t('entities.task.mainedit_form.details.multiple')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.multiple.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-switch name='multiple' :value="this.data.multiple" @change="($event)=>{this.data.multiple = $event} " :disabled="detailsModel.multiple.disabled" style=""></app-switch>
+
 </app-form-item>
 
 </i-col>
@@ -25,6 +34,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.mainedit_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -40,6 +50,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.mainedit_form.details.comment')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="NONE">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -112,7 +123,7 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.projectname.disabled"
-  name='projectname' 
+  name='projectname'
   deMajorField='name'
   deKeyField='project'
   :service="service"
@@ -137,7 +148,7 @@
   :localContext ='{ PROJECT:"%project%", MODULE:"%module%", ALLMODULES:"%allmodules%" }' 
   :localParam ='{ project:"%project%", module:"%module%", allmodules:"%allmodules%" }' 
   :disabled="detailsModel.modulename.disabled"
-  name='modulename' 
+  name='modulename'
   deMajorField='name'
   deKeyField='projectmodule'
   :service="service"
@@ -155,6 +166,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.allmodules.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='allmodules' :itemRules="this.rules.allmodules" class='' :caption="$t('entities.task.mainedit_form.details.allmodules')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.allmodules.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-switch name='allmodules' :value="this.data.allmodules" @change="($event)=>{this.data.allmodules = $event} " :disabled="detailsModel.allmodules.disabled" style=""></app-switch>
+
 </app-form-item>
 
 </i-col>
@@ -169,7 +181,7 @@
   :localContext ='{ PROJECT:"%project%", MODULE:"%module%" }' 
   :localParam ='{ project:"%project%", module:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
-  name='storyname' 
+  name='storyname'
   deMajorField='title'
   deKeyField='story'
   :service="service"
@@ -195,7 +207,7 @@
   :localContext ='{ N_PROJECT_EQ:"%project%", N_ID_NOTEQ:"%id%" }' 
   :localParam ='{ n_project_eq:"%project%", n_id_noteq:"%id%" }' 
   :disabled="detailsModel.parentname.disabled"
-  name='parentname' 
+  name='parentname'
   deMajorField='name'
   deKeyField='task'
   :service="service"
@@ -341,6 +353,7 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>
@@ -356,30 +369,59 @@
         <i-col class="form-layout-container" v-show="detailsModel.eststarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='eststarted' :itemRules="this.rules.eststarted" class='' :caption="$t('entities.task.mainedit_form.details.eststarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.eststarted.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.eststarted" :disabled="detailsModel.eststarted.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.eststarted = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.task.mainedit_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.task.mainedit_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
+    <input-box 
+    v-model="data.estimate"  
+    @enter="onEnter($event)"  
+     unit="小时"  
+    :disabled="detailsModel.estimate.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.mainedit_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.consumed"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.consumed.disabled" type='number'  style=""></input-box>
+    <input-box 
+    v-model="data.consumed"  
+    @enter="onEnter($event)"  
+     unit="小时"  
+    :disabled="detailsModel.consumed.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.task.mainedit_form.details.left')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.left"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.left.disabled" type='number'  style=""></input-box>
+    <input-box 
+    v-model="data.left"  
+    @enter="onEnter($event)"  
+     unit="小时"  
+    :disabled="detailsModel.left.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -415,6 +457,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.realstarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='realstarted' :itemRules="this.rules.realstarted" class='' :caption="$t('entities.task.mainedit_form.details.realstarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.realstarted.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.realstarted" :disabled="detailsModel.realstarted.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.realstarted = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -441,6 +484,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.finisheddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='finisheddate' :itemRules="this.rules.finisheddate" class='' :caption="$t('entities.task.mainedit_form.details.finisheddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.finisheddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.finisheddate" :disabled="detailsModel.finisheddate.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.finisheddate = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -467,6 +511,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.canceleddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='canceleddate' :itemRules="this.rules.canceleddate" class='' :caption="$t('entities.task.mainedit_form.details.canceleddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.canceleddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.canceleddate" :disabled="detailsModel.canceleddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.canceleddate = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -513,6 +558,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.closeddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='closeddate' :itemRules="this.rules.closeddate" class='' :caption="$t('entities.task.mainedit_form.details.closeddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closeddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.closeddate" :disabled="detailsModel.closeddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.closeddate = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>

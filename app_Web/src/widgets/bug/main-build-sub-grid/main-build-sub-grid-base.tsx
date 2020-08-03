@@ -205,20 +205,16 @@ export class Main_BuildSubGridBase extends GridControlBase {
             return;
         }
         const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
+        if (_this.opendata && _this.opendata instanceof Function) {
+            const data: any = { };
             if (args.length > 0) {
-                Object.assign(data, { srfsourcekey: args[0].srfkey })
-                actionContext.$store.commit('addCopyData', { srfkey: args[0].srfkey, copyData: args[0] });
+                Object.assign(data, { bug: args[0].bug });
             }
-            _this.newdata([{ ...data }],[{ ...data }],params, $event, xData);
-        } else if (xData && xData.copy instanceof Function) {
-            if (args.length > 0) {
-                actionContext.$store.commit('addCopyData', { srfkey: args[0].srfkey, copyData: args[0] });
-            }
-            xData.copy(args[0].srfkey);
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.opendata([{ ...data }], params, $event, xData);
         } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
+            Object.assign(this.viewparams,{copymode:true});
         }
     }
 

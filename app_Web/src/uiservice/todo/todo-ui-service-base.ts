@@ -117,10 +117,10 @@ export default class TodoUIServiceBase extends UIService {
      * @memberof  TodoUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{});
-        this.allDeMainStateOPPrivsMap.set('doing',{'TOBUG':1,'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'TOTASK':1,'DELETE':1});
-        this.allDeMainStateOPPrivsMap.set('done',{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1});
+        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('doing',{'TOBUG':1,'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'TOTASK':1,'DELETE':1,'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('done',{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1,'ACTIVATE':1,'ASSIGNTO':0,'CLOSE':1,'CREATE':0,'DELETE':1,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1,'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
     }
 
     /**
@@ -176,10 +176,6 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -242,10 +238,6 @@ export default class TodoUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -304,10 +296,6 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -441,10 +429,6 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -750,7 +734,7 @@ export default class TodoUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

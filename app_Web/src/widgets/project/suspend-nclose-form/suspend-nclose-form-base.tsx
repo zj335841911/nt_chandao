@@ -49,7 +49,6 @@ export class SuspendNCloseEditFormBase extends EditFormControlBase {
      * @memberof SuspendNCloseEditFormBase
      */
     protected appDeName: string = 'project';
-
     /**
      * 界面UI服务对象
      *
@@ -95,6 +94,15 @@ export class SuspendNCloseEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof SuspendNCloseBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

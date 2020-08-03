@@ -48,7 +48,9 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/testruns/${context.testrun}/select`,isloading);
+            let res:any = Http.getInstance().get(`/testruns/${context.testrun}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -71,6 +73,7 @@ export default class TestRunServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/testruns`,data,isloading);
+        
         return res;
     }
 
@@ -87,6 +90,7 @@ export default class TestRunServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/testruns/${context.testrun}`,data,isloading);
+            
             return res;
     }
 
@@ -100,7 +104,8 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().delete(`/testruns/${context.testrun}`,isloading);
+            let res:any = Http.getInstance().delete(`/testruns/${context.testrun}`,isloading);
+            return res;
     }
 
     /**
@@ -114,6 +119,7 @@ export default class TestRunServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/testruns/${context.testrun}`,isloading);
+            
             return res;
     }
 
@@ -129,6 +135,7 @@ export default class TestRunServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/testruns/getdraft`,isloading);
         res.data.testrun = data.testrun;
+        
         return res;
     }
 
@@ -142,7 +149,8 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().post(`/testruns/${context.testrun}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/testruns/${context.testrun}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -158,6 +166,7 @@ export default class TestRunServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/testruns/${context.testrun}/save`,data,isloading);
+            
             return res;
     }
 
@@ -172,6 +181,7 @@ export default class TestRunServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/testruns/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/testruns/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

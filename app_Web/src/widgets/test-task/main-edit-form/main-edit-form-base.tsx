@@ -49,7 +49,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     protected appDeName: string = 'testtask';
-
     /**
      * 界面UI服务对象
      *
@@ -119,6 +118,15 @@ export class MainEditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainEditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

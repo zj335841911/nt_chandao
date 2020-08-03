@@ -472,7 +472,7 @@ export default class ModuleExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: 'entities.projectmodule.moduleexp_treeview.nodes.all' });
+            Object.assign(treeNode, { text: i18n.t('entities.projectmodule.moduleexp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -552,7 +552,7 @@ export default class ModuleExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: 'entities.projectmodule.moduleexp_treeview.nodes.root' });
+            Object.assign(treeNode, { text: i18n.t('entities.projectmodule.moduleexp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });

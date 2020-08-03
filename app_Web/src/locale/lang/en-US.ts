@@ -2,6 +2,7 @@ import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
 import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team_en_US';
+import ibztaskestimate_en_US from '@locale/lanres/entities/ibztaskestimate/ibztaskestimate_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
@@ -19,6 +20,7 @@ import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
+import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
@@ -70,6 +72,7 @@ export default {
             deleteError: "Failed to delete",
             delDataFail: "Failed to delete data",
             noData: "No data",
+            startsuccess:"Start successful"
         },
         local:{
             new: "New",
@@ -292,6 +295,7 @@ export default {
         projectproduct: projectproduct_en_US,
         case: case_en_US,
         ibztaskteam: ibztaskteam_en_US,
+        ibztaskestimate: ibztaskestimate_en_US,
         product: product_en_US,
         taskteam: taskteam_en_US,
         file: file_en_US,
@@ -309,6 +313,7 @@ export default {
         dept: dept_en_US,
         company: company_en_US,
         ibzcasestep: ibzcasestep_en_US,
+        taskestimate: taskestimate_en_US,
         story: story_en_US,
         todo: todo_en_US,
         subtask: subtask_en_US,

@@ -421,4 +421,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     modulename1?: any;
+
+    /**
+     * 预计工时
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    taskestimates?: any;
 }

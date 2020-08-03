@@ -772,7 +772,17 @@ export class ProjectStatusBarChartBase extends MainControlBase {
         arr.forEach((item:any) =>{
             let sortFieldValue:Array<any> = item[groupField[0].name].split("-");
             Object.assign(item,{sortField:Number(sortFieldValue[0])*10000+Number(sortFieldValue[1])});
-            item[groupField[0].name] = sortFieldValue[0]+"年"+sortFieldValue[1]+label;
+            /**
+             *  @judgment 分组为月份时，月份+1  start
+             *  @author mos
+             *  @date   2020.07.20
+             */
+            if(Object.is(label, "月")) {
+                item[groupField[0].name] = sortFieldValue[0]+(this.$t('app.chart.year') as string)+(Number(sortFieldValue[1])+1)+label;
+            } else {
+                item[groupField[0].name] = sortFieldValue[0]+(this.$t('app.chart.year') as string)+sortFieldValue[1]+label;
+            }
+            //  @judgment 分组为月份时，月份+1  end
         })
         arr.sort((a:any, b:any) => {
             return Number(a.sortField) - Number(b.sortField);

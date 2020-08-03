@@ -49,7 +49,6 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditEditFormBase
      */
     protected appDeName: string = 'project';
-
     /**
      * 界面UI服务对象
      *
@@ -118,6 +117,15 @@ export class Main_EditEditFormBase extends EditFormControlBase {
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_EditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

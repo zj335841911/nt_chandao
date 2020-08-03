@@ -128,10 +128,10 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':0,'ACTIVATION':0,'EDIT':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'SUSPEND':0,'CLOSED':0,'DELAY':0,'DELETE':0,'EDIT':0});
-        this.allDeMainStateOPPrivsMap.set('suspended',{'CLOSED':0,'ACTIVATION':0,'EDIT':0,'DELETE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'CLOSED':0,'EDIT':0,'SUSPEND':0,'START':0,'DELETE':0,'DELAY':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':0,'ACTIVATION':0,'EDIT':0,'ACTIVATION':0,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('doing',{'SUSPEND':0,'CLOSED':0,'DELAY':0,'DELETE':0,'EDIT':0,'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('suspended',{'CLOSED':0,'ACTIVATION':0,'EDIT':0,'DELETE':0,'ACTIVATION':0,'CLOSED':0,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'CLOSED':0,'EDIT':0,'SUSPEND':0,'START':0,'DELETE':0,'DELAY':0,'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':0,'SUSPEND':0,'UPDATE':1});
     }
 
     /**
@@ -180,10 +180,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -288,10 +284,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -351,10 +343,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -414,10 +402,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -477,10 +461,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -585,7 +565,7 @@ export default class ProjectUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

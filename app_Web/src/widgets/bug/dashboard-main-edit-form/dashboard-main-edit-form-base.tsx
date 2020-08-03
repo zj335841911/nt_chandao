@@ -49,7 +49,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -140,6 +139,15 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof DashboardMainEditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

@@ -9,6 +9,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 10, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.todo.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -29,6 +30,7 @@
   name="date_disable" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
@@ -49,6 +51,7 @@
   name="cycle_enable" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
@@ -72,6 +75,7 @@
   codelistType='STATIC' 
   style="">
 </app-radio-group>
+
 </app-form-item>
 
 </i-col>
@@ -87,10 +91,10 @@
   
   :disabled="detailsModel.formitem3.disabled" 
   type='number' 
-  :precision="0"
    
   style="">
 </input-box>
+
 </app-form-item>
 
 </i-col>
@@ -111,6 +115,7 @@
   name="formitem4" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
@@ -131,6 +136,7 @@
   name="formitem5" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
@@ -147,16 +153,17 @@
   
   :disabled="detailsModel.formitem2.disabled" 
   type='number' 
-  :precision="0"
    
   style="">
 </input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitem6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='formitem6' :itemRules="this.rules.formitem6" class='' :caption="$t('entities.todo.main_form.details.formitem6')" uiStyle="DEFAULT" :labelWidth="90" :isShowCaption="true" :error="detailsModel.formitem6.error" :isEmptyCaption="false" labelPos="LEFT">
     <div style="">{{data.formitem6}}</div>
+
 </app-form-item>
 
 </i-col>
@@ -168,6 +175,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.todo.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.formitem" :disabled="detailsModel.formitem.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.formitem = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -222,7 +230,7 @@
   :localContext ='{ N_ASSIGNEDTO_EQ:"%srfloginname%" }' 
   :localParam ='{ n_assignedto_eq:"%srfloginname%" }' 
   :disabled="detailsModel.task.disabled"
-  name='task' 
+  name='task'
   deMajorField='name'
   deKeyField='task'
   :service="service"
@@ -247,7 +255,7 @@
   :localContext ='{ N_ASSIGNEDTO_EQ:"%srfloginname%" }' 
   :localParam ='{ n_assignedto_eq:"%srfloginname%" }' 
   :disabled="detailsModel.story.disabled"
-  name='story' 
+  name='story'
   deMajorField='title'
   deKeyField='story'
   :service="service"
@@ -272,7 +280,7 @@
   :localContext ='{ N_ASSIGNEDTO_EQ:"%srfloginname%" }' 
   :localParam ='{ n_assignedto_eq:"%srfloginname%" }' 
   :disabled="detailsModel.bug.disabled"
-  name='bug' 
+  name='bug'
   deMajorField='title'
   deKeyField='bug'
   :service="service"
@@ -288,13 +296,22 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.todo.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.todo.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.formitem1" @change="(val) =>{this.data.formitem1 =val}" :disabled="detailsModel.formitem1.disabled" :data="JSON.stringify(this.data)"  name="formitem1" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -379,6 +396,7 @@
   name="formitem10" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
@@ -404,6 +422,7 @@
   name="private" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
