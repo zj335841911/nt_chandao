@@ -172,7 +172,7 @@ export default class MainDetailModel {
         name: 'modulename1',
       },
       {
-        name: 'taskestimates',
+        name: 'ibztaskestimates',
       },
     ]
   }
