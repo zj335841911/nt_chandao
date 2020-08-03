@@ -456,6 +456,7 @@ export default class ProductUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+              actionContext.closeView(null);
         const backend = () => {
             const curService:ProductService =  new ProductService();
             curService.Remove(context,data, true).then((response: any) => {

@@ -44,6 +44,12 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'dates',
+          prop: 'dates',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
           name: 'task',
           prop: 'task',
           dataType: 'PICKUP',
@@ -52,12 +58,6 @@ export default class MainModel {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
-          isEditable:true
-        },
-        {
-          name: 'date',
-          prop: 'date',
-          dataType: 'DATE',
           isEditable:true
         },
         {

@@ -67,10 +67,10 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'date',
-            property: 'date',
+            name: 'dates',
+            property: 'dates',
             label: '日期',
-            langtag: 'entities.ibztaskestimate.main_grid.columns.date',
+            langtag: 'entities.ibztaskestimate.main_grid.columns.dates',
             show: true,
             util: 'PX',
             width: 100,
@@ -115,8 +115,8 @@ export class MainGridBase extends GridControlBase {
           id: new FormItemModel(),
           work: new FormItemModel(),
           consumed: new FormItemModel(),
+          dates: new FormItemModel(),
           left: new FormItemModel(),
-          date: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -140,13 +140,13 @@ export class MainGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'blur' },
         ],
+        dates: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '日期 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '日期 值不能为空', trigger: 'blur' },
+        ],
         left: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'blur' },
-        ],
-        date: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '日期 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '日期 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -161,7 +161,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'date':true,
+        'dates':true,
         'consumed':true,
         'left':true,
         'work':true,

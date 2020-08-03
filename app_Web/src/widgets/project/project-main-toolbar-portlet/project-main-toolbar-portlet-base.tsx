@@ -198,7 +198,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u098e0df_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_ufb9f459_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,41 +214,8 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Project");
-    }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectMainDashboardViewBase
-     */
-    public RemoveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.removeAndExit instanceof Function) {
-            xData.removeAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        } else if (_this.removeAndExit && _this.removeAndExit instanceof Function) {
-            _this.removeAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        }
+        const curUIService:ProjectUIService  = new ProjectUIService();
+        curUIService.Project_delete(datas,contextJO, paramJO,  $event, xData,this,"Project");
     }
 
     /**
@@ -299,10 +266,10 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         },
-        { viewlogicname:"dashboard_sysportlet5_u098e0df_click",
+        { viewlogicname:"dashboard_sysportlet5_ufb9f459_click",
         text: "删除",
-        iconcls: "fa fa-remove",
-        icon: "",
+        iconcls: null,
+        icon: null,
         }
     ];
 
@@ -327,8 +294,8 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet5_u209627c_click')){
             this.dashboard_sysportlet5_u209627c_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u098e0df_click')){
-            this.dashboard_sysportlet5_u098e0df_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_ufb9f459_click')){
+            this.dashboard_sysportlet5_ufb9f459_click(null);
         }
     }
 

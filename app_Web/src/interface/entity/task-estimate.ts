@@ -61,4 +61,12 @@ export interface TaskEstimate {
      * @memberof TaskEstimate
      */
     task?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    dates?: any;
 }

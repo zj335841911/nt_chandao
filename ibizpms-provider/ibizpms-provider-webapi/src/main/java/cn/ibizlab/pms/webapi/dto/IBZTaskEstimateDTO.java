@@ -80,6 +80,15 @@ public class IBZTaskEstimateDTO extends DTOBase implements Serializable {
     @JsonProperty("task")
     private BigInteger task;
 
+    /**
+     * 属性 [DATES]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "dates" , format="yyyy-MM-dd")
+    @JsonProperty("dates")
+    private Timestamp dates;
+
 
     /**
      * 设置 [ACCOUNT]

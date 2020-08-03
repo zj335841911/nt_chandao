@@ -61,4 +61,12 @@ export interface IBZTaskEstimate {
      * @memberof IBZTaskEstimate
      */
     task?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    dates?: any;
 }
