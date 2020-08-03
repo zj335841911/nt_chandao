@@ -140,7 +140,7 @@ export default class BugUIServiceBase extends UIService {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('active',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('resolved',{'DELETE':1,'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('resolved',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
     }
 
     /**
