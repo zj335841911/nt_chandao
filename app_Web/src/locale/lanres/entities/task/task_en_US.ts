@@ -297,7 +297,6 @@ export default {
 	taskestimate_form: {
 		details: {
 			druipart1: "", 
-			button1: "Save And Close", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 
@@ -310,7 +309,6 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
-        saveandexit: "Save And Close",
 		},
 	},
 	closepausecancelform_form: {
@@ -619,6 +617,12 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	wheditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

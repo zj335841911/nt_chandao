@@ -49,67 +49,6 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @memberof TaskEstimateEditFormBase
      */
     protected appDeName: string = 'task';
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Task");
-    }
-
-    /**
-     * 保存并关闭
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof TaskWHEditViewBase
-     */
-    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.saveAndExit instanceof Function) {
-            xData.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
-            _this.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        }
-    }
     /**
      * 界面UI服务对象
      *
@@ -174,8 +113,6 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        button1: new FormButtonModel({ caption: '保存并关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
@@ -197,14 +134,4 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
-
-	/**
-	 * 表单 保存并关闭 事件
-	 *
-	 * @memberof @memberof TaskEstimateEditFormBase
-	 */
-    public button1_click($event: any): void {
-        this.form_button1_click(null, null, $event);
-
-    }
 }
