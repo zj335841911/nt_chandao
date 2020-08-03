@@ -60,7 +60,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('dept', () => import('@/authservice/dept/dept-auth-service'));
         this.allAuthService.set('company', () => import('@/authservice/company/company-auth-service'));
         this.allAuthService.set('ibzcasestep', () => import('@/authservice/ibzcase-step/ibzcase-step-auth-service'));
-        this.allAuthService.set('taskestimate', () => import('@/authservice/taskestimate/taskestimate-auth-service'));
+        this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
         this.allAuthService.set('story', () => import('@/authservice/story/story-auth-service'));
         this.allAuthService.set('todo', () => import('@/authservice/todo/todo-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));
@@ -78,6 +78,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('testsuite', () => import('@/authservice/test-suite/test-suite-auth-service'));
         this.allAuthService.set('projectteam', () => import('@/authservice/project-team/project-team-auth-service'));
         this.allAuthService.set('testtask', () => import('@/authservice/test-task/test-task-auth-service'));
+        this.allAuthService.set('ibztaskestimate', () => import('@/authservice/ibztask-estimate/ibztask-estimate-auth-service'));
         this.allAuthService.set('productline', () => import('@/authservice/product-line/product-line-auth-service'));
         this.allAuthService.set('testreport', () => import('@/authservice/test-report/test-report-auth-service'));
         this.allAuthService.set('projectstats', () => import('@/authservice/project-stats/project-stats-auth-service'));

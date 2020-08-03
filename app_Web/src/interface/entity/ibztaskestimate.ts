@@ -2,15 +2,15 @@
  * 任务预计
  *
  * @export
- * @interface IBZTaskestimate
+ * @interface IBZTASKESTIMATE
  */
-export interface IBZTaskestimate {
+export interface IBZTASKESTIMATE {
 
     /**
      * 用户
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     account?: any;
 
@@ -18,7 +18,7 @@ export interface IBZTaskestimate {
      * 预计剩余
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     left?: any;
 
@@ -26,7 +26,7 @@ export interface IBZTaskestimate {
      * 总计消耗
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     consumed?: any;
 
@@ -34,7 +34,7 @@ export interface IBZTaskestimate {
      * 编号
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     id?: any;
 
@@ -42,7 +42,7 @@ export interface IBZTaskestimate {
      * 日期
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     date?: any;
 
@@ -50,7 +50,7 @@ export interface IBZTaskestimate {
      * work
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     work?: any;
 
@@ -58,7 +58,7 @@ export interface IBZTaskestimate {
      * 任务
      *
      * @returns {*}
-     * @memberof IBZTaskestimate
+     * @memberof IBZTASKESTIMATE
      */
     task?: any;
 }
