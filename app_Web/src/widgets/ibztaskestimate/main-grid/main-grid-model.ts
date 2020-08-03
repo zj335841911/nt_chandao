@@ -62,6 +62,11 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'srfmajortext',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',

@@ -31,7 +31,7 @@ export default class TaskEstimateServiceBase extends EntityService {
         this.APPLYDEKEY ='taskestimate';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'taskestimates';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'id';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }
