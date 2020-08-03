@@ -138,9 +138,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',{'UPDATE':1,'CONFIRM':1,'CREATECASE':1,'DELETE':1,'ASSIGNTO':1,'RESOLVE':1,'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('closed',{'UPDATE':1,'ASSIGNTO':1,'ACTIVATE':1,'DELETE':1,'CREATECASE':1,'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('resolved',{'CLOSE':1,'UPDATE':1,'DELETE':1,'ACTIVATE':1,'CREATECASE':1,'ASSIGNTO':1,'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('active',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('resolved',{'DELETE':1,'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
     }
 
     /**

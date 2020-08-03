@@ -1270,7 +1270,7 @@
         "memo": ""
     },
     "taskwheditview": {
-        "title": "任务编辑视图（工时）",
+        "title": "工时",
         "caption": "工时",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -1377,6 +1377,16 @@
         "viewname": "StoryReleaseSubGridView",
         "viewfilename": "story-release-sub-grid-view",
         "viewtag": "87b3a9ce09500f304291ed2d69799d5e",
+        "memo": ""
+    },
+    "taskestimategridview9": {
+        "title": "任务预计表格视图",
+        "caption": "工时",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskEstimateGridView9",
+        "viewfilename": "task-estimate-grid-view9",
+        "viewtag": "8b96b7671df722e66d78808ee0636349",
         "memo": ""
     },
     "taskworkinfoeditview9": {

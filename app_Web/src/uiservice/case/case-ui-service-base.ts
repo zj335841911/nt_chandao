@@ -126,9 +126,9 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',{'RUN':1,'UPDATE':1,'RESULT':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('investigate',{'RESULT':1,'RUN':1,'UPDATE':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('normal',{'RUN':1,'UPDATE':1,'RESULT':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('blocked',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('wait',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
     }
 

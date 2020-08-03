@@ -13,6 +13,10 @@ export default {
 			caption: "任务预计",
       		title: "taskestimate表格视图",
 		},
+		gridview9: {
+			caption: "工时",
+      		title: "任务预计表格视图",
+		},
 	},
 	main_grid: {
 		columns: {
@@ -22,6 +26,12 @@ export default {
 			work: "备注",
 		},
 		uiactions: {
+		},
+	},
+	gridview9toolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
 		},
 	},
 	gridviewtoolbar_toolbar: {

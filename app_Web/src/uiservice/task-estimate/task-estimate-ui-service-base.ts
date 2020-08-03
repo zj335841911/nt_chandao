@@ -90,6 +90,7 @@ export default class TaskEstimateUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'taskestimates'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'taskestimates'});
     }
 
     /**
