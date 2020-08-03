@@ -49,7 +49,6 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      * @memberof Main_NewModeEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -106,6 +105,15 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_NewModeBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

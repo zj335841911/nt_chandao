@@ -49,7 +49,6 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @memberof RelatedEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -96,6 +95,15 @@ export class RelatedEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof RelatedBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

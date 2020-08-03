@@ -49,7 +49,6 @@ export class InfoEditFormBase extends EditFormControlBase {
      * @memberof InfoEditFormBase
      */
     protected appDeName: string = 'productplan';
-
     /**
      * 界面UI服务对象
      *
@@ -99,6 +98,15 @@ export class InfoEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof InfoBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

@@ -9,6 +9,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.lastcomment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='lastcomment' :itemRules="this.rules.lastcomment" class='' :caption="$t('entities.action.main_form.details.lastcomment')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastcomment.error" :isEmptyCaption="true" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.lastcomment" @change="(val) =>{this.data.lastcomment =val}" :disabled="detailsModel.lastcomment.disabled" :data="JSON.stringify(this.data)"  name="lastcomment" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>

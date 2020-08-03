@@ -49,7 +49,6 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * @memberof ConfirmEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -101,6 +100,15 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ConfirmBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

@@ -114,6 +114,12 @@ export class Interceptors {
             if (res.status === 401) {
                 this.doNoLogin(_data.data);
             }
+            if(res.status === 403){
+                if(res.data && res.data.status && Object.is(res.data.status,"FORBIDDEN")){
+                    let alertMessage:string ="非常抱歉，您无权操作此数据，如需操作请联系管理员！";
+                    Object.assign(res.data,{localizedMessage:alertMessage,message:alertMessage});
+                }
+            }
             // if (res.status === 404) {
             //     this.router.push({ path: '/404' });
             // } else if (res.status === 500) {
@@ -139,27 +145,27 @@ export class Interceptors {
         if(localStorage.getItem('token')){
             localStorage.removeItem('token');
         }
-        const leftTime = new Date();
+        let leftTime = new Date();
         leftTime.setTime(leftTime.getSeconds() - 1);
         document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
         if (data.loginurl && !Object.is(data.loginurl, '') && data.originurl && !Object.is(data.originurl, '')) {
             let _url = encodeURIComponent(encodeURIComponent(window.location.href));
-            let loginUrl: string = data.loginurl;
-            const originUrl: string = data.originurl;
+            let loginurl: string = data.loginurl;
+            const originurl: string = data.originurl;
 
-            if (originUrl.indexOf('?') === -1) {
+            if (originurl.indexOf('?') === -1) {
                 _url = `${encodeURIComponent('?RU=')}${_url}`;
             } else {
                 _url = `${encodeURIComponent('&RU=')}${_url}`;
             }
-            loginUrl = `${loginUrl}${_url}`;
+            loginurl = `${loginurl}${_url}`;
 
-            window.location.href = loginUrl;
+            window.location.href = loginurl;
         } else {
             if (Object.is(this.router.currentRoute.name, 'login')) {
                 return;
             }
-            this.router.push({ name: 'login', query: { redirect: encodeURIComponent(location.href) } });
+            this.router.push({ name: 'login', query: { redirect: this.router.currentRoute.fullPath } });
         }
     }
 

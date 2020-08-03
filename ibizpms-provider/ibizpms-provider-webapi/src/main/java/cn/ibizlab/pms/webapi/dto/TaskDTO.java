@@ -691,6 +691,13 @@ public class TaskDTO extends DTOBase implements Serializable {
 
 
     /**
+     *  [IBZ_TASKESTIMATE]
+     */
+    @JsonProperty("ibztaskestimates")
+    @JSONField(name = "ibztaskestimates")
+	private List<IBZTaskestimateDTO> taskestimate ;
+
+    /**
      *  [IBZ_TASKTEAM]
      */
     @JsonProperty("ibztaskteams")

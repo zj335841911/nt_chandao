@@ -49,7 +49,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'todo';
-
     /**
      * 界面UI服务对象
      *
@@ -124,6 +123,15 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

@@ -49,7 +49,6 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      * @memberof MainDetailEditFormBase
      */
     protected appDeName: string = 'case';
-
     /**
      * 界面UI服务对象
      *
@@ -101,6 +100,15 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainDetailBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

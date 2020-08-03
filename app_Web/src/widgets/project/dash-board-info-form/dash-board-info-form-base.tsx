@@ -49,7 +49,6 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      * @memberof DashBoardInfoEditFormBase
      */
     protected appDeName: string = 'project';
-
     /**
      * 界面UI服务对象
      *
@@ -110,6 +109,15 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof DashBoardInfoBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

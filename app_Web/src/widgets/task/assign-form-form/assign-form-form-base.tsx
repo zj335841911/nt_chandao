@@ -49,7 +49,6 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * @memberof AssignFormEditFormBase
      */
     protected appDeName: string = 'task';
-
     /**
      * 界面UI服务对象
      *
@@ -108,6 +107,15 @@ export class AssignFormEditFormBase extends EditFormControlBase {
             { pattern: /[0-9]*[1-9][0-9]*/, message: '内容必须为正整数', trigger: 'change' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof AssignFormBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

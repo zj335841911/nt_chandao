@@ -189,7 +189,6 @@ export class Main2EditFormBase extends EditFormControlBase {
         const curUIService:ProductStatsUIService  = new ProductStatsUIService();
         curUIService.ProductStats_OpenReleasedCreateView(datas,contextJO, paramJO,  $event, xData,this,"ProductStats");
     }
-
     /**
      * 界面UI服务对象
      *
@@ -248,6 +247,15 @@ export class Main2EditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main2Base
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

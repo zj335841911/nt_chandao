@@ -17,7 +17,7 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.prodoctname.disabled"
-  name='prodoctname' 
+  name='prodoctname'
   deMajorField='name'
   deKeyField='product'
   :service="service"
@@ -62,7 +62,7 @@
   :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
-  name='modulename' 
+  name='modulename'
   deMajorField='name'
   deKeyField='productmodule'
   :service="service"
@@ -118,7 +118,15 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.sourcenote.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.bugtostory_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.sourcenote"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.sourcenote.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.sourcenote"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.sourcenote.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -144,7 +152,15 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.bugtostory_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.title"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.title.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -170,7 +186,17 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.story.bugtostory_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.estimate.disabled" type='number'  placeholder="工时" style=""></input-box>
+    <input-box 
+    v-model="data.estimate"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.estimate.disabled" 
+    type='number' 
+    :precision="2"
+    placeholder="工时"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -196,6 +222,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.bugtostory_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -215,12 +242,21 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.story.bugtostory_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.keywords"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.keywords.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>

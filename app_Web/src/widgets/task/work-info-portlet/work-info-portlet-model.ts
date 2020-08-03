@@ -171,6 +171,9 @@ export default class WorkInfoModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'taskestimates',
+      },
     ]
   }
 

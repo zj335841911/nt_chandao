@@ -98,6 +98,8 @@ export default class MainEditService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        data.page = data.page ? data.page : 0;
+        data.size = data.size ? data.size : 1000;
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
             return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
@@ -171,7 +173,6 @@ export default class MainEditService extends ControlService {
             });
         });
     }
-
 
     /**
      * 添加数据
@@ -390,6 +391,27 @@ export default class MainEditService extends ControlService {
             delete tempContext.srfsessionid;
         }
         return {context:tempContext,data:requestData};
+    }
+
+    /**
+     * 通过属性名称获取表单项名称
+     * 
+     * @param name 实体属性名称 
+     * @memberof MainEditService
+     */
+    public getItemNameByDeName(name:string) :string{
+        let itemName = name;
+        let mode: any = this.getMode();
+        if (!mode && mode.getDataItems instanceof Function) {
+            return name;
+        }
+        let formItemItems: any[] = mode.getDataItems();
+        formItemItems.forEach((item:any)=>{
+            if(item.prop === name){
+                itemName = item.name;
+            }
+        });
+        return itemName.trim();
     }
 
 }

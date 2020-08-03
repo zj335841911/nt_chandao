@@ -421,4 +421,12 @@ export interface Task {
      * @memberof Task
      */
     modulename1?: any;
+
+    /**
+     * 预计工时
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    taskestimates?: any;
 }

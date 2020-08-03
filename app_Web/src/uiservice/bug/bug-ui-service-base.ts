@@ -138,9 +138,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',{'UPDATE':1,'CONFIRM':1,'CREATECASE':1,'DELETE':1,'ASSIGNTO':1,'RESOLVE':1});
-        this.allDeMainStateOPPrivsMap.set('closed',{'UPDATE':1,'ASSIGNTO':1,'ACTIVATE':1,'DELETE':1,'CREATECASE':1});
-        this.allDeMainStateOPPrivsMap.set('resolved',{'CLOSE':1,'UPDATE':1,'DELETE':1,'ACTIVATE':1,'CREATECASE':1,'ASSIGNTO':1});
+        this.allDeMainStateOPPrivsMap.set('active',{'UPDATE':1,'CONFIRM':1,'CREATECASE':1,'DELETE':1,'ASSIGNTO':1,'RESOLVE':1,'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',{'UPDATE':1,'ASSIGNTO':1,'ACTIVATE':1,'DELETE':1,'CREATECASE':1,'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('resolved',{'CLOSE':1,'UPDATE':1,'DELETE':1,'ACTIVATE':1,'CREATECASE':1,'ASSIGNTO':1,'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
     }
 
     /**
@@ -273,10 +273,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -420,10 +416,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -566,10 +558,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -634,10 +622,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -861,10 +845,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -929,10 +909,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -996,10 +972,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -1063,10 +1035,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -1170,7 +1138,7 @@ export default class BugUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

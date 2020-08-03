@@ -49,7 +49,6 @@ export class CosedEditFormBase extends EditFormControlBase {
      * @memberof CosedEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -100,6 +99,15 @@ export class CosedEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '关闭原因 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof CosedBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

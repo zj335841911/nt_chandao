@@ -49,7 +49,6 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
      * @memberof BuildSUBMITEditFormBase
      */
     protected appDeName: string = 'testtask';
-
     /**
      * 界面UI服务对象
      *
@@ -115,6 +114,15 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof BuildSUBMITBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

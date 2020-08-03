@@ -52,6 +52,7 @@ export default {
     multiple: "多人任务",
     taskteams: "项目团队成员",
     modulename1: "所属模块",
+    taskestimates: "预计工时",
   },
 	views: {
 		assigntaskview: {
@@ -109,6 +110,10 @@ export default {
 		gridview9_assignedtome: {
 			caption: "任务",
       		title: "任务表格视图",
+		},
+		wheditview: {
+			caption: "工时",
+      		title: "任务编辑视图（工时）",
 		},
 		activationtaskview: {
 			caption: "激活任务",
@@ -171,6 +176,7 @@ export default {
 			srfsourcekey: "", 
 			projectname: "所属项目", 
 			project: "所属项目", 
+			module: "id", 
 			type: "任务类型", 
 			modulename: "所属模块", 
 			allmodules: "所有模块", 
@@ -187,7 +193,6 @@ export default {
 			formitemex1: "日程规划", 
 			mailto: "抄送给", 
 			id: "编号", 
-			module: "id", 
 		},
 		uiactions: {
 		},
@@ -263,6 +268,48 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
+		},
+	},
+	startform_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			realstarted: "实际开始", 
+			consumed: "总计消耗", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	taskestimate_form: {
+		details: {
+			druipart1: "", 
+			button1: "保存并关闭", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "编号", 
+		},
+		uiactions: {
+			saveandexit: "保存并关闭",
 		},
 	},
 	closepausecancelform_form: {
@@ -389,29 +436,6 @@ export default {
 			closedby: "由谁关闭", 
 			closedreason: "关闭原因", 
 			closeddate: "关闭时间", 
-		},
-		uiactions: {
-		},
-	},
-	startform_form: {
-		details: {
-			druipart1: "", 
-			grouppanel1: "分组面板", 
-			group1: "任务基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "最后修改日期", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "任务名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			realstarted: "实际开始", 
-			consumed: "总计消耗", 
-			left: "预计剩余", 
-			comment: "备注", 
-			id: "编号", 
 		},
 		uiactions: {
 		},

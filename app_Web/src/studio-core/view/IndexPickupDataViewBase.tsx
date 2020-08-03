@@ -9,4 +9,21 @@ import { MDViewBase } from './MDViewBase';
  */
 export class IndexPickupDataViewBase extends MDViewBase {
 
+    /**
+     * 是否单选
+     *
+     * @type {boolean}
+     * @memberof IndexPickupDataViewBase
+     */
+    public isSingleSelect: boolean = true;
+
+    /**
+     * 数据选中抛值
+     *
+     * @param {*} args
+     * @memberof IndexPickupDataViewBase
+     */
+    public dataviewDataSeletionchange(args: any) {
+        this.$emit('viewdataschange', [...args]);
+    }
 }

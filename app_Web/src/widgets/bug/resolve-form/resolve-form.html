@@ -53,6 +53,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.resolveddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolveddate' :itemRules="this.rules.resolveddate" class='' :caption="$t('entities.bug.resolve_form.details.resolveddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolveddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.resolveddate" :disabled="detailsModel.resolveddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.resolveddate = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -90,6 +91,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.bug.resolve_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>

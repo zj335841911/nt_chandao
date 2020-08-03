@@ -132,8 +132,8 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{'EDIT':0,'DELETE':0});
-        this.allDeMainStateOPPrivsMap.set('normal',{'EDIT':0,'CLOSED':0,'DELETE':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'EDIT':0,'DELETE':0,'CLOSED':1,'CREATE':1,'DELETE':0,'EDIT':0,'READ':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'EDIT':0,'CLOSED':0,'DELETE':0,'CLOSED':0,'CREATE':1,'DELETE':0,'EDIT':0,'READ':1,'UPDATE':1});
     }
 
     /**
@@ -184,10 +184,6 @@ export default class ProductUIServiceBase extends UIService {
                     const _this: any = actionContext;
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
                     }
                     return result.datas;
                 });
@@ -245,10 +241,6 @@ export default class ProductUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -355,10 +347,6 @@ export default class ProductUIServiceBase extends UIService {
                     const _this: any = actionContext;
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
                     }
                     return result.datas;
                 });
@@ -587,7 +575,7 @@ export default class ProductUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

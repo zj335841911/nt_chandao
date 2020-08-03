@@ -49,9 +49,13 @@ export default class ProjectModuleServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule){
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/select`,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/select`,isloading);
+            
+            return res;
         }
-            return Http.getInstance().get(`/projectmodules/${context.projectmodule}/select`,isloading);
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -75,6 +79,7 @@ export default class ProjectModuleServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
@@ -87,6 +92,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/projectmodules`,data,isloading);
+        
         return res;
     }
 
@@ -104,11 +110,13 @@ export default class ProjectModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/projects/${context.project}/projectmodules/${context.projectmodule}`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/projectmodules/${context.projectmodule}`,data,isloading);
+            
             return res;
     }
 
@@ -123,9 +131,11 @@ export default class ProjectModuleServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule){
-            return Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
+            return res;
         }
-            return Http.getInstance().delete(`/projectmodules/${context.projectmodule}`,isloading);
+            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}`,isloading);
+            return res;
     }
 
     /**
@@ -140,9 +150,11 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
+            
             return res;
         }
             let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}`,isloading);
+            
             return res;
     }
 
@@ -159,10 +171,12 @@ export default class ProjectModuleServiceBase extends EntityService {
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,isloading);
             res.data.projectmodule = data.projectmodule;
+            
             return res;
         }
         let res:any = await  Http.getInstance().get(`/projectmodules/getdraft`,isloading);
         res.data.projectmodule = data.projectmodule;
+        
         return res;
     }
 
@@ -180,9 +194,11 @@ export default class ProjectModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/checkkey`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/projectmodules/${context.projectmodule}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -199,9 +215,11 @@ export default class ProjectModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/fix`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/projectmodules/${context.projectmodule}/fix`,data,isloading);
+            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/fix`,data,isloading);
+            return res;
     }
 
     /**
@@ -218,11 +236,13 @@ export default class ProjectModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/save`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/projectmodules/${context.projectmodule}/save`,data,isloading);
+            
             return res;
     }
 
@@ -238,10 +258,12 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchbypath`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchbypath`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchbypath`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/projectmodules/fetchbypath`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -256,10 +278,12 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchdefault`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/projectmodules/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -274,10 +298,12 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchroot`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/projectmodules/fetchroot`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -292,10 +318,12 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot_nobranch`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot_nobranch`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchroot_nobranch`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/projectmodules/fetchroot_nobranch`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -310,10 +338,12 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async FetchRoot_Task(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot_task`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot_task`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchroot_task`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/projectmodules/fetchroot_task`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -328,9 +358,11 @@ export default class ProjectModuleServiceBase extends EntityService {
     public async FetchTaskModules(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchtaskmodules`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchtaskmodules`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchtaskmodules`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/projectmodules/fetchtaskmodules`,tempData,isloading);
+        return res;
     }
 }

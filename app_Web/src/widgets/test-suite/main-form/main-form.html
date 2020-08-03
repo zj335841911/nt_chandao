@@ -18,7 +18,15 @@
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.testsuite.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>

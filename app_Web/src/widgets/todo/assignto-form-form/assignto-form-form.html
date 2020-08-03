@@ -29,6 +29,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.todo.assigntoform_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -49,6 +50,7 @@
   name="future" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>
@@ -109,6 +111,7 @@
   name="lbldisabledate" 
   style="">
 </app-checkbox-list>
+
 </app-form-item>
 
 </i-col>

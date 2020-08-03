@@ -77,7 +77,6 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         const curUIService:ProductUIService  = new ProductUIService();
         curUIService.Product_SeLine(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
-
     /**
      * 界面UI服务对象
      *
@@ -132,6 +131,15 @@ export class Main_EditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '产品代号 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_EditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

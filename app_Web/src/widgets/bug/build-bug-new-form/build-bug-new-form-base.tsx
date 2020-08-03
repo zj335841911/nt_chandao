@@ -49,7 +49,6 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
      * @memberof BuildBugNewEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -117,6 +116,15 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof BuildBugNewBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

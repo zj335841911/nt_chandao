@@ -9,7 +9,10 @@
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.release.quickcreate_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='productname' :value="data.productname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='productname' :value="data.productname" dataType="PICKUPTEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -19,7 +22,15 @@
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.release.quickcreate_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -34,7 +45,7 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.buildname.disabled"
-  name='buildname' 
+  name='buildname'
   deMajorField='name'
   deKeyField='build'
   :service="service"
@@ -51,6 +62,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.release.quickcreate_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -91,6 +103,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.release.quickcreate_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>

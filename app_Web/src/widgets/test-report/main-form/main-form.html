@@ -15,14 +15,20 @@
 <i-col class="form-layout-container" v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='owner' :itemRules="this.rules.owner" class='' :caption="$t('entities.testreport.main_form.details.owner')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.owner.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='owner' :value="data.owner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='owner' :value="data.owner" dataType="TEXT"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.members.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='members' :itemRules="this.rules.members" class='' :caption="$t('entities.testreport.main_form.details.members')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.members.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='members' :value="data.members" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='members' :value="data.members" dataType="LONGTEXT"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -47,6 +53,7 @@
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>
+
 </app-form-item>
 
 </i-col>

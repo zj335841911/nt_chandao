@@ -49,7 +49,6 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      * @memberof StepsInfoEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -97,6 +96,15 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof StepsInfoBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

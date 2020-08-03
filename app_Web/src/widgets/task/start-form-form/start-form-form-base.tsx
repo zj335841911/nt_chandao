@@ -49,7 +49,6 @@ export class StartFormEditFormBase extends EditFormControlBase {
      * @memberof StartFormEditFormBase
      */
     protected appDeName: string = 'task';
-
     /**
      * 界面UI服务对象
      *
@@ -99,6 +98,15 @@ export class StartFormEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof StartFormBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

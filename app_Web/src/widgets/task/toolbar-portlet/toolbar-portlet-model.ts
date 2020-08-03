@@ -171,6 +171,9 @@ export default class ToolbarModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'taskestimates',
+      },
     ]
   }
 

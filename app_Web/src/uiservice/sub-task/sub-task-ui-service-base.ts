@@ -112,12 +112,12 @@ export default class SubTaskUIServiceBase extends UIService {
      * @memberof  SubTaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CLOSE':1,'SUBTASKS':1});
-        this.allDeMainStateOPPrivsMap.set('closed',{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1});
-        this.allDeMainStateOPPrivsMap.set('doing',{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1});
-        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':1,'EDIT':1,'ASSIGN':1,'ACTIVATION':1,'SUBTASKS':1,'DELETE':1});
-        this.allDeMainStateOPPrivsMap.set('pause',{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1});
+        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CLOSE':1,'SUBTASKS':1,'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1,'ACTIVATION':1,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('doing',{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1,'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':1,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':1,'EDIT':1,'ASSIGN':1,'ACTIVATION':1,'SUBTASKS':1,'DELETE':1,'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('pause',{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1,'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':1,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait',{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1,'ACTIVATION':1,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':1,'SUBTASKS':1,'UPDATE':0});
     }
 
 
@@ -211,7 +211,7 @@ export default class SubTaskUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

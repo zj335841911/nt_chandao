@@ -9,7 +9,10 @@
         <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.review_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='title' :value="data.title" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -20,6 +23,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.revieweddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='revieweddate' :itemRules="this.rules.revieweddate" class='' :caption="$t('entities.story.review_form.details.revieweddate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.revieweddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.revieweddate" :disabled="detailsModel.revieweddate.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.revieweddate = val1 }"></date-picker>
+
 </app-form-item>
 
 </i-col>
@@ -69,7 +73,16 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.story.review_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
+    <input-box 
+    v-model="data.estimate"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.estimate.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
 </app-form-item>
 
 </i-col>
@@ -148,6 +161,7 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>

@@ -49,7 +49,6 @@ export class DashboardBasicEditFormBase extends EditFormControlBase {
      * @memberof DashboardBasicEditFormBase
      */
     protected appDeName: string = 'todo';
-
     /**
      * 界面UI服务对象
      *
@@ -101,6 +100,15 @@ export class DashboardBasicEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof DashboardBasicBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

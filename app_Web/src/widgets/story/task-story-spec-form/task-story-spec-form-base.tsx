@@ -49,7 +49,6 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      * @memberof TaskStorySpecEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -96,6 +95,15 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof TaskStorySpecBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

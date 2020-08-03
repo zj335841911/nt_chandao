@@ -1,4 +1,4 @@
-## 修复请参考主模板，目前于2020-07-12合并master。[链接](http://demo.ibizlab.cn/ibizr7pfstdtempl/ibizvuer7plus/blob/master/CHANGELOG.md)
+## 修复请参考主模板，目前于2020-08-03合并master。[链接](http://demo.ibizlab.cn/ibizr7pfstdtempl/ibizvuer7plus/blob/master/CHANGELOG.md)
 
 ## 0.0.1-alpha.1「2020-07-15」
 

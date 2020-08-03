@@ -171,6 +171,9 @@ export default class AssignToMeModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'taskestimates',
+      },
     ]
   }
 

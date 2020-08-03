@@ -49,7 +49,6 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * @memberof MainSubPlanEditFormBase
      */
     protected appDeName: string = 'subproductplan';
-
     /**
      * 界面UI服务对象
      *
@@ -96,6 +95,15 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainSubPlanBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

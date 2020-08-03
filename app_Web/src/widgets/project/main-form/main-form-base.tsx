@@ -49,7 +49,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'project';
-
     /**
      * 界面UI服务对象
      *
@@ -108,6 +107,14 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
         ],
+        begin: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("begin").isPast},message: this.verifyDeRules("begin").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("begin").isPast},message: this.verifyDeRules("begin").infoMessage, trigger: 'blur' },
+        ],
+        end: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'blur' },
+        ],
         formitemex1: [
             { required: true, type: 'string', message: '项目周期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目周期 值不能为空', trigger: 'blur' },
@@ -117,6 +124,54 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+                begin:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNOTNULL",
+                      ruleInfo:"『开始日期』不能为空。", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"begin",
+                  },
+                ],
+                end:[
+                  {
+                      type:"GROUP",
+                      condOP:"AND",
+                      ruleInfo:"(『截止日期』不能为空。)", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      group:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNOTNULL",
+                      ruleInfo:"『截止日期』不能为空。", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"end",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      paramValue:"BEGIN",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"end",
+                  },
+                        ]
+                  },
+                ],
+    };
 
     /**
      * 详情模型集合
