@@ -1,6 +1,7 @@
 package cn.ibizlab.pms.core.util.zentao.service;
 
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
+import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
 import cn.ibizlab.pms.core.util.zentao.helper.ZTAPIHelper;
 import cn.ibizlab.pms.core.util.zentao.helper.ZTUserHelper;
 import cn.ibizlab.pms.core.zentao.domain.User;
@@ -54,36 +55,32 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
 
     @Override
     public AuthenticationUser loadUserByUsername(String username) {
-        AuthenticationUser user = null;
 
         if (username == null || username.trim().isEmpty()) {
-            throw new InternalServerErrorException("用户还未登录");
+            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0008, null,null);
         }
 
-        //登录UAA系统前，先查看ZT账户是否存在。
-        //获取UAA账号对应的ZT用户。
+        //STEP1:登录UAA系统前，先查看ZT账户是否存在。
         User ztUser = getZTUserInfo(username);
 
-        //使用UAA统一认证获取用户。
-        try {
-            if (ztUser != null) {
-                AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
-                String token = getRequestToken();
-                //构造权限用户。
-                user = constructSecurityContextUser(ztUser, token);
-
-                // 权限默认给管理员（权限未接入之前）
-                user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
-            }
-        } catch (Exception e) {
-            log.info("用户[%s]远程认证失败", username);
+        //STEP2:使用统一认证用户名，token，进行UAA认证。
+        AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
+        if(uaaUser == null){
+            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0011,null,null);
         }
+        String token = getRequestToken();
+
+        //STEP3:ZT API登录(设置Token）。
+        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
+
+        //STEP4：构造权限上下文用户。
+        AuthenticationUser user = constructSecurityContextUser(userJO, token, getDomains(username));
 
         return user;
     }
 
     /**
-     * 使用ZT用户名密码登录
+     * 登录，接入统一认证（UAA）系统作为账户验证，并使用ZT用户信息。
      *
      * @param username UAA登录账户
      * @param password UAA登录密码
@@ -92,47 +89,22 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
     @Override
     public AuthenticationUser loadUserByLogin(String username, String password) {
         if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
-            throw new InternalServerErrorException("请输入用户名密码");
+            throw new BadRequestAlertException("请输入用户名密码",null,null);
         }
-        String domains = getDomains(username);
 
         //STEP1:登录UAA系统前，先查看ZT账户是否存在。
-        //获取UAA账号对应的ZT用户，从account、commiter 两个字段查询。
         User ztUser = getZTUserInfo(username);
-        if (ztUser == null || ztUser.getCommiter() == null) {
-            //（二期）没有对应账号，后台新建账号，再登录
-            throw new BadRequestAlertException("当前用户没有关联ZT账户，请联系管理员。", null, null);
-        }
-        String token = null;
-        AuthenticationInfo authenticationInfo = null;
 
-        //STEP2:以代码提交账户，进行UAA认证。
-        try {
-            authenticationInfo = uaaFeignClient.v7Login(buildRemoteLoginParam(ztUser.getCommiter(), password));
-        } catch (Exception e) {
-            if(e instanceof FeignException){
-                FeignException feignException = (FeignException)e;
-                if(400==feignException.status()){
-                    throw new BadRequestAlertException("UAA认证失败，请检查用户名或密码。",null,null);
-                }else{
-                    throw new BadRequestAlertException("UAA认证系统发生了系统异常，请稍后尝试。",null,null);
-                }
-            }else{
-                throw new BadRequestAlertException("UAA认证失败，请检查远程登录相关配置。", null, null);
-            }
+        //STEP2:以统一认证账户、密码，进行UAA认证。
+        AuthenticationInfo authenticationInfo = loadUAAUserByLogin(username,password);
+        String token = authenticationInfo.getToken();
 
-        }
-        token = authenticationInfo.getToken();
-
-
-        //STEP4:ZT API登录(设置Token）。
+        //STEP3:ZT API登录(设置Token）。
         JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
 
-        //STEP5：构造前端需要的用户数据。
-        AuthenticationUser pageUser = constructPageUserInfo(userJO, token, domains);
+        //STEP4：构造前端需要的用户数据。
+        AuthenticationUser pageUser = constructSecurityContextUser(userJO, token, getDomains(username));
 
-        //STEP6：权限默认给管理员（权限未接入之前）
-        pageUser.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
         return pageUser;
     }
 
@@ -205,14 +177,19 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         queryWrapper.eq("account", loginname).or().eq("commiter", loginname);
 
         List<User> users = userService.list(queryWrapper);
+        User ztUser = null;
         if (CollectionUtils.isEmpty(users)) {
-            return null;
-        } else if (users.size() > 1) {
-            throw new BadRequestAlertException("关联的ZT账户不唯一，请联系管理员。", null, null);
-        } else {
-            return users.get(0);
-        }
 
+        } else if (users.size() > 1) {
+            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0012, null, null);
+        } else {
+            ztUser = users.get(0);
+        }
+        if (ztUser == null || ztUser.getCommiter() == null) {
+            //（二期）没有对应账号，后台新建账号，再登录
+            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0010, null, null);
+        }
+        return ztUser;
     }
 
     /**
@@ -224,7 +201,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         ZTResult rstSession = new ZTResult();
         String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
         if (!ZTAPIHelper.getSessionID(rstSession, zentaoSid)) {
-            throw new InternalServerErrorException("登录失败");
+            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0013,null,null);
         }
 
         ZTResult rstLogin = new ZTResult();
@@ -232,7 +209,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         jo.put("account", loginname);
         jo.put("password", password);
         if (!ZTUserHelper.login(zentaoSid, jo, rstLogin)) {
-            throw new InternalServerErrorException("登录失败");
+            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0014,null,null);
         }
 
         JSONObject userJO = rstLogin.getResult().getJSONObject("user");
@@ -249,14 +226,14 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
     }
 
     /**
-     * 构建用户信息，作为返回值。
+     * 构建权限上下文用户信息。（用户的组织信息、权限信息等）
      *
      * @param userJO  ZT API获取的用户信息。
      * @param token   从UAA系统生成的token
      * @param domains 域名
-     * @return 作为页面用户信息数据源
+     * @return 构建权限上下文用户信息，也作为页面用户信息数据源
      */
-    private AuthenticationUser constructPageUserInfo(JSONObject userJO, String token, String domains) {
+    private AuthenticationUser constructSecurityContextUser(JSONObject userJO, String token, String domains) {
         //获取用户信息
         AuthenticationUser user = new AuthenticationUser();
         user.setUserid(userJO.getString("id"));
@@ -280,31 +257,16 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         sessionParams.put("zentaoSid", DigestUtils.md5DigestAsHex(token.getBytes()));
         sessionParams.put("token", token);
         user.setSessionParams(sessionParams);
+
+        //权限默认给管理员（权限未接入之前）
+        user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
         return user;
     }
 
-    private AuthenticationUser constructSecurityContextUser(User ztUser, String token) {
-        //获取用户信息
-        AuthenticationUser user = new AuthenticationUser();
-        user.setUserid(ztUser.getId().toString());
-        user.setUsername(ztUser.getRealname());
-        user.setLoginname(ztUser.getAccount());
-        user.setDomain("");
-        user.setEmail(ztUser.getEmail());
-        user.setAvatar(ztUser.getAvatar());
-        user.setNickname(ztUser.getNickname());
-        user.setBirthday(ztUser.getBirthday());
-        user.setAddr(ztUser.getAddress());
-        user.setSex(ztUser.getGender());
-        Map<String, Object> sessionParams = user.getSessionParams();
-
-        sessionParams.put("ztuser", ztUser);
-//        String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
-//        sessionParams.put("zentaoSid", zentaoSid);
-        user.setSessionParams(sessionParams);
-        return user;
-    }
-
+    /**
+     * 获取当前请求中的Token信息
+     * @return  token字符串
+     */
     public synchronized static String getRequestToken() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
 
@@ -321,10 +283,33 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         return authToken;
     }
 
-    public boolean isDefaultUser(String account) {
-        if ("admin".equals(account) || "guest".equals(account)) {
-            return true;
+    /**
+     * UAA登录认证，使用页面中输入的用户名、密码
+     * @param username  页面输入的用户名（登录名）
+     * @param password  页面输入的密码
+     * @return  返回UAA用户信息，包括UAA生成Token。
+     * @Throws  用户名密码错误/统一认证地址（服务名）无效/统一认证系统内部错误导致的【认证失败提示信息】弹出异常。
+     */
+    private AuthenticationInfo loadUAAUserByLogin(String username,String password){
+        AuthenticationInfo authenticationInfo = null;
+        try {
+            authenticationInfo = uaaFeignClient.v7Login(buildRemoteLoginParam(username, password));
+        } catch (Exception e) {
+            if(e instanceof FeignException){
+                e.printStackTrace();
+                FeignException feignException = (FeignException)e;
+                if(400==feignException.status()){
+                    throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0009,null,null);
+                }else{
+                    throw new BadRequestAlertException("UAA认证系统发生了系统异常，请稍后尝试。",null,null);
+                }
+
+            }else{
+                e.printStackTrace();
+                throw new BadRequestAlertException("UAA认证失败，请联系管理员确认远程登录相关配置。", null, null);
+            }
         }
-        return false;
+        return authenticationInfo;
     }
+
 }
