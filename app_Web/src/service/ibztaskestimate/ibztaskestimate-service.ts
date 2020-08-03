@@ -1,21 +1,21 @@
 import { Http,Util } from '@/utils';
-import IBZTaskestimateServiceBase from './ibztaskestimate-service-base';
+import IBZTASKESTIMATEServiceBase from './ibztaskestimate-service-base';
 
 
 /**
  * 任务预计服务对象
  *
  * @export
- * @class IBZTaskestimateService
- * @extends {IBZTaskestimateServiceBase}
+ * @class IBZTASKESTIMATEService
+ * @extends {IBZTASKESTIMATEServiceBase}
  */
-export default class IBZTaskestimateService extends IBZTaskestimateServiceBase {
+export default class IBZTASKESTIMATEService extends IBZTASKESTIMATEServiceBase {
 
     /**
-     * Creates an instance of  IBZTaskestimateService.
+     * Creates an instance of  IBZTASKESTIMATEService.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBZTaskestimateService
+     * @memberof  IBZTASKESTIMATEService
      */
     constructor(opts: any = {}) {
         super(opts);

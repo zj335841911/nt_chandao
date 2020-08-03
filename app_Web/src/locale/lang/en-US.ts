@@ -19,7 +19,7 @@ import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
-import taskestimate_en_US from '@locale/lanres/entities/taskestimate/taskestimate_en_US';
+import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
@@ -37,6 +37,7 @@ import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en
 import testsuite_en_US from '@locale/lanres/entities/test-suite/test-suite_en_US';
 import projectteam_en_US from '@locale/lanres/entities/project-team/project-team_en_US';
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
+import ibztaskestimate_en_US from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_en_US';
 import productline_en_US from '@locale/lanres/entities/product-line/product-line_en_US';
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
@@ -329,6 +330,7 @@ export default {
         testsuite: testsuite_en_US,
         projectteam: projectteam_en_US,
         testtask: testtask_en_US,
+        ibztaskestimate: ibztaskestimate_en_US,
         productline: productline_en_US,
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,

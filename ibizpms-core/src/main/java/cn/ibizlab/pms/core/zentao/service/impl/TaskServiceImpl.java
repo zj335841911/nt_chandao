@@ -150,6 +150,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         }
         else{
             et.setTaskteam(taskteamService.selectByRoot(key));
+            et.setTaskestimate(taskestimateService.selectByTask(key));
         }
         return et;
     }

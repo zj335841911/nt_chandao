@@ -8329,16 +8329,16 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/gridview9/:gridview9?',
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,
@@ -8346,15 +8346,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view9/task-estimate-grid-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/gridview9/:gridview9?',
+                    path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,
@@ -8362,15 +8362,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view9/task-estimate-grid-view9.vue'),
                 },
                 {
-                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/gridview9/:gridview9?',
+                    path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,
@@ -8378,14 +8378,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view9/task-estimate-grid-view9.vue'),
                 },
                 {
-                    path: 'tasks/:task?/taskestimates/:taskestimate?/gridview9/:gridview9?',
+                    path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,
@@ -8393,13 +8393,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view9/task-estimate-grid-view9.vue'),
                 },
                 {
-                    path: 'taskestimates/:taskestimate?/gridview9/:gridview9?',
+                    path: 'ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,

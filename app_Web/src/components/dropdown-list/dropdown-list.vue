@@ -173,6 +173,9 @@ export default class DropDownList extends Vue {
         if (isExistAndNotEmpty(val)) {
             this.$emit('change', val);
         } else {
+            if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
+                return;
+            }
             this.$emit('change', undefined);
         }
     }
