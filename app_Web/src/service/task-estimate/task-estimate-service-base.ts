@@ -385,4 +385,16 @@ export default class TaskEstimateServiceBase extends EntityService {
             return res;
         }
     }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }
