@@ -7,5 +7,6 @@ export default {
     date: "日期",
     work: "work",
     task: "任务",
+    dates: "日期",
   },
 };

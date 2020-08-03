@@ -17,13 +17,13 @@
 </div>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 22, offset: 0 }">
     <div class="text-center" style="">
     需求数
 </div>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 10 }">
+<i-col class="form-layout-container" v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 8 }">
     <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='MainInfo' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="true" labelPos="TOP">
     
 <app-span name='storycnt' :value="data.storycnt" dataType="INT"     :precision="0"

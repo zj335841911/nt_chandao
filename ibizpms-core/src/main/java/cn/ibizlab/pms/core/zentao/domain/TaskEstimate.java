@@ -92,6 +92,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     private BigInteger task;
+    /**
+     * 日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "dates" , format="yyyy-MM-dd")
+    @JsonProperty("dates")
+    private Timestamp dates;
 
     /**
      * 

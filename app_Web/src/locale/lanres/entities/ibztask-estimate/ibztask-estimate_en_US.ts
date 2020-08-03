@@ -8,6 +8,7 @@ export default {
     date: "日期",
     work: "work",
     task: "任务",
+    dates: "日期",
   },
 	views: {
 		gridview9: {
@@ -17,7 +18,7 @@ export default {
 	},
 	main_grid: {
 		columns: {
-			date: "日期",
+			dates: "日期",
 			consumed: "总计消耗",
 			left: "预计剩余",
 			work: "备注",
