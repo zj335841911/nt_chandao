@@ -118,7 +118,7 @@ export default {
       		title: "产品编辑视图",
 		},
 		testlistexpview: {
-			caption: "测试统计",
+			caption: "产品",
       		title: "测试统计",
 		},
 		mytesttabexpview: {

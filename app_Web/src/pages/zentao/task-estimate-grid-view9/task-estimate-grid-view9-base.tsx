@@ -1,10 +1,10 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
-import TaskEstimateAuthService from '@/authservice/task-estimate/task-estimate-auth-service';
+import TaskestimateService from '@/service/taskestimate/taskestimate-service';
+import TaskestimateAuthService from '@/authservice/taskestimate/taskestimate-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
-import TaskEstimateUIService from '@/uiservice/task-estimate/task-estimate-ui-service';
+import TaskestimateUIService from '@/uiservice/taskestimate/taskestimate-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -46,18 +46,18 @@ export class TaskEstimateGridView9Base extends GridView9Base {
     /**
      * 实体服务对象
      *
-     * @type {TaskEstimateService}
+     * @type {TaskestimateService}
      * @memberof TaskEstimateGridView9Base
      */
-    protected appEntityService: TaskEstimateService = new TaskEstimateService;
+    protected appEntityService: TaskestimateService = new TaskestimateService;
 
     /**
      * 实体权限服务对象
      *
-     * @type TaskEstimateUIService
+     * @type TaskestimateUIService
      * @memberof TaskEstimateGridView9Base
      */
-    public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+    public appUIService: TaskestimateUIService = new TaskestimateUIService(this.$store);
 
 
     /**
@@ -242,7 +242,7 @@ export class TaskEstimateGridView9Base extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"TaskEstimate");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"Taskestimate");
     }
 
     /**

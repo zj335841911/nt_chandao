@@ -1601,7 +1601,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "producttestlistexpview": {
             "title": "测试统计",
-            "caption": "测试统计",
+            "caption": "产品",
             "viewtype": "DELISTEXPVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductTestListExpView",
