@@ -115,10 +115,6 @@ export class MainEditFormBase extends EditFormControlBase {
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'change' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'blur' },
         ],
-        formitemex1: [
-            { required: true, type: 'string', message: '项目周期 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '项目周期 值不能为空', trigger: 'blur' },
-        ],
         days: [
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
