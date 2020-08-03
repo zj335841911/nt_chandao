@@ -226,7 +226,9 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel3: "分组面板", 
 			button1: "维护产品线", 
+			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
 			group1: "product基本信息", 
 			formpage1: "基本信息", 
