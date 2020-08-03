@@ -305,7 +305,8 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			id: "编号", 
+			id: "", 
+			name: "", 
 		},
 		uiactions: {
 		},

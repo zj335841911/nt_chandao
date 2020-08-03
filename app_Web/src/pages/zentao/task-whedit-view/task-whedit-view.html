@@ -1,7 +1,4 @@
 <studio-view viewName="taskwheditview" viewTitle="任务编辑视图（工时）" class='deeditview task-whedit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_form 
@@ -11,7 +8,7 @@
                 :autosave="false" 
                 :viewtag="viewtag"
                 :showBusyIndicator="true"
-                updateAction="Update"
+                updateAction="RecordEstimate"
                 removeAction="Remove"
                 loaddraftAction="GetDraft"
                 loadAction="Get"

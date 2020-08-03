@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskEstimateGridViewBase } from './task-estimate-grid-view-base';
-import view_grid from '@widgets/ibztaskestimate/main-grid/main-grid.vue';
+import view_grid from '@widgets/task-estimate/main-grid/main-grid.vue';
 
 /**
  * taskestimate表格视图视图

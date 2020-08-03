@@ -1,55 +1,56 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
-import TaskService from '@/service/task/task-service';
-import TaskEstimateModel from './task-estimate-form-model';
+import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
+import MainModel from './main-grid-model';
 
 
 /**
- * TaskEstimate 部件服务对象
+ * Main 部件服务对象
  *
  * @export
- * @class TaskEstimateService
+ * @class MainService
  */
-export default class TaskEstimateService extends ControlService {
+export default class MainService extends ControlService {
 
     /**
-     * 任务服务对象
+     * 任务预计服务对象
      *
-     * @type {TaskService}
-     * @memberof TaskEstimateService
+     * @type {TaskEstimateService}
+     * @memberof MainService
      */
-    public appEntityService: TaskService = new TaskService({ $store: this.getStore() });
+    public appEntityService: TaskEstimateService = new TaskEstimateService({ $store: this.getStore() });
 
     /**
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of TaskEstimateService.
+     * Creates an instance of MainService.
      * 
      * @param {*} [opts={}]
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new TaskEstimateModel();
+        this.model = new MainModel();
     }
+
 
     /**
      * 处理数据
      *
-     * @private
+     * @public
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
-    private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
+    public doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
             promise.then((response: any) => {
                 if (response && response.status === 200) {
@@ -76,7 +77,7 @@ export default class TaskEstimateService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  TaskEstimateService
+     * @memberof  MainService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
@@ -87,70 +88,6 @@ export default class TaskEstimateService extends ControlService {
     }
 
     /**
-     * 启动工作流
-     *
-     * @param {string} action
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @param {*} [localdata]
-     * @returns {Promise<any>}
-     * @memberof TaskEstimateService
-     */
-    @Errorlog
-    public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
-        data = this.handleWFData(data);
-        context = this.handleRequestData(action,context,data).context;
-        return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](context,data, isloading,localdata);
-            } else {
-                result = this.appEntityService.WFStart(context,data, isloading,localdata);
-            }
-            result.then((response) => {
-                this.handleResponse(action, response);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
-        });
-    }
-
-    /**
-     * 提交工作流
-     *
-     * @param {string} action
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @param {*} [localdata]
-     * @returns {Promise<any>}
-     * @memberof TaskEstimateService
-     */
-    @Errorlog
-    public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
-        data = this.handleWFData(data,true);
-        context = this.handleRequestData(action,context,data,true).context;
-        return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](context,data, isloading,localdata);
-            } else {
-                result = this.appEntityService.WFSubmit(context,data, isloading,localdata);
-            }
-            result.then((response) => {
-                this.handleResponse(action, response);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
-        });
-    }
-
-    /**
      * 添加数据
      *
      * @param {string} action
@@ -158,26 +95,25 @@ export default class TaskEstimateService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
-        Object.assign(Data,{id: data.id, srffrontuf: '1'});
+        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.Create(Context,Data, isloading);
+            }else{
+                result =_appEntityService.Create(Context,Data, isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });
+            });      
         });
     }
 
@@ -189,24 +125,24 @@ export default class TaskEstimateService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.Remove(Context,Data, isloading);
+            }else{
+                result =_appEntityService.Remove(Context,Data, isloading);
             }
             result.then((response) => {
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });
+            });      
         });
     }
 
@@ -218,21 +154,54 @@ export default class TaskEstimateService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
+        return new Promise((resolve: any, reject: any) => {
+            const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data,isloading);
+            }else{
+                result =_appEntityService.Update(Context,Data,isloading);
+            }
+            result.then((response) => {
+                this.handleResponse(action, response);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });      
+        });
+    }
+
+    /**
+     * 获取数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof MainService
+     */
+    @Errorlog
+    public get(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
             } else {
-                result = this.appEntityService.Update(Context,Data, isloading);
+                result = this.appEntityService.Get(Context,Data, isloading);
             }
             result.then((response) => {
-                this.handleResponse(action, response);
+                //处理返回数据，补充判断标识
+                if(response.data){
+                    Object.assign(response.data,{srfuf:0});
+                }
                 resolve(response);
             }).catch(response => {
                 reject(response);
@@ -248,27 +217,28 @@ export default class TaskEstimateService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     @Errorlog
-    public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+    public search(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.Get(Context,Data, isloading);
+            }else{
+                result =_appEntityService.FetchDefault(Context,Data, isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });
+            });      
         });
     }
+
 
     /**
      * 加载草稿
@@ -278,15 +248,11 @@ export default class TaskEstimateService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     @Errorlog
-    public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
-        //仿真主键数据
-        const PrimaryKey = Util.createUUID();
-        Data.id = PrimaryKey;
-        Data.task = PrimaryKey;
+    public loadDraft(action: string, context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -296,7 +262,12 @@ export default class TaskEstimateService extends ControlService {
                 result = this.appEntityService.GetDraft(Context,Data, isloading);
             }
             result.then((response) => {
-                response.data.id = PrimaryKey;
+                //处理返回数据，补充判断标识
+                if(response.data){
+                    Object.assign(response.data,{srfuf:'0'});
+                    //仿真主键数据
+                    response.data.id = Util.createUUID();
+                }
                 this.handleResponse(action, response, true);
                 resolve(response);
             }).catch(response => {
@@ -305,18 +276,19 @@ export default class TaskEstimateService extends ControlService {
         });
     }
 
-     /**
+
+    /**
      * 前台逻辑
      * @param {string} action
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
     @Errorlog
-    public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+    public frontLogic(action:string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any)=>{
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -326,7 +298,7 @@ export default class TaskEstimateService extends ControlService {
                 return Promise.reject({ status: 500, data: { title: '失败', message: '系统异常' } });
             }
             result.then((response) => {
-                this.handleResponse(action, response,true);
+                this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
@@ -335,29 +307,29 @@ export default class TaskEstimateService extends ControlService {
     }
 
     /**
-     * 处理请求数据
+     * 处理请求数据(修改或增加数据)
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof TaskEstimateService
+     * @memberof MainService
      */
-    public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
-        let mode: any = this.getMode();
-        if (!mode && mode.getDataItems instanceof Function) {
+    public handleRequestDataWithUpdate(action: string,context:any ={},data: any = {},isMerge:boolean = false){
+        let model: any = this.getMode();
+        if (!model && model.getDataItems instanceof Function) {
             return data;
         }
-        let formItemItems: any[] = mode.getDataItems();
+        let dataItems: any[] = model.getDataItems();
         let requestData:any = {};
         if(isMerge && (data && data.viewparams)){
             Object.assign(requestData,data.viewparams);
         }
-        formItemItems.forEach((item:any) =>{
+        dataItems.forEach((item:any) =>{
             if(item && item.dataType && Object.is(item.dataType,'FONTKEY')){
-                if(item && item.prop){
+                if(item && item.prop && item.name ){
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.prop){
+                if(item && item.isEditable && item.prop && item.name && (data[item.name] || Object.is(data[item.name],0)) ){
                     requestData[item.prop] = data[item.name];
                 }
             }
@@ -369,26 +341,5 @@ export default class TaskEstimateService extends ControlService {
         }
         return {context:tempContext,data:requestData};
     }
-
-    /**
-     * 通过属性名称获取表单项名称
-     * 
-     * @param name 实体属性名称 
-     * @memberof TaskEstimateService
-     */
-    public getItemNameByDeName(name:string) :string{
-        let itemName = name;
-        let mode: any = this.getMode();
-        if (!mode && mode.getDataItems instanceof Function) {
-            return name;
-        }
-        let formItemItems: any[] = mode.getDataItems();
-        formItemItems.forEach((item:any)=>{
-            if(item.prop === name){
-                itemName = item.name;
-            }
-        });
-        return itemName.trim();
-    }
-
+    
 }

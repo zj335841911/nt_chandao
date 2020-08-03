@@ -20,3 +20,6 @@ import { TaskEstimateEditFormBase } from './task-estimate-form-base';
 @VueLifeCycleProcessing()
 export default class TaskEstimateEditForm extends TaskEstimateEditFormBase { }
 </script>
+<style lang='less'>
+@import './task-estimate-form.less';
+</style>
