@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.StoryStageSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IStoryStageService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -129,9 +130,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(StoryStage et) {
         if (null == et) {
             return false;
@@ -233,5 +232,6 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
 
 }
+
 
 

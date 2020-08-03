@@ -13,16 +13,30 @@
         border: none !important;
         outline: transparent !important;
     }
-    .span-content {
-        display: inline-block;
-        text-overflow: ellipsis ;
-        overflow: hidden;
-        width: 106px;
-        margin-right: 5px;
+    .keyOperation{
+        position: relative;
+        padding: 0 5px;
+        .span-content {
+            position: relative;
+            display: inline-block;
+            width: 160px;
+            text-overflow: ellipsis !important;
+            overflow: hidden !important;
+            padding: 2px 2px 2px 4px !important;
+        }
+        .icon-close {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+        }
     }
-    .icon-close {
-        right: -13px !important;
-        top: 2px !important;
+    .ivu-tabs-no-animation{
+        height: 47px !important;
+        
+    } 
+    .keyOperation:hover{
+        background-color: #108cee;
+        color:#fff;
     }
     .appTemplate:hover {
         background-color: #dee0e2;
@@ -30,4 +44,29 @@
     .appTemplate.ivu-btn:focus {
         box-shadow: initial;
     }
+    .ivu-dropdown-item{
+        padding: 0px;
+    }
+    .app-rich-text-editor-100 {
+        .tox-fullscreen {
+            height: 100% !important;
+            transform: translateX(100%);
+        }
+        .tox-blocker {
+            transform: translateX(100%);
+        }
+    }
+    .app-rich-text-editor-200 {
+        .tox-fullscreen {
+            height: 100% !important;
+            transform: translateX(200%);
+        }
+        .tox-blocker {
+            transform: translateX(200%);
+        }
+    }
+}
+
+.tox-menu {
+    min-width: 300px !important;
 }

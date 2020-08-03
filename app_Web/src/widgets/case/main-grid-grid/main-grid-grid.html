@@ -91,7 +91,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.openedby}}</span>
+                        <template >
+            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -103,7 +105,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.lastrunner}}</span>
+                        <template >
+            <codelist :value="row.lastrunner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -115,7 +119,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD hh:mm:ss" :data="row.lastrundate"></app-format-data>
+                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.lastrundate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
@@ -192,45 +196,30 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
-                              <i class='fa fa-stack-overflow'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Execute', $event)">
-                              <i class='fa fa-play-circle-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.case_execute')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.case_mainedit')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
-                              <i class='fa fa-bug'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.case_newbugbycaseresult')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
-                              <i class='fa fa-remove'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.case_remove')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')">
+                            <i class='fa fa-stack-overflow'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_execute')">
+                            <i class='fa fa-play-circle-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_mainedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.NewBugByCaseResult.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.NewBugByCaseResult.visabled" :disabled="scope.row.NewBugByCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_newbugbycaseresult')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.case.maingrid_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

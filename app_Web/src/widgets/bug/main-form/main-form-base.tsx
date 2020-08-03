@@ -49,7 +49,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -108,11 +107,24 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        openedbuild: [
+            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -202,11 +214,15 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-        if (Object.is(name, 'product')) {
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
             this.onFormItemValueChange({ name: 'story', value: null });
         }
-        if (Object.is(name, 'project')) {
+        if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'taskname', value: null });
             this.onFormItemValueChange({ name: 'task', value: null });
         }
@@ -215,6 +231,22 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (Object.is(name, 'project')) {
             this.onFormItemValueChange({ name: 'task', value: null });
+        }
+    }
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('branch')) {
+            this.data['branch'] = this.viewparams['branch'];
+        }
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['productmodule'];
+        }
+        if (this.data.hasOwnProperty('project')) {
+            this.data['project'] = this.viewparams['project'];
         }
     }
 }

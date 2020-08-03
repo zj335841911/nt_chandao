@@ -49,7 +49,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     protected appDeName: string = 'testtask';
-
     /**
      * 界面UI服务对象
      *
@@ -98,11 +97,36 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     public rules: any = {
+        projecttname: [
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
+        ],
+        buildname: [
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainEditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

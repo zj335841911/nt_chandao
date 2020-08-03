@@ -412,6 +412,30 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("branchname")
     private String branchname;
 
+    /**
+     * 属性 [VERSIONC]
+     *
+     */
+    @JSONField(name = "versionc")
+    @JsonProperty("versionc")
+    private String versionc;
+
+    /**
+     * 属性 [MODULENAME1]
+     *
+     */
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
+
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private String project;
+
 
     /**
      * 设置 [ASSIGNEDTO]

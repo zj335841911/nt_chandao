@@ -49,7 +49,6 @@ export class ActivateEditFormBase extends EditFormControlBase {
      * @memberof ActivateEditFormBase
      */
     protected appDeName: string = 'project';
-
     /**
      * 界面UI服务对象
      *
@@ -98,6 +97,15 @@ export class ActivateEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ActivateBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

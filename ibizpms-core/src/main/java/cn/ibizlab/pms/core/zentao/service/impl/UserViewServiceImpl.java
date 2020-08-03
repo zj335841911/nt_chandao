@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.UserViewSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IUserViewService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(UserView et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
 
 
 }
+
 
 

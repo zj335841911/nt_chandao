@@ -57,6 +57,7 @@ export default class CurProductBuild {
      * @memberof CurProductBuild
      */
     public queryParamNames:any ={
+        sort: 'id,desc'
     }
 
     /**

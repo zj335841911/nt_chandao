@@ -49,7 +49,6 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      * @memberof PlatformManagementEditFormBase
      */
     protected appDeName: string = 'branch';
-
     /**
      * 界面UI服务对象
      *
@@ -91,6 +90,15 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof PlatformManagementBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

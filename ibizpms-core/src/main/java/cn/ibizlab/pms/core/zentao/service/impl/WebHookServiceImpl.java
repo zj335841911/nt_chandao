@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.WebHookSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IWebHookService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(WebHook et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
 
 
 }
+
 
 

@@ -30,6 +30,9 @@
 
             >.ivu-select-dropdown {
                 background: var(--app-header-background-color);
+                max-height: 350px;
+                overflow-x: hidden;
+                overflow-y: auto;
 
                 >.ivu-menu-drop-list {
 
@@ -37,12 +40,13 @@
                     >.ivu-menu-submenu {
                         border: 0px;
                         color: var(--app-header-color);
-                        padding: 0px 10px;
+                        padding: 5px 8px;
                     }
 
                     >.ivu-menu-item:hover,
                     >.ivu-menu-submenu:hover {
                         background: hsla(0, 0%, 100%, 0.12);
+                        padding: 5px 8px;
                     }
                 }
             }

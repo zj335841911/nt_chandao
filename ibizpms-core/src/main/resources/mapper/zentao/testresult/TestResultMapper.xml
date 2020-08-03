@@ -31,29 +31,29 @@
 	 <select id="selectByIbizcase" resultMap="TestResultResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  case=#{id}
+			 ) t1
+			 where  case=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TESTRESULT_ZT_COMPILE_COMPILE] -->
 	 <select id="selectByCompile" resultMap="TestResultResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  compile=#{id}
+			 ) t1
+			 where  compile=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TESTRESULT_ZT_JOB_JOB] -->
 	 <select id="selectByJob" resultMap="TestResultResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  job=#{id}
+			 ) t1
+			 where  job=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TESTRESULT_ZT_TESTRUN_RUN] -->
 	 <select id="selectByRun" resultMap="TestResultResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  run=#{id}
+			 ) t1
+			 where  run=#{id}
      </select>
 
     <!--数据集合[Default]-->

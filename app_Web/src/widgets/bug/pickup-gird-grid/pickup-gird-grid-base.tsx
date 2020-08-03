@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import PickupGirdService from './pickup-gird-grid-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {PickupGirdGridBase}
  */
-export class PickupGirdGridBase extends GridControllerBase {
+export class PickupGirdGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -72,7 +72,7 @@ export class PickupGirdGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof PickupGirdBase
      */
     protected localStorageTag: string = 'zt_bug_pickupgird_grid';
 
@@ -132,9 +132,9 @@ export class PickupGirdGridBase extends GridControllerBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'assignedto',
-            label: '指派',
-            langtag: 'entities.bug.pickupgird_grid.columns.assignedto',
+            name: 'resolvedby',
+            label: '解决者',
+            langtag: 'entities.bug.pickupgird_grid.columns.resolvedby',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -185,7 +185,7 @@ export class PickupGirdGridBase extends GridControllerBase {
         'pri':false,
         'title':false,
         'openedby':false,
-        'assignedto':false,
+        'resolvedby':false,
         'status':false,
     };
 
@@ -229,7 +229,7 @@ export class PickupGirdGridBase extends GridControllerBase {
                 valueSeparator: ",",
             },
             {
-                name: 'assignedto',
+                name: 'resolvedby',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',

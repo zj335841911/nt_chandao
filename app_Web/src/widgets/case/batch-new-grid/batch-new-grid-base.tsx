@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import BatchNewService from './batch-new-grid-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {BatchNewGridBase}
  */
-export class BatchNewGridBase extends GridControllerBase {
+export class BatchNewGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -72,7 +72,7 @@ export class BatchNewGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof BatchNewBase
      */
     protected localStorageTag: string = 'zt_case_batchnew_grid';
 

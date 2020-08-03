@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.UserSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IUserService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -111,6 +112,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
     @Override
     @Transactional
+    public User getByCommiter(User et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(User et) {
         if(!saveOrUpdate(et))
             return false;
@@ -118,9 +126,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(User et) {
         if (null == et) {
             return false;
@@ -141,6 +147,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
 
+
+    /**
+     * 查询集合 Bug用户
+     */
+    @Override
+    public Page<User> searchBugUser(UserSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchBugUser(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 DEFAULT
@@ -178,6 +193,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 TASKTEAM
+     */
+    @Override
+    public Page<User> searchTaskTeam(UserSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchTaskTeam(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 
@@ -210,5 +234,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
 }
+
 
 

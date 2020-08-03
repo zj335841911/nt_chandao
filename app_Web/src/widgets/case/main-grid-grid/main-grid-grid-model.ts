@@ -57,6 +57,9 @@ export default class MainGridModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -70,6 +73,7 @@ export default class MainGridModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',

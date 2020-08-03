@@ -7,7 +7,7 @@ import view_dashboard_sysportlet4 from '@widgets/action/action-history-portlet/a
 import view_dashboard_sysportlet5 from '@widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/action/product-trends-timeline-portlet/product-trends-timeline-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/product/product-info-portlet/product-info-portlet.vue';
-import view_dashboard_sysportlet1 from '@widgets/product-life/get-roadmap-portlet/get-roadmap-portlet.vue';
+import view_dashboard_sysportlet1 from '@widgets/product-life/get-roadmaps-portlet/get-roadmaps-portlet.vue';
  
 
 /**
@@ -30,3 +30,6 @@ import view_dashboard_sysportlet1 from '@widgets/product-life/get-roadmap-portle
 @VueLifeCycleProcessing()
 export default class MainDashboard extends MainDashboardBase { }
 </script>
+<style lang='less'>
+@import './main-dashboard.less';
+</style>

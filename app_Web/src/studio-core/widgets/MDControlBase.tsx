@@ -157,6 +157,14 @@ export class MDControlBase extends MainControlBase {
     public selections: any[] = [];
 
     /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof MDControlBase
+     */
+    public isEnableQuickGroup: boolean = false;
+
+    /**
      * 当前页
      *
      * @type {number}

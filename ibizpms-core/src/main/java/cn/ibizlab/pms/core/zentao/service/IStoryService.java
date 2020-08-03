@@ -51,6 +51,7 @@ public interface IStoryService extends IService<Story>{
     boolean checkKey(Story et) ;
     Story close(Story et) ;
     Story getStorySpec(Story et) ;
+    Story importPlanStories(Story et) ;
     Story linkStory(Story et) ;
     Story projectBatchUnlinkStory(Story et) ;
     Story projectLinkStory(Story et) ;
@@ -63,11 +64,13 @@ public interface IStoryService extends IService<Story>{
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
     Story unlinkStory(Story et) ;
+    Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) ;
     Page<Story> searchBuildLinkableStories(StorySearchContext context) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;
     Page<Story> searchByModule(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;
     Page<Story> searchGetProductStories(StorySearchContext context) ;
+    Page<Story> searchProjectLinkStory(StorySearchContext context) ;
     Page<Story> searchProjectStories(StorySearchContext context) ;
     Page<Story> searchReleaseStories(StorySearchContext context) ;
     Page<Story> searchReportStories(StorySearchContext context) ;

@@ -6,7 +6,7 @@ import { TestReportEditViewBase } from './test-report-edit-view-base';
 import view_form from '@widgets/test-report/main-form/main-form.vue';
 
 /**
- * testreport编辑视图视图
+ * 测试报告编辑视图视图
  *
  * @export
  * @class TestReportEditView

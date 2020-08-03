@@ -333,4 +333,76 @@ export interface Project {
      * @memberof Project
      */
     period?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    account?: any;
+
+    /**
+     * 加盟日
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    join?: any;
+
+    /**
+     * 可用工时/天
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    hours?: any;
+
+    /**
+     * 角色
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    role?: any;
+
+    /**
+     * 任务消耗总工时
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    totalconsumed?: any;
+
+    /**
+     * 总工时
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    totalwh?: any;
+
+    /**
+     * 任务预计剩余总工时
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    totalleft?: any;
+
+    /**
+     * 任务最初预计总工时
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    totalestimate?: any;
+
+    /**
+     * 可用工时
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    totalhours?: any;
 }

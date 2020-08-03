@@ -37,6 +37,7 @@ public interface IModuleService extends IService<Module>{
     Module fix(Module et) ;
     boolean save(Module et) ;
     void saveBatch(List<Module> list) ;
+    Page<Module> searchBugModule(ModuleSearchContext context) ;
     Page<Module> searchDefault(ModuleSearchContext context) ;
     Page<Module> searchDocModule(ModuleSearchContext context) ;
     Page<Module> searchLine(ModuleSearchContext context) ;

@@ -9,4 +9,17 @@ import { MDViewBase } from './MDViewBase';
  */
 export class DataViewBase extends MDViewBase {
 
+    /**
+     * 快速搜索
+     *
+     * @protected
+     * @memberof DataViewBase
+     */
+    protected onSearch(): void {
+        const dataview: any = this.$refs.dataview;
+        if (dataview) {
+            dataview.refresh({});
+        }
+    }
+
 }

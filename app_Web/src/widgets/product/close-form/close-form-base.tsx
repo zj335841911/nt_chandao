@@ -49,7 +49,6 @@ export class CloseEditFormBase extends EditFormControlBase {
      * @memberof CloseEditFormBase
      */
     protected appDeName: string = 'product';
-
     /**
      * 界面UI服务对象
      *
@@ -95,6 +94,15 @@ export class CloseEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof CloseBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

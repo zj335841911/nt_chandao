@@ -72,6 +72,13 @@ export default class ActivationModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
       },
       {
         name: 'comment',

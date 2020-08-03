@@ -41,4 +41,3 @@ public class RepoBranchSearchContext extends QueryWrapperContext<RepoBranch> {
 
 
 
-

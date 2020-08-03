@@ -49,7 +49,6 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      * @memberof StepsInfoEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -58,6 +57,15 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
+    /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof StepsInfoEditFormBase
+     */
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象
@@ -74,8 +82,9 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        steps: null,
         id: null,
+        title: null,
+        steps: null,
         bug:null,
     };
 
@@ -89,12 +98,25 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof StepsInfoBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 详情模型集合
      *
      * @type {*}
      * @memberof StepsInfoEditFormBase
      */
     public detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.stepsinfo_form', extractMode: 'ITEM', details: [] } }),
+
         group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.stepsinfo_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -115,9 +137,11 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        steps: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+        title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        steps: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
 }

@@ -123,6 +123,18 @@ public class ProductStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productstatsService.checkKey(productstatsMapping.toDomain(productstatsdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-GetTestStats-all')")
+    @ApiOperation(value = "获取测试统计详情", tags = {"产品统计" },  notes = "获取测试统计详情")
+	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}/getteststats")
+    @Transactional
+    public ResponseEntity<ProductStatsDTO> getTestStats(@PathVariable("productstats_id") BigInteger productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
+        ProductStats domain = productstatsMapping.toDomain(productstatsdto);
+domain.setId(productstats_id);
+        domain = productstatsService.getTestStats(domain);
+        productstatsdto = productstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productstatsdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Save-all')")
     @ApiOperation(value = "保存产品统计", tags = {"产品统计" },  notes = "保存产品统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/productstats/save")

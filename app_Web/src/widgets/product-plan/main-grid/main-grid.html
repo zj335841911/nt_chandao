@@ -88,37 +88,25 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'RelationStory', $event)">
-                              <i class='fa fa-link'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.productplan_relationstory')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'RelationBug', $event)">
-                              <i class='fa fa-bug'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.productplan_relationbug')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.productplan_mainedit')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'NewSubPlan', $event)">
-                              <i class='fa fa-sitemap'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.RelationStory.visabled" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationstory')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.RelationBug.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.RelationBug.visabled" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationbug')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_mainedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
+                            <i class='fa fa-sitemap'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

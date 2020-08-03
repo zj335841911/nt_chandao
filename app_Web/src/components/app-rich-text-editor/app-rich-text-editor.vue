@@ -1,5 +1,7 @@
 <template>
-  <textarea :id="id"></textarea>
+    <div :class="editorClass">
+        <textarea :id="id"></textarea>
+    </div>
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
@@ -19,6 +21,7 @@ import 'tinymce/plugins/codesample';
 import 'tinymce/plugins/code';
 import 'tinymce/plugins/fullscreen';
 import 'tinymce/plugins/preview';
+import 'tinymce/plugins/fullscreen';
 import 'tinymce/icons/default/icons.min.js';
 
 const tinymceCode:any = tinymce;
@@ -192,6 +195,20 @@ export default class AppRichTextEditor extends Vue {
     public isNeedInit:boolean = false;
 
     /**
+     * 上传的图片id与类型集合
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public imgsrc: Array<any> = [];
+
+    /**
+     * 编辑器样式类
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public editorClass: string = 'app-rich-text-editor';
+
+    /**
      * 生命周期
      *
      * @memberof AppRichTextEditor
@@ -238,8 +255,33 @@ export default class AppRichTextEditor extends Vue {
      */
     public mounted() {
         this.init();
+        const ele: any = this.isDrawer(this.$el);
+        if(ele) {
+            let index: number = ele.style.transform.indexOf('translateX');
+            if(index >= 0) {
+                let num: string = ele.style.transform.substring(index + 12, index + 15);
+                this.editorClass = this.editorClass + (-parseInt(num));
+            }
+        }
     }
     
+    /**
+     * 是否抽屉打开
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public isDrawer(ele: any): any {
+        let pele: any = ele.parentNode;
+        if(!pele) {
+            return false;
+        }
+        if(pele.className && pele.className.indexOf('studio-drawer-content') >= 0) {
+            return pele;
+        }
+        return this.isDrawer(pele);
+        
+    }
+ 
     /**
      * 生命周期：销毁富文本
      * 
@@ -259,6 +301,10 @@ export default class AppRichTextEditor extends Vue {
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
         const content: any = this.editor ? this.editor.getContent() : undefined;
+        const url = this.downloadUrl.substring(3);
+        if(newval) {
+            newval = newval.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
+        }
         if (!Object.is(newval,content)) {
             this.init();
         }
@@ -292,8 +338,9 @@ export default class AppRichTextEditor extends Vue {
             height: richtexteditor.height,
             min_height: 400,
             branding: false,
-            plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars'],
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+            plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars', 'fullscreen'],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image | preview code fullscreen',
+            contextmenu:'cut copy paste pastetext inserttable link ',
             quickbars_insert_toolbar: false,
             quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
@@ -316,7 +363,16 @@ export default class AppRichTextEditor extends Vue {
             setup: (editor: any) => {
                 richtexteditor.editor = editor;
                 editor.on('blur', () => {
-                    const content = editor.getContent();
+                    let content = editor.getContent();
+                    const url = richtexteditor.downloadUrl.substring(3);
+                    let newContent: string = "";
+                    const imgsrc = richtexteditor.imgsrc;
+                    if(imgsrc && imgsrc.length > 0){
+                        imgsrc.forEach((item: any)=>{
+                            newContent = content.replace(url+"/"+item.id,"{"+item.id+item.type+"}");
+                            content = newContent;
+                        });
+                    }
                     richtexteditor.$emit('change', content);
                 });
             },
@@ -335,6 +391,8 @@ export default class AppRichTextEditor extends Vue {
                 }
                 this.uploadUrl = _url;
                 richtexteditor.uploadFile(_url, formData).subscribe((file: any) => {
+                    const item: any = { id: file.fileid, type: file.ext };
+                    richtexteditor.imgsrc.push(item);
                     let downloadUrl =   richtexteditor.downloadUrl;
                     if (file.filename) {
                         const id: string = file.fileid;
@@ -357,7 +415,9 @@ export default class AppRichTextEditor extends Vue {
             },
             init_instance_callback: (editor: any) => {
                 richtexteditor.editor = editor;
+                const url = richtexteditor.downloadUrl.substring(3);
                 let value = (richtexteditor.value && richtexteditor.value.length > 0) ? richtexteditor.value : '';
+                value = value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
                 if (richtexteditor.editor) {
                     richtexteditor.editor.setContent(value);
                 }
@@ -437,5 +497,26 @@ export default class AppRichTextEditor extends Vue {
 <style lang="less">
 .tox-statusbar__text-container{
     display: none !important;
+}
+.app-rich-text-editor-100 {
+    .tox-fullscreen {
+        height: 100% !important;
+        transform: translateX(100%);
+    }
+    .tox-blocker {
+        transform: translateX(100%);
+    }
+}
+.app-rich-text-editor-200 {
+    .tox-fullscreen {
+        height: 100% !important;
+        transform: translateX(200%);
+    }
+    .tox-blocker {
+        transform: translateX(200%);
+    }
+}
+.tox-menu {
+    min-width: 300px !important;
 }
 </style>

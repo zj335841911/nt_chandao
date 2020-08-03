@@ -53,7 +53,7 @@ export default class CaseUIServiceBase extends UIService {
      * 
      * @memberof  CaseUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -90,6 +90,7 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'gridview9_my',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'curtesttaskgridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maininfoeditview9',srfappde:'cases'});
@@ -100,8 +101,10 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'mainmynewgridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'cases'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases'});
     }
 
@@ -111,6 +114,10 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('blocked','blocked');
+        this.allDeMainStateMap.set('investigate','investigate');
+        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('wait','wait');
     }
 
     /**
@@ -119,6 +126,10 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('blocked',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
     }
 
     /**
@@ -172,10 +183,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -237,10 +244,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -304,10 +307,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -373,11 +372,7 @@ export default class CaseUIServiceBase extends UIService {
                     }
                     const _this: any = actionContext;
                     if (_this.Refresh && _this.Refresh instanceof Function) {
-                        _this.Refresh(result.datas,context,params, $event, xData,actionContext);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
+                        _this.Refresh(result.datas[0],context,params, $event, xData,actionContext);
                     }
                     return result.datas;
                 });
@@ -443,10 +438,6 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -551,7 +542,7 @@ export default class CaseUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

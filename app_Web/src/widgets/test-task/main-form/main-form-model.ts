@@ -81,6 +81,16 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'build',
+        prop: 'build',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'status',
         prop: 'status',
         dataType: 'SSCODELIST',
@@ -109,16 +119,6 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'project',
-        prop: 'project',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'build',
-        prop: 'build',
-        dataType: 'PICKUP',
       },
       {
         name: 'testtask',

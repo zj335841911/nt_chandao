@@ -21,6 +21,7 @@ public interface ProductPlanMapper extends BaseMapper<ProductPlan>{
 
     Page<ProductPlan> searchCurProductPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
     Page<ProductPlan> searchDefault(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
+    Page<ProductPlan> searchProjectPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
     @Override
     ProductPlan selectById(Serializable id);
     @Override

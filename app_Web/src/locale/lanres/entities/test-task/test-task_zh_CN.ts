@@ -22,13 +22,25 @@ export default {
     comment: "备注",
   },
 	views: {
+		myygridview: {
+			caption: "测试版本",
+      		title: "测试单表格视图",
+		},
 		gridview9_untested: {
 			caption: "测试版本",
       		title: "测试版本表格视图",
 		},
+		mydgridview: {
+			caption: "测试版本",
+      		title: "测试单表格视图",
+		},
 		editview9_detail: {
 			caption: "测试版本",
       		title: "测试版本编辑视图",
+		},
+		editview_committest: {
+			caption: "测试版本",
+      		title: "提交测试",
 		},
 		maintabexpview: {
 			caption: "测试版本",
@@ -36,7 +48,7 @@ export default {
 		},
 		editview: {
 			caption: "测试版本",
-      		title: "testtask编辑视图",
+      		title: "测试单编辑视图",
 		},
 		editview9_info: {
 			caption: "测试版本",
@@ -48,11 +60,43 @@ export default {
 		},
 		gridview: {
 			caption: "测试版本",
-      		title: "testtask表格视图",
+      		title: "测试单表格视图",
 		},
 		editview_edit: {
 			caption: "测试版本",
-      		title: "testtask编辑视图",
+      		title: "测试单编辑视图",
+		},
+	},
+	buildsubmit_form: {
+		details: {
+			grouppanel2: "起止日期", 
+			grouppanel1: "分组面板", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			projecttname: "项目", 
+			buildname: "版本", 
+			owner: "负责人", 
+			pri: "优先级", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			project: "所属项目", 
+			build: "版本", 
+			status: "当前状态", 
+			product: "所属产品", 
+			name: "名称", 
+			desc: "描述", 
+			mailto: "抄送给", 
+			id: "编号", 
+		},
+		uiactions: {
 		},
 	},
 	maindetail_form: {
@@ -149,14 +193,14 @@ export default {
 			pri: "优先级", 
 			begin: "开始日期", 
 			end: "结束日期", 
+			project: "所属项目", 
+			build: "版本", 
 			status: "当前状态", 
 			product: "所属产品", 
 			name: "名称", 
 			desc: "描述", 
 			mailto: "抄送给", 
 			id: "编号", 
-			project: "所属项目", 
-			build: "版本", 
 		},
 		uiactions: {
 		},
@@ -192,6 +236,12 @@ export default {
 			end: "结束日期",
 		},
 		uiactions: {
+		},
+	},
+	editview_committesttoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	editview_edittoolbar_toolbar: {

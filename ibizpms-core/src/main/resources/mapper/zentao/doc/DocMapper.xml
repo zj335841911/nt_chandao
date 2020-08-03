@@ -31,29 +31,29 @@
 	 <select id="selectByLib" resultMap="DocResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  lib=#{id}
+			 ) t1
+			 where  lib=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_MODULE_MODULE] -->
 	 <select id="selectByModule" resultMap="DocResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  module=#{id}
+			 ) t1
+			 where  module=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_PRODUCT_PRODUCT] -->
 	 <select id="selectByProduct" resultMap="DocResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  product=#{id}
+			 ) t1
+			 where  product=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_PROJECT_PROJECT] -->
 	 <select id="selectByProject" resultMap="DocResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  project=#{id}
+			 ) t1
+			 where  project=#{id}
      </select>
 
     <!--数据集合[Default]-->

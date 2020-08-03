@@ -201,6 +201,12 @@ export default class DashboardBugMainModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'files',
+      },
     ]
   }
 

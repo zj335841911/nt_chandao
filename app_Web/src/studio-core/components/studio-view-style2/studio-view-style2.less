@@ -19,6 +19,10 @@
         float: right;
         padding-top: 4px;
 
+        .ivu-icon-ios-search {
+            border-radius: 0px 5px 5px 0px;
+        }
+
         .ivu-input.ivu-input-default.ivu-input-with-suffix {
             height: 32px;
             line-height: 32px;
@@ -54,6 +58,24 @@
         }
     }
 
+    .view-header.hidden-top {
+        border-bottom: 1px solid var(--app-dividing-line-color-bright);
+
+        .quick-search {
+
+            .ivu-input.ivu-input-default.ivu-input-with-suffix {
+                height: 28px;
+                line-height: 28px;
+            }
+
+            .ivu-input-icon {
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+            }
+        }
+    }
+
     .view-content {
         flex-grow: 1;
         height: auto;
@@ -86,4 +108,5 @@
         flex-shrink: 0;
     }
 }
+
 @import './studio-view-style2-layout.less';

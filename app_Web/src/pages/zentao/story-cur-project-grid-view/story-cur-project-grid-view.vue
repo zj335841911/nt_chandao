@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryCurProjectGridViewBase } from './story-cur-project-grid-view-base';
-import view_grid from '@widgets/story/main-grid/main-grid.vue';
+import view_grid from '@widgets/story/project-story-grid/project-story-grid.vue';
 
 /**
  * story表格视图视图

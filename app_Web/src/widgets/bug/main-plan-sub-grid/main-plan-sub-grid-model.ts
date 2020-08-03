@@ -32,6 +32,9 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -45,6 +48,7 @@ export default class Main_PlanSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',

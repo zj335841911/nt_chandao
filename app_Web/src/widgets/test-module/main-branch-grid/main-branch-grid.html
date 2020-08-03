@@ -42,10 +42,11 @@
               placeholder="模块名称"
               @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
             </input-box>
+            
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='name' editorType="TEXTBOX" :value="row.name"></app-span>
+            <app-span name='name' editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -103,10 +104,11 @@
               placeholder="简称"
               @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
             </input-box>
+            
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='short' editorType="TEXTBOX" :value="row.short"></app-span>
+            <app-span name='short' editorType="TEXTBOX" :value="row.short" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -120,13 +122,10 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
-                              <i class='fa fa-remove'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.testmodule.mainbranch_grid.uiactions.testmodule_remove')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testmodule.mainbranch_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

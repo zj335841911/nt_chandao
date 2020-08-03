@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.RepoHistorySearchContext;
 import cn.ibizlab.pms.core.zentao.service.IRepoHistoryService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(RepoHistory et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
 
 
 }
+
 
 

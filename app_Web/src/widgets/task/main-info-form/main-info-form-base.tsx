@@ -49,7 +49,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     protected appDeName: string = 'task';
-
     /**
      * 界面UI服务对象
      *
@@ -85,7 +84,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         name: null,
         projectname: null,
-        modulename: null,
+        modulename1: null,
         storyname: null,
         assignedto: null,
         type: null,
@@ -118,6 +117,15 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainInfoBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -166,7 +174,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        modulename1: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

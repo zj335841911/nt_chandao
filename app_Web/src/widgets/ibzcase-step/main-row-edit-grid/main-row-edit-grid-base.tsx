@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
 import Main_RowEditService from './main-row-edit-grid-service';
 import IBZCaseStepUIService from '@/uiservice/ibzcase-step/ibzcase-step-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {Main_RowEditGridBase}
  */
-export class Main_RowEditGridBase extends GridControllerBase {
+export class Main_RowEditGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -55,7 +55,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof GridControlBase
      */
     protected localStorageTag: string = 'ibz_casestep_main_rowedit_grid';
 
@@ -100,25 +100,31 @@ export class Main_RowEditGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'desc',
+            property: 'desc',
             label: '步骤',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.desc',
             show: true,
             util: 'PX',
+            width: 300,
         },
         {
             name: 'type',
+            property: 'type',
             label: '类型',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.type',
             show: false,
             util: 'PX',
+            width: 100,
             codelistId: 'Casestep__type'
         },
         {
             name: 'expect',
+            property: 'expect',
             label: '预期',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.expect',
             show: true,
             util: 'STAR',
+            width: -1,
         },
     ]
 
@@ -224,10 +230,12 @@ export class Main_RowEditGridBase extends GridControllerBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
-            if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
-                data.type = 'item';
-            } else {
-                data.type = 'step';
+            if(row.type) {
+                if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                    data.type = 'item';
+                } else {
+                    data.type = 'step';
+                }
             }
             if(func instanceof Function) {
                 func(data);

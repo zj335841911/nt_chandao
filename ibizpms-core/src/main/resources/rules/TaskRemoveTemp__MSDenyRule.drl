@@ -20,6 +20,24 @@ ruleflow-group "taskremovetemp__msdenydenybywait"
     update(taskremovetemp__msdenytemp);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已关闭]拒绝[removetemp]操作]
+rule "denybyclosed"
+ruleflow-group "taskremovetemp__msdenydenybyclosed"
+    when
+    then
+    update(taskremovetemp__msdenydefault);//更新fact中变量值
+    update(taskremovetemp__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消]拒绝[removetemp]操作]
+rule "denybycancel"
+ruleflow-group "taskremovetemp__msdenydenybycancel"
+    when
+    then
+    update(taskremovetemp__msdenydefault);//更新fact中变量值
+    update(taskremovetemp__msdenytemp);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[进行中]拒绝[removetemp]操作]
 rule "denybydoing"
 ruleflow-group "taskremovetemp__msdenydenybydoing"
@@ -35,6 +53,15 @@ ruleflow-group "taskremovetemp__msdenyget"
     when
     then
     cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(taskservice.get(taskremovetemp__msdenytemp.getId()),taskremovetemp__msdenytemp);
+    update(taskremovetemp__msdenydefault);//更新fact中变量值
+    update(taskremovetemp__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成]拒绝[removetemp]操作]
+rule "denybydone"
+ruleflow-group "taskremovetemp__msdenydenybydone"
+    when
+    then
     update(taskremovetemp__msdenydefault);//更新fact中变量值
     update(taskremovetemp__msdenytemp);//更新fact中变量值
     end

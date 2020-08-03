@@ -27,6 +27,11 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'activateddate',
+          prop: 'activateddate',
+          dataType: 'DATETIME',
+        },
+        {
           name: 'tostory',
           prop: 'tostory',
           dataType: 'PICKUP',
@@ -37,17 +42,21 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
         },
         {
-          name: 'srfdataaccaction',
+          name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
-          name: 'srfkey',
+          name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },

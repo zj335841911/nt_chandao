@@ -14,7 +14,7 @@ export default {
 		},
 		pickupview: {
 			caption: "产品的分支和平台信息",
-      		title: "branch数据选择视图",
+      		title: "平台数据选择视图",
 		},
 		pmeditview: {
 			caption: "产品的分支和平台信息",
@@ -22,7 +22,7 @@ export default {
 		},
 		pickupgridview: {
 			caption: "产品的分支和平台信息",
-      		title: "branch选择表格视图",
+      		title: "平台选择表格视图",
 		},
 	},
 	platformmanagement_form: {

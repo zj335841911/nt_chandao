@@ -49,9 +49,13 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
-            return Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/select`,isloading);
+            
+            return res;
         }
-            return Http.getInstance().get(`/testtasks/${context.testtask}/select`,isloading);
+            let res:any = Http.getInstance().get(`/testtasks/${context.testtask}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -75,6 +79,7 @@ export default class TestTaskServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
@@ -87,6 +92,7 @@ export default class TestTaskServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/testtasks`,data,isloading);
+        
         return res;
     }
 
@@ -104,11 +110,13 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/testtasks/${context.testtask}`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/testtasks/${context.testtask}`,data,isloading);
+            
             return res;
     }
 
@@ -123,9 +131,11 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
-            return Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            return res;
         }
-            return Http.getInstance().delete(`/testtasks/${context.testtask}`,isloading);
+            let res:any = Http.getInstance().delete(`/testtasks/${context.testtask}`,isloading);
+            return res;
     }
 
     /**
@@ -140,9 +150,11 @@ export default class TestTaskServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            
             return res;
         }
             let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}`,isloading);
+            
             return res;
     }
 
@@ -159,10 +171,12 @@ export default class TestTaskServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,isloading);
             res.data.testtask = data.testtask;
+            
             return res;
         }
         let res:any = await  Http.getInstance().get(`/testtasks/getdraft`,isloading);
         res.data.testtask = data.testtask;
+        
         return res;
     }
 
@@ -180,9 +194,11 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/activate`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
+            return res;
     }
 
     /**
@@ -199,9 +215,11 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/block`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
+            return res;
     }
 
     /**
@@ -218,9 +236,11 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/checkkey`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -237,9 +257,11 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/close`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
+            return res;
     }
 
     /**
@@ -256,11 +278,13 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/save`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/testtasks/${context.testtask}/save`,data,isloading);
+            
             return res;
     }
 
@@ -278,9 +302,11 @@ export default class TestTaskServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/start`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
+            return res;
     }
 
     /**
@@ -295,9 +321,11 @@ export default class TestTaskServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/testtasks/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/fetchdefault`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/testtasks/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/testtasks/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

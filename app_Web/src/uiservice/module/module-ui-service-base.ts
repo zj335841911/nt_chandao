@@ -90,7 +90,9 @@ export default class ModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'modules'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'modules'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'modules'});
+        this.allViewMap.set(':',{viewname:'linegridview',srfappde:'modules'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'modules'});
         this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'modules'});
     }
@@ -109,6 +111,62 @@ export default class ModuleUIServiceBase extends UIService {
      * @memberof  ModuleUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+    }
+
+    /**
+     * 维护产品线
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Module_SeLine(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'modules', parameterName: 'module' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'module-line-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.module.views.linegridview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
     }
 
 
@@ -202,7 +260,7 @@ export default class ModuleUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

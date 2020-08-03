@@ -168,6 +168,12 @@ export default class MainDetailModel {
       {
         name: 'taskteams',
       },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'ibztaskestimates',
+      },
     ]
   }
 

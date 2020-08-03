@@ -385,7 +385,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.story.views.plansubeditview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

@@ -156,21 +156,15 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
-                              <i class='fa fa-stack-overflow'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Execute', $event)">
-                              <i class='fa fa-play-circle-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
+                            <i class='fa fa-stack-overflow'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
+                            <i class='fa fa-play-circle-o'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 
 /**
- * testsuite编辑视图视图基类
+ * 测试套件编辑视图视图基类
  *
  * @export
  * @class TestSuiteEditViewBase

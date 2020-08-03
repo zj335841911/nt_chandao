@@ -24,6 +24,7 @@ public class ProjectModuleExService extends ProjectModuleServiceImpl {
     public Page<ProjectModule> searchTaskModules(ProjectModuleSearchContext context) {
         context.setN_root_eq(null);
         context.getSearchCond().clear();
+        context.setQuery(context.getQuery());
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchTaskModules(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }

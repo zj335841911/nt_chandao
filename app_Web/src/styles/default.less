@@ -211,7 +211,13 @@ div::-webkit-scrollbar-thumb {
 
                                         >.el-checkbox__inner {
                                             background-color: var(--form-editor-background-color);
-                                            border: 1px solid var(--view-background-color-bright);
+                                            border: 1px solid var(--form-editor-border-color);
+                                        }
+
+                                        >.el-checkbox__inner::after {
+                                            border: 1px solid var(--form-editor-font-color);
+                                            border-left: 0;
+                                            border-top: 0;
                                         }
                                     }
                                 }
@@ -253,6 +259,13 @@ div::-webkit-scrollbar-thumb {
                                             background-color: var(--form-editor-background-color);
                                             border: 1px solid var(--view-background-color-bright);
                                         }
+
+                                        >.el-checkbox__inner::after {
+                                            border: 1px solid var(--form-editor-font-color);
+                                            border-left: 0;
+                                            border-top: 0;
+                                        }
+
                                     }
                                 }
                             }
@@ -270,7 +283,16 @@ div::-webkit-scrollbar-thumb {
                     >.el-table__row:hover {
 
                         >td {
-                            background-color: var(--view-background-color-tint);
+                            // color: var(--view-font-color-active);
+                            background-color: rgba(var(--view-background-color-active-rgb), 0.5);
+                        }
+                    }
+
+                    >.el-table__row.current-row {
+
+                        >td {
+                            color: var(--view-font-color-active);
+                            background-color: var(--view-background-color-active);
                         }
                     }
                 }
@@ -343,7 +365,7 @@ div::-webkit-scrollbar-thumb {
             .ivu-page-item-active {
 
                 >a {
-                    color: var(--view-font-color-bright);
+                    color: var(--view-button-color);
                 }
             }
 
@@ -355,9 +377,9 @@ div::-webkit-scrollbar-thumb {
 
                         >.ivu-select-selection {
                             height: 22px;
-                            background-color: var(--form-editor-background-color);
-                            border: 1px solid var(--form-editor-background-color);
-                            color: var(--form-editor-font-color);
+                            background-color: var(--view-button-background-color);
+                            border: 1px solid var(--form-editor-border-color);
+                            color: var(--view-button-color);
 
                             >div {
 
@@ -369,8 +391,9 @@ div::-webkit-scrollbar-thumb {
                         }
 
                         >.ivu-select-selection:hover {
-                            border-color: var(--form-editor-active-color);
-                            background-color: var(--form-editor-active-color);
+                            border-color: var(--view-button-background-color-active);
+                            background-color: var(--view-button-background-color-active);
+                            color: var(--view-button-color-active);
                         }
                     }
                 }
@@ -400,17 +423,49 @@ div::-webkit-scrollbar-thumb {
 
         >.ivu-select-item {
             color: var(--form-editor-font-color);
+
+            .el-checkbox.is-disabled {
+                .el-checkbox__inner {
+                    cursor: pointer;
+                    border-color: #409EFF;
+                }
+
+                .el-checkbox__inner::after {
+                    cursor: pointer;
+                    border-color: #409EFF;
+                }
+
+                .el-checkbox__label {
+                    color: var(--form-editor-font-color);
+                }
+            }
         }
 
         >.ivu-select-item:hover {
             color: #fff;
             background: var(--form-editor-active-color);
+
+            .el-checkbox.is-disabled {
+                .el-checkbox__label {
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
         }
 
-        >.ivu-select-item.ivu-select-item-selected,
         >.ivu-select-item.ivu-select-item-focus {
+            background: var(--form-editor-background-color);
+        }
+
+        >.ivu-select-item.ivu-select-item-selected {
             color: #fff;
             background: var(--form-editor-active-color);
+
+            .el-checkbox.is-disabled {
+                .el-checkbox__label {
+                    color: #fff;
+                }
+            }
         }
     }
 }
@@ -436,7 +491,7 @@ div::-webkit-scrollbar-thumb {
 // 基础表单项颜色
 .form-edit-base-color {
     background-color: var(--form-editor-background-color);
-    border-color: var(--form-editor-background-color);
+    border-color: var(--form-editor-border-color);
     color: var(--form-editor-font-color);
 }
 
@@ -472,6 +527,7 @@ div::-webkit-scrollbar-thumb {
             >p {
                 font-size: 13px;
                 color: var(--view-font-color);
+                margin-bottom: 0;
             }
         }
 
@@ -645,7 +701,8 @@ div::-webkit-scrollbar-thumb {
 
                     >.ivu-select-selection {
                         background: var(--form-editor-background-color);
-                        border-color: transparent;
+                        border-color: var(--form-editor-border-color);
+                        ;
 
                         .ivu-select-placeholder {
                             color: var(--form-editor-placeholder-font-color);
@@ -667,14 +724,16 @@ div::-webkit-scrollbar-thumb {
                 }
 
                 // 数值编辑器
-                .ivu-input-number, .ivu-input-number-input, .ivu-input-number-handler-wrap {
+                .ivu-input-number,
+                .ivu-input-number-input,
+                .ivu-input-number-handler-wrap {
                     background-color: var(--form-editor-background-color);
                     color: var(--form-editor-font-color);
                 }
 
                 .ivu-input-number {
-                    border-color: transparent;
-                    
+                    border-color: var(--form-editor-border-color);
+
                     .ivu-input-number-input {
                         text-align: left;
                     }
@@ -682,14 +741,20 @@ div::-webkit-scrollbar-thumb {
                     .ivu-input-number-handler {
                         color: var(--form-editor-placeholder-font-color);
                     }
-                    
-                    .ivu-input-number-handler-wrap, .ivu-input-number-handler.ivu-input-number-handler-down {
+
+                    .ivu-input-number-handler-wrap,
+                    .ivu-input-number-handler.ivu-input-number-handler-down {
                         border-color: var(--form-editor-active-color);
                     }
                 }
 
                 .ivu-input-number:hover {
                     border-color: var(--form-editor-active-color);
+                }
+                .ivu-input-number-disabled {
+                    .ivu-input-number-input {
+                        background-color: var(--form-disable-editor-background-color);
+                    }
                 }
             }
         }
@@ -1127,4 +1192,79 @@ div::-webkit-scrollbar-thumb {
 .app-data-chart {
     height: 100%;
 }
+
+// 数据视图部件
+.app-data-view {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+
+    .data-view-container {
+
+        .ivu-col {
+            margin-bottom: 10px;
+        }
+
+        .single-card-data {
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+
+            .single-card-img {
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .app-data-empty {
+        height: 100%;
+        text-align: center;
+        padding-top: 50px;
+    }
+}
+
+// 向导面板样式
+.app-wizard {
+    height: 100%;
+    width: 100%;
+
+    .wizard-steps {
+        height: 58px;
+    }
+
+    .app-wizard-content {
+        height: calc(100% - 90px);
+        overflow: auto;
+    }
+
+    .app-wizard-footer {
+        height: 32px;
+        text-align: right;
+
+        .ivu-btn {
+            margin-right: 5px;
+        }
+    }
+}
+
+// 列表导航栏样式
+.app-list-exp-bar {
+
+    >.ivu-split-horizontal {
+
+        >.left-pane {
+            padding-right: 8px;
+
+            >.container-header {
+                margin-bottom: 6px;
+            }
+        }
+    }
+}
+
 @import './user.less';

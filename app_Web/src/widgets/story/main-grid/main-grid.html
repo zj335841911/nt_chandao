@@ -172,45 +172,30 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
-                              <i class='fa fa-exchange'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.story.main_grid.uiactions.story_changestorydetail')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'ReviewStory', $event)">
-                              <i class='fa fa-search'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.story.main_grid.uiactions.story_reviewstory')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'CloseStory', $event)">
-                              <i class='fa fa-power-off'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.story.main_grid.uiactions.story_closestory')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.story.main_grid.uiactions.story_openbaseinfoeditview')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
-                              <i class='fa fa-lightbulb-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.story.main_grid.uiactions.story_opencasecreateview')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.ChangeStoryDetail.visabled" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.main_grid.uiactions.story_changestorydetail')">
+                            <i class='fa fa-exchange'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.ReviewStory.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.ReviewStory.visabled" :disabled="scope.row.ReviewStory.disabled" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_reviewstory')">
+                            <i class='fa fa-search'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.CloseStory.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CloseStory.visabled" :disabled="scope.row.CloseStory.disabled" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_closestory')">
+                            <i class='fa fa-power-off'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.OpenBaseInfoEditView.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.OpenBaseInfoEditView.visabled" :disabled="scope.row.OpenBaseInfoEditView.disabled" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.main_grid.uiactions.story_openbaseinfoeditview')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.OpenCaseCreateView.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.OpenCaseCreateView.visabled" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.main_grid.uiactions.story_opencasecreateview')">
+                            <i class='fa fa-lightbulb-o'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

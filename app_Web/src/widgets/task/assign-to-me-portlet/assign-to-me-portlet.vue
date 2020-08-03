@@ -6,7 +6,7 @@ import { AssignToMePortletBase } from './assign-to-me-portlet-base';
  
 
 /**
- * db_assignedtometaskportlet部件
+ * dashboard_sysportlet6部件
  *
  * @export
  * @class AssignToMePortlet

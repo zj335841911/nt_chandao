@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import MainBranchService from './main-branch-grid-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {MainBranchGridBase}
  */
-export class MainBranchGridBase extends GridControllerBase {
+export class MainBranchGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -120,7 +120,7 @@ export class MainBranchGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof MainBranchBase
      */
     protected localStorageTag: string = 'ibz_productmodule_mainbranch_grid';
 
@@ -304,7 +304,7 @@ export class MainBranchGridBase extends GridControllerBase {
             row['parent'] = this.viewparams['srfparentkey'];
         }
         if (row.hasOwnProperty('branch')) {
-            row['branch'] = this.viewparams['srfparentkey'];
+            row['branch'] = this.viewparams['branch'];
         }
         if (row.hasOwnProperty('type')) {
             row['type'] = this.viewparams['moduletype'];

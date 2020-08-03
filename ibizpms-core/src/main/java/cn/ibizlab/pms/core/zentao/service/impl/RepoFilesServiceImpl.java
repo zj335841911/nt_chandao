@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.RepoFilesSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IRepoFilesService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -120,9 +121,7 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(RepoFiles et) {
         if (null == et) {
             return false;
@@ -195,5 +194,6 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
 
 
 }
+
 
 

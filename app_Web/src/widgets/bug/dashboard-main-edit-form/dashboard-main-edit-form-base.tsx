@@ -49,7 +49,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -93,6 +92,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         branch: null,
         branchname: null,
         module: null,
+        modulename: null,
         plan: null,
         type: null,
         severity: null,
@@ -134,7 +134,20 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
         ],
+        openedbuild: [
+            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof DashboardMainEditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -196,6 +209,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        modulename: new FormItemModel({ caption: '模块名称', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         plan: new FormItemModel({ caption: '所属计划', detailType: 'FORMITEM', name: 'plan', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -260,11 +275,25 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-        if (Object.is(name, 'product')) {
+        if (Object.is(name, 'productname')) {
+            this.onFormItemValueChange({ name: 'branch', value: null });
+        }
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'productname')) {
+            this.onFormItemValueChange({ name: 'plan', value: null });
+        }
+        if (Object.is(name, 'productname')) {
+            this.onFormItemValueChange({ name: 'projectname', value: null });
+            this.onFormItemValueChange({ name: 'project', value: null });
+        }
+        if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
             this.onFormItemValueChange({ name: 'story', value: null });
         }
-        if (Object.is(name, 'project')) {
+        if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'taskname', value: null });
             this.onFormItemValueChange({ name: 'task', value: null });
         }

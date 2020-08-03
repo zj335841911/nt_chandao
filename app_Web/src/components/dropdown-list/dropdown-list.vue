@@ -58,17 +58,7 @@ export default class DropDownList extends Vue {
     @Watch('itemValue')
     public valueWatch() {
         try {
-            if (this.$util.typeOf(this.itemValue) === this.valueType) {
-                this.value = this.itemValue;
-            } else if (this.valueType === 'number') {
-                if (this.itemValue.indexOf('.') === -1) {
-                    this.value = parseInt(this.itemValue);
-                } else {
-                    this.value = parseFloat(this.itemValue);
-                }
-            } else {
-                this.value = this.itemValue.toString();
-            }
+            this.readyValue();
             // 代码表集合中不存在改选项，重新准备集合
             if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
                 this.readyCodelist();
@@ -183,6 +173,9 @@ export default class DropDownList extends Vue {
         if (isExistAndNotEmpty(val)) {
             this.$emit('change', val);
         } else {
+            if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
+                return;
+            }
             this.$emit('change', undefined);
         }
     }
@@ -269,8 +262,32 @@ export default class DropDownList extends Vue {
      */
     public created() {
         this.readyCodelist();
+        this.readyValue();
     }
     
+    /**
+     * 准备值
+     *
+     * @memberof DropDownList
+     */
+    public readyValue() {
+        if(this.itemValue == null) {
+            this.value = null;
+            return;
+        }
+        if (this.$util.typeOf(this.itemValue) === this.valueType) {
+            this.value = this.itemValue;
+        } else if (this.valueType === 'number') {
+            if (this.itemValue.indexOf('.') === -1) {
+                this.value = parseInt(this.itemValue);
+            } else {
+                this.value = parseFloat(this.itemValue);
+            }
+        } else {
+            this.value = this.itemValue.toString();
+        }
+    }
+
     /**
      * 准备代码表
      *

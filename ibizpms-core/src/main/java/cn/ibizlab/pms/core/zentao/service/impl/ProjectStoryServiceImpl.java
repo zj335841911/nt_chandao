@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.ProjectStorySearchContext;
 import cn.ibizlab.pms.core.zentao.service.IProjectStoryService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -132,9 +133,7 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(ProjectStory et) {
         if (null == et) {
             return false;
@@ -245,5 +244,6 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
 
 
 }
+
 
 

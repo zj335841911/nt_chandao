@@ -56,14 +56,19 @@ export default class StepsInfoModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'steps',
-        prop: 'steps',
-        dataType: 'LONGTEXT',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'title',
+        prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'steps',
+        prop: 'steps',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'bug',

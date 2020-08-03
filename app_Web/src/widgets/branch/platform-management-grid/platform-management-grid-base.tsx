@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import PlatformManagementService from './platform-management-grid-service';
 import BranchUIService from '@/uiservice/branch/branch-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {PlatformManagementGridBase}
  */
-export class PlatformManagementGridBase extends GridControllerBase {
+export class PlatformManagementGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -72,7 +72,7 @@ export class PlatformManagementGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof PlatformManagementBase
      */
     protected localStorageTag: string = 'zt_branch_platformmanagement_grid';
 

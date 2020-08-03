@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, ListControllerBase } from '@/studio-core';
+import { Watch, ListControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ClassifyByTypeService from './classify-by-type-list-service';
 import ActionUIService from '@/uiservice/action/action-ui-service';
@@ -11,10 +11,10 @@ import DEFAULTService from '@/widgets/history/default-list/default-list-service'
  * list部件基类
  *
  * @export
- * @class ListControllerBase
+ * @class ListControlBase
  * @extends {ClassifyByTypeListBase}
  */
-export class ClassifyByTypeListBase extends ListControllerBase {
+export class ClassifyByTypeListBase extends ListControlBase {
 
     /**
      * 获取部件类型

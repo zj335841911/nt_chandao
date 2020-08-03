@@ -210,7 +210,7 @@ export default class BugExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: 'entities.productmodule.bugexp_treeview.nodes.root' });
+            Object.assign(treeNode, { text: i18n.t('entities.productmodule.bugexp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -311,6 +311,8 @@ export default class BugExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -454,6 +456,8 @@ export default class BugExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -571,7 +575,7 @@ export default class BugExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: 'entities.productmodule.bugexp_treeview.nodes.all' });
+            Object.assign(treeNode, { text: i18n.t('entities.productmodule.bugexp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -586,6 +590,8 @@ export default class BugExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, {navigateContext: {BRANCH:"0"} });
+            Object.assign(treeNode, {navigateParams: {branch:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);

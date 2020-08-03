@@ -90,6 +90,13 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().eq("frame", n_frame_eq);
         }
     }
+	private String n_lastrunner_eq;//[执行人]
+	public void setN_lastrunner_eq(String n_lastrunner_eq) {
+        this.n_lastrunner_eq = n_lastrunner_eq;
+        if(!ObjectUtils.isEmpty(this.n_lastrunner_eq)){
+            this.getSearchCond().eq("lastrunner", n_lastrunner_eq);
+        }
+    }
 	private BigInteger n_fromcaseid_eq;//[来源用例]
 	public void setN_fromcaseid_eq(BigInteger n_fromcaseid_eq) {
         this.n_fromcaseid_eq = n_fromcaseid_eq;
@@ -195,7 +202,6 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
 		 }
 	}
 }
-
 
 
 

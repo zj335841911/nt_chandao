@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.RepoBranchSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IRepoBranchService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(RepoBranch et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
 
 
 }
+
 
 

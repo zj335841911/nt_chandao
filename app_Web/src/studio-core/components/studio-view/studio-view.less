@@ -13,10 +13,14 @@
         width: 230px;
         margin-right: 30px;
 
+        .ivu-icon-ios-search {
+            border-radius: 0px 5px 5px 0px;
+        }
+
         .ivu-input.ivu-input-default.ivu-input-with-suffix {
             height: 28px;
             line-height: 28px;
-            border: 1px solid var(--form-editor-background-color);
+            border: 1px solid var(--form-editor-border-color);
             color: var(--form-editor-font-color);
             background-color: var(--form-editor-background-color);
         }
@@ -25,11 +29,16 @@
             border-color: var(--form-editor-active-color)
         }
 
+        .ivu-input.ivu-input-default.ivu-input-with-suffix::-webkit-input-placeholder {
+            color: var(--form-editor-placeholder-font-color);
+        }
+
         .ivu-input-icon {
             width: 28px;
             height: 28px;
             line-height: 28px;
             color: var(--view-button-color);
+            background-color: var(--view-button-background-color);
         }
     }
 

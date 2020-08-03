@@ -356,6 +356,79 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("period")
     private String period;
 
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
+
+    /**
+     * 属性 [JOIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonProperty("join")
+    private Timestamp join;
+
+    /**
+     * 属性 [HOURS]
+     *
+     */
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    private Double hours;
+
+    /**
+     * 属性 [ROLE]
+     *
+     */
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    private String role;
+
+    /**
+     * 属性 [TOTALCONSUMED]
+     *
+     */
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Double totalconsumed;
+
+    /**
+     * 属性 [TOTALWH]
+     *
+     */
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+
+    /**
+     * 属性 [TOTALLEFT]
+     *
+     */
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Double totalleft;
+
+    /**
+     * 属性 [TOTALESTIMATE]
+     *
+     */
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Double totalestimate;
+
+    /**
+     * 属性 [TOTALHOURS]
+     *
+     */
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Double totalhours;
+
 
     /**
      * 设置 [OPENEDVERSION]

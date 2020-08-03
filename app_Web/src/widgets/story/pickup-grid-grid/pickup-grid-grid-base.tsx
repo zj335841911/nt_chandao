@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import PickupGridService from './pickup-grid-grid-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {PickupGridGridBase}
  */
-export class PickupGridGridBase extends GridControllerBase {
+export class PickupGridGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -72,7 +72,7 @@ export class PickupGridGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof PickupGridBase
      */
     protected localStorageTag: string = 'zt_story_pickupgrid_grid';
 

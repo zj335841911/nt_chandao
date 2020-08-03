@@ -28,22 +28,22 @@
 	 <select id="selectByBranch" resultMap="ProductPlanResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  branch=#{id}
+			 ) t1
+			 where  branch=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_PRODUCTPLAN_ZT_PRODUCT_PRODUCT] -->
 	 <select id="selectByProduct" resultMap="ProductPlanResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  product=#{id}
+			 ) t1
+			 where  product=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT] -->
 	 <select id="selectByParent" resultMap="ProductPlanResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  parent=#{id}
+			 ) t1
+			 where  parent=#{id}
      </select>
 
     <!--数据集合[CurProductPlan]-->
@@ -64,6 +64,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProjectPlan]-->
+	 <select id="searchProjectPlan"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext"  resultMap="ProductPlanResultMap">
+         select t1.* from (
+                <include refid="ProjectPlan" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`BEGIN`, t1.`BRANCH`, t1.`DELETED`, t1.`END`, t1.`ID`, t1.`PARENT`, t11.`TITLE` AS `PARENTNAME`, t1.`PRODUCT`, t1.`TITLE` FROM `zt_productplan` t1  LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID  
@@ -75,6 +84,13 @@
 		<![CDATA[ SELECT t1.`BEGIN`, t1.`BRANCH`, t1.`DELETED`, t1.`END`, t1.`ID`, t1.`PARENT`, t11.`TITLE` AS `PARENTNAME`, t1.`PRODUCT`, t1.`TITLE` FROM `zt_productplan` t1  LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID  
 					 WHERE 	t1.DELETED = '0'
 						 AND ( ( t1.`PRODUCT` = #{srf.datacontext.product}  OR  t1.`PRODUCT` = #{srf.datacontext.products} ) )
+			]]>
+    </sql>
+    <!--数据查询[ProjectPlan]-->
+    <sql id="ProjectPlan" databaseId="mysql">
+		<![CDATA[ SELECT t1.`BEGIN`, t1.`BRANCH`, t1.`DELETED`, t1.`END`, t1.`ID`, t1.`PARENT`, t11.`TITLE` AS `PARENTNAME`, t1.`PRODUCT`, t1.`TITLE` FROM `zt_productplan` t1  LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID  RIGHT JOIN zt_product t21 ON t1.PRODUCT = t21.ID  LEFT OUTER JOIN zt_projectproduct t31 ON t21.ID = t31.PRODUCT  
+					 WHERE 	( t31.`PROJECT` = #{srf.webcontext.project} )
+						 AND t1.DELETED = '0'
 			]]>
     </sql>
     <!--数据查询[View]-->

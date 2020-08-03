@@ -49,7 +49,6 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     protected appDeName: string = 'release';
-
     /**
      * 界面UI服务对象
      *
@@ -96,7 +95,20 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
         ],
+        date: [
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof QuickCreateBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

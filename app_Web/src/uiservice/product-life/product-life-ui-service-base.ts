@@ -91,6 +91,7 @@ export default class ProductLifeUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'roadmaplistview',srfappde:'productlives'});
         this.allViewMap.set(':',{viewname:'roadmaplistview9',srfappde:'productlives'});
+        this.allViewMap.set(':',{viewname:'roadmapslistview9',srfappde:'productlives'});
     }
 
     /**
@@ -200,7 +201,7 @@ export default class ProductLifeUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

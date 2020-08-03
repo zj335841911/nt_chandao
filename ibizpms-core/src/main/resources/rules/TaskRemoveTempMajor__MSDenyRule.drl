@@ -20,6 +20,15 @@ ruleflow-group "taskremovetempmajor__msdenydenybydoing"
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已完成]拒绝[removetempmajor]操作]
+rule "denybydone"
+ruleflow-group "taskremovetempmajor__msdenydenybydone"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[未进行]拒绝[removetempmajor]操作]
 rule "denybywait"
 ruleflow-group "taskremovetempmajor__msdenydenybywait"
@@ -44,6 +53,24 @@ rule "begin"
 ruleflow-group "taskremovetempmajor__msdenybegin"
     when
     then
+    end
+
+//逻辑处理节点[状态[已取消]拒绝[removetempmajor]操作]
+rule "denybycancel"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭]拒绝[removetempmajor]操作]
+rule "denybyclosed"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
 //逻辑处理节点[准备临时参数]

@@ -49,7 +49,6 @@ export class AssignToEditFormBase extends EditFormControlBase {
      * @memberof AssignToEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -84,6 +83,7 @@ export class AssignToEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         assignedto: null,
+        project: null,
         mailto: null,
         comment: null,
         id: null,
@@ -98,6 +98,15 @@ export class AssignToEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof AssignToBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -133,6 +142,8 @@ export class AssignToEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

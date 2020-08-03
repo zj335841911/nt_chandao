@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.Im_chatuserSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IIm_chatuserService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Im_chatuser et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
 
 
 }
+
 
 

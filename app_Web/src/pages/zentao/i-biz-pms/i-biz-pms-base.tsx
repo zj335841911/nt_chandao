@@ -205,7 +205,7 @@ export class IBizPMSBase extends Vue {
     setTimeout(() => {
       const el = document.getElementById('app-loading-x');
       if (el) {
-        el.remove();
+        el.style.display = 'none';
       }
     }, 300);
   }
@@ -221,9 +221,11 @@ export class IBizPMSBase extends Vue {
     if (params?.ibizpms) {
       this.context.ibizpms = params.ibizpms;
     }
-    if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
-      Object.assign(this.context, this.$store.getters.getAppData().context);
-      this.$store.getters.getAppData().context = this.context;
+    const context = this.$appService.contextStore.appContext;
+    if (context) {
+      Object.assign(this.context, context);
+      context.clearAll();
+      Object.assign(context, this.context);
     }
   }
 

@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.TaskEstimateSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ITaskEstimateService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -121,9 +122,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(TaskEstimate et) {
         if (null == et) {
             return false;
@@ -153,6 +152,38 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     public void removeByTask(BigInteger id) {
         this.remove(new QueryWrapper<TaskEstimate>().eq("task",id));
     }
+
+    @Autowired
+    @Lazy
+    ITaskEstimateService proxyService;
+	@Override
+    public void saveByTask(BigInteger id,List<TaskEstimate> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<TaskEstimate> _update=new ArrayList<TaskEstimate>();
+        List<TaskEstimate> _create=new ArrayList<TaskEstimate>();
+        for(TaskEstimate before:selectByTask(id)){
+            delIds.add(before.getId());
+        }
+        for(TaskEstimate sub:list) {
+            sub.setTask(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            proxyService.updateBatch(_update);
+        if(_create.size()>0)
+            proxyService.createBatch(_create);
+        if(delIds.size()>0)
+            proxyService.removeBatch(delIds);
+	}
 
 
     /**
@@ -196,5 +227,6 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
 
 }
+
 
 

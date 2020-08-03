@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.util.client;
 
+import cn.ibizlab.pms.util.security.AuthenticationInfo;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,12 @@ public class IBZUAAFallback implements IBZUAAFeignClient {
         return null;
     }
 
-	@Override
+    @Override
+    public AuthenticationInfo v7Login(AuthorizationLogin authorizationLogin) {
+        return null;
+    }
+
+    @Override
     public AuthenticationUser loginByUsername(String username) {
         return null;
     }

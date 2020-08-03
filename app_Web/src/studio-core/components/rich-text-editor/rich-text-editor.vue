@@ -1,7 +1,7 @@
 <template>
     <div class="rich-text-editor">
         <div class="editor-custom-action">
-            <Poptip ref="propip" trigger="hover" placement="top-end" title="请输入模板标题" :width="250">
+            <Poptip ref="propip" trigger="hover" placement="top-end" title="请输入模板标题" :width="250" @on-popper-show="openPoper()">
                 <Button class="appTemplate">
                     保存模板
                 </Button>
@@ -9,6 +9,7 @@
                     <div>
                         <Input v-model="templateTitle" placeholder="请输入模板标题" />
                         <div style="margin-top: 5px;">
+                            <Checkbox v-model="single">公开的</Checkbox>
                             <Button @click="saveTemplate()">{{ $t('app.commonWords.save') }}</Button>&nbsp;
                             <Button @click="onCancel()">{{ $t('app.commonWords.cancel') }}</Button>
                         </div>
@@ -21,20 +22,26 @@
                     <Icon type="ios-arrow-down"></Icon>
                 </Button>
                 <DropdownMenu slot="list" >
+                    <Tabs v-model="ibizpublic" :animated="false">
+                        <TabPane label="私人的" name="0"></TabPane>
+                        <TabPane label="公开的" name="1"></TabPane>
+                    </Tabs>
                     <DropdownItem v-for="(item,index) in appTemplate" :key='index' :value="item.content">
-                        <div style="position: relative;">
+                        <div class="keyOperation" v-if="ibizpublic == '' || item.ibizpublic == ibizpublic">
                             <span class="span-content" @click="appTemplateFill(item.content)">
-                                {{item.title}}
+                                {{item.title+"-"+item.account}}
                             </span> 
-                            <span class="icon-close" @click="removeAppTemplate(item)" style="position: absolute;right: 0px;">
-                                <Icon type="md-close" size="17"/>
+                            <span class="icon-close" @click="removeAppTemplate(item)">
+                                <Icon type="md-close" size="18"/>
                             </span>
                         </div>
                     </DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>
-        <textarea :id="id"></textarea>
+        <div :class="editorClass">
+            <textarea :id="id"></textarea>
+        </div>
     </div>
 </template>
 <script lang = 'ts'>
@@ -217,12 +224,12 @@ export default class RichTextEditor extends Vue {
     /**
      * 应用模板集合
      */
-    public appTemplate?: Array<any>=[];
+    public appTemplate: Array<any>=[];
 
     /**
      * 模板标题
      */
-    public templateTitle?: string = '';
+    public templateTitle: string = '';
 
     /**
      * 语言映射文件
@@ -241,7 +248,7 @@ export default class RichTextEditor extends Vue {
      * @type {boolean}
      * @memberof RichTextEditor
      */
-    public isActived:boolean = true;
+    public isActived: boolean = true;
 
     /**
      * 是否需要初始化
@@ -249,8 +256,35 @@ export default class RichTextEditor extends Vue {
      * @type {boolean}
      * @memberof RichTextEditor
      */
-    public isNeedInit:boolean = false;
+    public isNeedInit: boolean = false;
 
+    /**
+     * 多选框默认值
+     * @type {boolean}
+     * @memberof RichTextEditor
+     */
+    public single: boolean = false;
+
+    /**
+     * 模板类型（默认所有类型）
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    public ibizpublic: string = '';
+
+    /**
+     * 上传的图片id与类型集合
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    public imgsrc: Array<any> = [];
+
+    /**
+     * 编辑器样式类
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    public editorClass: string = 'app-rich-text-editor';
 
     /**
      * 生命周期
@@ -296,10 +330,33 @@ export default class RichTextEditor extends Vue {
     /**
      * 生命周期：初始化富文本
      * 
-     * @memberof RichTextEditor
+     * @memberof AppRichTextEditor
      */
     public mounted() {
         this.init();
+        const ele: any = this.isDrawer(this.$el);
+        let index: number = ele.style.transform.indexOf('translateX');
+        if(index >= 0) {
+            let num: string = ele.style.transform.substring(index + 12, index + 15);
+            this.editorClass = this.editorClass + (-parseInt(num));
+        }
+    }
+    
+    /**
+     * 是否抽屉打开
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public isDrawer(ele: any): any {
+        let pele: any = ele.parentNode;
+        if(!pele) {
+            return false;
+        }
+        if(pele.className.indexOf('studio-drawer-content') >= 0) {
+            return pele;
+        }
+        return this.isDrawer(pele);
+        
     }
     
     /**
@@ -321,6 +378,10 @@ export default class RichTextEditor extends Vue {
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
         const content: any = this.editor ? this.editor.getContent() : undefined;
+        const url = this.downloadUrl.substring(3);
+        if(newval) {
+            newval = newval.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
+        }
         if (!Object.is(newval,content)) {
             this.init();
         }
@@ -355,7 +416,8 @@ export default class RichTextEditor extends Vue {
             min_height: 400,
             branding: false,
             plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars'],
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image | preview code fullscreen',
+            contextmenu:'cut copy paste pastetext inserttable link ',
             quickbars_insert_toolbar: false,
             quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
@@ -378,9 +440,28 @@ export default class RichTextEditor extends Vue {
             setup: (editor: any) => {
                 richtexteditor.editor = editor;
                 editor.on('blur', () => {
-                    const content = editor.getContent();
+                    let content = editor.getContent();
+                    const url = richtexteditor.downloadUrl.substring(3);
+                    let newContent: string = "";
+                    const imgsrc = richtexteditor.imgsrc;
+                    if(imgsrc && imgsrc.length > 0){
+                        imgsrc.forEach((item: any)=>{
+                            newContent = content.replace(url+"/"+item.id,"{"+item.id+item.type+"}");
+                            content = newContent;
+                        });
+                    }
                     richtexteditor.$emit('change', content);
                 });  
+                editor.on('FullscreenStateChanged',($event: any)=>{
+                    let editorAction: any = richtexteditor.$el.getElementsByClassName("editor-custom-action");
+                    if($event.state && editorAction){
+                        editorAction[0].style.zIndex = "1300";
+                        editorAction[0].style.position = "fixed";
+                    }else if(editorAction){
+                        editorAction[0].style.zIndex = "2";
+                        editorAction[0].style.position = "absolute";
+                    }
+                })
             },
 
             images_upload_handler: (bolbinfo: any, success: any, failure: any) => {
@@ -398,10 +479,12 @@ export default class RichTextEditor extends Vue {
                 }
                 this.uploadUrl = _url;
                 richtexteditor.uploadFile(_url, formData).subscribe((file: any) => {
-                    let downloadUrl =   richtexteditor.downloadUrl;
+                    const item: any = { id: file.fileid, type: file.ext };
+                    richtexteditor.imgsrc.push(item);
+                    let downloadUrl =  richtexteditor.downloadUrl;
                     if (file.filename) {
-                        const id: string = file.fileid;
-                        const url: string = `${downloadUrl}/${id}`
+                        const id: string = file.fileid; 
+                        const url: string = `${downloadUrl}/${id}`;
                         success(url);
                     }
                     if (this.export_params.length > 0) {
@@ -420,7 +503,9 @@ export default class RichTextEditor extends Vue {
             },
             init_instance_callback: (editor: any) => {
                 richtexteditor.editor = editor;
+                const url = richtexteditor.downloadUrl.substring(3);
                 let value = (richtexteditor.value && richtexteditor.value.length > 0) ? richtexteditor.value : '';
+                value = value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
                 if (richtexteditor.editor) {
                     richtexteditor.editor.setContent(value);
                 }
@@ -452,13 +537,26 @@ export default class RichTextEditor extends Vue {
      * @memberof RichTextEditor
      */
     public async appTemplateData() {
-        let data: any ={};
         const templParams = this.getTemplParams();
         const response: any = await this.userTplService.FetchDefault({},templParams,false);
         if(response && response.status === 200){
             const { data: _data } = response;
-            this.appTemplate = _data;
+            _data.forEach((item:any)=>{
+                if(Object.is(item.account,templParams.account) || Object.is(item.ibizpublic,'1')){
+                    this.appTemplate.push(item);
+                }
+            });
         }
+    }
+
+    /**
+     * 打开气泡时
+     * 
+     * @memberof RichTextEditor
+     */
+    public openPoper(){
+        this.templateTitle = '';
+        this.single = false;
     }
 
     /**
@@ -470,6 +568,7 @@ export default class RichTextEditor extends Vue {
         let templParams = this.getTemplParams();
         const templateTitle = this.templateTitle;
         const templateContent = this.editor.getContent();
+        templParams.public = this.single == true? 1 : 0;
         if(!templateContent || Object.is(templateContent,'')){
             this.$Notice.error({
                     title: '请填充模板内容!!!',
@@ -489,12 +588,12 @@ export default class RichTextEditor extends Vue {
             this.$Notice.success({
                 title: '保存模板成功!!!',
             });
-            this.appTemplateData();
         }else{
             this.$Notice.error({
                 title: '保存模板失败!!!',
             });
         }
+        this.appTemplateData();
         let propip: any = this.$refs.propip;
         propip.handleMouseleave();
     }
@@ -514,8 +613,7 @@ export default class RichTextEditor extends Vue {
      * @memberof RichTextEditor
      */
     public appTemplateFill(content: any){
-        this.editor.setContent(content == null ? content : '');
-
+        this.editor.setContent(content == null ? '' : content);
     }
 
     /**
@@ -531,12 +629,12 @@ export default class RichTextEditor extends Vue {
             this.$Notice.success({
                 title: '删除模板成功!!!',
             });
-            this.appTemplateData();
         }else{
             this.$Notice.error({
                 title: '删除模板失败!!!',
             });
         }
+        this.appTemplateData();
     }
 
     /**

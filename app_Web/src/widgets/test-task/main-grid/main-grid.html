@@ -166,37 +166,25 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'LinkCase', $event)">
-                              <i class='fa fa-link'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.testtask.main_grid.uiactions.testtask_linkcase')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'OpenInfoView', $event)">
-                              <i class='fa fa-stack-exchange'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'EditEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.testtask.main_grid.uiactions.testtask_editedit')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
-                              <i class='fa fa-remove'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.testtask.main_grid.uiactions.testtask_remove')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.LinkCase.visabled" :disabled="scope.row.LinkCase.disabled" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.OpenInfoView.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.OpenInfoView.visabled" :disabled="scope.row.OpenInfoView.disabled" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
+                            <i class='fa fa-stack-exchange'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.EditEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.EditEdit.visabled" :disabled="scope.row.EditEdit.disabled" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testtask.main_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

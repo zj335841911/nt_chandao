@@ -41,6 +41,7 @@ public interface IProductModuleService extends IService<ProductModule>{
     Page<ProductModule> searchDefault(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
+    Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) ;
     List<ProductModule> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
     List<ProductModule> selectByRoot(BigInteger id) ;

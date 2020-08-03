@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.DocContentSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IDocContentService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -126,9 +127,7 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(DocContent et) {
         if (null == et) {
             return false;
@@ -219,5 +218,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
 
 }
+
 
 

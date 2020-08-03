@@ -22,8 +22,8 @@
 	 <select id="selectByDoc" resultMap="DocContentResultMap">
          select t1.* from (
                 <include refid="Default" />
-         ) t1
-         where  doc=#{id}
+			 ) t1
+			 where  doc=#{id}
      </select>
 
     <!--数据集合[Default]-->

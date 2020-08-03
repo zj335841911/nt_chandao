@@ -49,7 +49,6 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -101,7 +100,32 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewEditFormBase
      */
     public rules: any = {
+        result: [
+            { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
+        ],
+        closedreason: [
+            { required: true, type: 'string', message: '拒绝原因 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '拒绝原因 值不能为空', trigger: 'blur' },
+        ],
+        assignedto: [
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        reviewedby: [
+            { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ReviewBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -211,6 +235,19 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'result')) {
+            let ret = true;
+            const _result = this.data.result;
+            if (this.$verify.testCond(_result, 'NOTEQ', 'reject')) {
+                ret = false;
+            }
+            this.rules.closedreason.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
 
 
 

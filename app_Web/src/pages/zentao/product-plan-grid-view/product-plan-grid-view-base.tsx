@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * productplan表格视图视图基类
+ * 产品计划表格视图视图基类
  *
  * @export
  * @class ProductPlanGridViewBase

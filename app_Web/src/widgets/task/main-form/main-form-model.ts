@@ -66,6 +66,11 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',
@@ -142,11 +147,6 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'module',
-        prop: 'module',
-        dataType: 'PICKUP',
       },
       {
         name: 'task',

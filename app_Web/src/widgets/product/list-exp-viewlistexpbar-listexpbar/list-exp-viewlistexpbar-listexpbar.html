@@ -1,6 +1,12 @@
 <split id="listexpviewlistexpbar" class="app-list-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange.apply(_self, arguments)">
     <template slot='left'>
         <div class="container-header">
+            <div class='search-container'>
+                <i-input :search="true"
+                    @on-change="($event) => { this.searchText = $event.target.value; }"
+                    @on-search="onSearch.apply(_self, arguments)">
+                </i-input>
+            </div>
         </div>
         <div class='list-exp-bar-content'>
             <view_listexpbar_list 

@@ -53,17 +53,21 @@ export class AuthServiceRegister {
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('branch', () => import('@/authservice/branch/branch-auth-service'));
         this.allAuthService.set('productstats', () => import('@/authservice/product-stats/product-stats-auth-service'));
+        this.allAuthService.set('ibzprojectmember', () => import('@/authservice/ibz-project-member/ibz-project-member-auth-service'));
         this.allAuthService.set('action', () => import('@/authservice/action/action-auth-service'));
         this.allAuthService.set('group', () => import('@/authservice/group/group-auth-service'));
         this.allAuthService.set('casestep', () => import('@/authservice/case-step/case-step-auth-service'));
         this.allAuthService.set('dept', () => import('@/authservice/dept/dept-auth-service'));
         this.allAuthService.set('company', () => import('@/authservice/company/company-auth-service'));
         this.allAuthService.set('ibzcasestep', () => import('@/authservice/ibzcase-step/ibzcase-step-auth-service'));
+        this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
         this.allAuthService.set('story', () => import('@/authservice/story/story-auth-service'));
+        this.allAuthService.set('todo', () => import('@/authservice/todo/todo-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
         this.allAuthService.set('history', () => import('@/authservice/history/history-auth-service'));
         this.allAuthService.set('user', () => import('@/authservice/user/user-auth-service'));
+        this.allAuthService.set('doclib', () => import('@/authservice/doc-lib/doc-lib-auth-service'));
         this.allAuthService.set('productmodule', () => import('@/authservice/product-module/product-module-auth-service'));
         this.allAuthService.set('module', () => import('@/authservice/module/module-auth-service'));
         this.allAuthService.set('testmodule', () => import('@/authservice/test-module/test-module-auth-service'));
@@ -74,13 +78,17 @@ export class AuthServiceRegister {
         this.allAuthService.set('testsuite', () => import('@/authservice/test-suite/test-suite-auth-service'));
         this.allAuthService.set('projectteam', () => import('@/authservice/project-team/project-team-auth-service'));
         this.allAuthService.set('testtask', () => import('@/authservice/test-task/test-task-auth-service'));
+        this.allAuthService.set('ibztaskestimate', () => import('@/authservice/ibztask-estimate/ibztask-estimate-auth-service'));
+        this.allAuthService.set('productline', () => import('@/authservice/product-line/product-line-auth-service'));
         this.allAuthService.set('testreport', () => import('@/authservice/test-report/test-report-auth-service'));
         this.allAuthService.set('projectstats', () => import('@/authservice/project-stats/project-stats-auth-service'));
         this.allAuthService.set('testrun', () => import('@/authservice/test-run/test-run-auth-service'));
+        this.allAuthService.set('ibzmyterritory', () => import('@/authservice/ibz-my-territory/ibz-my-territory-auth-service'));
         this.allAuthService.set('bug', () => import('@/authservice/bug/bug-auth-service'));
         this.allAuthService.set('projectmodule', () => import('@/authservice/project-module/project-module-auth-service'));
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
+        this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
     }
 
     /**

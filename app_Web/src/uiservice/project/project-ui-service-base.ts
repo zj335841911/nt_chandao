@@ -91,6 +91,7 @@ export default class ProjectUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects'});
@@ -127,10 +128,101 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':0,'ACTIVATION':0,'EDIT':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'SUSPEND':0,'CLOSED':0,'DELAY':0,'DELETE':0,'EDIT':0});
-        this.allDeMainStateOPPrivsMap.set('suspended',{'CLOSED':0,'ACTIVATION':0,'EDIT':0,'DELETE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'CLOSED':0,'EDIT':0,'SUSPEND':0,'START':0,'DELETE':0,'DELAY':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':0,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('suspended',{'ACTIVATION':0,'CLOSED':0,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':0,'SUSPEND':0,'UPDATE':1});
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Project_delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '确认要删除，删除操作将不可恢复？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { project: '%project%' });
+        Object.assign(params, { id: '%project%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+              actionContext.closeView(null);
+        const backend = () => {
+            const curService:ProjectService =  new ProjectService();
+            curService.Remove(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                if (_this.Exit && _this.Exit instanceof Function) {
+                    _this.Exit(_args,context, params, $event, xData,actionContext);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -179,10 +271,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -287,10 +375,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -350,10 +434,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -413,10 +493,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -476,10 +552,6 @@ export default class ProjectUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -584,7 +656,7 @@ export default class ProjectUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

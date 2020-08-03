@@ -19,7 +19,7 @@ export default {
 	views: {
 		maingridview: {
 			caption: "版本",
-      		title: "build表格视图",
+      		title: "版本表格视图",
 		},
 		mainview: {
 			caption: "版本",
@@ -27,7 +27,7 @@ export default {
 		},
 		editview: {
 			caption: "版本",
-      		title: "build编辑视图",
+      		title: "版本编辑视图",
 		},
 		maintabexpview: {
 			caption: "版本",
@@ -100,8 +100,8 @@ export default {
 		uiactions: {
         build_linkstories: "关联需求",
         build_submittotesting: "提交测试",
-        build_viewbugs: "viewBugs",
-        edit: "Edit",
+        build_viewbugs: "查看Bug",
+        build_editbuild: "编辑版本",
         remove: "Remove",
 		},
 	},
@@ -112,16 +112,16 @@ export default {
 		uiactions: {
 		},
 	},
-	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
 		},
 	},
 };

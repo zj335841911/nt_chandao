@@ -49,7 +49,6 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     protected appDeName: string = 'build';
-
     /**
      * 界面UI服务对象
      *
@@ -93,11 +92,32 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     public rules: any = {
+        productname: [
+            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
         ],
+        builder: [
+            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'blur' },
+        ],
+        date: [
+            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof QuickCreateBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合

@@ -52,8 +52,8 @@ export default class MainModel {
       },
       {
         name: 'custom7',
-        prop: 'totalestimate',
-        dataType: 'FLOAT',
+        prop: 'totalwh',
+        dataType: 'INT',
       },
       {
         name: 'custom8',
@@ -79,6 +79,11 @@ export default class MainModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'yesterdayctaskcnt',
+        prop: 'yesterdayctaskcnt',
+        dataType: 'INT',
+      },
+      {
         name: 'taskcnt',
         prop: 'taskcnt',
         dataType: 'INT',
@@ -102,6 +107,11 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
+        name: 'releasedstorycnt',
+        prop: 'releasedstorycnt',
+        dataType: 'INT',
+      },
+      {
         name: 'storycnt',
         prop: 'storycnt',
         dataType: 'INT',
@@ -122,6 +132,11 @@ export default class MainModel {
       {
         name: 'unclosedstorycnt',
         prop: 'unclosedstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yesterdayrbugcnt',
+        prop: 'yesterdayrbugcnt',
         dataType: 'INT',
       },
       {

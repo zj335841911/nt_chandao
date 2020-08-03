@@ -115,15 +115,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/"
                 ).permitAll()
                 //放行登录请求
-                .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
+                .antMatchers(HttpMethod.POST, "/" + loginPath).permitAll()
                 //放行注销请求
-                .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
+                .antMatchers(HttpMethod.GET, "/" + logoutPath).permitAll()
                 // 文件操作
-                .antMatchers("/"+downloadpath+"/**").permitAll()
-                .antMatchers("/"+ztdownloadpath+"/**").permitAll()
-                .antMatchers("/"+uploadpath).permitAll()
-                .antMatchers("/"+ztuploadpath).permitAll()
-                .antMatchers("/"+previewpath+"/**").permitAll()
+                .antMatchers("/" + downloadpath + "/**").permitAll()
+                .antMatchers("/" + ztdownloadpath + "/**").permitAll()
+                .antMatchers("/" + uploadpath).permitAll()
+                .antMatchers("/" + ztuploadpath).permitAll()
+                .antMatchers("/" + previewpath + "/**").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域
@@ -132,4 +132,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
 }

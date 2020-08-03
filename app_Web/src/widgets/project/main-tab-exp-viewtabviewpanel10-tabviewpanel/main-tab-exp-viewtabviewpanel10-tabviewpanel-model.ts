@@ -138,6 +138,33 @@ export default class MainTabExpViewtabviewpanel10Model {
       {
         name: 'period',
       },
+      {
+        name: 'account',
+      },
+      {
+        name: 'join',
+      },
+      {
+        name: 'hours',
+      },
+      {
+        name: 'role',
+      },
+      {
+        name: 'totalconsumed',
+      },
+      {
+        name: 'totalwh',
+      },
+      {
+        name: 'totalleft',
+      },
+      {
+        name: 'totalestimate',
+      },
+      {
+        name: 'totalhours',
+      },
     ]
   }
 

@@ -341,6 +341,70 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "period")
     @JsonProperty("period")
     private String period;
+    /**
+     * 项目团队成员
+     */
+    @TableField(exist = false)
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
+    /**
+     * 加盟日
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonProperty("join")
+    private Timestamp join;
+    /**
+     * 可用工时/天
+     */
+    @TableField(exist = false)
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    private Double hours;
+    /**
+     * 角色
+     */
+    @TableField(exist = false)
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    private String role;
+    /**
+     * 任务消耗总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Double totalconsumed;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+    /**
+     * 任务预计剩余总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Double totalleft;
+    /**
+     * 任务最初预计总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Double totalestimate;
+    /**
+     * 可用工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Double totalhours;
 
     /**
      * 

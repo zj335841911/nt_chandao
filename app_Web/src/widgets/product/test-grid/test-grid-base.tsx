@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestService from './test-grid-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {TestGridBase}
  */
-export class TestGridBase extends GridControllerBase {
+export class TestGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -72,7 +72,7 @@ export class TestGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof TestBase
      */
     protected localStorageTag: string = 'zt_product_test_grid';
 

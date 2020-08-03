@@ -148,9 +148,9 @@ export default class ExpService extends ControlService {
             const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](Data,Context,isloading);
+                result = _appEntityService[action](Context,Data,isloading);
             }else{
-                result =_appEntityService.Update(Data,Context,isloading);
+                result =_appEntityService.Update(Context,Data,isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);

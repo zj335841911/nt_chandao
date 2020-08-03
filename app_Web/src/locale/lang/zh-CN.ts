@@ -12,17 +12,21 @@ import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
+import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
 import group_zh_CN from '@locale/lanres/entities/group/group_zh_CN';
 import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
 import dept_zh_CN from '@locale/lanres/entities/dept/dept_zh_CN';
 import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
 import ibzcasestep_zh_CN from '@locale/lanres/entities/ibzcase-step/ibzcase-step_zh_CN';
+import taskestimate_zh_CN from '@locale/lanres/entities/task-estimate/task-estimate_zh_CN';
 import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
+import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
 import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
 import user_zh_CN from '@locale/lanres/entities/user/user_zh_CN';
+import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
@@ -33,13 +37,17 @@ import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/entities/project-team/project-team_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
+import ibztaskestimate_zh_CN from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_zh_CN';
+import productline_zh_CN from '@locale/lanres/entities/product-line/product-line_zh_CN';
 import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
+import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
+import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
@@ -64,6 +72,7 @@ export default {
             deleteError: "删除失败！",
             delDataFail: "删除数据失败",
             noData: "暂无数据",
+            startsuccess:"启动成功"
         },
         local:{
             new: "新建",
@@ -173,6 +182,7 @@ export default {
         menus: {
             zentao: {
                 top_menus: "顶部菜单",
+                menuitem9: "我的地盘",
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
@@ -294,17 +304,21 @@ export default {
         usertpl: usertpl_zh_CN,
         branch: branch_zh_CN,
         productstats: productstats_zh_CN,
+        ibzprojectmember: ibzprojectmember_zh_CN,
         action: action_zh_CN,
         group: group_zh_CN,
         casestep: casestep_zh_CN,
         dept: dept_zh_CN,
         company: company_zh_CN,
         ibzcasestep: ibzcasestep_zh_CN,
+        taskestimate: taskestimate_zh_CN,
         story: story_zh_CN,
+        todo: todo_zh_CN,
         subtask: subtask_zh_CN,
         project: project_zh_CN,
         history: history_zh_CN,
         user: user_zh_CN,
+        doclib: doclib_zh_CN,
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
@@ -315,13 +329,17 @@ export default {
         testsuite: testsuite_zh_CN,
         projectteam: projectteam_zh_CN,
         testtask: testtask_zh_CN,
+        ibztaskestimate: ibztaskestimate_zh_CN,
+        productline: productline_zh_CN,
         testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,
         testrun: testrun_zh_CN,
+        ibzmyterritory: ibzmyterritory_zh_CN,
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         release: release_zh_CN,
+        dynadashboard: dynadashboard_zh_CN,
     },
     components: components_zh_CN,
     codelist: codelist_zh_CN,

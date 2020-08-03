@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, ListControllerBase } from '@/studio-core';
+import { Watch, ListControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ExpService from './exp-list-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
@@ -10,10 +10,10 @@ import ProductUIService from '@/uiservice/product/product-ui-service';
  * listexpbar_list部件基类
  *
  * @export
- * @class ListControllerBase
+ * @class ListControlBase
  * @extends {ExpListBase}
  */
-export class ExpListBase extends ListControllerBase {
+export class ExpListBase extends ListControlBase {
 
     /**
      * 获取部件类型
@@ -110,14 +110,6 @@ export class ExpListBase extends ListControllerBase {
             _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
         }
     }
-
-    /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof ExpListBase
-     */
-    public limit: number = 1000;
 
     /**
      * 排序方向

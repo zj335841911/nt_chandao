@@ -21,6 +21,8 @@ public interface TaskMapper extends BaseMapper<Task>{
 
     Page<Task> searchByModule(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchDefault(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
+    Page<Task> searchDefaultRow(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
+    Page<Task> searchProjectTASK(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchRootTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<HashMap> searchTypeGroup(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     @Override

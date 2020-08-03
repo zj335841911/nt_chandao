@@ -710,4 +710,8 @@ final public class ZTStoryHelper {
     public static boolean buildBatchUnlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
         return ZTBuildHelper.batchUnlinkStory(zentaoSid, jo, rst);
     }
+
+    public static boolean importPlanStories(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProjectHelper.importPlanStories(zentaoSid, jo, rst);
+    }
 }

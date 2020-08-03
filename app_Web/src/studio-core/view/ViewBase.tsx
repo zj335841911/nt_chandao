@@ -531,9 +531,9 @@ export class ViewBase extends Vue {
         } else {
             const itemKey: string = curNavData.value.toLowerCase();
             // 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
-            if (this.context[itemKey]) {
+            if (this.context[itemKey] != null) {
                 data[key] = this.context[itemKey];
-            } else if (this.viewparams[itemKey]) {
+            } else if (this.viewparams[itemKey] != null) {
                 data[key] = this.viewparams[itemKey];
             } else {
                 data[key] = null;

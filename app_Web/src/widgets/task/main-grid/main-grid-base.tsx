@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MainService from './main-grid-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {MainGridBase}
  */
-export class MainGridBase extends GridControllerBase {
+export class MainGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -233,11 +233,11 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGN', target: 'SINGLEKEY'},
-        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'START', target: 'SINGLEKEY'},
-        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
-        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'COMPLETE', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
+        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ASSIGN', target: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'START', target: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'COMPLETE', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
         NewSubTask: { name: 'NewSubTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SUBTASKS', target: 'SINGLEKEY'}
     };
 
@@ -246,7 +246,7 @@ export class MainGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof MainBase
      */
     protected localStorageTag: string = 'zt_task_main_grid';
 
@@ -494,6 +494,107 @@ export class MainGridBase extends GridControllerBase {
         }
         if(Object.is('NewSubTask', tag)) {
             this.grid_uagridcolumn1_ua6566df_click(row, tag, $event);
+        }
+    }
+
+    /**
+     * 表格数据加载
+     *
+     * @param {*} [opt={}]
+     * @param {boolean} [pageReset=false]
+     * @returns {void}
+     * @memberof MainGridBase
+     */
+    public load(opt: any = {}, pageReset: boolean = false): void {
+        if (!this.fetchAction) {
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
+            return;
+        }
+        if (pageReset) {
+            this.curPage = 1;
+        }
+        const arg: any = { ...opt };
+        const page: any = {};
+        if (this.isEnablePagingBar) {
+            Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        Object.assign(arg, page);
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                }
+                return;
+            }
+            const data: any = response.data;
+            this.totalRecord = response.total;
+            this.items = JSON.parse(JSON.stringify(data));
+            // 清空selections,gridItemsModel
+            this.selections = [];
+            this.gridItemsModel = [];
+            this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
+            this.items.forEach((item: any) => {
+                this.setActionState(item);
+            });
+            this.$emit('load', this.items);
+            // 向上下文中填充当前数据
+            this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
+            // 设置默认选中
+            setTimeout(() => {
+                if (this.isSelectFirstDefault) {
+                    this.rowClick(this.items[0]);
+                }
+                if (this.selectedData) {
+                    const refs: any = this.$refs;
+                    if (refs.multipleTable) {
+                        refs.multipleTable.clearSelection();
+                        JSON.parse(this.selectedData).forEach((selection: any) => {
+                            let selectedItem = this.items.find((item: any) => {
+                                return Object.is(item.srfkey, selection.srfkey);
+                            });
+                            if (selectedItem) {
+                                this.rowClick(selectedItem);
+                            }
+                        });
+                    }
+                }
+            }, 300);
+            // 
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+        });
+    }
+
+    /**
+     * 表格数据加载
+     *
+     * @param {*} item
+     * @returns {void}
+     * @memberof MainGridBase
+     */
+    public setActionState(item: any) {
+        Object.assign(item, this.getActionState(item));
+        if(item.items && item.items.length > 0) {
+            item.items.forEach((data: any) => {
+                let _data: any = this.service.handleResponseData('', data);
+                Object.assign(data, _data);
+                this.setActionState(data);
+            })
         }
     }
 }

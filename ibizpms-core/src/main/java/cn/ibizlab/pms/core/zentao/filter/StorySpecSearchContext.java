@@ -65,4 +65,3 @@ public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
 
 
 
-

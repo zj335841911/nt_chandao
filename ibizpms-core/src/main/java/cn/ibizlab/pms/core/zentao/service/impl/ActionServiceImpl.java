@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.ActionSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IActionService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -117,6 +118,19 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     }
     @Override
     @Transactional
+    public Action editComment(Action et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTActionHelper.editComment(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(Action et) {
         if(!saveOrUpdate(et))
             return false;
@@ -124,9 +138,7 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Action et) {
         if (null == et) {
             return false;
@@ -226,5 +238,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
 
 }
+
 
 

@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.NotifySearchContext;
 import cn.ibizlab.pms.core.zentao.service.INotifyService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Notify et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
 
 
 }
+
 
 

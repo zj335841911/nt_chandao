@@ -426,6 +426,7 @@ final public class ZTProjectHelper {
 
         // LINKSTORY
         ACTION_PARAMS_LINKSTORY.put("stories[]", null);
+        ACTION_PARAMS_LINKSTORY.put("products[stories]", null);
 
         // BATCHUNLINKSTORY
         ACTION_PARAMS_BATCHUNLINKSTORY.put("storyIdList[]", null);
@@ -488,6 +489,10 @@ final public class ZTProjectHelper {
         ACTION_URL_PARAMS_UNLINKMEMBER.add("id");
         ACTION_URL_PARAMS_UNLINKMEMBER.add("account");
         ACTION_URL_PARAMS_UNLINKMEMBER.add("confirm");
+
+        // IMPORTPLANSTORIES
+        ACTION_URL_PARAMS_IMPORTPLANSTORIES.add("project");
+        ACTION_URL_PARAMS_IMPORTPLANSTORIES.add("plan");
 
 
     }
@@ -816,6 +821,27 @@ final public class ZTProjectHelper {
 
         jo.put("confirm", "yes");
 
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * unlinkMember 移除成员
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean importPlanStories(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_IMPORTPLANSTORIES;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_IMPORTPLANSTORIES;
+        Map<String, Object> actionParams = ACTION_PARAMS_IMPORTPLANSTORIES;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_IMPORTPLANSTORIES;
+        String returnUrlRegexPrev = ACTION_RETURNURL_IMPORTPLANSTORIES;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_IMPORTPLANSTORIES;
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 

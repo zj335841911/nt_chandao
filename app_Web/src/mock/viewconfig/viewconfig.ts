@@ -32,7 +32,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "025443fdc6ac693e261108fbdf1b40ab"
         },
         "caseeditview": {
-            "title": "case编辑视图",
+            "title": "功能测试编辑视图",
             "caption": "测试用例",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -79,6 +79,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBuildSubGridView_New",
             "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5"
         },
+        "productprojectgridview9": {
+            "title": "产品表格视图（项目）",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProductProjectGridView9",
+            "viewtag": "0b1b51910ca13751bfd6d356dcadbbce"
+        },
         "testsuiteeditview9": {
             "title": "测试套件编辑视图",
             "caption": "测试套件",
@@ -94,6 +102,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectTaskTreeExpView",
             "viewtag": "103bc77ad54de2476db1d4e9c788cd4e"
+        },
+        "todobaseeditview9": {
+            "title": "待办事宜表编辑视图",
+            "caption": "基本信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TodoBaseEditView9",
+            "viewtag": "10ec8362fe511f35dcf896a048770011"
         },
         "bugmaineditview": {
             "title": "Bug编辑",
@@ -120,7 +136,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "1540523a668e920d831510cfbec2c5e2"
         },
         "deptpickupview": {
-            "title": "dept数据选择视图",
+            "title": "部门数据选择视图",
             "caption": "部门",
             "viewtype": "DEPICKUPVIEW",
             "viewmodule": "zentao",
@@ -152,7 +168,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "1884d01229cee824d7577705da288043"
         },
         "producttestgridview": {
-            "title": "product表格视图",
+            "title": "产品表格视图",
             "caption": "产品",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -183,6 +199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_Related",
             "viewtag": "1f87f07919b8496e5bf832f95686fada"
         },
+        "testtaskmyygridview": {
+            "title": "测试单表格视图",
+            "caption": "测试版本",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskMyYGridView",
+            "viewtag": "1fdd9d52c2aa726e0d0372fb9e3ad916"
+        },
         "bugmpickupview": {
             "title": "关联Bug",
             "caption": "关联Bug",
@@ -198,6 +222,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainEditView",
             "viewtag": "21e00a7239d9737bbfda5c1608b4129c"
+        },
+        "storympickupview3": {
+            "title": "关联需求",
+            "caption": "关联需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMPickupView3",
+            "viewtag": "2419b3758d42fb7e5a590153d28bd945"
+        },
+        "taskmainmygridview": {
+            "title": "任务表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskMainMyGridView",
+            "viewtag": "24a03de02dc02b92a3c228b944e78ed9"
         },
         "moduleeditview": {
             "title": "模块",
@@ -239,6 +279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainGridView9_Child",
             "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21"
         },
+        "storykanbanview": {
+            "title": "需求看板视图",
+            "caption": "需求",
+            "viewtype": "DEKANBANVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryKanbanView",
+            "viewtag": "300e4e1f02be8e316e1e76b49c5c5ccc"
+        },
         "storyreportsubgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -255,6 +303,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskGridView9_UnTested",
             "viewtag": "3091670967914b91fb4b6f46751dcd7e"
         },
+        "testtaskmydgridview": {
+            "title": "测试单表格视图",
+            "caption": "测试版本",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskMyDGridView",
+            "viewtag": "30c07c840301a6ba07383d123bf9bba1"
+        },
         "taskmaininfoview9": {
             "title": "任务编辑视图",
             "caption": "任务",
@@ -262,6 +318,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainInfoView9",
             "viewtag": "321ab2e4e87a29fef8eed086e951a006"
+        },
+        "casegridview9_my": {
+            "title": "测试用例表格视图",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseGridView9_My",
+            "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a"
         },
         "tasksubtasknewview": {
             "title": "子任务",
@@ -287,6 +351,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugActivationView",
             "viewtag": "37166f95166299e28f1a366b0b375d06"
         },
+        "projectmainmygridview": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectMainMyGridView",
+            "viewtag": "376e2623b256509cdf69e2de4c01d31b"
+        },
+        "tasktodoeditview": {
+            "title": "任务编辑视图",
+            "caption": "待办转任务",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskTodoEditView",
+            "viewtag": "3a8aaf8bc175455ca2be6ace38f821a1"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",
@@ -304,7 +384,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "3aafb12bb0db2be013c0f5ced8c7dc50"
         },
         "projectpickupgridview": {
-            "title": "project选择表格视图",
+            "title": "项目选择表格视图",
             "caption": "项目",
             "viewtype": "DEPICKUPGRIDVIEW",
             "viewmodule": "zentao",
@@ -318,6 +398,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestReportMainInfoView",
             "viewtag": "3d56b0e37a56b9be1a28589c04f573fa"
+        },
+        "moduletreeexpview": {
+            "title": "所有产品",
+            "caption": "所有产品",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ModuleTreeExpView",
+            "viewtag": "3e2436a62be2ed493eda83693261274e"
         },
         "storymainview": {
             "title": "需求数据看板视图",
@@ -343,6 +431,30 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainGridView",
             "viewtag": "417541fa331fc089b84936b8359403fa"
         },
+        "storycurprojectwgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryCurProjectWGridView",
+            "viewtag": "427e28cc5267cfc2a6d6da6fde36ef9f"
+        },
+        "todoassigntoview": {
+            "title": "指派表单视图",
+            "caption": "指派给",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoAssignToView",
+            "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3"
+        },
+        "bugbuildsubgridview_new_9212": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugBuildSubGridView_New_9212",
+            "viewtag": "43c2d1a2b73b0363036aee72dc9312c5"
+        },
         "burnchartview": {
             "title": "燃尽图",
             "caption": "燃尽图",
@@ -367,6 +479,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView9_Detail",
             "viewtag": "451eacde0c0c638e29bdfc9cbc789c13"
         },
+        "storypickupgridview3": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPickupGridView3",
+            "viewtag": "4571c6ac173283165334a20d5b218f3b"
+        },
         "bugeditview": {
             "title": "Bug",
             "caption": "Bug",
@@ -376,7 +496,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "46517a803b2470cd0bef27aeda0dbcaf"
         },
         "testreportgridview": {
-            "title": "testreport表格视图",
+            "title": "测试报告表格视图",
             "caption": "测试报告",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -400,7 +520,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "4a5cfcdc473166f49cea6c9628865006"
         },
         "taskgridview": {
-            "title": "task表格视图",
+            "title": "任务表格视图",
             "caption": "任务",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -414,6 +534,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryGridView9_AssignedToMe",
             "viewtag": "4b82e9acf6c784b138b365d6011b296b"
+        },
+        "bugmpickupview2": {
+            "title": "关联Bug",
+            "caption": "关联Bug",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMPickupView2",
+            "viewtag": "4b87d5ed612c8f0bc1a3c01344372a26"
         },
         "projecteditview_activate": {
             "title": "项目",
@@ -431,6 +559,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyDeptUserTreeExpView",
             "viewtag": "4cb497e84dfabd873bc62d5386d5551f"
         },
+        "testtaskeditview_committest": {
+            "title": "提交测试",
+            "caption": "测试版本",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskEditView_commitTest",
+            "viewtag": "4d32793fc57ec1ae930a18608526d00e"
+        },
         "productplansubplangridview": {
             "title": "子计划",
             "caption": "产品计划",
@@ -446,6 +582,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskCloseTaskView",
             "viewtag": "507c506d62dc910a814332e6ae242266"
+        },
+        "bugeditview_1162": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugEditView_1162",
+            "viewtag": "50a62354d8e47841634e14c022dad22b"
         },
         "bugtestreportsubgridview": {
             "title": "bug表格视图",
@@ -552,7 +696,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "575fecad655143bbd28f17c581725a4e"
         },
         "userpickupview": {
-            "title": "user数据选择视图",
+            "title": "用户数据选择视图",
             "caption": "用户",
             "viewtype": "DEPICKUPVIEW",
             "viewmodule": "zentao",
@@ -584,7 +728,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "58a943454a652d4f4ce2702d6447c079"
         },
         "projectpickupview": {
-            "title": "project数据选择视图",
+            "title": "项目数据选择视图",
             "caption": "项目",
             "viewtype": "DEPICKUPVIEW",
             "viewmodule": "zentao",
@@ -600,7 +744,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "5b1056f95f9015cdb45901308a758e25"
         },
         "testtaskeditview": {
-            "title": "testtask编辑视图",
+            "title": "测试单编辑视图",
             "caption": "测试版本",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -616,7 +760,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e"
         },
         "deptmaingridview": {
-            "title": "dept表格视图",
+            "title": "部门表格视图",
             "caption": "部门",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -663,6 +807,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskPivotTableView",
             "viewtag": "64204774cc4b97f20aa3becb41b184d5"
         },
+        "storyprojectmpickupview3": {
+            "title": "关联需求",
+            "caption": "关联需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectMPickupView3",
+            "viewtag": "645efdb73a5b13723410903dff447667"
+        },
         "bugstepsinfoeditview": {
             "title": "Bug编辑视图",
             "caption": "重现步骤",
@@ -686,6 +838,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductMainTabExpView",
             "viewtag": "6c7b582273d0726bcf77214807cfe40c"
+        },
+        "actionmyalltrendslistview": {
+            "title": "系统日志列表视图",
+            "caption": "系统日志",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ActionMyAllTrendsListView",
+            "viewtag": "6d466e003e0479fb8b1a16e49b889dc1"
         },
         "casemaindashboardview": {
             "title": "功能测试",
@@ -719,6 +879,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseCurSuitGridView",
             "viewtag": "74e206764fd747fa31467bd5a9f371df"
         },
+        "storytabexpview": {
+            "title": "需求分页导航视图",
+            "caption": "需求",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryTabExpView",
+            "viewtag": "76bd64e6d21e10838e42517992e58c65"
+        },
         "actionhistorylistview": {
             "title": "历史记录",
             "caption": "系统日志",
@@ -743,8 +911,16 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskGridView9_AssignedToMe",
             "viewtag": "79b3a14f0431747becc48f5b9f3aa990"
         },
+        "storygridview9_myassignedtome": {
+            "title": "需求表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryGridView9_MyAssignedToMe",
+            "viewtag": "79ffa9ee5970e791fe37a01b98d5fce4"
+        },
         "testsuiteeditview": {
-            "title": "testsuite编辑视图",
+            "title": "测试套件编辑视图",
             "caption": "测试套件",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -791,6 +967,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectLeftSidebarListView",
             "viewtag": "7c79a923d0cdd1a5bc41a34367809077"
         },
+        "tododesceditview9": {
+            "title": "待办事宜表编辑视图",
+            "caption": "基本信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TodoDescEditView9",
+            "viewtag": "7c7a1fdf074c475a128c920a952762fa"
+        },
         "productgridview": {
             "title": "所有产品",
             "caption": "所有产品",
@@ -816,7 +1000,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "7d34636d1c24d613abf8d3fdc64ec7ba"
         },
         "productpickupview": {
-            "title": "product数据选择视图",
+            "title": "产品数据选择视图",
             "caption": "产品",
             "viewtype": "DEPICKUPVIEW",
             "viewmodule": "zentao",
@@ -831,6 +1015,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView_EditMode",
             "viewtag": "7e14015af219d302f7d81ff40cdcc418"
         },
+        "taskwheditview": {
+            "title": "工时",
+            "caption": "工时",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskWHEditView",
+            "viewtag": "7f425ca5154c34294ce6c0817d6cb875"
+        },
         "casegridview9": {
             "title": "测试用例表格视图",
             "caption": "测试用例",
@@ -840,7 +1032,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "7f9b2e4d5b622528df75121b824b6fcc"
         },
         "buildmaingridview": {
-            "title": "build表格视图",
+            "title": "版本表格视图",
             "caption": "版本",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -856,7 +1048,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "81893d14e76cac341d4218a9c5ef185d"
         },
         "productplangridview": {
-            "title": "productplan表格视图",
+            "title": "产品计划表格视图",
             "caption": "产品计划",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -864,7 +1056,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "81b0cee2fedff8f4902c0d735714e5af"
         },
         "groupmaingridview": {
-            "title": "group表格视图",
+            "title": "群组表格视图",
             "caption": "群组",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -872,7 +1064,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "8399a93b13ffd4ecea6c65e7804a1353"
         },
         "usereditview": {
-            "title": "user编辑视图",
+            "title": "用户编辑视图",
             "caption": "用户信息",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -911,6 +1103,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryReleaseSubGridView",
             "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
         },
+        "taskestimategridview9": {
+            "title": "任务预计表格视图",
+            "caption": "工时",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskEstimateGridView9",
+            "viewtag": "8b96b7671df722e66d78808ee0636349"
+        },
         "taskworkinfoeditview9": {
             "title": "工时信息",
             "caption": "工时信息",
@@ -936,7 +1136,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "8d033e1df3a5b0e948f7b6fba22dd0ac"
         },
         "productpickupgridview": {
-            "title": "product选择表格视图",
+            "title": "产品选择表格视图",
             "caption": "产品",
             "viewtype": "DEPICKUPGRIDVIEW",
             "viewmodule": "zentao",
@@ -951,6 +1151,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainEditView",
             "viewtag": "8e070a3e9ad67b127db723463198f9ac"
         },
+        "modulelinegridview": {
+            "title": "产品线",
+            "caption": "产品线",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ModuleLineGridView",
+            "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53"
+        },
+        "productplanprojectgridview9": {
+            "title": "产品计划表格视图（项目）",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanProjectGridView9",
+            "viewtag": "908a34af4784424622d2f7905335d023"
+        },
         "storyassigntoview": {
             "title": "指派",
             "caption": "指派",
@@ -958,6 +1174,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryAssignToView",
             "viewtag": "90d6a9dc6032a7a7e19fee6ac22fccc0"
+        },
+        "todotodocreateview": {
+            "title": "添加待办",
+            "caption": "待办事宜表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoTodoCreateView",
+            "viewtag": "927d6e92ed15eeb2397da22824122b27"
         },
         "storyreleasesubeditview": {
             "title": "需求",
@@ -1032,7 +1256,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "9a8c28c2365d7dc8bb5619f39576b558"
         },
         "releasegridview": {
-            "title": "release表格视图",
+            "title": "发布表格视图",
             "caption": "发布",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -1048,7 +1272,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "9d2da90e3480c3bd1e1c58a6484356c5"
         },
         "releaseeditview": {
-            "title": "release编辑视图",
+            "title": "发布编辑视图",
             "caption": "发布",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1080,12 +1304,20 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "a2c585e16c82b5dec03db7146b9a6fa4"
         },
         "testsuitegridview": {
-            "title": "testsuite表格视图",
+            "title": "测试套件表格视图",
             "caption": "测试套件",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "TestSuiteGridView",
             "viewtag": "a3bd82ec712d2e3ad12e716655e960fc"
+        },
+        "bugeditview_4791": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugEditView_4791",
+            "viewtag": "a46256cb1bcfceabf09ad93f33e766a1"
         },
         "productportalview": {
             "title": "产品主页",
@@ -1102,6 +1334,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainGridView",
             "viewtag": "a4af2d93ae66c9877ee99bfe7b93d22c"
+        },
+        "storyprojectpickupgridview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectPickupGridView",
+            "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d"
         },
         "buildmainview": {
             "title": "版本编辑视图",
@@ -1135,6 +1375,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskCancelTaskView",
             "viewtag": "a97ff9ae4f22d5974b51af2c0fae1aa2"
         },
+        "storyeditview9": {
+            "title": "关联需求",
+            "caption": "关联需求",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryEditView9",
+            "viewtag": "a9d151a6bb5fb2481836a7e0ed5afb7e"
+        },
         "productplaneditview": {
             "title": "计划",
             "caption": "产品计划",
@@ -1144,7 +1392,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "aad9a5713d6828d3119b811b26915215"
         },
         "testtaskgridview": {
-            "title": "testtask表格视图",
+            "title": "测试单表格视图",
             "caption": "测试版本",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -1191,13 +1439,29 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskPauseTaskView",
             "viewtag": "b03bf2445d2e295fccbb6280b2601248"
         },
+        "casemainmynewgridview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseMainMyNewGridView",
+            "viewtag": "b137ebd68f63e15d9233d1092e565d15"
+        },
         "companyeditview": {
-            "title": "company编辑视图",
+            "title": "公司编辑视图",
             "caption": "公司信息",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "CompanyEditView",
             "viewtag": "b39a7a76c2175803831235ae3aeef05b"
+        },
+        "bugpickupgridview_buildlinkresolvedbugs": {
+            "title": "bug选择表格视图",
+            "caption": "Bug",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugPickupGridView_buildLinkResolvedBugs",
+            "viewtag": "b4a2b69da4d3cd9c597b5113df650e00"
         },
         "bugreleasesubgridview_undone": {
             "title": "bug表格视图",
@@ -1214,6 +1478,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseMainDetailEditView9",
             "viewtag": "b54ba4ee901e1a450acac8723a4ae97a"
+        },
+        "bugtodoeditview": {
+            "title": "待办提交",
+            "caption": "待办提交",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugTodoEditView",
+            "viewtag": "b5709ef6b436135e1738304e61b5f200"
         },
         "productdashboardinfomainview9": {
             "title": "产品信息",
@@ -1240,7 +1512,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "b9e94e3713c82ebab002631bda872b94"
         },
         "depteditview": {
-            "title": "dept编辑视图",
+            "title": "部门编辑视图",
             "caption": "部门信息",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1256,12 +1528,20 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "bc36be2ee4a78e69c13665a8ad03ab6a"
         },
         "userpickupgridview": {
-            "title": "user选择表格视图",
+            "title": "用户选择表格视图",
             "caption": "用户",
             "viewtype": "DEPICKUPGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "UserPickupGridView",
             "viewtag": "bd3043a0eb4bed8abd005228a4e729af"
+        },
+        "storyprojectplanview": {
+            "title": "按照计划关联",
+            "caption": "按照计划关联",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectPlanView",
+            "viewtag": "bd6f41c3367241b8eddd61eb6e80f029"
         },
         "modulepickupgridview": {
             "title": "模块选择",
@@ -1270,6 +1550,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
+        },
+        "todogridview": {
+            "title": "待办事宜表格视图",
+            "caption": "待办事宜表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoGridView",
+            "viewtag": "bedf1f50199b74a65c2e17771144329c"
         },
         "productmainview_edit": {
             "title": "产品编辑视图",
@@ -1295,9 +1583,17 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestSuiteMainDashboardView",
             "viewtag": "c2e4200fb7c9760b4931b43561289980"
         },
+        "todogridview9": {
+            "title": "我的待办",
+            "caption": "我的待办",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TodoGridView9",
+            "viewtag": "c3f0a8956b863fa05a7d961df90a3975"
+        },
         "producttestlistexpview": {
             "title": "测试统计",
-            "caption": "测试统计",
+            "caption": "产品",
             "viewtype": "DELISTEXPVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductTestListExpView",
@@ -1327,6 +1623,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugGridView9_StoryRelated",
             "viewtag": "c959d7fe98c33b7befcad24e2596633e"
         },
+        "buggridview9_myassignedtome": {
+            "title": "Bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugGridView9_MyAssignedToMe",
+            "viewtag": "c9c1c725d243d98d75558fbc5293f8f9"
+        },
         "taskdonetaskview": {
             "title": "完成任务",
             "caption": "完成任务",
@@ -1334,6 +1638,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskDoneTaskView",
             "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
+        },
+        "storyprojecteditview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProjectEditView",
+            "viewtag": "cad4ce05432f03f140d6ee3ad5dfe8c5"
         },
         "modulepickupview": {
             "title": "模块选择",
@@ -1350,6 +1662,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectPortalView",
             "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64"
+        },
+        "casemainmygridview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseMainMyGridView",
+            "viewtag": "cd3d221ec6771bb755a0e482b8bcd171"
+        },
+        "bugmainmygridview": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMainMyGridView",
+            "viewtag": "cdba1a5e90e147e5f3bf9f2c08c87f56"
         },
         "releasemaintabexpview": {
             "title": "发布分页导航视图",
@@ -1368,15 +1696,23 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "d0454a2ae9eb44aca3613b27169f3b18"
         },
         "branchpickupview": {
-            "title": "branch数据选择视图",
+            "title": "平台数据选择视图",
             "caption": "产品的分支和平台信息",
             "viewtype": "DEPICKUPVIEW",
             "viewmodule": "zentao",
             "viewname": "BranchPickupView",
             "viewtag": "d0851a0acfe0e92a6a5ba34b1552bc66"
         },
+        "productmytesttabexpview": {
+            "title": "测试",
+            "caption": "测试",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductMyTestTabExpView",
+            "viewtag": "d21c783cde14166ba9deb09e746a0f28"
+        },
         "groupeditview": {
-            "title": "group编辑视图",
+            "title": "群组编辑视图",
             "caption": "分组信息",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1384,7 +1720,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "d2de1e2449f8c1cf2e0310f5477eef4b"
         },
         "usermaingridview": {
-            "title": "user表格视图",
+            "title": "用户表格视图",
             "caption": "用户",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -1415,6 +1751,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyMainView9",
             "viewtag": "d7f401156de51eb49cdb10a6fb9263ee"
         },
+        "storymainmygridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMainMyGridView",
+            "viewtag": "d86b9d1e9fad770e8fc97718cee8ed31"
+        },
         "storymain2gridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -1439,8 +1783,16 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryRevIewView",
             "viewtag": "df5a966e312ca9c5f5a41428bc2e2672"
         },
+        "todoeditview": {
+            "title": "编辑待办",
+            "caption": "待办事宜表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoEditView",
+            "viewtag": "e00040c0d616f2f1c0ad4b36c9e920b5"
+        },
         "producteditview": {
-            "title": "product编辑视图",
+            "title": "产品编辑视图",
             "caption": "产品",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1472,7 +1824,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd"
         },
         "deptpickupgridview": {
-            "title": "dept选择表格视图",
+            "title": "部门选择表格视图",
             "caption": "部门",
             "viewtype": "DEPICKUPGRIDVIEW",
             "viewmodule": "zentao",
@@ -1496,7 +1848,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e67fe0ec86d17b74944c16e187da482d"
         },
         "testtaskeditview_edit": {
-            "title": "testtask编辑视图",
+            "title": "测试单编辑视图",
             "caption": "测试版本",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1512,7 +1864,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e897cf80a700c92025004c4696d9ae10"
         },
         "buildeditview": {
-            "title": "build编辑视图",
+            "title": "版本编辑视图",
             "caption": "版本",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1520,7 +1872,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e9d61d4506a28dec9a6f1d7b9e1fff6a"
         },
         "taskeditview": {
-            "title": "task编辑视图",
+            "title": "任务编辑视图",
             "caption": "任务",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1534,6 +1886,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestReportMainTabExpView",
             "viewtag": "ea7a4f0ccc237a45f39ffb2e3df7e9fd"
+        },
+        "tododashboardview": {
+            "title": "待办事宜表数据看板视图",
+            "caption": "待办事宜表",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoDashboardView",
+            "viewtag": "ebf37bf3881bb27c09db9bbe5d0b0f77"
         },
         "bugdashboardmaineditview9": {
             "title": "主信息",
@@ -1575,8 +1935,16 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
         },
+        "taskforwardview": {
+            "title": "转交任务",
+            "caption": "转交任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskForwardView",
+            "viewtag": "f27febc6ab4d30f9e419caf1e6930a94"
+        },
         "testreporteditview": {
-            "title": "testreport编辑视图",
+            "title": "测试报告编辑视图",
             "caption": "测试报告",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1592,7 +1960,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f592519df78de708bd8199a52e5f584d"
         },
         "casegridview": {
-            "title": "case表格视图",
+            "title": "功能测试表格视图",
             "caption": "测试用例",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -1632,8 +2000,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f83dac873b9215483c4bb91673284b41"
         },
         "actioneditview": {
-            "title": "action编辑视图",
-            "caption": "系统日志",
+            "title": "备注",
+            "caption": "备注",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "ActionEditView",
@@ -1648,7 +2016,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
         },
         "branchpickupgridview": {
-            "title": "branch选择表格视图",
+            "title": "平台选择表格视图",
             "caption": "产品的分支和平台信息",
             "viewtype": "DEPICKUPGRIDVIEW",
             "viewmodule": "zentao",
@@ -1703,6 +2071,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestModuleEditView",
             "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3"
         },
+        "ibzmyterritorytabexpview": {
+            "title": "我的地盘",
+            "caption": "我的地盘",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryTabExpView",
+            "viewtag": "0f3dff62ef8bcb1662cc82e57a34c56b"
+        },
         "projectteammaingridview": {
             "title": "项目团队表格视图",
             "caption": "项目团队",
@@ -1711,13 +2087,13 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectTeamMainGridView",
             "viewtag": "231eecf4805f0b378601ea1a7912077f"
         },
-        "projectstatsmaindashboardview": {
-            "title": "项目统计数据看板视图",
-            "caption": "项目统计",
-            "viewtype": "DEPORTALVIEW",
+        "ibzprojectmembereditview9": {
+            "title": "项目相关成员编辑视图（相关成员）",
+            "caption": "相关成员",
+            "viewtype": "DEEDITVIEW9",
             "viewmodule": "ibiz",
-            "viewname": "ProjectStatsMainDashboardView",
-            "viewtag": "37df93bfc6d8126c9303eab0c5363df8"
+            "viewname": "IbzProjectMemberEditView9",
+            "viewtag": "24f12a249a654cadf0a0f9e132221c10"
         },
         "testmodulegridview": {
             "title": "测试模块表格视图",
@@ -1823,6 +2199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleTreeExpView",
             "viewtag": "bb8860972029d9947daa3652a4b5d291"
         },
+        "ibzmyterritorymywork": {
+            "title": "我的工作",
+            "caption": "我的工作",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryMyWork",
+            "viewtag": "c21e2ccc8e950461985b171f047bde56"
+        },
         "testmodulequickcfgview": {
             "title": "需求模块",
             "caption": "测试模块",
@@ -1831,6 +2215,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestModuleQuickCfgView",
             "viewtag": "d337f5c3c125dc2641321f2d93b65476"
         },
+        "ibzmyterritorydashboardview": {
+            "title": "首页",
+            "caption": "首页",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryDashboardView",
+            "viewtag": "d8df5ca51341d33ccc19208dde3f2cce"
+        },
+        "ibzmyterritorylistview": {
+            "title": "欢迎",
+            "caption": "欢迎",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryListView",
+            "viewtag": "e2d75951e06d21bce0a31b09c67103bf"
+        },
         "projectstatseditview9": {
             "title": "项目统计编辑视图",
             "caption": "项目统计",
@@ -1838,6 +2238,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectStatsEditView9",
             "viewtag": "e444135470a806822b9b950e15c42a3e"
+        },
+        "ibzmyterritorylistview9": {
+            "title": "我的工作",
+            "caption": "我的工作",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryListView9",
+            "viewtag": "e9f72c81d94c56a08c355c2ba2e20d07"
+        },
+        "productliferoadmapslistview9": {
+            "title": "路线图",
+            "caption": "产品生命周期",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "ProductLifeRoadMapSListView9",
+            "viewtag": "fae08b50e13943a0678a96d852e8808d"
         },
         "testportalview": {
             "title": "测试主页",

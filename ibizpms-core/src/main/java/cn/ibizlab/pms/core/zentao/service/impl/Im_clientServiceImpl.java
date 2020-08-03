@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.Im_clientSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IIm_clientService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Im_client et) {
         if (null == et) {
             return false;
@@ -183,5 +182,6 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
 
 
 }
+
 
 

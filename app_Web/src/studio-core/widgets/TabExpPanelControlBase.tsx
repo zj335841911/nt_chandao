@@ -1,5 +1,4 @@
-import { Provide } from 'vue-property-decorator';
-import { ControlBase } from './ControlBase';
+import { ExpControlBase } from './ExpControlBase';
 
 /**
  * 分页导航面板部件控制器
@@ -8,7 +7,7 @@ import { ControlBase } from './ControlBase';
  * @class TabExpPanelControlBase
  * @extends {ControlBase}
  */
-export class TabExpPanelControlBase extends ControlBase {
+export class TabExpPanelControlBase extends ExpControlBase {
 
     /**
      * 行为参数

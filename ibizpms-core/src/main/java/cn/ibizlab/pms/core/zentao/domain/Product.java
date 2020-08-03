@@ -230,6 +230,62 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 相关Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "relatedbugcnt")
+    @JsonProperty("relatedbugcnt")
+    private Integer relatedbugcnt;
+    /**
+     * 已变更需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    private Integer changedstorycnt;
+    /**
+     * 草稿需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "draftstorycnt")
+    @JsonProperty("draftstorycnt")
+    private Integer draftstorycnt;
+    /**
+     * 已关闭需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+    /**
+     * 关联项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "relatedprojects")
+    @JsonProperty("relatedprojects")
+    private Integer relatedprojects;
+    /**
+     * 文档数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+    /**
+     * BUILD数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
+    /**
+     * 用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
 
     /**
      * 产品线

@@ -49,7 +49,6 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -87,6 +86,7 @@ export class ActivationEditFormBase extends EditFormControlBase {
         resolvedbuild: null,
         assignedto: null,
         files: null,
+        project: null,
         comment: null,
         bug:null,
     };
@@ -99,6 +99,15 @@ export class ActivationEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ActivationBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -140,6 +149,8 @@ export class ActivationEditFormBase extends EditFormControlBase {
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

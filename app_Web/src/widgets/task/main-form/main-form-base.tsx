@@ -49,7 +49,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'task';
-
     /**
      * 界面UI服务对象
      *
@@ -85,6 +84,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         projectname: null,
         project: null,
+        module: null,
         type: null,
         modulename: null,
         allmodules: null,
@@ -101,7 +101,6 @@ export class MainEditFormBase extends EditFormControlBase {
         formitemex1: null,
         mailto: null,
         id: null,
-        module: null,
         task:null,
     };
 
@@ -129,6 +128,15 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -165,6 +173,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -197,9 +207,19 @@ export class MainEditFormBase extends EditFormControlBase {
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof MainEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'multiple')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
+    }
 
     /**
      * 表单项逻辑
@@ -219,6 +239,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
 
 
 
@@ -277,7 +298,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-
     }
 
     /**
@@ -285,6 +305,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['module'];
+        }
         if (this.data.hasOwnProperty('allmodules')) {
             this.data['allmodules'] = '1';
         }

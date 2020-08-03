@@ -6,7 +6,7 @@ import { ProductExpViewPortletBase } from './product-exp-view-portlet-base';
  
 
 /**
- * db_productexpportlet部件
+ * dashboard_sysportlet7部件
  *
  * @export
  * @class ProductExpViewPortlet

@@ -79,4 +79,3 @@ public class DocSearchContext extends QueryWrapperContext<Doc> {
 
 
 
-

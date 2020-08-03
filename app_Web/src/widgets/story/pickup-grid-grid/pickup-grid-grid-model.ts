@@ -70,14 +70,15 @@ export default class PickupGridModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'srfkey',
+          name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfdataaccaction',
+          name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',
@@ -85,14 +86,14 @@ export default class PickupGridModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
         },
         {
           name: 'modulename',

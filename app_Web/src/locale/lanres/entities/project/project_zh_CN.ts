@@ -41,6 +41,15 @@ export default {
     srfarray: "关联数据数组",
     comment: "备注",
     period: "时间段",
+    account: "项目团队成员",
+    join: "加盟日",
+    hours: "可用工时/天",
+    role: "角色",
+    totalconsumed: "任务消耗总工时",
+    totalwh: "总工时",
+    totalleft: "任务预计剩余总工时",
+    totalestimate: "任务最初预计总工时",
+    totalhours: "可用工时",
   },
 	views: {
 		tasktreeexpview: {
@@ -48,6 +57,10 @@ export default {
       		title: "项目任务导航视图",
 		},
 		editview_putoff: {
+			caption: "项目",
+      		title: "项目",
+		},
+		mainmygridview: {
 			caption: "项目",
       		title: "项目",
 		},
@@ -61,7 +74,7 @@ export default {
 		},
 		pickupgridview: {
 			caption: "项目",
-      		title: "project选择表格视图",
+      		title: "项目选择表格视图",
 		},
 		editview_activate: {
 			caption: "项目",
@@ -73,7 +86,7 @@ export default {
 		},
 		pickupview: {
 			caption: "项目",
-      		title: "project数据选择视图",
+      		title: "项目数据选择视图",
 		},
 		mainview_edit: {
 			caption: "项目",
@@ -248,6 +261,7 @@ export default {
 			begin: "开始时间", 
 			end: "结束日期", 
 			days: "可用工作日", 
+			totalhours: "可用工时", 
 			formitem: "预计", 
 			formitem1: "消耗", 
 			formitem2: "剩余", 
@@ -315,6 +329,21 @@ export default {
 		uiactions: {
 		},
 	},
+	mainmy_grid: {
+		columns: {
+			id: "ID",
+			code: "项目代号",
+			name: "项目名称",
+			begin: "开始时间",
+			end: "结束日期",
+			status: "项目状态",
+			role: "角色",
+			join: "加盟日",
+			hours: "可用工时/天",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -352,6 +381,18 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	curproductgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction4: {
 			caption: "删除",
@@ -366,18 +407,6 @@ export default {
 			tip: "刷新",
 		},
 	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	curproductgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
 			caption: "管理",
@@ -387,6 +416,20 @@ export default {
 			caption: "",
 			tip: "",
 		},
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
 			tip: "新建",

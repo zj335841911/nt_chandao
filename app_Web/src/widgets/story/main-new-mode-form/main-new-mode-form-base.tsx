@@ -49,7 +49,6 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      * @memberof Main_NewModeEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -106,6 +105,15 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_NewModeBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -169,4 +177,39 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof Main_NewModeEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'branch', value: null });
+        }
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'plan', value: null });
+        }
+    }
+
+    /**
+     * 新建默认值
+     * @memberof Main_NewModeEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['productmodule'];
+        }
+        if (this.data.hasOwnProperty('branch')) {
+            this.data['branch'] = this.viewparams['storybranch'];
+        }
+        if (this.data.hasOwnProperty('plan')) {
+            this.data['plan'] = this.viewparams['plan'];
+        }
+    }
 }

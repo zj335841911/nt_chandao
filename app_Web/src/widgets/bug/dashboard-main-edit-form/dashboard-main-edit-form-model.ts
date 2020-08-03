@@ -77,6 +77,8 @@ export default class DashboardMainEditModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'product',
@@ -102,6 +104,11 @@ export default class DashboardMainEditModel {
         name: 'module',
         prop: 'module',
         dataType: 'PICKUP',
+      },
+      {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'plan',

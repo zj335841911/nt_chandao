@@ -51,6 +51,8 @@ export default {
     allmodules: "所有模块",
     multiple: "多人任务",
     taskteams: "项目团队成员",
+    modulename1: "所属模块",
+    ibztaskestimates: "工时",
   },
 	views: {
 		assigntaskview: {
@@ -61,6 +63,10 @@ export default {
 			caption: "任务",
       		title: "任务",
 		},
+		mainmygridview: {
+			caption: "任务",
+      		title: "任务表格视图",
+		},
 		maingridview9_child: {
 			caption: "任务",
       		title: "任务表格视图",
@@ -69,9 +75,13 @@ export default {
 			caption: "任务",
       		title: "任务编辑视图",
 		},
+		todoeditview: {
+			caption: "待办转任务",
+      		title: "任务编辑视图",
+		},
 		gridview: {
 			caption: "任务",
-      		title: "task表格视图",
+      		title: "任务表格视图",
 		},
 		closetaskview: {
 			caption: "关闭任务",
@@ -100,6 +110,10 @@ export default {
 		gridview9_assignedtome: {
 			caption: "任务",
       		title: "任务表格视图",
+		},
+		wheditview: {
+			caption: "工时",
+      		title: "工时",
 		},
 		activationtaskview: {
 			caption: "激活任务",
@@ -135,11 +149,15 @@ export default {
 		},
 		editview: {
 			caption: "任务",
-      		title: "task编辑视图",
+      		title: "任务编辑视图",
 		},
 		maindetailview9: {
 			caption: "任务",
       		title: "任务编辑视图",
+		},
+		forwardview: {
+			caption: "转交任务",
+      		title: "转交任务",
 		},
 	},
 	main_form: {
@@ -158,6 +176,7 @@ export default {
 			srfsourcekey: "", 
 			projectname: "所属项目", 
 			project: "所属项目", 
+			module: "id", 
 			type: "任务类型", 
 			modulename: "所属模块", 
 			allmodules: "所有模块", 
@@ -174,7 +193,6 @@ export default {
 			formitemex1: "日程规划", 
 			mailto: "抄送给", 
 			id: "编号", 
-			module: "id", 
 		},
 		uiactions: {
 		},
@@ -182,7 +200,8 @@ export default {
 	maindetail_form: {
 		details: {
 			grouppanel3: "任务描述", 
-			grouppanel2: "需求描述", 
+			druipart3: "", 
+			grouppanel2: "需求", 
 			druipart2: "", 
 			grouppanel4: "附件", 
 			druipart1: "", 
@@ -224,6 +243,70 @@ export default {
 			left: "预计剩余", 
 			comment: "备注", 
 			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	forward_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			project: "所属项目", 
+			assignedto: "转交给", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	startform_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			realstarted: "实际开始", 
+			consumed: "总计消耗", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	taskestimate_form: {
+		details: {
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "", 
+			name: "", 
 		},
 		uiactions: {
 		},
@@ -356,29 +439,6 @@ export default {
 		uiactions: {
 		},
 	},
-	startform_form: {
-		details: {
-			druipart1: "", 
-			grouppanel1: "分组面板", 
-			group1: "任务基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "最后修改日期", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "任务名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			realstarted: "实际开始", 
-			consumed: "总计消耗", 
-			left: "预计剩余", 
-			comment: "备注", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	maininfo_form: {
 		details: {
 			group1: "task基本信息", 
@@ -401,7 +461,7 @@ export default {
 			srfsourcekey: "", 
 			name: "任务名称", 
 			projectname: "所属项目", 
-			modulename: "所属模块", 
+			modulename1: "所属模块", 
 			storyname: "相关需求", 
 			assignedto: "指派给", 
 			type: "任务类型", 
@@ -446,6 +506,43 @@ export default {
 			realstarted: "实际开始", 
 			deadline: "截止日期", 
 			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	pendingsubmission_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "task基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			projectname: "所属项目", 
+			project: "所属项目", 
+			type: "任务类型", 
+			modulename: "所属模块", 
+			allmodules: "所有模块", 
+			assignedto: "指派给", 
+			multiple: "多人任务", 
+			story: "相关需求", 
+			storyname: "相关需求", 
+			name: "任务名称", 
+			pri: "优先级", 
+			estimate: "预计", 
+			desc: "任务描述", 
+			estsarted: "预计开始", 
+			deadline: "截止日期", 
+			formitemex1: "日程规划", 
+			mailto: "抄送给", 
+			id: "编号", 
+			module: "id", 
 		},
 		uiactions: {
 		},
@@ -525,6 +622,12 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	wheditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -580,6 +683,8 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+	},
+	todoeditviewtoolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
 		tbitem3: {

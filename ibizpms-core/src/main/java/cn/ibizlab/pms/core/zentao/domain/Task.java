@@ -411,6 +411,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "multiple")
     @JsonProperty("multiple")
     private Integer multiple;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
 
     /**
      * 
@@ -460,6 +467,14 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private List<cn.ibizlab.pms.core.ibiz.domain.TaskTeam> taskteam;
+
+    /**
+     * 任务预计
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.zentao.domain.TaskEstimate> taskestimate;
 
 
     /**

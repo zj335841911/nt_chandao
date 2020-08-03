@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.FileSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(File et) {
         if (null == et) {
             return false;
@@ -192,5 +191,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
 
 
 }
+
 
 

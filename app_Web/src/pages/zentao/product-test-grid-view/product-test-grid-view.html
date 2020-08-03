@@ -1,8 +1,8 @@
-<studio-view viewName="producttestgridview" viewTitle="product表格视图" class='degridview product-test-grid-view'>
+<studio-view viewName="producttestgridview" viewTitle="产品表格视图" class='degridview product-test-grid-view'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="产品名称,编号" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <template slot="searchForm">

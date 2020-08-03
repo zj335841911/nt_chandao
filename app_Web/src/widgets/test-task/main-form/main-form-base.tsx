@@ -49,7 +49,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'testtask';
-
     /**
      * 界面UI服务对象
      *
@@ -79,14 +78,14 @@ export class MainEditFormBase extends EditFormControlBase {
         pri: null,
         begin: null,
         end: null,
+        project: null,
+        build: null,
         status: null,
         product: null,
         name: null,
         desc: null,
         mailto: null,
         id: null,
-        project: null,
-        build: null,
         testtask:null,
     };
 
@@ -97,11 +96,36 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        projecttname: [
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
+        ],
+        buildname: [
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -144,6 +168,10 @@ export class MainEditFormBase extends EditFormControlBase {
 
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -156,9 +184,24 @@ export class MainEditFormBase extends EditFormControlBase {
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('project')) {
+            this.data['project'] = this.viewparams['project'];
+        }
+        if (this.data.hasOwnProperty('build')) {
+            this.data['build'] = this.viewparams['build'];
+        }
+        if (this.data.hasOwnProperty('product')) {
+            this.data['product'] = this.viewparams['product'];
+        }
+        if (this.data.hasOwnProperty('name')) {
+            this.data['name'] = this.viewparams['name'];
+        }
+    }
 }

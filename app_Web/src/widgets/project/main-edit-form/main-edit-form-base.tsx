@@ -49,7 +49,6 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditEditFormBase
      */
     protected appDeName: string = 'project';
-
     /**
      * 界面UI服务对象
      *
@@ -113,7 +112,20 @@ export class Main_EditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
         ],
+        days: [
+            { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
+            { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_EditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -122,7 +134,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditEditFormBase
      */
     public detailsModel: any = {
-        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.main_edit_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.main_edit_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '负责人', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.main_edit_form', extractMode: 'ITEM', details: [] } }),
 

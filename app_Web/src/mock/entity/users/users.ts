@@ -271,6 +271,50 @@ mock.onPost(new RegExp(/^\/users\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((conf
     return [status, data];
 });
     
+// FetchBugUser
+mock.onGet(new RegExp(/^\/users\/fetchbuguser$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: FetchBugUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchBugUser
+mock.onGet(new RegExp(/^\/users\/fetchbuguser(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: FetchBugUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/users\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:user 方法: FetchDefault");
@@ -446,6 +490,50 @@ mock.onGet(new RegExp(/^\/users\/fetchprojectteamuser_task(\?[\w-./?%&=,]*)*$/))
     console.groupEnd();
     return [status, records ?  records : []];
 });
+    
+// FetchTaskTeam
+mock.onGet(new RegExp(/^\/users\/fetchtaskteam$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: FetchTaskTeam");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchTaskTeam
+mock.onGet(new RegExp(/^\/users\/fetchtaskteam(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: FetchTaskTeam");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 // URI参数传递情况未实现
@@ -493,6 +581,34 @@ mock.onGet(new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any)
     }    
     const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// GetByCommiter
+mock.onGet(new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})\/getbycommiter$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: GetByCommiter");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/users\/([a-zA-Z0-9\-\;]{1,35})\/getbycommiter$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

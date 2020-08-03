@@ -1,5 +1,5 @@
-<studio-view viewName="productplangridview" viewTitle="productplan表格视图" class='degridview product-plan-grid-view'>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+<studio-view viewName="productplangridview" viewTitle="产品计划表格视图" class='degridview product-plan-grid-view'>
+    <i-input slot="quickSearch" v-model="query" placeholder="名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 

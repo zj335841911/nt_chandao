@@ -353,7 +353,6 @@ export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
         }
         this.selection = {};
         Object.assign(this.selection, { view: { viewname: this.navViewName },context:tempContext,viewparam:tempViewParam});
-        this.$emit('selectionchange',args);
         this.$forceUpdate();
     }
 

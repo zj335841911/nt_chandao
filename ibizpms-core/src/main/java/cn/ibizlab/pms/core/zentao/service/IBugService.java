@@ -53,6 +53,7 @@ public interface IBugService extends IService<Bug>{
     Bug toStory(Bug et) ;
     Bug unlinkBug(Bug et) ;
     Page<Bug> searchBuildBugs(BugSearchContext context) ;
+    Page<Bug> searchBuildLinkResolvedBugs(BugSearchContext context) ;
     Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;
     Page<Bug> searchReleaseBugs(BugSearchContext context) ;

@@ -35,6 +35,27 @@ export default class ZentaoModel {
         	resourcetag: '',
         	items: [
                 		        {
+                	id: '885119A5-EBD5-42E2-A9AD-CECBF403ADE6',
+                	name: 'menuitem9',
+                	text: '我的地盘',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '我的地盘',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'Auto10',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-my-territory-tab-exp-view',
+                	resourcetag: '',
+                }
+                ,
+                		        {
                 	id: '326619b4fb6af93bdeed04e5dcbf029a',
                 	name: 'menuitem3',
                 	text: '产品主页',
@@ -70,7 +91,7 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_2',
+                	appfunctag: 'Auto6',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'project-portal-view',
                 	resourcetag: '',
@@ -91,7 +112,7 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_5',
+                	appfunctag: 'Auto9',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'test-portal-view',
                 	resourcetag: '',
@@ -112,7 +133,7 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_4',
+                	appfunctag: 'Auto8',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-html-view',
                 	resourcetag: '',
@@ -196,7 +217,7 @@ export default class ZentaoModel {
                 	iconcls: 'fa fa-cogs',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_6',
+                	appfunctag: 'Auto11',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
@@ -254,7 +275,7 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_6',
+            appfunctag: 'Auto11',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producttestleftsidebarlistview',
@@ -278,7 +299,7 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_4',
+            appfunctag: 'Auto8',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producthtmlview',
@@ -302,7 +323,7 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_2',
+            appfunctag: 'Auto6',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'projectportalview',
@@ -324,7 +345,19 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_5',
+            appfunctag: 'Auto10',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritorytabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'tabexpview', parameterName: 'tabexpview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto9',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'testportalview',
@@ -374,6 +407,31 @@ export default class ZentaoModel {
 			}
 			if (item.items) {
 				menu = this.findMenuByFuncTag(tag, item.items);
+				if (menu) {
+					return false;
+				}
+			}
+			return true;
+		});
+		return menu;
+	}
+
+	/**
+	 * 查找默认打开菜单
+	 *
+	 * @param {any[]} [menus=this.items]
+	 * @returns {*}
+	 * @memberof ZentaoModel
+	 */
+	public findDefaultOpenMenu(menus: any[] = this.items): any {
+		let menu: any;
+		menus.every((item: any) => {
+			if (item.opendefault === true) {
+				menu = item;
+				return false;
+			}
+			if (item.items) {
+				menu = this.findMenuByFuncTag(item.items);
 				if (menu) {
 					return false;
 				}

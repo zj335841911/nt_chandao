@@ -93,6 +93,30 @@ export default class MainTabExpViewtabviewpanel8Model {
       {
         name: 'comment',
       },
+      {
+        name: 'relatedbugcnt',
+      },
+      {
+        name: 'changedstorycnt',
+      },
+      {
+        name: 'draftstorycnt',
+      },
+      {
+        name: 'closedstorycnt',
+      },
+      {
+        name: 'relatedprojects',
+      },
+      {
+        name: 'doccnt',
+      },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

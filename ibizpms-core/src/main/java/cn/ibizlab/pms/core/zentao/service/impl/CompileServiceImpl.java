@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.CompileSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ICompileService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -121,9 +122,7 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Compile et) {
         if (null == et) {
             return false;
@@ -186,5 +185,6 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
 
 
 }
+
 
 

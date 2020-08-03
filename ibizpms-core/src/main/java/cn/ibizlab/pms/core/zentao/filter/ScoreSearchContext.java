@@ -41,4 +41,3 @@ public class ScoreSearchContext extends QueryWrapperContext<Score> {
 
 
 
-

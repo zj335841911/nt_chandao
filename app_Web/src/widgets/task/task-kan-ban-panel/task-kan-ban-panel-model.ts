@@ -40,6 +40,10 @@ export default class TaskKanBanModel {
         prop: 'module'
       },
       {
+        name: 'srfkey',
+        prop: 'id'
+      },
+      {
         name: 'story',
         prop: 'story'
       },

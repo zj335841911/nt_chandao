@@ -274,7 +274,6 @@ export class BugTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
         this.selection = {};
         Object.assign(this.selection, { view: { viewname: refview.viewname } });
         Object.assign(this.selection,{'viewparam':tempViewparam,'context':tempContext});
-        this.$emit('selectionchange',args);
         this.$forceUpdate();
     }
 

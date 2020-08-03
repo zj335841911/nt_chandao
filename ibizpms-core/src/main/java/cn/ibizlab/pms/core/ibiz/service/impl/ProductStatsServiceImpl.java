@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductStatsSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProductStatsService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -111,6 +112,13 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     }
     @Override
     @Transactional
+    public ProductStats getTestStats(ProductStats et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(ProductStats et) {
         if(!saveOrUpdate(et))
             return false;
@@ -118,9 +126,7 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(ProductStats et) {
         if (null == et) {
             return false;
@@ -183,5 +189,6 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
 
 
 }
+
 
 

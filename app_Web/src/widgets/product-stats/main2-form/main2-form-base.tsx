@@ -189,7 +189,6 @@ export class Main2EditFormBase extends EditFormControlBase {
         const curUIService:ProductStatsUIService  = new ProductStatsUIService();
         curUIService.ProductStats_OpenReleasedCreateView(datas,contextJO, paramJO,  $event, xData,this,"ProductStats");
     }
-
     /**
      * 界面UI服务对象
      *
@@ -225,6 +224,7 @@ export class Main2EditFormBase extends EditFormControlBase {
         custom2: null,
         formitemex1: null,
         unendproductplancnt: null,
+        postponedprojectcnt: null,
         resprojectcnt: null,
         custom3: null,
         custom4: null,
@@ -249,6 +249,15 @@ export class Main2EditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main2Base
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 详情模型集合
      *
      * @type {*}
@@ -256,6 +265,8 @@ export class Main2EditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         button4: new FormButtonModel({ caption: '查看全部', detailType: 'BUTTON', name: 'button4', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'OpenProductStoryView', actiontarget: 'SINGLEKEY' } }),
 
@@ -274,6 +285,8 @@ export class Main2EditFormBase extends EditFormControlBase {
         grouppanel3: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel8: new FormGroupPanelModel({ caption: '计划', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
+
+        rawitem4: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         button2: new FormButtonModel({ caption: '创建项目', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'OpenProjectCreateView', actiontarget: 'SINGLEKEY' } }),
 
@@ -309,7 +322,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 
         product: new FormItemModel({ caption: '产品标识', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        storycnt: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         waitstorycnt: new FormItemModel({ caption: '未开始', detailType: 'FORMITEM', name: 'waitstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -330,6 +343,8 @@ export class Main2EditFormBase extends EditFormControlBase {
         formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: false, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        postponedprojectcnt: new FormItemModel({ caption: '已延期', detailType: 'FORMITEM', name: 'postponedprojectcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -365,6 +380,7 @@ export class Main2EditFormBase extends EditFormControlBase {
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
+
         if (Object.is(name, '') || Object.is(name, 'storycnt')) {
             let ret = false;
             const _storycnt = this.data.storycnt;
@@ -395,6 +411,7 @@ export class Main2EditFormBase extends EditFormControlBase {
             }
             this.detailsModel.button1.setVisible(ret);
         }
+
 
 
 
@@ -456,6 +473,7 @@ export class Main2EditFormBase extends EditFormControlBase {
             }
             this.detailsModel.formitemex1.setVisible(ret);
         }
+
 
 
 

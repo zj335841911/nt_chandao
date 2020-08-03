@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProductModuleService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -144,9 +145,7 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(ProductModule et) {
         if (null == et) {
             return false;
@@ -226,6 +225,15 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
         return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 StoryModule
+     */
+    @Override
+    public Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**
@@ -284,5 +292,6 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
 
 }
+
 
 

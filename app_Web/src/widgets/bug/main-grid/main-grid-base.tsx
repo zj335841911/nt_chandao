@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, GridControllerBase } from '@/studio-core';
+import { Watch, GridControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import MainService from './main-grid-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
@@ -11,10 +11,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class GridControllerBase
+ * @class GridControlBase
  * @extends {MainGridBase}
  */
-export class MainGridBase extends GridControllerBase {
+export class MainGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
@@ -177,9 +177,9 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
+        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESOLVE', target: 'SINGLEKEY'},
+        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };
 
@@ -188,7 +188,7 @@ export class MainGridBase extends GridControllerBase {
      *
      * @protected
      * @type {string}
-     * @memberof GridControllerBase
+     * @memberof MainBase
      */
     protected localStorageTag: string = 'zt_bug_main_grid';
 
@@ -303,6 +303,14 @@ export class MainGridBase extends GridControllerBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'activateddate',
+            label: '激活日期',
+            langtag: 'entities.bug.main_grid.columns.activateddate',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -348,6 +356,7 @@ export class MainGridBase extends GridControllerBase {
         'resolution':false,
         'uagridcolumn1':false,
         'lastediteddate':false,
+        'activateddate':false,
     };
 
     /**

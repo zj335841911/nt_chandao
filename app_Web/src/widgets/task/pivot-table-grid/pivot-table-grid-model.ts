@@ -88,6 +88,7 @@ export default class PivotTableModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'id',

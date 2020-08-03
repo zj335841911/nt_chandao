@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.DeptSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IDeptService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -125,9 +126,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Dept et) {
         if (null == et) {
             return false;
@@ -227,5 +226,6 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
 
 }
+
 
 

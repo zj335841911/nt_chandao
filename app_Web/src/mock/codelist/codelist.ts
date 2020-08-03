@@ -8,6 +8,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
+        srfkey: "ProjectQuickpaketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "我的项目",
+                text: "我的项目",
+                "data":{"n_account_eq":"%srfloginname%"},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__status",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -318,27 +335,94 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "ProjectTimeType",
-        emptytext: "",
+        srfkey: "BugQuickpacketMy",
+        emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "CONSUMED",
-                label: "消耗时间",
-                text: "消耗时间",
-                "data":"",
-                "codename":"Consumed",
-                value: "CONSUMED",
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
                 
                 disabled: false,
             },
             {
-                id: "LEFT",
-                label: "剩余时间",
-                text: "剩余时间",
-                "data":"",
-                "codename":"Left",
-                value: "LEFT",
+                id: "ICREATE",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "BYME",
+                label: "由我解决",
+                text: "由我解决",
+                "data":{"n_resolvedby_eq":"%srfloginname%"},
+                "codename":"Byme",
+                value: "BYME",
+                
+                disabled: false,
+            },
+            {
+                id: "WAITCLOSED",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Waitclosed",
+                value: "WAITCLOSED",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "StoryQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "指给我",
+                text: "指给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "IREVIEW",
+                label: "由我评审",
+                text: "由我评审",
+                "data":{"n_reviewedby_eq":"%srfloginname%"},
+                "codename":"Ireview",
+                value: "IREVIEW",
+                
+                disabled: false,
+            },
+            {
+                id: "ICLOSE",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Iclose",
+                value: "ICLOSE",
                 
                 disabled: false,
             },
@@ -361,8 +445,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "private",
-                label: "私有产品相关负责人和项目团队成员才能访问)",
-                text: "私有产品相关负责人和项目团队成员才能访问)",
+                label: "私有产品(相关负责人和项目团队成员才能访问)",
+                text: "私有产品(相关负责人和项目团队成员才能访问)",
                 "data":"",
                 "codename":"Private",
                 value: "private",
@@ -376,6 +460,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Custom",
                 value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "BugCodeList2",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "active",
+                label: "未解决",
+                text: "未解决",
+                "data":{"n_status_eq":"active"},
+                "codename":"Active",
+                value: "active",
                 
                 disabled: false,
             },
@@ -560,6 +671,391 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser_Task",
         "items": []
+    },
+    {
+        srfkey: "Pri",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "一般",
+                text: "一般",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(25, 65, 152, 1)",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "最高",
+                text: "最高",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(247, 5, 5, 1)",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "较高",
+                text: "较高",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(255, 0, 43, 0.68)",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "最低",
+                text: "最低",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(41, 137, 46, 1)",
+                value: "4",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Beginend_disable",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "on",
+                label: "暂时不设定时间",
+                text: "暂时不设定时间",
+                "data":"",
+                "codename":"On",
+                value: "on",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "CodeList47",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1号",
+                text: "1号",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2号",
+                text: "2号",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3号",
+                text: "3号",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4号",
+                text: "4号",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "5号",
+                text: "5号",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "6",
+                label: "6号",
+                text: "6号",
+                "data":"",
+                "codename":"Item_6",
+                value: "6",
+                
+                disabled: false,
+            },
+            {
+                id: "7",
+                label: "7号",
+                text: "7号",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "8",
+                label: "8号",
+                text: "8号",
+                "data":"",
+                "codename":"Item_8",
+                value: "8",
+                
+                disabled: false,
+            },
+            {
+                id: "9",
+                label: "9号",
+                text: "9号",
+                "data":"",
+                "codename":"Item_9",
+                value: "9",
+                
+                disabled: false,
+            },
+            {
+                id: "10",
+                label: "10号",
+                text: "10号",
+                "data":"",
+                "codename":"Item_10",
+                value: "10",
+                
+                disabled: false,
+            },
+            {
+                id: "11",
+                label: "11号",
+                text: "11号",
+                "data":"",
+                "codename":"Item_11",
+                value: "11",
+                
+                disabled: false,
+            },
+            {
+                id: "12",
+                label: "12号",
+                text: "12号",
+                "data":"",
+                "codename":"Item_12",
+                value: "12",
+                
+                disabled: false,
+            },
+            {
+                id: "13",
+                label: "13号",
+                text: "13号",
+                "data":"",
+                "codename":"Item_13",
+                value: "13",
+                
+                disabled: false,
+            },
+            {
+                id: "14",
+                label: "14号",
+                text: "14号",
+                "data":"",
+                "codename":"Item_14",
+                value: "14",
+                
+                disabled: false,
+            },
+            {
+                id: "15",
+                label: "15号",
+                text: "15号",
+                "data":"",
+                "codename":"Item_15",
+                value: "15",
+                
+                disabled: false,
+            },
+            {
+                id: "16",
+                label: "16号",
+                text: "16号",
+                "data":"",
+                "codename":"Item_16",
+                value: "16",
+                
+                disabled: false,
+            },
+            {
+                id: "17",
+                label: "17号",
+                text: "17号",
+                "data":"",
+                "codename":"Item_17",
+                value: "17",
+                
+                disabled: false,
+            },
+            {
+                id: "18",
+                label: "18号",
+                text: "18号",
+                "data":"",
+                "codename":"Item_18",
+                value: "18",
+                
+                disabled: false,
+            },
+            {
+                id: "19",
+                label: "19号",
+                text: "19号",
+                "data":"",
+                "codename":"Item_19",
+                value: "19",
+                
+                disabled: false,
+            },
+            {
+                id: "20",
+                label: "20号",
+                text: "20号",
+                "data":"",
+                "codename":"Item_20",
+                value: "20",
+                
+                disabled: false,
+            },
+            {
+                id: "21",
+                label: "21号",
+                text: "21号",
+                "data":"",
+                "codename":"Item_21",
+                value: "21",
+                
+                disabled: false,
+            },
+            {
+                id: "22",
+                label: "22号",
+                text: "22号",
+                "data":"",
+                "codename":"Item_22",
+                value: "22",
+                
+                disabled: false,
+            },
+            {
+                id: "23",
+                label: "23号",
+                text: "23号",
+                "data":"",
+                "codename":"Item_23",
+                value: "23",
+                
+                disabled: false,
+            },
+            {
+                id: "24",
+                label: "24号",
+                text: "24号",
+                "data":"",
+                "codename":"Item_24",
+                value: "24",
+                
+                disabled: false,
+            },
+            {
+                id: "25",
+                label: "25号",
+                text: "25号",
+                "data":"",
+                "codename":"Item_25",
+                value: "25",
+                
+                disabled: false,
+            },
+            {
+                id: "26",
+                label: "26号",
+                text: "26号",
+                "data":"",
+                "codename":"Item_26",
+                value: "26",
+                
+                disabled: false,
+            },
+            {
+                id: "27",
+                label: "27号",
+                text: "27号",
+                "data":"",
+                "codename":"Item_27",
+                value: "27",
+                
+                disabled: false,
+            },
+            {
+                id: "28",
+                label: "28号",
+                text: "28号",
+                "data":"",
+                "codename":"Item_28",
+                value: "28",
+                
+                disabled: false,
+            },
+            {
+                id: "29",
+                label: "29号",
+                text: "29号",
+                "data":"",
+                "codename":"Item_29",
+                value: "29",
+                
+                disabled: false,
+            },
+            {
+                id: "30",
+                label: "30号",
+                text: "30号",
+                "data":"",
+                "codename":"Item_30",
+                value: "30",
+                
+                disabled: false,
+            },
+            {
+                id: "31",
+                label: "31号",
+                text: "31号",
+                "data":"",
+                "codename":"Item_31",
+                value: "31",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "YesNo",
@@ -820,6 +1316,63 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"Branch",
         "appdedataset":"FetchCurProduct",
         "items": []
+    },
+    {
+        srfkey: "TypeAll",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "项目任务",
+                text: "项目任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "项目需求",
+                text: "项目需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "cycle",
+                label: "周期",
+                text: "周期",
+                "data":"",
+                "codename":"Cycle",
+                value: "cycle",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         "srfkey": "CurProductBuild",
@@ -1132,6 +1685,55 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Todo__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                "color": "rgba(245, 18, 18, 1)",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                "color": "rgba(4, 251, 17, 1)",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Project__type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1179,6 +1781,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "草稿",
                 "data":"",
                 "codename":"Draft",
+                "color": "rgba(185, 111, 241, 1)",
                 value: "draft",
                 
                 disabled: false,
@@ -1199,6 +1802,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已关闭",
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(203, 198, 198, 0.84)",
                 value: "closed",
                 
                 disabled: false,
@@ -1209,6 +1813,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已变更",
                 "data":"",
                 "codename":"Changed",
+                "color": "rgba(217, 68, 68, 1)",
                 value: "changed",
                 
                 disabled: false,
@@ -1237,6 +1842,73 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_1",
                 value: "1",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Module__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "line",
+                label: "产品线",
+                text: "产品线",
+                "data":"",
+                "codename":"Line",
+                value: "line",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "doc",
+                label: "文档目录",
+                text: "文档目录",
+                "data":"",
+                "codename":"Doc",
+                value: "doc",
+                
+                disabled: false,
+            },
+            {
+                id: "case",
+                label: "测试用例",
+                text: "测试用例",
+                "data":"",
+                "codename":"Case",
+                value: "case",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
                 
                 disabled: false,
             },
@@ -1364,6 +2036,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "CaseQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "给我的用例",
+                text: "给我的用例",
+                "data":{"n_lastrunner_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "我建的用例",
+                text: "我建的用例",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "YesNo2",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1395,8 +2094,85 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchStoryModule",
+        "appdedataset":"FetchBugModule",
         "items": []
+    },
+    {
+        srfkey: "CodeList46",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "2",
+                label: "星期一",
+                text: "星期一",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "星期二",
+                text: "星期二",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "星期三",
+                text: "星期三",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "星期四",
+                text: "星期四",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "6",
+                label: "星期五",
+                text: "星期五",
+                "data":"",
+                "codename":"Item_6",
+                value: "6",
+                
+                disabled: false,
+            },
+            {
+                id: "7",
+                label: "星期六",
+                text: "星期六",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "星期日",
+                text: "星期日",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         "srfkey": "Role",
@@ -1413,6 +2189,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"TestTask",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: "Date_disable",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "on",
+                label: "待定",
+                text: "待定",
+                "data":"",
+                "codename":"On",
+                value: "on",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Product__status",
@@ -1587,6 +2380,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "1",
                 "data":"",
                 "codename":"Item_1",
+                "color": "rgba(230, 43, 43, 1)",
                 value: 1,
                 
                 disabled: false,
@@ -1597,6 +2391,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "2",
                 "data":"",
                 "codename":"Item_2",
+                "color": "rgba(225, 228, 33, 1)",
                 value: 2,
                 
                 disabled: false,
@@ -1618,7 +2413,1205 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "4",
                 "data":"",
                 "codename":"Item_4",
+                "color": "rgba(80, 133, 63, 1)",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "ProjectProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchProjectPlan",
+        "items": []
+    },
+    {
+        srfkey: "TestQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "ALL",
+                label: "全部",
+                text: "全部",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "待测测试单",
+                text: "待测测试单",
+                "data":{"n_status_eq":"wait"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "IREVIEW",
+                label: "测试中测试单",
+                text: "测试中测试单",
+                "data":{"n_status_eq":"doing"},
+                "codename":"Ireview",
+                value: "IREVIEW",
+                
+                disabled: false,
+            },
+            {
+                id: "ICLOSE",
+                label: "被阻塞测试单",
+                text: "被阻塞测试单",
+                "data":{"n_status_eq":"blocked"},
+                "codename":"Iclose",
+                value: "ICLOSE",
+                
+                disabled: false,
+            },
+            {
+                id: "Tested",
+                label: "已测测试单",
+                text: "已测测试单",
+                "data":{"n_status_eq":"done"},
+                "codename":"Tested",
+                value: "Tested",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "BugUserRealName",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchBugUser",
+        "items": []
+    },
+    {
+        srfkey: "Project__acl",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "open",
+                label: "默认设置(有项目视图权限，即可访问)",
+                text: "默认设置(有项目视图权限，即可访问)",
+                "data":"",
+                "codename":"Open",
+                value: "open",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有项目(只有项目团队成员才能访问)",
+                text: "私有项目(只有项目团队成员才能访问)",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义白名单(团队成员和白名单的成员可以访问)",
+                text: "自定义白名单(团队成员和白名单的成员可以访问)",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "BeginendDropList",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0600",
+                label: "06:00",
+                text: "06:00",
+                "data":"",
+                "codename":"Item_0600",
+                value: "0600",
+                
+                disabled: false,
+            },
+            {
+                id: "0610",
+                label: "06:10",
+                text: "06:10",
+                "data":"",
+                "codename":"Item_0610",
+                value: "0610",
+                
+                disabled: false,
+            },
+            {
+                id: "0620",
+                label: "06:20",
+                text: "06:20",
+                "data":"",
+                "codename":"Item_0620",
+                value: "0620",
+                
+                disabled: false,
+            },
+            {
+                id: "0630",
+                label: "06:30",
+                text: "06:30",
+                "data":"",
+                "codename":"Item_0630",
+                value: "0630",
+                
+                disabled: false,
+            },
+            {
+                id: "0640",
+                label: "06:40",
+                text: "06:40",
+                "data":"",
+                "codename":"Item_0640",
+                value: "0640",
+                
+                disabled: false,
+            },
+            {
+                id: "0650",
+                label: "06:50",
+                text: "06:50",
+                "data":"",
+                "codename":"Item_0650",
+                value: "0650",
+                
+                disabled: false,
+            },
+            {
+                id: "0700",
+                label: "07:00",
+                text: "07:00",
+                "data":"",
+                "codename":"Item_0700",
+                value: "0700",
+                
+                disabled: false,
+            },
+            {
+                id: "0710",
+                label: "07:10",
+                text: "07:10",
+                "data":"",
+                "codename":"Item_0710",
+                value: "0710",
+                
+                disabled: false,
+            },
+            {
+                id: "0720",
+                label: "07:20",
+                text: "07:20",
+                "data":"",
+                "codename":"Item_0720",
+                value: "0720",
+                
+                disabled: false,
+            },
+            {
+                id: "0730",
+                label: "07:30",
+                text: "07:30",
+                "data":"",
+                "codename":"Item_0730",
+                value: "0730",
+                
+                disabled: false,
+            },
+            {
+                id: "0740",
+                label: "07:40",
+                text: "07:40",
+                "data":"",
+                "codename":"Item_0740",
+                value: "0740",
+                
+                disabled: false,
+            },
+            {
+                id: "0750",
+                label: "07:50",
+                text: "07:50",
+                "data":"",
+                "codename":"Item_0750",
+                value: "0750",
+                
+                disabled: false,
+            },
+            {
+                id: "0800",
+                label: "08:00",
+                text: "08:00",
+                "data":"",
+                "codename":"Item_0800",
+                value: "0800",
+                
+                disabled: false,
+            },
+            {
+                id: "0810",
+                label: "08:10",
+                text: "08:10",
+                "data":"",
+                "codename":"Item_0810",
+                value: "0810",
+                
+                disabled: false,
+            },
+            {
+                id: "0820",
+                label: "08:20",
+                text: "08:20",
+                "data":"",
+                "codename":"Item_0820",
+                value: "0820",
+                
+                disabled: false,
+            },
+            {
+                id: "0830",
+                label: "08:30",
+                text: "08:30",
+                "data":"",
+                "codename":"Item_0830",
+                value: "0830",
+                
+                disabled: false,
+            },
+            {
+                id: "0840",
+                label: "08:40",
+                text: "08:40",
+                "data":"",
+                "codename":"Item_0840",
+                value: "0840",
+                
+                disabled: false,
+            },
+            {
+                id: "0850",
+                label: "08:50",
+                text: "08:50",
+                "data":"",
+                "codename":"Item_0850",
+                value: "0850",
+                
+                disabled: false,
+            },
+            {
+                id: "0900",
+                label: "09:00",
+                text: "09:00",
+                "data":"",
+                "codename":"Item_0900",
+                value: "0900",
+                
+                disabled: false,
+            },
+            {
+                id: "0910",
+                label: "09:10",
+                text: "09:10",
+                "data":"",
+                "codename":"Item_0910",
+                value: "0910",
+                
+                disabled: false,
+            },
+            {
+                id: "0920",
+                label: "09:20",
+                text: "09:20",
+                "data":"",
+                "codename":"Item_0920",
+                value: "0920",
+                
+                disabled: false,
+            },
+            {
+                id: "0930",
+                label: "09:30",
+                text: "09:30",
+                "data":"",
+                "codename":"Item_0930",
+                value: "0930",
+                
+                disabled: false,
+            },
+            {
+                id: "0940",
+                label: "09:40",
+                text: "09:40",
+                "data":"",
+                "codename":"Item_0940",
+                value: "0940",
+                
+                disabled: false,
+            },
+            {
+                id: "0950",
+                label: "09:50",
+                text: "09:50",
+                "data":"",
+                "codename":"Item_0950",
+                value: "0950",
+                
+                disabled: false,
+            },
+            {
+                id: "1000",
+                label: "10:00",
+                text: "10:00",
+                "data":"",
+                "codename":"Item_1000",
+                value: "1000",
+                
+                disabled: false,
+            },
+            {
+                id: "1010",
+                label: "10:10",
+                text: "10:10",
+                "data":"",
+                "codename":"Item_1010",
+                value: "1010",
+                
+                disabled: false,
+            },
+            {
+                id: "1020",
+                label: "10:20",
+                text: "10:20",
+                "data":"",
+                "codename":"Item_1020",
+                value: "1020",
+                
+                disabled: false,
+            },
+            {
+                id: "1030",
+                label: "10:30",
+                text: "10:30",
+                "data":"",
+                "codename":"Item_1030",
+                value: "1030",
+                
+                disabled: false,
+            },
+            {
+                id: "1040",
+                label: "10:40",
+                text: "10:40",
+                "data":"",
+                "codename":"Item_1040",
+                value: "1040",
+                
+                disabled: false,
+            },
+            {
+                id: "1050",
+                label: "10:50",
+                text: "10:50",
+                "data":"",
+                "codename":"Item_1050",
+                value: "1050",
+                
+                disabled: false,
+            },
+            {
+                id: "1100",
+                label: "11:00",
+                text: "11:00",
+                "data":"",
+                "codename":"Item_1100",
+                value: "1100",
+                
+                disabled: false,
+            },
+            {
+                id: "1110",
+                label: "11:10",
+                text: "11:10",
+                "data":"",
+                "codename":"Item_1110",
+                value: "1110",
+                
+                disabled: false,
+            },
+            {
+                id: "1120",
+                label: "11:20",
+                text: "11:20",
+                "data":"",
+                "codename":"Item_1120",
+                value: "1120",
+                
+                disabled: false,
+            },
+            {
+                id: "1130",
+                label: "11:30",
+                text: "11:30",
+                "data":"",
+                "codename":"Item_1130",
+                value: "1130",
+                
+                disabled: false,
+            },
+            {
+                id: "1140",
+                label: "11:40",
+                text: "11:40",
+                "data":"",
+                "codename":"Item_1140",
+                value: "1140",
+                
+                disabled: false,
+            },
+            {
+                id: "1150",
+                label: "11:50",
+                text: "11:50",
+                "data":"",
+                "codename":"Item_1150",
+                value: "1150",
+                
+                disabled: false,
+            },
+            {
+                id: "1200",
+                label: "12:00",
+                text: "12:00",
+                "data":"",
+                "codename":"Item_1200",
+                value: "1200",
+                
+                disabled: false,
+            },
+            {
+                id: "1210",
+                label: "12:10",
+                text: "12:10",
+                "data":"",
+                "codename":"Item_1210",
+                value: "1210",
+                
+                disabled: false,
+            },
+            {
+                id: "1220",
+                label: "12:20",
+                text: "12:20",
+                "data":"",
+                "codename":"Item_1220",
+                value: "1220",
+                
+                disabled: false,
+            },
+            {
+                id: "1230",
+                label: "12:30",
+                text: "12:30",
+                "data":"",
+                "codename":"Item_1230",
+                value: "1230",
+                
+                disabled: false,
+            },
+            {
+                id: "1240",
+                label: "12:40",
+                text: "12:40",
+                "data":"",
+                "codename":"Item_1240",
+                value: "1240",
+                
+                disabled: false,
+            },
+            {
+                id: "1250",
+                label: "12:50",
+                text: "12:50",
+                "data":"",
+                "codename":"Item_1250",
+                value: "1250",
+                
+                disabled: false,
+            },
+            {
+                id: "1300",
+                label: "13:00",
+                text: "13:00",
+                "data":"",
+                "codename":"Item_1300",
+                value: "1300",
+                
+                disabled: false,
+            },
+            {
+                id: "1310",
+                label: "13:10",
+                text: "13:10",
+                "data":"",
+                "codename":"Item_1310",
+                value: "1310",
+                
+                disabled: false,
+            },
+            {
+                id: "1320",
+                label: "13:20",
+                text: "13:20",
+                "data":"",
+                "codename":"Item_1320",
+                value: "1320",
+                
+                disabled: false,
+            },
+            {
+                id: "1330",
+                label: "13:30",
+                text: "13:30",
+                "data":"",
+                "codename":"Item_1330",
+                value: "1330",
+                
+                disabled: false,
+            },
+            {
+                id: "1340",
+                label: "13:40",
+                text: "13:40",
+                "data":"",
+                "codename":"Item_1340",
+                value: "1340",
+                
+                disabled: false,
+            },
+            {
+                id: "1350",
+                label: "13:50",
+                text: "13:50",
+                "data":"",
+                "codename":"Item_1350",
+                value: "1350",
+                
+                disabled: false,
+            },
+            {
+                id: "1400",
+                label: "14:00",
+                text: "14:00",
+                "data":"",
+                "codename":"Item_1400",
+                value: "1400",
+                
+                disabled: false,
+            },
+            {
+                id: "1410",
+                label: "14:10",
+                text: "14:10",
+                "data":"",
+                "codename":"Item_1410",
+                value: "1410",
+                
+                disabled: false,
+            },
+            {
+                id: "1420",
+                label: "14:20",
+                text: "14:20",
+                "data":"",
+                "codename":"Item_1420",
+                value: "1420",
+                
+                disabled: false,
+            },
+            {
+                id: "1430",
+                label: "14:30",
+                text: "14:30",
+                "data":"",
+                "codename":"Item_1430",
+                value: "1430",
+                
+                disabled: false,
+            },
+            {
+                id: "1440",
+                label: "14:40",
+                text: "14:40",
+                "data":"",
+                "codename":"Item_1440",
+                value: "1440",
+                
+                disabled: false,
+            },
+            {
+                id: "1450",
+                label: "14:50",
+                text: "14:50",
+                "data":"",
+                "codename":"Item_1450",
+                value: "1450",
+                
+                disabled: false,
+            },
+            {
+                id: "1500",
+                label: "15:00",
+                text: "15:00",
+                "data":"",
+                "codename":"Item_1500",
+                value: "1500",
+                
+                disabled: false,
+            },
+            {
+                id: "1510",
+                label: "15:10",
+                text: "15:10",
+                "data":"",
+                "codename":"Item_1510",
+                value: "1510",
+                
+                disabled: false,
+            },
+            {
+                id: "1520",
+                label: "15:20",
+                text: "15:20",
+                "data":"",
+                "codename":"Item_1520",
+                value: "1520",
+                
+                disabled: false,
+            },
+            {
+                id: "1530",
+                label: "15:30",
+                text: "15:30",
+                "data":"",
+                "codename":"Item_1530",
+                value: "1530",
+                
+                disabled: false,
+            },
+            {
+                id: "1540",
+                label: "15:40",
+                text: "15:40",
+                "data":"",
+                "codename":"Item_1540",
+                value: "1540",
+                
+                disabled: false,
+            },
+            {
+                id: "1550",
+                label: "15:50",
+                text: "15:50",
+                "data":"",
+                "codename":"Item_1550",
+                value: "1550",
+                
+                disabled: false,
+            },
+            {
+                id: "1600",
+                label: "16:00",
+                text: "16:00",
+                "data":"",
+                "codename":"Item_1600",
+                value: "1600",
+                
+                disabled: false,
+            },
+            {
+                id: "1610",
+                label: "16:10",
+                text: "16:10",
+                "data":"",
+                "codename":"Item_1610",
+                value: "1610",
+                
+                disabled: false,
+            },
+            {
+                id: "1620",
+                label: "16:20",
+                text: "16:20",
+                "data":"",
+                "codename":"Item_1620",
+                value: "1620",
+                
+                disabled: false,
+            },
+            {
+                id: "1630",
+                label: "16:30",
+                text: "16:30",
+                "data":"",
+                "codename":"Item_1630",
+                value: "1630",
+                
+                disabled: false,
+            },
+            {
+                id: "1640",
+                label: "16:40",
+                text: "16:40",
+                "data":"",
+                "codename":"Item_1640",
+                value: "1640",
+                
+                disabled: false,
+            },
+            {
+                id: "1650",
+                label: "16:50",
+                text: "16:50",
+                "data":"",
+                "codename":"Item_1650",
+                value: "1650",
+                
+                disabled: false,
+            },
+            {
+                id: "1700",
+                label: "17:00",
+                text: "17:00",
+                "data":"",
+                "codename":"Item_1700",
+                value: "1700",
+                
+                disabled: false,
+            },
+            {
+                id: "1710",
+                label: "17:10",
+                text: "17:10",
+                "data":"",
+                "codename":"Item_1710",
+                value: "1710",
+                
+                disabled: false,
+            },
+            {
+                id: "1720",
+                label: "17:20",
+                text: "17:20",
+                "data":"",
+                "codename":"Item_1720",
+                value: "1720",
+                
+                disabled: false,
+            },
+            {
+                id: "1730",
+                label: "17:30",
+                text: "17:30",
+                "data":"",
+                "codename":"Item_1730",
+                value: "1730",
+                
+                disabled: false,
+            },
+            {
+                id: "1740",
+                label: "17:40",
+                text: "17:40",
+                "data":"",
+                "codename":"Item_1740",
+                value: "1740",
+                
+                disabled: false,
+            },
+            {
+                id: "1750",
+                label: "17:50",
+                text: "17:50",
+                "data":"",
+                "codename":"Item_1750",
+                value: "1750",
+                
+                disabled: false,
+            },
+            {
+                id: "1800",
+                label: "18:00",
+                text: "18:00",
+                "data":"",
+                "codename":"Item_1800",
+                value: "1800",
+                
+                disabled: false,
+            },
+            {
+                id: "1810",
+                label: "18:10",
+                text: "18:10",
+                "data":"",
+                "codename":"Item_1810",
+                value: "1810",
+                
+                disabled: false,
+            },
+            {
+                id: "1820",
+                label: "18:20",
+                text: "18:20",
+                "data":"",
+                "codename":"Item_1820",
+                value: "1820",
+                
+                disabled: false,
+            },
+            {
+                id: "1830",
+                label: "18:30",
+                text: "18:30",
+                "data":"",
+                "codename":"Item_1830",
+                value: "1830",
+                
+                disabled: false,
+            },
+            {
+                id: "1840",
+                label: "18:40",
+                text: "18:40",
+                "data":"",
+                "codename":"Item_1840",
+                value: "1840",
+                
+                disabled: false,
+            },
+            {
+                id: "1850",
+                label: "18:50",
+                text: "18:50",
+                "data":"",
+                "codename":"Item_1850",
+                value: "1850",
+                
+                disabled: false,
+            },
+            {
+                id: "1900",
+                label: "19:00",
+                text: "19:00",
+                "data":"",
+                "codename":"Item_1900",
+                value: "1900",
+                
+                disabled: false,
+            },
+            {
+                id: "1910",
+                label: "19:10",
+                text: "19:10",
+                "data":"",
+                "codename":"Item_1910",
+                value: "1910",
+                
+                disabled: false,
+            },
+            {
+                id: "1920",
+                label: "19:20",
+                text: "19:20",
+                "data":"",
+                "codename":"Item_1920",
+                value: "1920",
+                
+                disabled: false,
+            },
+            {
+                id: "1930",
+                label: "19:30",
+                text: "19:30",
+                "data":"",
+                "codename":"Item_1930",
+                value: "1930",
+                
+                disabled: false,
+            },
+            {
+                id: "1940",
+                label: "19:40",
+                text: "19:40",
+                "data":"",
+                "codename":"Item_1940",
+                value: "1940",
+                
+                disabled: false,
+            },
+            {
+                id: "1950",
+                label: "19:50",
+                text: "19:50",
+                "data":"",
+                "codename":"Item_1950",
+                value: "1950",
+                
+                disabled: false,
+            },
+            {
+                id: "2000",
+                label: "20:00",
+                text: "20:00",
+                "data":"",
+                "codename":"Item_2000",
+                value: "2000",
+                
+                disabled: false,
+            },
+            {
+                id: "2010",
+                label: "20:10",
+                text: "20:10",
+                "data":"",
+                "codename":"Item_2010",
+                value: "2010",
+                
+                disabled: false,
+            },
+            {
+                id: "2020",
+                label: "20:20",
+                text: "20:20",
+                "data":"",
+                "codename":"Item_2020",
+                value: "2020",
+                
+                disabled: false,
+            },
+            {
+                id: "2030",
+                label: "20:30",
+                text: "20:30",
+                "data":"",
+                "codename":"Item_2030",
+                value: "2030",
+                
+                disabled: false,
+            },
+            {
+                id: "2040",
+                label: "20:40",
+                text: "20:40",
+                "data":"",
+                "codename":"Item_2040",
+                value: "2040",
+                
+                disabled: false,
+            },
+            {
+                id: "2050",
+                label: "20:50",
+                text: "20:50",
+                "data":"",
+                "codename":"Item_2050",
+                value: "2050",
+                
+                disabled: false,
+            },
+            {
+                id: "2100",
+                label: "21:00",
+                text: "21:00",
+                "data":"",
+                "codename":"Item_2100",
+                value: "2100",
+                
+                disabled: false,
+            },
+            {
+                id: "2110",
+                label: "21:10",
+                text: "21:10",
+                "data":"",
+                "codename":"Item_2110",
+                value: "2110",
+                
+                disabled: false,
+            },
+            {
+                id: "2120",
+                label: "21:20",
+                text: "21:20",
+                "data":"",
+                "codename":"Item_2120",
+                value: "2120",
+                
+                disabled: false,
+            },
+            {
+                id: "2130",
+                label: "21:30",
+                text: "21:30",
+                "data":"",
+                "codename":"Item_2130",
+                value: "2130",
+                
+                disabled: false,
+            },
+            {
+                id: "2140",
+                label: "21:40",
+                text: "21:40",
+                "data":"",
+                "codename":"Item_2140",
+                value: "2140",
+                
+                disabled: false,
+            },
+            {
+                id: "2150",
+                label: "21:50",
+                text: "21:50",
+                "data":"",
+                "codename":"Item_2150",
+                value: "2150",
+                
+                disabled: false,
+            },
+            {
+                id: "2200",
+                label: "22:00",
+                text: "22:00",
+                "data":"",
+                "codename":"Item_2200",
+                value: "2200",
+                
+                disabled: false,
+            },
+            {
+                id: "2210",
+                label: "22:10",
+                text: "22:10",
+                "data":"",
+                "codename":"Item_2210",
+                value: "2210",
+                
+                disabled: false,
+            },
+            {
+                id: "2220",
+                label: "22:20",
+                text: "22:20",
+                "data":"",
+                "codename":"Item_2220",
+                value: "2220",
+                
+                disabled: false,
+            },
+            {
+                id: "2230",
+                label: "22:30",
+                text: "22:30",
+                "data":"",
+                "codename":"Item_2230",
+                value: "2230",
+                
+                disabled: false,
+            },
+            {
+                id: "2240",
+                label: "22:40",
+                text: "22:40",
+                "data":"",
+                "codename":"Item_2240",
+                value: "2240",
+                
+                disabled: false,
+            },
+            {
+                id: "2250",
+                label: "22:50",
+                text: "22:50",
+                "data":"",
+                "codename":"Item_2250",
+                value: "2250",
+                
+                disabled: false,
+            },
+            {
+                id: "2300",
+                label: "23:00",
+                text: "23:00",
+                "data":"",
+                "codename":"Item_2300",
+                value: "2300",
+                
+                disabled: false,
+            },
+            {
+                id: "2310",
+                label: "23:10",
+                text: "23:10",
+                "data":"",
+                "codename":"Item_2310",
+                value: "2310",
+                
+                disabled: false,
+            },
+            {
+                id: "2320",
+                label: "23:20",
+                text: "23:20",
+                "data":"",
+                "codename":"Item_2320",
+                value: "2320",
+                
+                disabled: false,
+            },
+            {
+                id: "2330",
+                label: "23:30",
+                text: "23:30",
+                "data":"",
+                "codename":"Item_2330",
+                value: "2330",
+                
+                disabled: false,
+            },
+            {
+                id: "2340",
+                label: "23:40",
+                text: "23:40",
+                "data":"",
+                "codename":"Item_2340",
+                value: "2340",
+                
+                disabled: false,
+            },
+            {
+                id: "2350",
+                label: "23:50",
+                text: "23:50",
+                "data":"",
+                "codename":"Item_2350",
+                value: "2350",
                 
                 disabled: false,
             },
@@ -1828,6 +3821,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_365",
                 value: "365",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Cycle_enable",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "周期",
+                text: "周期",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
                 
                 disabled: false,
             },
@@ -2916,6 +4926,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "项目任务",
+                text: "项目任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "项目需求",
+                text: "项目需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__quickpacket",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -3060,12 +5117,143 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "TodoQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有待办",
+                text: "所有待办",
+                "data":{"n_cycle_eq":"0"},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "thisyear",
+                label: "本年度",
+                text: "本年度",
+                "data":{"thisyear":"thisyear","n_cycle_eq":"0"},
+                "codename":"Thisyear",
+                value: "thisyear",
+                
+                disabled: false,
+            },
+            {
+                id: "Unfinished",
+                label: "未完",
+                text: "未完",
+                "data":{"n_status_eq":"wait","n_cycle_eq":"0","n_date_noteq":"2030-01-01"},
+                "codename":"Unfinished",
+                value: "Unfinished",
+                
+                disabled: false,
+            },
+            {
+                id: "BYME",
+                label: "待定",
+                text: "待定",
+                "data":{"n_date_eq":"2030-01-01","n_cycle_eq":"0"},
+                "codename":"Byme",
+                value: "BYME",
+                
+                disabled: false,
+            },
+            {
+                id: "cycle",
+                label: "周期",
+                text: "周期",
+                "data":{"n_cycle_eq":"1"},
+                "codename":"Cycle",
+                value: "cycle",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TASK_QuickacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "CANCELLED",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Cancelled",
+                value: "CANCELLED",
+                
+                disabled: false,
+            },
+            {
+                id: "IFINISHED",
+                label: "由我完成",
+                text: "由我完成",
+                "data":{"n_finishedby_eq":"%srfloginname%"},
+                "codename":"Ifinished",
+                value: "IFINISHED",
+                
+                disabled: false,
+            },
+            {
+                id: "COMPLETED",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Completed",
+                value: "COMPLETED",
+                
+                disabled: false,
+            },
+            {
+                id: "CLOSED",
+                label: "由我取消",
+                text: "由我取消",
+                "data":{"n_canceledby_eq":"%srfloginname%"},
+                "codename":"Closed",
+                value: "CLOSED",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser",
         "items": []
+    },
+    {
+        srfkey: "Private_choose",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "是",
+                text: "是",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Testcase__type",
@@ -3324,6 +5512,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Closed",
                 value: "CLOSED",
                 "pvalue": "MORE",
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "CycleType",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "day",
+                label: "天",
+                text: "天",
+                "data":"",
+                "codename":"Day",
+                value: "day",
+                
+                disabled: false,
+            },
+            {
+                id: "week",
+                label: "周",
+                text: "周",
+                "data":"",
+                "codename":"Week",
+                value: "week",
+                
+                disabled: false,
+            },
+            {
+                id: "month",
+                label: "月度",
+                text: "月度",
+                "data":"",
+                "codename":"Month",
+                value: "month",
+                
                 disabled: false,
             },
         ]
@@ -3692,6 +5917,90 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "StoryStageKane",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "projected",
+                label: "已立项",
+                text: "已立项",
+                "data":"",
+                "codename":"Projected",
+                "color": "rgba(139, 173, 237, 1)",
+                value: "projected",
+                
+                disabled: false,
+            },
+            {
+                id: "developing",
+                label: "研发中",
+                text: "研发中",
+                "data":"",
+                "codename":"Developing",
+                "color": "rgba(63, 77, 238, 1)",
+                value: "developing",
+                
+                disabled: false,
+            },
+            {
+                id: "developed",
+                label: "研发完毕",
+                text: "研发完毕",
+                "data":"",
+                "codename":"Developed",
+                "color": "rgba(73, 227, 101, 1)",
+                value: "developed",
+                
+                disabled: false,
+            },
+            {
+                id: "testing",
+                label: "测试中",
+                text: "测试中",
+                "data":"",
+                "codename":"Testing",
+                "color": "rgba(224, 198, 54, 1)",
+                value: "testing",
+                
+                disabled: false,
+            },
+            {
+                id: "tested",
+                label: "测试完毕",
+                text: "测试完毕",
+                "data":"",
+                "codename":"Tested",
+                "color": "rgba(234, 233, 237, 1)",
+                value: "tested",
+                
+                disabled: false,
+            },
+            {
+                id: "verified",
+                label: "已验收",
+                text: "已验收",
+                "data":"",
+                "codename":"Verified",
+                "color": "rgba(109, 108, 108, 1)",
+                value: "verified",
+                
+                disabled: false,
+            },
+            {
+                id: "released",
+                label: "已发布",
+                text: "已发布",
+                "data":"",
+                "codename":"Released",
+                "color": "rgba(11, 11, 11, 1)",
+                value: "released",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testcase__result",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -3737,6 +6046,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "UserRealNameTaskTeam",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchTaskTeam",
+        "items": []
     },
     {
         srfkey: "Bug__pri",
@@ -3883,6 +6200,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "未开始",
                 "data":"",
                 "codename":"Wait",
+                "color": "rgba(220, 214, 214, 1)",
                 value: "wait",
                 
                 disabled: false,
@@ -3893,6 +6211,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "进行中",
                 "data":"",
                 "codename":"Doing",
+                "color": "rgba(208, 20, 20, 1)",
                 value: "doing",
                 
                 disabled: false,
@@ -3903,6 +6222,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已完成",
                 "data":"",
                 "codename":"Done",
+                "color": "rgba(30, 234, 12, 1)",
                 value: "done",
                 
                 disabled: false,
@@ -3913,6 +6233,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "被阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(221, 217, 10, 1)",
                 value: "blocked",
                 
                 disabled: false,

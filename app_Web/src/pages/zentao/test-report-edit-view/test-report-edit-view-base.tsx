@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 
 /**
- * testreport编辑视图视图基类
+ * 测试报告编辑视图视图基类
  *
  * @export
  * @class TestReportEditViewBase

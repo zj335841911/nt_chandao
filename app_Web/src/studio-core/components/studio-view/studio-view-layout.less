@@ -201,7 +201,7 @@
                                 // 输入框通用
                                 .ivu-input {
                                     background-color: var(--form-editor-background-color);
-                                    border-color: var(--form-editor-background-color);
+                                    border-color: var(--form-editor-border-color);
                                     color: var(--form-editor-font-color);
                                 }
 
@@ -224,6 +224,7 @@
                                     height: 28px;
                                     line-height: 28px;
                                     color: var(--view-button-color);
+                                    background-color: var(--view-button-background-color);
                                 }
                             }
                         }
@@ -326,7 +327,8 @@
                     border: 0;
                 }
 
-                >.portlet-with-title, >.portlet-without-title {
+                >.portlet-with-title,
+                >.portlet-without-title {
                     border: 0;
                     border-top: 1px solid var(--view-dividing-line-color-bright);
                 }
@@ -348,7 +350,7 @@
             .portlet-without-title {
 
                 .portlet {
-    
+
                     .portlet-without-title {
                         padding: 0;
                         border-color: transparent;
@@ -356,9 +358,9 @@
 
                         .studio-view {
                             background: transparent;
-        
+
                             >.view-content {
-        
+
                                 .ivu-card.app-form-group {
                                     background: transparent;
                                 }
@@ -369,8 +371,7 @@
             }
         }
 
-        .portlet-without-title {
-            height: 100%;
+        .portlet-container {
 
             .portlet {
                 height: 100%;
@@ -425,6 +426,14 @@
                         }
                     }
                 }
+            }
+        }
+
+        .portlet-without-title {
+            height: 100%;
+
+            .portlet {
+                .studio-view.view-container.appportalview9 >.view-content .portlet-container .portlet;
             }
         }
     }
@@ -495,25 +504,31 @@
 
     .app-list-exp-bar.ivu-split-wrapper {
 
-        .list-exp-bar-content {
-            height: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
+        .left-pane.ivu-split-pane {
+            display: flex;
+            flex-direction: column;
 
-            >.app-list {
-
-                .app-list-item.isSelect {
-                    position: relative;
-                    background-color: unset;
-                }
-
-                .app-list-item.isSelect::before {
-                    position: absolute;
-                    left: 0;
-                    top: 1px;
-                    bottom: 1px;
-                    content: ' ';
-                    border-left: 3px solid var(--view-background-color-active);
+            .list-exp-bar-content {
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
+                flex-grow: 1;
+                
+                >.app-list {
+    
+                    .app-list-item.isSelect {
+                        position: relative;
+                        background-color: unset;
+                    }
+    
+                    .app-list-item.isSelect::before {
+                        position: absolute;
+                        left: 0;
+                        top: 1px;
+                        bottom: 1px;
+                        content: ' ';
+                        border-left: 3px solid var(--view-background-color-active);
+                    }
                 }
             }
         }
@@ -554,7 +569,7 @@
                 }
 
                 .studio-view.view-container.show-footer {
-    
+
                     >.view-content {
                         height: calc(100% - 46px);
                     }
@@ -563,6 +578,7 @@
         }
     }
 }
+
 // 数据选择
 .depickupview.studio-view.view-container {
 

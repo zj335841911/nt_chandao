@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, ListControllerBase } from '@/studio-core';
+import { Watch, ListControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ExpService from './exp-list-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
@@ -10,10 +10,10 @@ import ProjectUIService from '@/uiservice/project/project-ui-service';
  * listexpbar_list部件基类
  *
  * @export
- * @class ListControllerBase
+ * @class ListControlBase
  * @extends {ExpListBase}
  */
-export class ExpListBase extends ListControllerBase {
+export class ExpListBase extends ListControlBase {
 
     /**
      * 获取部件类型
@@ -48,14 +48,6 @@ export class ExpListBase extends ListControllerBase {
      * @memberof ExpListBase
      */
     protected appDeName: string = 'project';
-
-    /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof ExpListBase
-     */
-    public limit: number = 1000;
 
     /**
      * 排序方向

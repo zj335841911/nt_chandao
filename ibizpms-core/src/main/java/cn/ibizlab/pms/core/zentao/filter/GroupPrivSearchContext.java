@@ -41,4 +41,3 @@ public class GroupPrivSearchContext extends QueryWrapperContext<GroupPriv> {
 
 
 
-

@@ -25,6 +25,7 @@ export default {
     yesterdayclosedbugcnt: "昨天关闭Bug数",
     yesterdayconfirmbugcnt: "昨天确认Bug数",
     yesterdayresolvedbugcnt: "昨天解决Bug数",
+    postponedprojectcnt: "已延期",
   },
 	views: {
 		testeditview9: {
@@ -39,6 +40,9 @@ export default {
 	testmain2_form: {
 		details: {
 			group1: "产品统计基本信息", 
+			rawitem1: "", 
+			rawitem2: "", 
+			rawitem3: "", 
 			grouppanel3: "分组面板", 
 			grouppanel2: "分组面板", 
 			formpage1: "基本信息", 
@@ -53,14 +57,17 @@ export default {
 			custom2: "指派给我的Bug数", 
 			formitemex1: "所有", 
 			assigntomebugcnt: "指派给我", 
+			yesterdayresolvedbugcnt: "昨天解决Bug数", 
 			custom3: "所有Bug数", 
 			custom4: "未解决Bug数", 
 			formitemex2: "", 
 			activebugcnt: "未解决", 
+			yesterdayconfirmbugcnt: "昨天确认Bug数", 
 			custom5: "所有Bug数", 
 			custom6: "未确认Bug数", 
 			formitemex3: "", 
 			unconfirmbugcnt: "未确认", 
+			yesterdayclosedbugcnt: "昨天关闭Bug数", 
 			custom7: "所有Bug数", 
 			custom8: "未关闭Bug数", 
 			formitemex4: "", 
@@ -73,6 +80,7 @@ export default {
 	main2_form: {
 		details: {
 			rawitem1: "", 
+			rawitem3: "", 
 			button4: "查看全部", 
 			button5: "提需求", 
 			grouppanel6: "", 
@@ -82,6 +90,7 @@ export default {
 			button1: "创建计划", 
 			grouppanel3: "", 
 			grouppanel8: "计划", 
+			rawitem4: "", 
 			button2: "创建项目", 
 			grouppanel4: "", 
 			grouppanel9: "项目", 
@@ -99,7 +108,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			product: "产品标识", 
-			storycnt: "需求数", 
+			storycnt: "", 
 			waitstorycnt: "未开始", 
 			plannedstorycnt: "已计划", 
 			developingstorycnt: "研发中", 
@@ -110,6 +119,7 @@ export default {
 			custom2: "未过期计划数", 
 			formitemex1: "", 
 			unendproductplancnt: "未过期", 
+			postponedprojectcnt: "已延期", 
 			resprojectcnt: "所有项目", 
 			custom3: "关联项目数", 
 			custom4: "未完成关联项目数", 

@@ -91,6 +91,61 @@ export default class DashboardInfoModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'activestorycnt',
+        prop: 'activestorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'productplancnt',
+        prop: 'productplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'relatedbugcnt',
+        prop: 'relatedbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'changedstorycnt',
+        prop: 'changedstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'relatedprojects',
+        prop: 'relatedprojects',
+        dataType: 'INT',
+      },
+      {
+        name: 'casecnt',
+        prop: 'casecnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'draftstorycnt',
+        prop: 'draftstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'buildcnt',
+        prop: 'buildcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'doccnt',
+        prop: 'doccnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'closedstorycnt',
+        prop: 'closedstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'releasecnt',
+        prop: 'releasecnt',
+        dataType: 'INT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

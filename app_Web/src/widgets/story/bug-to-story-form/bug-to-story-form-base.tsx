@@ -49,7 +49,6 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
      * @memberof BugToStoryEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -74,6 +73,7 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         product: null,
+        frombug: null,
         module: null,
         prodoctname: null,
         branch: null,
@@ -108,6 +108,15 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof BugToStoryBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 详情模型集合
      *
      * @type {*}
@@ -133,6 +142,8 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        frombug: new FormItemModel({ caption: '来源Bug', detailType: 'FORMITEM', name: 'frombug', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -177,6 +188,9 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
     public createDefault(){                    
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];
+        }
+        if (this.data.hasOwnProperty('frombug')) {
+            this.data['frombug'] = this.viewparams['id'];
         }
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['module'];

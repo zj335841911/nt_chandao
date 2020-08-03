@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugBuildSubGridView_DoneBase } from './bug-build-sub-grid-view-done-base';
-import view_grid from '@widgets/bug/main-build-sub-grid/main-build-sub-grid.vue';
+import view_grid from '@widgets/bug/main-build-sub2-grid/main-build-sub2-grid.vue';
 
 /**
  * bug表格视图视图

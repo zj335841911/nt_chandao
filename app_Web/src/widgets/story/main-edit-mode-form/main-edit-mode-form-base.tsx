@@ -156,7 +156,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         }
     }
 
-
     /**
      * 界面UI服务对象
      *
@@ -192,7 +191,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         parent: null,
         id: null,
         title: null,
-        version: null,
         spec: null,
         verify: null,
         prodoctname: null,
@@ -225,6 +223,15 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_EditModeBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -291,8 +298,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -336,6 +341,28 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof Main_EditModeEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'branch', value: null });
+        }
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'plan', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'linkstories', value: null });
+        }
+    }
 
     /**
      * 表单项逻辑
@@ -399,7 +426,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'openeddate')) {
             let ret = false;
             const _openeddate = this.data.openeddate;
@@ -421,10 +447,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, 'version')) {
-            const details: string[] = ['title', 'verify', 'spec'];
-            this.updateFormItems('GetStorySpec', this.data, details, true);
-        }
     }
 
 	/**

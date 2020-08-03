@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProjectStatsService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(ProjectStats et) {
         if (null == et) {
             return false;
@@ -192,5 +191,6 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
 
 
 }
+
 
 

@@ -1,12 +1,16 @@
 package cn.ibizlab.pms.core.extensions.service;
 
-import cn.ibizlab.pms.core.zentao.service.impl.BuildServiceImpl;
-import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Build;
+import cn.ibizlab.pms.core.zentao.service.impl.BuildServiceImpl;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.context.annotation.Primary;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * 实体[版本] 自定义服务对象
@@ -22,16 +26,6 @@ public class BuildExService extends BuildServiceImpl {
     }
 
     /**
-     * 自定义行为[LinkStories]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Build linkStories(Build et) {
-        return super.linkStories(et);
-    }
-    /**
      * 自定义行为[LinkStory]用户扩展
      * @param et
      * @return
@@ -39,7 +33,26 @@ public class BuildExService extends BuildServiceImpl {
     @Override
     @Transactional
     public Build linkStory(Build et) {
-        return super.linkStory(et);
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    jsonArray.add(map.get("id"));
+                }
+            }
+            jo.put("stories",jsonArray);
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.linkStory(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+
     }
 }
 

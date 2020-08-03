@@ -166,7 +166,7 @@ final public class ZTBuildHelper {
 
         // LINKBUG
         ACTION_PARAMS_LINKBUG.put("bugs[]", null);
-        ACTION_PARAMS_LINKBUG.put("resolvedBy[]", null);
+        ACTION_PARAMS_LINKBUG.put("resolvedBy[bugs]", null);
 
         // BATCHUNLINKBUG
         ACTION_PARAMS_BATCHUNLINKBUG.put("unlinkBugs[]", null);
@@ -201,9 +201,9 @@ final public class ZTBuildHelper {
 
         // LINKBUG
         ACTION_URL_PARAMS_LINKBUG.add("id");
-        ACTION_URL_PARAMS_UNLINKBUG.add("browseType");
-        ACTION_URL_PARAMS_UNLINKBUG.add("myQueryID");
-        ACTION_URL_PARAMS_UNLINKBUG.add("linkType");
+        ACTION_URL_PARAMS_LINKBUG.add("browseType");
+        ACTION_URL_PARAMS_LINKBUG.add("myQueryID");
+        ACTION_URL_PARAMS_LINKBUG.add("linkType");
 
         // BATCHUNLINKBUG
         ACTION_URL_PARAMS_BATCHUNLINKBUG.add("id");

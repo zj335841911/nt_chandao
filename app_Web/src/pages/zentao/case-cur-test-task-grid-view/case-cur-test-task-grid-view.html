@@ -1,5 +1,5 @@
 <studio-view viewName="casecurtesttaskgridview" viewTitle="功能测试" class='degridview case-cur-test-task-grid-view'>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-model="query" placeholder="用例标题" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 

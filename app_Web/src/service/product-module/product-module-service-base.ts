@@ -49,9 +49,13 @@ export default class ProductModuleServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
-            return Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/select`,isloading);
+            
+            return res;
         }
-            return Http.getInstance().get(`/productmodules/${context.productmodule}/select`,isloading);
+            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -75,6 +79,7 @@ export default class ProductModuleServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
@@ -87,6 +92,7 @@ export default class ProductModuleServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productmodules`,data,isloading);
+        
         return res;
     }
 
@@ -104,11 +110,13 @@ export default class ProductModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productmodules/${context.productmodule}`,data,isloading);
+            
             return res;
     }
 
@@ -123,9 +131,11 @@ export default class ProductModuleServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
-            return Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            return res;
         }
-            return Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
+            let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
+            return res;
     }
 
     /**
@@ -140,9 +150,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            
             return res;
         }
             let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}`,isloading);
+            
             return res;
     }
 
@@ -159,10 +171,12 @@ export default class ProductModuleServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
             res.data.productmodule = data.productmodule;
+            
             return res;
         }
         let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,isloading);
         res.data.productmodule = data.productmodule;
+        
         return res;
     }
 
@@ -180,9 +194,11 @@ export default class ProductModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -199,9 +215,11 @@ export default class ProductModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/fix`,data,isloading);
+            
             return res;
         }
-            return Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
+            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
+            return res;
     }
 
     /**
@@ -218,11 +236,13 @@ export default class ProductModuleServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/save`,data,isloading);
+            
             return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productmodules/${context.productmodule}/save`,data,isloading);
+            
             return res;
     }
 
@@ -238,10 +258,12 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productmodules/fetchbypath`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productmodules/fetchbypath`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -256,10 +278,12 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productmodules/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productmodules/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -274,10 +298,12 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productmodules/fetchroot`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productmodules/fetchroot`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -292,9 +318,31 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productmodules/fetchroot_nobranch`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productmodules/fetchroot_nobranch`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchStoryModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchstorymodule`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productmodules/fetchstorymodule`,tempData,isloading);
+        return res;
     }
 }

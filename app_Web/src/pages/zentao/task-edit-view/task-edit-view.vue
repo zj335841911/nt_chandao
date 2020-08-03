@@ -6,7 +6,7 @@ import { TaskEditViewBase } from './task-edit-view-base';
 import view_form from '@widgets/task/main-form/main-form.vue';
 
 /**
- * task编辑视图视图
+ * 任务编辑视图视图
  *
  * @export
  * @class TaskEditView

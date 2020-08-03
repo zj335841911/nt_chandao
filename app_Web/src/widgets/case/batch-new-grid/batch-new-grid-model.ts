@@ -47,6 +47,9 @@ export default class BatchNewModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -55,6 +58,7 @@ export default class BatchNewModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -80,6 +84,7 @@ export default class BatchNewModel {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'lib',

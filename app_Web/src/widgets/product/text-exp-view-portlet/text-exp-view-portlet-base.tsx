@@ -110,7 +110,7 @@ export class TextExpViewPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '320px';
+            return '370px';
         }
     }
 

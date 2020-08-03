@@ -70,6 +70,17 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProjectCurProductGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'N_STATUS_EQ': { isRawValue: true, value: 'null' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -77,7 +88,8 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
 	 * @memberof ProjectCurProductGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_product_eq': { isRawValue: false, value: 'product' }
+        'n_product_eq': { isRawValue: false, value: 'product' },
+        'n_status_eq': { isRawValue: true, value: 'null' }
     };
 
     /**

@@ -56,6 +56,11 @@ export default class ResolveModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
@@ -81,7 +86,14 @@ export default class ResolveModel {
         dataType: 'TEXT',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'comment',

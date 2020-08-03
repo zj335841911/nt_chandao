@@ -60,6 +60,7 @@ export default class PlatformManagementModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'branch',

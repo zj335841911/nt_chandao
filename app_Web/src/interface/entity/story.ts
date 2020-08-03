@@ -389,4 +389,28 @@ export interface Story {
      * @memberof Story
      */
     branchname?: any;
+
+    /**
+     * 版本号
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    versionc?: any;
+
+    /**
+     * 所属模块名称
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    modulename1?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    project?: any;
 }

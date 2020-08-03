@@ -30,7 +30,7 @@ export default {
 		},
 		gridview: {
 			caption: "测试报告",
-      		title: "testreport表格视图",
+      		title: "测试报告表格视图",
 		},
 		maintabexpview: {
 			caption: "测试报告",
@@ -38,7 +38,7 @@ export default {
 		},
 		editview: {
 			caption: "测试报告",
-      		title: "testreport编辑视图",
+      		title: "测试报告编辑视图",
 		},
 		editview_testrange: {
 			caption: "测试报告",

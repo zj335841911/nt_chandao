@@ -105,7 +105,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD hh:mm:ss" :data="row.openeddate"></app-format-data>
+                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.openeddate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
@@ -118,7 +118,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag='BugUserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -132,13 +132,10 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'UnlinkBug', $event)">
-                              <i class='fa fa-unlink'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.bug.main_plansub_grid.uiactions.bug_unlinkbug')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.UnlinkBug.visabled" :disabled="scope.row.UnlinkBug.disabled" @click="uiAction(scope.row, 'UnlinkBug', $event)" :title="$t('entities.bug.main_plansub_grid.uiactions.bug_unlinkbug')">
+                            <i class='fa fa-unlink'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

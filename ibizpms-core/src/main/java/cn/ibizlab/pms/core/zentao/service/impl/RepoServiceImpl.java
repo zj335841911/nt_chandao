@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.RepoSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IRepoService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -121,9 +122,7 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(Repo et) {
         if (null == et) {
             return false;
@@ -186,5 +185,6 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
 
 
 }
+
 
 

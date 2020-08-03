@@ -49,7 +49,6 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      * @memberof StorySpecEditFormBase
      */
     protected appDeName: string = 'story';
-
     /**
      * 界面UI服务对象
      *
@@ -86,6 +85,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
         id: null,
         title: null,
         version: null,
+        formitem: null,
         spec: null,
         verify: null,
         story:null,
@@ -99,6 +99,15 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      */
     public rules: any = {
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof StorySpecBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -143,7 +152,9 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
         title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -185,6 +196,15 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
 
 
+
+        if (Object.is(name, '') || Object.is(name, 'formitem')) {
+            let ret = false;
+            const _formitem = this.data.formitem;
+            if (this.$verify.testCond(_formitem, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.version.setVisible(ret);
+        }
 
 
 

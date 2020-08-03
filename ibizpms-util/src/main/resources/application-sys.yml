@@ -1,3 +1,4 @@
+
 #缓存、数据源
 spring:
   cache:
@@ -16,10 +17,14 @@ spring:
         max-wait: 300ms
         max-idle: 16
         min-idle: 8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   datasource:
     username: zentao
     password: '123456'
-    url: jdbc:mysql://172.16.180.217:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://172.16.180.217:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat,wall,log4j2
     #配置初始化大小/最小/最大
@@ -101,4 +106,5 @@ server:
     enabled: true
     mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
     min-response-size: 10240
+
 

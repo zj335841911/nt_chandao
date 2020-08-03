@@ -232,6 +232,70 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [RELATEDBUGCNT]
+     *
+     */
+    @JSONField(name = "relatedbugcnt")
+    @JsonProperty("relatedbugcnt")
+    private Integer relatedbugcnt;
+
+    /**
+     * 属性 [CHANGEDSTORYCNT]
+     *
+     */
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    private Integer changedstorycnt;
+
+    /**
+     * 属性 [DRAFTSTORYCNT]
+     *
+     */
+    @JSONField(name = "draftstorycnt")
+    @JsonProperty("draftstorycnt")
+    private Integer draftstorycnt;
+
+    /**
+     * 属性 [CLOSEDSTORYCNT]
+     *
+     */
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+
+    /**
+     * 属性 [RELATEDPROJECTS]
+     *
+     */
+    @JSONField(name = "relatedprojects")
+    @JsonProperty("relatedprojects")
+    private Integer relatedprojects;
+
+    /**
+     * 属性 [DOCCNT]
+     *
+     */
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+
+    /**
+     * 属性 [BUILDCNT]
+     *
+     */
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
+
+    /**
+     * 属性 [CASECNT]
+     *
+     */
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+
 
     /**
      * 设置 [QD]

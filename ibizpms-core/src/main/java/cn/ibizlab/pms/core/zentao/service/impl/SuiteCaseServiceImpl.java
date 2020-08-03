@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.SuiteCaseSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ISuiteCaseService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -132,9 +133,7 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(SuiteCase et) {
         if (null == et) {
             return false;
@@ -245,5 +244,6 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
 
 
 }
+
 
 

@@ -32,6 +32,9 @@ export default class Main_ReleaseSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -45,6 +48,7 @@ export default class Main_ReleaseSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',
@@ -135,6 +139,11 @@ export default class Main_ReleaseSubModel {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

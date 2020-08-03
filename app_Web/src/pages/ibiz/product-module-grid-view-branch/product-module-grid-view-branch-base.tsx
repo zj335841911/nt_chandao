@@ -79,7 +79,8 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
         'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'product' }
+        'root': { isRawValue: false, value: 'product' },
+        'branch': { isRawValue: false, value: 'branch' }
     };
 
     /**

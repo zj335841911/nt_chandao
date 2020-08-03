@@ -192,5 +192,26 @@ domain.setId(product_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchStoryCurProject-all')")
+	@ApiOperation(value = "获取当前项目", tags = {"产品" } ,notes = "获取当前项目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchstorycurproject")
+	public ResponseEntity<List<ProductDTO>> fetchStoryCurProject(ProductSearchContext context) {
+        Page<Product> domains = productService.searchStoryCurProject(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchStoryCurProject-all')")
+	@ApiOperation(value = "查询当前项目", tags = {"产品" } ,notes = "查询当前项目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchstorycurproject")
+	public ResponseEntity<Page<ProductDTO>> searchStoryCurProject(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchStoryCurProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

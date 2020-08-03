@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.zentao.filter.TestRunSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ITestRunService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -132,9 +133,7 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(TestRun et) {
         if (null == et) {
             return false;
@@ -235,5 +234,6 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
 
 
 }
+
 
 

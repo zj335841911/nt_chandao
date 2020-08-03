@@ -61,6 +61,11 @@ export default class AssignToModel {
         dataType: 'TEXT',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'SMCODELIST',

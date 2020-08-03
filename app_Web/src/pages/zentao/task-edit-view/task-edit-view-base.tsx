@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
- * task编辑视图视图基类
+ * 任务编辑视图视图基类
  *
  * @export
  * @class TaskEditViewBase
@@ -65,6 +65,28 @@ export class TaskEditViewBase extends EditViewBase {
      * @memberof TaskEditViewBase
      */    
     protected counterServiceArray: Array<any> = [];
+
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'MODULE': { isRawValue: false, value: 'module' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskEditViewBase
+	 */
+    protected customViewParams: any = {
+        'module': { isRawValue: false, value: 'module' }
+    };
 
     /**
      * 视图模型数据

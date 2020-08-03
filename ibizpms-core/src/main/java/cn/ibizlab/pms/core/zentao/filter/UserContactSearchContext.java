@@ -41,4 +41,3 @@ public class UserContactSearchContext extends QueryWrapperContext<UserContact> {
 
 
 
-

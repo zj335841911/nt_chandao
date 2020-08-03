@@ -7,7 +7,7 @@ import view_grid from '@widgets/product/main-grid/main-grid.vue';
 import view_searchform from '@widgets/product/default-searchform/default-searchform.vue';
 
 /**
- * product选择表格视图视图
+ * 产品选择表格视图视图
  *
  * @export
  * @class ProductPickupGridView

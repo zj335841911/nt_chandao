@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * build表格视图视图基类
+ * 版本表格视图视图基类
  *
  * @export
  * @class BuildMainGridViewBase
@@ -77,6 +77,7 @@ export class BuildMainGridViewBase extends GridViewBase {
 	 * @memberof BuildMainGridViewBase
 	 */
     protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
         'project': { isRawValue: false, value: 'project' }
     };
 
@@ -358,11 +359,15 @@ export class BuildMainGridViewBase extends GridViewBase {
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
-        const localViewParam: any =null;
+        const localViewParam: any ={product:"%product%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
+        }
+        if(localViewParam && Object.keys(localViewParam).length >0){
+            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
+            Object.assign(data,_param);
         }
         let deResParameters: any[] = [];
         if(tempContext.product && true){
@@ -387,11 +392,11 @@ export class BuildMainGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'build-edit-view', 
+            viewname: 'build-main-tab-exp-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.build.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            title: this.$t('entities.build.views.maintabexpview.title'),
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }

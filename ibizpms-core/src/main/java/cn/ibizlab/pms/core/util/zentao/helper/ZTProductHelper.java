@@ -61,26 +61,26 @@ final public class ZTProductHelper {
     // 接口行为HTTP方法（GET、POST）
     // ----------
 
-    private final static HttpMethod ACTION_HTTPMETHOD_INDEX = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_PROJECT = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BROWSE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_INDEX = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_PROJECT = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BROWSE = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHEDIT = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_VIEW = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_ROADMAP = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_DYNAMIC = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPROJECTS = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPLANS = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDROPMENU = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_VIEW = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_ROADMAP = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_DYNAMIC = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPROJECTS = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPLANS = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDROPMENU = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_UPDATEORDER = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_SHOWERRORNONE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_ALL = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_SHOWERRORNONE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_ALL = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_EXPORT = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_DOC = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BUILD = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DOC = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BUILD = HttpMethod.GET;
 
     // ----------
     // 接口行为POST参数

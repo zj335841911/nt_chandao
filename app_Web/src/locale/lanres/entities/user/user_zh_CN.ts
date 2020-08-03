@@ -38,19 +38,19 @@ export default {
 	views: {
 		pickupview: {
 			caption: "用户",
-      		title: "user数据选择视图",
+      		title: "用户数据选择视图",
 		},
 		editview: {
 			caption: "用户信息",
-      		title: "user编辑视图",
+      		title: "用户编辑视图",
 		},
 		pickupgridview: {
 			caption: "用户",
-      		title: "user选择表格视图",
+      		title: "用户选择表格视图",
 		},
 		maingridview: {
 			caption: "用户",
-      		title: "user表格视图",
+      		title: "用户表格视图",
 		},
 	},
 	main_form: {

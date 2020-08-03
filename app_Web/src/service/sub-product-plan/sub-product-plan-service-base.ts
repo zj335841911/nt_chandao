@@ -49,10 +49,14 @@ export default class SubProductPlanServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.subproductplan){
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/select`,isloading);
+            
+            return res;
         }
         if(context.productplan && context.subproductplan){
-            return Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/select`,isloading);
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/select`,isloading);
+            
+            return res;
         }
     }
 
@@ -77,6 +81,7 @@ export default class SubProductPlanServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans`,data,isloading);
+            
             return res;
         }
         if(context.productplan && true){
@@ -90,6 +95,7 @@ export default class SubProductPlanServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans`,data,isloading);
+            
             return res;
         }
     }
@@ -108,12 +114,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,data,isloading);
+            
             return res;
         }
     }
@@ -129,10 +137,12 @@ export default class SubProductPlanServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.subproductplan){
-            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,isloading);
+            return res;
         }
         if(context.productplan && context.subproductplan){
-            return Http.getInstance().delete(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,isloading);
+            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,isloading);
+            return res;
         }
     }
 
@@ -148,10 +158,12 @@ export default class SubProductPlanServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.subproductplan){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}`,isloading);
+            
             return res;
         }
     }
@@ -169,11 +181,13 @@ export default class SubProductPlanServiceBase extends EntityService {
         if(context.product && context.productplan && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/getdraft`,isloading);
             res.data.subproductplan = data.subproductplan;
+            
             return res;
         }
         if(context.productplan && true){
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/getdraft`,isloading);
             res.data.subproductplan = data.subproductplan;
+            
             return res;
         }
     }
@@ -192,12 +206,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/batchunlinkbug`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/batchunlinkbug`,data,isloading);
+            
             return res;
         }
     }
@@ -216,12 +232,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/batchunlinkstory`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/batchunlinkstory`,data,isloading);
+            
             return res;
         }
     }
@@ -240,12 +258,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/checkkey`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/checkkey`,data,isloading);
+            
             return res;
         }
     }
@@ -264,12 +284,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/linkbug`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/linkbug`,data,isloading);
+            
             return res;
         }
     }
@@ -288,12 +310,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/linkstory`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/linkstory`,data,isloading);
+            
             return res;
         }
     }
@@ -312,12 +336,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/save`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/save`,data,isloading);
+            
             return res;
         }
     }
@@ -336,12 +362,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/unlinkbug`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/unlinkbug`,data,isloading);
+            
             return res;
         }
     }
@@ -360,12 +388,14 @@ export default class SubProductPlanServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/unlinkstory`,data,isloading);
+            
             return res;
         }
         if(context.productplan && context.subproductplan){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/unlinkstory`,data,isloading);
+            
             return res;
         }
     }
@@ -382,11 +412,13 @@ export default class SubProductPlanServiceBase extends EntityService {
     public async FetchCurProductPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchcurproductplan`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchcurproductplan`,tempData,isloading);
+            return res;
         }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchcurproductplan`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchcurproductplan`,tempData,isloading);
+            return res;
         }
     }
 
@@ -402,11 +434,35 @@ export default class SubProductPlanServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchdefault`,tempData,isloading);
+            return res;
         }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchdefault`,tempData,isloading);
+            return res;
+        }
+    }
+
+    /**
+     * FetchProjectPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async FetchProjectPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchprojectplan`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchprojectplan`,tempData,isloading);
+            return res;
         }
     }
 }

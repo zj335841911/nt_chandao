@@ -1,11 +1,14 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Task;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -138,7 +141,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public boolean create(Task et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         if(et.getMultiple() != null && et.getMultiple() == 1) {
@@ -151,14 +154,16 @@ public class TaskExService extends TaskServiceImpl {
                 for (TaskTeam taskTeam : list) {
                     team.add(taskTeam.getAccount());
                     teamEstimate.add(taskTeam.getEstimate());
-                    estimate += taskTeam.getEstimate();
+                    if(taskTeam.getEstimate() != null) {
+                        estimate += taskTeam.getEstimate();
+                    }
                 }
                 jo.put("estimate", estimate);
                 jo.put("team", team);
                 jo.put("teamEstimate", teamEstimate);
             }
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -169,7 +174,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public boolean update(Task et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         if(et.getMultiple() != null && et.getMultiple() == 1) {
@@ -191,12 +196,37 @@ public class TaskExService extends TaskServiceImpl {
                 jo.put("teamConsumed", teamConsumed);
             }
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
         et.set("ztrst", rst);
         return bRst;
+    }
+
+    /**
+     * 查询集合 通过模块查询
+     */
+    @Override
+    public Page<Task> searchByModule(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            task.set("items", this.selectByParent(task.getId()));
+        }
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目任务
+     */
+    @Override
+    public Page<Task> searchProjectTASK(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTASK(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+
+            task.set("items", this.selectByParent(task.getId()));
+        }
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 }
 

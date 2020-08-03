@@ -49,7 +49,6 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     protected appDeName: string = 'bug';
-
     /**
      * 界面UI服务对象
      *
@@ -83,11 +82,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        product: null,
         id: null,
         resolution: null,
         resolvedbuild: null,
         resolveddate: null,
         assignedto: null,
+        project: null,
         files: null,
         comment: null,
         bug:null,
@@ -100,7 +101,20 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     public rules: any = {
+        resolution: [
+            { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ResolveBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -135,6 +149,8 @@ export class ResolveEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -144,6 +160,8 @@ export class ResolveEditFormBase extends EditFormControlBase {
         resolveddate: new FormItemModel({ caption: '解决日期', detailType: 'FORMITEM', name: 'resolveddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

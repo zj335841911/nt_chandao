@@ -413,4 +413,20 @@ export interface SubTask {
      * @memberof SubTask
      */
     taskteams?: any;
+
+    /**
+     * 所属模块
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    modulename1?: any;
+
+    /**
+     * 工时
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    ibztaskestimates?: any;
 }

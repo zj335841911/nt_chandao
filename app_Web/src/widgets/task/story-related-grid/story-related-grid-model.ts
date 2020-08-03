@@ -83,6 +83,7 @@ export default class StoryRelatedModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'task',

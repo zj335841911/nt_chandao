@@ -34,6 +34,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("acl", n_acl_eq);
         }
     }
+	private BigInteger n_id_eq;//[项目编号]
+	public void setN_id_eq(BigInteger n_id_eq) {
+        this.n_id_eq = n_id_eq;
+        if(!ObjectUtils.isEmpty(this.n_id_eq)){
+            this.getSearchCond().eq("id", n_id_eq);
+        }
+    }
 	private String n_name_like;//[项目名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
@@ -104,6 +111,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("period", n_period_eq);
         }
     }
+	private String n_account_eq;//[项目团队成员]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("account", n_account_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
@@ -119,7 +133,6 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
 		 }
 	}
 }
-
 
 
 

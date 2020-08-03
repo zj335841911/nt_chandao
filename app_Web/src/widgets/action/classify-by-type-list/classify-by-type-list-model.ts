@@ -18,7 +18,9 @@ export default class ClassifyByTypeModel {
 				name: 'date',
 			},
 			{
-				name: 'action',
+				name: 'actiontype',
+				prop: 'action',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'actor',
@@ -44,6 +46,21 @@ export default class ClassifyByTypeModel {
 			},
 			{
 				name: 'id',
+			},
+			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
+				name: 'srfmajortext',
+				prop: 'comment',
+				dataType: 'LONGTEXT',
+			},
+			{
+				name: 'action',
+				prop: 'id',
+				dataType: 'FONTKEY',
 			},
       {
         name:'size',

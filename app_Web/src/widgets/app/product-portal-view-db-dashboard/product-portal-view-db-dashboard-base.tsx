@@ -79,7 +79,7 @@ export class ProductPortalView_dbDashboardBase extends MainControlBase {
      * @type {string}
      * @memberof ProductPortalView_db
      */
-    public utilServiceName:string = "";
+    public utilServiceName:string = "dynadashboard";
 
     /**
      * 获取多项数据

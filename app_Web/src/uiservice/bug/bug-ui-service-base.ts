@@ -53,7 +53,7 @@ export default class BugUIServiceBase extends UIService {
      * 
      * @memberof  BugUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -96,17 +96,25 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'bugs'});
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'activationview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'buildsubgridview_new_9212',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'buglifeeditview9',srfappde:'bugs'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'mpickupview2',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'editview_1162',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'testreportsubgridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_done',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'editview_4791',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolveview',srfappde:'bugs'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'closeview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assingtoview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'dashboardmaineditview9',srfappde:'bugs'});
@@ -119,6 +127,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('active','active');
+        this.allDeMainStateMap.set('closed','closed');
+        this.allDeMainStateMap.set('resolved','resolved');
     }
 
     /**
@@ -127,6 +138,88 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('active',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('resolved',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_buildlinkbugs(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{BUG:"0",BUILD:"%srfparentkey%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.BuildLinkBug(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'bug-mpickup-view2',
+            title: actionContext.$t('entities.bug.views.mpickupview2.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
     /**
@@ -180,10 +273,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -194,6 +283,86 @@ export default class BugUIServiceBase extends UIService {
                 title: actionContext.$t('entities.bug.views.assingtoview.title'),
             };
             openPopupModal(view, data);
+    }
+
+    /**
+     * 解除关联
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_unlinkBug_build(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确认移除该Bug吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{BUILD:"%srfparentkey%"});
+        Object.assign(params,{build:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.BuildUnlinkBug(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '解除关联成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -247,10 +416,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -393,10 +558,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -461,10 +622,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -559,6 +716,85 @@ export default class BugUIServiceBase extends UIService {
     }
 
     /**
+     * 提Bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_createBugByBuild(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.Create(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '提Bug成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'bug-edit-view-4791',
+            title: actionContext.$t('entities.bug.views.editview_4791.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_RIGHT'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
      * 建用例
      *
      * @param {any[]} args 当前数据
@@ -609,10 +845,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -677,10 +909,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -744,10 +972,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -811,10 +1035,6 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -918,7 +1138,7 @@ export default class BugUIServiceBase extends UIService {
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
         for (let i = 0; i <= 1; i++) {

@@ -9,6 +9,8 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        rowKey="id"
+        :treeProps="{children: 'items', hasChildren: 'hasChildren'}"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -170,45 +172,30 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'StartTask', $event)">
-                              <i class='fa fa-play-circle-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.task.main_grid.uiactions.task_starttask')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'CloseTask', $event)">
-                              <i class='fa fa-power-off'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.task.main_grid.uiactions.task_closetask')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'DoneTask', $event)">
-                              <i class='fa fa-check-square-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.task.main_grid.uiactions.task_donetask')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.task.main_grid.uiactions.task_mainedit')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'NewSubTask', $event)">
-                              <i class='iconfont studio-icon-subnets'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.task.main_grid.uiactions.task_newsubtask')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.StartTask.visabled" :disabled="scope.row.StartTask.disabled" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_starttask')">
+                            <i class='fa fa-play-circle-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.CloseTask.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CloseTask.visabled" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_closetask')">
+                            <i class='fa fa-power-off'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.DoneTask.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.DoneTask.visabled" :disabled="scope.row.DoneTask.disabled" @click="uiAction(scope.row, 'DoneTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_donetask')">
+                            <i class='fa fa-check-square-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main_grid.uiactions.task_mainedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.NewSubTask.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.NewSubTask.visabled" :disabled="scope.row.NewSubTask.disabled" @click="uiAction(scope.row, 'NewSubTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_newsubtask')">
+                            <i class='iconfont studio-icon-subnets'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

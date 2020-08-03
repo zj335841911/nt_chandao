@@ -21,9 +21,17 @@ export default {
 			caption: "模块",
       		title: "模块",
 		},
+		treeexpview: {
+			caption: "所有产品",
+      		title: "所有产品",
+		},
 		gridview: {
 			caption: "模块",
       		title: "模块",
+		},
+		linegridview: {
+			caption: "产品线",
+      		title: "产品线",
 		},
 		pickupgridview: {
 			caption: "模块",
@@ -55,6 +63,14 @@ export default {
 		uiactions: {
 		},
 	},
+	line_grid: {
+		columns: {
+			name: "名称",
+			short: "简称",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			name: "模块名称",
@@ -71,6 +87,20 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
+		},
+	},
+	linegridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
+		},
+		deuiaction1: {
+			caption: "Remove",
+			tip: "Remove {0}",
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -91,6 +121,16 @@ export default {
 		deuiaction2: {
 			caption: "Edit",
 			tip: "Edit {0}",
+		},
+	},
+	productline_treeview: {
+		nodes: {
+			root: "默认根节点",
+			all: "所有产品",
+		},
+		uiactions: {
+        module_seline: "维护产品线",
+        refreshall: "刷新",
 		},
 	},
 };

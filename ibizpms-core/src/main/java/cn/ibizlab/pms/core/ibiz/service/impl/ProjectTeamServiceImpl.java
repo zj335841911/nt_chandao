@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProjectTeamSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProjectTeamService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -128,9 +129,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(ProjectTeam et) {
         if (null == et) {
             return false;
@@ -212,5 +211,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
 
 }
+
 
 

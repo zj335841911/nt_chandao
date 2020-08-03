@@ -1,5 +1,9 @@
 zuul:
   routes:
+    common:
+      path: /appdata
+      serviceId: pms-webapi
+      stripPrefix: false
     v7:
       path: /v7/**
       serviceId: pms-webapi
@@ -8,5 +12,27 @@ zuul:
       path: /ibizutil/**
       serviceId: pms-webapi
       stripPrefix: false
+
 environment:
   - TZ=Asia/Shanghai
+
+ibiz:
+  permitall: true
+  ref:
+    service:
+      pms-webapi: pms-webapi
+      uaa: ibzuaa-api-pms
+  auth:
+    token:
+      # 本地ZT账户认证模式：SimpleTokenUtil
+      # UAA认证模式：UAATokenUtil
+      util: UAATokenUtil
+#    service: ZTUserService
+
+spring:
+  servlet:
+    multipart:
+      # 代表文件上传最大大小
+      max-file-size: 100MB
+      # 代表文件上传最大总大小
+      max-request-size: 1024MB

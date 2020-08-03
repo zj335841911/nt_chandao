@@ -32,6 +32,14 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -45,6 +53,7 @@ export default class Main_BuildSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',
@@ -97,11 +106,6 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
-        },
-        {
           name: 'status',
           prop: 'status',
           dataType: 'SSCODELIST',
@@ -135,6 +139,11 @@ export default class Main_BuildSubModel {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

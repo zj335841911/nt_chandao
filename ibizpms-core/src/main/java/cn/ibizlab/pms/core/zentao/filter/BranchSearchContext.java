@@ -58,4 +58,3 @@ public class BranchSearchContext extends QueryWrapperContext<Branch> {
 
 
 
-

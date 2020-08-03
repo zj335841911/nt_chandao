@@ -63,6 +63,10 @@ zuul:
       path: /productstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_projectmember:
+      path: /ibzprojectmembers/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_action:
       path: /actions/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -87,8 +91,16 @@ zuul:
       path: /ibzcasesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_taskestimate:
+      path: /taskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_story:
       path: /stories/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_todo:
+      path: /todos/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_subtask:
@@ -105,6 +117,10 @@ zuul:
       stripPrefix: false
     zt_user:
       path: /users/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_doclib:
+      path: /doclibs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productmodule:
@@ -147,6 +163,14 @@ zuul:
       path: /testtasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_taskestimate:
+      path: /ibztaskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_productline:
+      path: /productlines/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_testreport:
       path: /testreports/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -157,6 +181,10 @@ zuul:
       stripPrefix: false
     zt_testrun:
       path: /testruns/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_myterritory:
+      path: /ibzmyterritories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_bug:
@@ -173,6 +201,10 @@ zuul:
       stripPrefix: false
     zt_release:
       path: /releases/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    dynadashboard:
+      path: /dynadashboards/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
   sensitive-headers:

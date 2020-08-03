@@ -23,6 +23,7 @@ public interface ProductModuleMapper extends BaseMapper<ProductModule>{
     Page<ProductModule> searchDefault(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     Page<ProductModule> searchRoot(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     Page<ProductModule> searchRoot_NoBranch(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
+    Page<ProductModule> searchStoryModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     @Override
     ProductModule selectById(Serializable id);
     @Override

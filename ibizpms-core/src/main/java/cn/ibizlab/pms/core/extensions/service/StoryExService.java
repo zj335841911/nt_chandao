@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.data.domain.Page;
@@ -182,7 +183,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story linkStory(Story et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
         if(et.get("srfactionparam") != null) {
@@ -198,10 +199,58 @@ public class StoryExService extends StoryServiceImpl {
         if(et.get("productplan") != null) {
             jo.put("id", et.get("productplan"));
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.linkStory((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.linkStory(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story projectLinkStory(Story et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    JSONObject jo2 = new JSONObject();
+                    jo2.put("stories", map.get("id"));
+                    if(map.get("product") != null) {
+                        jo2.put("products", map.get("product"));
+                    }
+                    jsonArray.add(jo2);
+                }
+            }
+            jo.put("srfarray", jsonArray);
+        }
+        if(et.get("project") != null) {
+            jo.put("id", et.get("project"));
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.projectLinkStory(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story projectUnlinkStory(Story et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        jo.put("id", et.getProject());
+        jo.put("story", et.getId());
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.projectUnlinkStory(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
         return et;
     }
 
@@ -220,8 +269,57 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
         context.getSelectCond().clear();
+        context.setQuery(context.getQuery());
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    @Override
+    @Transactional
+    public Story buildLinkStory(Story et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    jsonArray.add(map.get("id"));
+                }
+            }
+            jo.put("stories",jsonArray);
+        }
+        if(jo.get("build") == null) {
+            jo.put("id", et.getExtensionparams().get("build"));
+        }
+
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.buildLinkStory(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story buildUnlinkStory(Story et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+
+        JSONObject jo = new JSONObject();
+        if(et.getExtensionparams() != null) {
+            jo.put("build", et.get("build"));
+            jo.put("id",et.getId());
+        }
+
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.buildUnlinkStory(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
     }
 }
 

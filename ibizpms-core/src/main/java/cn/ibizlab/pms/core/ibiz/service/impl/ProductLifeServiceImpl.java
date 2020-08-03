@@ -28,6 +28,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductLifeSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IProductLifeService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,9 +119,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
+    @Transactional
     public boolean saveOrUpdate(ProductLife et) {
         if (null == et) {
             return false;
@@ -157,6 +156,15 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     public Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmap(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 获取产品路线
+     */
+    @Override
+    public Page<ProductLife> searchGetRoadmapS(ProductLifeSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmapS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -220,5 +228,6 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     }
 
 }
+
 
 

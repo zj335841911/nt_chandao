@@ -49,7 +49,6 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      * @memberof TestMain2EditFormBase
      */
     protected appDeName: string = 'productstats';
-
     /**
      * 界面UI服务对象
      *
@@ -77,14 +76,17 @@ export class TestMain2EditFormBase extends EditFormControlBase {
         custom2: null,
         formitemex1: null,
         assigntomebugcnt: null,
+        yesterdayresolvedbugcnt: null,
         custom3: null,
         custom4: null,
         formitemex2: null,
         activebugcnt: null,
+        yesterdayconfirmbugcnt: null,
         custom5: null,
         custom6: null,
         formitemex3: null,
         unconfirmbugcnt: null,
+        yesterdayclosedbugcnt: null,
         custom7: null,
         custom8: null,
         formitemex4: null,
@@ -103,6 +105,15 @@ export class TestMain2EditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof TestMain2Base
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 详情模型集合
      *
      * @type {*}
@@ -110,6 +121,12 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '产品统计基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } }),
+
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } }),
 
@@ -139,6 +156,8 @@ export class TestMain2EditFormBase extends EditFormControlBase {
 
         assigntomebugcnt: new FormItemModel({ caption: '指派给我', detailType: 'FORMITEM', name: 'assigntomebugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        yesterdayresolvedbugcnt: new FormItemModel({ caption: '昨天解决Bug数', detailType: 'FORMITEM', name: 'yesterdayresolvedbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         custom3: new FormItemModel({ caption: '所有Bug数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         custom4: new FormItemModel({ caption: '未解决Bug数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -147,6 +166,8 @@ export class TestMain2EditFormBase extends EditFormControlBase {
 
         activebugcnt: new FormItemModel({ caption: '未解决', detailType: 'FORMITEM', name: 'activebugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        yesterdayconfirmbugcnt: new FormItemModel({ caption: '昨天确认Bug数', detailType: 'FORMITEM', name: 'yesterdayconfirmbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         custom5: new FormItemModel({ caption: '所有Bug数', detailType: 'FORMITEM', name: 'custom5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         custom6: new FormItemModel({ caption: '未确认Bug数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -154,6 +175,8 @@ export class TestMain2EditFormBase extends EditFormControlBase {
         formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         unconfirmbugcnt: new FormItemModel({ caption: '未确认', detailType: 'FORMITEM', name: 'unconfirmbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yesterdayclosedbugcnt: new FormItemModel({ caption: '昨天关闭Bug数', detailType: 'FORMITEM', name: 'yesterdayclosedbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         custom7: new FormItemModel({ caption: '所有Bug数', detailType: 'FORMITEM', name: 'custom7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

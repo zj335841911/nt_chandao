@@ -39,7 +39,8 @@ export class UtilServiceRegister {
      * @memberof UtilServiceRegister
      */
     protected init(): void {
-            }
+                this.allUtilService.set('dynadashboard', () => import('@/utilservice/dynadashboard/dynadashboard-util-service'));
+    }
 
     /**
      * 加载服务实体

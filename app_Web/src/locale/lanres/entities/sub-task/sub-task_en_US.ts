@@ -52,6 +52,8 @@ export default {
     allmodules: "所有模块",
     multiple: "多人任务",
     taskteams: "项目团队成员",
+    modulename1: "所属模块",
+    ibztaskestimates: "工时",
   },
 	views: {
 		subtasknewview: {
@@ -66,7 +68,9 @@ export default {
 			name: "任务名称",
 			type: "任务类型",
 			assignedto: "指派给",
-			left: "预计",
+			estimate: "预计",
+			eststarted: "预计开始",
+			deadline: "截止日期",
 			desc: "任务描述",
 			pri: "优先级",
 		},

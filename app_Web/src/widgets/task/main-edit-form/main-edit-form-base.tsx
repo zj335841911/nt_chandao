@@ -49,7 +49,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     protected appDeName: string = 'task';
-
     /**
      * 界面UI服务对象
      *
@@ -131,7 +130,20 @@ export class MainEditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
+        type: [
+            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+        ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainEditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 详情模型集合
@@ -309,8 +321,32 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'ISNULL', '') || this.$verify.testCond(_multiple, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.estimate.setDisabled(!ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '0') || this.$verify.testCond(_multiple, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.consumed.setDisabled(!ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '0') || this.$verify.testCond(_multiple, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.left.setDisabled(!ret);
+        }
 
 
 

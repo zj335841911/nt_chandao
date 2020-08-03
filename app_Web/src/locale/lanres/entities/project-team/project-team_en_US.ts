@@ -27,6 +27,17 @@ export default {
       		title: "项目团队表格视图",
 		},
 	},
+	main_editrow_grid: {
+		columns: {
+			username: "用户",
+			role: "角色",
+			days: "可用工日",
+			hours: "可用工时/天",
+			limited: "受限用户",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			account: "用户",
@@ -42,17 +53,6 @@ export default {
         projectteam_removemember: "移除成员",
 		},
 	},
-	main_editrow_grid: {
-		columns: {
-			username: "用户",
-			role: "角色",
-			days: "可用工日",
-			hours: "可用工时/天",
-			limited: "受限用户",
-		},
-		uiactions: {
-		},
-	},
 	maingridview_editrowtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -64,9 +64,17 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		deuiaction1_managermember: {
+		deuiaction3_managermember: {
 			caption: "团队管理",
 			tip: "团队管理",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 };
