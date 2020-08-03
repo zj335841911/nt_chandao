@@ -61,6 +61,11 @@ export default class TaskEstimateModel {
         dataType: 'ACID',
       },
       {
+        name: 'name',
+        prop: 'name',
+        dataType: 'TEXT',
+      },
+      {
         name: 'task',
         prop: 'id',
         dataType: 'FONTKEY',

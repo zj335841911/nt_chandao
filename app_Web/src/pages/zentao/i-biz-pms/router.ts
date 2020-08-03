@@ -746,16 +746,16 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview/:gridview?',
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview.title',
+                        caption: 'entities.taskestimate.views.gridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'gridview', parameterName: 'gridview' },
                         ],
                         requireAuth: true,
@@ -763,15 +763,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view/task-estimate-grid-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview/:gridview?',
+                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview.title',
+                        caption: 'entities.taskestimate.views.gridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'gridview', parameterName: 'gridview' },
                         ],
                         requireAuth: true,
@@ -779,15 +779,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view/task-estimate-grid-view.vue'),
                 },
                 {
-                    path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview/:gridview?',
+                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview.title',
+                        caption: 'entities.taskestimate.views.gridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'gridview', parameterName: 'gridview' },
                         ],
                         requireAuth: true,
@@ -795,14 +795,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view/task-estimate-grid-view.vue'),
                 },
                 {
-                    path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview/:gridview?',
+                    path: 'tasks/:task?/taskestimates/:taskestimate?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview.title',
+                        caption: 'entities.taskestimate.views.gridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'gridview', parameterName: 'gridview' },
                         ],
                         requireAuth: true,
@@ -810,13 +810,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view/task-estimate-grid-view.vue'),
                 },
                 {
-                    path: 'ibztaskestimates/:ibztaskestimate?/gridview/:gridview?',
+                    path: 'taskestimates/:taskestimate?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview.title',
+                        caption: 'entities.taskestimate.views.gridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'gridview', parameterName: 'gridview' },
                         ],
                         requireAuth: true,

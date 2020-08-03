@@ -11,7 +11,6 @@ import './entity/product-plans/product-plans';
 import './entity/project-products/project-products';
 import './entity/cases/cases';
 import './entity/ibztask-teams/ibztask-teams';
-import './entity/ibztaskestimates/ibztaskestimates';
 import './entity/products/products';
 import './entity/task-teams/task-teams';
 import './entity/files/files';

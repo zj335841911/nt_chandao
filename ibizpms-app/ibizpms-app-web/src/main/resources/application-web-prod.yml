@@ -23,10 +23,6 @@ zuul:
       path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    ibztaskestimate:
-      path: /ibztaskestimates/**
-      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
-      stripPrefix: false
     zt_product:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
