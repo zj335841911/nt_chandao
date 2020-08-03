@@ -190,7 +190,7 @@ export default {
 	},
 	stepsinfo_form: {
 		details: {
-			druipart1: "", 
+			druipart1: "附件", 
 			group1: "Bug基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "修改日期", 
