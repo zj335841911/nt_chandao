@@ -47,10 +47,10 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 1 }">
+<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
-           
+        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
         <span >{{$t('entities.product.main_form.details.button1')}}</span>
     </i-button>
 
