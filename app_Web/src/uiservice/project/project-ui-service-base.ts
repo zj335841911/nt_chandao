@@ -198,6 +198,18 @@ export default class ProjectUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                if (_this.Exit && _this.Exit instanceof Function) {
+                    _this.Exit(_args,context, params, $event, xData,actionContext);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
