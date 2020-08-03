@@ -76,6 +76,47 @@ public class ZenTaoMessage implements InitializingBean {
      */
     public static String MSG_ERROR_0008;
 
+    @Value("${zentao.msg.error.0009:登录失败，用户名或密码错误}")
+    private String msg_error_0009;
+    /**
+     * MSG_ERROR_0009: 登录失败，用户名或密码错误
+     */
+    public static String MSG_ERROR_0009;
+
+    @Value("${zentao.msg.error.0010:登录失败，请联系管理员关联账号}")
+    private String msg_error_0010;
+    /**
+     * MSG_ERROR_0010: 登录失败，请联系管理员关联账号
+     */
+    public static String MSG_ERROR_0010;
+
+    @Value("${zentao.msg.error.0011:统一认证失效，请重新登录。}")
+    private String msg_error_0011;
+    /**
+     * MSG_ERROR_0010: 统一认证失效，请重新登录。
+     */
+    public static String MSG_ERROR_0011;
+
+    @Value("${zentao.msg.error.0010:关联的ZT账户不唯一，请联系管理员。}")
+    private String msg_error_0012;
+    /**
+     * MSG_ERROR_0010: 关联的ZT账户不唯一，请联系管理员。
+     */
+    public static String MSG_ERROR_0012;
+
+    @Value("${zentao.msg.error.0010:ZT API服务异常，请联系管理员}")
+    private String msg_error_0013;
+    /**
+     * MSG_ERROR_0010: ZT API服务异常，请联系管理员
+     */
+    public static String MSG_ERROR_0013;
+
+    @Value("${zentao.msg.error.0010:ZT API系统的内置密码已被修改，请联系管理员。}")
+    private String msg_error_0014;
+    /**
+     * MSG_ERROR_0010: ZT API系统的内置密码已被修改，请联系管理员。
+     */
+    public static String MSG_ERROR_0014;
     @Override
     public void afterPropertiesSet() throws Exception {
         MSG_INFO_0001 = msg_info_0001;
@@ -89,5 +130,11 @@ public class ZenTaoMessage implements InitializingBean {
         MSG_ERROR_0006 = msg_error_0006;
         MSG_ERROR_0007 = msg_error_0007;
         MSG_ERROR_0008 = msg_error_0008;
+        MSG_ERROR_0009 = msg_error_0009;
+        MSG_ERROR_0010 = msg_error_0010;
+        MSG_ERROR_0011 = msg_error_0011;
+        MSG_ERROR_0012 = msg_error_0012;
+        MSG_ERROR_0013 = msg_error_0013;
+        MSG_ERROR_0014 = msg_error_0014;
     }
 }
