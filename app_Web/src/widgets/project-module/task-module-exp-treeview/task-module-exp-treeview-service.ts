@@ -304,6 +304,8 @@ export default class TaskModuleExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, {navigateContext: {MODULE:"0"} });
+            Object.assign(treeNode, {navigateParams: {module:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);
@@ -540,6 +542,8 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_product_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {MODULE:"0"} });
+                        Object.assign(treeNode, {navigateParams: {module:"0"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -700,6 +704,8 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {MODULE:"%id%"} });
+                        Object.assign(treeNode, {navigateParams: {module:"%id%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -921,6 +927,8 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {MODULE:"%id%"} });
+                        Object.assign(treeNode, {navigateParams: {module:"%id%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -1086,6 +1094,8 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {MODULE:"%id%"} });
+                        Object.assign(treeNode, {navigateParams: {module:"%id%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -1240,6 +1250,8 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {MODULE:"%id%"} });
+                        Object.assign(treeNode, {navigateParams: {module:"%id%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
