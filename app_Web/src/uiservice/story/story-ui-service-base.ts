@@ -153,7 +153,7 @@ export default class StoryUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('active',{'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('changed',{'DELETE':1,'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('changed',{'ACTIVE':0,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
         this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':1,'ACTIVE':1,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
         this.allDeMainStateOPPrivsMap.set('draft',{'ACTIVE':1,'CHANGED':1,'CLOSED':1,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'UPDATE':0});
     }
