@@ -79,6 +79,7 @@ export default {
 	main2_form: {
 		details: {
 			rawitem1: "", 
+			rawitem3: "", 
 			button4: "查看全部", 
 			button5: "提需求", 
 			grouppanel6: "", 
@@ -106,7 +107,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			product: "产品标识", 
-			storycnt: "需求数", 
+			storycnt: "", 
 			waitstorycnt: "未开始", 
 			plannedstorycnt: "已计划", 
 			developingstorycnt: "研发中", 
