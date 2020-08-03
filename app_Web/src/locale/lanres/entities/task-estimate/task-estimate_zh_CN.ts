@@ -8,36 +8,4 @@ export default {
     work: "work",
     task: "任务",
   },
-	views: {
-		gridview: {
-			caption: "任务预计",
-      		title: "taskestimate表格视图",
-		},
-		gridview9: {
-			caption: "工时",
-      		title: "任务预计表格视图",
-		},
-	},
-	main_grid: {
-		columns: {
-			date: "日期",
-			consumed: "总计消耗",
-			left: "预计剩余",
-			work: "备注",
-		},
-		uiactions: {
-		},
-	},
-	gridview9toolbar_toolbar: {
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-	},
-	gridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-	},
 };

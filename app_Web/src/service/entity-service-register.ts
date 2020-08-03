@@ -60,7 +60,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('dept', () => import('@/service/dept/dept-service'));
         this.allEntityService.set('company', () => import('@/service/company/company-service'));
         this.allEntityService.set('ibzcasestep', () => import('@/service/ibzcase-step/ibzcase-step-service'));
-        this.allEntityService.set('taskestimate', () => import('@/service/taskestimate/taskestimate-service'));
+        this.allEntityService.set('taskestimate', () => import('@/service/task-estimate/task-estimate-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
         this.allEntityService.set('todo', () => import('@/service/todo/todo-service'));
         this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
@@ -78,7 +78,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('testsuite', () => import('@/service/test-suite/test-suite-service'));
         this.allEntityService.set('projectteam', () => import('@/service/project-team/project-team-service'));
         this.allEntityService.set('testtask', () => import('@/service/test-task/test-task-service'));
-        this.allEntityService.set('ibztaskestimate', () => import('@/service/ibztaskestimate/ibztaskestimate-service'));
+        this.allEntityService.set('ibztaskestimate', () => import('@/service/ibztask-estimate/ibztask-estimate-service'));
         this.allEntityService.set('productline', () => import('@/service/product-line/product-line-service'));
         this.allEntityService.set('testreport', () => import('@/service/test-report/test-report-service'));
         this.allEntityService.set('projectstats', () => import('@/service/project-stats/project-stats-service'));

@@ -60,7 +60,7 @@ export class UIServiceRegister {
         this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
         this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
         this.allUIService.set('ibzcasestep', () => import('@/uiservice/ibzcase-step/ibzcase-step-ui-service'));
-        this.allUIService.set('taskestimate', () => import('@/uiservice/taskestimate/taskestimate-ui-service'));
+        this.allUIService.set('taskestimate', () => import('@/uiservice/task-estimate/task-estimate-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
         this.allUIService.set('todo', () => import('@/uiservice/todo/todo-ui-service'));
         this.allUIService.set('subtask', () => import('@/uiservice/sub-task/sub-task-ui-service'));
@@ -78,7 +78,7 @@ export class UIServiceRegister {
         this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
         this.allUIService.set('projectteam', () => import('@/uiservice/project-team/project-team-ui-service'));
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
-        this.allUIService.set('ibztaskestimate', () => import('@/uiservice/ibztaskestimate/ibztaskestimate-ui-service'));
+        this.allUIService.set('ibztaskestimate', () => import('@/uiservice/ibztask-estimate/ibztask-estimate-ui-service'));
         this.allUIService.set('productline', () => import('@/uiservice/product-line/product-line-ui-service'));
         this.allUIService.set('testreport', () => import('@/uiservice/test-report/test-report-ui-service'));
         this.allUIService.set('projectstats', () => import('@/uiservice/project-stats/project-stats-ui-service'));
