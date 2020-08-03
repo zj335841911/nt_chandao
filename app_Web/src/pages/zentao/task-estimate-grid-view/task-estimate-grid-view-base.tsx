@@ -33,7 +33,15 @@ export class TaskEstimateGridViewBase extends GridViewBase {
      * @memberof TaskEstimateGridViewBase
      */
     protected appDeKey: string = 'id';
-// 应用实体「IBZTaskestimate」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateGridViewBase
+     */
+    protected appDeMajor: string = 'id';
 
     /**
      * 实体服务对象
@@ -138,6 +146,7 @@ export class TaskEstimateGridViewBase extends GridViewBase {
             },
             grid: this.$refs.grid,
             keyPSDEField: 'ibztaskestimate',
+            majorPSDEField: 'id',
             isLoadDefault: true,
         });
     }

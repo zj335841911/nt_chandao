@@ -31,7 +31,7 @@ export default class IBZTaskestimateServiceBase extends EntityService {
         this.APPLYDEKEY ='ibztaskestimate';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'ibztaskestimates';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'id';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }
