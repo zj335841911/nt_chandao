@@ -78,6 +78,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('testsuite', () => import('@/authservice/test-suite/test-suite-auth-service'));
         this.allAuthService.set('projectteam', () => import('@/authservice/project-team/project-team-auth-service'));
         this.allAuthService.set('testtask', () => import('@/authservice/test-task/test-task-auth-service'));
+        this.allAuthService.set('ibztaskestimate', () => import('@/authservice/ibztaskestimate/ibztaskestimate-auth-service'));
         this.allAuthService.set('productline', () => import('@/authservice/product-line/product-line-auth-service'));
         this.allAuthService.set('testreport', () => import('@/authservice/test-report/test-report-auth-service'));
         this.allAuthService.set('projectstats', () => import('@/authservice/project-stats/project-stats-auth-service'));

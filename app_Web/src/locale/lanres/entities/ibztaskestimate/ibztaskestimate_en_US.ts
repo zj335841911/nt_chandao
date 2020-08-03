@@ -10,9 +10,9 @@ export default {
     task: "任务",
   },
 	views: {
-		gridview: {
-			caption: "任务预计",
-      		title: "taskestimate表格视图",
+		gridview9: {
+			caption: "工时",
+      		title: "任务预计表格视图",
 		},
 	},
 	main_grid: {
@@ -25,7 +25,7 @@ export default {
 		uiactions: {
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	gridview9toolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",

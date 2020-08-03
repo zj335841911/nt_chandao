@@ -7,16 +7,16 @@ import EntityService from '../entity-service';
  * 任务预计服务对象基类
  *
  * @export
- * @class IBZTaskestimateServiceBase
+ * @class IBZTASKESTIMATEServiceBase
  * @extends {EntityServie}
  */
-export default class IBZTaskestimateServiceBase extends EntityService {
+export default class IBZTASKESTIMATEServiceBase extends EntityService {
 
     /**
-     * Creates an instance of  IBZTaskestimateServiceBase.
+     * Creates an instance of  IBZTASKESTIMATEServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBZTaskestimateServiceBase
+     * @memberof  IBZTASKESTIMATEServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -25,7 +25,7 @@ export default class IBZTaskestimateServiceBase extends EntityService {
     /**
      * 初始化基础数据
      *
-     * @memberof IBZTaskestimateServiceBase
+     * @memberof IBZTASKESTIMATEServiceBase
      */
     public initBasicData(){
         this.APPLYDEKEY ='ibztaskestimate';
@@ -45,7 +45,7 @@ export default class IBZTaskestimateServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBZTaskestimateServiceBase
+     * @memberof IBZTASKESTIMATEServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }

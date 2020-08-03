@@ -163,6 +163,10 @@ zuul:
       path: /testtasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_taskestimate:
+      path: /ibztaskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_productline:
       path: /productlines/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

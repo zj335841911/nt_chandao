@@ -1,10 +1,10 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import TaskestimateService from '@/service/taskestimate/taskestimate-service';
-import TaskestimateAuthService from '@/authservice/taskestimate/taskestimate-auth-service';
+import IBZTASKESTIMATEService from '@/service/ibztaskestimate/ibztaskestimate-service';
+import IBZTASKESTIMATEAuthService from '@/authservice/ibztaskestimate/ibztaskestimate-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
-import TaskestimateUIService from '@/uiservice/taskestimate/taskestimate-ui-service';
+import IBZTASKESTIMATEUIService from '@/uiservice/ibztaskestimate/ibztaskestimate-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -23,7 +23,7 @@ export class TaskEstimateGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskEstimateGridView9Base
      */
-    protected appDeName: string = 'taskestimate';
+    protected appDeName: string = 'ibztaskestimate';
 
     /**
      * 应用实体主键
@@ -46,18 +46,18 @@ export class TaskEstimateGridView9Base extends GridView9Base {
     /**
      * 实体服务对象
      *
-     * @type {TaskestimateService}
+     * @type {IBZTASKESTIMATEService}
      * @memberof TaskEstimateGridView9Base
      */
-    protected appEntityService: TaskestimateService = new TaskestimateService;
+    protected appEntityService: IBZTASKESTIMATEService = new IBZTASKESTIMATEService;
 
     /**
      * 实体权限服务对象
      *
-     * @type TaskestimateUIService
+     * @type IBZTASKESTIMATEUIService
      * @memberof TaskEstimateGridView9Base
      */
-    public appUIService: TaskestimateUIService = new TaskestimateUIService(this.$store);
+    public appUIService: IBZTASKESTIMATEUIService = new IBZTASKESTIMATEUIService(this.$store);
 
 
     /**
@@ -77,9 +77,9 @@ export class TaskEstimateGridView9Base extends GridView9Base {
      * @memberof TaskEstimateGridView9Base
      */
     protected model: any = {
-        srfCaption: 'entities.taskestimate.views.gridview9.caption',
-        srfTitle: 'entities.taskestimate.views.gridview9.title',
-        srfSubTitle: 'entities.taskestimate.views.gridview9.subtitle',
+        srfCaption: 'entities.ibztaskestimate.views.gridview9.caption',
+        srfTitle: 'entities.ibztaskestimate.views.gridview9.title',
+        srfSubTitle: 'entities.ibztaskestimate.views.gridview9.subtitle',
         dataInfo: ''
     }
 
@@ -143,7 +143,7 @@ export class TaskEstimateGridView9Base extends GridView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'taskestimate',
+            keyPSDEField: 'ibztaskestimate',
             majorPSDEField: 'id',
             isLoadDefault: true,
         });
@@ -242,7 +242,7 @@ export class TaskEstimateGridView9Base extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"Taskestimate");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZTASKESTIMATE");
     }
 
     /**

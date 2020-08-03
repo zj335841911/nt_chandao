@@ -1,18 +1,18 @@
-import IBZTaskestimateUIServiceBase from './ibztaskestimate-ui-service-base';
+import IBZTASKESTIMATEUIServiceBase from './ibztaskestimate-ui-service-base';
 
 /**
  * 任务预计UI服务对象
  *
  * @export
- * @class IBZTaskestimateUIService
+ * @class IBZTASKESTIMATEUIService
  */
-export default class IBZTaskestimateUIService extends IBZTaskestimateUIServiceBase {
+export default class IBZTASKESTIMATEUIService extends IBZTASKESTIMATEUIServiceBase {
 
     /**
-     * Creates an instance of  IBZTaskestimateUIService.
+     * Creates an instance of  IBZTASKESTIMATEUIService.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBZTaskestimateUIService
+     * @memberof  IBZTASKESTIMATEUIService
      */
     constructor(opts: any = {}) {
         super(opts);

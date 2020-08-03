@@ -1,6 +1,6 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
-import IBZTaskestimateService from '@/service/ibztaskestimate/ibztaskestimate-service';
+import IBZTASKESTIMATEService from '@/service/ibztaskestimate/ibztaskestimate-service';
 import MainModel from './main-grid-model';
 
 
@@ -15,10 +15,10 @@ export default class MainService extends ControlService {
     /**
      * 任务预计服务对象
      *
-     * @type {IBZTaskestimateService}
+     * @type {IBZTASKESTIMATEService}
      * @memberof MainService
      */
-    public appEntityService: IBZTaskestimateService = new IBZTaskestimateService({ $store: this.getStore() });
+    public appEntityService: IBZTASKESTIMATEService = new IBZTASKESTIMATEService({ $store: this.getStore() });
 
     /**
      * 设置从数据模式

@@ -4,16 +4,16 @@ import AuthService from '../auth-service';
  * 任务预计权限服务对象基类
  *
  * @export
- * @class IBZTaskestimateAuthServiceBase
+ * @class IBZTASKESTIMATEAuthServiceBase
  * @extends {AuthService}
  */
-export default class IBZTaskestimateAuthServiceBase extends AuthService {
+export default class IBZTASKESTIMATEAuthServiceBase extends AuthService {
 
     /**
-     * Creates an instance of  IBZTaskestimateAuthServiceBase.
+     * Creates an instance of  IBZTASKESTIMATEAuthServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBZTaskestimateAuthServiceBase
+     * @memberof  IBZTASKESTIMATEAuthServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -24,7 +24,7 @@ export default class IBZTaskestimateAuthServiceBase extends AuthService {
      *
      * @param {*} mainSateOPPrivs 传入数据操作标识
      * @returns {any}
-     * @memberof IBZTaskestimateAuthServiceBase
+     * @memberof IBZTASKESTIMATEAuthServiceBase
      */
     public getOPPrivs(mainSateOPPrivs:any):any{
         let curDefaultOPPrivs:any = JSON.parse(JSON.stringify(this.defaultOPPrivs));

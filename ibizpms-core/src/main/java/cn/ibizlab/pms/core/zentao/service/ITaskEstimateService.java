@@ -39,6 +39,7 @@ public interface ITaskEstimateService extends IService<TaskEstimate>{
     Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context) ;
     List<TaskEstimate> selectByTask(BigInteger id) ;
     void removeByTask(BigInteger id) ;
+    void saveByTask(BigInteger id,List<TaskEstimate> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
