@@ -24,7 +24,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
-                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.case.batchnew_grid.columns.modulename')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.case.batchnew_grid.columns.modulename')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.batchnew_grid.columns.modulename')}}
@@ -39,8 +39,8 @@
               :data="row"
               :context="context"
               :viewparams="viewparams"
-              :localContext ='{ PRODUCT:"%product%" }' 
-              :localParam ='{ product:"%product%" }' 
+              :localContext ='{ N_PRODUCT_EQ:"%product%" }' 
+              :localParam ='{ n_product_eq:"%product%" }' 
               :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
               name='modulename' 
               deMajorField='name'
@@ -63,7 +63,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storyname')">
-                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.case.batchnew_grid.columns.storyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.case.batchnew_grid.columns.storyname')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.batchnew_grid.columns.storyname')}}
@@ -78,8 +78,8 @@
               :data="row"
               :context="context"
               :viewparams="viewparams"
-              :localContext ='{ N_MODULE_EQ:"%module%", SRFPARENTKEY:"%product%" }' 
-              :localParam ='{ srfparentkey:"%product%", n_module_eq:"%module%" }' 
+              :localContext ='{ N_PRODUCT_EQ:"%product%", N_MODULE_EQ:"%module%" }' 
+              :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
               :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
               name='storyname' 
               deMajorField='title'
@@ -146,14 +146,34 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('type')">
-                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.case.batchnew_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.case.batchnew_grid.columns.type')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.batchnew_grid.columns.type')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+             <dropdown-list 
+              v-model="row[column.property]" 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              :data="row" 
+              :context="context"
+              :viewparams="viewparams" 
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              tag='Testcase__type' 
+              codelistType='STATIC'
+              placeholder='请选择...' 
+              style="" 
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+             </dropdown-list>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
             <codelist :value="row.type" tag='Testcase__type' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
