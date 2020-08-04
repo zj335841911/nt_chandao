@@ -249,7 +249,7 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-batch-new-grid-view', 
-                height: 800, 
+                height: 700, 
                 width: 1200,  
                 title: actionContext.$t('entities.case.views.batchnewgridview.title'),
             };

@@ -155,8 +155,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%" }' 
+  :localContext ='{ N_ROOT_EQ:"%product%" }' 
+  :localParam ='{ n_root_eq:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename'
   deMajorField='name'
@@ -180,8 +180,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ N_PRODUCT_EQ:"%product%", N_MODULE_EQ:"%module%" }' 
+  :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'

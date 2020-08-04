@@ -102,7 +102,7 @@ export default class CurCaseVersion {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.casestepService.FetchVersion(context, data, isloading);
+            const promise: Promise<any> = this.casestepService.FetchVersions(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

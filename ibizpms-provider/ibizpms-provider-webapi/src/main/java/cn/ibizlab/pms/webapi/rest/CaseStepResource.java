@@ -202,6 +202,29 @@ public class CaseStepResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据测试用例获取版本1")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchversions")
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据测试用例查询版本1")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchversions")
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据产品测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps")
@@ -354,6 +377,29 @@ public class CaseStepResource {
 	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据产品测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据产品测试用例获取版本1")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchversions")
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据产品测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据产品测试用例查询版本1")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchversions")
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -512,6 +558,29 @@ public class CaseStepResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据需求测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据需求测试用例获取版本1")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchversions")
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据需求测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据需求测试用例查询版本1")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchversions")
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据产品需求测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps")
@@ -664,6 +733,29 @@ public class CaseStepResource {
 	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据产品需求测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取版本1")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchversions")
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "根据产品需求测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询版本1")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchversions")
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
