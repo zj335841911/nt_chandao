@@ -96,34 +96,6 @@ export default class ProductPlanServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans?res.data.subproductplans:[]));
         
         return res;
-        if(context.product && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans?res.data.subproductplans:[]));
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans?res.data.subproductplans:[]));
-        
-        return res;
     }
 
     /**
@@ -136,18 +108,6 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
-            
-            return res;
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -178,12 +138,6 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
             return res;
-        if(context.product && context.productplan){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
-            return res;
-        }
-            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
-            return res;
     }
 
     /**
@@ -204,14 +158,6 @@ export default class ProductPlanServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
             
             return res;
-        if(context.product && context.productplan){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
-            
-            return res;
     }
 
     /**
@@ -224,16 +170,6 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
-            res.data.productplan = data.productplan;
-            
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
-        res.data.productplan = data.productplan;
-        
-        return res;
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
             res.data.productplan = data.productplan;
@@ -265,15 +201,6 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
             return res;
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
-            return res;
     }
 
     /**
@@ -286,15 +213,6 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
-            return res;
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -325,15 +243,6 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
             return res;
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
-            return res;
     }
 
     /**
@@ -355,15 +264,6 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
             return res;
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkbug`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
-            return res;
     }
 
     /**
@@ -376,15 +276,6 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkstory`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
-            return res;
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -418,18 +309,6 @@ export default class ProductPlanServiceBase extends EntityService {
             let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
             
             return res;
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
-            
-            return res;
     }
 
     /**
@@ -451,15 +330,6 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
             return res;
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkbug`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
-            return res;
     }
 
     /**
@@ -472,15 +342,6 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkstory`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
-            return res;
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);

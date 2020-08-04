@@ -94,32 +94,6 @@ export default class BurnServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/burns`,data,isloading);
         
         return res;
-        if(context.project && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/burns`,data,isloading);
-        
-        return res;
     }
 
     /**
@@ -132,18 +106,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/projects/${context.project}/burns/${context.burn}`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/burns/${context.burn}`,data,isloading);
-            
-            return res;
         if(context.project && context.burn){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -174,12 +136,6 @@ export default class BurnServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/burns/${context.burn}`,isloading);
             return res;
-        if(context.project && context.burn){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
-            return res;
-        }
-            let res:any = Http.getInstance().delete(`/burns/${context.burn}`,isloading);
-            return res;
     }
 
     /**
@@ -200,14 +156,6 @@ export default class BurnServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/burns/${context.burn}`,isloading);
             
             return res;
-        if(context.project && context.burn){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/burns/${context.burn}`,isloading);
-            
-            return res;
     }
 
     /**
@@ -220,16 +168,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,isloading);
-            res.data.burn = data.burn;
-            
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/burns/getdraft`,isloading);
-        res.data.burn = data.burn;
-        
-        return res;
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,isloading);
             res.data.burn = data.burn;
@@ -261,15 +199,6 @@ export default class BurnServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
             return res;
-        if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/checkkey`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
-            return res;
     }
 
     /**
@@ -291,15 +220,6 @@ export default class BurnServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
             return res;
-        if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/computeburn`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
-            return res;
     }
 
     /**
@@ -312,18 +232,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/save`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/burns/${context.burn}/save`,data,isloading);
-            
-            return res;
         if(context.project && context.burn){
             let masterData:any = {};
             Object.assign(data,masterData);

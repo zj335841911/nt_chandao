@@ -94,32 +94,6 @@ export default class HistoryServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/histories`,data,isloading);
         
         return res;
-        if(context.action && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/actions/${context.action}/histories`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/histories`,data,isloading);
-        
-        return res;
     }
 
     /**
@@ -132,18 +106,6 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.action && context.history){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/actions/${context.action}/histories/${context.history}`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/histories/${context.history}`,data,isloading);
-            
-            return res;
         if(context.action && context.history){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -174,12 +136,6 @@ export default class HistoryServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/histories/${context.history}`,isloading);
             return res;
-        if(context.action && context.history){
-            let res:any = Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
-            return res;
-        }
-            let res:any = Http.getInstance().delete(`/histories/${context.history}`,isloading);
-            return res;
     }
 
     /**
@@ -200,14 +156,6 @@ export default class HistoryServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/histories/${context.history}`,isloading);
             
             return res;
-        if(context.action && context.history){
-            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/${context.history}`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/histories/${context.history}`,isloading);
-            
-            return res;
     }
 
     /**
@@ -220,16 +168,6 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.action && true){
-            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
-            res.data.history = data.history;
-            
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/histories/getdraft`,isloading);
-        res.data.history = data.history;
-        
-        return res;
         if(context.action && true){
             let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
             res.data.history = data.history;
@@ -261,15 +199,6 @@ export default class HistoryServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/histories/${context.history}/checkkey`,data,isloading);
             return res;
-        if(context.action && context.history){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/actions/${context.action}/histories/${context.history}/checkkey`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/histories/${context.history}/checkkey`,data,isloading);
-            return res;
     }
 
     /**
@@ -282,18 +211,6 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.action && context.history){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/actions/${context.action}/histories/${context.history}/save`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/histories/${context.history}/save`,data,isloading);
-            
-            return res;
         if(context.action && context.history){
             let masterData:any = {};
             Object.assign(data,masterData);
