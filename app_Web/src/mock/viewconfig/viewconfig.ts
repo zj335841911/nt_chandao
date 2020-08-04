@@ -791,6 +791,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskTaskTypeGanttView",
             "viewtag": "5ef23f01b2cffa48351b3272dfeeaf14"
         },
+        "taskworkhoursview": {
+            "title": "转交任务",
+            "caption": "转交任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskWorkHoursView",
+            "viewtag": "5f063c226812206f8262566387a0b6a5"
+        },
         "storymainview9_storyspec": {
             "title": "需求编辑视图",
             "caption": "需求",

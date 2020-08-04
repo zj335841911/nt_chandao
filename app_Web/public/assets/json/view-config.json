@@ -979,6 +979,16 @@
         "viewtag": "5ef23f01b2cffa48351b3272dfeeaf14",
         "memo": ""
     },
+    "taskworkhoursview": {
+        "title": "转交任务",
+        "caption": "转交任务",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskWorkHoursView",
+        "viewfilename": "task-work-hours-view",
+        "viewtag": "5f063c226812206f8262566387a0b6a5",
+        "memo": ""
+    },
     "storymainview9_storyspec": {
         "title": "需求编辑视图",
         "caption": "需求",

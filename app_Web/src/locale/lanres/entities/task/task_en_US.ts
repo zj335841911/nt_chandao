@@ -100,6 +100,10 @@ export default {
 			caption: "任务",
       		title: "任务甘特视图",
 		},
+		workhoursview: {
+			caption: "转交任务",
+      		title: "转交任务",
+		},
 		pivottableview: {
 			caption: "任务",
       		title: "任务表格视图",
@@ -297,7 +301,6 @@ export default {
 	taskestimate_form: {
 		details: {
 			druipart1: "", 
-			button1: "保存", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 
@@ -311,7 +314,6 @@ export default {
 			name: "", 
 		},
 		uiactions: {
-        task_recordestimate: "保存",
 		},
 	},
 	closepausecancelform_form: {
@@ -625,12 +627,6 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	wheditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -745,6 +741,12 @@ export default {
 		tbitem18: {
 			caption: "Help",
 			tip: "Help",
+		},
+	},
+	wheditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 };
