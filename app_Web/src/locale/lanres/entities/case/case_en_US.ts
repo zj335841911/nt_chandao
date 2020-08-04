@@ -57,6 +57,10 @@ export default {
 			caption: "测试用例",
       		title: "功能测试编辑视图",
 		},
+		optionview: {
+			caption: "执行",
+      		title: "测试用例选项操作视图",
+		},
 		gridview9_my: {
 			caption: "测试用例",
       		title: "测试用例表格视图",
@@ -261,6 +265,25 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			title: "用例标题", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	maincarry_form: {
+		details: {
+			druipart1: "用例步骤", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			precondition: "前置条件", 
 			id: "用例编号", 
 		},
 		uiactions: {
