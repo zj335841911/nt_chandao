@@ -48,7 +48,6 @@ export default class IBZTaskTeamServiceBase extends EntityService {
      * @memberof IBZTaskTeamServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // FetchDefault ---FETCH
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
@@ -72,7 +71,6 @@ export default class IBZTaskTeamServiceBase extends EntityService {
      * @memberof IBZTaskTeamServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // FetchTempDefault ---FETCHTEMP
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);

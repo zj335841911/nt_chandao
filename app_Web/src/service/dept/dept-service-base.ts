@@ -48,7 +48,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/depts/${context.dept}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -89,7 +87,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/depts/${context.dept}`,data,isloading);
@@ -107,7 +104,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/depts/${context.dept}`,isloading);
             return res;
     }
@@ -122,7 +118,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/depts/${context.dept}`,isloading);
             
             return res;
@@ -138,7 +133,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/depts/getdraft`,isloading);
         res.data.dept = data.dept;
         
@@ -155,7 +149,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/depts/${context.dept}/checkkey`,data,isloading);
             return res;
     }
@@ -170,7 +163,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/depts/${context.dept}/save`,data,isloading);
@@ -188,7 +180,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/depts/fetchdefault`,tempData,isloading);
         return res;
@@ -204,7 +195,6 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/depts/fetchroot`,tempData,isloading);
         return res;

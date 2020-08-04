@@ -48,7 +48,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testreport){
             let res:any = Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/select`,isloading);
             
@@ -69,7 +68,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -108,7 +106,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -133,7 +130,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testreport){
             let res:any = Http.getInstance().delete(`/products/${context.product}/testreports/${context.testreport}`,isloading);
             return res;
@@ -152,7 +148,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testreport){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}`,isloading);
             
@@ -173,7 +168,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/getdraft`,isloading);
             res.data.testreport = data.testreport;
@@ -196,7 +190,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -218,7 +211,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -243,7 +235,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testreports/fetchdefault`,tempData,isloading);

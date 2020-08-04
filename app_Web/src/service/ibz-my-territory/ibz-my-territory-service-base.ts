@@ -48,7 +48,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/ibzmyterritories/${context.ibzmyterritory}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -89,7 +87,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/ibzmyterritories/${context.ibzmyterritory}`,data,isloading);
@@ -107,7 +104,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/ibzmyterritories/${context.ibzmyterritory}`,isloading);
             return res;
     }
@@ -122,7 +118,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/ibzmyterritories/${context.ibzmyterritory}`,isloading);
             
             return res;
@@ -138,7 +133,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/ibzmyterritories/getdraft`,isloading);
         res.data.ibzmyterritory = data.ibzmyterritory;
         
@@ -155,7 +149,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/ibzmyterritories/${context.ibzmyterritory}/checkkey`,data,isloading);
             return res;
     }
@@ -170,7 +163,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/ibzmyterritories/${context.ibzmyterritory}/save`,data,isloading);
@@ -188,7 +180,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzmyterritories/fetchdefault`,tempData,isloading);
         return res;
@@ -204,7 +195,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async FetchMyWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmywork`,tempData,isloading);
         return res;
@@ -220,7 +210,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async FetchWelcome(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzmyterritories/fetchwelcome`,tempData,isloading);
         return res;

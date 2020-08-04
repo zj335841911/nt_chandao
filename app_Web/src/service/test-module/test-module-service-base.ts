@@ -48,7 +48,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let res:any = Http.getInstance().get(`/products/${context.product}/testmodules/${context.testmodule}/select`,isloading);
             
@@ -69,7 +68,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -108,7 +106,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -133,7 +130,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let res:any = Http.getInstance().delete(`/products/${context.product}/testmodules/${context.testmodule}`,isloading);
             return res;
@@ -152,7 +148,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testmodules/${context.testmodule}`,isloading);
             
@@ -173,7 +168,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testmodules/getdraft`,isloading);
             res.data.testmodule = data.testmodule;
@@ -196,7 +190,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -218,7 +211,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -240,7 +232,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.testmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -265,7 +256,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testmodules/fetchbypath`,tempData,isloading);
@@ -286,7 +276,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testmodules/fetchdefault`,tempData,isloading);
@@ -307,7 +296,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testmodules/fetchroot`,tempData,isloading);
@@ -328,7 +316,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testmodules/fetchroot_nobranch`,tempData,isloading);
@@ -349,7 +336,6 @@ export default class TestModuleServiceBase extends EntityService {
      * @memberof TestModuleServiceBase
      */
     public async FetchTestModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testmodules/fetchtestmodule`,tempData,isloading);

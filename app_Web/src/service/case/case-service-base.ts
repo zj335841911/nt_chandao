@@ -48,7 +48,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/select`,isloading);
             
@@ -79,7 +78,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let masterData:any = {};
         let casestepsData:any = [];
@@ -282,7 +280,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let masterData:any = {};
         let casestepsData:any = [];
@@ -457,7 +454,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
             return res;
@@ -484,7 +480,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
@@ -523,7 +518,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/getdraft`,isloading);
             res.data.case = data.case;
@@ -566,7 +560,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let masterData:any = {};
         let casestepsData:any = [];
@@ -704,7 +697,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async RunCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let masterData:any = {};
         let casestepsData:any = [];
@@ -842,7 +834,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.case){
             let masterData:any = {};
         let casestepsData:any = [];
@@ -1017,7 +1008,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
@@ -1048,7 +1038,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
@@ -1079,7 +1068,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
@@ -1110,7 +1098,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async BugCreateCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // URI参数传递情况未实现
         // URI参数传递情况未实现
         // URI参数传递情况未实现
@@ -1127,7 +1114,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
             return res;
@@ -1154,7 +1140,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
             return res;
@@ -1181,7 +1166,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
             return res;

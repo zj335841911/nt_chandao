@@ -48,7 +48,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
@@ -81,7 +80,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -150,7 +148,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -191,7 +188,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
@@ -220,7 +216,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             
@@ -253,7 +248,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/getdraft`,isloading);
             res.data.subtask = data.subtask;
@@ -290,7 +284,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -331,7 +324,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -372,7 +364,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Cancel(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -413,7 +404,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -454,7 +444,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -495,7 +484,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async DeleteEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -536,7 +524,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async EditEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -577,7 +564,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -618,7 +604,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Pause(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -659,7 +644,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async RecordEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -700,7 +684,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Restart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -741,7 +724,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -782,7 +764,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && context.subtask){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -823,7 +804,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
@@ -856,7 +836,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
@@ -889,7 +868,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
@@ -922,7 +900,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
@@ -955,7 +932,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
@@ -988,7 +964,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
@@ -1021,7 +996,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // URI参数传递情况未实现
         // URI参数传递情况未实现
         // URI参数传递情况未实现
@@ -1038,7 +1012,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
             return res;
@@ -1067,7 +1040,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
             return res;
@@ -1096,7 +1068,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
             return res;
@@ -1125,7 +1096,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
             return res;
@@ -1154,7 +1124,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
             return res;
@@ -1183,7 +1152,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story && context.task && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
             return res;

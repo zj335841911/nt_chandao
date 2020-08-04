@@ -48,7 +48,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/groups/${context.group}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -89,7 +87,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/groups/${context.group}`,data,isloading);
@@ -107,7 +104,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/groups/${context.group}`,isloading);
             return res;
     }
@@ -122,7 +118,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/groups/${context.group}`,isloading);
             
             return res;
@@ -138,7 +133,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/groups/getdraft`,isloading);
         res.data.group = data.group;
         
@@ -155,7 +149,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/groups/${context.group}/checkkey`,data,isloading);
             return res;
     }
@@ -170,7 +163,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/groups/${context.group}/save`,data,isloading);
@@ -188,7 +180,6 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/groups/fetchdefault`,tempData,isloading);
         return res;

@@ -48,7 +48,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/productlines/${context.productline}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -89,7 +87,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productlines/${context.productline}`,data,isloading);
@@ -107,7 +104,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/productlines/${context.productline}`,isloading);
             return res;
     }
@@ -122,7 +118,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/productlines/${context.productline}`,isloading);
             
             return res;
@@ -138,7 +133,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/productlines/getdraft`,isloading);
         res.data.productline = data.productline;
         
@@ -155,7 +149,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/productlines/${context.productline}/checkkey`,data,isloading);
             return res;
     }
@@ -170,7 +163,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productlines/${context.productline}/save`,data,isloading);
@@ -188,7 +180,6 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productlines/fetchdefault`,tempData,isloading);
         return res;

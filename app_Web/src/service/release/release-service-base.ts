@@ -48,7 +48,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let res:any = Http.getInstance().get(`/products/${context.product}/releases/${context.release}/select`,isloading);
             
@@ -69,7 +68,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -108,7 +106,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -133,7 +130,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let res:any = Http.getInstance().delete(`/products/${context.product}/releases/${context.release}`,isloading);
             return res;
@@ -152,7 +148,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let res:any = await Http.getInstance().get(`/products/${context.product}/releases/${context.release}`,isloading);
             
@@ -173,7 +168,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/releases/getdraft`,isloading);
             res.data.release = data.release;
@@ -196,7 +190,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -218,7 +211,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -240,7 +232,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async ChangeStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -262,7 +253,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -284,7 +274,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -306,7 +295,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async LinkBugbyBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -328,7 +316,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async LinkBugbyLeftBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -350,7 +337,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -375,7 +361,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async Terminate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -397,7 +382,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -419,7 +403,6 @@ export default class ReleaseServiceBase extends EntityService {
      * @memberof ReleaseServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/releases/fetchdefault`,tempData,isloading);

@@ -48,7 +48,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/productstats/${context.productstats}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -89,7 +87,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productstats/${context.productstats}`,data,isloading);
@@ -107,7 +104,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
             return res;
     }
@@ -122,7 +118,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}`,isloading);
             
             return res;
@@ -138,7 +133,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/productstats/getdraft`,isloading);
         res.data.productstats = data.productstats;
         
@@ -155,7 +149,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
             return res;
     }
@@ -170,7 +163,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async GetTestStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}/getteststats`,isloading);
             
             return res;
@@ -186,7 +178,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productstats/${context.productstats}/save`,data,isloading);
@@ -204,7 +195,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productstats/fetchdefault`,tempData,isloading);
         return res;
