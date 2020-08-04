@@ -9,6 +9,13 @@ export default {
         "closed": "已关闭",
         "empty": "",
     },
+    Testresult__result: {
+        "n/a": "忽略",
+        "pass": "通过",
+        "fail": "失败",
+        "blocked": "阻塞",
+        "empty": "",
+    },
     Story__closed_reason: {
         "done": "已完成",
         "subdivided": "已细分",

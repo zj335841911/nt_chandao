@@ -65,6 +65,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Testresult__result",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "n/a",
+                label: "忽略",
+                text: "忽略",
+                "data":"",
+                "codename":"N_a",
+                value: "n/a",
+                
+                disabled: false,
+            },
+            {
+                id: "pass",
+                label: "通过",
+                text: "通过",
+                "data":"",
+                "codename":"Pass",
+                value: "pass",
+                
+                disabled: false,
+            },
+            {
+                id: "fail",
+                label: "失败",
+                text: "失败",
+                "data":"",
+                "codename":"Fail",
+                value: "fail",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "阻塞",
+                text: "阻塞",
+                "data":"",
+                "codename":"Blocked",
+                value: "blocked",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Story__closed_reason",
         emptytext: "未定义",
         "codelisttype":"static",

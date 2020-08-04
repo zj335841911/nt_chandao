@@ -7,6 +7,9 @@ export default {
     version: "用例版本",
     ibizcase: "用例",
     parent: "分组用例步骤的组编号",
+    reals: "实际情况",
+    steps: "测试结果",
+    files: "附件",
   },
 	views: {
 		maingridview9_editmode: {
