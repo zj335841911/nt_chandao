@@ -47,6 +47,7 @@ export default class BatchNewModel {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'srfmstag',

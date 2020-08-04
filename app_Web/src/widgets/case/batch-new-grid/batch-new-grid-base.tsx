@@ -145,7 +145,7 @@ export class BatchNewGridBase extends GridControlBase {
             langtag: 'entities.case.batchnew_grid.columns.type',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
         },
     ]
 
@@ -163,6 +163,7 @@ export class BatchNewGridBase extends GridControlBase {
           module: new FormItemModel(),
           title: new FormItemModel(),
           storyname: new FormItemModel(),
+          type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -198,6 +199,10 @@ export class BatchNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
         ],
+        type: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例类型 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例类型 值不能为空', trigger: 'blur' },
+        ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'blur' },
@@ -214,7 +219,7 @@ export class BatchNewGridBase extends GridControlBase {
         'modulename':true,
         'storyname':true,
         'title':true,
-        'type':false,
+        'type':true,
     };
 
     /**
