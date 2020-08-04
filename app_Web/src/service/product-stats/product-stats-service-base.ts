@@ -75,18 +75,6 @@ export default class ProductStatsServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/productstats`,data,isloading);
         
         return res;
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/productstats`,data,isloading);
-        
-        return res;
     }
 
     /**
@@ -99,11 +87,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/productstats/${context.productstats}`,data,isloading);
-            
-            return res;
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productstats/${context.productstats}`,data,isloading);
@@ -123,8 +106,6 @@ export default class ProductStatsServiceBase extends EntityService {
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
             return res;
-            let res:any = Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
-            return res;
     }
 
     /**
@@ -137,9 +118,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/productstats/${context.productstats}`,isloading);
-            
-            return res;
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}`,isloading);
             
             return res;
@@ -159,10 +137,6 @@ export default class ProductStatsServiceBase extends EntityService {
         res.data.productstats = data.productstats;
         
         return res;
-        let res:any = await  Http.getInstance().get(`/productstats/getdraft`,isloading);
-        res.data.productstats = data.productstats;
-        
-        return res;
     }
 
     /**
@@ -175,8 +149,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
-            return res;
             let res:any = Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
             return res;
     }
@@ -194,9 +166,6 @@ export default class ProductStatsServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}/getteststats`,isloading);
             
             return res;
-            let res:any = await Http.getInstance().get(`/productstats/${context.productstats}/getteststats`,isloading);
-            
-            return res;
     }
 
     /**
@@ -209,11 +178,6 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/productstats/${context.productstats}/save`,data,isloading);
-            
-            return res;
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productstats/${context.productstats}/save`,data,isloading);

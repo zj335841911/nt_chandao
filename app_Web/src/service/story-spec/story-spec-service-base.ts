@@ -113,46 +113,6 @@ export default class StorySpecServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/storyspecs`,data,isloading);
         
         return res;
-        if(context.product && context.story && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/storyspecs`,data,isloading);
-        
-        return res;
     }
 
     /**
@@ -165,25 +125,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/stories/${context.story}/storyspecs/${context.storyspec}`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/storyspecs/${context.storyspec}`,data,isloading);
-            
-            return res;
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -225,16 +166,6 @@ export default class StorySpecServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/storyspecs/${context.storyspec}`,isloading);
             return res;
-        if(context.product && context.story && context.storyspec){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            return res;
-        }
-            let res:any = Http.getInstance().delete(`/storyspecs/${context.storyspec}`,isloading);
-            return res;
     }
 
     /**
@@ -260,19 +191,6 @@ export default class StorySpecServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/storyspecs/${context.storyspec}`,isloading);
             
             return res;
-        if(context.product && context.story && context.storyspec){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/storyspecs/${context.storyspec}`,isloading);
-            
-            return res;
     }
 
     /**
@@ -285,22 +203,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/getdraft`,isloading);
-            res.data.storyspec = data.storyspec;
-            
-            return res;
-        }
-        if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/storyspecs/getdraft`,isloading);
-            res.data.storyspec = data.storyspec;
-            
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/storyspecs/getdraft`,isloading);
-        res.data.storyspec = data.storyspec;
-        
-        return res;
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/getdraft`,isloading);
             res.data.storyspec = data.storyspec;
@@ -345,22 +247,6 @@ export default class StorySpecServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/storyspecs/${context.storyspec}/checkkey`,data,isloading);
             return res;
-        if(context.product && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            return res;
     }
 
     /**
@@ -373,25 +259,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/storyspecs/${context.storyspec}/save`,data,isloading);
-            
-            return res;
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);

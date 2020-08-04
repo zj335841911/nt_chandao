@@ -94,32 +94,6 @@ export default class TestReportServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/testreports`,data,isloading);
         
         return res;
-        if(context.product && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testreports`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/testreports`,data,isloading);
-        
-        return res;
     }
 
     /**
@@ -132,18 +106,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testreport){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/testreports/${context.testreport}`,data,isloading);
-            
-            return res;
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -174,12 +136,6 @@ export default class TestReportServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/testreports/${context.testreport}`,isloading);
             return res;
-        if(context.product && context.testreport){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/testreports/${context.testreport}`,isloading);
-            return res;
-        }
-            let res:any = Http.getInstance().delete(`/testreports/${context.testreport}`,isloading);
-            return res;
     }
 
     /**
@@ -200,14 +156,6 @@ export default class TestReportServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/testreports/${context.testreport}`,isloading);
             
             return res;
-        if(context.product && context.testreport){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/testreports/${context.testreport}`,isloading);
-            
-            return res;
     }
 
     /**
@@ -220,16 +168,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/getdraft`,isloading);
-            res.data.testreport = data.testreport;
-            
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/testreports/getdraft`,isloading);
-        res.data.testreport = data.testreport;
-        
-        return res;
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/getdraft`,isloading);
             res.data.testreport = data.testreport;
@@ -261,15 +199,6 @@ export default class TestReportServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/testreports/${context.testreport}/checkkey`,data,isloading);
             return res;
-        if(context.product && context.testreport){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testreports/${context.testreport}/checkkey`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/testreports/${context.testreport}/checkkey`,data,isloading);
-            return res;
     }
 
     /**
@@ -282,18 +211,6 @@ export default class TestReportServiceBase extends EntityService {
      * @memberof TestReportServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testreport){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testreports/${context.testreport}/save`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/testreports/${context.testreport}/save`,data,isloading);
-            
-            return res;
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);

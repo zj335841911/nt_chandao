@@ -94,32 +94,6 @@ export default class ProjectTeamServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/projectteams`,data,isloading);
         
         return res;
-        if(context.project && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectteams`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/projectteams`,data,isloading);
-        
-        return res;
     }
 
     /**
@@ -132,18 +106,6 @@ export default class ProjectTeamServiceBase extends EntityService {
      * @memberof ProjectTeamServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectteams/${context.projectteam}`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/projectteams/${context.projectteam}`,data,isloading);
-            
-            return res;
         if(context.project && context.projectteam){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -174,12 +136,6 @@ export default class ProjectTeamServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
             return res;
-        if(context.project && context.projectteam){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
-            return res;
-        }
-            let res:any = Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
-            return res;
     }
 
     /**
@@ -200,14 +156,6 @@ export default class ProjectTeamServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}`,isloading);
             
             return res;
-        if(context.project && context.projectteam){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}`,isloading);
-            
-            return res;
     }
 
     /**
@@ -220,16 +168,6 @@ export default class ProjectTeamServiceBase extends EntityService {
      * @memberof ProjectTeamServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/getdraft`,isloading);
-            res.data.projectteam = data.projectteam;
-            
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/projectteams/getdraft`,isloading);
-        res.data.projectteam = data.projectteam;
-        
-        return res;
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/getdraft`,isloading);
             res.data.projectteam = data.projectteam;
@@ -261,15 +199,6 @@ export default class ProjectTeamServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
             return res;
-        if(context.project && context.projectteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectteams/${context.projectteam}/checkkey`,data,isloading);
-            
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
-            return res;
     }
 
     /**
@@ -290,14 +219,6 @@ export default class ProjectTeamServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/getuserrole`,isloading);
             
             return res;
-        if(context.project && context.projectteam){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/getuserrole`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/getuserrole`,isloading);
-            
-            return res;
     }
 
     /**
@@ -310,18 +231,6 @@ export default class ProjectTeamServiceBase extends EntityService {
      * @memberof ProjectTeamServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectteams/${context.projectteam}/save`,data,isloading);
-            
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/projectteams/${context.projectteam}/save`,data,isloading);
-            
-            return res;
         if(context.project && context.projectteam){
             let masterData:any = {};
             Object.assign(data,masterData);
