@@ -48,6 +48,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/select`,isloading);
             
@@ -68,6 +69,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -108,6 +110,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -132,6 +135,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
             return res;
@@ -150,6 +154,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
             
@@ -170,6 +175,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
             res.data.productplan = data.productplan;
@@ -192,6 +198,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -213,6 +220,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -234,6 +242,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -255,6 +264,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -276,6 +286,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -297,6 +308,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -321,6 +333,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -342,6 +355,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -363,6 +377,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async FetchCurProductPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchcurproductplan`,tempData,isloading);
@@ -383,6 +398,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
@@ -403,6 +419,7 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async FetchProjectPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectplan`,tempData,isloading);

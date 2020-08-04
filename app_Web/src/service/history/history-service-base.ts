@@ -48,6 +48,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && context.history){
             let res:any = Http.getInstance().get(`/actions/${context.action}/histories/${context.history}/select`,isloading);
             
@@ -68,6 +69,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -106,6 +108,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && context.history){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -130,6 +133,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && context.history){
             let res:any = Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
             return res;
@@ -148,6 +152,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && context.history){
             let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/${context.history}`,isloading);
             
@@ -168,6 +173,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && true){
             let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
             res.data.history = data.history;
@@ -190,6 +196,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && context.history){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -211,6 +218,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && context.history){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -235,6 +243,7 @@ export default class HistoryServiceBase extends EntityService {
      * @memberof HistoryServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.action && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/actions/${context.action}/histories/fetchdefault`,tempData,isloading);

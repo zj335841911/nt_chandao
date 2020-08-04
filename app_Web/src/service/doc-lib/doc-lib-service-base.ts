@@ -48,6 +48,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().get(`/doclibs/${context.doclib}/select`,isloading);
             
             return res;
@@ -63,6 +64,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -87,6 +89,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/doclibs/${context.doclib}`,data,isloading);
@@ -104,6 +107,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().delete(`/doclibs/${context.doclib}`,isloading);
             return res;
     }
@@ -118,6 +122,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = await Http.getInstance().get(`/doclibs/${context.doclib}`,isloading);
             
             return res;
@@ -133,6 +138,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let res:any = await  Http.getInstance().get(`/doclibs/getdraft`,isloading);
         res.data.doclib = data.doclib;
         
@@ -149,6 +155,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().post(`/doclibs/${context.doclib}/checkkey`,data,isloading);
             return res;
     }
@@ -163,6 +170,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/doclibs/${context.doclib}/save`,data,isloading);
@@ -180,6 +188,7 @@ export default class DocLibServiceBase extends EntityService {
      * @memberof DocLibServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/doclibs/fetchdefault`,tempData,isloading);
         return res;

@@ -48,6 +48,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && context.projectproduct){
             let res:any = Http.getInstance().get(`/projects/${context.project}/projectproducts/${context.projectproduct}/select`,isloading);
             
@@ -73,6 +74,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -125,6 +127,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && context.projectproduct){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -156,6 +159,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && context.projectproduct){
             let res:any = Http.getInstance().delete(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
             return res;
@@ -178,6 +182,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && context.projectproduct){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
             
@@ -203,6 +208,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/getdraft`,isloading);
             res.data.projectproduct = data.projectproduct;
@@ -231,6 +237,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && context.projectproduct){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -259,6 +266,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && context.projectproduct){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -290,6 +298,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchdefault`,tempData,isloading);
@@ -315,6 +324,7 @@ export default class ProjectProductServiceBase extends EntityService {
      * @memberof ProjectProductServiceBase
      */
     public async FetchRelationPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchrelationplan`,tempData,isloading);

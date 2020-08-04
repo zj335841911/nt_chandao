@@ -48,6 +48,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/select`,isloading);
             
@@ -68,6 +69,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -106,6 +108,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -130,6 +133,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
             return res;
@@ -148,6 +152,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
             
@@ -168,6 +173,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
             res.data.productmodule = data.productmodule;
@@ -190,6 +196,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -211,6 +218,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -232,6 +240,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -256,6 +265,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
@@ -276,6 +286,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
@@ -296,6 +307,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
@@ -316,6 +328,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
@@ -336,6 +349,7 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchstorymodule`,tempData,isloading);
