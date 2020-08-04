@@ -246,7 +246,6 @@ export default class ProjectModuleUIServiceBase extends UIService {
                 viewname: 'project-module-quick-cfg-view', 
                 height: 350, 
                 width: 500,  
-                title: actionContext.$t('entities.projectmodule.views.quickcfgview.title'),
             };
             openPopupModal(view, data);
     }

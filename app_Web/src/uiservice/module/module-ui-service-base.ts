@@ -163,7 +163,6 @@ export default class ModuleUIServiceBase extends UIService {
                 viewname: 'module-line-grid-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.module.views.linegridview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);

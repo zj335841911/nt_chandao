@@ -1,15 +1,17 @@
 <template>
-    <i-select
-        class='dropdown-list'
-        :transfer="true"
-        v-model="currentVal"
-        :disabled="disabled === true ? true : false"
-        :clearable="true"
-        :filterable="filterable === true ? true : false"
-        @on-open-change="onClick"
-        :placeholder="$t('components.dropDownList.placeholder')">
-        <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
-    </i-select>
+    <div class='dropdown-list-container'>
+        <i-select
+            :transfer="true"
+            class='dropdown-list'
+            v-model="currentVal"
+            :disabled="disabled === true ? true : false"
+            :filterable="filterable === true ? true : false"
+            @on-open-change="onClick"
+            :placeholder="$t('components.dropDownList.placeholder')">
+            <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
+        </i-select>
+        <icon v-if="currentVal == null || currentVal == '' ? false :true" @click="clear" type="md-close" class="icon-circle" />
+    </div>
 </template>
 
 <script lang="ts">
@@ -340,6 +342,17 @@ export default class DropDownList extends Vue {
         }
     }
 
+    /**
+     * 清除事件
+     *
+     * @param {*} $event
+     * @memberof DropDownList
+     */
+    public clear($event: any){
+        if(this.currentVal) {
+            this.currentVal = null;
+        }
+    }
 }
 </script>
 <style lang='less'>

@@ -216,7 +216,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-rev-iew-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.reviewview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -240,8 +239,6 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%"});
-        Object.assign(params,{project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -282,7 +279,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-project-plan-view', 
                 height: 170, 
                 width: 600,  
-                title: actionContext.$t('entities.story.views.projectplanview.title'),
             };
             openPopupModal(view, data);
     }
@@ -507,7 +503,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-close-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.story.views.closeview.title'),
             };
             openPopupModal(view, data);
     }
@@ -570,7 +565,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-activite-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.story.views.activiteview.title'),
             };
             openPopupModal(view, data);
     }
@@ -636,7 +630,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-main-view9-edit-mode', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.mainview9_editmode.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -779,7 +772,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'case-main-new-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.case.views.mainnewview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -1081,7 +1073,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-edit-view-story-change', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.editview_storychange.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -1105,8 +1096,6 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%",SRFPARENTDENAME:"Project"});
-        Object.assign(params,{srfparentdename:"Project",project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -1147,7 +1136,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-project-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.projecteditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -1294,7 +1282,6 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-assign-to-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.story.views.assigntoview.title'),
             };
             openPopupModal(view, data);
     }

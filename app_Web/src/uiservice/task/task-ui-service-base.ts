@@ -203,7 +203,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-cancel-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.canceltaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -266,7 +265,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-assign-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.assigntaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -408,7 +406,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-open-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.opentaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -471,7 +468,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-activation-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.activationtaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -534,7 +530,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-main-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.task.views.maineditview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -598,7 +593,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-pause-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.pausetaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -661,7 +655,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-forward-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.forwardview.title'),
             };
             openPopupModal(view, data);
     }
@@ -724,7 +717,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-whedit-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.wheditview.title'),
             };
             openPopupModal(view, data);
     }
@@ -787,7 +779,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-close-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.closetaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -810,8 +801,6 @@ export default class TaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%"});
-        Object.assign(params,{project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { task: '%task%' });
@@ -850,7 +839,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-sub-task-new-view', 
                 height: 600, 
                 width: 1200,  
-                title: actionContext.$t('entities.subtask.views.subtasknewview.title'),
             };
             openPopupModal(view, data);
     }
@@ -913,7 +901,6 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-done-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.donetaskview.title'),
             };
             openPopupModal(view, data);
     }
