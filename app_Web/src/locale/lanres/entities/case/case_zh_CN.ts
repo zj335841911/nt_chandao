@@ -283,6 +283,8 @@ export default {
 			srfsourcekey: "", 
 			version: "版本#", 
 			precondition: "前置条件", 
+			resultcnt: "测试结果数", 
+			resultfalicnt: "测试失败数", 
 			id: "用例编号", 
 		},
 		uiactions: {

@@ -35,7 +35,6 @@ export default {
 	main_rowedit_carryout_grid: {
 		columns: {
 			desc: "步骤",
-			type: "类型",
 			expect: "预期",
 			steps: "测试结果",
 			reals: "实际情况",
