@@ -48,6 +48,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/select`,isloading);
             
@@ -78,6 +79,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -484,6 +486,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -862,6 +865,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}`,isloading);
             return res;
@@ -888,6 +892,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
@@ -938,6 +943,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/getdraft`,isloading);
             res.data.task = data.task;
@@ -992,6 +998,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -1282,6 +1289,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -1572,6 +1580,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Cancel(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -1862,6 +1871,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -2152,6 +2162,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -2442,6 +2453,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async DeleteEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -2732,6 +2744,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async EditEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -3022,6 +3035,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -3312,6 +3326,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Pause(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -3602,6 +3617,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async RecordEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -3892,6 +3908,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Restart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -4182,6 +4199,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -4560,6 +4578,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -4850,6 +4869,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
@@ -4880,6 +4900,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
@@ -4910,6 +4931,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchdefaultrow`,tempData,isloading);
@@ -4940,6 +4962,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
@@ -4970,6 +4993,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchroottask`,tempData,isloading);
@@ -5000,6 +5024,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,tempData,isloading);
@@ -5030,6 +5055,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         // URI参数传递情况未实现
         // URI参数传递情况未实现
         // URI参数传递情况未实现
@@ -5046,6 +5072,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
             return res;
@@ -5072,6 +5099,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
             return res;
@@ -5098,6 +5126,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
             return res;
@@ -5124,6 +5153,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
             return res;
@@ -5150,6 +5180,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
             return res;
@@ -5176,6 +5207,7 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
             return res;

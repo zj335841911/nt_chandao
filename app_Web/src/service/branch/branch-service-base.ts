@@ -48,6 +48,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let res:any = Http.getInstance().get(`/products/${context.product}/branches/${context.branch}/select`,isloading);
             
@@ -68,6 +69,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -106,6 +108,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -130,6 +133,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let res:any = Http.getInstance().delete(`/products/${context.product}/branches/${context.branch}`,isloading);
             return res;
@@ -148,6 +152,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let res:any = await Http.getInstance().get(`/products/${context.product}/branches/${context.branch}`,isloading);
             
@@ -168,6 +173,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/branches/getdraft`,isloading);
             res.data.branch = data.branch;
@@ -190,6 +196,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -211,6 +218,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -235,6 +243,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async Sort(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.branch){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -256,6 +265,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async FetchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/branches/fetchcurproduct`,tempData,isloading);
@@ -276,6 +286,7 @@ export default class BranchServiceBase extends EntityService {
      * @memberof BranchServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/branches/fetchdefault`,tempData,isloading);

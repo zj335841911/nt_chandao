@@ -48,6 +48,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().get(`/testresults/${context.testresult}/select`,isloading);
             
             return res;
@@ -63,6 +64,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -87,6 +89,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/testresults/${context.testresult}`,data,isloading);
@@ -104,6 +107,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().delete(`/testresults/${context.testresult}`,isloading);
             return res;
     }
@@ -118,6 +122,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = await Http.getInstance().get(`/testresults/${context.testresult}`,isloading);
             
             return res;
@@ -133,6 +138,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let res:any = await  Http.getInstance().get(`/testresults/getdraft`,isloading);
         res.data.testresult = data.testresult;
         
@@ -149,6 +155,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().post(`/testresults/${context.testresult}/checkkey`,data,isloading);
             return res;
     }
@@ -163,6 +170,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/testresults/${context.testresult}/save`,data,isloading);
@@ -180,6 +188,7 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/testresults/fetchdefault`,tempData,isloading);
         return res;

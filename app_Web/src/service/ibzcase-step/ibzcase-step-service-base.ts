@@ -48,6 +48,7 @@ export default class IBZCaseStepServiceBase extends EntityService {
      * @memberof IBZCaseStepServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         // FetchDefault ---FETCH
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
@@ -71,6 +72,7 @@ export default class IBZCaseStepServiceBase extends EntityService {
      * @memberof IBZCaseStepServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         // FetchTempDefault ---FETCHTEMP
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
@@ -94,6 +96,7 @@ export default class IBZCaseStepServiceBase extends EntityService {
      * @memberof IBZCaseStepServiceBase
      */
     public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         // FetchVersion ---FETCH
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
@@ -117,6 +120,7 @@ export default class IBZCaseStepServiceBase extends EntityService {
      * @memberof IBZCaseStepServiceBase
      */
     public async FetchTempVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         // FetchTempVersion ---FETCHTEMP
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);

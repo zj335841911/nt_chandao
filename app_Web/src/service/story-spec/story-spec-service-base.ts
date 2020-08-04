@@ -48,6 +48,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.storyspec){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/select`,isloading);
             
@@ -73,6 +74,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -125,6 +127,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -156,6 +159,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.storyspec){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
             return res;
@@ -178,6 +182,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.storyspec){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
             
@@ -203,6 +208,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/getdraft`,isloading);
             res.data.storyspec = data.storyspec;
@@ -231,6 +237,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -259,6 +266,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -290,6 +298,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchdefault`,tempData,isloading);
@@ -315,6 +324,7 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);

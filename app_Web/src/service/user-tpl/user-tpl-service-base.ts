@@ -48,6 +48,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().get(`/usertpls/${context.usertpl}/select`,isloading);
             
             return res;
@@ -63,6 +64,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -87,6 +89,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/usertpls/${context.usertpl}`,data,isloading);
@@ -104,6 +107,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().delete(`/usertpls/${context.usertpl}`,isloading);
             return res;
     }
@@ -118,6 +122,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = await Http.getInstance().get(`/usertpls/${context.usertpl}`,isloading);
             
             return res;
@@ -133,6 +138,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let res:any = await  Http.getInstance().get(`/usertpls/getdraft`,isloading);
         res.data.usertpl = data.usertpl;
         
@@ -149,6 +155,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().post(`/usertpls/${context.usertpl}/checkkey`,data,isloading);
             return res;
     }
@@ -163,6 +170,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/usertpls/${context.usertpl}/save`,data,isloading);
@@ -180,6 +188,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/usertpls/fetchdefault`,tempData,isloading);
         return res;

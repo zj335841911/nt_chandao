@@ -48,6 +48,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().get(`/projectstats/${context.projectstats}/select`,isloading);
             
             return res;
@@ -63,6 +64,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -87,6 +89,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/projectstats/${context.projectstats}`,data,isloading);
@@ -104,6 +107,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().delete(`/projectstats/${context.projectstats}`,isloading);
             return res;
     }
@@ -118,6 +122,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = await Http.getInstance().get(`/projectstats/${context.projectstats}`,isloading);
             
             return res;
@@ -133,6 +138,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let res:any = await  Http.getInstance().get(`/projectstats/getdraft`,isloading);
         res.data.projectstats = data.projectstats;
         
@@ -149,6 +155,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
             let res:any = Http.getInstance().post(`/projectstats/${context.projectstats}/checkkey`,data,isloading);
             return res;
     }
@@ -163,6 +170,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/projectstats/${context.projectstats}/save`,data,isloading);
@@ -180,6 +188,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projectstats/fetchdefault`,tempData,isloading);
         return res;
@@ -195,6 +204,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async FetchTaskTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projectstats/fetchtasktime`,tempData,isloading);
         return res;

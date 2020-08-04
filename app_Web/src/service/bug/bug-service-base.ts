@@ -49,6 +49,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/select`,isloading);
             
@@ -84,6 +85,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -164,6 +166,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -209,6 +212,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
             return res;
@@ -239,6 +243,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
             
@@ -274,6 +279,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
@@ -329,6 +335,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -371,6 +378,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -413,6 +421,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -455,6 +464,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async BuildBatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -497,6 +507,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async BuildLinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -539,6 +550,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async BuildUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -581,6 +593,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -623,6 +636,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -665,6 +679,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Confirm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -707,6 +722,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -749,6 +765,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async ReleaaseBatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -791,6 +808,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async ReleaseLinkBugbyBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -833,6 +851,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async ReleaseLinkBugbyLeftBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -875,6 +894,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async ReleaseUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -917,6 +937,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Resolve(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -959,6 +980,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -1004,6 +1026,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async ToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -1046,6 +1069,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -1088,6 +1112,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchBuildBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
@@ -1123,6 +1148,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchBuildLinkResolvedBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
@@ -1158,6 +1184,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchBuildOpenBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
@@ -1193,6 +1220,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
@@ -1228,6 +1256,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchReleaseBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
@@ -1263,6 +1292,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchReleaseLeftBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
@@ -1298,6 +1328,7 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchReportBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // aaa
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
