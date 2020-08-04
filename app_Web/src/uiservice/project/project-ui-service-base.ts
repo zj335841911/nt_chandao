@@ -278,6 +278,7 @@ export default class ProjectUIServiceBase extends UIService {
                 viewname: 'project-main-view-edit', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.project.views.mainview_edit.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -381,6 +382,7 @@ export default class ProjectUIServiceBase extends UIService {
                 viewname: 'project-edit-view-activate', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.project.views.editview_activate.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -439,6 +441,7 @@ export default class ProjectUIServiceBase extends UIService {
                 viewname: 'project-edit-view-putoff', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.project.views.editview_putoff.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -497,6 +500,7 @@ export default class ProjectUIServiceBase extends UIService {
                 viewname: 'project-edit-view-close', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.project.views.editview_close.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -555,6 +559,7 @@ export default class ProjectUIServiceBase extends UIService {
                 viewname: 'project-edit-view-suspend', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.project.views.editview_suspend.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

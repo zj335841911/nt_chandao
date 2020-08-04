@@ -999,6 +999,36 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchBatchNew接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchbatchnew`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchbatchnew`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchCurSuite接口方法
      *
      * @param {*} [context={}]
@@ -1102,6 +1132,32 @@ export default class CaseServiceBase extends EntityService {
         // URI参数传递情况未实现
         // URI参数传递情况未实现
         // URI参数传递情况未实现
+    }
+
+    /**
+     * FetchTempBatchNew接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,data,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
+        return res;
     }
 
     /**

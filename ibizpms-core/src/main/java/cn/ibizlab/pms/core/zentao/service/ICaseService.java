@@ -37,6 +37,7 @@ public interface ICaseService extends IService<Case>{
     Case runCase(Case et) ;
     boolean save(Case et) ;
     void saveBatch(List<Case> list) ;
+    Page<Case> searchBatchNew(CaseSearchContext context) ;
     Page<Case> searchCurSuite(CaseSearchContext context) ;
     Page<Case> searchCurTestTask(CaseSearchContext context) ;
     Page<Case> searchDefault(CaseSearchContext context) ;

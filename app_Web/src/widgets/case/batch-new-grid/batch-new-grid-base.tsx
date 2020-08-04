@@ -121,7 +121,7 @@ export class BatchNewGridBase extends GridControlBase {
             langtag: 'entities.case.batchnew_grid.columns.modulename',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
         },
         {
             name: 'storyname',
@@ -129,7 +129,7 @@ export class BatchNewGridBase extends GridControlBase {
             langtag: 'entities.case.batchnew_grid.columns.storyname',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
         },
         {
             name: 'title',
@@ -157,7 +157,12 @@ export class BatchNewGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
+          product: new FormItemModel(),
+          story: new FormItemModel(),
+          modulename: new FormItemModel(),
+          module: new FormItemModel(),
           title: new FormItemModel(),
+          storyname: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -169,9 +174,29 @@ export class BatchNewGridBase extends GridControlBase {
      * @memberof BatchNewGridBase
      */
     public rules: any = {
+        product: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        modulename: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
+        module: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例标题 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例标题 值不能为空', trigger: 'blur' },
+        ],
+        storyname: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
@@ -186,8 +211,8 @@ export class BatchNewGridBase extends GridControlBase {
      * @memberof BatchNewBase
      */
     public hasRowEdit: any = {
-        'modulename':false,
-        'storyname':false,
+        'modulename':true,
+        'storyname':true,
         'title':true,
         'type':false,
     };
@@ -226,4 +251,15 @@ export class BatchNewGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof BatchNewGridBase
+     */
+    public createDefault(row: any): void {
+        if (row.hasOwnProperty('product')) {
+            row['product'] = this.viewparams['product'];
+        }
+    }
 }

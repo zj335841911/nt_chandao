@@ -192,6 +192,7 @@ export default class ProductUIServiceBase extends UIService {
                 viewname: 'product-main-view-edit', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.product.views.mainview_edit.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -247,6 +248,7 @@ export default class ProductUIServiceBase extends UIService {
                 viewname: 'module-line-grid-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.module.views.linegridview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -353,6 +355,7 @@ export default class ProductUIServiceBase extends UIService {
                 viewname: 'product-edit-view-close', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.product.views.editview_close.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

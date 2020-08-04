@@ -280,6 +280,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'bug-assing-to-view', 
                 height: 600, 
                 width: 800,  
+                title: actionContext.$t('entities.bug.views.assingtoview.title'),
             };
             openPopupModal(view, data);
     }
@@ -422,6 +423,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'bug-close-view', 
                 height: 600, 
                 width: 800,  
+                title: actionContext.$t('entities.bug.views.closeview.title'),
             };
             openPopupModal(view, data);
     }
@@ -563,6 +565,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'bug-main-edit-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.bug.views.maineditview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -626,6 +629,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'storyto-story-edit-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.story.views.tostoryeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -848,6 +852,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'case-main-new-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.case.views.mainnewview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -911,6 +916,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'bug-confirm-view', 
                 height: 600, 
                 width: 800,  
+                title: actionContext.$t('entities.bug.views.confirmview.title'),
             };
             openPopupModal(view, data);
     }
@@ -973,6 +979,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'bug-resolve-view', 
                 height: 600, 
                 width: 800,  
+                title: actionContext.$t('entities.bug.views.resolveview.title'),
             };
             openPopupModal(view, data);
     }
@@ -1035,6 +1042,7 @@ export default class BugUIServiceBase extends UIService {
                 viewname: 'bug-activation-view', 
                 height: 600, 
                 width: 800,  
+                title: actionContext.$t('entities.bug.views.activationview.title'),
             };
             openPopupModal(view, data);
     }
