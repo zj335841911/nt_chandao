@@ -277,45 +277,30 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         if(context.story && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         let res:any = await  Http.getInstance().get(`/bugs/getdraft`,isloading);
         res.data.bug = data.bug;
-            let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+        
         return res;
     }
 
