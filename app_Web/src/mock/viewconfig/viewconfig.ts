@@ -247,6 +247,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleEditView",
             "viewtag": "2671388d4c12a6f139e6fd806c524dc7"
         },
+        "caseoptionview": {
+            "title": "测试用例选项操作视图",
+            "caption": "执行",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseOptionView",
+            "viewtag": "27e6b14e0243582fc67753b58a64066d"
+        },
         "projecteditview_putoff": {
             "title": "项目",
             "caption": "项目",
