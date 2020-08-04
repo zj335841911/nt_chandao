@@ -48,7 +48,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/select`,isloading);
             
@@ -69,7 +68,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let masterData:any = {};
         let casesData:any = [];
@@ -180,7 +178,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -273,7 +270,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}`,isloading);
             return res;
@@ -292,7 +288,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
@@ -317,7 +312,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
             res.data.story = data.story;
@@ -344,7 +338,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -400,7 +393,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -456,7 +448,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchAssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -512,7 +503,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchChangeBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -568,7 +558,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchChangeModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -624,7 +613,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchChangePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -680,7 +668,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchChangeStage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -736,7 +723,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchClose(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -792,7 +778,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchReview(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -848,7 +833,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -904,7 +888,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BugToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -960,7 +943,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BuildBatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1016,7 +998,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BuildLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1072,7 +1053,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BuildUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1128,7 +1108,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Change(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1184,7 +1163,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1240,7 +1218,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1296,7 +1273,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async GetStorySpec(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1352,7 +1328,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ImportPlanStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1408,7 +1383,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1464,7 +1438,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ProjectBatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1520,7 +1493,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ProjectLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1576,7 +1548,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ProjectUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1632,7 +1603,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ReleaseBatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1688,7 +1658,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ReleaseLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1744,7 +1713,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ReleaseUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1800,7 +1768,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ResetReviewedBy(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1856,7 +1823,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Review(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -1912,7 +1878,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -2005,7 +1970,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -2061,7 +2025,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchBuildLinkCompletedStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbuildlinkcompletedstories`,tempData,isloading);
@@ -2082,7 +2045,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchBuildLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbuildlinkablestories`,tempData,isloading);
@@ -2103,7 +2065,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchBuildStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbuildstories`,tempData,isloading);
@@ -2124,7 +2085,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbymodule`,tempData,isloading);
@@ -2145,7 +2105,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchdefault`,tempData,isloading);
@@ -2166,7 +2125,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchGetProductStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchgetproductstories`,tempData,isloading);
@@ -2187,7 +2145,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchProjectLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchprojectlinkstory`,tempData,isloading);
@@ -2208,7 +2165,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchProjectStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchprojectstories`,tempData,isloading);
@@ -2229,7 +2185,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchreleasestories`,tempData,isloading);
@@ -2250,7 +2205,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchReportStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchreportstories`,tempData,isloading);
@@ -2271,7 +2225,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchStoryChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchstorychild`,tempData,isloading);
@@ -2292,7 +2245,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchStoryRelated(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchstoryrelated`,tempData,isloading);
@@ -2313,7 +2265,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async FetchTaskRelatedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchtaskrelatedstory`,tempData,isloading);
@@ -2334,7 +2285,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async GetTaskReStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // URI参数传递情况未实现
         // URI参数传递情况未实现
     }
@@ -2349,7 +2299,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // URI参数传递情况未实现
         // URI参数传递情况未实现
     }

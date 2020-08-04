@@ -48,7 +48,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/actions/${context.action}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -90,7 +88,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/actions/${context.action}`,data,isloading);
@@ -108,7 +105,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/actions/${context.action}`,isloading);
             return res;
     }
@@ -123,7 +119,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/actions/${context.action}`,isloading);
             
             return res;
@@ -139,7 +134,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/actions/getdraft`,isloading);
         res.data.action = data.action;
         
@@ -156,7 +150,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/actions/${context.action}/checkkey`,data,isloading);
             return res;
     }
@@ -171,7 +164,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async EditComment(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/actions/${context.action}/editcomment`,data,isloading);
             return res;
     }
@@ -186,7 +178,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/actions/${context.action}/save`,data,isloading);
@@ -204,7 +195,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchdefault`,tempData,isloading);
         return res;
@@ -220,7 +210,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async FetchProductTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchproducttrends`,tempData,isloading);
         return res;
@@ -236,7 +225,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async FetchProjectTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchprojecttrends`,tempData,isloading);
         return res;
@@ -252,7 +240,6 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async FetchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchtype`,tempData,isloading);
         return res;

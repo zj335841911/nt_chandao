@@ -48,7 +48,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let res:any = Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}/select`,isloading);
             
@@ -69,7 +68,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -108,7 +106,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -133,7 +130,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let res:any = Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
             return res;
@@ -152,7 +148,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}`,isloading);
             
@@ -173,7 +168,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,isloading);
             res.data.burn = data.burn;
@@ -196,7 +190,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -218,7 +211,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async ComputeBurn(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -240,7 +232,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.burn){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -265,7 +256,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/burns/fetchdefault`,tempData,isloading);
@@ -286,7 +276,6 @@ export default class BurnServiceBase extends EntityService {
      * @memberof BurnServiceBase
      */
     public async FetchESTIMATEANDLEFT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/burns/fetchestimateandleft`,tempData,isloading);

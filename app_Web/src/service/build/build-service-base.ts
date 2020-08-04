@@ -48,7 +48,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let res:any = Http.getInstance().get(`/projects/${context.project}/builds/${context.build}/select`,isloading);
             
@@ -74,7 +73,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -127,7 +125,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -159,7 +156,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let res:any = Http.getInstance().delete(`/projects/${context.project}/builds/${context.build}`,isloading);
             return res;
@@ -182,7 +178,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/${context.build}`,isloading);
             
@@ -208,7 +203,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/getdraft`,isloading);
             res.data.build = data.build;
@@ -237,7 +231,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -266,7 +259,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -295,7 +287,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && context.build){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -327,7 +318,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async FetchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchcurproduct`,tempData,isloading);
@@ -353,7 +343,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchdefault`,tempData,isloading);
@@ -379,7 +368,6 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async MentionTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         // URI参数传递情况未实现
         // URI参数传递情况未实现
         // URI参数传递情况未实现

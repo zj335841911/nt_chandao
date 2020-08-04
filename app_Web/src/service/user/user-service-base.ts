@@ -48,7 +48,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().get(`/users/${context.user}/select`,isloading);
             
             return res;
@@ -64,7 +63,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -89,7 +87,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/users/${context.user}`,data,isloading);
@@ -107,7 +104,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().delete(`/users/${context.user}`,isloading);
             return res;
     }
@@ -122,7 +118,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/users/${context.user}`,isloading);
             
             return res;
@@ -138,7 +133,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let res:any = await  Http.getInstance().get(`/users/getdraft`,isloading);
         res.data.user = data.user;
         
@@ -155,7 +149,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = Http.getInstance().post(`/users/${context.user}/checkkey`,data,isloading);
             return res;
     }
@@ -170,7 +163,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async GetByCommiter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
             let res:any = await Http.getInstance().get(`/users/${context.user}/getbycommiter`,isloading);
             
             return res;
@@ -186,7 +178,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/users/${context.user}/save`,data,isloading);
@@ -204,7 +195,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async FetchBugUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchbuguser`,tempData,isloading);
         return res;
@@ -220,7 +210,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchdefault`,tempData,isloading);
         return res;
@@ -236,7 +225,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async FetchGetByCommiter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchgetbycommiter`,tempData,isloading);
         return res;
@@ -252,7 +240,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async FetchProjectTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchprojectteamuser`,tempData,isloading);
         return res;
@@ -268,7 +255,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async FetchProjectTeamUser_Task(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchprojectteamuser_task`,tempData,isloading);
         return res;
@@ -284,7 +270,6 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async FetchTaskTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // aaa
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchtaskteam`,tempData,isloading);
         return res;
