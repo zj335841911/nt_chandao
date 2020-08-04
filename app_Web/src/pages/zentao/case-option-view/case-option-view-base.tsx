@@ -66,6 +66,28 @@ export class CaseOptionViewBase extends OptionViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseOptionViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'VERSION': { isRawValue: false, value: 'version' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseOptionViewBase
+	 */
+    protected customViewParams: any = {
+        'version': { isRawValue: false, value: 'version' }
+    };
+
     /**
      * 视图模型数据
      *
