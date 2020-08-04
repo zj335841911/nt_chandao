@@ -162,6 +162,7 @@ export default class ProductStatsUIServiceBase extends UIService {
                 viewname: 'project-edit-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.project.views.editview.title'),
                 placement: 'DRAWER_LEFT',
             };
             openDrawer(view, data);
@@ -225,6 +226,7 @@ export default class ProductStatsUIServiceBase extends UIService {
                 viewname: 'story-edit-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.story.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -288,6 +290,7 @@ export default class ProductStatsUIServiceBase extends UIService {
                 viewname: 'product-plan-edit-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.productplan.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -351,6 +354,7 @@ export default class ProductStatsUIServiceBase extends UIService {
                 viewname: 'release-edit-view', 
                 height: 0, 
                 width: 750,  
+                title: actionContext.$t('entities.release.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -374,6 +378,7 @@ export default class ProductStatsUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(params,{srftabactivate:"TABVIEWPANEL2"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { productstats: '%productstats%' });

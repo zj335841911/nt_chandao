@@ -31,7 +31,34 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.modulename}}</span>
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+            <app-picker  
+              :formState="viewState" 
+              :data="row"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ PRODUCT:"%product%" }' 
+              :localParam ='{ product:"%product%" }' 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              name='modulename' 
+              deMajorField='name'
+              deKeyField='module'
+              :service="service"
+              :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
+              valueitem='module' 
+              :value="row[column.property]" 
+              editortype="dropdown" 
+              style="" 
+              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
+            </app-picker>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <app-span name='modulename' editorType="PICKER" :value="row.modulename" dataType="PICKUPTEXT" precision="0" ></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -43,15 +70,42 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+            <app-picker  
+              :formState="viewState" 
+              :data="row"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ N_MODULE_EQ:"%module%", SRFPARENTKEY:"%product%" }' 
+              :localParam ='{ srfparentkey:"%product%", n_module_eq:"%module%" }' 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              name='storyname' 
+              deMajorField='title'
+              deKeyField='story'
+              :service="service"
+              :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+              valueitem='story' 
+              :value="row[column.property]" 
+              editortype="dropdown" 
+              style="" 
+              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
+            </app-picker>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+                              <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mainview', parameterName: 'mainview' }
             ]}" valueitem="story">
-                            <span>{{row.storyname}}</span>
-                        </app-column-link >
+                                <app-span name='storyname' editorType="PICKER" :value="row.storyname"></app-span>
+                              </app-column-link>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

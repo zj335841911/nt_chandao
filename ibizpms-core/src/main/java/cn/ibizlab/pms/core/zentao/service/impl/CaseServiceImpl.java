@@ -274,6 +274,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
     /**
+     * 查询集合 批量新建用例
+     */
+    @Override
+    public Page<Case> searchBatchNew(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchBatchNew(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 套件关联用例
      */
     @Override

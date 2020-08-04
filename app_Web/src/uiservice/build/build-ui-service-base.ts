@@ -129,6 +129,8 @@ export default class BuildUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { build: '%build%' });
@@ -261,6 +263,8 @@ export default class BuildUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{NAME:"%name%",BUILD:"%build%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",name:"%name%",build:"%build%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { build: '%build%' });
@@ -301,6 +305,7 @@ export default class BuildUIServiceBase extends UIService {
                 viewname: 'test-task-edit-view-commit-test', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.testtask.views.editview_committest.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -364,6 +369,7 @@ export default class BuildUIServiceBase extends UIService {
                 viewname: 'build-edit-view', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.build.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

@@ -169,6 +169,7 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
                 viewname: 'project-team-main-grid-view-edit-row', 
                 height: 0, 
                 width: 0,  
+                title: actionContext.$t('entities.projectteam.views.maingridview_editrow.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
