@@ -1343,6 +1343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryProjectPickupGridView",
             "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d"
         },
+        "casestepcarryouteditmode": {
+            "title": "用例步骤",
+            "caption": "用例步骤",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseStepCarryOutEditMode",
+            "viewtag": "a694d988e3134a33bb5a99e6e07246f6"
+        },
         "buildmainview": {
             "title": "版本编辑视图",
             "caption": "版本",

@@ -79,6 +79,30 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JsonProperty("parent")
     private BigInteger parent;
 
+    /**
+     * 属性 [REALS]
+     *
+     */
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    private String reals;
+
+    /**
+     * 属性 [STEPS]
+     *
+     */
+    @JSONField(name = "steps")
+    @JsonProperty("steps")
+    private String steps;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+
 
     /**
      * 设置 [TYPE]
