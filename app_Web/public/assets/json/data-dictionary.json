@@ -5268,7 +5268,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"CaseStep",
-        "appdedataset":"FetchVersion",
+        "appdedataset":"FetchVersions",
         "items": []
     }, 
     {
