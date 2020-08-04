@@ -75,6 +75,18 @@ export default class UserServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/users`,data,isloading);
         
         return res;
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/users`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -87,6 +99,11 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/users/${context.user}`,data,isloading);
+            
+            return res;
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/users/${context.user}`,data,isloading);
@@ -106,6 +123,8 @@ export default class UserServiceBase extends EntityService {
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().delete(`/users/${context.user}`,isloading);
             return res;
+            let res:any = Http.getInstance().delete(`/users/${context.user}`,isloading);
+            return res;
     }
 
     /**
@@ -118,6 +137,9 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/users/${context.user}`,isloading);
+            
+            return res;
             let res:any = await Http.getInstance().get(`/users/${context.user}`,isloading);
             
             return res;
@@ -137,6 +159,10 @@ export default class UserServiceBase extends EntityService {
         res.data.user = data.user;
         
         return res;
+        let res:any = await  Http.getInstance().get(`/users/getdraft`,isloading);
+        res.data.user = data.user;
+        
+        return res;
     }
 
     /**
@@ -149,6 +175,8 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/users/${context.user}/checkkey`,data,isloading);
+            return res;
             let res:any = Http.getInstance().post(`/users/${context.user}/checkkey`,data,isloading);
             return res;
     }
@@ -166,6 +194,9 @@ export default class UserServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/users/${context.user}/getbycommiter`,isloading);
             
             return res;
+            let res:any = await Http.getInstance().get(`/users/${context.user}/getbycommiter`,isloading);
+            
+            return res;
     }
 
     /**
@@ -178,6 +209,11 @@ export default class UserServiceBase extends EntityService {
      * @memberof UserServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/users/${context.user}/save`,data,isloading);
+            
+            return res;
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/users/${context.user}/save`,data,isloading);

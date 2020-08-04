@@ -75,6 +75,18 @@ export default class ModuleServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/modules`,data,isloading);
         
         return res;
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/modules`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -87,6 +99,11 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/modules/${context.module}`,data,isloading);
+            
+            return res;
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/modules/${context.module}`,data,isloading);
@@ -106,6 +123,8 @@ export default class ModuleServiceBase extends EntityService {
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().delete(`/modules/${context.module}`,isloading);
             return res;
+            let res:any = Http.getInstance().delete(`/modules/${context.module}`,isloading);
+            return res;
     }
 
     /**
@@ -118,6 +137,9 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/modules/${context.module}`,isloading);
+            
+            return res;
             let res:any = await Http.getInstance().get(`/modules/${context.module}`,isloading);
             
             return res;
@@ -137,6 +159,10 @@ export default class ModuleServiceBase extends EntityService {
         res.data.module = data.module;
         
         return res;
+        let res:any = await  Http.getInstance().get(`/modules/getdraft`,isloading);
+        res.data.module = data.module;
+        
+        return res;
     }
 
     /**
@@ -149,6 +175,8 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/modules/${context.module}/checkkey`,data,isloading);
+            return res;
             let res:any = Http.getInstance().post(`/modules/${context.module}/checkkey`,data,isloading);
             return res;
     }
@@ -165,6 +193,8 @@ export default class ModuleServiceBase extends EntityService {
     public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
             return res;
+            let res:any = Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
+            return res;
     }
 
     /**
@@ -177,6 +207,11 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/modules/${context.module}/save`,data,isloading);
+            
+            return res;
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/modules/${context.module}/save`,data,isloading);
