@@ -136,6 +136,62 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        if(context.product && context.story && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates`,data,isloading);
+            
+            return res;
+        }
+        if(context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/taskestimates`,data,isloading);
+            
+            return res;
+        }
     }
 
     /**
@@ -148,6 +204,34 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
+        }
+        if(context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -204,6 +288,22 @@ export default class TaskEstimateServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
+        if(context.product && context.story && context.task && context.taskestimate){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            return res;
+        }
+        if(context.project && context.task && context.taskestimate){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            return res;
+        }
+        if(context.story && context.task && context.taskestimate){
+            let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            return res;
+        }
+        if(context.task && context.taskestimate){
+            let res:any = Http.getInstance().delete(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            return res;
+        }
     }
 
     /**
@@ -236,6 +336,26 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        if(context.product && context.story && context.task && context.taskestimate){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
+        }
+        if(context.project && context.task && context.taskestimate){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
+        }
+        if(context.story && context.task && context.taskestimate){
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
+        }
+        if(context.task && context.taskestimate){
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
+        }
     }
 
     /**
@@ -248,6 +368,30 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/getdraft`,isloading);
+            res.data.taskestimate = data.taskestimate;
+            
+            return res;
+        }
+        if(context.project && context.task && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/getdraft`,isloading);
+            res.data.taskestimate = data.taskestimate;
+            
+            return res;
+        }
+        if(context.story && context.task && true){
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/getdraft`,isloading);
+            res.data.taskestimate = data.taskestimate;
+            
+            return res;
+        }
+        if(context.task && true){
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/getdraft`,isloading);
+            res.data.taskestimate = data.taskestimate;
+            
+            return res;
+        }
         if(context.product && context.story && context.task && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/getdraft`,isloading);
             res.data.taskestimate = data.taskestimate;
@@ -312,6 +456,34 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        if(context.product && context.story && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            
+            return res;
+        }
     }
 
     /**
@@ -324,6 +496,34 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let masterData:any = {};
             Object.assign(data,masterData);

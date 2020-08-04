@@ -94,6 +94,32 @@ export default class ProjectModuleServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/projectmodules`,data,isloading);
         
         return res;
+        if(context.project && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/projectmodules`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -106,6 +132,18 @@ export default class ProjectModuleServiceBase extends EntityService {
      * @memberof ProjectModuleServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectmodules/${context.projectmodule}`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/projectmodules/${context.projectmodule}`,data,isloading);
+            
+            return res;
         if(context.project && context.projectmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -136,6 +174,12 @@ export default class ProjectModuleServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}`,isloading);
             return res;
+        if(context.project && context.projectmodule){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
+            return res;
+        }
+            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}`,isloading);
+            return res;
     }
 
     /**
@@ -156,6 +200,14 @@ export default class ProjectModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}`,isloading);
             
             return res;
+        if(context.project && context.projectmodule){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
+            
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -168,6 +220,16 @@ export default class ProjectModuleServiceBase extends EntityService {
      * @memberof ProjectModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,isloading);
+            res.data.projectmodule = data.projectmodule;
+            
+            return res;
+        }
+        let res:any = await  Http.getInstance().get(`/projectmodules/getdraft`,isloading);
+        res.data.projectmodule = data.projectmodule;
+        
+        return res;
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,isloading);
             res.data.projectmodule = data.projectmodule;
@@ -199,6 +261,15 @@ export default class ProjectModuleServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/checkkey`,data,isloading);
             return res;
+        if(context.project && context.projectmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/checkkey`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -220,6 +291,15 @@ export default class ProjectModuleServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/fix`,data,isloading);
             return res;
+        if(context.project && context.projectmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/fix`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/fix`,data,isloading);
+            return res;
     }
 
     /**
@@ -232,6 +312,18 @@ export default class ProjectModuleServiceBase extends EntityService {
      * @memberof ProjectModuleServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/save`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/projectmodules/${context.projectmodule}/save`,data,isloading);
+            
+            return res;
         if(context.project && context.projectmodule){
             let masterData:any = {};
             Object.assign(data,masterData);

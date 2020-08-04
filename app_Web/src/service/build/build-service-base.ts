@@ -113,6 +113,46 @@ export default class BuildServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/builds`,data,isloading);
         
         return res;
+        if(context.project && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/builds`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -125,6 +165,25 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/builds/${context.build}`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/builds/${context.build}`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/builds/${context.build}`,data,isloading);
+            
+            return res;
         if(context.project && context.build){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -166,6 +225,16 @@ export default class BuildServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/builds/${context.build}`,isloading);
             return res;
+        if(context.project && context.build){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/builds/${context.build}`,isloading);
+            return res;
+        }
+        if(context.product && context.build){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/builds/${context.build}`,isloading);
+            return res;
+        }
+            let res:any = Http.getInstance().delete(`/builds/${context.build}`,isloading);
+            return res;
     }
 
     /**
@@ -191,6 +260,19 @@ export default class BuildServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/builds/${context.build}`,isloading);
             
             return res;
+        if(context.project && context.build){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/${context.build}`,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/${context.build}`,isloading);
+            
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/builds/${context.build}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -203,6 +285,22 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/getdraft`,isloading);
+            res.data.build = data.build;
+            
+            return res;
+        }
+        if(context.product && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/getdraft`,isloading);
+            res.data.build = data.build;
+            
+            return res;
+        }
+        let res:any = await  Http.getInstance().get(`/builds/getdraft`,isloading);
+        res.data.build = data.build;
+        
+        return res;
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/getdraft`,isloading);
             res.data.build = data.build;
@@ -247,6 +345,22 @@ export default class BuildServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/builds/${context.build}/checkkey`,data,isloading);
             return res;
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/${context.build}/checkkey`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/builds/${context.build}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -275,6 +389,22 @@ export default class BuildServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/builds/${context.build}/linkstory`,data,isloading);
             return res;
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/linkstory`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/${context.build}/linkstory`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/builds/${context.build}/linkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -287,6 +417,25 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/${context.build}/save`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/builds/${context.build}/save`,data,isloading);
+            
+            return res;
         if(context.project && context.build){
             let masterData:any = {};
             Object.assign(data,masterData);

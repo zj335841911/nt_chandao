@@ -94,6 +94,32 @@ export default class ProductModuleServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/productmodules`,data,isloading);
         
         return res;
+        if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/productmodules`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -106,6 +132,18 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/productmodules/${context.productmodule}`,data,isloading);
+            
+            return res;
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -136,6 +174,12 @@ export default class ProductModuleServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
             return res;
+        if(context.product && context.productmodule){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            return res;
+        }
+            let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
+            return res;
     }
 
     /**
@@ -156,6 +200,14 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}`,isloading);
             
             return res;
+        if(context.product && context.productmodule){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -168,6 +220,16 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
+            res.data.productmodule = data.productmodule;
+            
+            return res;
+        }
+        let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,isloading);
+        res.data.productmodule = data.productmodule;
+        
+        return res;
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
             res.data.productmodule = data.productmodule;
@@ -199,6 +261,15 @@ export default class ProductModuleServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
             return res;
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -220,6 +291,15 @@ export default class ProductModuleServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
             return res;
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/fix`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
+            return res;
     }
 
     /**
@@ -232,6 +312,18 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/save`,data,isloading);
+            
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/productmodules/${context.productmodule}/save`,data,isloading);
+            
+            return res;
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
