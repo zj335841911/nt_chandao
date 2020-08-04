@@ -69,17 +69,6 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseStepCarryOutEditModeBase
-	 */
-    protected customViewNavContexts: any = {
-        'N_VERSION_EQ': { isRawValue: false, value: 'version' }
-    };
-
     /**
      * 视图模型数据
      *
