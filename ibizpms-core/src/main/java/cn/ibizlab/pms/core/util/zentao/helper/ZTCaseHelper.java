@@ -299,6 +299,10 @@ final public class ZTCaseHelper {
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
+        // DELETE
+        ACTION_URL_PARAMS_DELETE.add("id");
+        ACTION_URL_PARAMS_DELETE.add("confirm");
+
     }
 
     // ----------
