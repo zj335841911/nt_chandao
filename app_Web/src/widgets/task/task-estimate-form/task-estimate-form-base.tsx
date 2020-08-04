@@ -49,34 +49,6 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @memberof TaskEstimateEditFormBase
      */
     protected appDeName: string = 'task';
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_RecordEstimate(datas,contextJO, paramJO,  $event, xData,this,"Task");
-    }
     /**
      * 界面UI服务对象
      *
@@ -142,8 +114,6 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        button1: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'RecordEstimate', actiontarget: 'SINGLEKEY' } }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
@@ -167,14 +137,4 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
         name: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
-
-	/**
-	 * 表单 保存 事件
-	 *
-	 * @memberof @memberof TaskEstimateEditFormBase
-	 */
-    public button1_click($event: any): void {
-        this.form_button1_click(null, null, $event);
-
-    }
 }

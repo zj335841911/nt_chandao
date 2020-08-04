@@ -296,6 +296,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '27e6b14e0243582fc67753b58a64066d',
+            viewmodule: 'zentao',
+            viewname: 'CaseOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a694d988e3134a33bb5a99e6e07246f6',
+            ],
+        },
+        {
             viewtag: '28557f7c31a387e1deb552076d51f9f1',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Putoff',
@@ -405,6 +415,7 @@ export const viewstate: any = {
                 '8e070a3e9ad67b127db723463198f9ac',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '27e6b14e0243582fc67753b58a64066d',
                 '66769499a681f12bd2ebff8859f1d4ea',
             ],
         },
@@ -509,6 +520,7 @@ export const viewstate: any = {
                 '8e070a3e9ad67b127db723463198f9ac',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '27e6b14e0243582fc67753b58a64066d',
                 '66769499a681f12bd2ebff8859f1d4ea',
             ],
         },
@@ -807,7 +819,6 @@ export const viewstate: any = {
             refviews: [
                 '321ab2e4e87a29fef8eed086e951a006',
                 'f27febc6ab4d30f9e419caf1e6930a94',
-                '7f425ca5154c34294ce6c0817d6cb875',
                 '843526ee13bf0af6fe937470853bf36b',
                 '21e00a7239d9737bbfda5c1608b4129c',
                 'c9c256aef78723e1bf9ddc1d38667c3f',
@@ -817,6 +828,7 @@ export const viewstate: any = {
                 '35ba93bac795e0deb7297d2d471b7180',
                 '507c506d62dc910a814332e6ae242266',
                 '12661bdb476cd339554799b417c6ea48',
+                '5f063c226812206f8262566387a0b6a5',
                 'abca63015fc84466991c6479f955f6d0',
                 '8ca35f54383cecb05da77cdb1a6588fd',
                 'ef6cfafd09bb61ddb6fec7840f78e97d',
@@ -902,6 +914,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '5f063c226812206f8262566387a0b6a5',
+            viewmodule: 'zentao',
+            viewname: 'TaskWorkHoursView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8b96b7671df722e66d78808ee0636349',
             ],
         },
         {
@@ -1041,6 +1063,7 @@ export const viewstate: any = {
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '27e6b14e0243582fc67753b58a64066d',
             ],
         },
         {
@@ -1193,16 +1216,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '8d53a973712c13f448efb8e2182ccc0b',
-            ],
-        },
-        {
-            viewtag: '7f425ca5154c34294ce6c0817d6cb875',
-            viewmodule: 'zentao',
-            viewname: 'TaskWHEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '8b96b7671df722e66d78808ee0636349',
             ],
         },
         {
@@ -1619,6 +1632,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a694d988e3134a33bb5a99e6e07246f6',
+            viewmodule: 'zentao',
+            viewname: 'CaseStepCarryOutEditMode',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a6d8bd7fa388f638832b33dddaa6df86',
             viewmodule: 'zentao',
             viewname: 'BuildMainView',
@@ -1742,6 +1764,7 @@ export const viewstate: any = {
                 '8e070a3e9ad67b127db723463198f9ac',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '27e6b14e0243582fc67753b58a64066d',
             ],
         },
         {
@@ -2000,6 +2023,7 @@ export const viewstate: any = {
                 '8e070a3e9ad67b127db723463198f9ac',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '27e6b14e0243582fc67753b58a64066d',
             ],
         },
         {
