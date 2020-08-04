@@ -190,7 +190,6 @@ export default class CaseUIServiceBase extends UIService {
                 viewname: 'case-main-dashboard-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.case.views.maindashboardview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -251,7 +250,6 @@ export default class CaseUIServiceBase extends UIService {
                 viewname: 'case-batch-new-grid-view', 
                 height: 800, 
                 width: 1200,  
-                title: actionContext.$t('entities.case.views.batchnewgridview.title'),
             };
             openPopupModal(view, data);
     }
@@ -314,7 +312,6 @@ export default class CaseUIServiceBase extends UIService {
                 viewname: 'case-main-dashboard-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.case.views.maindashboardview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -381,7 +378,6 @@ export default class CaseUIServiceBase extends UIService {
                 viewname: 'case-main-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.case.views.maineditview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
@@ -445,7 +441,6 @@ export default class CaseUIServiceBase extends UIService {
                 viewname: 'case-main-dashboard-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.case.views.maindashboardview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);

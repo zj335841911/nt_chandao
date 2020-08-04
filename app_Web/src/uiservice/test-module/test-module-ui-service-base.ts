@@ -174,7 +174,6 @@ export default class TestModuleUIServiceBase extends UIService {
                 viewname: 'test-module-quick-cfg-view', 
                 height: 350, 
                 width: 500,  
-                title: actionContext.$t('entities.testmodule.views.quickcfgview.title'),
             };
             openPopupModal(view, data);
     }

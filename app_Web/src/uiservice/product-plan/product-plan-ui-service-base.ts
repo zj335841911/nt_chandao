@@ -170,7 +170,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                 viewname: 'product-plan-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.productplan.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -232,7 +231,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                 viewname: 'product-plan-sub-plan-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.subproductplan.views.subplaneditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

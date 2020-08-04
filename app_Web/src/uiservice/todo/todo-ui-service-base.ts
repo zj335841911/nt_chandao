@@ -141,8 +141,6 @@ export default class TodoUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{NAME:"%name%",ASSIGNEDTO:"%assignedto%",DESC:"%desc%"});
-        Object.assign(params,{assignedto:"%assignedto%",desc:"%desc%",name:"%name%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
@@ -183,7 +181,6 @@ export default class TodoUIServiceBase extends UIService {
                 viewname: 'bug-todo-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.bug.views.todoeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -245,7 +242,6 @@ export default class TodoUIServiceBase extends UIService {
                 viewname: 'todo-assign-to-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.todo.views.assigntoview.title'),
             };
             openPopupModal(view, data);
     }
@@ -303,7 +299,6 @@ export default class TodoUIServiceBase extends UIService {
                 viewname: 'todo-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.todo.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
@@ -394,8 +389,6 @@ export default class TodoUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{NAME:"%name%",ASSIGNEDTO:"%assignedto%",DESC:"%desc%"});
-        Object.assign(params,{assignedto:"%assignedto%",desc:"%desc%",name:"%name%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
@@ -436,7 +429,6 @@ export default class TodoUIServiceBase extends UIService {
                 viewname: 'task-todo-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.task.views.todoeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

@@ -305,7 +305,6 @@ export default class TestTaskUIServiceBase extends UIService {
                 viewname: 'test-task-edit-view-edit', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.testtask.views.editview_edit.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
