@@ -51,6 +51,9 @@ export default class ActionHistoryModel {
       {
         name: 'lastcomment',
       },
+      {
+        name: 'actionmanner',
+      },
     ]
   }
 

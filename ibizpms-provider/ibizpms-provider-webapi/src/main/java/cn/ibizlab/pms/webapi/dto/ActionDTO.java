@@ -120,6 +120,14 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JsonProperty("lastcomment")
     private String lastcomment;
 
+    /**
+     * 属性 [ACTIONMANNER]
+     *
+     */
+    @JSONField(name = "actionmanner")
+    @JsonProperty("actionmanner")
+    private String actionmanner;
+
 
     /**
      * 设置 [EXTRA]

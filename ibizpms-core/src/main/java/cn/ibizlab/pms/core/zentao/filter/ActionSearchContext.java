@@ -62,6 +62,13 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
+	private String n_actionmanner_eq;//[操作方式]
+	public void setN_actionmanner_eq(String n_actionmanner_eq) {
+        this.n_actionmanner_eq = n_actionmanner_eq;
+        if(!ObjectUtils.isEmpty(this.n_actionmanner_eq)){
+            this.getSearchCond().eq("actionmanner", n_actionmanner_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

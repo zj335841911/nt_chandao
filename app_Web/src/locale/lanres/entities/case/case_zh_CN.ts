@@ -49,6 +49,7 @@ export default {
     resultcnt: "测试结果数",
     stepcnt: "用例步骤数",
     comment: "备注",
+    resultfalicnt: "测试失败数",
   },
 	views: {
 		editview: {

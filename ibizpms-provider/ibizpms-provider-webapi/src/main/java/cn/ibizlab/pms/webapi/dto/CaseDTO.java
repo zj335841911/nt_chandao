@@ -412,6 +412,14 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [RESULTFALICNT]
+     *
+     */
+    @JSONField(name = "resultfalicnt")
+    @JsonProperty("resultfalicnt")
+    private Integer resultfalicnt;
+
 
     /**
      * 设置 [LASTEDITEDDATE]
