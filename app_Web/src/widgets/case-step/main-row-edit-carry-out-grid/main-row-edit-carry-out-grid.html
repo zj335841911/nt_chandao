@@ -1,5 +1,57 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(col, "GRIDEIDTOR.vu...  [in template "TEMPLCODE_zh_CN" at line 12, column 5]
-----
-null
+<group-step-table class="grid" 
+    groupfield=""
+    :data="items"
+    :cols="allColumns"
+    :isEdit="actualIsOpenEdit"
+    @change="gridEditItemChange.apply(_self, arguments)"
+    @remove="remove.apply(_self, arguments)"
+    @add="add.apply(_self, arguments)">
+    <template slot="desc" slot-scope="{row, $index, column}">
+    <input-box 
+  :disabled="row.srfuf === 1 ? (0 & 2) !== 2 : (0 & 1) !== 1" 
+  v-model="row[column.property]" 
+  style=""
+  type="text"
+  
+  
+  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+</input-box>
+
+    </template>
+    <template slot="expect" slot-scope="{row, $index, column}">
+    <input-box 
+  :disabled="row.srfuf === 1 ? (0 & 2) !== 2 : (0 & 1) !== 1" 
+  v-model="row[column.property]" 
+  style=""
+  type="text"
+  
+  
+  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+</input-box>
+
+    </template>
+    <template slot="steps" slot-scope="{row, $index, column}">
+    <input-box 
+  :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+  v-model="row[column.property]" 
+  style=""
+  type="text"
+  
+  
+  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+</input-box>
+
+    </template>
+    <template slot="reals" slot-scope="{row, $index, column}">
+    <input-box 
+  :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+  v-model="row[column.property]" 
+  style=""
+  type="text"
+  
+  
+  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+</input-box>
+
+    </template>
+</group-step-table>
