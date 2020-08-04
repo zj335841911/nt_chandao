@@ -121,15 +121,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             langtag: 'entities.casestep.main_rowedit_carryout_grid.columns.desc',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
-        },
-        {
-            name: 'type',
-            label: '类型',
-            langtag: 'entities.casestep.main_rowedit_carryout_grid.columns.type',
-            show: false,
-            util: 'PX',
-            isEnableRowEdit: true,
+            isEnableRowEdit: false,
         },
         {
             name: 'expect',
@@ -137,7 +129,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             langtag: 'entities.casestep.main_rowedit_carryout_grid.columns.expect',
             show: true,
             util: 'STAR',
-            isEnableRowEdit: true,
+            isEnableRowEdit: false,
         },
         {
             name: 'steps',
@@ -165,8 +157,6 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
-          expect: new FormItemModel(),
-          desc: new FormItemModel(),
           steps: new FormItemModel(),
           type: new FormItemModel(),
           srfkey: new FormItemModel(),
@@ -181,14 +171,6 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      * @memberof Main_RowEdit_CarryOutGridBase
      */
     public rules: any = {
-        expect: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预期 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预期 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'blur' },
-        ],
         steps: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '测试结果 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '测试结果 值不能为空', trigger: 'blur' },
@@ -214,9 +196,8 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      * @memberof Main_RowEdit_CarryOutBase
      */
     public hasRowEdit: any = {
-        'desc':true,
-        'type':true,
-        'expect':true,
+        'desc':false,
+        'expect':false,
         'steps':true,
         'reals':true,
     };

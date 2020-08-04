@@ -61,6 +61,16 @@ export default class MainCarryModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'resultcnt',
+        prop: 'resultcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'resultfalicnt',
+        prop: 'resultfalicnt',
+        dataType: 'INT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

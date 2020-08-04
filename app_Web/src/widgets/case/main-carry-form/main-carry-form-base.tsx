@@ -83,6 +83,8 @@ export class MainCarryEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         version: null,
         precondition: null,
+        resultcnt: null,
+        resultfalicnt: null,
         id: null,
         case:null,
     };
@@ -136,6 +138,10 @@ export class MainCarryEditFormBase extends EditFormControlBase {
 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        resultcnt: new FormItemModel({ caption: '测试结果数', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        resultfalicnt: new FormItemModel({ caption: '测试失败数', detailType: 'FORMITEM', name: 'resultfalicnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
@@ -168,6 +174,8 @@ export class MainCarryEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.precondition.setVisible(ret);
         }
+
+
 
 
     }
