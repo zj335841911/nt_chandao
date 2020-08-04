@@ -175,7 +175,7 @@ export default class CodeList extends Vue {
       this.isUseLangres = false;
       let _this = this;
       // 空值判断
-      if(Object.is(this.$util.typeOf(this.value), 'undefined') || Object.is(this.$util.typeOf(this.value), 'null')){
+      if(Object.is(this.$util.typeOf(this.value), 'undefined') || Object.is(this.$util.typeOf(this.value), 'null') || Object.is(this.value, '')) {
           this.ifEmpty = true;
           return;
       }

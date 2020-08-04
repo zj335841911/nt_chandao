@@ -560,7 +560,8 @@ export class ViewBase extends Vue {
             this.$emit('viewdataschange', [args]);
             this.$emit('close', [args]);
         } else if (this.$tabPageExp) {
-            this.$tabPageExp.onClose(this.$route.fullPath);
+            const item = this.$appService.navHistory.findHistoryByTag(this.viewtag);
+            this.$tabPageExp.onClose(item);
         } else {
             this.$router.back();
             this.$appService.navHistory.pop();
