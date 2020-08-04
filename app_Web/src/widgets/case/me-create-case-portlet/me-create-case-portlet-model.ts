@@ -162,6 +162,9 @@ export default class MeCreateCaseModel {
       {
         name: 'comment',
       },
+      {
+        name: 'resultfalicnt',
+      },
     ]
   }
 

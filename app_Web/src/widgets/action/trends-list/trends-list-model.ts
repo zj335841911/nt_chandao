@@ -19,6 +19,10 @@ export default class TrendsModel {
         codelist:{tag:'Action__read',codelistType:'STATIC'},
 			},
 			{
+				name: 'actionmanner',
+        codelist:{tag:'ActionManner',codelistType:'STATIC'},
+			},
+			{
 				name: 'id',
 			},
 			{

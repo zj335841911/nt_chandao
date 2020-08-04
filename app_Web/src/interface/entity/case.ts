@@ -397,4 +397,12 @@ export interface Case {
      * @memberof Case
      */
     comment?: any;
+
+    /**
+     * 测试失败数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    resultfalicnt?: any;
 }

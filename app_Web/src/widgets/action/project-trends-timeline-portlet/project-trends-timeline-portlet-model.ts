@@ -51,6 +51,9 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'lastcomment',
       },
+      {
+        name: 'actionmanner',
+      },
     ]
   }
 

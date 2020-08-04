@@ -13,6 +13,7 @@ export default {
     actor: "操作者",
     project: "项目",
     lastcomment: "备注",
+    actionmanner: "操作方式",
   },
 	views: {
 		myalltrendslistview: {

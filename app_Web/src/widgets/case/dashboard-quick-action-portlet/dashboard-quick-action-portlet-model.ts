@@ -162,6 +162,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'comment',
       },
+      {
+        name: 'resultfalicnt',
+      },
     ]
   }
 

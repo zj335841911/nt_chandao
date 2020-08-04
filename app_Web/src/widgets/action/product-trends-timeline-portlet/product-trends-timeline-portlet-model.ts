@@ -51,6 +51,9 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'lastcomment',
       },
+      {
+        name: 'actionmanner',
+      },
     ]
   }
 

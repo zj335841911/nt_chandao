@@ -711,6 +711,244 @@
         ]
     }, 
     {
+        "srfkey": "ActionManner",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "story_closed_willnotdo",
+                "label": "不做",
+                "text": "不做",
+                "data":"",
+                "codename":"Story_closed_willnotdo",
+                "value": "story_closed_willnotdo",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_closed_cancel",
+                "label": "已取消",
+                "text": "已取消",
+                "data":"",
+                "codename":"Story_closed_cancel",
+                "value": "story_closed_cancel",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_closed_done",
+                "label": "已完成",
+                "text": "已完成",
+                "data":"",
+                "codename":"Story_closed_done",
+                "value": "story_closed_done",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_closed_subdivided",
+                "label": "已细分",
+                "text": "已细分",
+                "data":"",
+                "codename":"Story_closed_subdivided",
+                "value": "story_closed_subdivided",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_closed_postponed",
+                "label": "延期",
+                "text": "延期",
+                "data":"",
+                "codename":"Story_closed_postponed",
+                "value": "story_closed_postponed",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_closed_bydesign",
+                "label": "设计如此",
+                "text": "设计如此",
+                "data":"",
+                "codename":"Story_closed_bydesign",
+                "value": "story_closed_bydesign",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_closed_duplicate",
+                "label": "重复",
+                "text": "重复",
+                "data":"",
+                "codename":"Story_closed_duplicate",
+                "value": "story_closed_duplicate",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_willnotfix",
+                "label": "不予解决",
+                "text": "不予解决",
+                "data":"",
+                "codename":"Bug_resolved_willnotfix",
+                "value": "bug_resolved_willnotfix",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_external",
+                "label": "外部原因",
+                "text": "外部原因",
+                "data":"",
+                "codename":"Bug_resolved_external",
+                "value": "bug_resolved_external",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_fixed",
+                "label": "已解决",
+                "text": "已解决",
+                "data":"",
+                "codename":"Bug_resolved_fixed",
+                "value": "bug_resolved_fixed",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_postponed",
+                "label": "延期处理",
+                "text": "延期处理",
+                "data":"",
+                "codename":"Bug_resolved_postponed",
+                "value": "bug_resolved_postponed",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_notrepro",
+                "label": "无法重现",
+                "text": "无法重现",
+                "data":"",
+                "codename":"Bug_resolved_notrepro",
+                "value": "bug_resolved_notrepro",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_bydesign",
+                "label": "设计如此",
+                "text": "设计如此",
+                "data":"",
+                "codename":"Bug_resolved_bydesign",
+                "value": "bug_resolved_bydesign",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_tostory",
+                "label": "转为需求",
+                "text": "转为需求",
+                "data":"",
+                "codename":"Bug_resolved_tostory",
+                "value": "bug_resolved_tostory",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug_resolved_duplicate",
+                "label": "重复Bug",
+                "text": "重复Bug",
+                "data":"",
+                "codename":"Bug_resolved_duplicate",
+                "value": "bug_resolved_duplicate",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_reviewed_reject",
+                "label": "拒绝",
+                "text": "拒绝",
+                "data":"",
+                "codename":"Story_reviewed_reject",
+                "value": "story_reviewed_reject",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_reviewed_revert",
+                "label": "撤销变更",
+                "text": "撤销变更",
+                "data":"",
+                "codename":"Story_reviewed_revert",
+                "value": "story_reviewed_revert",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_reviewed_clarify",
+                "label": "有待明确",
+                "text": "有待明确",
+                "data":"",
+                "codename":"Story_reviewed_clarify",
+                "value": "story_reviewed_clarify",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story_reviewed_pass",
+                "label": "确认通过",
+                "text": "确认通过",
+                "data":"",
+                "codename":"Story_reviewed_pass",
+                "value": "story_reviewed_pass",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": " release_changestatus_terminate",
+                "label": "停止维护",
+                "text": "停止维护",
+                "data":"",
+                "codename":"_release_changestatus_terminate",
+                "value": " release_changestatus_terminate",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": " release_changestatus_normal",
+                "label": "正常",
+                "text": "正常",
+                "data":"",
+                "codename":"_release_changestatus_normal",
+                "value": " release_changestatus_normal",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "UserRealNameTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -5835,6 +6073,7 @@
                 "text": "正常",
                 "data":"",
                 "codename":"Normal",
+                "color": "rgba(84, 238, 19, 1)",
                 "value": "normal",
                 
                 "disabled": false,
@@ -5846,6 +6085,7 @@
                 "text": "被阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(241, 222, 13, 1)",
                 "value": "blocked",
                 
                 "disabled": false,
@@ -5857,6 +6097,7 @@
                 "text": "研究中",
                 "data":"",
                 "codename":"Investigate",
+                "color": "rgba(245, 12, 12, 1)",
                 "value": "investigate",
                 
                 "disabled": false,
@@ -6531,7 +6772,7 @@
     }, 
     {
         "srfkey": "Testcase__result",
-        "emptytext": "未定义",
+        "emptytext": "未执行",
         "codelisttype":"static",
         "items": [
              {
@@ -6540,6 +6781,7 @@
                 "text": "忽略",
                 "data":"",
                 "codename":"N_a",
+                "color": "rgba(190, 184, 184, 1)",
                 "value": "n/a",
                 
                 "disabled": false,
@@ -6551,6 +6793,7 @@
                 "text": "通过",
                 "data":"",
                 "codename":"Pass",
+                "color": "rgba(93, 238, 9, 1)",
                 "value": "pass",
                 
                 "disabled": false,
@@ -6562,6 +6805,7 @@
                 "text": "失败",
                 "data":"",
                 "codename":"Fail",
+                "color": "rgba(251, 12, 12, 1)",
                 "value": "fail",
                 
                 "disabled": false,
@@ -6573,6 +6817,7 @@
                 "text": "阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(228, 15, 15, 1)",
                 "value": "blocked",
                 
                 "disabled": false,

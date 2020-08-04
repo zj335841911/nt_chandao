@@ -297,6 +297,7 @@ export default {
 	taskestimate_form: {
 		details: {
 			druipart1: "", 
+			button1: "保存", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 
@@ -310,6 +311,7 @@ export default {
 			name: "", 
 		},
 		uiactions: {
+        task_recordestimate: "保存",
 		},
 	},
 	closepausecancelform_form: {

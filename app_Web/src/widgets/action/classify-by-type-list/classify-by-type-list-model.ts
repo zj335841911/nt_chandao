@@ -48,6 +48,10 @@ export default class ClassifyByTypeModel {
 				name: 'id',
 			},
 			{
+				name: 'actionmanner',
+        codelist:{tag:'ActionManner',codelistType:'STATIC'},
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

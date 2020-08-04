@@ -162,6 +162,9 @@ export default class MainInfoModel {
       {
         name: 'comment',
       },
+      {
+        name: 'resultfalicnt',
+      },
     ]
   }
 

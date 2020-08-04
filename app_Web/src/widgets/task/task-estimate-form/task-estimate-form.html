@@ -48,6 +48,14 @@
 </app-form-druipart>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 12 }">
+        <i-button type="primary" @click="button1_click($event)"
+         style="">
+           
+        <span >{{$t('entities.task.taskestimate_form.details.button1')}}</span>
+    </i-button>
+
+</i-col>
 
 
     </row>
