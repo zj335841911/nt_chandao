@@ -2286,7 +2286,6 @@ export default class StoryServiceBase extends EntityService {
      */
     public async GetTaskReStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // URI参数传递情况未实现
-        // URI参数传递情况未实现
     }
 
     /**
@@ -2299,7 +2298,6 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // URI参数传递情况未实现
         // URI参数传递情况未实现
     }
 }
