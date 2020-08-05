@@ -73,7 +73,7 @@ export default class MainEditRowModel {
         },
         {
           name: 'task',
-          prop: 'id',
+          prop: 'root',
           dataType: 'FONTKEY',
         },
         {
