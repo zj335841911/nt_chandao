@@ -189,6 +189,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Testsuite__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "library",
+                label: "用例库",
+                text: "用例库",
+                "data":"",
+                "codename":"Library",
+                value: "library",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有",
+                text: "私有",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "public",
+                label: "公开",
+                text: "公开",
+                "data":"",
+                "codename":"Public",
+                value: "public",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "RelatedStory",
         "emptytext": "",
         "codelisttype":"dynamic",

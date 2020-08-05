@@ -56,6 +56,16 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
