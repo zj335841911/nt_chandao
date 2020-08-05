@@ -165,6 +165,9 @@ export default class MainDashboardModel {
       {
         name: 'resultfalicnt',
       },
+      {
+        name: 'status1',
+      },
     ]
   }
 

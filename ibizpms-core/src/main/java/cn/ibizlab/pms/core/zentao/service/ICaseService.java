@@ -34,6 +34,7 @@ public interface ICaseService extends IService<Case>{
     Case get(BigInteger key) ;
     Case getDraft(Case et) ;
     boolean checkKey(Case et) ;
+    Case confirmstorychange(Case et) ;
     Case linkCase(Case et) ;
     Case runCase(Case et) ;
     boolean save(Case et) ;

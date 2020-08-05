@@ -53,7 +53,7 @@ export default class CaseUIServiceBase extends UIService {
      * 
      * @memberof  CaseUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status'];
+    public mainStateFields:Array<any> = ['status1'];
 
     /**
      * 主状态集合Map
@@ -119,6 +119,7 @@ export default class CaseUIServiceBase extends UIService {
         this.allDeMainStateMap.set('blocked','blocked');
         this.allDeMainStateMap.set('investigate','investigate');
         this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('storychange','storychange');
         this.allDeMainStateMap.set('wait','wait');
     }
 
@@ -128,10 +129,11 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('investigate',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('normal',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'CREATE':0,'DELETE':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('blocked',{'CONFIRM':0,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'CONFIRM':0,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'CONFIRM':0,'CREATE':0,'DELETE':0,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('storychange',{'CONFIRM':1,'CREATE':0,'DELETE':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait',{'CONFIRM':0,'CREATE':0,'DELETE':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
     }
 
     /**

@@ -129,6 +129,18 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
+    @ApiOperation(value = "确认需求变更", tags = {"测试用例" },  notes = "确认需求变更")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/confirmstorychange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmstorychange(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+domain.setId(case_id);
+        domain = caseService.confirmstorychange(domain);
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
     @ApiOperation(value = "测试单关联测试用例", tags = {"测试用例" },  notes = "测试单关联测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/linkcase")
@@ -338,6 +350,18 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseDTO casedto) {
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
+    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/confirmstorychange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmstorychangeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setProduct(product_id);
+        domain = caseService.confirmstorychange(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
@@ -565,6 +589,18 @@ domain.setId(case_id);
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
+    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/confirmstorychange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmstorychangeByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.confirmstorychange(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/linkcase")
@@ -788,6 +824,18 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/checkkey")
     public ResponseEntity<Boolean> checkKeyByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody CaseDTO casedto) {
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
+    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmstorychange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmstorychangeByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.confirmstorychange(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")

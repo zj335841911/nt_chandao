@@ -5675,7 +5675,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "被阻塞",
                 "data":"",
                 "codename":"Blocked",
-                "color": "rgba(241, 222, 13, 1)",
                 value: "blocked",
                 
                 disabled: false,
