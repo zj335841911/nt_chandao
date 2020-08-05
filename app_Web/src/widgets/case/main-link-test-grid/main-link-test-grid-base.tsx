@@ -254,6 +254,14 @@ export class MainLinkTestGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
+                name: 'version',
+                srfkey: 'CurCaseVersion',
+                codelistType : 'DYNAMIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
                 name: 'pri',
                 srfkey: 'Testcase__pri',
                 codelistType : 'STATIC',

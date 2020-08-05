@@ -20,3 +20,6 @@ import { DashBoardInfoEditFormBase } from './dash-board-info-form-base';
 @VueLifeCycleProcessing()
 export default class DashBoardInfoEditForm extends DashBoardInfoEditFormBase { }
 </script>
+<style lang='less'>
+@import './dash-board-info-form.less';
+</style>

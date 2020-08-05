@@ -45,20 +45,26 @@
                     <template v-slot="{row,column,$index}">
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                <input-box 
-              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+                                
+             <dropdown-list 
               v-model="row[column.property]" 
-              style=""
-              type="text"
-              
-              
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              :data="row" 
+              :context="context"
+              :viewparams="viewparams" 
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              tag='CurCaseVersion' 
+              codelistType='DYNAMIC'
+              placeholder='请选择...' 
+              style="" 
               @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
+             </dropdown-list>
             
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='version' editorType="TEXTBOX" :value="row.version" dataType="INT" precision="0" ></app-span>
+            <codelist :value="row.version" tag='CurCaseVersion' codelistType='DYNAMIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
