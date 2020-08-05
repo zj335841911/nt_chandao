@@ -368,6 +368,5 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async MentionTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // URI参数传递情况未实现
     }
 }
