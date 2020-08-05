@@ -428,16 +428,21 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefault ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
+        if(context.product && context.story && context.task && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
         }
     }
 
@@ -451,16 +456,21 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefaults ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
+        if(context.product && context.story && context.task && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefaults`,data,isloading);
+            return res;
         }
     }
 }

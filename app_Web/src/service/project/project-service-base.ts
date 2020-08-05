@@ -453,5 +453,6 @@ export default class ProjectServiceBase extends EntityService {
      * @memberof ProjectServiceBase
      */
     public async UpdateProjectCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // URI参数传递情况未实现
     }
 }
