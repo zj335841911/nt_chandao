@@ -154,12 +154,44 @@ export class MainEditGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_taskestimate_mainedit_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MainEditGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof MainEditGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainEditGridBase
+     */
+    public limit: number = 500;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
      * @memberof MainEditGridBase
      */
     public allColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.taskestimate.mainedit_grid.columns.id',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
         {
             name: 'dates',
             label: '日期',
@@ -189,7 +221,7 @@ export class MainEditGridBase extends GridControlBase {
             label: '备注',
             langtag: 'entities.taskestimate.mainedit_grid.columns.work',
             show: true,
-            util: 'PX',
+            util: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -239,6 +271,7 @@ export class MainEditGridBase extends GridControlBase {
      * @memberof MainEditBase
      */
     public hasRowEdit: any = {
+        'id':false,
         'dates':false,
         'consumed':false,
         'left':false,

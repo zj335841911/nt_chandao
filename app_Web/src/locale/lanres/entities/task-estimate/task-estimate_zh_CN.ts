@@ -41,6 +41,7 @@ export default {
 	},
 	mainedit_grid: {
 		columns: {
+			id: "ID",
 			dates: "日期",
 			consumed: "总计消耗",
 			left: "预计剩余",
