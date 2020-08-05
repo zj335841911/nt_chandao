@@ -168,6 +168,9 @@ export default class StoryRelatedModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

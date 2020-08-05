@@ -168,6 +168,9 @@ export default class MPickupView2pickupviewpanelModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 
