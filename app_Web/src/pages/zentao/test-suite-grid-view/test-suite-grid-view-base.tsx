@@ -365,11 +365,11 @@ export class TestSuiteGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'test-suite-main-dashboard-view', 
+            viewname: 'test-suite-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.testsuite.views.maindashboardview.title'),
-            placement: 'DRAWER_TOP',
+            title: this.$t('entities.testsuite.views.editview.title'),
+            placement: 'DRAWER_LEFT',
         };
         openDrawer(view, data);
     }

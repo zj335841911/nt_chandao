@@ -1601,7 +1601,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7a983ef690626958a9897f58efe15e58',
-                'c2e4200fb7c9760b4931b43561289980',
             ],
         },
         {
@@ -1920,18 +1919,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '770a170098d148e438a7666b248e6519',
-            ],
-        },
-        {
-            viewtag: 'c2e4200fb7c9760b4931b43561289980',
-            viewmodule: 'zentao',
-            viewname: 'TestSuiteMainDashboardView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '0d5db9e736e4556dcfc45c455888a1a6',
-                '74e206764fd747fa31467bd5a9f371df',
                 '770a170098d148e438a7666b248e6519',
             ],
         },

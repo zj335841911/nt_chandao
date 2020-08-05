@@ -1355,20 +1355,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
                 },
                 {
-                    path: 'testsuites/:testsuite?/editview9/:editview9?',
-                    meta: {
-                        caption: 'entities.testsuite.views.editview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testsuites', parameterName: 'testsuite' },
-                            { pathName: 'editview9', parameterName: 'editview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-suite-edit-view9/test-suite-edit-view9.vue'),
-                },
-                {
                     path: 'files/:file?/listview9/:listview9?',
                     meta: {
                         caption: 'entities.file.views.listview9.title',
@@ -5614,20 +5600,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-grid-view-by-module/task-main-grid-view-by-module.vue'),
                 },
                 {
-                    path: 'testsuites/:testsuite?/maindashboardview/:maindashboardview?',
-                    meta: {
-                        caption: 'entities.testsuite.views.maindashboardview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testsuites', parameterName: 'testsuite' },
-                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-suite-main-dashboard-view/test-suite-main-dashboard-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/batchnewgridview/:batchnewgridview?',
                     meta: {
                         caption: 'entities.case.views.batchnewgridview.title',
@@ -5729,66 +5701,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-mpickup-view2/story-mpickup-view2.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/cases/:case?/cursuitgridview/:cursuitgridview?',
-                    meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'cursuitgridview', parameterName: 'cursuitgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-suit-grid-view/case-cur-suit-grid-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/cases/:case?/cursuitgridview/:cursuitgridview?',
-                    meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'cursuitgridview', parameterName: 'cursuitgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-suit-grid-view/case-cur-suit-grid-view.vue'),
-                },
-                {
-                    path: 'products/:product?/cases/:case?/cursuitgridview/:cursuitgridview?',
-                    meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'cursuitgridview', parameterName: 'cursuitgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-suit-grid-view/case-cur-suit-grid-view.vue'),
-                },
-                {
-                    path: 'cases/:case?/cursuitgridview/:cursuitgridview?',
-                    meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'cursuitgridview', parameterName: 'cursuitgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-suit-grid-view/case-cur-suit-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/testmodules/:testmodule?/treeexpview/:treeexpview?',

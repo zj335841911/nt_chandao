@@ -1,8 +1,202 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+/**
+ * SubTaskNew 部件模型
+ *
+ * @export
+ * @class SubTaskNewModel
+ */
+export default class SubTaskNewModel {
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${majorAppDataEntity.getPSDER1N().get...  [in template "TEMPLCODE_zh_CN" at line 80, column 18]
-----
+	/**
+	 * 是否是实体数据导出
+	 *
+	 * @returns {any[]}
+	 * @memberof SubTaskNewGridMode
+	 */
+	public isDEExport: boolean = false;
+
+	/**
+	 * 获取数据项集合
+	 *
+	 * @returns {any[]}
+	 * @memberof SubTaskNewGridMode
+	 */
+	public getDataItems(): any[] {
+    if(this.isDEExport){
+		  return [
+      ]
+    }else{
+		  return [
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'desc',
+          prop: 'desc',
+          dataType: 'LONGTEXT',
+          isEditable:true
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isleaf',
+          prop: 'isleaf',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'storyname',
+          prop: 'storyname',
+          dataType: 'PICKUPTEXT',
+          isEditable:true
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
+          name: 'srfmstag',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'assignedto_text',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+          isEditable:true
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+          isEditable:true
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'allmodules',
+          prop: 'allmodules',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
+          name: 'eststarted',
+          prop: 'eststarted',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
+          name: 'task',
+          prop: 'parent',
+          dataType: 'FONTKEY',
+        },
+        {
+          name: 'subtask',
+          prop: 'id',
+        },
+        {
+          name:'size',
+          prop:'size'
+        },
+        {
+          name:'query',
+          prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
+        },
+        {
+          name:'page',
+          prop:'page'
+        },
+        {
+          name:'sort',
+          prop:'sort'
+        },
+        {
+          name:'srfparentdata',
+          prop:'srfparentdata'
+        },
+        // 前端新增修改标识，新增为"0",修改为"1"或未设值
+        {
+          name: 'srffrontuf',
+          prop: 'srffrontuf',
+          dataType: 'TEXT',
+        },
+      ]
+    }
+  }
+
+}
