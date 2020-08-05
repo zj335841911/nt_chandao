@@ -30,13 +30,11 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'expect',
           prop: 'expect',
           dataType: 'LONGTEXT',
-          isEditable:true
         },
         {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',
-          isEditable:true
         },
         {
           name: 'parent',
@@ -47,6 +45,7 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'steps',

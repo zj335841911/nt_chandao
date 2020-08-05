@@ -31,23 +31,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template v-if="actualIsOpenEdit">
-                            <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                <input-box 
-              :disabled="row.srfuf === 1 ? (0 & 2) !== 2 : (0 & 1) !== 1" 
-              v-model="row[column.property]" 
-              style=""
-              type="text"
-              
-              
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
-            
-                            </app-form-item>
-                        </template>
-                        <template v-if="!actualIsOpenEdit">
-            <app-span name='desc' editorType="TEXTBOX" :value="row.desc" dataType="LONGTEXT" precision="0" ></app-span>
-                        </template>
+                        <span>{{row.desc}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -59,23 +43,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template v-if="actualIsOpenEdit">
-                            <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                <input-box 
-              :disabled="row.srfuf === 1 ? (0 & 2) !== 2 : (0 & 1) !== 1" 
-              v-model="row[column.property]" 
-              style=""
-              type="text"
-              
-              
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
-            
-                            </app-form-item>
-                        </template>
-                        <template v-if="!actualIsOpenEdit">
-            <app-span name='expect' editorType="TEXTBOX" :value="row.expect" dataType="LONGTEXT" precision="0" ></app-span>
-                        </template>
+                        <span>{{row.expect}}</span>
                     </template>
                 </el-table-column>
             </template>
