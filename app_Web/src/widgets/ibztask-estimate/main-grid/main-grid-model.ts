@@ -78,7 +78,7 @@ export default class MainModel {
         },
         {
           name: 'task',
-          prop: 'task',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {

@@ -79,7 +79,7 @@ export default class MainSubPlanModel {
         },
         {
           name: 'productplan',
-          prop: 'parent',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {
