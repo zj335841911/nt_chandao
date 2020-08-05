@@ -168,6 +168,9 @@ export default class MainPanelModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

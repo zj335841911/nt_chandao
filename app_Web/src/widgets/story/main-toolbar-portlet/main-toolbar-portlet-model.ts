@@ -168,6 +168,9 @@ export default class MainToolbarModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

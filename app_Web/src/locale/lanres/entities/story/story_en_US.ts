@@ -52,6 +52,7 @@ export default {
     versionc: "版本号",
     modulename1: "所属模块名称",
     project: "项目",
+    preversion: "之前的版本",
   },
 	views: {
 		mainview9_related: {
@@ -313,8 +314,10 @@ export default {
 			result: "评审结果", 
 			pri: "优先级", 
 			estimate: "预计工时", 
+			preversion: "之前版本", 
 			closedreason: "拒绝原因", 
 			assignedto: "指派给", 
+			version: "版本号", 
 			reviewedby: "由谁评审", 
 			id: "编号", 
 		},

@@ -415,6 +415,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private String project;
+    /**
+     * 之前的版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "preversion")
+    @JsonProperty("preversion")
+    private Integer preversion;
 
     /**
      * 

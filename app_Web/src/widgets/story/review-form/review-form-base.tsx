@@ -86,8 +86,10 @@ export class ReviewEditFormBase extends EditFormControlBase {
         result: null,
         pri: null,
         estimate: null,
+        preversion: null,
         closedreason: null,
         assignedto: null,
+        version: null,
         reviewedby: null,
         id: null,
         story:null,
@@ -103,6 +105,10 @@ export class ReviewEditFormBase extends EditFormControlBase {
         result: [
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
+        ],
+        preversion: [
+            { required: true, type: 'number', message: '之前版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'number', message: '之前版本 值不能为空', trigger: 'blur' },
         ],
         closedreason: [
             { required: true, type: 'string', message: '拒绝原因 值不能为空', trigger: 'change' },
@@ -178,9 +184,13 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
         estimate: new FormItemModel({ caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        preversion: new FormItemModel({ caption: '之前版本', detailType: 'FORMITEM', name: 'preversion', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         closedreason: new FormItemModel({ caption: '拒绝原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        version: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -238,6 +248,28 @@ export class ReviewEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'result')) {
             let ret = true;
             const _result = this.data.result;
+            if (this.$verify.testCond(_result, 'NOTEQ', 'revert')) {
+                ret = false;
+            }
+            this.rules.preversion.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'result')) {
+            let ret = false;
+            const _result = this.data.result;
+            if (this.$verify.testCond(_result, 'EQ', 'revert')) {
+                ret = true;
+            }
+            this.detailsModel.preversion.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'result')) {
+            let ret = true;
+            const _result = this.data.result;
             if (this.$verify.testCond(_result, 'NOTEQ', 'reject')) {
                 ret = false;
             }
@@ -248,6 +280,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 return false;
             });
         }
+
 
 
 

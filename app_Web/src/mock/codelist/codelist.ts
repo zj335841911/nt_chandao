@@ -4159,6 +4159,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "被阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(230, 242, 3, 0.97)",
                 value: "blocked",
                 
                 disabled: false,
@@ -5735,6 +5736,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "被阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(242, 238, 7, 1)",
                 value: "blocked",
                 
                 disabled: false,

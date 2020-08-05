@@ -223,6 +223,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().like("branchname", n_branchname_like);
         }
     }
+	private Integer n_preversion_eq;//[之前的版本]
+	public void setN_preversion_eq(Integer n_preversion_eq) {
+        this.n_preversion_eq = n_preversion_eq;
+        if(!ObjectUtils.isEmpty(this.n_preversion_eq)){
+            this.getSearchCond().eq("preversion", n_preversion_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
