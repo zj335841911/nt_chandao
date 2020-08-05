@@ -157,7 +157,6 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
-          case: new FormItemModel(),
           steps: new FormItemModel(),
           type: new FormItemModel(),
           srfkey: new FormItemModel(),
@@ -172,10 +171,6 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      * @memberof Main_RowEdit_CarryOutGridBase
      */
     public rules: any = {
-        case: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例 值不能为空', trigger: 'blur' },
-        ],
         steps: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '测试结果 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '测试结果 值不能为空', trigger: 'blur' },
