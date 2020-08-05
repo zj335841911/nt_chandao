@@ -73,7 +73,7 @@ export default class Main_RowEditModel {
         },
         {
           name: 'case',
-          prop: 'id',
+          prop: 'ibizcase',
           dataType: 'FONTKEY',
         },
         {
