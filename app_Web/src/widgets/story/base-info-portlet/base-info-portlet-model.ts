@@ -168,6 +168,9 @@ export default class BaseInfoModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

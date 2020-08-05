@@ -437,6 +437,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     private String project;
 
+    /**
+     * 属性 [PREVERSION]
+     *
+     */
+    @JSONField(name = "preversion")
+    @JsonProperty("preversion")
+    private Integer preversion;
+
 
     /**
      * 设置 [ASSIGNEDTO]
