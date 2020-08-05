@@ -5030,6 +5030,10 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
     }
 
     /**
@@ -5042,6 +5046,20 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+        return res;
     }
 
     /**
@@ -5054,6 +5072,20 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+        return res;
     }
 
     /**
@@ -5066,6 +5098,20 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+        return res;
     }
 
     /**
@@ -5078,6 +5124,20 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+        return res;
     }
 
     /**
@@ -5090,6 +5150,20 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+        return res;
     }
 
     /**
@@ -5102,5 +5176,19 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,data,isloading);
+            return res;
+        }
+        let res:any =  Http.getInstance().get(`/tasks/fetchtypegroup`,data,isloading);
+        return res;
     }
 }
