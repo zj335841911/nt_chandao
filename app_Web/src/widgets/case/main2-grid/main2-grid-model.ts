@@ -42,6 +42,11 @@ export default class Main2Model {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'srfmstag',
         },
         {

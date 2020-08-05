@@ -171,16 +171,16 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.case.mainlinktest_grid.columns.status')" :width="80"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('status1')">
+                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.case.mainlinktest_grid.columns.status1')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.mainlinktest_grid.columns.status')}}
+                        {{$t('entities.case.mainlinktest_grid.columns.status1')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Testcase__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status1" tag='TestCaseStatusGrid' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>

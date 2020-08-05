@@ -4128,6 +4128,66 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "TestCaseStatusGrid",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "待评审",
+                text: "待评审",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "rgba(84, 238, 19, 1)",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "被阻塞",
+                text: "被阻塞",
+                "data":"",
+                "codename":"Blocked",
+                value: "blocked",
+                
+                disabled: false,
+            },
+            {
+                id: "investigate",
+                label: "研究中",
+                text: "研究中",
+                "data":"",
+                "codename":"Investigate",
+                "color": "rgba(245, 12, 12, 1)",
+                value: "investigate",
+                
+                disabled: false,
+            },
+            {
+                id: "storychange",
+                label: "需求变更",
+                text: "需求变更",
+                "data":"",
+                "codename":"Storychange",
+                "color": "rgba(254, 8, 8, 1)",
+                value: "storychange",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Cycle_enable",
         emptytext: "未定义",
         "codelisttype":"static",

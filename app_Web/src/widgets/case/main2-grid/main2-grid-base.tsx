@@ -124,9 +124,9 @@ export class Main2GridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '状态',
-            langtag: 'entities.case.main2_grid.columns.status',
+            langtag: 'entities.case.main2_grid.columns.status1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -167,7 +167,7 @@ export class Main2GridBase extends GridControlBase {
     public hasRowEdit: any = {
         'pri':false,
         'title':false,
-        'status':false,
+        'status1':false,
     };
 
     /**
@@ -202,8 +202,8 @@ export class Main2GridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Testcase__status',
+                name: 'status1',
+                srfkey: 'TestCaseStatusGrid',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

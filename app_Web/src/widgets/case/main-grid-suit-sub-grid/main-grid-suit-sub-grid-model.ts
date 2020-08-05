@@ -47,6 +47,11 @@ export default class MainGrid_SuitSubModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
@@ -106,6 +111,11 @@ export default class MainGrid_SuitSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'fromcaseid',
+          prop: 'fromcaseid',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'lastrunresult',
           prop: 'lastrunresult',
           dataType: 'SSCODELIST',
@@ -114,11 +124,6 @@ export default class MainGrid_SuitSubModel {
           name: 'casesteps',
           prop: 'casesteps',
           dataType: 'ONE2MANYDATA',
-        },
-        {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
         },
         {
           name: 'tobugcnt',
