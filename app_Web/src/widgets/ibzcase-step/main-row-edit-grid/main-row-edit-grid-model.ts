@@ -47,6 +47,7 @@ export default class Main_RowEditModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'type',
