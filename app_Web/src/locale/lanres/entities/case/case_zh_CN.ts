@@ -313,13 +313,14 @@ export default {
 			lastrunner: "执行人",
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
-			status: "状态",
+			status1: "状态",
 			tobugcnt: "B",
 			resultcnt: "R",
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			case_confirm: "确认",
 			case_opentestrunresultview: "结果",
 			case_execute: "执行",
 			case_mainedit: "编辑",
@@ -349,7 +350,7 @@ export default {
 			lastrunner: "执行人",
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
-			status: "状态",
+			status1: "状态",
 		},
 		uiactions: {
 		},
@@ -361,7 +362,7 @@ export default {
 			title: "用例标题",
 			type: "用例类型",
 			lastrunresult: "结果",
-			status: "状态",
+			status1: "状态",
 			tobugcnt: "B",
 			resultcnt: "R",
 			casesteps: "S",
@@ -376,7 +377,7 @@ export default {
 		columns: {
 			pri: "P",
 			title: "用例标题",
-			status: "状态",
+			status1: "状态",
 		},
 		uiactions: {
 		},
@@ -385,7 +386,7 @@ export default {
 		columns: {
 			pri: "P",
 			title: "用例标题",
-			status: "状态",
+			status1: "状态",
 		},
 		uiactions: {
 		},

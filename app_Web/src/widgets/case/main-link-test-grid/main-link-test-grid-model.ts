@@ -52,6 +52,11 @@ export default class MainLinkTestModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',

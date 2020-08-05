@@ -172,9 +172,9 @@ export class MainLinkTestGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '状态',
-            langtag: 'entities.case.mainlinktest_grid.columns.status',
+            langtag: 'entities.case.mainlinktest_grid.columns.status1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -227,7 +227,7 @@ export class MainLinkTestGridBase extends GridControlBase {
         'lastrunner':false,
         'lastrundate':false,
         'lastrunresult':false,
-        'status':false,
+        'status1':false,
     };
 
     /**
@@ -302,8 +302,8 @@ export class MainLinkTestGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Testcase__status',
+                name: 'status1',
+                srfkey: 'TestCaseStatusGrid',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

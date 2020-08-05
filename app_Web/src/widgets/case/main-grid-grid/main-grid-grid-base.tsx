@@ -58,6 +58,34 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u82280f9_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_CONFIRM(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u333b640_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -244,6 +272,7 @@ export class MainGridGridBase extends GridControlBase {
      * @memberof MainGridBase
      */  
     public ActionModel: any = {
+        CONFIRM: { name: 'CONFIRM',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
         OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RUN', target: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
@@ -349,9 +378,9 @@ export class MainGridGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '状态',
-            langtag: 'entities.case.maingrid_grid.columns.status',
+            langtag: 'entities.case.maingrid_grid.columns.status1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -430,7 +459,7 @@ export class MainGridGridBase extends GridControlBase {
         'lastrunner':false,
         'lastrundate':false,
         'lastrunresult':false,
-        'status':false,
+        'status1':false,
         'tobugcnt':false,
         'resultcnt':false,
         'casesteps':false,
@@ -501,8 +530,8 @@ export class MainGridGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Testcase__status',
+                name: 'status1',
+                srfkey: 'TestCaseStatusGrid',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
@@ -522,6 +551,9 @@ export class MainGridGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('CONFIRM', tag)) {
+            this.grid_uagridcolumn1_u82280f9_click(row, tag, $event);
+        }
         if(Object.is('OpenTestRunResultView', tag)) {
             this.grid_uagridcolumn1_u333b640_click(row, tag, $event);
         }

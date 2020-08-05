@@ -540,6 +540,14 @@ export default {
         "365": "一年",
         "empty": "按时间段"
     },
+    TestCaseStatusGrid: {
+        "wait": "待评审",
+        "normal": "正常",
+        "blocked": "被阻塞",
+        "investigate": "研究中",
+        "storychange": "需求变更",
+        "empty": ""
+    },
     Cycle_enable: {
         "1": "周期",
         "empty": ""
