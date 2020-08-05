@@ -405,4 +405,12 @@ export interface Case {
      * @memberof Case
      */
     resultfalicnt?: any;
+
+    /**
+     * 用例状态
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    status1?: any;
 }

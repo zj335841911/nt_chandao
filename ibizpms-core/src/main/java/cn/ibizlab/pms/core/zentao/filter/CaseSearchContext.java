@@ -188,6 +188,13 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().like("productname", n_productname_like);
         }
     }
+	private String n_status1_eq;//[用例状态]
+	public void setN_status1_eq(String n_status1_eq) {
+        this.n_status1_eq = n_status1_eq;
+        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
+            this.getSearchCond().eq("status1", n_status1_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

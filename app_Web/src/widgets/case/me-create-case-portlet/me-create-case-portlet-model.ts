@@ -165,6 +165,9 @@ export default class MeCreateCaseModel {
       {
         name: 'resultfalicnt',
       },
+      {
+        name: 'status1',
+      },
     ]
   }
 

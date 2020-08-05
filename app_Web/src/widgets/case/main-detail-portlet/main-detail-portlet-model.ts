@@ -165,6 +165,9 @@ export default class MainDetailModel {
       {
         name: 'resultfalicnt',
       },
+      {
+        name: 'status1',
+      },
     ]
   }
 

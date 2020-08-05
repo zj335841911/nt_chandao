@@ -165,6 +165,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'resultfalicnt',
       },
+      {
+        name: 'status1',
+      },
     ]
   }
 

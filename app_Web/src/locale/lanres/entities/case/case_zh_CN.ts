@@ -50,6 +50,7 @@ export default {
     stepcnt: "用例步骤数",
     comment: "备注",
     resultfalicnt: "测试失败数",
+    status1: "用例状态",
   },
 	views: {
 		editview: {
