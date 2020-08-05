@@ -792,8 +792,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "5ef23f01b2cffa48351b3272dfeeaf14"
         },
         "taskworkhoursview": {
-            "title": "转交任务",
-            "caption": "转交任务",
+            "title": "工时",
+            "caption": "工时",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
             "viewname": "TaskWorkHoursView",
