@@ -77,7 +77,7 @@ export default class MainModel {
         },
         {
           name: 'case',
-          prop: 'ibizcase',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {

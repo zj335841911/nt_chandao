@@ -99,7 +99,7 @@ export default class Main_RowEdit_CarryOutModel {
         },
         {
           name: 'case',
-          prop: 'ibizcase',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {

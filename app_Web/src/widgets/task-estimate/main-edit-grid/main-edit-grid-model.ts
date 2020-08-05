@@ -74,7 +74,7 @@ export default class MainEditModel {
         },
         {
           name: 'task',
-          prop: 'task',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {
