@@ -2082,6 +2082,84 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-project-grid-view9/product-project-grid-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
+                },
+                {
+                    path: 'taskestimates/:taskestimate?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mpickupview/:mpickupview?',
                     meta: {
                         caption: 'entities.story.views.mpickupview.title',
@@ -4929,6 +5007,84 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-pickup-view/product-pickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'editgridview9', parameterName: 'editgridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-edit-grid-view9/task-estimate-edit-grid-view9.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'editgridview9', parameterName: 'editgridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-edit-grid-view9/task-estimate-edit-grid-view9.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'editgridview9', parameterName: 'editgridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-edit-grid-view9/task-estimate-edit-grid-view9.vue'),
+                },
+                {
+                    path: 'tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'editgridview9', parameterName: 'editgridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-edit-grid-view9/task-estimate-edit-grid-view9.vue'),
+                },
+                {
+                    path: 'taskestimates/:taskestimate?/editgridview9/:editgridview9?',
+                    meta: {
+                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'editgridview9', parameterName: 'editgridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-edit-grid-view9/task-estimate-edit-grid-view9.vue'),
+                },
+                {
                     path: 'products/:product?/testgridview/:testgridview?',
                     meta: {
                         caption: 'entities.product.views.testgridview.title',
@@ -6767,16 +6923,16 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-module-main-grid-view/project-module-main-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/carryouteditmode/:carryouteditmode?',
+                    path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.casestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'carryouteditmode', parameterName: 'carryouteditmode' },
                         ],
                         requireAuth: true,
@@ -6784,15 +6940,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-carry-out-edit-mode/case-step-carry-out-edit-mode.vue'),
                 },
                 {
-                    path: 'stories/:story?/cases/:case?/casesteps/:casestep?/carryouteditmode/:carryouteditmode?',
+                    path: 'stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.casestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'carryouteditmode', parameterName: 'carryouteditmode' },
                         ],
                         requireAuth: true,
@@ -6800,15 +6956,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-carry-out-edit-mode/case-step-carry-out-edit-mode.vue'),
                 },
                 {
-                    path: 'products/:product?/cases/:case?/casesteps/:casestep?/carryouteditmode/:carryouteditmode?',
+                    path: 'products/:product?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.casestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'carryouteditmode', parameterName: 'carryouteditmode' },
                         ],
                         requireAuth: true,
@@ -6816,14 +6972,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-carry-out-edit-mode/case-step-carry-out-edit-mode.vue'),
                 },
                 {
-                    path: 'cases/:case?/casesteps/:casestep?/carryouteditmode/:carryouteditmode?',
+                    path: 'cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.casestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'carryouteditmode', parameterName: 'carryouteditmode' },
                         ],
                         requireAuth: true,
@@ -6831,13 +6987,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-carry-out-edit-mode/case-step-carry-out-edit-mode.vue'),
                 },
                 {
-                    path: 'casesteps/:casestep?/carryouteditmode/:carryouteditmode?',
+                    path: 'ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.casestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'carryouteditmode', parameterName: 'carryouteditmode' },
                         ],
                         requireAuth: true,

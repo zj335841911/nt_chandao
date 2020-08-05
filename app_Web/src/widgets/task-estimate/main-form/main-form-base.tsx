@@ -1,9 +1,9 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
-import TaskService from '@/service/task/task-service';
-import TaskEstimateService from './task-estimate-form-service';
-import TaskUIService from '@/uiservice/task/task-ui-service';
+import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
+import MainService from './main-form-service';
+import TaskEstimateUIService from '@/uiservice/task-estimate/task-estimate-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -12,69 +12,59 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {TaskEstimateEditFormBase}
+ * @extends {MainEditFormBase}
  */
-export class TaskEstimateEditFormBase extends EditFormControlBase {
+export class MainEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof TaskEstimateEditFormBase
+     * @memberof MainEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {TaskEstimateService}
-     * @memberof TaskEstimateEditFormBase
+     * @type {MainService}
+     * @memberof MainEditFormBase
      */
-    public service: TaskEstimateService = new TaskEstimateService({ $store: this.$store });
+    public service: MainService = new MainService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
-     * @memberof TaskEstimateEditFormBase
+     * @type {TaskEstimateService}
+     * @memberof MainEditFormBase
      */
-    public appEntityService: TaskService = new TaskService({ $store: this.$store });
+    public appEntityService: TaskEstimateService = new TaskEstimateService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof TaskEstimateEditFormBase
+     * @memberof MainEditFormBase
      */
-    protected appDeName: string = 'task';
+    protected appDeName: string = 'taskestimate';
     /**
      * 界面UI服务对象
      *
-     * @type {TaskUIService}
-     * @memberof TaskEstimateEditFormBase
+     * @type {TaskEstimateUIService}
+     * @memberof MainEditFormBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
-
-    /**
-     * 关系界面数量
-     *
-     * @protected
-     * @type {number}
-     * @memberof TaskEstimateEditFormBase
-     */
-    protected drCount: number = 2;
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof TaskEstimateEditFormBase
+     * @memberof MainEditFormBase
      */
     public data: any = {
-        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -82,16 +72,19 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        date: null,
+        consumed: null,
+        left: null,
+        work: null,
         id: null,
-        name: null,
-        task:null,
+        taskestimate:null,
     };
 
     /**
      * 属性值规则
      *
      * @type {*}
-     * @memberof TaskEstimateEditFormBase
+     * @memberof MainEditFormBase
      */
     public rules: any = {
     }
@@ -100,7 +93,7 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof TaskEstimateBase
+     * @memberof MainBase
      */
     public deRules:any = {
     };
@@ -109,22 +102,18 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof TaskEstimateEditFormBase
+     * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        group1: new FormGroupPanelModel({ caption: 'taskestimate基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.taskestimate.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        srfmajortext: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -134,9 +123,15 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        name: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        consumed: new FormItemModel({ caption: '工时', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        left: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        work: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'work', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
 }

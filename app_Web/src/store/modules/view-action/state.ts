@@ -639,6 +639,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4acc52d66d0c31e82166d85b1b0cd826',
+            viewmodule: 'zentao',
+            viewname: 'TaskEstimateOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '4b82e9acf6c784b138b365d6011b296b',
             viewmodule: 'zentao',
             viewname: 'StoryGridView9_AssignedToMe',
@@ -924,6 +933,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '8b96b7671df722e66d78808ee0636349',
+                '6991c25388155df89dc9c44eeb11ad90',
             ],
         },
         {
@@ -985,6 +995,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: '6991c25388155df89dc9c44eeb11ad90',
+            viewmodule: 'zentao',
+            viewname: 'TaskEstimateEditGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4acc52d66d0c31e82166d85b1b0cd826',
             ],
         },
         {
