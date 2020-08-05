@@ -2146,6 +2146,66 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/linkcasegridview/:linkcasegridview?',
+                    meta: {
+                        caption: 'entities.case.views.linkcasegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'linkcasegridview', parameterName: 'linkcasegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-link-case-grid-view/case-link-case-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/linkcasegridview/:linkcasegridview?',
+                    meta: {
+                        caption: 'entities.case.views.linkcasegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'linkcasegridview', parameterName: 'linkcasegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-link-case-grid-view/case-link-case-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/linkcasegridview/:linkcasegridview?',
+                    meta: {
+                        caption: 'entities.case.views.linkcasegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'linkcasegridview', parameterName: 'linkcasegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-link-case-grid-view/case-link-case-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/linkcasegridview/:linkcasegridview?',
+                    meta: {
+                        caption: 'entities.case.views.linkcasegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'linkcasegridview', parameterName: 'linkcasegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-link-case-grid-view/case-link-case-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mpickupview/:mpickupview?',
                     meta: {
                         caption: 'entities.story.views.mpickupview.title',

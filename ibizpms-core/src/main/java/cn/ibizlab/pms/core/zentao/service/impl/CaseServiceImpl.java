@@ -159,6 +159,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
     @Override
     @Transactional
+    public Case linkCase(Case et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Case runCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();

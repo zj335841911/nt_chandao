@@ -135,6 +135,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '14d95e9a02db631c2b9af47641fcec4e',
+            viewmodule: 'zentao',
+            viewname: 'CaseLinkCaseGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '1540523a668e920d831510cfbec2c5e2',
             viewmodule: 'zentao',
             viewname: 'BugMainDashboardView',
@@ -232,9 +242,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '14d95e9a02db631c2b9af47641fcec4e',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
-                '417541fa331fc089b84936b8359403fa',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
@@ -377,9 +387,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '14d95e9a02db631c2b9af47641fcec4e',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
-                '417541fa331fc089b84936b8359403fa',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
@@ -1729,9 +1739,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '14d95e9a02db631c2b9af47641fcec4e',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
-                '417541fa331fc089b84936b8359403fa',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
