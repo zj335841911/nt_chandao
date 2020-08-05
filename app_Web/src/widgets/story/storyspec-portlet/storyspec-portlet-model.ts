@@ -168,6 +168,9 @@ export default class StoryspecModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

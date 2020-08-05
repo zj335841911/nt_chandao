@@ -41,6 +41,13 @@ public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
             this.getSearchCond().eq("version", n_version_eq);
         }
     }
+	private Integer n_version_noteq;//[版本号]
+	public void setN_version_noteq(Integer n_version_noteq) {
+        this.n_version_noteq = n_version_noteq;
+        if(!ObjectUtils.isEmpty(this.n_version_noteq)){
+            this.getSearchCond().ne("version", n_version_noteq);
+        }
+    }
 	private BigInteger n_story_eq;//[需求]
 	public void setN_story_eq(BigInteger n_story_eq) {
         this.n_story_eq = n_story_eq;

@@ -413,4 +413,12 @@ export interface Story {
      * @memberof Story
      */
     project?: any;
+
+    /**
+     * 之前的版本
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    preversion?: any;
 }
