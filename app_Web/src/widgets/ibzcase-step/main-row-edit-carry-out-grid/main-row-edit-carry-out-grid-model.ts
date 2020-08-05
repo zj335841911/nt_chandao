@@ -27,9 +27,10 @@ export default class Main_RowEdit_CarryOutModel {
     }else{
 		  return [
         {
-          name: 'expect',
-          prop: 'expect',
-          dataType: 'LONGTEXT',
+          name: 'files',
+          prop: 'files',
+          dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'desc',
@@ -39,11 +40,6 @@ export default class Main_RowEdit_CarryOutModel {
         {
           name: 'parent',
           prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
           dataType: 'PICKUP',
         },
         {
@@ -64,9 +60,10 @@ export default class Main_RowEdit_CarryOutModel {
           dataType: 'LONGTEXT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'reals',
+          prop: 'reals',
+          dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'srfkey',
@@ -75,15 +72,30 @@ export default class Main_RowEdit_CarryOutModel {
           isEditable:true
         },
         {
-          name: 'reals',
-          prop: 'reals',
-          dataType: 'TEXT',
-          isEditable:true
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'version',
           prop: 'version',
           dataType: 'PICKUPDATA',
+        },
+        {
+          name: 'expect',
+          prop: 'expect',
+          dataType: 'LONGTEXT',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'case',
