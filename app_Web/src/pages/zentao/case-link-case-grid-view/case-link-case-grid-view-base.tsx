@@ -69,28 +69,6 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseLinkCaseGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'CASE': { isRawValue: false, value: 'id' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseLinkCaseGridViewBase
-	 */
-    protected customViewParams: any = {
-        'case': { isRawValue: false, value: 'id' }
-    };
-
     /**
      * 视图模型数据
      *
