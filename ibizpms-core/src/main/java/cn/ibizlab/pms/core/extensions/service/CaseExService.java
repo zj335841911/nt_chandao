@@ -35,7 +35,19 @@ public class CaseExService extends CaseServiceImpl {
     @Override
     @Transactional
     public Case runCase(Case et) {
-        return super.runCase(et);
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        jo.put("srfarray", et.getCasestep());
+        jo.put("id", 0);
+        jo.put("case", et.getId());
+        jo.put("version", jo.get("version"));
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.runCase(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override

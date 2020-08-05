@@ -67,6 +67,7 @@ final public class ZTCaseHelper {
     private final static String  ACTION_BUGS = "bugs";
     private final static String  ACTION_AJAXGETSTORYMODULE = "ajaxGetStoryModule";
     private final static String  ACTION_AJAXGETSTATUS = "ajaxGetStatus";
+    private final static String  ACTION_RUNCASE = "runCase";
 
     // ----------
     // 接口行为HTTP方法（GET、POST）
@@ -299,6 +300,9 @@ final public class ZTCaseHelper {
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
+        // CONFIRMSTORYCHANGE
+        ACTION_URL_PARAMS_CONFIRMSTORYCHANGE.add("id");
+
         // DELETE
         ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
@@ -315,6 +319,28 @@ final public class ZTCaseHelper {
     // ----------
     // 接口实现
     // ----------
+
+    /**
+     * create 创建
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean confirmstorychange(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CONFIRMSTORYCHANGE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CONFIRMSTORYCHANGE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CONFIRMSTORYCHANGE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CONFIRMSTORYCHANGE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_CONFIRMSTORYCHANGE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_CONFIRMSTORYCHANGE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
 
     /**
      * create 创建
@@ -393,37 +419,9 @@ final public class ZTCaseHelper {
      * @return
      */
     public static boolean runCase(String zentaoSid, JSONObject jo, ZTResult rst) {
-        // 参数赋值
-        String moduleName = "testtask";
-        String urlExt = ZenTaoConstants.ZT_URL_EXT;
-        String actionName = "runCase";
-        HttpMethod actionHttpMethod = HttpMethod.POST;
-        Map<String, Object> actionParams = new HashMap<>();
-        List<String> actionUrlParams = new ArrayList<>();
-        String returnUrlRegexPrev = null;
-        List<ZTCheckItem> checkList = null;
 
-        actionUrlParams.add("id");
-        actionUrlParams.add("case");
-        actionUrlParams.add("version");
 
-        actionParams.put("case", 0);
-        actionParams.put("version", 0);
-        JSONArray ja = jo.getJSONArray("srfarray");
-        if (ja != null && ja.size() > 0) {
-            for (int i = 0; i < ja.size(); i++) {
-                JSONObject jaO = ja.getJSONObject(i);
-                actionParams.put("steps" + "[" + jaO.getInteger("id") + "]", jaO.get("steps"));
-                actionParams.put("reals" + "[" + jaO.getInteger("id") + "]", jaO.get("reals"));
-            }
-        }
-
-        JSONObject jo2 = new JSONObject();
-        jo2.put("id", 0);
-        jo2.put("case", jo.get("case"));
-        jo2.put("version", jo.get("version"));
-
-        return ZenTaoHttpHelper.doZTRequest(jo2, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+        return ZTTestTaskHelper.runCase(zentaoSid, jo, rst);
     }
 
 }
