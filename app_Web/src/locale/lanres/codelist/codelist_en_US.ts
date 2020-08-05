@@ -329,6 +329,11 @@ export default {
     BugModule: {
         "empty": "",
     },
+    CaseQuickpachet: {
+        "ALL": "所有",
+        "TOME": "需求变动",
+        "empty": ""
+    },
     CodeList46: {
         "2": "星期一",
         "3": "星期二",

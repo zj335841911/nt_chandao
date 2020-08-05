@@ -323,7 +323,7 @@ export class TestSuiteGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.testsuite.views.editview.title'),
-            placement: 'DRAWER_LEFT',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }
@@ -369,7 +369,7 @@ export class TestSuiteGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.testsuite.views.editview.title'),
-            placement: 'DRAWER_LEFT',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }
