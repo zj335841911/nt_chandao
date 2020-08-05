@@ -27,14 +27,14 @@ export default class MainEditModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'work',
           prop: 'work',
           dataType: 'LONGTEXT',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'consumed',
