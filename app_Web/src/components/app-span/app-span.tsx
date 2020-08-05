@@ -131,6 +131,14 @@ export default class AppSpan extends Vue {
     @Prop() public editorType?: string;
 
     /**
+     * 单位
+     *
+     * @type {*}
+     * @memberof AppSpan
+     */
+    @Prop() public unitName?: any;
+
+    /**
      * vue  生命周期
      *
      * @memberof AppSpan
@@ -171,6 +179,14 @@ export default class AppSpan extends Vue {
         } else if (Object.is(this.editorType, 'PICTURE') || Object.is(this.editorType, 'PICTURE_ONE') || Object.is(this.editorType, 'FILEUPLOADER')) {
             return <app-upload-file-info value={this.value} name={this.name} />;
         }
+
+        if(this.unitName != null && !Object.is(this.unitName, '')) {
+            let _text: any = this.text.toString();
+            if(_text.indexOf(this.unitName) == -1) {
+                return <span class="app-span">{this.text}&nbsp;{this.unitName}</span>;
+            }
+        }
+
         return <span class="app-span">{this.text}</span>;
     }
 
