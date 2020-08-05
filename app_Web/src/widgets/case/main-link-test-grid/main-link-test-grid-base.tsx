@@ -105,7 +105,7 @@ export class MainLinkTestGridBase extends GridControlBase {
             langtag: 'entities.case.mainlinktest_grid.columns.id',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
         },
         {
             name: 'version',
@@ -189,6 +189,8 @@ export class MainLinkTestGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
+          product: new FormItemModel(),
+          id: new FormItemModel(),
           srfkey: new FormItemModel(),
           version: new FormItemModel(),
         }
@@ -201,6 +203,14 @@ export class MainLinkTestGridBase extends GridControlBase {
      * @memberof MainLinkTestGridBase
      */
     public rules: any = {
+        product: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'blur' },
+        ],
+        id: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'ID 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'ID 值不能为空', trigger: 'blur' },
+        ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'blur' },
@@ -218,7 +228,7 @@ export class MainLinkTestGridBase extends GridControlBase {
      * @memberof MainLinkTestBase
      */
     public hasRowEdit: any = {
-        'id':false,
+        'id':true,
         'version':true,
         'pri':false,
         'title':false,

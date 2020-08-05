@@ -95,6 +95,7 @@ export default class MainLinkTestModel {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'id',

@@ -24,19 +24,28 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.case.mainlinktest_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.case.mainlinktest_grid.columns.id')" :width="40"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.mainlinktest_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+            <app-span name='id' :value="row[column.property]" :data="row" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <app-span name='id' editorType="SPAN" :value="row.id" dataType="ACID" precision="0" ></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('version')">
-                <el-table-column show-overflow-tooltip :prop="'version'" :label="$t('entities.case.mainlinktest_grid.columns.version')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'version'" :label="$t('entities.case.mainlinktest_grid.columns.version')" :width="60"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.mainlinktest_grid.columns.version')}}
@@ -52,8 +61,8 @@
               :data="row" 
               :context="context"
               :viewparams="viewparams" 
-              :localContext ='{ }' 
-              :localParam ='{ }' 
+              :localContext ='{ N_CASE_EQ:"%case%" }' 
+              :localParam ='{ n_case_eq:"%case%" }' 
               tag='CurCaseVersion' 
               codelistType='DYNAMIC'
               placeholder='请选择...' 
