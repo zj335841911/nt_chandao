@@ -1,8 +1,122 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+/**
+ * Main 部件模型
+ *
+ * @export
+ * @class MainModel
+ */
+export default class MainModel {
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${majorAppDataEntity.getPSDER1N().get...  [in template "TEMPLCODE_zh_CN" at line 80, column 18]
-----
+	/**
+	 * 是否是实体数据导出
+	 *
+	 * @returns {any[]}
+	 * @memberof MainGridMode
+	 */
+	public isDEExport: boolean = false;
+
+	/**
+	 * 获取数据项集合
+	 *
+	 * @returns {any[]}
+	 * @memberof MainGridMode
+	 */
+	public getDataItems(): any[] {
+    if(this.isDEExport){
+		  return [
+      ]
+    }else{
+		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'work',
+          prop: 'work',
+          dataType: 'LONGTEXT',
+          isEditable:true
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
+          name: 'dates',
+          prop: 'dates',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
+          name: 'task',
+          prop: 'task',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'task',
+          prop: 'task',
+          dataType: 'FONTKEY',
+        },
+        {
+          name: 'ibztaskestimate',
+          prop: 'id',
+        },
+        {
+          name:'size',
+          prop:'size'
+        },
+        {
+          name:'query',
+          prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
+        },
+        {
+          name:'page',
+          prop:'page'
+        },
+        {
+          name:'sort',
+          prop:'sort'
+        },
+        {
+          name:'srfparentdata',
+          prop:'srfparentdata'
+        },
+        // 前端新增修改标识，新增为"0",修改为"1"或未设值
+        {
+          name: 'srffrontuf',
+          prop: 'srffrontuf',
+          dataType: 'TEXT',
+        },
+      ]
+    }
+  }
+
+}
