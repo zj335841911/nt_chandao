@@ -56,6 +56,10 @@ export default {
 			caption: "测试用例",
       		title: "功能测试编辑视图",
 		},
+		linkcasegridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（关联用例）",
+		},
 		optionview: {
 			caption: "执行",
       		title: "测试用例选项操作视图",
@@ -333,6 +337,22 @@ export default {
 		uiactions: {
 		},
 	},
+	mainlinktest_grid: {
+		columns: {
+			id: "ID",
+			version: "版本",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status: "状态",
+		},
+		uiactions: {
+		},
+	},
 	maingrid_suitsub_grid: {
 		columns: {
 			id: "id",
@@ -365,6 +385,13 @@ export default {
 			pri: "P",
 			title: "用例标题",
 			status: "状态",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
 		},
 		uiactions: {
 		},
@@ -447,6 +474,12 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	linkcasegridviewtoolbar_toolbar: {
+		deuiaction1_linkcase: {
+			caption: "保存",
+			tip: "保存",
 		},
 	},
 	gridviewtoolbar_toolbar: {

@@ -183,7 +183,8 @@ export default class TestTaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async TestTask_LinkCase(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async TestTask_LinkCase(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -205,46 +206,33 @@ export default class TestTaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
         }
-        const backend = () => {
-            const curService:TestTaskService =  new TestTaskService();
-            curService.Get(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '关联用例成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'case-main-grid-view', 
-            title: actionContext.$t('entities.case.views.maingridview.title'),
-            height: 0, 
-            width: 0, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
             }
-        });
+            const view: any = {
+                viewname: 'case-link-case-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.linkcasegridview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
     }
 
     /**

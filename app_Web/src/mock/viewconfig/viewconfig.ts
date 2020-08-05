@@ -127,6 +127,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskAssignTaskView",
             "viewtag": "12661bdb476cd339554799b417c6ea48"
         },
+        "caselinkcasegridview": {
+            "title": "测试用例表格视图（关联用例）",
+            "caption": "关联用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseLinkCaseGridView",
+            "viewtag": "14d95e9a02db631c2b9af47641fcec4e"
+        },
         "bugmaindashboardview": {
             "title": "Bug数据看板视图",
             "caption": "Bug",

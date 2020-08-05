@@ -52,6 +52,16 @@ public class TestTaskExService extends TestTaskServiceImpl {
         return super.close(et);
     }
     /**
+     * 自定义行为[LinkCase]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public TestTask linkCase(TestTask et) {
+        return super.linkCase(et);
+    }
+    /**
      * 自定义行为[Start]用户扩展
      * @param et
      * @return

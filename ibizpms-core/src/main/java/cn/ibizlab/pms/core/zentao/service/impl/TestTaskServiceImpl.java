@@ -180,6 +180,13 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     @Transactional
+    public TestTask linkCase(TestTask et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(TestTask et) {
         if(!saveOrUpdate(et))
             return false;
