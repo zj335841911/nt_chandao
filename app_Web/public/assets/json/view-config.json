@@ -980,8 +980,8 @@
         "memo": ""
     },
     "taskworkhoursview": {
-        "title": "转交任务",
-        "caption": "转交任务",
+        "title": "工时",
+        "caption": "工时",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
         "viewname": "TaskWorkHoursView",

@@ -100,8 +100,8 @@ export default {
       		title: "任务甘特视图",
 		},
 		workhoursview: {
-			caption: "转交任务",
-      		title: "转交任务",
+			caption: "工时",
+      		title: "工时",
 		},
 		pivottableview: {
 			caption: "任务",

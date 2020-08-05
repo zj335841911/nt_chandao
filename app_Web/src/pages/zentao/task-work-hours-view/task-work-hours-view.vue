@@ -6,7 +6,7 @@ import { TaskWorkHoursViewBase } from './task-work-hours-view-base';
 import view_form from '@widgets/task/task-estimate-form/task-estimate-form.vue';
 
 /**
- * 转交任务视图
+ * 工时视图
  *
  * @export
  * @class TaskWorkHoursView

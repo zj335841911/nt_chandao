@@ -6,7 +6,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
- * 转交任务视图基类
+ * 工时视图基类
  *
  * @export
  * @class TaskWorkHoursViewBase

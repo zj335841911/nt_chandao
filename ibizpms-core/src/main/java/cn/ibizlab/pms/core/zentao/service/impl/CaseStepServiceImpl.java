@@ -247,6 +247,15 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     }
 
     /**
+     * 查询集合 DEFAULT1
+     */
+    @Override
+    public Page<CaseStep> searchDefault1(CaseStepSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStep> pages=baseMapper.searchDefault1(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<CaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 版本
      */
     @Override
