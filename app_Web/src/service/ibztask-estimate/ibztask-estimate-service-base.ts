@@ -1,8 +1,132 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+import { Http,Util } from '@/utils';
+import EntityService from '../entity-service';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign singleServiceApi = null  [in template "TEMPLCODE_zh_CN" at line 730, column 5]
-----
+
+
+/**
+ * 任务预计服务对象基类
+ *
+ * @export
+ * @class IBZTaskEstimateServiceBase
+ * @extends {EntityServie}
+ */
+export default class IBZTaskEstimateServiceBase extends EntityService {
+
+    /**
+     * Creates an instance of  IBZTaskEstimateServiceBase.
+     * 
+     * @param {*} [opts={}]
+     * @memberof  IBZTaskEstimateServiceBase
+     */
+    constructor(opts: any = {}) {
+        super(opts);
+    }
+
+    /**
+     * 初始化基础数据
+     *
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public initBasicData(){
+        this.APPLYDEKEY ='ibztaskestimate';
+        this.APPDEKEY = 'id';
+        this.APPDENAME = 'ibztaskestimates';
+        this.APPDETEXT = 'id';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
+    }
+
+// 实体接口
+
+    /**
+     * FetchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchDefault ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchDefaults ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefaults ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+}
