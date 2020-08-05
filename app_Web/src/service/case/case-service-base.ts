@@ -1128,7 +1128,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async BugCreateCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // URI参数传递情况未实现
     }
 
     /**
@@ -1141,8 +1140,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 
     /**
@@ -1155,8 +1152,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 
     /**
@@ -1169,8 +1164,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 
     /**
@@ -1183,7 +1176,5 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 }
