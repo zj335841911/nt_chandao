@@ -45,7 +45,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('version')">
-                <el-table-column show-overflow-tooltip :prop="'version'" :label="$t('entities.case.mainlinktest_grid.columns.version')" :width="60"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'version'" :label="$t('entities.case.mainlinktest_grid.columns.version')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.mainlinktest_grid.columns.version')}}
