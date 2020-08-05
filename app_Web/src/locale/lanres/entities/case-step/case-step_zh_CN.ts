@@ -12,10 +12,6 @@ export default {
     files: "附件",
   },
 	views: {
-		carryouteditmode: {
-			caption: "用例步骤",
-      		title: "用例步骤",
-		},
 		maingridview9: {
 			caption: "用例步骤",
       		title: "用例步骤",
@@ -27,16 +23,6 @@ export default {
 			desc: "步骤",
 			type: "类型",
 			expect: "预期",
-		},
-		uiactions: {
-		},
-	},
-	main_rowedit_carryout_grid: {
-		columns: {
-			desc: "步骤",
-			expect: "预期",
-			steps: "测试结果",
-			reals: "实际情况",
 		},
 		uiactions: {
 		},

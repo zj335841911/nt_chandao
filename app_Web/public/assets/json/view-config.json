@@ -649,6 +649,16 @@
         "viewtag": "4a5cfcdc473166f49cea6c9628865006",
         "memo": ""
     },
+    "taskestimateoptionview": {
+        "title": "任务预计选项操作视图",
+        "caption": "任务预计",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskEstimateOptionView",
+        "viewfilename": "task-estimate-option-view",
+        "viewtag": "4acc52d66d0c31e82166d85b1b0cd826",
+        "memo": ""
+    },
     "taskgridview": {
         "title": "任务表格视图",
         "caption": "任务",
@@ -1047,6 +1057,16 @@
         "viewname": "CaseBatchNewGridView",
         "viewfilename": "case-batch-new-grid-view",
         "viewtag": "66769499a681f12bd2ebff8859f1d4ea",
+        "memo": ""
+    },
+    "taskestimateeditgridview9": {
+        "title": "任务预计表格视图",
+        "caption": "工时",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskEstimateEditGridView9",
+        "viewfilename": "task-estimate-edit-grid-view9",
+        "viewtag": "6991c25388155df89dc9c44eeb11ad90",
         "memo": ""
     },
     "productmaintabexpview": {

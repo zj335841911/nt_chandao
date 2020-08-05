@@ -89,7 +89,6 @@ export default class CaseStepUIServiceBase extends UIService {
      * @memberof  CaseStepUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'carryouteditmode',srfappde:'casesteps'});
         this.allViewMap.set(':',{viewname:'maingridview9',srfappde:'casesteps'});
     }
 

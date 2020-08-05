@@ -1,36 +1,36 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
-import IBZCaseStepAuthService from '@/authservice/ibzcase-step/ibzcase-step-auth-service';
+import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
+import TaskEstimateAuthService from '@/authservice/task-estimate/task-estimate-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
-import IBZCaseStepUIService from '@/uiservice/ibzcase-step/ibzcase-step-ui-service';
+import TaskEstimateUIService from '@/uiservice/task-estimate/task-estimate-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 用例步骤视图基类
+ * 任务预计表格视图视图基类
  *
  * @export
- * @class CaseStepCarryOutEditModeBase
+ * @class TaskEstimateEditGridView9Base
  * @extends {GridView9Base}
  */
-export class CaseStepCarryOutEditModeBase extends GridView9Base {
+export class TaskEstimateEditGridView9Base extends GridView9Base {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
-    protected appDeName: string = 'ibzcasestep';
+    protected appDeName: string = 'taskestimate';
 
     /**
      * 应用实体主键
      *
      * @protected
      * @type {string}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     protected appDeKey: string = 'id';
 
@@ -39,25 +39,25 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
-    protected appDeMajor: string = 'expect';
+    protected appDeMajor: string = 'id';
 
     /**
      * 实体服务对象
      *
-     * @type {IBZCaseStepService}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @type {TaskEstimateService}
+     * @memberof TaskEstimateEditGridView9Base
      */
-    protected appEntityService: IBZCaseStepService = new IBZCaseStepService;
+    protected appEntityService: TaskEstimateService = new TaskEstimateService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IBZCaseStepUIService
-     * @memberof CaseStepCarryOutEditModeBase
+     * @type TaskEstimateUIService
+     * @memberof TaskEstimateEditGridView9Base
      */
-    public appUIService: IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
+    public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
 
     /**
@@ -65,7 +65,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {Array<*>}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */    
     protected counterServiceArray: Array<any> = [];
 
@@ -74,12 +74,12 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {*}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     protected model: any = {
-        srfCaption: 'entities.ibzcasestep.views.carryouteditmode.caption',
-        srfTitle: 'entities.ibzcasestep.views.carryouteditmode.title',
-        srfSubTitle: 'entities.ibzcasestep.views.carryouteditmode.subtitle',
+        srfCaption: 'entities.taskestimate.views.editgridview9.caption',
+        srfTitle: 'entities.taskestimate.views.editgridview9.title',
+        srfSubTitle: 'entities.taskestimate.views.editgridview9.subtitle',
         dataInfo: ''
     }
 
@@ -88,7 +88,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {*}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     protected containerModel: any = {
         view_grid: { name: 'grid', type: 'GRID' },
@@ -102,7 +102,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = 'a694d988e3134a33bb5a99e6e07246f6';
+	protected viewtag: string = '6991c25388155df89dc9c44eeb11ad90';
 
 
     /**
@@ -110,7 +110,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @public
      * @type {Engine}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public engine: GridView9Engine = new GridView9Engine();
 
@@ -118,7 +118,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * 引擎初始化
      *
      * @public
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public engineInit(): void {
         this.engine.init({
@@ -130,8 +130,8 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'ibzcasestep',
-            majorPSDEField: 'expect',
+            keyPSDEField: 'taskestimate',
+            majorPSDEField: 'id',
             isLoadDefault: true,
         });
     }
@@ -141,7 +141,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -152,7 +152,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -163,7 +163,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -174,7 +174,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -185,7 +185,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -199,7 +199,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof CaseStepCarryOutEditMode
+     * @memberof TaskEstimateEditGridView9
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -216,7 +216,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof CaseStepCarryOutEditMode
+     * @memberof TaskEstimateEditGridView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
@@ -229,7 +229,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {boolean}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     protected isGridSingleSelect: boolean = true;
 
@@ -241,7 +241,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {(0 | 1 | 2)}
-     * @memberof CaseStepCarryOutEditModeBase
+     * @memberof TaskEstimateEditGridView9Base
      */
     protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

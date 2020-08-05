@@ -300,6 +300,7 @@ export default {
 	},
 	taskestimate_form: {
 		details: {
+			druipart2: "", 
 			druipart1: "", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 

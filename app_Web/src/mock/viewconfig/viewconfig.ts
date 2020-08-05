@@ -527,6 +527,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainInfoEditView9",
             "viewtag": "4a5cfcdc473166f49cea6c9628865006"
         },
+        "taskestimateoptionview": {
+            "title": "任务预计选项操作视图",
+            "caption": "任务预计",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskEstimateOptionView",
+            "viewtag": "4acc52d66d0c31e82166d85b1b0cd826"
+        },
         "taskgridview": {
             "title": "任务表格视图",
             "caption": "任务",
@@ -846,6 +854,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseBatchNewGridView",
             "viewtag": "66769499a681f12bd2ebff8859f1d4ea"
+        },
+        "taskestimateeditgridview9": {
+            "title": "任务预计表格视图",
+            "caption": "工时",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskEstimateEditGridView9",
+            "viewtag": "6991c25388155df89dc9c44eeb11ad90"
         },
         "productmaintabexpview": {
             "title": "产品",
