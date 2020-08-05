@@ -37,6 +37,7 @@ public interface ITaskEstimateService extends IService<TaskEstimate>{
     boolean save(TaskEstimate et) ;
     void saveBatch(List<TaskEstimate> list) ;
     Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context) ;
+    Page<TaskEstimate> searchDefaults(TaskEstimateSearchContext context) ;
     List<TaskEstimate> selectByTask(BigInteger id) ;
     void removeByTask(BigInteger id) ;
     void saveByTask(BigInteger id,List<TaskEstimate> list) ;

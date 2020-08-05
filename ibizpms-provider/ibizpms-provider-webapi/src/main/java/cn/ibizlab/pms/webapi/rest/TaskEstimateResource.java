@@ -179,6 +179,29 @@ public class TaskEstimateResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据任务获取DEFAULT1", tags = {"任务预计" } ,notes = "根据任务获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/taskestimates/fetchdefaults")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultsByTask(@PathVariable("task_id") BigInteger task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据任务查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/taskestimates/searchdefaults")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByTask(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据需求任务建立任务预计", tags = {"任务预计" },  notes = "根据需求任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/taskestimates")
@@ -308,6 +331,29 @@ public class TaskEstimateResource {
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultByStoryTask(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据需求任务获取DEFAULT1", tags = {"任务预计" } ,notes = "根据需求任务获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/taskestimates/fetchdefaults")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultsByStoryTask(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据需求任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据需求任务查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/taskestimates/searchdefaults")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByStoryTask(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -443,6 +489,29 @@ public class TaskEstimateResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据项目任务获取DEFAULT1", tags = {"任务预计" } ,notes = "根据项目任务获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/taskestimates/fetchdefaults")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultsByProjectTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据项目任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据项目任务查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/taskestimates/searchdefaults")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProjectTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据产品需求任务建立任务预计", tags = {"任务预计" },  notes = "根据产品需求任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskestimates")
@@ -572,6 +641,29 @@ public class TaskEstimateResource {
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultByProductStoryTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据产品需求任务获取DEFAULT1", tags = {"任务预计" } ,notes = "根据产品需求任务获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskestimates/fetchdefaults")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultsByProductStoryTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据产品需求任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据产品需求任务查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskestimates/searchdefaults")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProductStoryTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
