@@ -1,6 +1,7 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
 import com.alibaba.fastjson.JSONArray;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -115,7 +118,27 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public Task recordEstimate(Task et) {
-        return super.recordEstimate(et);
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        List<TaskEstimate> list = et.getTaskestimate();
+        int i = 1;
+        JSONArray jsonArray = new JSONArray();
+        for(TaskEstimate taskEstimate : list) {
+            if(taskEstimate.getId() == null) {
+                taskEstimate.setId(new BigInteger(String.valueOf(i)));
+                JSONObject jsonObject = (JSONObject) JSONObject.toJSON(taskEstimate);
+                i ++;
+                jsonArray.add(jsonObject);
+            }
+        }
+        jo.put("srfarray", jsonArray);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.recordEstimate(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
     }
     /**
      * 自定义行为[Restart]用户扩展
@@ -227,6 +250,21 @@ public class TaskExService extends TaskServiceImpl {
             task.set("items", this.selectByParent(task.getId()));
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    @Override
+    @Transactional
+    public Task get(BigInteger key) {
+        Task et = getById(key);
+        if(et==null){
+            et=new Task();
+            et.setId(key);
+        }
+        else{
+            et.setTaskteam(taskteamService.selectByRoot(key));
+            // et.setTaskestimate(taskestimateService.selectByTask(key));
+        }
+        return et;
     }
 }
 

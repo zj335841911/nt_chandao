@@ -404,6 +404,8 @@ final public class ZTTaskHelper {
         PARAMS_DATEFORMAT.put("deadline", "yyyy-MM-dd");
         PARAMS_DATEFORMAT.put("estStarted", "yyyy-MM-dd");
         PARAMS_DATEFORMAT.put("finishedDate", "yyyy-MM-dd");
+        PARAMS_DATEFORMAT.put("dates", "yyyy-MM-dd");
+        PARAMS_DATEFORMAT.put("date", "yyyy-MM-dd");
     }
 
     // ----------

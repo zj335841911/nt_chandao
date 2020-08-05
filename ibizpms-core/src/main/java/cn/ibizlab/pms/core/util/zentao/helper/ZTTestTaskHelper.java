@@ -230,6 +230,13 @@ final public class ZTTestTaskHelper {
         ACTION_PARAMS_EDIT.put("mailto", null);
         ACTION_PARAMS_EDIT.put("comment", null);
 
+        // RUNCASE
+        ACTION_PARAMS_RUNCASE.put("steps[]", null);
+        ACTION_PARAMS_RUNCASE.put("reals[]", null);
+        ACTION_PARAMS_RUNCASE.put("case", null);
+        ACTION_PARAMS_RUNCASE.put("version", null);
+
+
         // START
         ACTION_PARAMS_START.put("comment", null);
 
@@ -262,6 +269,11 @@ final public class ZTTestTaskHelper {
 
         // START
         ACTION_URL_PARAMS_START.add("id");
+
+        // RUNCASE
+        ACTION_URL_PARAMS_RUNCASE.add("id");
+        ACTION_URL_PARAMS_RUNCASE.add("case");
+        ACTION_URL_PARAMS_RUNCASE.add("version");
 
         // BLOCK
         ACTION_URL_PARAMS_BLOCK.add("id");
@@ -438,6 +450,28 @@ final public class ZTTestTaskHelper {
         List<String> actionUrlParams = ACTION_URL_PARAMS_CLOSE;
         String returnUrlRegexPrev = ACTION_RETURNURL_CLOSE;
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_CLOSE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * runCase 执行
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean runCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_RUNCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_RUNCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_RUNCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_RUNCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_RUNCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_RUNCASE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
