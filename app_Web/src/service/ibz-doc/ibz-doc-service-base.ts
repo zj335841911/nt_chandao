@@ -63,8 +63,5 @@ export default class IBzDocServiceBase extends EntityService {
      * @memberof IBzDocServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdocs/select`,tempData,isloading);
-        return res;
     }
 }

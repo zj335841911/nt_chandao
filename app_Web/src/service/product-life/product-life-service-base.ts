@@ -108,8 +108,5 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productlives/select`,tempData,isloading);
-        return res;
     }
 }

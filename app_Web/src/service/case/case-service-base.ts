@@ -1128,10 +1128,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async BugCreateCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // URI参数传递情况未实现
-        // URI参数传递情况未实现
-        // URI参数传递情况未实现
-        // URI参数传递情况未实现
     }
 
     /**
@@ -1144,20 +1140,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.story && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.product && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 
     /**
@@ -1170,20 +1152,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.story && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.product && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 
     /**
@@ -1196,20 +1164,6 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.story && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.product && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 
     /**
@@ -1222,19 +1176,5 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.story && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        if(context.product && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
-            return res;
-        }
-        let res:any =  Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
-        return res;
     }
 }
