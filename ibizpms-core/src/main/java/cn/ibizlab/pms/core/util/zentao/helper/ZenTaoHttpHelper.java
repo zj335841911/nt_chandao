@@ -134,7 +134,7 @@ public class ZenTaoHttpHelper {
         // 日期格式转换
         jo = formatDateField(jo, dataFormatMap);
         // 数组解析
-        jo = formatArrayIntoPJSON(jo, jo, 0d, 0);
+        jo = formatArrayIntoPJSON(jo, jo, 0d, 0, dataFormatMap);
 
         // 匹配指定id的情况，例如 resolvedBy[229]:admin
         String keyRegex = "(.+)\\[(.+)\\]";
@@ -362,9 +362,10 @@ public class ZenTaoHttpHelper {
      * @param targetJo 解析后录入的对象
      * @param pKey 父游标值
      * @param level 层级
+     * @param dataFormatMap 数组中日期format
      * @return
      */
-    public static JSONObject formatArrayIntoPJSON(JSONObject jo, JSONObject targetJo, Double pKey, Integer level) {
+    public static JSONObject formatArrayIntoPJSON(JSONObject jo, JSONObject targetJo, Double pKey, Integer level, Map<String, String> dataFormatMap) throws Exception {
         if (jo == null) {
             return null;
         }
@@ -375,8 +376,17 @@ public class ZenTaoHttpHelper {
         for (String key : jo.keySet()) {
             for (String parseWord : parseWordArr) {
                 String regex = "^" + parseWord + "\\d*$";
-                if (key.toLowerCase().matches(regex) && jo.getString(key) != null) {
-                    jaList.add(JSONArray.parseArray(jo.getString(key)));
+                if (key.toLowerCase().matches(regex) && jo.get(key) != null) {
+                    JSONArray ja;
+                    if (jo.get(key) instanceof String) {
+                        ja = JSONArray.parseArray(jo.getString(key));
+                    } if (jo.get(key) instanceof JSONArray || jo.get(key) instanceof List) {
+                        ja = jo.getJSONArray(key);
+                    } else{
+                        ja = JSONArray.parseArray(jo.getString(key));
+                    }
+                    ja = formatDateField(ja, dataFormatMap);
+                    jaList.add(ja);
                 }
             }
         }
@@ -394,7 +404,7 @@ public class ZenTaoHttpHelper {
                     myKey = myKey / 10;
                 }
                 Double dKey = pKey + myKey;
-                targetJo = formatArrayIntoPJSON(jaO, targetJo, dKey,level + 1);
+                targetJo = formatArrayIntoPJSON(jaO, targetJo, dKey,level + 1, dataFormatMap);
                 for (String key : jaO.keySet()) {
                     Map<Double, Object> map = new HashMap<>();
                     if (targetJo.containsKey(key + "[]")) {
@@ -437,6 +447,28 @@ public class ZenTaoHttpHelper {
             }
         }
         return jo;
+    }
+
+    /**
+     * 格式化日期
+     *
+     * @param ja
+     * @return
+     */
+    public static JSONArray formatDateField(JSONArray ja, Map<String, String> dataFormatMap) throws Exception {
+        if (ja == null) {
+            return null;
+        }
+        if (dataFormatMap == null || dataFormatMap.isEmpty()) {
+            return ja;
+        }
+        JSONArray jaRst = new JSONArray();
+        for (int i = 0; i < ja.size(); i++) {
+            JSONObject jo = ja.getJSONObject(i);
+            jo = formatDateField(jo, dataFormatMap);
+            jaRst.add(jo);
+        }
+        return jaRst;
     }
 
     public static String formatUrlParams(List<String> urlParams, JSONObject jo) {
