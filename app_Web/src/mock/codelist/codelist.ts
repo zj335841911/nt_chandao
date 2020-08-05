@@ -2399,6 +2399,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "CaseQuickpachet",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "ALL",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
+                
+                disabled: false,
+            },
+            {
+                id: "TOME",
+                label: "需求变动",
+                text: "需求变动",
+                "data":{"n_status1_eq":"storychange"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "CodeList46",
         emptytext: "未定义",
         "codelisttype":"static",
