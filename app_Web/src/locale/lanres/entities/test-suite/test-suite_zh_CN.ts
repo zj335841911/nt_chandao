@@ -51,8 +51,6 @@ export default {
 		details: {
 			group1: "testsuite基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 
@@ -61,6 +59,8 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			name: "名称", 
+			desc: "描述", 
+			type: "类型", 
 			id: "编号", 
 		},
 		uiactions: {

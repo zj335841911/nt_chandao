@@ -26,6 +26,12 @@ export default {
         "bydesign": "设计如此",
         "empty": "",
     },
+    Testsuite__type: {
+        "library": "用例库",
+        "private": "私有",
+        "public": "公开",
+        "empty": "",
+    },
     RelatedStory: {
         "empty": "",
     },
