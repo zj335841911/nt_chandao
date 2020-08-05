@@ -492,21 +492,16 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.product && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.case && true){
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
+        // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
         }
     }
 
@@ -520,21 +515,16 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempDefault1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.product && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.case && true){
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
+        // FetchTempDefault1 ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
         }
     }
 
@@ -548,21 +538,16 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.product && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.case && true){
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
+        // FetchTempVersion ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
         }
     }
 
@@ -576,21 +561,16 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempVersions(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.story && context.case && true){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.product && context.case && true){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
-        }
-        if(context.case && true){
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,data,isloading);
-            return res;
+        // FetchTempVersions ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
         }
     }
 }
