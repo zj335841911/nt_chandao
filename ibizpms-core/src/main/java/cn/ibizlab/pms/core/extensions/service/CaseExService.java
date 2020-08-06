@@ -1,12 +1,16 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.zentao.domain.CaseStep;
+import cn.ibizlab.pms.core.zentao.domain.TestRun;
 import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
+import cn.ibizlab.pms.core.zentao.filter.TestRunSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.CaseServiceImpl;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Case;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -25,6 +29,33 @@ public class CaseExService extends CaseServiceImpl {
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
+    }
+
+    @Override
+    @Transactional
+    public Case unlinkCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        jo.remove("id");
+        if(et.getId() != null && et.get("task") != null) {
+            Map<String,Object> params = new HashMap<>();
+            params.put("case", et.getId());
+            params.put("task", et.get("task"));
+            String sql = "SELECT t1.`ASSIGNEDTO`, t1.`CASE`, t1.`ID`, t1.`LASTRUNDATE`, t1.`LASTRUNNER`, t1.`LASTRUNRESULT`, t1.`STATUS`, t1.`TASK`, t1.`VERSION` FROM `zt_testrun` t1  where t1.`CASE` = #{et.case} AND t1.`task` = #{et.task}";
+            List<JSONObject> list = this.select(sql, params);
+
+            if(!list.isEmpty() && list.size() > 0) {
+                jo.put("id", list.get(0).get("ID"));
+            }
+
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.unlinkCase(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
     }
 
     /**

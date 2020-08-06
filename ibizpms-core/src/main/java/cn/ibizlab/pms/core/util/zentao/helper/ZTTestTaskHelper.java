@@ -267,6 +267,10 @@ final public class ZTTestTaskHelper {
         ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
 
+        // UNLINKCASE
+        ACTION_URL_PARAMS_UNLINKCASE.add("id");
+        ACTION_URL_PARAMS_UNLINKCASE.add("confirm");
+
         // START
         ACTION_URL_PARAMS_START.add("id");
 
@@ -472,6 +476,52 @@ final public class ZTTestTaskHelper {
         List<String> actionUrlParams = ACTION_URL_PARAMS_RUNCASE;
         String returnUrlRegexPrev = ACTION_RETURNURL_RUNCASE;
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_RUNCASE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * unlinkCas 移除用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_UNLINKCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_UNLINKCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_UNLINKCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_UNLINKCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_UNLINKCASE;
+
+        jo.put("confirm", "yes");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * linkCas 关联用例
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LINKCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LINKCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_LINKCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_LINKCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_LINKCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_LINKCASE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
