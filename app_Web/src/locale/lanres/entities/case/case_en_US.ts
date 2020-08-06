@@ -53,6 +53,7 @@ export default {
     resultfalicnt: "测试失败数",
     status1: "用例状态",
     assignedto: "指派给",
+    task: "属性",
   },
 	views: {
 		editview: {
@@ -316,6 +317,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			version: "版本#", 
+			task: "属性", 
 			precondition: "前置条件", 
 			resultcnt: "测试结果数", 
 			resultfalicnt: "测试失败数", 

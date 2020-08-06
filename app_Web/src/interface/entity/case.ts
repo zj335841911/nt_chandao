@@ -421,4 +421,12 @@ export interface Case {
      * @memberof Case
      */
     assignedto?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    task?: any;
 }

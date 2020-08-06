@@ -171,6 +171,9 @@ export default class MainDetailModel {
       {
         name: 'assignedto',
       },
+      {
+        name: 'task',
+      },
     ]
   }
 

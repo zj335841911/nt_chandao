@@ -171,6 +171,9 @@ export default class MainDashboardModel {
       {
         name: 'assignedto',
       },
+      {
+        name: 'task',
+      },
     ]
   }
 

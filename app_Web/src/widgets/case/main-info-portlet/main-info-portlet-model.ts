@@ -171,6 +171,9 @@ export default class MainInfoModel {
       {
         name: 'assignedto',
       },
+      {
+        name: 'task',
+      },
     ]
   }
 

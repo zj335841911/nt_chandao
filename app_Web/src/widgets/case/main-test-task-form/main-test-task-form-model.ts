@@ -56,6 +56,11 @@ export default class MainTestTaskModel {
         dataType: 'INT',
       },
       {
+        name: 'task',
+        prop: 'task',
+        dataType: 'TEXT',
+      },
+      {
         name: 'precondition',
         prop: 'precondition',
         dataType: 'LONGTEXT',
