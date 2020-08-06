@@ -117,6 +117,7 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('blocked','blocked');
+        this.allDeMainStateMap.set('casechange','casechange');
         this.allDeMainStateMap.set('investigate','investigate');
         this.allDeMainStateMap.set('normal','normal');
         this.allDeMainStateMap.set('storychange','storychange');
@@ -129,11 +130,12 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',{'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('investigate',{'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('normal',{'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('storychange',{'CONFIRM':1,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('blocked',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('casechange',{'CASECOF':1,'CASERESULT':0,'CASERUN':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('storychange',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CONFIRM':1,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
     }
 
     /**
@@ -200,6 +202,140 @@ export default class CaseUIServiceBase extends UIService {
     }
 
     /**
+     * 移除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_unlinkCase(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:CaseService =  new CaseService();
+            curService.UnlinkCase(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '移除成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 确认用例变动
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_confirmChange(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:CaseService =  new CaseService();
+            curService.ConfirmChange(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '确认用例变动成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
      * 确认
      *
      * @param {any[]} args 当前数据
@@ -211,7 +347,7 @@ export default class CaseUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Case_CONFIRM(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Case_confirmstorychange(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};

@@ -322,7 +322,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			case_confirm: "确认",
+			case_confirmstorychange: "确认",
 			case_opentestrunresultview: "结果",
 			case_execute: "执行",
 			case_mainedit: "编辑",
@@ -339,6 +339,30 @@ export default {
 			type: "用例类型",
 		},
 		uiactions: {
+		},
+	},
+	testmaingrid_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			case_confirmchange: "确认用例变动",
+			case_newbugbycaseresult: "转Bug",
+			case_opentestrunresultview: "结果",
+			case_execute: "执行",
+			case_unlinkcase: "移除",
 		},
 	},
 	mainlinktest_grid: {
@@ -455,29 +479,9 @@ export default {
 		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {
-		deuiaction3_batchnew: {
-			caption: "批量新建用例",
-			tip: "批量新建用例",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		deuiaction7: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	linkcasegridviewtoolbar_toolbar: {

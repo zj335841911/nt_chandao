@@ -24,10 +24,10 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.case.maingrid_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.case.testmaingrid_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.id')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -36,10 +36,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.case.maingrid_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.case.testmaingrid_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.pri')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.pri')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -50,10 +50,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.maingrid_grid.columns.title')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.testmaingrid_grid.columns.title')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.title')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.title')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -70,10 +70,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('type')">
-                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.case.maingrid_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.case.testmaingrid_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.type')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.type')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -84,10 +84,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openedby')">
-                <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.case.maingrid_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.case.testmaingrid_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.openedby')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.openedby')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -98,10 +98,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('lastrunner')">
-                <el-table-column show-overflow-tooltip :prop="'lastrunner'" :label="$t('entities.case.maingrid_grid.columns.lastrunner')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'lastrunner'" :label="$t('entities.case.testmaingrid_grid.columns.lastrunner')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.lastrunner')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.lastrunner')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -112,10 +112,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('lastrundate')">
-                <el-table-column show-overflow-tooltip :prop="'lastrundate'" :label="$t('entities.case.maingrid_grid.columns.lastrundate')" :width="160"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'lastrundate'" :label="$t('entities.case.testmaingrid_grid.columns.lastrundate')" :width="160"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.lastrundate')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.lastrundate')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -124,10 +124,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('lastrunresult')">
-                <el-table-column show-overflow-tooltip :prop="'lastrunresult'" :label="$t('entities.case.maingrid_grid.columns.lastrunresult')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'lastrunresult'" :label="$t('entities.case.testmaingrid_grid.columns.lastrunresult')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.lastrunresult')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.lastrunresult')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -138,10 +138,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status1')">
-                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.case.maingrid_grid.columns.status1')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.case.testmaingrid_grid.columns.status1')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.status1')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.status1')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -152,10 +152,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('tobugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'tobugcnt'" :label="$t('entities.case.maingrid_grid.columns.tobugcnt')" :width="50"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'tobugcnt'" :label="$t('entities.case.testmaingrid_grid.columns.tobugcnt')" :width="50"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.tobugcnt')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.tobugcnt')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -164,10 +164,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('resultcnt')">
-                <el-table-column show-overflow-tooltip :prop="'resultcnt'" :label="$t('entities.case.maingrid_grid.columns.resultcnt')" :width="50"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'resultcnt'" :label="$t('entities.case.testmaingrid_grid.columns.resultcnt')" :width="50"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.resultcnt')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.resultcnt')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -176,10 +176,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('casesteps')">
-                <el-table-column show-overflow-tooltip :prop="'casesteps'" :label="$t('entities.case.maingrid_grid.columns.casesteps')" :width="50"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'casesteps'" :label="$t('entities.case.testmaingrid_grid.columns.casesteps')" :width="50"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.casesteps')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.casesteps')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -188,41 +188,36 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.case.maingrid_grid.columns.uagridcolumn1')" :width="180"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.case.testmaingrid_grid.columns.uagridcolumn1')" :width="180"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.uagridcolumn1')}}
+                        {{$t('entities.case.testmaingrid_grid.columns.uagridcolumn1')}}
                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.confirmstorychange.visabled" :disabled="scope.row.confirmstorychange.disabled" @click="uiAction(scope.row, 'confirmstorychange', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_confirmstorychange')">
+                          <a v-show="scope.row.confirmChange.visabled" :disabled="scope.row.confirmChange.disabled" @click="uiAction(scope.row, 'confirmChange', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_confirmchange')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
+                          <divider v-show="scope.row.NewBugByCaseResult.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.NewBugByCaseResult.visabled" :disabled="scope.row.NewBugByCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_newbugbycaseresult')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
                           <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')">
+                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_opentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
                           <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_execute')">
+                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_mainedit')">
-                            <i class='fa fa-edit'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.NewBugByCaseResult.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.NewBugByCaseResult.visabled" :disabled="scope.row.NewBugByCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_newbugbycaseresult')">
-                            <i class='fa fa-bug'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.case.maingrid_grid.uiactions.remove')">
-                            <i class='fa fa-remove'></i>
+                          <divider v-show="scope.row.unlinkCase.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.unlinkCase.visabled" :disabled="scope.row.unlinkCase.disabled" @click="uiAction(scope.row, 'unlinkCase', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_unlinkcase')">
+                            <i class='fa fa-unlink'></i>
                             
                           </a>
                         </div>

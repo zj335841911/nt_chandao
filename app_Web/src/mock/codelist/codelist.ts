@@ -4213,6 +4213,17 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "casechange",
+                label: "原用例更新",
+                text: "原用例更新",
+                "data":"",
+                "codename":"Casechange",
+                "color": "rgba(247, 31, 7, 1)",
+                value: "casechange",
+                
+                disabled: false,
+            },
         ]
     },
     {
