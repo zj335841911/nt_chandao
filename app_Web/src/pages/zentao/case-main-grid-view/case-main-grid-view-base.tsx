@@ -156,7 +156,7 @@ export class CaseMainGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'case',
             majorPSDEField: 'title',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -562,5 +562,37 @@ export class CaseMainGridViewBase extends GridViewBase {
             return ;
         }
         xData.exportExcel($event.exportparms);
+    }
+
+    /**
+     * 是否启用快速分组
+     *
+     * @type {boolean}
+     * @memberof CaseMainGridViewBase
+     */
+    public isEnableQuickGroup: boolean = true;
+
+    /**
+     * 加载快速分组模型
+     *
+     * @protected
+     * @memberof CaseMainGridViewBase
+     */
+    protected loadQuickGroupModel(): void {
+        const quickGroupCodeList: any = { tag: 'CaseQuickpachet', codelistType: 'STATIC' };
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
     }
 }

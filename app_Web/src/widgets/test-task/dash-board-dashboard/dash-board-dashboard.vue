@@ -28,3 +28,6 @@ import view_dashboard_sysportlet1 from '@widgets/test-task/main-detail-portlet/m
 @VueLifeCycleProcessing()
 export default class DashboardDashboard extends DashboardDashboardBase { }
 </script>
+<style lang='less'>
+@import './dash-board-dashboard.less';
+</style>
