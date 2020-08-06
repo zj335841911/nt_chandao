@@ -4522,8 +4522,8 @@
         "items": [
              {
                 "id": "wait",
-                "label": "待评审",
-                "text": "待评审",
+                "label": "未开始",
+                "text": "未开始",
                 "data":"",
                 "codename":"Wait",
                 "value": "wait",
@@ -4563,6 +4563,17 @@
                 "codename":"Investigate",
                 "color": "rgba(245, 12, 12, 1)",
                 "value": "investigate",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "data":"",
+                "codename":"Done",
+                "value": "done",
                 
                 "disabled": false,
                 "default": false

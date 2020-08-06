@@ -4161,8 +4161,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: "wait",
-                label: "待评审",
-                text: "待评审",
+                label: "未开始",
+                text: "未开始",
                 "data":"",
                 "codename":"Wait",
                 value: "wait",
@@ -4199,6 +4199,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Investigate",
                 "color": "rgba(245, 12, 12, 1)",
                 value: "investigate",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                value: "done",
                 
                 disabled: false,
             },

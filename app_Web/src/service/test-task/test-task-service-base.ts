@@ -331,6 +331,27 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * UnlinkCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async UnlinkCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/unlinkcase`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/unlinkcase`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

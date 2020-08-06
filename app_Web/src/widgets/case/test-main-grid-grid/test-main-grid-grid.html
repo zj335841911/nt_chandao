@@ -138,7 +138,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status1')">
-                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.case.testmaingrid_grid.columns.status1')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.case.testmaingrid_grid.columns.status1')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.testmaingrid_grid.columns.status1')}}
@@ -205,14 +205,14 @@
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_opentestrunresultview')">
-                            <i class='fa fa-stack-overflow'></i>
+                          <divider v-show="scope.row.CASEOpenTestRunResultView.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CASEOpenTestRunResultView.visabled" :disabled="scope.row.CASEOpenTestRunResultView.disabled" @click="uiAction(scope.row, 'CASEOpenTestRunResultView', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseopentestrunresultview')">
+                            <i class=''></i>
                             
                           </a>
-                          <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_execute')">
-                            <i class='fa fa-play-circle-o'></i>
+                          <divider v-show="scope.row.CaseExecute.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CaseExecute.visabled" :disabled="scope.row.CaseExecute.disabled" @click="uiAction(scope.row, 'CaseExecute', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseexecute')">
+                            <i class=''></i>
                             
                           </a>
                           <divider v-show="scope.row.unlinkCase.visabled" type='vertical'></divider>

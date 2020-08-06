@@ -168,6 +168,9 @@ export default class MeCreateCaseModel {
       {
         name: 'status1',
       },
+      {
+        name: 'assignedto',
+      },
     ]
   }
 

@@ -114,7 +114,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u2ef205f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u38f3657_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -131,7 +131,7 @@ export class TestMainGridGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_CASEOpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -142,7 +142,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u2a5332f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u292efe3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -159,7 +159,7 @@ export class TestMainGridGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_CaseExecute(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -207,8 +207,8 @@ export class TestMainGridGridBase extends GridControlBase {
     public ActionModel: any = {
         confirmChange: { name: 'confirmChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASECOF', target: 'SINGLEKEY'},
         NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'TOBUG', target: 'SINGLEKEY'},
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESULT', target: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RUN', target: 'SINGLEKEY'},
+        CASEOpenTestRunResultView: { name: 'CASEOpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASERESULT', target: 'SINGLEKEY'},
+        CaseExecute: { name: 'CaseExecute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASERUN', target: 'SINGLEKEY'},
         unlinkCase: { name: 'unlinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UNLINK', target: 'SINGLEKEY'}
     };
 
@@ -488,11 +488,11 @@ export class TestMainGridGridBase extends GridControlBase {
         if(Object.is('NewBugByCaseResult', tag)) {
             this.grid_uagridcolumn1_u06228b0_click(row, tag, $event);
         }
-        if(Object.is('OpenTestRunResultView', tag)) {
-            this.grid_uagridcolumn1_u2ef205f_click(row, tag, $event);
+        if(Object.is('CASEOpenTestRunResultView', tag)) {
+            this.grid_uagridcolumn1_u38f3657_click(row, tag, $event);
         }
-        if(Object.is('Execute', tag)) {
-            this.grid_uagridcolumn1_u2a5332f_click(row, tag, $event);
+        if(Object.is('CaseExecute', tag)) {
+            this.grid_uagridcolumn1_u292efe3_click(row, tag, $event);
         }
         if(Object.is('unlinkCase', tag)) {
             this.grid_uagridcolumn1_u84b598d_click(row, tag, $event);
