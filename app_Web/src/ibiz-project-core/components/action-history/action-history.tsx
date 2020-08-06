@@ -49,6 +49,13 @@ export class ActionHistory extends Vue {
     protected actionType: any[] = [];
 
     /**
+     * '解决了' 显示模型数据
+     *
+     * @memberof ActionHistory
+     */
+    @Prop() public dynaModel!: any;
+
+    /**
      * 格式化数据
      *
      * @protected
@@ -156,11 +163,36 @@ export class ActionHistory extends Vue {
     protected renderActionContent(item: ActionItem): any {
         let actionType: string = item.actiontype ? item.actiontype : item.action;
         return <div class="action-content">
-            <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}</div>
+            <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}{this.renderFixedContent(item)}</div>
             { (Object.is(actionType, 'changed') || Object.is(actionType, 'edited')  || Object.is(actionType, 'commented') || Object.is(actionType, 'assigned') || Object.is(actionType, 'reviewed') || Object.is(actionType, 'activated') || Object.is(actionType, 'resolved')) && this.load ? <div class="show-history">
                 <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)} />
             </div> : null}
         </div>;
+    }
+
+    /**
+     * 绘制处理信息
+     *
+     * @protected
+     * @param {ActionItem} item
+     * @param {any} actionContent
+     * @returns {*}
+     * @memberof ActionHistory
+     */
+    public renderFixedContent(item: ActionItem) {
+        let actionType: string = item.actiontype ? item.actiontype : item.action;
+        if(item.extra && this.dynaModel) {
+            const model = this.dynaModel.find((modelFix:any) => (Object.is(modelFix.objecttype, item.objecttype) && Object.is(modelFix.action, actionType)));
+            if(model && model.codelistId) {
+                let codeList = this.$store.getters.getCodeList(model.codelistId);
+                if(codeList) {
+                    const code = codeList.items.find((code: any) => Object.is(item.extra, code.value));
+                    if(code) {
+                        return <span>，{model.othertext}&nbsp;<b>{code.text}</b></span>;
+                    }
+                }
+            }
+        }
     }
 
     /**
