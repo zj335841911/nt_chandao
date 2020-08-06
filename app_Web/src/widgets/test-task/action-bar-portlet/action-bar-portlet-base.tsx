@@ -196,7 +196,7 @@ export class ActionBarPortletBase extends MainControlBase {
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet4_u7e8df99_click",
         text: "激活",
-        iconcls: "fa fa-image",
+        iconcls: "fa fa-magic",
         icon: "",
         },
         { viewlogicname:"dashboard_sysportlet4_udf94c25_click",
