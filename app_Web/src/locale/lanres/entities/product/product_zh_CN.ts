@@ -384,6 +384,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
