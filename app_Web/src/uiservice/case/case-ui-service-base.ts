@@ -489,6 +489,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASK:"%task%"});
+        Object.assign(params,{task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { case: '%case%' });
