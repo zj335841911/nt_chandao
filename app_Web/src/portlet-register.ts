@@ -41,6 +41,7 @@ import TaskMainDetail from '@/widgets/task/main-detail-portlet/main-detail-portl
 import TaskWorkInfo from '@/widgets/task/work-info-portlet/work-info-portlet.vue';
 import TestSuiteCurSuitCaseGridView from '@/widgets/test-suite/cur-suit-case-grid-view-portlet/cur-suit-case-grid-view-portlet.vue';
 import TestSuiteMainInfoView from '@/widgets/test-suite/main-info-view-portlet/main-info-view-portlet.vue';
+import TestSuiteTestSuiteQuickAction from '@/widgets/test-suite/test-suite-quick-action-portlet/test-suite-quick-action-portlet.vue';
 import TestTaskMainInfo from '@/widgets/test-task/main-info-portlet/main-info-portlet.vue';
 import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portlet/to-test-test-task-portlet.vue';
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
@@ -95,6 +96,7 @@ export const  PortletComponent = {
         v.component('app-product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('app-product-product-info-portlet', ProductProductInfo);
         v.component('app-test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
+        v.component('app-test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
@@ -138,6 +140,7 @@ export const  PortletComponent = {
         v.component('task-work-info-portlet', TaskWorkInfo);
         v.component('test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
         v.component('test-suite-main-info-view-portlet', TestSuiteMainInfoView);
+        v.component('test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);
         v.component('test-task-main-info-portlet', TestTaskMainInfo);
         v.component('test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('test-task-action-bar-portlet', TestTaskActionBar);

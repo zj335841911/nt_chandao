@@ -92,14 +92,28 @@
                     </template>
                 </el-table-column>
             </template>
-            !!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_en_US" at line 156, column 3]
-            ----
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testsuite.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.testsuite.main_grid.uiactions.edit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testsuite.main_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
