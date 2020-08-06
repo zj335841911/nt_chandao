@@ -77,7 +77,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        edit: "Edit",
+        testsuite_editsuite: "编辑",
         remove: "Remove",
 		},
 	},

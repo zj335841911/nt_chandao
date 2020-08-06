@@ -101,7 +101,7 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.testsuite.main_grid.uiactions.edit')">
+                          <a v-show="scope.row.Editsuite.visabled" :disabled="scope.row.Editsuite.disabled" @click="uiAction(scope.row, 'Editsuite', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_editsuite')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
