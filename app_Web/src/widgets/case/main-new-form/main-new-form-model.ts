@@ -76,6 +76,11 @@ export default class MainNewModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'stage',
+        prop: 'stage',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'story',
         prop: 'story',
         dataType: 'PICKUP',

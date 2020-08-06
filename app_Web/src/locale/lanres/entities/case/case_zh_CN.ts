@@ -148,6 +148,7 @@ export default {
 			module: "所属模块", 
 			modulename: "模块名称", 
 			type: "用例类型", 
+			stage: "适用阶段", 
 			story: "相关需求", 
 			storyname: "需求名称", 
 			title: "用例标题", 
