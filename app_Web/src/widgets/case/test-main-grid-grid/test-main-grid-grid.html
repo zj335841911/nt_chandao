@@ -207,12 +207,12 @@
                           </a>
                           <divider v-show="scope.row.CASEOpenTestRunResultView.visabled" type='vertical'></divider>
                           <a v-show="scope.row.CASEOpenTestRunResultView.visabled" :disabled="scope.row.CASEOpenTestRunResultView.disabled" @click="uiAction(scope.row, 'CASEOpenTestRunResultView', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseopentestrunresultview')">
-                            <i class=''></i>
+                            <i class='fa fa-stack-overflow'></i>
                             
                           </a>
                           <divider v-show="scope.row.CaseExecute.visabled" type='vertical'></divider>
                           <a v-show="scope.row.CaseExecute.visabled" :disabled="scope.row.CaseExecute.disabled" @click="uiAction(scope.row, 'CaseExecute', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseexecute')">
-                            <i class=''></i>
+                            <i class='fa fa-play-circle-o'></i>
                             
                           </a>
                           <divider v-show="scope.row.unlinkCase.visabled" type='vertical'></divider>

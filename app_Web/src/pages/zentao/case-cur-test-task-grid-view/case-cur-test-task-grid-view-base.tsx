@@ -69,6 +69,28 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseCurTestTaskGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'TASK': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseCurTestTaskGridViewBase
+	 */
+    protected customViewParams: any = {
+        'task': { isRawValue: false, value: 'srfparentkey' }
+    };
+
     /**
      * 视图模型数据
      *
