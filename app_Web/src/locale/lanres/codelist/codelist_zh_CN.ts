@@ -551,6 +551,7 @@ export default {
         "blocked": "被阻塞",
         "investigate": "研究中",
         "storychange": "需求变更",
+        "casechange": "原用例更新",
         "empty": "",
     },
     Cycle_enable: {

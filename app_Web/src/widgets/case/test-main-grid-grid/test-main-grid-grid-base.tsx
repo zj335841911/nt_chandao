@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
-import MainGridService from './main-grid-grid-service';
+import TestMainGridService from './test-main-grid-grid-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {MainGridGridBase}
+ * @extends {TestMainGridGridBase}
  */
-export class MainGridGridBase extends GridControlBase {
+export class TestMainGridGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainGridService}
-     * @memberof MainGridGridBase
+     * @type {TestMainGridService}
+     * @memberof TestMainGridGridBase
      */
-    public service: MainGridService = new MainGridService({ $store: this.$store });
+    public service: TestMainGridService = new TestMainGridService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainGridGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     protected appDeName: string = 'case';
 
@@ -58,7 +58,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u82280f9_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5414985_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -75,7 +75,7 @@ export class MainGridGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_confirmstorychange(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_confirmChange(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -86,91 +86,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u333b640_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_ufc5dbb7_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u5c4f2da_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Case");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_uc64fb7f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u06228b0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -198,7 +114,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5913b24_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u2ef205f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,54 +130,71 @@ export class MainGridGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Case");
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
-     * 刷新
+     * 逻辑事件
      *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainMyGridViewBase
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
      */
-    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public grid_uagridcolumn1_u2a5332f_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
         const _this: any = this;
-        if (xData && xData.refresh && xData.refresh instanceof Function) {
-            xData.refresh(args);
-        } else if (_this.refresh && _this.refresh instanceof Function) {
-            _this.refresh(args);
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
         }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
-     * 删除
+     * 逻辑事件
      *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainMyGridViewBase
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
      */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public grid_uagridcolumn1_u84b598d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
         const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
         }
-        xData.remove(args);
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_unlinkCase(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
-
 
     /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof MainGridBase
+     * @memberof TestMainGridBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
@@ -269,16 +202,14 @@ export class MainGridGridBase extends GridControlBase {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MainGridBase
+     * @memberof TestMainGridBase
      */  
     public ActionModel: any = {
-        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
+        confirmChange: { name: 'confirmChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASECOF', target: 'SINGLEKEY'},
+        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'TOBUG', target: 'SINGLEKEY'},
         OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESULT', target: 'SINGLEKEY'},
         Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RUN', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
-        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: ''},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'TOBUG', target: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        unlinkCase: { name: 'unlinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UNLINK', target: 'SINGLEKEY'}
     };
 
     /**
@@ -286,15 +217,15 @@ export class MainGridGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainGridBase
+     * @memberof TestMainGridBase
      */
-    protected localStorageTag: string = 'zt_case_maingrid_grid';
+    protected localStorageTag: string = 'zt_case_testmaingrid_grid';
 
     /**
      * 排序方向
      *
      * @type {string}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public minorSortDir: string = 'DESC';
 
@@ -302,7 +233,7 @@ export class MainGridGridBase extends GridControlBase {
      * 排序字段
      *
      * @type {string}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public minorSortPSDEF: string = 'id';
 
@@ -310,13 +241,13 @@ export class MainGridGridBase extends GridControlBase {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public allColumns: any[] = [
         {
             name: 'id',
             label: 'id',
-            langtag: 'entities.case.maingrid_grid.columns.id',
+            langtag: 'entities.case.testmaingrid_grid.columns.id',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -324,7 +255,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'pri',
             label: 'P',
-            langtag: 'entities.case.maingrid_grid.columns.pri',
+            langtag: 'entities.case.testmaingrid_grid.columns.pri',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -332,7 +263,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'title',
             label: '用例标题',
-            langtag: 'entities.case.maingrid_grid.columns.title',
+            langtag: 'entities.case.testmaingrid_grid.columns.title',
             show: true,
             util: 'STAR',
             isEnableRowEdit: false,
@@ -340,7 +271,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'type',
             label: '用例类型',
-            langtag: 'entities.case.maingrid_grid.columns.type',
+            langtag: 'entities.case.testmaingrid_grid.columns.type',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -348,7 +279,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'openedby',
             label: '创建',
-            langtag: 'entities.case.maingrid_grid.columns.openedby',
+            langtag: 'entities.case.testmaingrid_grid.columns.openedby',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -356,7 +287,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'lastrunner',
             label: '执行人',
-            langtag: 'entities.case.maingrid_grid.columns.lastrunner',
+            langtag: 'entities.case.testmaingrid_grid.columns.lastrunner',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -364,7 +295,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'lastrundate',
             label: '执行时间',
-            langtag: 'entities.case.maingrid_grid.columns.lastrundate',
+            langtag: 'entities.case.testmaingrid_grid.columns.lastrundate',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -372,7 +303,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'lastrunresult',
             label: '结果',
-            langtag: 'entities.case.maingrid_grid.columns.lastrunresult',
+            langtag: 'entities.case.testmaingrid_grid.columns.lastrunresult',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -380,7 +311,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'status1',
             label: '状态',
-            langtag: 'entities.case.maingrid_grid.columns.status1',
+            langtag: 'entities.case.testmaingrid_grid.columns.status1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -388,7 +319,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'tobugcnt',
             label: 'B',
-            langtag: 'entities.case.maingrid_grid.columns.tobugcnt',
+            langtag: 'entities.case.testmaingrid_grid.columns.tobugcnt',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -396,7 +327,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'resultcnt',
             label: 'R',
-            langtag: 'entities.case.maingrid_grid.columns.resultcnt',
+            langtag: 'entities.case.testmaingrid_grid.columns.resultcnt',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -404,7 +335,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'casesteps',
             label: 'S',
-            langtag: 'entities.case.maingrid_grid.columns.casesteps',
+            langtag: 'entities.case.testmaingrid_grid.columns.casesteps',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -412,7 +343,7 @@ export class MainGridGridBase extends GridControlBase {
         {
             name: 'uagridcolumn1',
             label: '操作',
-            langtag: 'entities.case.maingrid_grid.columns.uagridcolumn1',
+            langtag: 'entities.case.testmaingrid_grid.columns.uagridcolumn1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -423,7 +354,7 @@ export class MainGridGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public getGridRowModel(){
         return {
@@ -435,7 +366,7 @@ export class MainGridGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public rules: any = {
         srfkey: [
@@ -448,7 +379,7 @@ export class MainGridGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof MainGridBase
+     * @memberof TestMainGridBase
      */
     public hasRowEdit: any = {
         'id':false,
@@ -471,7 +402,7 @@ export class MainGridGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof MainGridBase
+     * @memberof TestMainGridBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
@@ -485,7 +416,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -547,27 +478,24 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} row
      * @param {*} tag
      * @param {*} $event
-     * @memberof MainGridGridBase
+     * @memberof TestMainGridGridBase
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('confirmstorychange', tag)) {
-            this.grid_uagridcolumn1_u82280f9_click(row, tag, $event);
-        }
-        if(Object.is('OpenTestRunResultView', tag)) {
-            this.grid_uagridcolumn1_u333b640_click(row, tag, $event);
-        }
-        if(Object.is('Execute', tag)) {
-            this.grid_uagridcolumn1_ufc5dbb7_click(row, tag, $event);
-        }
-        if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_u5c4f2da_click(row, tag, $event);
+        if(Object.is('confirmChange', tag)) {
+            this.grid_uagridcolumn1_u5414985_click(row, tag, $event);
         }
         if(Object.is('NewBugByCaseResult', tag)) {
-            this.grid_uagridcolumn1_uc64fb7f_click(row, tag, $event);
+            this.grid_uagridcolumn1_u06228b0_click(row, tag, $event);
         }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u5913b24_click(row, tag, $event);
+        if(Object.is('OpenTestRunResultView', tag)) {
+            this.grid_uagridcolumn1_u2ef205f_click(row, tag, $event);
+        }
+        if(Object.is('Execute', tag)) {
+            this.grid_uagridcolumn1_u2a5332f_click(row, tag, $event);
+        }
+        if(Object.is('unlinkCase', tag)) {
+            this.grid_uagridcolumn1_u84b598d_click(row, tag, $event);
         }
     }
 }
