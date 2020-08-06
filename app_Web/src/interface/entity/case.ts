@@ -413,4 +413,12 @@ export interface Case {
      * @memberof Case
      */
     status1?: any;
+
+    /**
+     * 指派给
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    assignedto?: any;
 }

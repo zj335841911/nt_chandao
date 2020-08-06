@@ -546,10 +546,11 @@ export default {
         "empty": "按时间段",
     },
     TestCaseStatusGrid: {
-        "wait": "待评审",
+        "wait": "未开始",
         "normal": "正常",
         "blocked": "被阻塞",
         "investigate": "研究中",
+        "done": "已完成",
         "storychange": "需求变更",
         "casechange": "原用例更新",
         "empty": "",

@@ -1,6 +1,6 @@
 <studio-view viewName="storykanbanview" viewTitle="需求看板视图" class='dekanbanview story-kanban-view'>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_kanban 
                     :viewState="viewState"  
                     :viewparams="viewparams" 

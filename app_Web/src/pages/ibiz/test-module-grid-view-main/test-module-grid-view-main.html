@@ -1,6 +1,6 @@
 <studio-view viewName="testmodulegridviewmain" viewTitle="产品模块表格视图" class='degridview test-module-grid-view-main'>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

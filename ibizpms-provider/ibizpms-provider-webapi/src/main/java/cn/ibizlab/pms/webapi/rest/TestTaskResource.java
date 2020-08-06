@@ -198,6 +198,18 @@ domain.setId(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
+    @ApiOperation(value = "关联测试用例", tags = {"测试版本" },  notes = "关联测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> unlinkCase(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+domain.setId(testtask_id);
+        domain = testtaskService.unlinkCase(domain);
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试版本" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testtasks/fetchdefault")
@@ -384,6 +396,18 @@ domain.setId(testtask_id);
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
         domain = testtaskService.start(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
+    @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> unlinkCaseByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProduct(product_id);
+        domain = testtaskService.unlinkCase(domain) ;
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }

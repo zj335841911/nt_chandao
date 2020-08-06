@@ -168,6 +168,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'status1',
       },
+      {
+        name: 'assignedto',
+      },
     ]
   }
 

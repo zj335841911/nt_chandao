@@ -4,7 +4,7 @@
     </template>
     <i-input slot="quickSearch" v-model="query" placeholder="模块名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

@@ -52,6 +52,7 @@ export default {
     comment: "备注",
     resultfalicnt: "测试失败数",
     status1: "用例状态",
+    assignedto: "指派给",
   },
 	views: {
 		editview: {
@@ -361,8 +362,8 @@ export default {
 		uiactions: {
         case_confirmchange: "确认用例变动",
         case_newbugbycaseresult: "转Bug",
-        case_opentestrunresultview: "结果",
-        case_execute: "执行",
+        case_caseopentestrunresultview: "结果",
+        case_caseexecute: "执行",
         case_unlinkcase: "移除",
 		},
 	},

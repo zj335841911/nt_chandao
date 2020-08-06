@@ -168,6 +168,9 @@ export default class MainDashboardModel {
       {
         name: 'status1',
       },
+      {
+        name: 'assignedto',
+      },
     ]
   }
 

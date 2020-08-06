@@ -1,6 +1,6 @@
 <studio-embed-view viewName="taskteamgridview9_edit" viewTitle="团队" class='degridview9 task-team-grid-view9-edit'>
     <template slot="toolbar">
-        <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+        <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

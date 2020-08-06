@@ -109,6 +109,13 @@ export class ClassifyByTypeListBase extends ListControlBase {
             return items;
         }
     }
+
+    /**
+     * 动态模型
+     *
+     * @type {*}
+     * @memberof ClassifyByType
+     */
     public dynaModel: any = [
   {
   	objecttype: "bug",

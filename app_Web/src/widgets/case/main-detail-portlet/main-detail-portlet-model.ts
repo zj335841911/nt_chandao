@@ -168,6 +168,9 @@ export default class MainDetailModel {
       {
         name: 'status1',
       },
+      {
+        name: 'assignedto',
+      },
     ]
   }
 
