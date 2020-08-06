@@ -65,6 +65,41 @@ public class CaseExService extends CaseServiceImpl {
      */
     @Override
     @Transactional
+    public Case testRunCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        jo.put("srfarray", et.getCasestep());
+        jo.put("id", 0);
+        if(et.getId() != null && et.get("task") != null) {
+            Map<String,Object> params = new HashMap<>();
+            params.put("case", et.getId());
+            params.put("task", et.get("task"));
+            String sql = "SELECT t1.`ASSIGNEDTO`, t1.`CASE`, t1.`ID`, t1.`LASTRUNDATE`, t1.`LASTRUNNER`, t1.`LASTRUNRESULT`, t1.`STATUS`, t1.`TASK`, t1.`VERSION` FROM `zt_testrun` t1  where t1.`CASE` = #{et.case} AND t1.`task` = #{et.task}";
+            List<JSONObject> list = this.select(sql, params);
+
+            if(!list.isEmpty() && list.size() > 0) {
+                jo.put("id", list.get(0).get("ID"));
+            }
+        }
+
+        jo.put("case", et.getId());
+        jo.put("version", jo.get("version"));
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.testRunCase(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    /**
+     * 自定义行为[RunCase]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
     public Case runCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
