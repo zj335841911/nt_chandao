@@ -171,6 +171,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'assignedto',
       },
+      {
+        name: 'task',
+      },
     ]
   }
 

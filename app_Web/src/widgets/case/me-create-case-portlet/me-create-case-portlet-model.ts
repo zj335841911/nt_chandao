@@ -171,6 +171,9 @@ export default class MeCreateCaseModel {
       {
         name: 'assignedto',
       },
+      {
+        name: 'task',
+      },
     ]
   }
 
