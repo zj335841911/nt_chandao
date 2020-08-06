@@ -1667,6 +1667,36 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchNotCurTestTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchNotCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchnotcurtesttask`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * BugCreateCase接口方法
      *
      * @param {*} [context={}]
@@ -1724,5 +1754,17 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempNotCurTestTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempNotCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }
