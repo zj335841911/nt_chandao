@@ -101,6 +101,11 @@ export default class TestMainGridModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
@@ -126,14 +131,14 @@ export default class TestMainGridModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'lastrunresult',
-          prop: 'lastrunresult',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'casesteps',
           prop: 'casesteps',
           dataType: 'ONE2MANYDATA',
+        },
+        {
+          name: 'lastrunresult',
+          prop: 'lastrunresult',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'lastrunner',

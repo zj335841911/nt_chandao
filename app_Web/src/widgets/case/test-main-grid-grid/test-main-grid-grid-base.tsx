@@ -294,6 +294,14 @@ export class TestMainGridGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
+            name: 'assignedto',
+            label: '指派给',
+            langtag: 'entities.case.testmaingrid_grid.columns.assignedto',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
             name: 'lastrunner',
             label: '执行人',
             langtag: 'entities.case.testmaingrid_grid.columns.lastrunner',
@@ -396,6 +404,7 @@ export class TestMainGridGridBase extends GridControlBase {
         'title':false,
         'type':false,
         'openedby':false,
+        'assignedto':false,
         'lastrunner':false,
         'lastrundate':false,
         'lastrunresult':false,
@@ -447,6 +456,14 @@ export class TestMainGridGridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'assignedto',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',

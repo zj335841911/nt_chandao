@@ -1089,6 +1089,16 @@
         "viewtag": "6991c25388155df89dc9c44eeb11ad90",
         "memo": ""
     },
+    "casetestoptionview": {
+        "title": "测试用例选项操作视图",
+        "caption": "执行",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseTestOptionView",
+        "viewfilename": "case-test-option-view",
+        "viewtag": "6b041208cbc10321a4d9cd74eaac3689",
+        "memo": ""
+    },
     "productmaintabexpview": {
         "title": "产品",
         "caption": "产品",

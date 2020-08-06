@@ -94,6 +94,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例",
 		},
+		testoptionview: {
+			caption: "执行",
+      		title: "测试用例选项操作视图",
+		},
 		maindashboardview: {
 			caption: "功能测试",
       		title: "功能测试",
@@ -298,6 +302,27 @@ export default {
 		uiactions: {
 		},
 	},
+	maintesttask_form: {
+		details: {
+			druipart1: "用例步骤", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			precondition: "前置条件", 
+			resultcnt: "测试结果数", 
+			resultfalicnt: "测试失败数", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			pri: "P",
@@ -349,6 +374,7 @@ export default {
 			title: "用例标题",
 			type: "用例类型",
 			openedby: "创建",
+			assignedto: "指派给",
 			lastrunner: "执行人",
 			lastrundate: "执行时间",
 			lastrunresult: "结果",

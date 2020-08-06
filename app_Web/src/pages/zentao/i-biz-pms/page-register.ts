@@ -15,6 +15,7 @@ export const PageComponents = {
         Vue.component('bug-pickup-grid-view', () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'));
         Vue.component('product-stats-test-edit-view9', () => import('@pages/zentao/product-stats-test-edit-view9/product-stats-test-edit-view9.vue'));
         Vue.component('product-left-sidebar-list-view', () => import('@pages/zentao/product-left-sidebar-list-view/product-left-sidebar-list-view.vue'));
+        Vue.component('case-test-option-view', () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'));
         Vue.component('task-open-task-view', () => import('@pages/zentao/task-open-task-view/task-open-task-view.vue'));
         Vue.component('story-kanban-view', () => import('@pages/zentao/story-kanban-view/story-kanban-view.vue'));
         Vue.component('product-plan-project-grid-view9', () => import('@pages/zentao/product-plan-project-grid-view9/product-plan-project-grid-view9.vue'));
