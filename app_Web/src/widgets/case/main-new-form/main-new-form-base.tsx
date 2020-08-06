@@ -185,6 +185,9 @@ export class MainNewEditFormBase extends EditFormControlBase {
      * @memberof MainNewEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['productmodule'];
+        }
         if (this.data.hasOwnProperty('id')) {
             this.data['id'] = 0;
         }

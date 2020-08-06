@@ -51,6 +51,62 @@ export class ActionBarPortletBase extends MainControlBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_uc625844_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_LinkCase(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_uf762ea8_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_EditEdit(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
      * 长度
      *
      * @type {number}
@@ -73,6 +129,16 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet4_uc625844_click",
+        text: "关联用例",
+        iconcls: "fa fa-link",
+        icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet4_uf762ea8_click",
+        text: "编辑",
+        iconcls: "fa fa-edit",
+        icon: "",
+        }
     ];
 
     /**
@@ -81,6 +147,12 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet4_uc625844_click')){
+            this.dashboard_sysportlet4_uc625844_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_uf762ea8_click')){
+            this.dashboard_sysportlet4_uf762ea8_click(null);
+        }
     }
 
 

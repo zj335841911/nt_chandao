@@ -129,6 +129,18 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-ConfirmChange-all')")
+    @ApiOperation(value = "确认用例变更", tags = {"测试用例" },  notes = "确认用例变更")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/confirmchange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmChange(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+domain.setId(case_id);
+        domain = caseService.confirmChange(domain);
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "确认需求变更", tags = {"测试用例" },  notes = "确认需求变更")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/confirmstorychange")
@@ -178,6 +190,18 @@ domain.setId(case_id);
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<CaseDTO> casedtos) {
         caseService.saveBatch(caseMapping.toDomain(casedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
+    @ApiOperation(value = "移除用例", tags = {"测试用例" },  notes = "移除用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+domain.setId(case_id);
+        domain = caseService.unlinkCase(domain);
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchBatchNew-all')")
@@ -352,6 +376,18 @@ domain.setId(case_id);
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-ConfirmChange-all')")
+    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/confirmchange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmChangeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setProduct(product_id);
+        domain = caseService.confirmChange(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/confirmstorychange")
@@ -407,6 +443,18 @@ domain.setId(case_id);
         }
         caseService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
+    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkCaseByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setProduct(product_id);
+        domain = caseService.unlinkCase(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchBatchNew-all')")
@@ -589,6 +637,18 @@ domain.setId(case_id);
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-ConfirmChange-all')")
+    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/confirmchange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmChangeByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.confirmChange(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/confirmstorychange")
@@ -644,6 +704,18 @@ domain.setId(case_id);
         }
         caseService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
+    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkCaseByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.unlinkCase(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchBatchNew-all')")
@@ -826,6 +898,18 @@ domain.setId(case_id);
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-ConfirmChange-all')")
+    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmchange")
+    @Transactional
+    public ResponseEntity<CaseDTO> confirmChangeByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.confirmChange(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmstorychange")
@@ -881,6 +965,18 @@ domain.setId(case_id);
         }
         caseService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
+    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkCaseByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.unlinkCase(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchBatchNew-all')")

@@ -161,14 +161,25 @@ export default class TestTaskUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'test-task-main-dashboard-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.testtask.views.maindashboardview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
     }
 
     /**

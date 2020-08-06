@@ -117,31 +117,6 @@ export default {
 		uiactions: {
 		},
 	},
-	maininfo_form: {
-		details: {
-			group1: "基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			projecttname: "所属项目", 
-			build: "版本", 
-			owner: "负责人", 
-			mailto: "抄送给", 
-			pri: "优先级", 
-			begin: "开始日期", 
-			end: "结束日期", 
-			status: "当前状态", 
-			id: "编号", 
-			project: "所属项目", 
-		},
-		uiactions: {
-		},
-	},
 	mainedit_form: {
 		details: {
 			grouppanel2: "起止日期", 
@@ -170,6 +145,31 @@ export default {
 			id: "编号", 
 			project: "所属项目", 
 			build: "版本", 
+		},
+		uiactions: {
+		},
+	},
+	maininfo_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			projecttname: "所属项目", 
+			build: "版本", 
+			owner: "负责人", 
+			mailto: "抄送给", 
+			pri: "优先级", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			status: "当前状态", 
+			id: "编号", 
+			project: "所属项目", 
 		},
 		uiactions: {
 		},
