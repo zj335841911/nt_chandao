@@ -83,7 +83,7 @@ export default class CurCaseVersion {
             let itemdata:any = {};
             Object.assign(itemdata,{id:item.version});
             Object.assign(itemdata,{value:item.version});
-            Object.assign(itemdata,{text:item.version});
+            Object.assign(itemdata,{text:item.expect});
             
             _items.push(itemdata);
         });

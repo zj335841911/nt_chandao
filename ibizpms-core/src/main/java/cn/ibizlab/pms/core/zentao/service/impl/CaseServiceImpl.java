@@ -159,6 +159,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
     @Override
     @Transactional
+    public Case confirmChange(Case et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Case confirmstorychange(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -219,6 +226,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public void saveBatch(List<Case> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public Case unlinkCase(Case et) {
+        //自定义代码
+        return et;
     }
 
 

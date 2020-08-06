@@ -109,4 +109,12 @@ export class ClassifyByTypeListBase extends ListControlBase {
             return items;
         }
     }
+    public dynaModel: any = [
+  {
+  	objecttype: "bug",
+	action: "",
+	othertext: "方案为",
+	codelistId: ''
+  }
+];
 }
