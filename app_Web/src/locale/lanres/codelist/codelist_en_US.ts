@@ -668,6 +668,11 @@ export default {
         "webhook": "Webhook",
         "empty": ""
     },
+    CaseTestTaskQuickpachet: {
+        "ALL": "所有用例",
+        "TOME": "指派给我",
+        "empty": ""
+    },
     ProductPlan: {
         "empty": "",
     },

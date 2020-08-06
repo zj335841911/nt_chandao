@@ -5253,6 +5253,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "CaseTestTaskQuickpachet",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "ALL",
+                label: "所有用例",
+                text: "所有用例",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
+                
+                disabled: false,
+            },
+            {
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "ProductPlan",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

@@ -6,7 +6,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
- * 测试版本选项操作视图（关闭）视图基类
+ * 关闭视图基类
  *
  * @export
  * @class TestTaskCloseOptionViewBase

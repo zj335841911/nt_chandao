@@ -20,3 +20,6 @@ import { BlockEditFormBase } from './block-form-base';
 @VueLifeCycleProcessing()
 export default class BlockEditForm extends BlockEditFormBase { }
 </script>
+<style lang='less'>
+@import './block-form.less';
+</style>

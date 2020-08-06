@@ -6,7 +6,7 @@ import { TestTaskStartOptionViewBase } from './test-task-start-option-view-base'
 import view_form from '@widgets/test-task/start-form/start-form.vue';
 
 /**
- * 测试版本选项操作视图（开始）视图
+ * 开始视图
  *
  * @export
  * @class TestTaskStartOptionView

@@ -3,6 +3,9 @@
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="用例标题" search @on-search="onSearch($event)"/>
+    <template slot="quickGroupSearch">
+        <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
+    </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <template slot="searchForm">
