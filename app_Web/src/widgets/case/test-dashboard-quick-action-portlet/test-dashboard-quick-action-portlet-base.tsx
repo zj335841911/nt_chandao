@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
-import DashboardQuickActionService from './dashboard-quick-action-portlet-service';
+import TestDashboardQuickActionService from './test-dashboard-quick-action-portlet-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { Environment } from '@/environments/environment';
 
@@ -12,32 +12,32 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class MainControlBase
- * @extends {DashboardQuickActionPortletBase}
+ * @extends {TestDashboardQuickActionPortletBase}
  */
-export class DashboardQuickActionPortletBase extends MainControlBase {
+export class TestDashboardQuickActionPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof DashboardQuickActionPortletBase
+     * @memberof TestDashboardQuickActionPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {DashboardQuickActionService}
-     * @memberof DashboardQuickActionPortletBase
+     * @type {TestDashboardQuickActionService}
+     * @memberof TestDashboardQuickActionPortletBase
      */
-    public service: DashboardQuickActionService = new DashboardQuickActionService({ $store: this.$store });
+    public service: TestDashboardQuickActionService = new TestDashboardQuickActionService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof DashboardQuickActionPortletBase
+     * @memberof TestDashboardQuickActionPortletBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof DashboardQuickActionPortletBase
+     * @memberof TestDashboardQuickActionPortletBase
      */
     protected appDeName: string = 'case';
 
@@ -55,7 +55,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof DashboardQuickActionPortletBase
+     * @memberof TestDashboardQuickActionPortletBase
      */
     protected appDeLogicName: string = '测试用例';
 
@@ -67,7 +67,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u947bac5_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_uf5ce99d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -94,7 +94,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u5e0cd96_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u3c66854_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -111,7 +111,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_CaseExecute(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -122,7 +122,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ue17919a_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u20add63_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -139,7 +139,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_CASEOpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -150,35 +150,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u365135c_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_NewBugByCaseResult(datas,contextJO, paramJO,  $event, xData,this,"Case");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public dashboard_sysportlet4_u4c22fea_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u09cf58f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -206,7 +178,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ud9f9776_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_ua34bf46_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -235,7 +207,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainDashboardViewBase
+     * @memberof CaseTestMainDashboardViewBase
      */
     public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.closeView(args);
@@ -254,7 +226,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainDashboardViewBase
+     * @memberof CaseTestMainDashboardViewBase
      */
     public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -269,7 +241,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 长度
      *
      * @type {number}
-     * @memberof DashboardQuickAction
+     * @memberof TestDashboardQuickAction
      */
     @Prop() public height?: number;
 
@@ -277,7 +249,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof DashboardQuickAction
+     * @memberof TestDashboardQuickAction
      */
     @Prop() public width?: number;
 
@@ -285,35 +257,30 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 操作栏模型数据
      *
      * @returns {any[]}
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet4_u947bac5_click",
+        { viewlogicname:"dashboard_sysportlet4_uf5ce99d_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
         },
-        { viewlogicname:"dashboard_sysportlet4_u5e0cd96_click",
+        { viewlogicname:"dashboard_sysportlet4_u3c66854_click",
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
         },
-        { viewlogicname:"dashboard_sysportlet4_ue17919a_click",
+        { viewlogicname:"dashboard_sysportlet4_u20add63_click",
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
         },
-        { viewlogicname:"dashboard_sysportlet4_u365135c_click",
-        text: "转Bug",
-        iconcls: "fa fa-bug",
-        icon: "",
-        },
-        { viewlogicname:"dashboard_sysportlet4_u4c22fea_click",
+        { viewlogicname:"dashboard_sysportlet4_u09cf58f_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
         },
-        { viewlogicname:"dashboard_sysportlet4_ud9f9776_click",
+        { viewlogicname:"dashboard_sysportlet4_ua34bf46_click",
         text: "删除",
         iconcls: null,
         icon: null,
@@ -323,26 +290,23 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     /**
      * 触发界面行为
      *
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet4_u947bac5_click')){
-            this.dashboard_sysportlet4_u947bac5_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_uf5ce99d_click')){
+            this.dashboard_sysportlet4_uf5ce99d_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u5e0cd96_click')){
-            this.dashboard_sysportlet4_u5e0cd96_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u3c66854_click')){
+            this.dashboard_sysportlet4_u3c66854_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_ue17919a_click')){
-            this.dashboard_sysportlet4_ue17919a_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u20add63_click')){
+            this.dashboard_sysportlet4_u20add63_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u365135c_click')){
-            this.dashboard_sysportlet4_u365135c_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u09cf58f_click')){
+            this.dashboard_sysportlet4_u09cf58f_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u4c22fea_click')){
-            this.dashboard_sysportlet4_u4c22fea_click(null);
-        }
-        if(Object.is($event,'dashboard_sysportlet4_ud9f9776_click')){
-            this.dashboard_sysportlet4_ud9f9776_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_ua34bf46_click')){
+            this.dashboard_sysportlet4_ua34bf46_click(null);
         }
     }
 
@@ -351,7 +315,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -359,7 +323,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public getDatas(): any[] {
         return [];
@@ -369,7 +333,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public getData(): any {
         return {};
@@ -379,7 +343,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -396,7 +360,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public created() {
         this.afterCreated();
@@ -405,7 +369,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof DashboardQuickActionBase
+     *  @memberof TestDashboardQuickActionBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -424,7 +388,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -433,7 +397,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof DashboardQuickActionBase
+     * @memberof TestDashboardQuickActionBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

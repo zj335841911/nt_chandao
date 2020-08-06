@@ -503,6 +503,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView9_Detail",
             "viewtag": "451eacde0c0c638e29bdfc9cbc789c13"
         },
+        "casetestmaindashboardview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseTestMainDashboardView",
+            "viewtag": "454743e1c8070362a873d0d4fe35740b"
+        },
         "storypickupgridview3": {
             "title": "需求",
             "caption": "需求",
@@ -614,6 +622,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskCloseTaskView",
             "viewtag": "507c506d62dc910a814332e6ae242266"
+        },
+        "casetestmaindetaileditview9": {
+            "title": "测试用例编辑视图",
+            "caption": "测试用例",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseTestMainDetailEditView9",
+            "viewtag": "507c88b3f8f66c00a44443748f68125d"
         },
         "bugeditview_1162": {
             "title": "Bug",

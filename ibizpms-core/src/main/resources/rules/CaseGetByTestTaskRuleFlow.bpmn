@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.casegetbytesttask" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.casegetbytesttask">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="casegetbytesttaskdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
+        </extensionElements>
+     <startEvent id="4481BAEC-F57E-4CCE-8728-1741F2698CFF" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="casegetbytesttaskdeaction1" id="E8101AFB-E11F-48FF-9389-9067C9F37B97" implementation="http://www.jboss.org/drools/rule" name="获取详情"/>
+     <endEvent id="E8101AFB-E11F-48FF-9389-9067C9F37B97_End" name="End"/>
+     <sequenceFlow id="E8101AFB-E11F-48FF-9389-9067C9F37B97_End_Line" sourceRef="E8101AFB-E11F-48FF-9389-9067C9F37B97" targetRef="E8101AFB-E11F-48FF-9389-9067C9F37B97_End"/>
+     <sequenceFlow id="CB8CB23C-3892-46BA-BA1E-B7A72685E3F3" sourceRef="4481BAEC-F57E-4CCE-8728-1741F2698CFF" targetRef="E8101AFB-E11F-48FF-9389-9067C9F37B97">
+     </sequenceFlow>
+    </process>
+</definitions>
+
