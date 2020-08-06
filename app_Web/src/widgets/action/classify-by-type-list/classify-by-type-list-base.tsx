@@ -128,9 +128,9 @@ export class ClassifyByTypeListBase extends ListControlBase {
     public dynaModel: any = [
   {
   	objecttype: "bug",
-	action: "",
+	action: "resolved",
 	othertext: "方案为",
-	codelistId: ''
+	codelistId: 'Bug__resolution'
   }
 ];
 }
