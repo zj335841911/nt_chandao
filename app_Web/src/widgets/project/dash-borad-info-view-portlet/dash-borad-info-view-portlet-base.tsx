@@ -51,6 +51,15 @@ export class DashBoradInfoViewPortletBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashBoradInfoViewPortletBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * 长度
      *
      * @type {number}

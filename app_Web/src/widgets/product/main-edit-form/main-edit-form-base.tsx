@@ -51,6 +51,15 @@ export class Main_EditEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_EditEditFormBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

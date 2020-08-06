@@ -49,6 +49,15 @@ export class ClosePauseCancelFormEditFormBase extends EditFormControlBase {
      * @memberof ClosePauseCancelFormEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ClosePauseCancelFormEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
     /**
      * 界面UI服务对象
      *

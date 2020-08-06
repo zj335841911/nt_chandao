@@ -48,6 +48,15 @@ export class MainTabExptabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof MainTabExptabexppanelTabexppanelBase
      */
     protected appDeName: string = 'productplan';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExptabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '产品计划';
     /**
      * 是否初始化
      *

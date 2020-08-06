@@ -51,6 +51,15 @@ export class Main2EditFormBase extends EditFormControlBase {
     protected appDeName: string = 'productstats';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main2EditFormBase
+     */
+    protected appDeLogicName: string = '产品统计';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

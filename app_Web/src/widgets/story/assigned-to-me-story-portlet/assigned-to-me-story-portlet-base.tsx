@@ -51,6 +51,15 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof AssignedToMeStoryPortletBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
      * 长度
      *
      * @type {number}

@@ -50,6 +50,15 @@ export class CaseExpTreeBase extends MainControlBase {
     protected appDeName: string = 'productmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseExpTreeBase
+     */
+    protected appDeLogicName: string = '需求模块';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

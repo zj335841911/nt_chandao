@@ -50,6 +50,15 @@ export class DEFAULTListBase extends ListControlBase {
     protected appDeName: string = 'history';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DEFAULTListBase
+     */
+    protected appDeLogicName: string = '操作历史';
+
+    /**
      * 分页条数
      *
      * @type {number}

@@ -51,6 +51,15 @@ export class MainSubPlanGridBase extends GridControlBase {
     protected appDeName: string = 'subproductplan';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainSubPlanGridBase
+     */
+    protected appDeLogicName: string = '产品计划';
+
+    /**
      * 界面UI服务对象
      *
      * @type {SubProductPlanUIService}

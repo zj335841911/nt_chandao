@@ -49,6 +49,15 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @memberof TaskKanBanKanbanBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanBanKanbanBase
+     */
+    protected appDeLogicName: string = '任务';
     /**
      * 获取多项数据
      *

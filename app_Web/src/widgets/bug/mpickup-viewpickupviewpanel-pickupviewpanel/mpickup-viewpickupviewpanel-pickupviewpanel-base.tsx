@@ -50,6 +50,15 @@ export class MPickupViewpickupviewpanelPickupviewpanelBase extends MainControlBa
      */
     protected appDeName: string = 'bug';
 
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MPickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
 
     /**
      * 选中数据字符串

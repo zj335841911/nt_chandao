@@ -49,6 +49,15 @@ export class MainDashboardDashboardBase extends MainControlBase {
      * @memberof MainDashboardDashboardBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardDashboardBase
+     */
+    protected appDeLogicName: string = '测试用例';
     /**
      * 是否支持看板定制
      *

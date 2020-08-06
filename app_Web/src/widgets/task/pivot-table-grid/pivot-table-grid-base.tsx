@@ -52,6 +52,15 @@ export class PivotTableGridBase extends MainControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PivotTableGridBase
+     */
+    protected appDeLogicName: string = '任务';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

@@ -51,6 +51,15 @@ export class MainEditGridBase extends GridControlBase {
     protected appDeName: string = 'taskestimate';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditGridBase
+     */
+    protected appDeLogicName: string = '任务预计';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

@@ -51,6 +51,15 @@ export class TestMainGridGridBase extends GridControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestMainGridGridBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

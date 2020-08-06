@@ -50,6 +50,15 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

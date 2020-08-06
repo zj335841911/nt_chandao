@@ -55,6 +55,15 @@ export class ProductStatusChartBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatusChartBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

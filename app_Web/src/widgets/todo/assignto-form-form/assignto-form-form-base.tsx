@@ -49,6 +49,15 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
      * @memberof AssigntoFormEditFormBase
      */
     protected appDeName: string = 'todo';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof AssigntoFormEditFormBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
     /**
      * 界面UI服务对象
      *

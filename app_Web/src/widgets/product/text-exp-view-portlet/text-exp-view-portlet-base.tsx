@@ -51,6 +51,15 @@ export class TextExpViewPortletBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TextExpViewPortletBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 长度
      *
      * @type {number}

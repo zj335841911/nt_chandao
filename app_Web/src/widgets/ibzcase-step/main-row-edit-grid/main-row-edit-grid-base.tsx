@@ -51,6 +51,15 @@ export class Main_RowEditGridBase extends GridControlBase {
     protected appDeName: string = 'ibzcasestep';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_RowEditGridBase
+     */
+    protected appDeLogicName: string = '用例步骤';
+
+    /**
      * 本地缓存标识
      *
      * @protected

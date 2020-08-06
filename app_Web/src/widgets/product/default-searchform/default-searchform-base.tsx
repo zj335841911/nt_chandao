@@ -52,6 +52,15 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DefaultSearchFormBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 表单数据对象
      *
      * @type {*}

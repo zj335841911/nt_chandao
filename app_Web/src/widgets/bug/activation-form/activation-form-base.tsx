@@ -49,6 +49,15 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActivationEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
     /**
      * 界面UI服务对象
      *

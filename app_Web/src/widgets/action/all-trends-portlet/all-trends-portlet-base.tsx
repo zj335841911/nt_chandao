@@ -51,6 +51,15 @@ export class AllTrendsPortletBase extends MainControlBase {
     protected appDeName: string = 'action';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof AllTrendsPortletBase
+     */
+    protected appDeLogicName: string = '系统日志';
+
+    /**
      * 长度
      *
      * @type {number}

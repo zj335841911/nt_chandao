@@ -51,6 +51,15 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMainToolbarPortletBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

@@ -51,6 +51,15 @@ export class MainDetailPortletBase extends MainControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDetailPortletBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 长度
      *
      * @type {number}

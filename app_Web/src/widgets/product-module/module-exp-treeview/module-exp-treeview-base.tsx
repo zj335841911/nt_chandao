@@ -50,6 +50,15 @@ export class ModuleExpTreeBase extends MainControlBase {
     protected appDeName: string = 'productmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModuleExpTreeBase
+     */
+    protected appDeLogicName: string = '需求模块';
+
+    /**
      * branchs_cm 部件 click 事件
      *
      * @param {*} [args={}]

@@ -49,6 +49,15 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      * @memberof PendingSubmissionEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PendingSubmissionEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
     /**
      * 界面UI服务对象
      *

@@ -655,7 +655,7 @@ export class GridControlBase extends MDControlBase {
                 excel.export_json_to_excel({
                     header: tHeader, //表头 必填
                     data, //具体数据 必填
-                    filename: "${ctrl.getPSAppDataEntity().getLogicName()}" + (this.$t('app.gridpage.grid') as string), //非必填
+                    filename: this.appDeLogicName + (this.$t('app.gridpage.grid') as string), //非必填
                     autoWidth: true, //非必填
                     bookType: "xlsx" //非必填
                 });
@@ -688,11 +688,14 @@ export class GridControlBase extends MDControlBase {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
         let post: any;
         if (this.isDeExport) {
-            const post: Promise<any> = this.service.searchDEExportData(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+            post = this.service.searchDEExportData(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
         } else {
-            const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+            post = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
         }
         post.then((response: any) => {
             if (!response || response.status !== 200) {

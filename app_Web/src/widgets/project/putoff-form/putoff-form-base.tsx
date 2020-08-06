@@ -49,6 +49,15 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @memberof PutoffEditFormBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PutoffEditFormBase
+     */
+    protected appDeLogicName: string = '项目';
     /**
      * 界面UI服务对象
      *

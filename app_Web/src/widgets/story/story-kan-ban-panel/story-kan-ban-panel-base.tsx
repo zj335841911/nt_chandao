@@ -53,6 +53,15 @@ export class StoryKanBanPanelBase extends PanelControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryKanBanPanelBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

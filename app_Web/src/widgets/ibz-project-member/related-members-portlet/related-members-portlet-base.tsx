@@ -51,6 +51,15 @@ export class RelatedMembersPortletBase extends MainControlBase {
     protected appDeName: string = 'ibzprojectmember';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof RelatedMembersPortletBase
+     */
+    protected appDeLogicName: string = '项目相关成员';
+
+    /**
      * 长度
      *
      * @type {number}

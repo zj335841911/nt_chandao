@@ -50,6 +50,15 @@ export class PickupViewpickupviewpanelPickupviewpanelBase extends MainControlBas
      */
     protected appDeName: string = 'module';
 
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected appDeLogicName: string = '模块';
+
 
     /**
      * 选中数据字符串

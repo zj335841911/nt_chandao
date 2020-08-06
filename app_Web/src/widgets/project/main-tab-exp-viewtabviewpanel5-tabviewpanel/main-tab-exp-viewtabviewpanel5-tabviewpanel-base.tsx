@@ -50,6 +50,15 @@ export class MainTabExpViewtabviewpanel5TabviewpanelBase extends MainControlBase
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel5TabviewpanelBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

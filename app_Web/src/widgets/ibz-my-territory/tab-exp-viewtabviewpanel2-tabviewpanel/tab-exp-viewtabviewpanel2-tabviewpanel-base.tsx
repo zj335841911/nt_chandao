@@ -50,6 +50,15 @@ export class TabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase {
     protected appDeName: string = 'ibzmyterritory';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TabExpViewtabviewpanel2TabviewpanelBase
+     */
+    protected appDeLogicName: string = '我的地盘';
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

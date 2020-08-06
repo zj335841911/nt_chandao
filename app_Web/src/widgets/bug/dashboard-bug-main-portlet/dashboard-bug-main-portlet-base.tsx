@@ -51,6 +51,15 @@ export class DashboardBugMainPortletBase extends MainControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardBugMainPortletBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
      * 长度
      *
      * @type {number}

@@ -50,6 +50,15 @@ export class ListListBase extends ListControlBase {
     protected appDeName: string = 'file';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ListListBase
+     */
+    protected appDeLogicName: string = '附件';
+
+    /**
      * 分页条数
      *
      * @type {number}

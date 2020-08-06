@@ -51,6 +51,15 @@ export class ModuleExpTreeBase extends MainControlBase {
     protected appDeName: string = 'projectmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModuleExpTreeBase
+     */
+    protected appDeLogicName: string = '任务模块';
+
+    /**
      * zt_product_cm 部件 click 事件
      *
      * @param {*} [args={}]

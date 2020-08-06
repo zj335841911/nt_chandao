@@ -51,6 +51,15 @@ export class SubTaskNewGridBase extends GridControlBase {
     protected appDeName: string = 'subtask';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof SubTaskNewGridBase
+     */
+    protected appDeLogicName: string = '子任务';
+
+    /**
      * 界面UI服务对象
      *
      * @type {SubTaskUIService}
