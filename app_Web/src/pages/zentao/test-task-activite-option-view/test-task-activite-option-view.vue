@@ -6,7 +6,7 @@ import { TestTaskActiviteOptionViewBase } from './test-task-activite-option-view
 import view_form from '@widgets/test-task/activite-form/activite-form.vue';
 
 /**
- * 测试版本选项操作视图（激活）视图
+ * 激活视图
  *
  * @export
  * @class TestTaskActiviteOptionView

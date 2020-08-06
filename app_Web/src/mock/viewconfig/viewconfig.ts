@@ -376,7 +376,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "376e2623b256509cdf69e2de4c01d31b"
         },
         "testtaskblockoptionview": {
-            "title": "测试版本选项操作视图（阻塞）",
+            "title": "阻塞",
             "caption": "阻塞",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
@@ -1104,7 +1104,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "81b0cee2fedff8f4902c0d735714e5af"
         },
         "testtaskactiviteoptionview": {
-            "title": "测试版本选项操作视图（激活）",
+            "title": "激活",
             "caption": "激活",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
@@ -1704,7 +1704,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
         },
         "testtaskcloseoptionview": {
-            "title": "测试版本选项操作视图（关闭）",
+            "title": "关闭",
             "caption": "关闭",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
@@ -1888,7 +1888,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e396b6f39451e3bf963aec602106adf0"
         },
         "testtaskstartoptionview": {
-            "title": "测试版本选项操作视图（开始）",
+            "title": "开始",
             "caption": "开始",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",

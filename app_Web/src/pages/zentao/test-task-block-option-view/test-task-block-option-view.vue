@@ -6,7 +6,7 @@ import { TestTaskBlockOptionViewBase } from './test-task-block-option-view-base'
 import view_form from '@widgets/test-task/block-form/block-form.vue';
 
 /**
- * 测试版本选项操作视图（阻塞）视图
+ * 阻塞视图
  *
  * @export
  * @class TestTaskBlockOptionView

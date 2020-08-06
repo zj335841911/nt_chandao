@@ -6,7 +6,7 @@ import { TestTaskCloseOptionViewBase } from './test-task-close-option-view-base'
 import view_form from '@widgets/test-task/close-form/close-form.vue';
 
 /**
- * 测试版本选项操作视图（关闭）视图
+ * 关闭视图
  *
  * @export
  * @class TestTaskCloseOptionView

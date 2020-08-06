@@ -460,7 +460,7 @@
         "memo": ""
     },
     "testtaskblockoptionview": {
-        "title": "测试版本选项操作视图（阻塞）",
+        "title": "阻塞",
         "caption": "阻塞",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
@@ -1370,7 +1370,7 @@
         "memo": ""
     },
     "testtaskactiviteoptionview": {
-        "title": "测试版本选项操作视图（激活）",
+        "title": "激活",
         "caption": "激活",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
@@ -2120,7 +2120,7 @@
         "memo": ""
     },
     "testtaskcloseoptionview": {
-        "title": "测试版本选项操作视图（关闭）",
+        "title": "关闭",
         "caption": "关闭",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
@@ -2350,7 +2350,7 @@
         "memo": ""
     },
     "testtaskstartoptionview": {
-        "title": "测试版本选项操作视图（开始）",
+        "title": "开始",
         "caption": "开始",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",

@@ -20,3 +20,6 @@ import { ActiviteEditFormBase } from './activite-form-base';
 @VueLifeCycleProcessing()
 export default class ActiviteEditForm extends ActiviteEditFormBase { }
 </script>
+<style lang='less'>
+@import './activite-form.less';
+</style>

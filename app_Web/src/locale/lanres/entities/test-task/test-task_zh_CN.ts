@@ -36,7 +36,7 @@ export default {
 		},
 		blockoptionview: {
 			caption: "阻塞",
-      		title: "测试版本选项操作视图（阻塞）",
+      		title: "阻塞",
 		},
 		editview9_detail: {
 			caption: "测试版本",
@@ -64,7 +64,7 @@ export default {
 		},
 		activiteoptionview: {
 			caption: "激活",
-      		title: "测试版本选项操作视图（激活）",
+      		title: "激活",
 		},
 		gridview: {
 			caption: "测试版本",
@@ -72,11 +72,11 @@ export default {
 		},
 		closeoptionview: {
 			caption: "关闭",
-      		title: "测试版本选项操作视图（关闭）",
+      		title: "关闭",
 		},
 		startoptionview: {
 			caption: "开始",
-      		title: "测试版本选项操作视图（开始）",
+      		title: "开始",
 		},
 		editview_edit: {
 			caption: "测试版本",
