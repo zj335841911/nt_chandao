@@ -454,6 +454,20 @@ final public class ZTCaseHelper {
     }
 
     /**
+     * runCase 执行测试
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean testRunCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestTaskHelper.testRunCase(zentaoSid, jo, rst);
+    }
+
+    /**
      * unlinkCase 移除用例关联
      *
      * @param zentaoSid
