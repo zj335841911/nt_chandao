@@ -121,6 +121,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	quickcreateviewtoolbar_toolbar: {
 		deuiaction1: {
