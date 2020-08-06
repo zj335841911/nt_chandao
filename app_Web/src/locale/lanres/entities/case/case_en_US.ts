@@ -80,7 +80,15 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		testmaindashboardview: {
+			caption: "功能测试",
+      		title: "功能测试",
+		},
 		maininfoeditview9: {
+			caption: "测试用例",
+      		title: "测试用例编辑视图",
+		},
+		testmaindetaileditview9: {
 			caption: "测试用例",
       		title: "测试用例编辑视图",
 		},
@@ -187,6 +195,27 @@ export default {
 		uiactions: {
 		},
 	},
+	maincarry_form: {
+		details: {
+			druipart1: "用例步骤", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			precondition: "前置条件", 
+			resultcnt: "测试结果数", 
+			resultfalicnt: "测试失败数", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
 	mainedit_form: {
 		details: {
 			druipart1: "用例步骤", 
@@ -283,27 +312,6 @@ export default {
 		uiactions: {
 		},
 	},
-	maincarry_form: {
-		details: {
-			druipart1: "用例步骤", 
-			group1: "测试用例基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "用例编号", 
-			srfmajortext: "用例标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			version: "版本#", 
-			precondition: "前置条件", 
-			resultcnt: "测试结果数", 
-			resultfalicnt: "测试失败数", 
-			id: "用例编号", 
-		},
-		uiactions: {
-		},
-	},
 	maintesttask_form: {
 		details: {
 			druipart1: "用例步骤", 
@@ -388,6 +396,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        case_edits: "概况",
         case_confirmchange: "确认用例变动",
         case_newbugbycaseresult: "转Bug",
         case_caseopentestrunresultview: "结果",

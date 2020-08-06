@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetByTestTaskLogic from '@/service/case/get-by-test-task-logic';
 
 
 
@@ -958,6 +959,44 @@ export default class CaseServiceBase extends EntityService {
             return res;
         }
             let res:any = Http.getInstance().post(`/cases/${context.case}/confirmstorychange`,data,isloading);
+            return res;
+    }
+
+    /**
+     * GetByTestTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async GetByTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/getbytesttask`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+        if(context.story && context.case){
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/getbytesttask`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+        if(context.product && context.case){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/getbytesttask`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/getbytesttask`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
             return res;
     }
 

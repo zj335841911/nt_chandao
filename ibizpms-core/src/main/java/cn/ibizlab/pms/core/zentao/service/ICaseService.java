@@ -36,6 +36,7 @@ public interface ICaseService extends IService<Case>{
     boolean checkKey(Case et) ;
     Case confirmChange(Case et) ;
     Case confirmstorychange(Case et) ;
+    Case getByTestTask(Case et) ;
     Case linkCase(Case et) ;
     Case runCase(Case et) ;
     boolean save(Case et) ;

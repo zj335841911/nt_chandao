@@ -8,7 +8,9 @@ import ProjectProjectExpView from '@/widgets/project/project-exp-view-portlet/pr
 import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
 import TodoMyUpcoming from '@/widgets/todo/my-upcoming-portlet/my-upcoming-portlet.vue';
 import CaseMeCreateCase from '@/widgets/case/me-create-case-portlet/me-create-case-portlet.vue';
+import CaseTestMainDetail from '@/widgets/case/test-main-detail-portlet/test-main-detail-portlet.vue';
 import CaseMainDetail from '@/widgets/case/main-detail-portlet/main-detail-portlet.vue';
+import CaseTestDashboardQuickAction from '@/widgets/case/test-dashboard-quick-action-portlet/test-dashboard-quick-action-portlet.vue';
 import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-portlet/dashboard-quick-action-portlet.vue';
 import CaseMainInfo from '@/widgets/case/main-info-portlet/main-info-portlet.vue';
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
@@ -68,11 +70,13 @@ export const  PortletComponent = {
         v.component('app-story-main-toolbar-portlet', StoryMainToolbar);
         v.component('app-story-base-info-portlet', StoryBaseInfo);
         v.component('app-story-story-related-portlet', StoryStoryRelated);
+        v.component('app-case-main-info-portlet', CaseMainInfo);
+        v.component('app-case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
+        v.component('app-case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('app-task-main-detail-portlet', TaskMainDetail);
         v.component('app-task-toolbar-portlet', TaskToolbar);
         v.component('app-task-main-info-portlet', TaskMainInfo);
         v.component('app-task-work-info-portlet', TaskWorkInfo);
-        v.component('app-case-main-info-portlet', CaseMainInfo);
         v.component('app-case-dashboard-quick-action-portlet', CaseDashboardQuickAction);
         v.component('app-case-main-detail-portlet', CaseMainDetail);
         v.component('app-test-task-main-detail-portlet', TestTaskMainDetail);
@@ -101,7 +105,9 @@ export const  PortletComponent = {
         v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
+        v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
+        v.component('case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
         v.component('case-dashboard-quick-action-portlet', CaseDashboardQuickAction);
         v.component('case-main-info-portlet', CaseMainInfo);
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);

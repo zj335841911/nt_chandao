@@ -425,6 +425,7 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '6b041208cbc10321a4d9cd74eaac3689',
+                '454743e1c8070362a873d0d4fe35740b',
             ],
         },
         {
@@ -609,6 +610,21 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '454743e1c8070362a873d0d4fe35740b',
+            viewmodule: 'zentao',
+            viewname: 'CaseTestMainDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8e070a3e9ad67b127db723463198f9ac',
+                '507c88b3f8f66c00a44443748f68125d',
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '6b041208cbc10321a4d9cd74eaac3689',
+                '770a170098d148e438a7666b248e6519',
+                '4a5cfcdc473166f49cea6c9628865006',
+            ],
+        },
+        {
             viewtag: '4571c6ac173283165334a20d5b218f3b',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView3',
@@ -724,6 +740,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '507c88b3f8f66c00a44443748f68125d',
+            viewmodule: 'zentao',
+            viewname: 'CaseTestMainDetailEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1071,6 +1096,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '8e070a3e9ad67b127db723463198f9ac',
+                '27e6b14e0243582fc67753b58a64066d',
                 'b54ba4ee901e1a450acac8723a4ae97a',
                 '770a170098d148e438a7666b248e6519',
                 '4a5cfcdc473166f49cea6c9628865006',
