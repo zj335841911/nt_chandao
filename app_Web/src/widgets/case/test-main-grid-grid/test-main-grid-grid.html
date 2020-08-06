@@ -97,6 +97,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('assignedto')">
+                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.case.testmaingrid_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.testmaingrid_grid.columns.assignedto')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('lastrunner')">
                 <el-table-column show-overflow-tooltip :prop="'lastrunner'" :label="$t('entities.case.testmaingrid_grid.columns.lastrunner')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

@@ -879,6 +879,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskEstimateEditGridView9",
             "viewtag": "6991c25388155df89dc9c44eeb11ad90"
         },
+        "casetestoptionview": {
+            "title": "测试用例选项操作视图",
+            "caption": "执行",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseTestOptionView",
+            "viewtag": "6b041208cbc10321a4d9cd74eaac3689"
+        },
         "productmaintabexpview": {
             "title": "产品",
             "caption": "产品",

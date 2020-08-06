@@ -99,6 +99,7 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'mainnewview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'batchnewgridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'testoptionview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases'});
@@ -525,10 +526,10 @@ export default class CaseUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'case-option-view', 
+                viewname: 'case-test-option-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.case.views.optionview.title'),
+                title: actionContext.$t('entities.case.views.testoptionview.title'),
             };
             openPopupModal(view, data);
     }

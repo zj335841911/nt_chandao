@@ -424,7 +424,7 @@ export const viewstate: any = {
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
-                '27e6b14e0243582fc67753b58a64066d',
+                '6b041208cbc10321a4d9cd74eaac3689',
             ],
         },
         {
@@ -1023,6 +1023,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4acc52d66d0c31e82166d85b1b0cd826',
+            ],
+        },
+        {
+            viewtag: '6b041208cbc10321a4d9cd74eaac3689',
+            viewmodule: 'zentao',
+            viewname: 'CaseTestOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a694d988e3134a33bb5a99e6e07246f6',
             ],
         },
         {

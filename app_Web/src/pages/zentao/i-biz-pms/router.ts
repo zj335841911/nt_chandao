@@ -452,6 +452,66 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-left-sidebar-list-view/product-left-sidebar-list-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/testoptionview/:testoptionview?',
+                    meta: {
+                        caption: 'entities.case.views.testoptionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'testoptionview', parameterName: 'testoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/testoptionview/:testoptionview?',
+                    meta: {
+                        caption: 'entities.case.views.testoptionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'testoptionview', parameterName: 'testoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/testoptionview/:testoptionview?',
+                    meta: {
+                        caption: 'entities.case.views.testoptionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'testoptionview', parameterName: 'testoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/testoptionview/:testoptionview?',
+                    meta: {
+                        caption: 'entities.case.views.testoptionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'testoptionview', parameterName: 'testoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/opentaskview/:opentaskview?',
                     meta: {
                         caption: 'entities.task.views.opentaskview.title',
