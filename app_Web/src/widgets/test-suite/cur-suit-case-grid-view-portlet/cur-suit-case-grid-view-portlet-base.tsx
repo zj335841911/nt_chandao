@@ -1,69 +1,69 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ActionService from '@/service/action/action-service';
-import ActionHistoryService from './action-history-portlet-service';
-import ActionUIService from '@/uiservice/action/action-ui-service';
+import TestSuiteService from '@/service/test-suite/test-suite-service';
+import CurSuitCaseGridViewService from './cur-suit-case-grid-view-portlet-service';
+import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet3部件基类
+ * dashboard_sysportlet1部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {ActionHistoryPortletBase}
+ * @extends {CurSuitCaseGridViewPortletBase}
  */
-export class ActionHistoryPortletBase extends MainControlBase {
+export class CurSuitCaseGridViewPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ActionHistoryPortletBase
+     * @memberof CurSuitCaseGridViewPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ActionHistoryService}
-     * @memberof ActionHistoryPortletBase
+     * @type {CurSuitCaseGridViewService}
+     * @memberof CurSuitCaseGridViewPortletBase
      */
-    public service: ActionHistoryService = new ActionHistoryService({ $store: this.$store });
+    public service: CurSuitCaseGridViewService = new CurSuitCaseGridViewService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ActionService}
-     * @memberof ActionHistoryPortletBase
+     * @type {TestSuiteService}
+     * @memberof CurSuitCaseGridViewPortletBase
      */
-    public appEntityService: ActionService = new ActionService({ $store: this.$store });
+    public appEntityService: TestSuiteService = new TestSuiteService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ActionHistoryPortletBase
+     * @memberof CurSuitCaseGridViewPortletBase
      */
-    protected appDeName: string = 'action';
+    protected appDeName: string = 'testsuite';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof ActionHistoryPortletBase
+     * @memberof CurSuitCaseGridViewPortletBase
      */
-    protected appDeLogicName: string = '系统日志';
+    protected appDeLogicName: string = '测试套件';
 
     /**
      * 长度
      *
      * @type {number}
-     * @memberof ActionHistory
+     * @memberof CurSuitCaseGridView
      */
     @Prop() public height?: number;
 
@@ -71,7 +71,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof ActionHistory
+     * @memberof CurSuitCaseGridView
      */
     @Prop() public width?: number;
 
@@ -81,7 +81,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -89,7 +89,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     public getDatas(): any[] {
         return [];
@@ -99,7 +99,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     public getData(): any {
         return {};
@@ -109,7 +109,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -126,7 +126,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     public created() {
         this.afterCreated();
@@ -135,7 +135,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ActionHistoryBase
+     *  @memberof CurSuitCaseGridViewBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -154,7 +154,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -163,7 +163,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ActionHistoryBase
+     * @memberof CurSuitCaseGridViewBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

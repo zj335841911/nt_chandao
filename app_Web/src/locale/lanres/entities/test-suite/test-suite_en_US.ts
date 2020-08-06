@@ -30,24 +30,6 @@ export default {
       		title: "测试套件数据看板视图",
 		},
 	},
-	maininfo_form: {
-		details: {
-			group1: "基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			name: "名称", 
-			desc: "描述", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main_form: {
 		details: {
 			group1: "testsuite基本信息", 
@@ -67,6 +49,24 @@ export default {
 		uiactions: {
 		},
 	},
+	maininfo_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "名称", 
+			desc: "描述", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "编号",
@@ -77,6 +77,14 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        edit: "Edit",
+        remove: "Remove",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -91,12 +99,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };
