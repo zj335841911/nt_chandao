@@ -55,6 +55,15 @@ export class ProjectStatusBarChartBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStatusBarChartBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

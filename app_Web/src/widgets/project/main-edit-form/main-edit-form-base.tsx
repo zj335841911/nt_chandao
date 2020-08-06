@@ -49,6 +49,15 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditEditFormBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_EditEditFormBase
+     */
+    protected appDeLogicName: string = '项目';
     /**
      * 界面UI服务对象
      *

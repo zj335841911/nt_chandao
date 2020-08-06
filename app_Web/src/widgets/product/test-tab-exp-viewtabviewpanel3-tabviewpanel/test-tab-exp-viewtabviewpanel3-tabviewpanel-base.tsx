@@ -50,6 +50,15 @@ export class TestTabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTabExpViewtabviewpanel3TabviewpanelBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

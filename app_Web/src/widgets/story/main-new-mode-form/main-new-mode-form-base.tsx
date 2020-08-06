@@ -49,6 +49,15 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      * @memberof Main_NewModeEditFormBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_NewModeEditFormBase
+     */
+    protected appDeLogicName: string = '需求';
     /**
      * 界面UI服务对象
      *

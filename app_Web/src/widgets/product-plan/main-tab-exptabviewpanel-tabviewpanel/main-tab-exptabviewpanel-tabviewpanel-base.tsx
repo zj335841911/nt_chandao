@@ -50,6 +50,15 @@ export class MainTabExptabviewpanelTabviewpanelBase extends MainControlBase {
     protected appDeName: string = 'productplan';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExptabviewpanelTabviewpanelBase
+     */
+    protected appDeLogicName: string = '产品计划';
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

@@ -73,6 +73,15 @@ export class ControlBase extends Vue {
     protected appDeName: string = '';
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ControlBase
+     */
+    protected appDeLogicName: string = '';
+
+    /**
      * rxjs类型订阅事件
      *
      * @protected

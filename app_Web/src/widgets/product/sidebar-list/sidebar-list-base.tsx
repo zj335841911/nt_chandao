@@ -50,6 +50,15 @@ export class SidebarListBase extends ListControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof SidebarListBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 分页条数
      *
      * @type {number}

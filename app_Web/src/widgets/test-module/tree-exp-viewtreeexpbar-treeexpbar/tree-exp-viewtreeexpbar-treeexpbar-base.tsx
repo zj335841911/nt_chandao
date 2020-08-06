@@ -50,6 +50,15 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeName: string = 'testmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeLogicName: string = '测试模块';
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

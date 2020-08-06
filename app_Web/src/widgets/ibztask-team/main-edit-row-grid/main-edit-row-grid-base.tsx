@@ -51,6 +51,15 @@ export class MainEditRowGridBase extends GridControlBase {
     protected appDeName: string = 'ibztaskteam';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditRowGridBase
+     */
+    protected appDeLogicName: string = '任务团队';
+
+    /**
      * 本地缓存标识
      *
      * @protected

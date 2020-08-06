@@ -51,6 +51,15 @@ export class Main_PlanSubGridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_PlanSubGridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

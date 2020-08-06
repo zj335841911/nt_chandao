@@ -50,6 +50,15 @@ export class MyWorkListBase extends ListControlBase {
     protected appDeName: string = 'ibzmyterritory';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyWorkListBase
+     */
+    protected appDeLogicName: string = '我的地盘';
+
+    /**
      * 分页条数
      *
      * @type {number}

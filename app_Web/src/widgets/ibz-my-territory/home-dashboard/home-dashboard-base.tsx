@@ -49,6 +49,15 @@ export class HomeDashboardBase extends MainControlBase {
      * @memberof HomeDashboardBase
      */
     protected appDeName: string = 'ibzmyterritory';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof HomeDashboardBase
+     */
+    protected appDeLogicName: string = '我的地盘';
     /**
      * 是否支持看板定制
      *

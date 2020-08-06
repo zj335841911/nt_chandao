@@ -49,6 +49,15 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewEditFormBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReviewEditFormBase
+     */
+    protected appDeLogicName: string = '需求';
     /**
      * 界面UI服务对象
      *

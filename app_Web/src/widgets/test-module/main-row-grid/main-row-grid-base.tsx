@@ -51,6 +51,15 @@ export class MainRowGridBase extends GridControlBase {
     protected appDeName: string = 'testmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainRowGridBase
+     */
+    protected appDeLogicName: string = '测试模块';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

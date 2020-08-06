@@ -51,6 +51,15 @@ export class WorkInfoPortletBase extends MainControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof WorkInfoPortletBase
+     */
+    protected appDeLogicName: string = '任务';
+
+    /**
      * 长度
      *
      * @type {number}

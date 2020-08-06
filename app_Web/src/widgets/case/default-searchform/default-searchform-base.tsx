@@ -52,6 +52,15 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DefaultSearchFormBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 表单数据对象
      *
      * @type {*}

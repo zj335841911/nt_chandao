@@ -50,6 +50,15 @@ export class TypeGanttGanttBase extends MainControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TypeGanttGanttBase
+     */
+    protected appDeLogicName: string = '任务';
+
+    /**
      * 打开编辑数据视图
      *
      * @param {any[]} args

@@ -50,6 +50,15 @@ export class TabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TabExpViewtabviewpanel3TabviewpanelBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

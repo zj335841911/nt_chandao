@@ -50,6 +50,15 @@ export class ProductLineTreeBase extends MainControlBase {
     protected appDeName: string = 'module';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLineTreeBase
+     */
+    protected appDeLogicName: string = '模块';
+
+    /**
      * all_cm 部件 click 事件
      *
      * @param {*} [args={}]

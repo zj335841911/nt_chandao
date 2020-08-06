@@ -51,6 +51,15 @@ export class MyUpcomingGridBase extends GridControlBase {
     protected appDeName: string = 'todo';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyUpcomingGridBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
+    /**
      * 界面UI服务对象
      *
      * @type {TodoUIService}

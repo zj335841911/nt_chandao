@@ -48,6 +48,15 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof TabExpViewtabexppanelTabexppanelBase
      */
     protected appDeName: string = 'ibzmyterritory';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TabExpViewtabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '我的地盘';
     /**
      * 是否初始化
      *

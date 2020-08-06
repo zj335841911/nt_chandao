@@ -49,6 +49,15 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainInfoEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
     /**
      * 界面UI服务对象
      *

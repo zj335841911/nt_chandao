@@ -50,6 +50,15 @@ export class MPickupView3pickupviewpanelPickupviewpanelBase extends MainControlB
      */
     protected appDeName: string = 'story';
 
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MPickupView3pickupviewpanelPickupviewpanelBase
+     */
+    protected appDeLogicName: string = '需求';
+
 
     /**
      * 选中数据字符串

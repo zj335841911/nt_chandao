@@ -51,6 +51,15 @@ export class Main_EditRowGridBase extends GridControlBase {
     protected appDeName: string = 'projectteam';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_EditRowGridBase
+     */
+    protected appDeLogicName: string = '项目团队';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ProjectTeamUIService}

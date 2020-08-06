@@ -49,6 +49,15 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditEditFormBase
+     */
+    protected appDeLogicName: string = '测试用例';
     /**
      * 界面UI服务对象
      *

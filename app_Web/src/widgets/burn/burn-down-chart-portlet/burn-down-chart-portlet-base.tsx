@@ -51,6 +51,15 @@ export class BurnDownChartPortletBase extends MainControlBase {
     protected appDeName: string = 'burn';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnDownChartPortletBase
+     */
+    protected appDeLogicName: string = 'burn';
+
+    /**
      * 长度
      *
      * @type {number}

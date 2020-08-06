@@ -55,6 +55,15 @@ export class BurnDown2ChartBase extends MainControlBase {
     protected appDeName: string = 'burn';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnDown2ChartBase
+     */
+    protected appDeLogicName: string = 'burn';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

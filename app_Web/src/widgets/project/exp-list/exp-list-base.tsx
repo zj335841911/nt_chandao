@@ -50,6 +50,15 @@ export class ExpListBase extends ListControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ExpListBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * 排序方向
      *
      * @type {string}

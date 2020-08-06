@@ -49,6 +49,15 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @memberof StoryKanBanKanbanBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryKanBanKanbanBase
+     */
+    protected appDeLogicName: string = '需求';
     /**
      * 获取多项数据
      *

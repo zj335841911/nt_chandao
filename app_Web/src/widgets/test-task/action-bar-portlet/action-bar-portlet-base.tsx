@@ -51,6 +51,15 @@ export class ActionBarPortletBase extends MainControlBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionBarPortletBase
+     */
+    protected appDeLogicName: string = '测试版本';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

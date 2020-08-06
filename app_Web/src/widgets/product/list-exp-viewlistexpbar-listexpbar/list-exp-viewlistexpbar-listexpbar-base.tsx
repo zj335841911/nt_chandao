@@ -50,6 +50,15 @@ export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ListExpViewlistexpbarListexpbarBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * listexpbar_list 部件 selectionchange 事件
      *
      * @param {*} [args={}]

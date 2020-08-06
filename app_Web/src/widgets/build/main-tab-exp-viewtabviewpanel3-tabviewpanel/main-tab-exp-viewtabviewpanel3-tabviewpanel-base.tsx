@@ -50,6 +50,15 @@ export class MainTabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase
     protected appDeName: string = 'build';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel3TabviewpanelBase
+     */
+    protected appDeLogicName: string = 'build';
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

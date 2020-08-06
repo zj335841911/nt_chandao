@@ -53,6 +53,15 @@ export class MyWork2PanelBase extends PanelControlBase {
     protected appDeName: string = 'ibzmyterritory';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyWork2PanelBase
+     */
+    protected appDeLogicName: string = '我的地盘';
+
+    /**
      * 详情模型集合
      *
      * @type {*}

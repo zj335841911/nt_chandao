@@ -53,6 +53,15 @@ export class TaskKanBanPanelBase extends PanelControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanBanPanelBase
+     */
+    protected appDeLogicName: string = '任务';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

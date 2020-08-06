@@ -50,6 +50,15 @@ export class TrendsListBase extends ListControlBase {
     protected appDeName: string = 'action';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TrendsListBase
+     */
+    protected appDeLogicName: string = '系统日志';
+
+    /**
      * 分页条数
      *
      * @type {number}

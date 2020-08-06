@@ -51,6 +51,15 @@ export class MainEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'action';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '系统日志';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

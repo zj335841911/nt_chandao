@@ -49,6 +49,15 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      * @memberof TestMain2EditFormBase
      */
     protected appDeName: string = 'productstats';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestMain2EditFormBase
+     */
+    protected appDeLogicName: string = '产品统计';
     /**
      * 界面UI服务对象
      *

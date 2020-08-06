@@ -51,6 +51,15 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainToolbarPortletBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

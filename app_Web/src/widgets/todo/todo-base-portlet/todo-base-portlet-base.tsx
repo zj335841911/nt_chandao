@@ -51,6 +51,15 @@ export class TodoBasePortletBase extends MainControlBase {
     protected appDeName: string = 'todo';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoBasePortletBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
+    /**
      * 长度
      *
      * @type {number}

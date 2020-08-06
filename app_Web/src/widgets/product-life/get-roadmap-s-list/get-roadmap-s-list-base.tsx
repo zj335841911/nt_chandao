@@ -50,6 +50,15 @@ export class GetRoadmapSListBase extends ListControlBase {
     protected appDeName: string = 'productlife';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapSListBase
+     */
+    protected appDeLogicName: string = '产品生命周期';
+
+    /**
      * 分页条数
      *
      * @type {number}

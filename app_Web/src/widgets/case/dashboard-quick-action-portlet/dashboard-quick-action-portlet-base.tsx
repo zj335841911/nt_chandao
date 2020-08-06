@@ -51,6 +51,15 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardQuickActionPortletBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

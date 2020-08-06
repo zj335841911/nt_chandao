@@ -48,6 +48,15 @@ export class MyTestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContr
      * @memberof MyTestTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyTestTabExpViewtabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '产品';
     /**
      * 是否初始化
      *
