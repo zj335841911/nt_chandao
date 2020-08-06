@@ -459,6 +459,16 @@
         "viewtag": "376e2623b256509cdf69e2de4c01d31b",
         "memo": ""
     },
+    "testtaskblockoptionview": {
+        "title": "测试版本选项操作视图（阻塞）",
+        "caption": "阻塞",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskBlockOptionView",
+        "viewfilename": "test-task-block-option-view",
+        "viewtag": "383716f2bcf137ecae2d212f2380246a",
+        "memo": ""
+    },
     "tasktodoeditview": {
         "title": "任务编辑视图",
         "caption": "待办转任务",
@@ -1359,6 +1369,16 @@
         "viewtag": "81b0cee2fedff8f4902c0d735714e5af",
         "memo": ""
     },
+    "testtaskactiviteoptionview": {
+        "title": "测试版本选项操作视图（激活）",
+        "caption": "激活",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskActiviteOptionView",
+        "viewfilename": "test-task-activite-option-view",
+        "viewtag": "81ca65108f3533b513676d2c95b50096",
+        "memo": ""
+    },
     "groupmaingridview": {
         "title": "群组表格视图",
         "caption": "群组",
@@ -2099,6 +2119,16 @@
         "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f",
         "memo": ""
     },
+    "testtaskcloseoptionview": {
+        "title": "测试版本选项操作视图（关闭）",
+        "caption": "关闭",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskCloseOptionView",
+        "viewfilename": "test-task-close-option-view",
+        "viewtag": "ca5490c6292062cfd7ada980ed935464",
+        "memo": ""
+    },
     "storyprojecteditview": {
         "title": "需求",
         "caption": "需求",
@@ -2317,6 +2347,16 @@
         "viewname": "ProductListExpView",
         "viewfilename": "product-list-exp-view",
         "viewtag": "e396b6f39451e3bf963aec602106adf0",
+        "memo": ""
+    },
+    "testtaskstartoptionview": {
+        "title": "测试版本选项操作视图（开始）",
+        "caption": "开始",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskStartOptionView",
+        "viewfilename": "test-task-start-option-view",
+        "viewtag": "e3daebb0eca3c90b800021c84de8c19e",
         "memo": ""
     },
     "storyeditview_storychange": {

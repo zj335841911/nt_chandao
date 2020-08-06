@@ -449,6 +449,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '383716f2bcf137ecae2d212f2380246a',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskBlockOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '3a8aaf8bc175455ca2be6ace38f821a1',
             viewmodule: 'zentao',
             viewname: 'TaskTodoEditView',
@@ -1221,9 +1231,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'e8763999350c7bd92e884e0381d7ac6b',
-                '14d95e9a02db631c2b9af47641fcec4e',
                 '706ea523d286cec9ae0c2509f20daa8e',
+                '81ca65108f3533b513676d2c95b50096',
+                '383716f2bcf137ecae2d212f2380246a',
+                'ca5490c6292062cfd7ada980ed935464',
+                'e3daebb0eca3c90b800021c84de8c19e',
                 '770a170098d148e438a7666b248e6519',
                 '451eacde0c0c638e29bdfc9cbc789c13',
             ],
@@ -1285,6 +1297,16 @@ export const viewstate: any = {
                 'aad9a5713d6828d3119b811b26915215',
                 '08ca1b1e6234a0d038e1fbf52478ea7f',
                 '21d716ac12c793af54b112a5a3599674',
+            ],
+        },
+        {
+            viewtag: '81ca65108f3533b513676d2c95b50096',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskActiviteOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -2000,6 +2022,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ca5490c6292062cfd7ada980ed935464',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskCloseOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: 'cad4ce05432f03f140d6ee3ad5dfe8c5',
             viewmodule: 'zentao',
             viewname: 'StoryProjectEditView',
@@ -2167,6 +2199,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '5d468f620cc30181773d875b3bb8be6e',
+            ],
+        },
+        {
+            viewtag: 'e3daebb0eca3c90b800021c84de8c19e',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskStartOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {

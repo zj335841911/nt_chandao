@@ -375,6 +375,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainMyGridView",
             "viewtag": "376e2623b256509cdf69e2de4c01d31b"
         },
+        "testtaskblockoptionview": {
+            "title": "测试版本选项操作视图（阻塞）",
+            "caption": "阻塞",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskBlockOptionView",
+            "viewtag": "383716f2bcf137ecae2d212f2380246a"
+        },
         "tasktodoeditview": {
             "title": "任务编辑视图",
             "caption": "待办转任务",
@@ -1095,6 +1103,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanGridView",
             "viewtag": "81b0cee2fedff8f4902c0d735714e5af"
         },
+        "testtaskactiviteoptionview": {
+            "title": "测试版本选项操作视图（激活）",
+            "caption": "激活",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskActiviteOptionView",
+            "viewtag": "81ca65108f3533b513676d2c95b50096"
+        },
         "groupmaingridview": {
             "title": "群组表格视图",
             "caption": "群组",
@@ -1687,6 +1703,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskDoneTaskView",
             "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
         },
+        "testtaskcloseoptionview": {
+            "title": "测试版本选项操作视图（关闭）",
+            "caption": "关闭",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskCloseOptionView",
+            "viewtag": "ca5490c6292062cfd7ada980ed935464"
+        },
         "storyprojecteditview": {
             "title": "需求",
             "caption": "需求",
@@ -1862,6 +1886,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductListExpView",
             "viewtag": "e396b6f39451e3bf963aec602106adf0"
+        },
+        "testtaskstartoptionview": {
+            "title": "测试版本选项操作视图（开始）",
+            "caption": "开始",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskStartOptionView",
+            "viewtag": "e3daebb0eca3c90b800021c84de8c19e"
         },
         "storyeditview_storychange": {
             "title": "需求编辑视图",
