@@ -166,7 +166,6 @@ export default class TestTaskUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
         ];
-            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
@@ -233,7 +232,6 @@ export default class TestTaskUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
         ];
-            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
@@ -428,7 +426,6 @@ export default class TestTaskUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
         ];
-            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
@@ -559,7 +556,6 @@ export default class TestTaskUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
         ];
-            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {

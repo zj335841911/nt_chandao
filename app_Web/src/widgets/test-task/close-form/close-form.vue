@@ -20,3 +20,6 @@ import { CloseEditFormBase } from './close-form-base';
 @VueLifeCycleProcessing()
 export default class CloseEditForm extends CloseEditFormBase { }
 </script>
+<style lang='less'>
+@import './close-form.less';
+</style>
