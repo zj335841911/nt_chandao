@@ -51,6 +51,16 @@ export default class MainInfoModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
+        name: 'title',
+        prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
         name: 'version',
         prop: 'version',
         dataType: 'INT',
@@ -59,11 +69,6 @@ export default class MainInfoModel {
         name: 'precondition',
         prop: 'precondition',
         dataType: 'LONGTEXT',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'case',

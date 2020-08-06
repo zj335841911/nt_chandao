@@ -171,9 +171,10 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			version: "版本#", 
+			id: "", 
+			title: "", 
+			version: "", 
 			precondition: "前置条件", 
-			id: "用例编号", 
 		},
 		uiactions: {
 		},
