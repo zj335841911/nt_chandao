@@ -159,6 +159,16 @@
         "viewtag": "12661bdb476cd339554799b417c6ea48",
         "memo": ""
     },
+    "testresultmeditview9": {
+        "title": "测试结果多表单编辑视图",
+        "caption": "测试结果",
+        "viewtype": "DEMEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TestResultMEditView9",
+        "viewfilename": "test-result-medit-view9",
+        "viewtag": "136cd30bd141450ecd9e7791215733e6",
+        "memo": ""
+    },
     "caselinkcasegridview": {
         "title": "测试用例表格视图（关联用例）",
         "caption": "关联用例",
@@ -577,6 +587,16 @@
         "viewname": "CaseMainGridView",
         "viewfilename": "case-main-grid-view",
         "viewtag": "417541fa331fc089b84936b8359403fa",
+        "memo": ""
+    },
+    "casestepgridview9": {
+        "title": "用例步骤表格视图",
+        "caption": "用例步骤",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseStepGridView9",
+        "viewfilename": "case-step-grid-view9",
+        "viewtag": "41bfd828761fc42ef9a7acdd4f4babcf",
         "memo": ""
     },
     "storycurprojectwgridview": {
@@ -2247,6 +2267,16 @@
         "viewname": "ReleaseMainTabExpView",
         "viewfilename": "release-main-tab-exp-view",
         "viewtag": "ceb630b252aac50781a373e0bef90eb2",
+        "memo": ""
+    },
+    "testresulteditview9": {
+        "title": "测试结果编辑视图",
+        "caption": "测试结果",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TestResultEditView9",
+        "viewfilename": "test-result-edit-view9",
+        "viewtag": "d000027bf12084d69b1e064264d06962",
         "memo": ""
     },
     "projectproductlistview9": {

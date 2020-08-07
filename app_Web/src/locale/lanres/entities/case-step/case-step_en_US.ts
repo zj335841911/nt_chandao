@@ -13,6 +13,10 @@ export default {
     files: "附件",
   },
 	views: {
+		gridview9: {
+			caption: "用例步骤",
+      		title: "用例步骤表格视图",
+		},
 		maingridview9: {
 			caption: "用例步骤",
       		title: "用例步骤",

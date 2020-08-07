@@ -68,8 +68,9 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem='case' 
-    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TESTRUN_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_TESTRUN_ZT_CASE_CASE"}'
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TESTRESULT_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_TESTRESULT_ZT_CASE_CASE"}'
     :parameters="[
+        { pathName: 'cases', parameterName: 'case' },
     ]"
     :context="context"
     :viewparams="viewparams"
@@ -80,7 +81,7 @@
     refviewtype='DEMEDITVIEW9' 
     refreshitems='' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='test-run-medit-view9' 
+    viewname='test-result-medit-view9' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
     style="overflow: auto;">
