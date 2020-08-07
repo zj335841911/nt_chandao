@@ -18,13 +18,22 @@ export default {
 			caption: "测试结果",
       		title: "testresult编辑视图",
 		},
+		meditview9: {
+			caption: "测试结果",
+      		title: "测试结果多表单编辑视图",
+		},
 		gridview9: {
 			caption: "测试结果",
       		title: "测试结果表格视图",
 		},
+		editview9: {
+			caption: "测试结果",
+      		title: "测试结果编辑视图",
+		},
 	},
 	main_form: {
 		details: {
+			druipart1: "", 
 			grouppanel1: "用例步骤", 
 			formpage1: "基本信息", 
 			srforikey: "", 

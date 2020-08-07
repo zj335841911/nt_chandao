@@ -46,7 +46,33 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testresult.main_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-            
+        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='testresult' 
+    :parentdata='{"srfparentdename":"ZT_TESTRESULT","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        { pathName: 'cases', parameterName: 'case' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{N_VERSION_EQ:"%version%"}'
+    :localParam ='{n_version_eq:"%version%"}'
+    parameterName='testresult'
+    parentName="TestResult"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='case-step-grid-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
