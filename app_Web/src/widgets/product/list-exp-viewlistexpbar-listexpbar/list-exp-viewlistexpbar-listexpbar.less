@@ -1,3 +1,117 @@
 .app-list-exp-bar {
-    --app-list-exp-bar: 0px;
+    > .ivu-split-horizontal {
+        > .ivu-split-trigger-con {
+            height: 100%;
+            width: 1px;
+        }
+        > .ivu-split-pane {
+            > div {
+                height: 100%;
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+                .list-exp-bar-header {
+                    line-height: 50px;
+                    border-bottom: 1px solid #ddd;
+                    >div {
+                        font-size: 18px;
+                        i {
+                            font-size: 20px;
+                            margin-top: -2px;
+                        }
+                    } 
+                }
+                .container-header{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .search-container {
+                        width: 30%;
+                        height: 48px;
+                        padding: 10px 10px 10px 0;
+                        min-width: 200px;
+                        max-width: 400px;
+                    }
+                    .toolbar-container{
+                        padding: 4px;
+                    }
+                }
+                .list-exp-bar-content {
+                                        height: calc(100% - 38px);
+                    overflow: auto;
+                    padding: 16px 0;
+                    margin-bottom: 10px;
+                }
+                .list-exp-bar-content2 {
+                    height: 100%;
+                    overflow: auto;
+                    flex-grow: 1;
+                }
+            }
+        }
+        > .right-pane.ivu-split-pane {
+            > div {
+                padding-left: 10px;
+            }
+        }
+        > .left-pane.ivu-split-pane {
+            padding-right: 10px;
+        }
+    }
+    > .ivu-split-vertical{
+        > .ivu-split-pane {
+            > div {
+                height: 100%;
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+                .list-exp-bar-header {
+                    line-height: 50px;
+                    border-bottom: 1px solid #ddd;
+                    >div {
+                        font-size: 18px;
+                        i {
+                            font-size: 20px;
+                            margin-top: -2px;
+                        }
+                    } 
+                }
+                .container-header{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .search-container {
+                        width: 30%;
+                        height: 48px;
+                        padding: 10px 10px 10px 0;
+                        min-width: 200px;
+                        max-width: 400px;
+                    }
+                    .toolbar-container{
+                        padding: 4px;
+                    }
+                }
+                .list-exp-bar-content {
+                    height: calc(100% - 38px);
+                    overflow: auto;
+                    margin-bottom: 10px;
+                }
+                .list-exp-bar-content2 {
+                    height: 100%;
+                    overflow: auto;
+                    flex-grow: 1;
+                }
+            }
+        }
+        > .top-pane.ivu-split-pane {
+            > div {
+                padding-bottom: 10px;
+            }
+        }
+        > .bottom-pane.ivu-split-pane {
+            padding-top: 10px;
+        }        
+    }
 }
+
+// this is less

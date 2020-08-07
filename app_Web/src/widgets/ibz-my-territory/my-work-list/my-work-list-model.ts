@@ -65,10 +65,6 @@ export default class MyWorkModel {
         prop:'query'
       },
       {
-        name:'sort',
-        prop:'sort'
-      },
-      {
         name:'page',
         prop:'page'
       },

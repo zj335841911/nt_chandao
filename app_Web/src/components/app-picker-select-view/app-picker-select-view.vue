@@ -39,7 +39,7 @@ export default class AppPickerSelectView extends Vue {
      * 视图上下文
      *
      * @type {*}
-     * @memberof AppPickerSelectView
+     * @memberof AppFormDRUIPart
      */
     @Prop() public context!: any;
 
@@ -47,7 +47,7 @@ export default class AppPickerSelectView extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof AppPickerSelectView
+     * @memberof AppFormDRUIPart
      */
     @Prop() public viewparams!: any;
 
@@ -55,7 +55,7 @@ export default class AppPickerSelectView extends Vue {
      * 是否单选
      *
      * @type {*}
-     * @memberof AppPickerSelectView
+     * @memberof AppFormDRUIPart
      */
     @Prop({default: 'true'}) public isSingleSelect!: any;
     
@@ -63,7 +63,7 @@ export default class AppPickerSelectView extends Vue {
      * 当前多选框选中值的key集合
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public keySet: any = [];
     
@@ -71,7 +71,7 @@ export default class AppPickerSelectView extends Vue {
      * 当前多选框选中项对象集合
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public selectItems: Array<any> = [];
     
@@ -79,7 +79,7 @@ export default class AppPickerSelectView extends Vue {
      * 所有操作过的下拉选项对象集合
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public items: Array<any> = [];
     
@@ -87,7 +87,7 @@ export default class AppPickerSelectView extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public viewparam: any = JSON.stringify(this.viewparams);
     
@@ -95,7 +95,7 @@ export default class AppPickerSelectView extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public viewdata: any = JSON.stringify(this.context);
 
@@ -103,7 +103,7 @@ export default class AppPickerSelectView extends Vue {
      * 表单数据
      *
      * @type {*}
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Prop() public data!: any;
 
@@ -111,7 +111,7 @@ export default class AppPickerSelectView extends Vue {
      * 值
      *
      * @type {*}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     @Prop() public value: any;
 
@@ -119,7 +119,7 @@ export default class AppPickerSelectView extends Vue {
      * 是否启用
      *
      * @type {boolean}
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Prop({default: false}) public disabled!: boolean;
     
@@ -127,7 +127,7 @@ export default class AppPickerSelectView extends Vue {
      * 应用实体主信息属性名称
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppAutocomplete
      */
     @Prop({default: 'srfmajortext'}) public deMajorField!: string;
 
@@ -135,7 +135,7 @@ export default class AppPickerSelectView extends Vue {
      * 应用实体主键属性名称
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppAutocomplete
      */
     @Prop({default: 'srfkey'}) public deKeyField!: string;
 
@@ -143,7 +143,7 @@ export default class AppPickerSelectView extends Vue {
      * 输入框值(搜索值)
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public queryValue: any = '';
 
@@ -151,7 +151,7 @@ export default class AppPickerSelectView extends Vue {
      * 值项名称
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Prop() public valueitem!: string;
 
@@ -159,7 +159,7 @@ export default class AppPickerSelectView extends Vue {
      * 关联视图名称
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Prop() public pickupView?: any;
 
@@ -167,7 +167,7 @@ export default class AppPickerSelectView extends Vue {
      * 数据链接视图参数
      *
      * @type {*}
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Prop() public linkview?: any;
 
@@ -175,7 +175,7 @@ export default class AppPickerSelectView extends Vue {
      * 提示信息
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     @Prop() public placeholder!: string;
 
@@ -183,31 +183,23 @@ export default class AppPickerSelectView extends Vue {
      * 属性项名称
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Prop() public name!: string;
 
     /**
-     * 局部上下文导航参数
-     * 
-     * @type {any}
-     * @memberof AppPickerSelectView
+     * 编辑器参数
+     *
+     * @type {*}
+     * @memberof AppTreePicker
      */
-    @Prop() public localContext!:any;
-
-    /**
-     * 局部导航参数
-     * 
-     * @type {any}
-     * @memberof AppPickerSelectView
-     */
-    @Prop() public localParam!:any;
+    @Prop() public itemParam: any;
 
     /**
      * 下拉显示控制变量
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public visible: boolean = false;
 
@@ -215,7 +207,7 @@ export default class AppPickerSelectView extends Vue {
      * 父视图数据
      *
      * @type {string}
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public srfparentdata: any = {};
 
@@ -223,7 +215,7 @@ export default class AppPickerSelectView extends Vue {
      * 输入框change事件
      * 
      * @param $event 事件对象
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public OnInputChange($event: any){
         let _viewdata =  Object.assign({ query: this.queryValue }, JSON.parse(this.viewdata)) ;
@@ -234,7 +226,7 @@ export default class AppPickerSelectView extends Vue {
      * 输入框change事件
      * 
      * @param $event 事件对象
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public triggerMenu(visible?: boolean){
         if(this.disabled){
@@ -252,24 +244,31 @@ export default class AppPickerSelectView extends Vue {
      *
      * @param {*} arg
      * @returns
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     public handlePublicParams(arg: any): boolean {
+        if (!this.itemParam) {
+            return true;
+        }
         if (!this.data) {
             this.$Notice.error({ title: (this.$t('components.appPickerSelectView.error') as any), desc: (this.$t('components.appPickerSelectView.formdataException') as any) });
             return false;
         }
         // 合并表单参数
-        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
-        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+        arg.param = JSON.parse(JSON.stringify(this.viewparams));
+        arg.context = JSON.parse(JSON.stringify(this.context));
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
+        if (this.itemParam.context) {
+          let _context = this.$util.formatData(this.data,this.itemParam.context);
             Object.assign(arg.context,_context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
+        if (this.itemParam.param) {
+          let _param = this.$util.formatData(this.data,this.itemParam.param);
             Object.assign(arg.param,_param);
+        }
+        if (this.itemParam.parentdata) {
+          let _parentdata = this.$util.formatData(this.data,this.itemParam.parentdata);
+            Object.assign(arg.param,_parentdata);
         }
         return true;
     }
@@ -279,7 +278,7 @@ export default class AppPickerSelectView extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof AppPickerSelectView
+     * @memberof AppFormDRUIPart
      */
     @Watch('data',{deep:true})
     onActivedataChange(newVal: any, oldVal: any) {
@@ -299,7 +298,7 @@ export default class AppPickerSelectView extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     @Watch('value', { deep: true })
     public onValueChange(newVal: any, oldVal: any) {
@@ -324,10 +323,10 @@ export default class AppPickerSelectView extends Vue {
                         this.items.push({ srfmajortext : item.srfmajortext, srfkey: item.srfkey });
                     }
                 });
+                let _viewparam = JSON.parse(this.viewparam);
+                _viewparam.selectedData = this.selectItems;
+                this.viewparam = JSON.stringify(_viewparam);
             }
-            let _viewparam = JSON.parse(this.viewparam);
-            _viewparam.selectedData = this.selectItems;
-            this.viewparam = JSON.stringify(_viewparam);
         }
         this.$forceUpdate();
     }
@@ -335,7 +334,7 @@ export default class AppPickerSelectView extends Vue {
     /**
      * 生命周期
      *
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public created() {
         // 公共参数处理
@@ -352,7 +351,7 @@ export default class AppPickerSelectView extends Vue {
     /**
      * vue 生命周期
      *
-     * @memberof AppPickerSelectView
+     * @memberof SelectType
      */
     public destroyed() {
 
@@ -362,7 +361,7 @@ export default class AppPickerSelectView extends Vue {
      * 设置值
      *
      * @param {*} item
-     * @memberof AppPickerSelectView
+     * @memberof AppTreePicker
      */
     public onViewdatasChange($event: any) {
         if($event.length == 0){
@@ -414,7 +413,7 @@ export default class AppPickerSelectView extends Vue {
     /**
      * 打开链接视图
      *
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     public openLinkView($event: any): void {
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
@@ -452,7 +451,7 @@ export default class AppPickerSelectView extends Vue {
      * @private
      * @param {string} viewpath
      * @param {*} data
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     private openIndexViewTab(view: any, context: any, param: any): void {
         const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [context] , param);
@@ -466,7 +465,7 @@ export default class AppPickerSelectView extends Vue {
      * @param {*} $event
      * @param {*} view
      * @param {*} data
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     private openPopOver($event: any, view: any, context: any, param: any): void {
         let container: Subject<any> = this.$apppopover.openPop($event, view, context, param);
@@ -485,7 +484,7 @@ export default class AppPickerSelectView extends Vue {
      * @private
      * @param {*} view
      * @param {*} data
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     private openPopupModal(view: any, context: any, param: any): void {
         let container: Subject<any> = this.$appmodal.openModal(view, context, param);
@@ -503,7 +502,7 @@ export default class AppPickerSelectView extends Vue {
      * @private
      * @param {*} view
      * @param {*} data
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     private openDrawer(view: any, context: any, param: any): void {
         let container: Subject<any> = this.$appdrawer.openDrawer(view, context, param);
@@ -519,7 +518,7 @@ export default class AppPickerSelectView extends Vue {
      * 打开页面关闭
      *
      * @param {*} result
-     * @memberof AppPickerSelectView
+     * @memberof AppPicker
      */
     public openViewClose(result: any) {
         let item: any = {};
@@ -541,7 +540,7 @@ export default class AppPickerSelectView extends Vue {
      * 下拉选中回调
      *
      * @param {*} selects 当前选中的key值集合
-     * @memberof AppPickerSelectView
+     * @memberof AppMpicker
      */
     public onSelectChange(selects: any) {
         let val: Array<any> = [];

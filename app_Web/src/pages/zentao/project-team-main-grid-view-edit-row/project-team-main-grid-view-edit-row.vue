@@ -1,22 +1,19 @@
-<template src="./project-team-main-grid-view-edit-row.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectTeamMainGridView_EditRowBase } from './project-team-main-grid-view-edit-row-base';
-import view_grid from '@widgets/project-team/main-edit-row-grid/main-edit-row-grid.vue';
+import ProjectTeamMainGridView_EditRowBase from './project-team-main-grid-view-edit-row-base.vue';
 
-/**
- * 项目团队表格视图视图
- *
- * @export
- * @class ProjectTeamMainGridView_EditRow
- * @extends {ProjectTeamMainGridView_EditRowBase}
- */
+import view_grid from '@widgets/project-team/main-edit-row-grid/main-edit-row-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProjectTeamMainGridView_EditRow extends ProjectTeamMainGridView_EditRowBase { }
+export default class ProjectTeamMainGridView_EditRow extends ProjectTeamMainGridView_EditRowBase {
+
+}
 </script>

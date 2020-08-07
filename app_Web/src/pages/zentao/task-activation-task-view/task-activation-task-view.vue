@@ -1,22 +1,19 @@
-<template src="./task-activation-task-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskActivationTaskViewBase } from './task-activation-task-view-base';
-import view_form from '@widgets/task/activation-form/activation-form.vue';
+import TaskActivationTaskViewBase from './task-activation-task-view-base.vue';
 
-/**
- * 激活任务视图
- *
- * @export
- * @class TaskActivationTaskView
- * @extends {TaskActivationTaskViewBase}
- */
+import view_form from '@widgets/task/activation-form/activation-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TaskActivationTaskView extends TaskActivationTaskViewBase { }
+export default class TaskActivationTaskView extends TaskActivationTaskViewBase {
+
+}
 </script>

@@ -1,25 +1,14 @@
-<template src="./start-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { StartEditFormBase } from './start-form-base';
- 
+import StartBase from './start-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class StartEditForm
- * @extends {StartEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class StartEditForm extends StartEditFormBase { }
+export default class Start extends StartBase {
+
+}
 </script>
-<style lang='less'>
-@import './start-form.less';
-</style>

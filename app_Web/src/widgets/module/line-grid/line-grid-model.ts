@@ -30,13 +30,11 @@ export default class LineModel {
           name: 'short',
           prop: 'ibizshort',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'parent',
@@ -52,7 +50,6 @@ export default class LineModel {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
-          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -68,7 +65,6 @@ export default class LineModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'module',
@@ -81,10 +77,6 @@ export default class LineModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

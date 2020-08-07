@@ -1,22 +1,19 @@
-<template src="./module-edit-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ModuleEditViewBase } from './module-edit-view-base';
-import view_form from '@widgets/module/main-form/main-form.vue';
+import ModuleEditViewBase from './module-edit-view-base.vue';
 
-/**
- * 模块视图
- *
- * @export
- * @class ModuleEditView
- * @extends {ModuleEditViewBase}
- */
+import view_form from '@widgets/module/main-form/main-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ModuleEditView extends ModuleEditViewBase { }
+export default class ModuleEditView extends ModuleEditViewBase {
+
+}
 </script>

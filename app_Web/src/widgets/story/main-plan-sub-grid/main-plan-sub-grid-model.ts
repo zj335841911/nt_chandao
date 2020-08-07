@@ -73,7 +73,6 @@ export default class Main_PlanSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -136,10 +135,6 @@ export default class Main_PlanSubModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

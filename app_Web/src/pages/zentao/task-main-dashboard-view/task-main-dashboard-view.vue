@@ -1,22 +1,19 @@
-<template src="./task-main-dashboard-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskMainDashboardViewBase } from './task-main-dashboard-view-base';
-import view_dashboard from '@widgets/task/main-dashboard/main-dashboard.vue';
+import TaskMainDashboardViewBase from './task-main-dashboard-view-base.vue';
 
-/**
- * 任务主数据看板视图视图
- *
- * @export
- * @class TaskMainDashboardView
- * @extends {TaskMainDashboardViewBase}
- */
+import view_dashboard from '@widgets/task/main-dashboard/main-dashboard.vue';
 @Component({
     components: {
         view_dashboard, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TaskMainDashboardView extends TaskMainDashboardViewBase { }
+export default class TaskMainDashboardView extends TaskMainDashboardViewBase {
+
+}
 </script>

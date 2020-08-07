@@ -1,22 +1,14 @@
-<template src="./burn-down2-chart.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BurnDown2ChartBase } from './burn-down2-chart-base';
- 
+import BurnDown2Base from './burn-down2-chart-base.vue';
 
-/**
- * chart部件
- *
- * @export
- * @class BurnDown2Chart
- * @extends {BurnDown2ChartBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class BurnDown2Chart extends BurnDown2ChartBase { }
+export default class BurnDown2 extends BurnDown2Base {
+
+}
 </script>

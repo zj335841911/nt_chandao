@@ -1,22 +1,19 @@
-<template src="./bug-assing-to-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugAssingToViewBase } from './bug-assing-to-view-base';
-import view_form from '@widgets/bug/assign-to-form/assign-to-form.vue';
+import BugAssingToViewBase from './bug-assing-to-view-base.vue';
 
-/**
- * 指派Bug视图
- *
- * @export
- * @class BugAssingToView
- * @extends {BugAssingToViewBase}
- */
+import view_form from '@widgets/bug/assign-to-form/assign-to-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class BugAssingToView extends BugAssingToViewBase { }
+export default class BugAssingToView extends BugAssingToViewBase {
+
+}
 </script>

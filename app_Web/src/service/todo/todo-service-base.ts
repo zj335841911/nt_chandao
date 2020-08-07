@@ -32,8 +32,6 @@ export default class TodoServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'todos';
         this.APPDETEXT = 'name';
-        this.APPNAME = 'web';
-        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -48,9 +46,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/todos/${context.todo}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/todos/${context.todo}/select`,isloading);
     }
 
     /**
@@ -73,7 +69,6 @@ export default class TodoServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/todos`,data,isloading);
-        
         return res;
     }
 
@@ -90,7 +85,6 @@ export default class TodoServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/todos/${context.todo}`,data,isloading);
-            
             return res;
     }
 
@@ -104,8 +98,8 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/todos/${context.todo}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/todos/${context.todo}`,isloading);
+
     }
 
     /**
@@ -119,8 +113,8 @@ export default class TodoServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/todos/${context.todo}`,isloading);
-            
             return res;
+
     }
 
     /**
@@ -135,7 +129,6 @@ export default class TodoServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/todos/getdraft`,isloading);
         res.data.todo = data.todo;
-        
         return res;
     }
 
@@ -149,8 +142,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/activate`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/todos/${context.todo}/activate`,data,isloading);
     }
 
     /**
@@ -163,8 +155,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/assignto`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/todos/${context.todo}/assignto`,data,isloading);
     }
 
     /**
@@ -177,8 +168,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/checkkey`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/todos/${context.todo}/checkkey`,data,isloading);
     }
 
     /**
@@ -191,8 +181,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/close`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/todos/${context.todo}/close`,data,isloading);
     }
 
     /**
@@ -205,8 +194,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/finish`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/todos/${context.todo}/finish`,data,isloading);
     }
 
     /**
@@ -222,7 +210,6 @@ export default class TodoServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/todos/${context.todo}/save`,data,isloading);
-            
             return res;
     }
 
@@ -237,8 +224,7 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/todos/fetchdefault`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/todos/fetchdefault`,tempData,isloading);
     }
 
     /**
@@ -252,7 +238,6 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchMyUpcoming(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/todos/fetchmyupcoming`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/todos/fetchmyupcoming`,tempData,isloading);
     }
 }

@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { Subject } from 'rxjs';
+import { ViewTool } from '../view-tool/view-tool';
 import store from '../../store';
 import i18n from '@/locale';
 import AppDrawerCompponent from "./app-drawer.vue";
-import { studioDrawerController } from '@/studio-core/utils/studio-drawer/studio-drawer';
 
 export class AppDrawer {
 
@@ -92,9 +92,6 @@ export class AppDrawer {
      * @memberof AppDrawer
      */
     public openDrawer(view: { viewname: string, title: string, width?: number, height?: number, placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT' }, context: any = {}, data: any = {}): Subject<any> {
-        if (view.placement && Object.is(view.placement, 'DRAWER_TOP')) {
-            return (studioDrawerController.openDrawer(view, context, data) as any);
-        }
         try {
             let viewdata: any = {};
             Object.assign(viewdata, JSON.parse(JSON.stringify(context)));

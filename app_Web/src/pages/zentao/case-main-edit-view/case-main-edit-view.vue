@@ -1,22 +1,19 @@
-<template src="./case-main-edit-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseMainEditViewBase } from './case-main-edit-view-base';
-import view_form from '@widgets/case/main-edit-form/main-edit-form.vue';
+import CaseMainEditViewBase from './case-main-edit-view-base.vue';
 
-/**
- * 测试用例视图
- *
- * @export
- * @class CaseMainEditView
- * @extends {CaseMainEditViewBase}
- */
+import view_form from '@widgets/case/main-edit-form/main-edit-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class CaseMainEditView extends CaseMainEditViewBase { }
+export default class CaseMainEditView extends CaseMainEditViewBase {
+
+}
 </script>

@@ -2,7 +2,7 @@ import { Store } from 'vuex';
 import axios from 'axios';
 import Router from 'vue-router';
 import i18n from '@/locale';
-import { Environment } from '@/environments/environment';
+
 
 /**
  * 拦截器
@@ -84,21 +84,14 @@ export class Interceptors {
             if (appdata && appdata.context) {
                 config.headers['srforgsectorid'] = appdata.context.srforgsectorid;
             }
-            if(!window.localStorage.getItem('token')){
-                let arr;
-                let reg = new RegExp("(^| )ibzuaa-token=([^;]*)(;|$)");
-                if (arr = document.cookie.match(reg)){
-                    window.localStorage.setItem('token',unescape(arr[2]));
-                }
-            }
             if (window.localStorage.getItem('token')) {
                 const token = window.localStorage.getItem('token');
                 config.headers['Authorization'] = `Bearer ${token}`;
             }
             config.headers['Accept-Language'] =  i18n.locale;
-            if (!Object.is(Environment.BaseUrl,"") && !config.url.startsWith('https://') && !config.url.startsWith('http://') && !config.url.startsWith('./assets')) {
-                config.url = Environment.BaseUrl + config.url;
-            }
+            // if (!config.url.startsWith('https://') && !config.url.startsWith('http://')) {
+            //     config.url = Environment.BaseUrl + config.url;
+            // }
             return config;
         }, (error: any) => {
             return Promise.reject(error);
@@ -113,12 +106,6 @@ export class Interceptors {
 
             if (res.status === 401) {
                 this.doNoLogin(_data.data);
-            }
-            if(res.status === 403){
-                if(res.data && res.data.status && Object.is(res.data.status,"FORBIDDEN")){
-                    let alertMessage:string ="非常抱歉，您无权操作此数据，如需操作请联系管理员！";
-                    Object.assign(res.data,{localizedMessage:alertMessage,message:alertMessage});
-                }
             }
             // if (res.status === 404) {
             //     this.router.push({ path: '/404' });
@@ -138,16 +125,6 @@ export class Interceptors {
      * @memberof Interceptors
      */
     private doNoLogin(data: any = {}): void {
-        // 清除user、token和cookie
-        if(localStorage.getItem('user')){
-            localStorage.removeItem('user');
-        }
-        if(localStorage.getItem('token')){
-            localStorage.removeItem('token');
-        }
-        let leftTime = new Date();
-        leftTime.setTime(leftTime.getSeconds() - 1);
-        document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
         if (data.loginurl && !Object.is(data.loginurl, '') && data.originurl && !Object.is(data.originurl, '')) {
             let _url = encodeURIComponent(encodeURIComponent(window.location.href));
             let loginurl: string = data.loginurl;

@@ -1,22 +1,19 @@
-<template src="./test-task-block-option-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestTaskBlockOptionViewBase } from './test-task-block-option-view-base';
-import view_form from '@widgets/test-task/block-form/block-form.vue';
+import TestTaskBlockOptionViewBase from './test-task-block-option-view-base.vue';
 
-/**
- * 阻塞视图
- *
- * @export
- * @class TestTaskBlockOptionView
- * @extends {TestTaskBlockOptionViewBase}
- */
+import view_form from '@widgets/test-task/block-form/block-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TestTaskBlockOptionView extends TestTaskBlockOptionViewBase { }
+export default class TestTaskBlockOptionView extends TestTaskBlockOptionViewBase {
+
+}
 </script>

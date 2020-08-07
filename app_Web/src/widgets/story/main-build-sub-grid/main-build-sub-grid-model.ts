@@ -73,7 +73,6 @@ export default class Main_BuildSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -131,10 +130,6 @@ export default class Main_BuildSubModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

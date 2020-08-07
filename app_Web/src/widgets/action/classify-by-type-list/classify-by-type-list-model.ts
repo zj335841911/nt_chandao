@@ -24,7 +24,6 @@ export default class ClassifyByTypeModel {
 			},
 			{
 				name: 'actor',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'product',
@@ -49,7 +48,6 @@ export default class ClassifyByTypeModel {
 			},
 			{
 				name: 'actionmanner',
-        codelist:{tag:'ActionManner',codelistType:'STATIC'},
 			},
 			{
 				name: 'srfkey',
@@ -73,10 +71,6 @@ export default class ClassifyByTypeModel {
       {
         name:'query',
         prop:'query'
-      },
-      {
-        name:'sort',
-        prop:'sort'
       },
       {
         name:'page',

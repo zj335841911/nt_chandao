@@ -14,22 +14,10 @@ export default class ProductStatusModel {
 	 */
 	public getDataItems(): any[] {
 		return [
-			{
-			name:'size',
-			prop:'size'
-			},
-			{
-			name:'query',
-			prop:'query'
-			},
-			{
-			name:'page',
-			prop:'page'
-			},
-			{
-			name:'sort',
-			prop:'sort'
-			}
+      {
+        name:'query',
+        prop:'query'
+      },
 		]
 	}
 

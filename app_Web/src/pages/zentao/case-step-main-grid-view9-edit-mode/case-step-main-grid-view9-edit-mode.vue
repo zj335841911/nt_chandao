@@ -1,22 +1,19 @@
-<template src="./case-step-main-grid-view9-edit-mode.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseStepMainGridView9_EditModeBase } from './case-step-main-grid-view9-edit-mode-base';
-import view_grid from '@widgets/ibzcase-step/main-row-edit-grid/main-row-edit-grid.vue';
+import CaseStepMainGridView9_EditModeBase from './case-step-main-grid-view9-edit-mode-base.vue';
 
-/**
- * 用例步骤视图
- *
- * @export
- * @class CaseStepMainGridView9_EditMode
- * @extends {CaseStepMainGridView9_EditModeBase}
- */
+import view_grid from '@widgets/ibzcase-step/main-row-edit-grid/main-row-edit-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class CaseStepMainGridView9_EditMode extends CaseStepMainGridView9_EditModeBase { }
+export default class CaseStepMainGridView9_EditMode extends CaseStepMainGridView9_EditModeBase {
+
+}
 </script>

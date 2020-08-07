@@ -1,22 +1,19 @@
-<template src="./case-test-main-dashboard-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseTestMainDashboardViewBase } from './case-test-main-dashboard-view-base';
-import view_dashboard from '@widgets/case/main-dashboard-test-dashboard/main-dashboard-test-dashboard.vue';
+import CaseTestMainDashboardViewBase from './case-test-main-dashboard-view-base.vue';
 
-/**
- * 功能测试视图
- *
- * @export
- * @class CaseTestMainDashboardView
- * @extends {CaseTestMainDashboardViewBase}
- */
+import view_dashboard from '@widgets/case/main-dashboard-test-dashboard/main-dashboard-test-dashboard.vue';
 @Component({
     components: {
         view_dashboard, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class CaseTestMainDashboardView extends CaseTestMainDashboardViewBase { }
+export default class CaseTestMainDashboardView extends CaseTestMainDashboardViewBase {
+
+}
 </script>

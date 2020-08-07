@@ -3,9 +3,7 @@
     <component 
       :is="viewname" 
       class="viewcontainer2" 
-      :viewUsage="4"
-      :viewdata ="viewdata"
-      :viewparam="viewparam"
+      :viewdata ="viewdata" 
       :viewDefaultUsage="false"
       :formDruipart="formDruipart"
       :isformDruipart="true"
@@ -13,8 +11,7 @@
       @drdatasaved="drdatasaved"  
       @drdatachange="drdatachange"  
       @viewdataschange="viewdataschange"  
-      @viewload="viewload"
-      @mounted="viewMounted">
+      @viewload="viewload">
     </component> 
     <spin v-if="blockUI" class='app-druipart-spin' fix >{{ $t('components.appFormDRUIPart.blockUITipInfo') }}</spin>            
   </div>
@@ -49,14 +46,6 @@ export default class AppFormDRUIPart extends Vue {
      * @memberof AppFormDRUIPart
      */
     @Prop({ default: '' }) public refreshitems!: string;
-
-    /**
-     * 禁止加载
-     *
-     * @type {string}
-     * @memberof AppFormDRUIPart
-     */
-    @Prop({ default: false }) public isForbidLoad!: boolean;
 
     /**
      * 关系视图类型
@@ -123,22 +112,6 @@ export default class AppFormDRUIPart extends Vue {
     @Prop() public viewparams!: any;
 
     /**
-     * 局部上下文
-     *
-     * @type {*}
-     * @memberof AppFormDRUIPart
-     */
-    @Prop() public localContext!:any;
-
-    /**
-     * 局部参数
-     *
-     * @type {*}
-     * @memberof AppFormDRUIPart
-     */
-    @Prop() public localParam!:any;
-
-    /**
      * 应用实体参数名称
      *
      * @type {string}
@@ -171,31 +144,6 @@ export default class AppFormDRUIPart extends Vue {
      * @memberof AppFormDRUIPart
      */
     private formStateEvent: Unsubscribable | undefined;
-
-    /**
-     * 关系视图是否已经加载完毕
-     *
-     * @type {boolean}
-     * @memberof AppFormDRUIPart
-     */
-    protected viewIsLoaded: boolean = false;
-
-    /**
-     * 定时器实例
-     *
-     * @type {[boolean]}
-     * @memberof AppFormDRUIPart
-     */
-    protected timer?: number;
-
-    /**
-     * 关系视图加载完毕触发事件
-     *
-     * @memberof AppFormDRUIPart
-     */
-    protected viewMounted(): void {
-        this.viewIsLoaded = true;
-    }
 
     /**
      * 监控值
@@ -278,37 +226,26 @@ export default class AppFormDRUIPart extends Vue {
      * @memberof AppFormDRUIPart
      */
     private refreshDRUIPart(data?:any): void {
+
         if (Object.is(this.parentdata.SRFPARENTTYPE, 'CUSTOM')) {
             this.isRelationalData = false;
         }
-        const formData: any = data || JSON.parse(this.data);
+        const formData: any = data?data:JSON.parse(this.data);
         const _paramitem = formData[this.paramItem];
-        let tempContext:any = {};
-        let tempParam:any = {};
-        Object.assign(tempContext, this.$viewTool.getIndexViewParam());
+        let viewdata = {srfparentdename:this.parentName,srfparentkey:_paramitem};
+        Object.assign(viewdata, this.$viewTool.getIndexViewParam());
         const _parameters: any[] = [...this.$viewTool.getIndexParameters(), ...this.parameters];
         _parameters.forEach((parameter: any) => {
             const { pathName, parameterName }: { pathName: string, parameterName: string } = parameter;
             if (formData[parameterName] && !Object.is(formData[parameterName], '')) {
-                Object.assign(tempContext, { [parameterName]: formData[parameterName] });
+                Object.assign(viewdata, { [parameterName]: formData[parameterName] });
             }
         });
-        Object.assign(tempContext, { [this.paramItem]: _paramitem });
+        Object.assign(viewdata, { [this.paramItem]: _paramitem });
         //设置顶层视图唯一标识
-        Object.assign(tempContext,this.context);
-        Object.assign(tempContext,{srfparentdename:this.parentName,srfparentkey:_paramitem});
-        // 设置局部上下文
-        if(this.localContext && Object.keys(this.localContext).length >0){
-            let _context:any = this.$util.computedNavData(formData,tempContext,this.viewparams,this.localContext);
-            Object.assign(tempContext,_context);
-        }
-        this.viewdata = JSON.stringify(tempContext);
-        // 设置局部参数
-        if(this.localParam && Object.keys(this.localParam).length >0){
-            let _param:any = this.$util.computedNavData(formData,tempContext,this.viewparams,this.localParam);
-            Object.assign(tempParam,_param);
-        }
-        this.viewparam = JSON.stringify(tempParam);
+        Object.assign(viewdata,this.context);
+        this.viewdata = JSON.stringify(viewdata);
+        this.viewparam = JSON.stringify(this.viewparams);
         if (this.isRelationalData) {
             if (!_paramitem || _paramitem == null || Object.is(_paramitem, '')) {
                 this.blockUIStart();
@@ -317,39 +254,7 @@ export default class AppFormDRUIPart extends Vue {
                 this.blockUIStop();
             }
         }
-        if(!this.isForbidLoad){
-            this.$nextTick(() => {
-                this.$nextTick(() => {
-                    this.partViewEvent('load', {srfparentdename:this.parentName,srfparentkey:_paramitem}, 0);
-                });
-            });
-        }
-    }
-
-    /**
-     * 向关系视图发送事件，采用轮询模式。避免异步视图出现加载慢情况
-     *
-     * @param {*} action 触发行为
-     * @param {*} data 数据
-     * @param {*} count 轮询计数
-     * @memberof AppFormDRUIPart
-     */
-    protected partViewEvent(action: string, data: any, count: number = 0): void {
-        if (count > 100) {
-            return;
-        }
-        if (count === 0 && this.timer !== undefined) {
-            clearTimeout(this.timer);
-            this.timer = undefined;
-        }
-        if (this.viewIsLoaded) {
-            this.formDruipart.next({action:'load',data});
-            return;
-        }
-        this.timer = setTimeout(() => {
-            count++;
-            this.partViewEvent(action, data, count);
-        }, 30);
+        this.formDruipart.next({action:'load',data:{srfparentdename:this.parentName,srfparentkey:_paramitem}});
     }
 
     /**

@@ -1,22 +1,19 @@
-<template src="./module-line-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ModuleLineGridViewBase } from './module-line-grid-view-base';
-import view_grid from '@widgets/module/line-grid/line-grid.vue';
+import ModuleLineGridViewBase from './module-line-grid-view-base.vue';
 
-/**
- * 产品线视图
- *
- * @export
- * @class ModuleLineGridView
- * @extends {ModuleLineGridViewBase}
- */
+import view_grid from '@widgets/module/line-grid/line-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ModuleLineGridView extends ModuleLineGridViewBase { }
+export default class ModuleLineGridView extends ModuleLineGridViewBase {
+
+}
 </script>

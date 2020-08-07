@@ -12,13 +12,17 @@ module.exports = {
     outputDir:"../ibizpms-app/ibizpms-app-web/target/classes/META-INF/resources",
     devServer: {
         host: '0.0.0.0',
-        port: 7111,
+        port: 8111,
         compress: true,
         disableHostCheck: true,
         // proxy: "http://127.0.0.1:8080/Web",
+        historyApiFallback: {
+            rewrites: [
+            ]
+        }
     },
     pages: {
-        index: {
+        ibizpms: {
             // page 的入口
             entry: 'src/pages/zentao/i-biz-pms/main.ts',
             // 模板来源
@@ -37,9 +41,9 @@ module.exports = {
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
         // 删除自动计算预加载资源
-        config.plugins.delete('preload-index')
+        config.plugins.delete('preload-ibizpms')
         // 删除预加载资源
-        config.plugins.delete('prefetch-index')
+        config.plugins.delete('prefetch-ibizpms')
         config.resolve.alias
             .set('@ibizsys', resolve('src/ibizsys'))
             .set('@pages', resolve('src/pages'))

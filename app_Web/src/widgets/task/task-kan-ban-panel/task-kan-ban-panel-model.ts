@@ -15,66 +15,167 @@ export default class TaskKanBanModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'name',
-        prop: 'name'
+        name: 'canceledby',
       },
       {
-        name: 'assignedto',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
-        prop: 'assignedto'
+        name: 'left',
       },
       {
-        name: 'deadline',
-        prop: 'deadline'
-      },
-      {
-        name: 'estimate',
-        prop: 'estimate'
-      },
-      {
-        name: 'project',
-        prop: 'project'
-      },
-      {
-        name: 'module',
-        prop: 'module'
-      },
-      {
-        name: 'srfkey',
-        prop: 'id'
-      },
-      {
-        name: 'story',
-        prop: 'story'
-      },
-      {
-        name: 'pri',
-        prop: 'pri'
-      },
-      {
-        name: 'desc',
-        prop: 'desc'
-      },
-      {
-        name: 'mailto',
-        prop: 'mailto'
-      },
-      {
-        name: 'parent',
-        prop: 'parent'
-      },
-      {
-        name: 'eststarted',
-        prop: 'eststarted'
-      },
-      {
-        name: 'consumed',
-        prop: 'consumed'
+        name: 'openeddate',
       },
       {
         name: 'color',
-        prop: 'color'
-      }
+      },
+      {
+        name: 'task',
+        prop: 'id',
+      },
+      {
+        name: 'finishedby',
+      },
+      {
+        name: 'finishedlist',
+      },
+      {
+        name: 'realstarted',
+      },
+      {
+        name: 'closedby',
+      },
+      {
+        name: 'substatus',
+      },
+      {
+        name: 'closedreason',
+      },
+      {
+        name: 'lastediteddate',
+      },
+      {
+        name: 'assigneddate',
+      },
+      {
+        name: 'pri',
+      },
+      {
+        name: 'lasteditedby',
+      },
+      {
+        name: 'status',
+      },
+      {
+        name: 'name',
+      },
+      {
+        name: 'closeddate',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'assignedto',
+      },
+      {
+        name: 'desc',
+      },
+      {
+        name: 'eststarted',
+      },
+      {
+        name: 'deadline',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'mailto',
+      },
+      {
+        name: 'consumed',
+      },
+      {
+        name: 'estimate',
+      },
+      {
+        name: 'openedby',
+      },
+      {
+        name: 'canceleddate',
+      },
+      {
+        name: 'finisheddate',
+      },
+      {
+        name: 'modulename',
+      },
+      {
+        name: 'storyname',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'product',
+      },
+      {
+        name: 'storyversion',
+      },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'parentname',
+      },
+      {
+        name: 'project',
+      },
+      {
+        name: 'story',
+      },
+      {
+        name: 'parent',
+      },
+      {
+        name: 'frombug',
+      },
+      {
+        name: 'duration',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'path',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'totaltime',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'allmodules',
+      },
+      {
+        name: 'multiple',
+      },
+      {
+        name: 'taskteams',
+      },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'ibztaskestimates',
+      },
     ]
   }
+
+
 }

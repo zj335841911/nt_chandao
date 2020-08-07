@@ -1,22 +1,14 @@
-<template src="./project-plan-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectPlanEditFormBase } from './project-plan-form-base';
- 
+import ProjectPlanBase from './project-plan-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class ProjectPlanEditForm
- * @extends {ProjectPlanEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class ProjectPlanEditForm extends ProjectPlanEditFormBase { }
+export default class ProjectPlan extends ProjectPlanBase {
+
+}
 </script>

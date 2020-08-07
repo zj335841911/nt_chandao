@@ -48,7 +48,6 @@ export default class Main_BuildSub2Model {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'openedby',
@@ -166,10 +165,6 @@ export default class Main_BuildSub2Model {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

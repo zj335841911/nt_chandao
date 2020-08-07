@@ -1,22 +1,19 @@
-<template src="./module-pickup-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ModulePickupViewBase } from './module-pickup-view-base';
-import view_pickupviewpanel from '@widgets/module/pickup-viewpickupviewpanel-pickupviewpanel/pickup-viewpickupviewpanel-pickupviewpanel.vue';
+import ModulePickupViewBase from './module-pickup-view-base.vue';
 
-/**
- * 模块选择视图
- *
- * @export
- * @class ModulePickupView
- * @extends {ModulePickupViewBase}
- */
+import view_pickupviewpanel from '@widgets/module/pickup-viewpickupviewpanel-pickupviewpanel/pickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
         view_pickupviewpanel, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ModulePickupView extends ModulePickupViewBase { }
+export default class ModulePickupView extends ModulePickupViewBase {
+
+}
 </script>

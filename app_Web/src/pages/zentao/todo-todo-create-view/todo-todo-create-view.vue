@@ -1,22 +1,19 @@
-<template src="./todo-todo-create-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TodoTodoCreateViewBase } from './todo-todo-create-view-base';
-import view_form from '@widgets/todo/main-form/main-form.vue';
+import TodoTodoCreateViewBase from './todo-todo-create-view-base.vue';
 
-/**
- * 添加待办视图
- *
- * @export
- * @class TodoTodoCreateView
- * @extends {TodoTodoCreateViewBase}
- */
+import view_form from '@widgets/todo/main-form/main-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TodoTodoCreateView extends TodoTodoCreateViewBase { }
+export default class TodoTodoCreateView extends TodoTodoCreateViewBase {
+
+}
 </script>

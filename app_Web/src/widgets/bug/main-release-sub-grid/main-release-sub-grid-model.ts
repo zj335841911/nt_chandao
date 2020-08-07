@@ -48,7 +48,6 @@ export default class Main_ReleaseSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'openedby',
@@ -171,10 +170,6 @@ export default class Main_ReleaseSubModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

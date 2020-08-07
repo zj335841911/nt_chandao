@@ -37,14 +37,14 @@ export default class CodeList extends Vue {
      * 代码表类型
      *
      * @type {string}
-     * @memberof CodeList
+     * @memberof AppCheckBox
      */
     @Prop() public codelistType?: string;
 
     /**
      * 当前值
      * @type {any}
-     * @memberof CodeList
+     * @memberof SelectPicker
      * 
      */
     @Prop() public value?: string;
@@ -52,63 +52,23 @@ export default class CodeList extends Vue {
     /**
      * 获取或模式
      * @type {boolean}
-     * @memberof CodeList
+     * @memberof SelectPicker
      */
     @Prop({default:"STR"}) public renderMode?: string;
 
     /**
      * 文本分隔符
      * @type {boolean}
-     * @memberof CodeList
+     * @memberof SelectPicker
      */
-    @Prop({default:'、'}) public textSeparator?: string;
+    @Prop({default:"、"}) public textSeparator?: string;
 
     /**
      * 值分隔符
      * @type {boolean}
-     * @memberof CodeList
+     * @memberof SelectPicker
      */
-    @Prop({default:','}) public valueSeparator?: string;
-
-    /**
-     * 传入表单数据
-     *
-     * @type {*}
-     * @memberof CodeList
-     */
-    @Prop() public data?: any;
-
-    /**
-     * 局部上下文导航参数
-     * 
-     * @type {any}
-     * @memberof CodeList
-     */
-    @Prop() public localContext!:any;
-
-    /**
-     * 局部导航参数
-     * 
-     * @type {any}
-     * @memberof CodeList
-     */
-    @Prop() public localParam!:any;
-
-    /**
-     * 视图上下文
-     *
-     * @type {*}
-     * @memberof CodeList
-     */
-    @Prop() public context!: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof CodeList
-     */
-    @Prop() public viewparams!: any;
+    @Prop({default:";"}) public valueSeparator?: string;
 
     /**
      * 是否为空
@@ -141,7 +101,7 @@ export default class CodeList extends Vue {
      */
     public isUseLangres:boolean = false;
 
-    /**
+   /**
      * 数据值变化
      *
      * @param {*} newval
@@ -152,18 +112,7 @@ export default class CodeList extends Vue {
     @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
         this.dataHandle();
-    }
 
-    /**
-     * 监听表单数据变化
-     * 
-     * @memberof CodeList
-     */
-    @Watch('data',{immediate:true,deep:true})
-    onDataChange(newVal: any, oldVal: any) {
-        if(newVal){
-            this.dataHandle();
-        }
     }
 
     /**
@@ -175,24 +124,18 @@ export default class CodeList extends Vue {
       this.isUseLangres = false;
       let _this = this;
       // 空值判断
-      if(Object.is(this.$util.typeOf(this.value), 'undefined') || Object.is(this.$util.typeOf(this.value), 'null') || Object.is(this.value, '')) {
+      if(Object.is(this.$util.typeOf(this.value), 'undefined') || Object.is(this.$util.typeOf(this.value), 'null')){
           this.ifEmpty = true;
           return;
       }
       this.ifEmpty = false;
       // 动态代码表处理
       if (Object.is(this.codelistType, "DYNAMIC")) {
-          // 公共参数处理
-          let data: any = {};
-          this.handlePublicParams(data);
-          // 参数处理
-          let _context = data.context;
-          let _param = data.param;
-          this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
+          this.codeListService.getItems(this.tag).then((res: any) => {
               let items = res;
               _this.setItems(items, _this);
           }).catch((error: any) => {
-              console.log(`----${_this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
+              console.log(`----${_this.tag}----代码表不存在`);
           });
       // 静态处理
       } else if(Object.is(this.codelistType, "STATIC")){
@@ -263,28 +206,6 @@ export default class CodeList extends Vue {
             return value;
         }else{
             return result;
-        }
-    }
-
-    /**
-     * 公共参数处理
-     *
-     * @param {*} arg
-     * @returns
-     * @memberof CodeList
-     */
-    public handlePublicParams(arg: any) {
-        // 合并表单参数
-        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
-        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
-        // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
-        }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
         }
     }
 

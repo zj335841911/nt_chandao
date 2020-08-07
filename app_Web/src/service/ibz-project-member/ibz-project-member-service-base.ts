@@ -32,8 +32,6 @@ export default class IbzProjectMemberServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'ibzprojectmembers';
         this.APPDETEXT = 'name';
-        this.APPNAME = 'web';
-        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -48,9 +46,7 @@ export default class IbzProjectMemberServiceBase extends EntityService {
      * @memberof IbzProjectMemberServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzprojectmembers/${context.ibzprojectmember}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/ibzprojectmembers/${context.ibzprojectmember}/select`,isloading);
     }
 
     /**
@@ -73,7 +69,6 @@ export default class IbzProjectMemberServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/ibzprojectmembers`,data,isloading);
-        
         return res;
     }
 
@@ -90,7 +85,6 @@ export default class IbzProjectMemberServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/ibzprojectmembers/${context.ibzprojectmember}`,data,isloading);
-            
             return res;
     }
 
@@ -104,8 +98,8 @@ export default class IbzProjectMemberServiceBase extends EntityService {
      * @memberof IbzProjectMemberServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzprojectmembers/${context.ibzprojectmember}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/ibzprojectmembers/${context.ibzprojectmember}`,isloading);
+
     }
 
     /**
@@ -119,8 +113,8 @@ export default class IbzProjectMemberServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/ibzprojectmembers/${context.ibzprojectmember}`,isloading);
-            
             return res;
+
     }
 
     /**
@@ -135,7 +129,6 @@ export default class IbzProjectMemberServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/ibzprojectmembers/getdraft`,isloading);
         res.data.ibzprojectmember = data.ibzprojectmember;
-        
         return res;
     }
 
@@ -149,8 +142,7 @@ export default class IbzProjectMemberServiceBase extends EntityService {
      * @memberof IbzProjectMemberServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzprojectmembers/${context.ibzprojectmember}/checkkey`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/ibzprojectmembers/${context.ibzprojectmember}/checkkey`,data,isloading);
     }
 
     /**
@@ -166,7 +158,6 @@ export default class IbzProjectMemberServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/ibzprojectmembers/${context.ibzprojectmember}/save`,data,isloading);
-            
             return res;
     }
 
@@ -181,7 +172,6 @@ export default class IbzProjectMemberServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzprojectmembers/fetchdefault`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/ibzprojectmembers/fetchdefault`,tempData,isloading);
     }
 }

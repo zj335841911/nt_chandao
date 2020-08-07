@@ -30,13 +30,11 @@ export default class SubTaskNewModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',
-          isEditable:true
         },
         {
           name: 'frombug',
@@ -52,19 +50,16 @@ export default class SubTaskNewModel {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'storyname',
           prop: 'storyname',
           dataType: 'PICKUPTEXT',
-          isEditable:true
         },
         {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
-          isEditable:true
         },
         {
           name: 'srfmstag',
@@ -73,7 +68,6 @@ export default class SubTaskNewModel {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'FLOAT',
-          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -89,7 +83,6 @@ export default class SubTaskNewModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'assignedto_text',
@@ -100,65 +93,55 @@ export default class SubTaskNewModel {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
-          isEditable:true
         },
         {
           name: 'assignedto',
           prop: 'assignedto',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
-          isEditable:true
         },
         {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'allmodules',
           prop: 'allmodules',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
-          isEditable:true
         },
         {
           name: 'eststarted',
           prop: 'eststarted',
           dataType: 'DATE',
-          isEditable:true
         },
         {
           name: 'deadline',
           prop: 'deadline',
           dataType: 'DATE',
-          isEditable:true
         },
         {
           name: 'task',
-          prop: 'parent',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {
@@ -172,10 +155,6 @@ export default class SubTaskNewModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

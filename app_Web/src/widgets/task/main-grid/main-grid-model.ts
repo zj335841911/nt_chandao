@@ -68,7 +68,6 @@ export default class MainModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -133,20 +132,12 @@ export default class MainModel {
           prop:'query'
         },
         {
-          name:'filter',
-          prop:'filter'
-        },
-        {
           name:'page',
           prop:'page'
         },
         {
           name:'sort',
           prop:'sort'
-        },
-        {
-          name:'items',
-          prop:'items'
         },
         {
           name:'srfparentdata',

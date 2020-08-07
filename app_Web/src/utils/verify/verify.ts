@@ -116,12 +116,6 @@ export class Verify {
      * @memberof Verify
      */
     public static compareNumber(value: number, value2: number): number {
-        if(isNaN(value)){
-            value = 0;
-        }
-        if(isNaN(value2)){
-            value2 = 0;
-        }
         if (value > value2) {
             return 1;
         } else if (value < value2) {
@@ -276,8 +270,12 @@ export class Verify {
         }
         if (Object.is(paramType, 'ENTITYFIELD')) {
             value2 = value2 ? value2.toLowerCase() : '';
-            const _value2Field = form[value2]?form[value2]:value2;
-            value2 = _value2Field;
+            const _value2Field = form.findFormItem(value2);
+            if (!_value2Field) {
+                this.errorInfo = `表单项${value2}未配置`;
+                return true;
+            }
+            value2 = _value2Field.getValue();
         }
         if (Util.isEmpty(errorInfo)) {
             errorInfo = '内容必须符合值规则';
@@ -286,7 +284,7 @@ export class Verify {
         const result = this.testCond(value, op, value2);
         if (!result) {
             if (primaryModel) {
-                // throw new Error(this.errorInfo);
+                throw new Error(this.errorInfo);
             }
         }
         return !result;

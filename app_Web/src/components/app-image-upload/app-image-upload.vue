@@ -99,22 +99,6 @@ export default class AppImageUpload extends Vue {
     @Prop() public data!: string;
 
     /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof AppFormDRUIPart
-     */
-    @Prop() public viewparams!: any;
-
-    /**
-     * 视图上下文
-     *
-     * @type {*}
-     * @memberof AppAutocomplete
-     */
-    @Prop() public context!: any;
-
-    /**
      * 初始化值
      *
      * @type {*}
@@ -135,7 +119,6 @@ export default class AppImageUpload extends Vue {
         if (this.ignorefieldvaluechange) {
             return;
         }
-        this.getParams();
         this.setFiles(newval)
         this.dataProcess();
     }
@@ -202,20 +185,20 @@ export default class AppImageUpload extends Vue {
     @Provide() public files = [];
 
     /**
-     * 上传params
+     * 上传keys
      *
      * @type {Array<any>}
      * @memberof AppImageUpload
      */
-    public upload_params: Array<any> = [];
+    public upload_keys: Array<any> = [];
 
     /**
-     * 导出params
+     * 导出keys
      *
      * @type {Array<any>}
      * @memberof AppImageUpload
      */
-    public export_params: Array<any> = [];
+    public export_keys: Array<any> = [];
 
     /**
      * 自定义数组
@@ -255,31 +238,26 @@ export default class AppImageUpload extends Vue {
      * @memberof AppImageUpload
      */
     private dataProcess(): void {
+        let upload_arr: Array<string> = [];
+        let export_arr: Array<string> = [];
+        const _data: any = JSON.parse(this.data);
+        this.upload_keys.forEach((key: string) => {
+            upload_arr.push(`${key}=${_data[key]}`);
+        });
+        this.export_keys.forEach((key: string) => {
+            export_arr.push(`${key}=${_data[key]}`);
+        });
 
         let _url = `${Environment.BaseUrl}${Environment.UploadFile}`;
-        if (this.upload_params.length > 0 ) {
-            _url +='?';
-            this.upload_params.forEach((item:any,i:any)=>{
-                _url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
-                if(i<this.upload_params.length-1){
-                    _url += '&';
-                }
-            })
-            
+        if (upload_arr.length > 0 || this.custom_arr.length > 0) {
+            _url = `${_url}?${upload_arr.join('&')}${upload_arr.length > 0 ? '&' : ''}${this.custom_arr.join('&')}`;
         }
-        
         this.uploadUrl = _url;
-        
+
         this.files.forEach((file: any) => {
             let url = `${this.downloadUrl}/${file.id}`;
-            if (this.export_params.length > 0) {
-                url +='?';
-                this.export_params.forEach((item:any,i:any)=>{
-                    url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
-                    if(i<this.export_params.length-1){
-                        url += '&';
-                    }
-                })
+            if (upload_arr.length > 0 || this.custom_arr.length > 0) {
+                url = `${url}?${upload_arr.join('&')}${upload_arr.length > 0 ? '&' : ''}${this.custom_arr.join('&')}`;
             }
             file.url = url;
         });
@@ -295,7 +273,6 @@ export default class AppImageUpload extends Vue {
             this.formStateEvent = this.formState.subscribe(($event: any) => {
                 // 表单加载完成
                 if (Object.is($event.type, 'load')) {
-                    this.getParams();
                     this.setFiles(this.value);
                     this.dataProcess();
                 }
@@ -310,47 +287,32 @@ export default class AppImageUpload extends Vue {
      */
     public mounted() {
         this.appData = this.$store.getters.getAppData();
-        this.getParams();
-        this.setFiles(this.value);
-        this.dataProcess();
-    }
 
-    /**
-     *获取上传，导出参数
-     *
-     *@memberof AppImageUpload
-     */
-    public getParams(){
-        let uploadparams: any = JSON.parse(JSON.stringify(this.uploadparams));
-        let exportparams: any = JSON.parse(JSON.stringify(this.exportparams));
+        let uploadparams: string = '';
+        let exportparams: string = '';
 
-        let upload_params: Array<string> = [];
-        let export_params: Array<string> = [];
-
-        let param:any = this.viewparams;
-        let context:any = this.context;
-        let _data:any = JSON.parse(this.data);
-
+        let upload_keys: Array<string> = [];
+        let export_keys: Array<string> = [];
+        let custom_arr: Array<string> = [];
         if (this.uploadparams && !Object.is(this.uploadparams, '')) {
-            upload_params = this.$util.computedNavData(_data,param,context,uploadparams);    
+            uploadparams = this.uploadparams;
+            upload_keys = uploadparams.split(';');
         }
         if (this.exportparams && !Object.is(this.exportparams, '')) {
-            export_params = this.$util.computedNavData(_data,param,context,exportparams);
+            exportparams = this.exportparams;
+            export_keys = exportparams.split(';');
         }
-        
-        this.upload_params = [];
-        this.export_params = [];
+        if (this.customparams && !Object.is(this.customparams, '')) {
+            Object.keys(this.customparams).forEach((name: string) => {
+                custom_arr.push(`${name}=${this.customparams[name]}`);
+            });
+        }
+        this.upload_keys = upload_keys;
+        this.export_keys = export_keys;
+        this.custom_arr = custom_arr;
 
-        for (const item in upload_params) {
-            this.upload_params.push({
-                [item]:upload_params[item]
-            })
-        }
-        for (const item in export_params) {
-            this.export_params.push({
-                [item]:export_params[item]
-            })
-        }
+        this.setFiles(this.value);
+        this.dataProcess();
     }
 
     /**
@@ -407,7 +369,7 @@ export default class AppImageUpload extends Vue {
      * @memberof AppImageUpload
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$Notice.error({ title: (this.$t('components.appImageUpload.uploadFail') as string) });
+        this.$Notice.error({ title: '上传失败' });
     }
 
     /**

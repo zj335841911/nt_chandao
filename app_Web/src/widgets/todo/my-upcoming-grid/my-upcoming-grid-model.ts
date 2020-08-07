@@ -68,7 +68,6 @@ export default class MyUpcomingModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'end',
@@ -96,10 +95,6 @@ export default class MyUpcomingModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

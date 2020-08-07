@@ -30,7 +30,6 @@ export default class BatchNewModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'frombug',
@@ -41,13 +40,11 @@ export default class BatchNewModel {
           name: 'storyname',
           prop: 'storyname',
           dataType: 'PICKUPTEXT',
-          isEditable:true
         },
         {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
-          isEditable:true
         },
         {
           name: 'srfmstag',
@@ -61,7 +58,6 @@ export default class BatchNewModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -72,25 +68,21 @@ export default class BatchNewModel {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
-          isEditable:true
         },
         {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'lib',
@@ -118,10 +110,6 @@ export default class BatchNewModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

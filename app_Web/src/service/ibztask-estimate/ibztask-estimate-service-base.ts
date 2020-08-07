@@ -32,8 +32,6 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'ibztaskestimates';
         this.APPDETEXT = 'id';
-        this.APPNAME = 'web';
-        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口

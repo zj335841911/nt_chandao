@@ -46,10 +46,6 @@ export default class TestExpModel {
         prop:'query'
       },
       {
-        name:'sort',
-        prop:'sort'
-      },
-      {
         name:'page',
         prop:'page'
       },

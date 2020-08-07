@@ -1,22 +1,19 @@
-<template src="./story-close-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { StoryCloseViewBase } from './story-close-view-base';
-import view_form from '@widgets/story/cosed-form/cosed-form.vue';
+import StoryCloseViewBase from './story-close-view-base.vue';
 
-/**
- * 需求关闭视图
- *
- * @export
- * @class StoryCloseView
- * @extends {StoryCloseViewBase}
- */
+import view_form from '@widgets/story/cosed-form/cosed-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class StoryCloseView extends StoryCloseViewBase { }
+export default class StoryCloseView extends StoryCloseViewBase {
+
+}
 </script>

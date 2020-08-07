@@ -32,8 +32,6 @@ export default class CaseServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'cases';
         this.APPDETEXT = 'title';
-        this.APPNAME = 'web';
-        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -49,23 +47,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/select`,isloading);
         }
         if(context.story && context.case){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/select`,isloading);
         }
         if(context.product && context.case){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/${context.case}/select`,isloading);
         }
-            let res:any = Http.getInstance().get(`/cases/${context.case}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/cases/${context.case}/select`,isloading);
     }
 
     /**
@@ -79,148 +69,31 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-            
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases`,data,isloading);
         }
         if(context.story && true){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-            
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases`,data,isloading);
         }
         if(context.product && true){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-            
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
         }
         let masterData:any = {};
         let casestepsData:any = [];
@@ -231,7 +104,6 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -247,7 +119,6 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -264,9 +135,8 @@ export default class CaseServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/cases`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-        
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
         return res;
     }
 
@@ -281,127 +151,13 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().put(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/stories/${context.story}/cases/${context.case}`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().put(`/stories/${context.story}/cases/${context.case}`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/cases/${context.case}`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().put(`/products/${context.product}/cases/${context.case}`,data,isloading);
         }
         let masterData:any = {};
         let casestepsData:any = [];
@@ -412,7 +168,6 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -428,7 +183,6 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -438,9 +192,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.ibzcasesteps = ibzcasestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/cases/${context.case}`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
             return res;
     }
 
@@ -455,19 +208,16 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
         }
         if(context.story && context.case){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}`,isloading);
         }
         if(context.product && context.case){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/cases/${context.case}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/products/${context.product}/cases/${context.case}`,isloading);
         }
-            let res:any = Http.getInstance().delete(`/cases/${context.case}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/cases/${context.case}`,isloading);
+
     }
 
     /**
@@ -481,31 +231,19 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
         }
         if(context.story && context.case){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/${context.case}`,isloading);
         }
         if(context.product && context.case){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
         }
             let res:any = await Http.getInstance().get(`/cases/${context.case}`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
             return res;
+
     }
 
     /**
@@ -519,34 +257,18 @@ export default class CaseServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/getdraft`,isloading);
-            res.data.case = data.case;
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/getdraft`,isloading);
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/getdraft`,isloading);
-            res.data.case = data.case;
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/getdraft`,isloading);
         }
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/getdraft`,isloading);
-            res.data.case = data.case;
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/getdraft`,isloading);
         }
         let res:any = await  Http.getInstance().get(`/cases/getdraft`,isloading);
         res.data.case = data.case;
-                    this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
         return res;
     }
 
@@ -561,130 +283,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/checkkey`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/checkkey`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/checkkey`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/checkkey`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/checkkey`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/checkkey`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/checkkey`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/checkkey`,data,isloading);
     }
 
     /**
@@ -698,130 +305,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async ConfirmChange(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/confirmchange`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/confirmchange`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/confirmchange`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/confirmchange`,data,isloading);
     }
 
     /**
@@ -835,130 +327,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Confirmstorychange(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/confirmstorychange`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/confirmstorychange`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/confirmstorychange`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/confirmstorychange`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/confirmstorychange`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/confirmstorychange`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/confirmstorychange`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/confirmstorychange`,data,isloading);
     }
 
     /**
@@ -972,31 +349,19 @@ export default class CaseServiceBase extends EntityService {
      */
     public async GetByTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/getbytesttask`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/getbytesttask`,isloading);
         }
         if(context.story && context.case){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/getbytesttask`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/getbytesttask`,isloading);
         }
         if(context.product && context.case){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/getbytesttask`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/${context.case}/getbytesttask`,isloading);
         }
             let res:any = await Http.getInstance().get(`/cases/${context.case}/getbytesttask`,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
             return res;
+
     }
 
     /**
@@ -1010,130 +375,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async LinkCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/linkcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/linkcase`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/linkcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/linkcase`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/linkcase`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/linkcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/linkcase`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/linkcase`,data,isloading);
     }
 
     /**
@@ -1147,130 +397,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async RunCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/runcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/runcase`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/runcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/runcase`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/runcase`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/runcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
     }
 
     /**
@@ -1284,127 +419,13 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/save`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/save`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/save`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/save`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/save`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/save`,data,isloading);
         }
         let masterData:any = {};
         let casestepsData:any = [];
@@ -1415,7 +436,6 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -1431,7 +451,6 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -1441,9 +460,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.ibzcasesteps = ibzcasestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/cases/${context.case}/save`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
             return res;
     }
 
@@ -1458,130 +476,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async TestRunCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testruncase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testruncase`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/testruncase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/testruncase`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/testruncase`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/testruncase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/testruncase`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/testruncase`,data,isloading);
     }
 
     /**
@@ -1595,130 +498,15 @@ export default class CaseServiceBase extends EntityService {
      */
     public async UnlinkCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/unlinkcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/unlinkcase`,data,isloading);
         }
         if(context.story && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/unlinkcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/unlinkcase`,data,isloading);
         }
         if(context.product && context.case){
-            let masterData:any = {};
-        let casestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
-                casestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
+            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/unlinkcase`,data,isloading);
         }
-        masterData.casesteps = casestepsData;
-        let ibzcasestepsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
-            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
-                ibzcasestepsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.ibzcasesteps = ibzcasestepsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/unlinkcase`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/unlinkcase`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/cases/${context.case}/unlinkcase`,data,isloading);
     }
 
     /**
@@ -1733,22 +521,18 @@ export default class CaseServiceBase extends EntityService {
     public async FetchBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchbatchnew`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchbatchnew`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchbatchnew`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/cases/fetchbatchnew`,tempData,isloading);
     }
 
     /**
@@ -1763,22 +547,18 @@ export default class CaseServiceBase extends EntityService {
     public async FetchCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchcursuite`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuite`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchcursuite`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/cases/fetchcursuite`,tempData,isloading);
     }
 
     /**
@@ -1793,22 +573,18 @@ export default class CaseServiceBase extends EntityService {
     public async FetchCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchcurtesttask`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcurtesttask`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchcurtesttask`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/cases/fetchcurtesttask`,tempData,isloading);
     }
 
     /**
@@ -1823,22 +599,18 @@ export default class CaseServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchdefault`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/cases/fetchdefault`,tempData,isloading);
     }
 
     /**
@@ -1853,22 +625,18 @@ export default class CaseServiceBase extends EntityService {
     public async FetchNotCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,tempData,isloading);
-            return res;
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchnotcurtesttask`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/cases/fetchnotcurtesttask`,tempData,isloading);
     }
 
     /**
@@ -1881,6 +649,10 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async BugCreateCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
     }
 
     /**
@@ -1893,6 +665,16 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchnotcurtesttask`,data,isloading);
     }
 
     /**
@@ -1905,6 +687,16 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchnotcurtesttask`,data,isloading);
     }
 
     /**
@@ -1917,6 +709,16 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchnotcurtesttask`,data,isloading);
     }
 
     /**
@@ -1929,6 +731,16 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchnotcurtesttask`,data,isloading);
     }
 
     /**
@@ -1941,5 +753,15 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempNotCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.story && true){
+            return Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttask`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchnotcurtesttask`,data,isloading);
     }
 }

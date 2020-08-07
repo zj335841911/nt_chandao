@@ -1,22 +1,19 @@
-<template src="./case-step-carry-out-edit-mode.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseStepCarryOutEditModeBase } from './case-step-carry-out-edit-mode-base';
-import view_grid from '@widgets/ibzcase-step/main-row-edit-carry-out-grid/main-row-edit-carry-out-grid.vue';
+import CaseStepCarryOutEditModeBase from './case-step-carry-out-edit-mode-base.vue';
 
-/**
- * 用例步骤视图
- *
- * @export
- * @class CaseStepCarryOutEditMode
- * @extends {CaseStepCarryOutEditModeBase}
- */
+import view_grid from '@widgets/ibzcase-step/main-row-edit-carry-out-grid/main-row-edit-carry-out-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class CaseStepCarryOutEditMode extends CaseStepCarryOutEditModeBase { }
+export default class CaseStepCarryOutEditMode extends CaseStepCarryOutEditModeBase {
+
+}
 </script>

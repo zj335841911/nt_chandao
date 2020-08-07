@@ -72,12 +72,12 @@ export default class CurProductBuild {
     /**
      * 处理数据
      *
-     * @public
+     * @private
      * @param {any[]} items
      * @returns {any[]}
      * @memberof CurProductBuild
      */
-    public doItems(items: any[]): any[] {
+    private doItems(items: any[]): any[] {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};

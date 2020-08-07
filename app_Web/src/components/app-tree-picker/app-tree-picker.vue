@@ -36,7 +36,7 @@ export default class AppTreePicker extends Vue {
      * 视图上下文
      *
      * @type {*}
-     * @memberof AppTreePicker
+     * @memberof AppFormDRUIPart
      */
     @Prop() public context!: any;
 
@@ -44,7 +44,7 @@ export default class AppTreePicker extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof AppTreePicker
+     * @memberof AppFormDRUIPart
      */
     @Prop() public viewparams!: any;
 
@@ -52,7 +52,7 @@ export default class AppTreePicker extends Vue {
      * 表单数据
      *
      * @type {*}
-     * @memberof AppTreePicker
+     * @memberof AppPicker
      */
     @Prop() public data!: any;
 
@@ -68,7 +68,7 @@ export default class AppTreePicker extends Vue {
      * 是否启用
      *
      * @type {boolean}
-     * @memberof AppTreePicker
+     * @memberof AppPicker
      */
     @Prop({default: false}) public disabled!: boolean;
     
@@ -101,7 +101,7 @@ export default class AppTreePicker extends Vue {
      * 值项名称
      *
      * @type {string}
-     * @memberof AppTreePicker
+     * @memberof AppPicker
      */
     @Prop() public valueItem?: string;
 
@@ -109,7 +109,7 @@ export default class AppTreePicker extends Vue {
      * 关联视图名称
      *
      * @type {string}
-     * @memberof AppTreePicker
+     * @memberof AppPicker
      */
     @Prop() public refviewname?: string;
 
@@ -125,25 +125,17 @@ export default class AppTreePicker extends Vue {
      * 属性项名称
      *
      * @type {string}
-     * @memberof AppTreePicker
+     * @memberof AppPicker
      */
     @Prop() public name!: string;
 
     /**
-     * 局部上下文导航参数
-     * 
-     * @type {any}
+     * 关联视图参数
+     *
+     * @type {*}
      * @memberof AppTreePicker
      */
-    @Prop() public localContext!:any;
-
-    /**
-     * 局部导航参数
-     * 
-     * @type {any}
-     * @memberof AppTreePicker
-     */
-    @Prop() public localParam!:any;
+    @Prop() public itemParam: any;
 
     /**
      * 是否忽略之变化
@@ -218,8 +210,8 @@ export default class AppTreePicker extends Vue {
      *
      * @memberof AppTreePicker
      */
-    public setViewParam() {
-        if (!this.data) {
+    public setViewParam(activeData: any) {
+        if (!this.itemParam || !activeData) {
             return;
         }
         let arg: any = {};
@@ -227,13 +219,17 @@ export default class AppTreePicker extends Vue {
         let param: any = JSON.parse(JSON.stringify(this.viewparams));
         let context: any = JSON.parse(JSON.stringify(this.context));
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.itemParam.context) {
+            let _context = this.$util.formatData(activeData,this.itemParam.context);
+            Object.assign(context,_context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.itemParam.param) {
+            let _param = this.$util.formatData(activeData,this.itemParam.param);
+            Object.assign(param,_param);
+        }
+        if (this.itemParam.parentdata) {
+            let _parentdata = this.$util.formatData(activeData,this.itemParam.parentdata);
+            Object.assign(param,_parentdata);
         }
         this.viewdata = JSON.stringify(context);
         this.viewparam = JSON.stringify(param);
@@ -244,13 +240,13 @@ export default class AppTreePicker extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof AppTreePicker
+     * @memberof AppFormDRUIPart
      */
     @Watch('data')
     onActivedataChange(newVal: any, oldVal: any) {
         const newFormData: any = JSON.parse(newVal);
         const oldDormData: any = JSON.parse(oldVal);
-        this.setViewParam();
+        this.setViewParam(newFormData);
         if (!this.refreshitems || this.ignorefieldvaluechange) {
             return;
         }
@@ -265,7 +261,7 @@ export default class AppTreePicker extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof AppTreePicker
+     * @memberof AppPicker
      */
     @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
@@ -281,7 +277,7 @@ export default class AppTreePicker extends Vue {
         if(this.formState) {
             this.formStateEvent = this.formState.subscribe(({ tag, action, data }) => {
                 if (Object.is('load', action)) {
-                    this.setViewParam();
+                    this.setViewParam(JSON.parse(this.data));
                 }
             });
         }
@@ -290,7 +286,7 @@ export default class AppTreePicker extends Vue {
     /**
      * vue 生命周期
      *
-     * @memberof AppTreePicker
+     * @memberof SelectType
      */
     public destroyed() {
         if (this.formStateEvent) {

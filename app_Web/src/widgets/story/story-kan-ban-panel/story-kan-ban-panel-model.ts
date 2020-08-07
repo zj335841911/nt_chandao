@@ -15,31 +15,164 @@ export default class StoryKanBanModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'title',
-        prop: 'title'
+        name: 'assignedto',
+      },
+      {
+        name: 'childstories',
+      },
+      {
+        name: 'plan',
+      },
+      {
+        name: 'version',
+      },
+      {
+        name: 'assigneddate',
       },
       {
         name: 'pri',
-        codelist:{tag:'Story__pri',codelistType:'STATIC'},
-        prop: 'pri'
+      },
+      {
+        name: 'linkstories',
       },
       {
         name: 'status',
-        codelist:{tag:'Story__status',codelistType:'STATIC'},
-        prop: 'status'
       },
       {
         name: 'estimate',
-        prop: 'estimate'
       },
       {
-        name: 'srfkey',
-        prop: 'id'
+        name: 'revieweddate',
+      },
+      {
+        name: 'title',
+      },
+      {
+        name: 'sourcenote',
+      },
+      {
+        name: 'reviewedby',
+      },
+      {
+        name: 'substatus',
+      },
+      {
+        name: 'stagedby',
+      },
+      {
+        name: 'openedby',
+      },
+      {
+        name: 'openeddate',
       },
       {
         name: 'story',
-        prop: 'story'
-      }
+        prop: 'id',
+      },
+      {
+        name: 'source',
+      },
+      {
+        name: 'closedreason',
+      },
+      {
+        name: 'color',
+      },
+      {
+        name: 'mailto',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'keywords',
+      },
+      {
+        name: 'lasteditedby',
+      },
+      {
+        name: 'stage',
+      },
+      {
+        name: 'closeddate',
+      },
+      {
+        name: 'closedby',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'lastediteddate',
+      },
+      {
+        name: 'path',
+      },
+      {
+        name: 'parentname',
+      },
+      {
+        name: 'modulename',
+      },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'frombug',
+      },
+      {
+        name: 'parent',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'product',
+      },
+      {
+        name: 'duplicatestory',
+      },
+      {
+        name: 'branch',
+      },
+      {
+        name: 'tobug',
+      },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
+      {
+        name: 'result',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'branchname',
+      },
+      {
+        name: 'versionc',
+      },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'project',
+      },
+      {
+        name: 'preversion',
+      },
     ]
   }
+
+
 }

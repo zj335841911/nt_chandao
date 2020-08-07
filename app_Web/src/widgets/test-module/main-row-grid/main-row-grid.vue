@@ -1,22 +1,14 @@
-<template src="./main-row-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainRowGridBase } from './main-row-grid-base';
- 
+import MainRowBase from './main-row-grid-base.vue';
 
-/**
- * grid部件
- *
- * @export
- * @class MainRowGrid
- * @extends {MainRowGridBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class MainRowGrid extends MainRowGridBase { }
+export default class MainRow extends MainRowBase {
+
+}
 </script>

@@ -1,25 +1,14 @@
-<template src="./my-work2-panel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { MyWork2PanelBase } from './my-work2-panel-base';
- 
+import MyWork2Base from './my-work2-panel-base.vue';
 
-/**
- * list_itempanel部件
- *
- * @export
- * @class MyWork2Panel
- * @extends {MyWork2PanelBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class MyWork2Panel extends MyWork2PanelBase { }
+export default class MyWork2 extends MyWork2Base {
+
+}
 </script>
-<style lang='less'>
-@import './my-work2-panel.less';
-</style>

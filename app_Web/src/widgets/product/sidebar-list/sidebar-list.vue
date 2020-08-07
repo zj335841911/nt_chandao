@@ -1,22 +1,14 @@
-<template src="./sidebar-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { SidebarListBase } from './sidebar-list-base';
- 
+import SidebarBase from './sidebar-list-base.vue';
 
-/**
- * list部件
- *
- * @export
- * @class SidebarList
- * @extends {SidebarListBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class SidebarList extends SidebarListBase { }
+export default class Sidebar extends SidebarBase {
+
+}
 </script>

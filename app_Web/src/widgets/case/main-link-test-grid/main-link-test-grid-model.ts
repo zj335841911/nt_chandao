@@ -78,13 +78,11 @@ export default class MainLinkTestModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'version',
           prop: 'version',
           dataType: 'INT',
-          isEditable:true
         },
         {
           name: 'openedby',
@@ -95,7 +93,6 @@ export default class MainLinkTestModel {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'id',
@@ -154,10 +151,6 @@ export default class MainLinkTestModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

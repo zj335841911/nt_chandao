@@ -1,22 +1,19 @@
-<template src="./task-forward-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskForwardViewBase } from './task-forward-view-base';
-import view_form from '@widgets/task/forward-form/forward-form.vue';
+import TaskForwardViewBase from './task-forward-view-base.vue';
 
-/**
- * 转交任务视图
- *
- * @export
- * @class TaskForwardView
- * @extends {TaskForwardViewBase}
- */
+import view_form from '@widgets/task/forward-form/forward-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TaskForwardView extends TaskForwardViewBase { }
+export default class TaskForwardView extends TaskForwardViewBase {
+
+}
 </script>

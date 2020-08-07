@@ -1,22 +1,19 @@
-<template src="./case-option-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseOptionViewBase } from './case-option-view-base';
-import view_form from '@widgets/case/main-carry-form/main-carry-form.vue';
+import CaseOptionViewBase from './case-option-view-base.vue';
 
-/**
- * 测试用例选项操作视图视图
- *
- * @export
- * @class CaseOptionView
- * @extends {CaseOptionViewBase}
- */
+import view_form from '@widgets/case/main-carry-form/main-carry-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class CaseOptionView extends CaseOptionViewBase { }
+export default class CaseOptionView extends CaseOptionViewBase {
+
+}
 </script>

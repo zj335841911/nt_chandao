@@ -1,22 +1,14 @@
-<template src="./case-exp-treeview.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseExpTreeBase } from './case-exp-treeview-base';
- 
+import CaseExpBase from './case-exp-treeview-base.vue';
 
-/**
- * treeexpbar_tree部件
- *
- * @export
- * @class CaseExpTree
- * @extends {CaseExpTreeBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class CaseExpTree extends CaseExpTreeBase { }
+export default class CaseExp extends CaseExpBase {
+
+}
 </script>

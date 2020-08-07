@@ -37,7 +37,6 @@ export default class GetRoadmapModel {
 			},
 			{
 				name: 'marker',
-        codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
 			{
 				name: 'branch',
@@ -52,10 +51,6 @@ export default class GetRoadmapModel {
       {
         name:'query',
         prop:'query'
-      },
-      {
-        name:'sort',
-        prop:'sort'
       },
       {
         name:'page',

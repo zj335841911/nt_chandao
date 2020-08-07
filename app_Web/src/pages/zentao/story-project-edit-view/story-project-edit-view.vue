@@ -1,22 +1,19 @@
-<template src="./story-project-edit-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { StoryProjectEditViewBase } from './story-project-edit-view-base';
-import view_form from '@widgets/story/main-project-new-form/main-project-new-form.vue';
+import StoryProjectEditViewBase from './story-project-edit-view-base.vue';
 
-/**
- * 需求视图
- *
- * @export
- * @class StoryProjectEditView
- * @extends {StoryProjectEditViewBase}
- */
+import view_form from '@widgets/story/main-project-new-form/main-project-new-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class StoryProjectEditView extends StoryProjectEditViewBase { }
+export default class StoryProjectEditView extends StoryProjectEditViewBase {
+
+}
 </script>

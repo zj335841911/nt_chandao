@@ -88,7 +88,6 @@ export default class PivotTableModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'id',
@@ -151,10 +150,6 @@ export default class PivotTableModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

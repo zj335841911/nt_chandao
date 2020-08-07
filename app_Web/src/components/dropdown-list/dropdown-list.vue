@@ -1,17 +1,15 @@
 <template>
-    <div class='dropdown-list-container'>
-        <i-select
-            :transfer="true"
-            class='dropdown-list'
-            v-model="currentVal"
-            :disabled="disabled === true ? true : false"
-            :filterable="filterable === true ? true : false"
-            @on-open-change="onClick"
-            :placeholder="$t('components.dropDownList.placeholder')">
-            <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
-        </i-select>
-        <icon v-if="currentVal == null || currentVal == '' ? false :true" @click="clear" type="md-close" class="icon-circle" />
-    </div>
+    <i-select
+        class='dropdown-list'
+        :transfer="true"
+        v-model="currentVal"
+        :disabled="disabled === true ? true : false"
+        :clearable="true"
+        :filterable="filterable === true ? true : false"
+        @on-open-change="onClick"
+        :placeholder="$t('components.dropDownList.placeholder')">
+        <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
+    </i-select>
 </template>
 
 <script lang="ts">
@@ -46,37 +44,10 @@ export default class DropDownList extends Vue {
 
     /**
      * 当前选中值
-     * 
-     * @type {*}
+     * @type {any}
      * @memberof DropDownList
      */
     @Model('change') readonly itemValue!: any;
-
-    /**
-     * 监控值变化，根据属性类型强制转换
-     * 
-     * @memberof DropDownList
-     */
-    @Watch('itemValue')
-    public valueWatch() {
-        try {
-            this.readyValue();
-            // 代码表集合中不存在改选项，重新准备集合
-            if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
-                this.readyCodelist();
-            }
-        } catch (error) {
-            console.log('下拉列表，值转换失败');
-        }
-    }
-
-    /**
-     * 选择实际值
-     * 
-     * @type {*}
-     * @memberof DropDownList
-     */
-    public value: any = null;
 
     /**
      * 代码表标识
@@ -102,47 +73,26 @@ export default class DropDownList extends Vue {
      */
     @Prop() public data?: any;
 
-    /**
-     * 属性类型
+  /**
+     * 监听表单数据
      *
-     * @type {'string' | 'number'}
      * @memberof DropDownList
-     */
-    @Prop({ default: 'string' })
-    public valueType!: 'string' | 'number';
+     */    
+    @Watch('data',{ deep: true })
+    onDataChange(newVal: any, val: any){
+        if(newVal){
+            this.handleOtherParam();
+        }
+    }
 
     /**
-     * 局部上下文导航参数
-     *
-     * @type {*}
-     * @memberof DropDownList
-     */
-    @Prop() public localContext!:any;
-    
-    /**
-     * 局部导航参数
+     * 传入额外参数
      *
      * @type {*}
      * @memberof DropDownList
      */
-    @Prop() public localParam!:any;
+    @Prop() public itemParam?: any;
 
-    /**
-     * 视图上下文
-     *
-     * @type {*}
-     * @memberof AppAutocomplete
-     */
-    @Prop() public context!: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof AppFormDRUIPart
-     */
-    @Prop() public viewparams!: any;
-    
     /**
      * 是否禁用
      * @type {any}
@@ -172,14 +122,9 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     set currentVal(val: any) {
-        if (isExistAndNotEmpty(val)) {
-            this.$emit('change', val);
-        } else {
-            if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
-                return;
-            }
-            this.$emit('change', undefined);
-        }
+        const type: string = this.$util.typeOf(val);
+        val = Object.is(type, 'null') || Object.is(type, 'undefined') ? undefined : val;
+        this.$emit('change', val);
     }
 
     /**
@@ -188,7 +133,7 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     get currentVal() {
-        return this.value;
+        return this.itemValue;
     }
 
     /**
@@ -200,60 +145,26 @@ export default class DropDownList extends Vue {
     public items: any[] = [];
 
     /**
-     * 公共参数处理
-     *
-     * @param {*} arg
-     * @returns
-     * @memberof DropDownList
+     * 处理额外参数
      */
-    public handlePublicParams(arg: any) {
-        // 合并表单参数
-        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
-        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
-        // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
-        }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.context,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
-        }
-    }
-
-    /**
-     * 格式化代码表值类型
-     *
-     * @param {any[]} items
-     * @returns
-     * @memberof DropDownList
-     */
-    protected formatCodeList(items: any[]): void {
-        // 判断类型是否和属性一致
-        let judge = false;
-        this.items = [];
-        try {
-            items.forEach((item: any) => {
-                const type = this.$util.typeOf(item.value);
-                if (type !== this.valueType) {
-                    judge = true;
-                    if (type === 'number') {
-                        item.value = item.value.toString();
-                    } else {
-                        if (item.value.indexOf('.') === -1) {
-                            item.value = parseInt(item.value);
+    public handleOtherParam(){
+        if(this.itemParam){
+            this.queryParam = {};
+            this.otherParam = this.itemParam.parentdata;
+            if(this.otherParam && Object.keys(this.otherParam).length >0){
+                Object.keys(this.otherParam).forEach((item:any) =>{
+                    let value: string | null = this.otherParam[item];
+                    if (value && value.startsWith('%') && value.endsWith('%')) {
+                        const key = value.substring(1, value.length - 1);
+                        if (this.data && this.data.hasOwnProperty(key)) {
+                            value = (this.data[key] !== null && this.data[key] !== undefined) ? this.data[key] : null;
                         } else {
-                            item.value = parseFloat(item.value);
+                            value = null;
                         }
                     }
-                }
-                this.items.push(item);
-            });
-            if (judge) {
-                console.warn(`代码表「${this.tag}」值类型和属性类型不符，目前采用强制转换模式。请修正代码表值类型和属性类型匹配。`);
+                    Object.assign(this.queryParam,{[item]:value});
+                })
             }
-        } catch (error) {
-            console.warn('代码表值类型和属性类型不符，目前采用强制转换模式。转换过程异常，请修正代码表值类型和属性类型匹配。');
         }
     }
 
@@ -263,61 +174,22 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     public created() {
-        this.readyCodelist();
-        this.readyValue();
-    }
-    
-    /**
-     * 准备值
-     *
-     * @memberof DropDownList
-     */
-    public readyValue() {
-        if(this.itemValue == null) {
-            this.value = null;
-            return;
-        }
-        if (this.$util.typeOf(this.itemValue) === this.valueType) {
-            this.value = this.itemValue;
-        } else if (this.valueType === 'number') {
-            if (this.itemValue.indexOf('.') === -1) {
-                this.value = parseInt(this.itemValue);
-            } else {
-                this.value = parseFloat(this.itemValue);
-            }
-        } else {
-            this.value = this.itemValue.toString();
-        }
-    }
-
-    /**
-     * 准备代码表
-     *
-     * @memberof DropDownList
-     */
-    public readyCodelist() {
-        if(this.tag && Object.is(this.codelistType,"STATIC")){
+      if(this.tag && Object.is(this.codelistType,"STATIC")){
           const codelist = this.$store.getters.getCodeList(this.tag);
           if (codelist) {
-              this.formatCodeList(JSON.parse(JSON.stringify(codelist.items)));
+              this.items = [...JSON.parse(JSON.stringify(codelist.items))];
           } else {
-              console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
+              console.log(`----${this.tag}----代码表不存在`);
           }
       }else if(this.tag && Object.is(this.codelistType,"DYNAMIC")){
-          // 公共参数处理
-          let data: any = {};
-          this.handlePublicParams(data);
-          // 参数处理
-          let _context = data.context;
-          let _param = data.param;
-          this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-              this.formatCodeList(res);
+          this.codeListService.getItems(this.tag,{},this.queryParam).then((res:any) => {
+              this.items = res;
           }).catch((error:any) => {
-              console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
+              console.log(`----${this.tag}----代码表不存在`);
           });
       }
     }
-
+    
     /**
      * 下拉点击事件
      *
@@ -327,34 +199,18 @@ export default class DropDownList extends Vue {
     public onClick($event:any){
         if($event){
             if(this.tag && Object.is(this.codelistType,"DYNAMIC")){
-                // 公共参数处理
-                let data: any = {};
-                this.handlePublicParams(data);
-                // 参数处理
-                let _context = data.context;
-                let _param = data.param;
-                this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                    this.formatCodeList(res);
+                this.codeListService.getItems(this.tag,{},this.queryParam).then((res:any) => {
+                    this.items = res;
                 }).catch((error:any) => {
-                    console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
+                    console.log(`----${this.tag}----代码表不存在`);
                 });
             }
         }
     }
 
-    /**
-     * 清除事件
-     *
-     * @param {*} $event
-     * @memberof DropDownList
-     */
-    public clear($event: any){
-        if(this.currentVal) {
-            this.currentVal = null;
-        }
-    }
 }
 </script>
+
 <style lang='less'>
 @import './dropdown-list.less';
 </style>

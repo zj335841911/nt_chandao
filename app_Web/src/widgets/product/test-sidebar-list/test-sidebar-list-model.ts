@@ -22,14 +22,12 @@ export default class TestSidebarModel {
 			},
 			{
 				name: 'status',
-        codelist:{tag:'Product__status',codelistType:'STATIC'},
 			},
 			{
 				name: 'unconfirmbugcnt',
 			},
 			{
 				name: 'type',
-        codelist:{tag:'Product__type',codelistType:'STATIC'},
 			},
 			{
 				name: 'code',
@@ -70,10 +68,6 @@ export default class TestSidebarModel {
       {
         name:'query',
         prop:'query'
-      },
-      {
-        name:'sort',
-        prop:'sort'
       },
       {
         name:'page',

@@ -1,22 +1,15 @@
-<template src="./assigned-to-me-bug-portlet.html"/>
+
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { AssignedToMeBugPortletBase } from './assigned-to-me-bug-portlet-base';
- 
+import BugAssignedToMeBugBase from './assigned-to-me-bug-portlet-base.vue';
 
-/**
- * db_assigntomebugportlet1部件
- *
- * @export
- * @class AssignedToMeBugPortlet
- * @extends {AssignedToMeBugPortletBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class AssignedToMeBugPortlet extends AssignedToMeBugPortletBase { }
+export default class BugAssignedToMeBug extends BugAssignedToMeBugBase {
+
+}
 </script>
