@@ -149,7 +149,7 @@ export default class Login extends Vue {
                 const data = response.data;
                 if (data && data.token) {
                     localStorage.setItem('token', data.token);
-                    this.setCookie('ibzuaa-token', data.token, 0);
+                    this.setCookie('ibzuaa-token', data.token, 1);
                 }
                 // 设置cookie,保存账号密码7天
                 this.setCookie("loginname", this.form.loginname, 7);

@@ -1,7 +1,4 @@
 <studio-view viewName="testrunmeditview9" viewTitle="测试运行多表单编辑视图" class='demeditview9 test-run-medit-view9'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <i-input slot="quickSearch" v-model="query" placeholder="" search @on-search="onSearch($event)"/>
     <view_meditviewpanel 
                     :viewState="viewState"  

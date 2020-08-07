@@ -538,6 +538,10 @@ div::-webkit-scrollbar-thumb {
 
         >.ivu-card-body {
             padding: 6px;
+
+            .ivu-row {
+                width: 100%;
+            }
         }
     }
 
@@ -1206,10 +1210,15 @@ div::-webkit-scrollbar-thumb {
             margin-bottom: 10px;
         }
 
+        .single-card-data.selected, .single-card-data:hover {
+            transform: scale(1.1);
+        }
+
         .single-card-data {
             height: 100%;
             width: 100%;
             cursor: pointer;
+            transition: transform 0.3s ease-in-out;
 
             .single-card-img {
 
@@ -1217,6 +1226,11 @@ div::-webkit-scrollbar-thumb {
                     width: 100%;
                     height: 100%;
                 }
+            }
+
+            .single-card-default {
+                line-height: normal;
+                padding: 1px 5px;
             }
         }
     }
