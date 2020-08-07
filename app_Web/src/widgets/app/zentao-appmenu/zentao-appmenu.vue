@@ -1,14 +1,12 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ZentaoBase from './zentao-appmenu-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core/decorators/VueLifeCycleProcessing';
+import { ZentaoBase } from './zentao-appmenu-base';
 
- 
-@Component({
-    components: {
-         
-    }
-})
-export default class Zentao extends ZentaoBase {
-
-}
+/**
+ * 应用菜单
+ */
+@Component({})
+@VueLifeCycleProcessing()
+export default class Zentao extends ZentaoBase { }
 </script>

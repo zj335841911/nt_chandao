@@ -1,15 +1,22 @@
-
+<template src="./dashboard-quick-action-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import CaseDashboardQuickActionBase from './dashboard-quick-action-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { DashboardQuickActionPortletBase } from './dashboard-quick-action-portlet-base';
  
+
+/**
+ * dashboard_sysportlet4部件
+ *
+ * @export
+ * @class DashboardQuickActionPortlet
+ * @extends {DashboardQuickActionPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class CaseDashboardQuickAction extends CaseDashboardQuickActionBase {
-
-}
+@VueLifeCycleProcessing()
+export default class DashboardQuickActionPortlet extends DashboardQuickActionPortletBase { }
 </script>

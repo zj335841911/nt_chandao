@@ -1,5 +1,6 @@
 import { Store } from 'vuex';
 import { Http } from '@/utils';
+import CodeListService from "@service/app/codelist-service";
 
 /**
  * 实体服务基类
@@ -33,47 +34,65 @@ export default class EntityService {
     /**
      * 零时储存,localStorage指向
      * 
-     * @protected
+     * @public
      * @type {(string)}
      * @memberof EntityService
      */ 
-    protected tempStorage:any;
+    public tempStorage:any;
 
     /**
      * 当前DE标识
      * 
-     * @protected
+     * @public
      * @type {(string)}
      * @memberof EntityService
      */ 
-    protected APPDEKEY:string= '';
+    public APPDEKEY:string= '';
 
     /**
      * 当前APPDE标识
      * 
-     * @protected
+     * @public
      * @type {(string)}
      * @memberof EntityService
      */ 
-    protected APPLYDEKEY:string= '';
+    public APPLYDEKEY:string= '';
 
     /**
      * 当前NAME
      * 
-     * @protected
+     * @public
      * @type {(string)}
      * @memberof EntityService
      */ 
-    protected APPDENAME:string= '';
+    public APPDENAME:string= '';
 
     /**
      * 当前主信息名
      * 
-     * @protected
+     * @public
      * @type {(string)}
      * @memberof EntityService
      */ 
-    protected APPDETEXT:string= '';
+    public APPDETEXT:string= '';
+
+    /**
+     * 当前系统名
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public SYSTEMNAME:string= '';
+
+    /**
+     * 当前应用名
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public APPNAME:string= '';
 
     /**
      * Creates an instance of EntityService.
@@ -95,6 +114,34 @@ export default class EntityService {
      */
     public getStore(): Store<any> | null {
         return this.$store;
+    }
+
+    /**
+     * 获取代码表
+     *
+     * @memberof EntityService
+     */
+    public getCodeList(tag:string,codelistType:string,context:any = {},param:any ={}){
+        return new Promise((resolve:any,reject:any) =>{
+            if(tag && Object.is(codelistType,"STATIC")){
+                let returnItems:Array<any> = [];
+                const codelist = (this.getStore() as Store<any>).getters.getCodeList(tag);
+                if (codelist) {
+                    returnItems = [...JSON.parse(JSON.stringify(codelist.items))];
+                } else {
+                    console.log(`----${tag}----代码表不存在`);
+                }
+                resolve(returnItems);
+            }else if(tag && Object.is(codelistType,"DYNAMIC")){
+                let codeListService = new CodeListService({ $store: this.$store });
+                codeListService.getItems(tag,context,param).then((res:any) => {
+                    resolve(res);
+                }).catch((error:any) => {
+                    reject(`${tag}代码表不存在`);
+                    console.log(`----${tag}----代码表不存在`);
+                });
+            }
+        })
     }
 
     /**
@@ -156,6 +203,7 @@ export default class EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
             let tempData:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
             data.srffrontuf = "0";
+            data[this.APPDEKEY] = null;
             tempData.push(data);
             this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempData));
             return {"status":200,"data":data};
@@ -276,7 +324,8 @@ export default class EntityService {
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
             if(result){
                 let tempResult:any = result.filter((item:any) =>{
-                    return !( Object.is(item[this.APPDEKEY],data[this.APPDEKEY]) && Object.is(item[this.APPDETEXT],data[this.APPDETEXT]));
+                    // return !( Object.is(item[this.APPDEKEY],data[this.APPDEKEY]) && Object.is(item[this.APPDETEXT],data[this.APPDETEXT]));
+                    return !Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
                 })
                 this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempResult));
                  return {"status":200,"data":data};
@@ -562,32 +611,47 @@ export default class EntityService {
      * @memberof EntityService
      */
     public async ImportData(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        return Http.getInstance().post(`/${this.APPDENAME}/import`,data,isloading);
+        let _data:Array<any> = [];
+        if (data && data.importData) _data = data.importData;
+        return Http.getInstance().post(`/${this.APPDENAME}/import?config=${data.name}`,_data,isloading);
     }
 
     /**
      * createBatch接口方法
      *
      * @param {*} [context={}]
-     * @param {*} [data={}]
+     * @param {*} [data]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof EntityService
      */
-    public async createBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async createBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
         return Http.getInstance().post(`/${this.APPDENAME}/batch`,data,isloading);
+    }
+
+    /**
+     * saveBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async saveBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/savebatch`,data,isloading);
     }
 
     /**
      * updateBatch接口方法
      *
      * @param {*} [context={}]
-     * @param {*} [data={}]
+     * @param {*} [data]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof EntityService
      */
-    public async updateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async updateBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
         return Http.getInstance().put(`/${this.APPDENAME}/batch`,data,isloading);
     }
 
@@ -595,13 +659,58 @@ export default class EntityService {
      * removeBatch接口方法
      *
      * @param {*} [context={}]
-     * @param {*} [data={}]
+     * @param {*} [data]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof EntityService
      */
-    public async removeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        return Http.getInstance().delete(`/${this.APPDENAME}/batch`,isloading,data);
+    public async removeBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().delete(`/${this.APPDENAME}/batch`,isloading,data[this.APPDEKEY]);
+    }
+
+    /**
+     * getDataInfo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async getDataInfo(context: any = {},data: any, isloading?: boolean):Promise<any> {
+        if(context[this.APPLYDEKEY]){
+            return this.Get(context,data, isloading);
+        }
+    }
+
+    /**
+     * getDynaModel(获取动态模型)接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async getDynaModel(context: any = {},data: any, isloading?: boolean):Promise<any> {
+        if(data && data.configType && data.targetType){
+            return Http.getInstance().get(`/configs/${data.configType}/${data.targetType}`);
+        }
+    }
+
+    /**
+     * setDynaModel(设置动态模型)接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async setDynaModel(context: any = {},data: any, isloading?: boolean):Promise<any> {
+        if(data && data.configType && data.targetType){
+            return Http.getInstance().put(`/configs/${data.configType}/${data.targetType}`,{model:data.model});
+        }
     }
 
 	/**
@@ -610,13 +719,21 @@ export default class EntityService {
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
+     * @param {*} [localdata]
      * @returns {Promise<any>}
      * @memberof EntityService
      */
-    public async WFStart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const requestData:any = {};
-        Object.assign(requestData,{wfdata:data});
-        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfstart`,requestData,isloading);
+    public async WFStart(context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+        if(localdata && Object.keys(localdata).length > 0){
+            const requestData:any = {};
+            Object.assign(requestData,{activedata:data});
+            Object.assign(requestData,localdata);
+            return Http.getInstance().post(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${data[this.APPDEKEY]}/process-instances`,requestData,isloading);
+        }else{
+            const requestData:any = {};
+            Object.assign(requestData,{wfdata:data});
+            return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfstart`,requestData,isloading);
+        }
     }
 
 
@@ -699,8 +816,9 @@ export default class EntityService {
         return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfreassign`,data,isloading);
     }
 
+
     /**
-     * WFSubmit接口方法
+     * WFGetWorkFlow接口方法(获取工作流定义)
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -708,18 +826,81 @@ export default class EntityService {
      * @returns {Promise<any>}
      * @memberof EntityService
      */
-    public async WFSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const requestData:any = {};
-        if(data.srfwfmemo){
-            requestData.srfwfmemo = JSON.parse(JSON.stringify(data)).srfwfmemo;
-            delete data.srfwfmemo;
+    public async WFGetWorkFlow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/process-definitions`);
+    }
+
+    /**
+     * WFGetWFStep接口方法(根据系统实体查找当前适配的工作流模型步骤)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async WFGetWFStep(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/process-definitions-nodes`);
+    }
+
+    /**
+     * GetWFLink接口方法(根据业务主键和当前步骤获取操作路径)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetWFLink(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${context[this.APPLYDEKEY]}/usertasks/${data['taskDefinitionKey']}/ways`);
+    }
+
+    /**
+     * GetWFHistory接口方法(根据业务主键获取工作流程记录)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetWFHistory(context: any = {},data: any = {}, isloading?: boolean):Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${context[this.APPLYDEKEY]}/process-instances/alls/history`);
+    }
+
+    /**
+     * WFSubmit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @param {*} [localdata]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async WFSubmit(context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+        if(localdata && Object.keys(localdata).length > 0){
+            const requestData:any = {};
+            if(data.viewparams){
+                delete data.viewparams;
+            }
+            Object.assign(requestData,{activedata:data});
+            Object.assign(requestData,localdata);
+            return Http.getInstance().post(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${data[this.APPDEKEY]}/tasks/${localdata['taskId']}`,requestData,isloading);
+        }else{
+            const requestData:any = {};
+            if(data.srfwfmemo){
+                requestData.srfwfmemo = JSON.parse(JSON.stringify(data)).srfwfmemo;
+                delete data.srfwfmemo;
+            }
+            if(data.viewparams){
+                delete data.viewparams;
+            }
+            Object.assign(requestData,{wfdata:data});
+            Object.assign(requestData,{opdata:{srfwfiatag:context.srfwfiatag,srfwfstep:context.srfwfstep}});
+            return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfsubmit`,requestData,isloading);
         }
-        if(data.viewparams){
-            delete data.viewparams;
-        }
-        Object.assign(requestData,{wfdata:data});
-        Object.assign(requestData,{opdata:{srfwfiatag:context.srfwfiatag,srfwfstep:context.srfwfstep}});
-        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfsubmit`,requestData,isloading);
     }
 
     /**
@@ -772,6 +953,39 @@ export default class EntityService {
         const requestData:any = {};
         Object.assign(requestData,{wfdata:data});
         return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/testuserexistworklist`,requestData,isloading);
+    }
+
+    /**
+     * 获取所有应用数据
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async getAllApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`uaa/access-center/app-switcher/default`,data,isloading);
+    }
+
+    /**
+     * 更新已选择的应用
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async updateChooseApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().put(`uaa/access-center/app-switcher/default`,data,isloading);
+    }
+
+    /**
+     * 修改密码
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async changPassword(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`v7/changepwd`,data,isloading);
     }
 
 }

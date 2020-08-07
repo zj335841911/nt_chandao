@@ -1,15 +1,22 @@
-
+<template src="./todo-dashboard-actions-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TodoTodoDashboardActionsBase from './todo-dashboard-actions-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TodoDashboardActionsPortletBase } from './todo-dashboard-actions-portlet-base';
  
+
+/**
+ * dashboard_sysportlet2部件
+ *
+ * @export
+ * @class TodoDashboardActionsPortlet
+ * @extends {TodoDashboardActionsPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class TodoTodoDashboardActions extends TodoTodoDashboardActionsBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TodoDashboardActionsPortlet extends TodoDashboardActionsPortletBase { }
 </script>

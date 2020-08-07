@@ -22,6 +22,7 @@ export default class SidebarModel {
 			},
 			{
 				name: 'status',
+        codelist:{tag:'Product__status',codelistType:'STATIC'},
 			},
 			{
 				name: 'id',
@@ -34,6 +35,7 @@ export default class SidebarModel {
 			},
 			{
 				name: 'type',
+        codelist:{tag:'Product__type',codelistType:'STATIC'},
 			},
 			{
 				name: 'releasecnt',
@@ -71,6 +73,10 @@ export default class SidebarModel {
       {
         name:'query',
         prop:'query'
+      },
+      {
+        name:'sort',
+        prop:'sort'
       },
       {
         name:'page',

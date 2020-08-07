@@ -78,6 +78,7 @@ export default class MainGridModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',
@@ -155,6 +156,10 @@ export default class MainGridModel {
         {
           name:'query',
           prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
         },
         {
           name:'page',

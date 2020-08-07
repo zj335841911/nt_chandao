@@ -1,15 +1,22 @@
-
+<template src="./main-toolbar-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryMainToolbarBase from './main-toolbar-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainToolbarPortletBase } from './main-toolbar-portlet-base';
  
+
+/**
+ * dashboard_sysportlet3部件
+ *
+ * @export
+ * @class MainToolbarPortlet
+ * @extends {MainToolbarPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class StoryMainToolbar extends StoryMainToolbarBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainToolbarPortlet extends MainToolbarPortletBase { }
 </script>

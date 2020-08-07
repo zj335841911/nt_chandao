@@ -33,6 +33,8 @@ export default class BugServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'bugs';
         this.APPDETEXT = 'title';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -48,18 +50,28 @@ export default class BugServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/select`,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}/select`,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}/select`,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}/select`,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}/select`,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}/select`,isloading);
+            
+            return res;
         }
-            return Http.getInstance().get(`/bugs/${context.bug}/select`,isloading);
+            let res:any = Http.getInstance().get(`/bugs/${context.bug}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -73,40 +85,60 @@ export default class BugServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs`,data,isloading);
+            
+            return res;
         }
         if(context.project && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/projects/${context.project}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs`,data,isloading);
+            
+            return res;
         }
         if(context.story && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/stories/${context.story}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs`,data,isloading);
+            
+            return res;
         }
         if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs`,data,isloading);
+            
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -118,6 +150,7 @@ export default class BugServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/bugs`,data,isloading);
+        
         return res;
     }
 
@@ -132,20 +165,37 @@ export default class BugServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().put(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().put(`/projects/${context.project}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/bugs/${context.bug}`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().put(`/stories/${context.story}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/stories/${context.story}/bugs/${context.bug}`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().put(`/products/${context.product}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/bugs/${context.bug}`,data,isloading);
+            
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/bugs/${context.bug}`,data,isloading);
+            
             return res;
     }
 
@@ -160,19 +210,23 @@ export default class BugServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().delete(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().delete(`/stories/${context.story}/bugs/${context.bug}`,isloading);
+            let res:any = Http.getInstance().delete(`/stories/${context.story}/bugs/${context.bug}`,isloading);
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().delete(`/products/${context.product}/bugs/${context.bug}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/bugs/${context.bug}`,isloading);
+            return res;
         }
-            return Http.getInstance().delete(`/bugs/${context.bug}`,isloading);
-
+            let res:any = Http.getInstance().delete(`/bugs/${context.bug}`,isloading);
+            return res;
     }
 
     /**
@@ -186,20 +240,28 @@ export default class BugServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}`,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}`,isloading);
+            
+            return res;
         }
             let res:any = await Http.getInstance().get(`/bugs/${context.bug}`,isloading);
+            
             return res;
-
     }
 
     /**
@@ -213,19 +275,32 @@ export default class BugServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            
+            return res;
         }
         if(context.project && true){
-            return Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            
+            return res;
         }
         if(context.story && true){
-            return Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            
+            return res;
         }
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/bugs/getdraft`,isloading);
         res.data.bug = data.bug;
+        
         return res;
     }
 
@@ -240,18 +315,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/activate`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/activate`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/activate`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/activate`,data,isloading);
+            return res;
     }
 
     /**
@@ -265,18 +357,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/assignto`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/assignto`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/assignto`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/assignto`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/assignto`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/assignto`,data,isloading);
+            return res;
     }
 
     /**
@@ -290,18 +399,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -315,18 +441,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async BuildBatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/buildbatchunlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -340,18 +483,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async BuildLinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/buildlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -365,18 +525,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async BuildUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/buildunlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -390,18 +567,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/checkkey`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/checkkey`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/checkkey`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/checkkey`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -415,18 +609,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/close`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/close`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/close`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/close`,data,isloading);
+            return res;
     }
 
     /**
@@ -440,18 +651,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async Confirm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/confirm`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/confirm`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/confirm`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/confirm`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/confirm`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/confirm`,data,isloading);
+            return res;
     }
 
     /**
@@ -465,18 +693,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/linkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/linkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/linkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/linkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/linkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -490,18 +735,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async ReleaaseBatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/releaasebatchunlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -515,18 +777,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async ReleaseLinkBugbyBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/releaselinkbugbybug`,data,isloading);
+            return res;
     }
 
     /**
@@ -540,18 +819,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async ReleaseLinkBugbyLeftBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/releaselinkbugbyleftbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -565,18 +861,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async ReleaseUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/releaseunlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -590,18 +903,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async Resolve(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/resolve`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/resolve`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/resolve`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/resolve`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/resolve`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/resolve`,data,isloading);
+            return res;
     }
 
     /**
@@ -615,20 +945,37 @@ export default class BugServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/save`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/save`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/save`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/save`,data,isloading);
+            
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/bugs/${context.bug}/save`,data,isloading);
+            
             return res;
     }
 
@@ -643,18 +990,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async ToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/tostory`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/tostory`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/tostory`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/tostory`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/tostory`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/tostory`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/tostory`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/tostory`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/tostory`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/tostory`,data,isloading);
+            return res;
     }
 
     /**
@@ -668,18 +1032,35 @@ export default class BugServiceBase extends EntityService {
      */
     public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.story && context.bug){
-            return Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/unlinkbug`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/bugs/${context.bug}/unlinkbug`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/unlinkbug`,data,isloading);
+            return res;
     }
 
     /**
@@ -694,22 +1075,27 @@ export default class BugServiceBase extends EntityService {
     public async FetchBuildBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildbugs`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildbugs`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchbuildbugs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildbugs`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -724,22 +1110,27 @@ export default class BugServiceBase extends EntityService {
     public async FetchBuildLinkResolvedBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -754,22 +1145,27 @@ export default class BugServiceBase extends EntityService {
     public async FetchBuildOpenBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchbuildopenbugs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildopenbugs`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -784,22 +1180,27 @@ export default class BugServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchdefault`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchdefault`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -814,22 +1215,27 @@ export default class BugServiceBase extends EntityService {
     public async FetchReleaseBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleasebugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleasebugs`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchreleasebugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchreleasebugs`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchreleasebugs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchreleasebugs`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -844,22 +1250,27 @@ export default class BugServiceBase extends EntityService {
     public async FetchReleaseLeftBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -874,21 +1285,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchReportBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
+            return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreportbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchreportbugs`,tempData,isloading);
+            return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
+            return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/bugs/fetchreportbugs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchreportbugs`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/bugs/fetchreportbugs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/bugs/fetchreportbugs`,tempData,isloading);
+        return res;
     }
 }

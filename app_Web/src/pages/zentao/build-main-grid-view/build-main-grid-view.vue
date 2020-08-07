@@ -1,21 +1,24 @@
+<template src="./build-main-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BuildMainGridViewBase from './build-main-grid-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BuildMainGridViewBase } from './build-main-grid-view-base';
 import view_grid from '@widgets/build/main-grid/main-grid.vue';
 import view_searchform from '@widgets/build/default-searchform/default-searchform.vue';
+
+/**
+ * 版本表格视图视图
+ *
+ * @export
+ * @class BuildMainGridView
+ * @extends {BuildMainGridViewBase}
+ */
 @Component({
     components: {
         view_grid, 
         view_searchform, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class BuildMainGridView extends BuildMainGridViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BuildMainGridView extends BuildMainGridViewBase { }
 </script>

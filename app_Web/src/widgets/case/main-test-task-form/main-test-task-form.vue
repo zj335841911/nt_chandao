@@ -1,14 +1,22 @@
+<template src="./main-test-task-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainTestTaskBase from './main-test-task-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainTestTaskEditFormBase } from './main-test-task-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class MainTestTaskEditForm
+ * @extends {MainTestTaskEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MainTestTask extends MainTestTaskBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainTestTaskEditForm extends MainTestTaskEditFormBase { }
 </script>

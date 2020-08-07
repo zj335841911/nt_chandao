@@ -32,6 +32,8 @@ export default class IBZTaskTeamServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'ibztaskteams';
         this.APPDETEXT = 'account';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口

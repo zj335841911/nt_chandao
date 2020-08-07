@@ -15,134 +15,41 @@ export default class MyWork2Model {
   public getDataItems(): any[] {
     return [
       {
-        name: 'fails',
-      },
-      {
-        name: 'address',
-      },
-      {
-        name: 'password',
-      },
-      {
-        name: 'weixin',
-      },
-      {
-        name: 'dingding',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'ranzhi',
-      },
-      {
-        name: 'slack',
-      },
-      {
         name: 'realname',
-      },
-      {
-        name: 'locked',
-      },
-      {
-        name: 'scorelevel',
-      },
-      {
-        name: 'avatar',
-      },
-      {
-        name: 'zipcode',
-      },
-      {
-        name: 'dept',
-      },
-      {
-        name: 'commiter',
-      },
-      {
-        name: 'deleted',
-      },
-      {
-        name: 'last',
-      },
-      {
-        name: 'skype',
-      },
-      {
-        name: 'score',
-      },
-      {
-        name: 'whatsapp',
-      },
-      {
-        name: 'visits',
-      },
-      {
-        name: 'mobile',
-      },
-      {
-        name: 'clientlang',
-      },
-      {
-        name: 'join',
-      },
-      {
-        name: 'ip',
-      },
-      {
-        name: 'email',
-      },
-      {
-        name: 'nickname',
-      },
-      {
-        name: 'phone',
-      },
-      {
-        name: 'birthday',
-      },
-      {
-        name: 'ibzmyterritory',
-        prop: 'id',
-      },
-      {
-        name: 'qq',
-      },
-      {
-        name: 'gender',
-      },
-      {
-        name: 'role',
-      },
-      {
-        name: 'clientstatus',
+        prop: 'realname'
       },
       {
         name: 'mytasks',
-      },
-      {
-        name: 'mybugs',
-      },
-      {
-        name: 'myebugs',
-      },
-      {
-        name: 'mystorys',
-      },
-      {
-        name: 'products',
-      },
-      {
-        name: 'eprojects',
-      },
-      {
-        name: 'projects',
+        prop: 'mytasks'
       },
       {
         name: 'myetasks',
+        prop: 'myetasks'
       },
+      {
+        name: 'mybugs',
+        prop: 'mybugs'
+      },
+      {
+        name: 'myebugs',
+        prop: 'myebugs'
+      },
+      {
+        name: 'mystorys',
+        prop: 'mystorys'
+      },
+      {
+        name: 'projects',
+        prop: 'projects'
+      },
+      {
+        name: 'eprojects',
+        prop: 'eprojects'
+      },
+      {
+        name: 'products',
+        prop: 'products'
+      }
     ]
   }
-
-
 }

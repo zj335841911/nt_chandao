@@ -1,14 +1,22 @@
+<template src="./mpickup-view3pickupviewpanel-pickupviewpanel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MPickupView3pickupviewpanelBase from './mpickup-view3pickupviewpanel-pickupviewpanel-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MPickupView3pickupviewpanelPickupviewpanelBase } from './mpickup-view3pickupviewpanel-pickupviewpanel-base';
  
+
+/**
+ * pickupviewpanel部件
+ *
+ * @export
+ * @class MPickupView3pickupviewpanelPickupviewpanel
+ * @extends {MPickupView3pickupviewpanelPickupviewpanelBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MPickupView3pickupviewpanel extends MPickupView3pickupviewpanelBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MPickupView3pickupviewpanelPickupviewpanel extends MPickupView3pickupviewpanelPickupviewpanelBase { }
 </script>

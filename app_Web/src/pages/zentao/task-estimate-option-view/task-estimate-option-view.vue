@@ -1,19 +1,22 @@
+<template src="./task-estimate-option-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TaskEstimateOptionViewBase from './task-estimate-option-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TaskEstimateOptionViewBase } from './task-estimate-option-view-base';
 import view_form from '@widgets/task-estimate/main-form/main-form.vue';
+
+/**
+ * 任务预计选项操作视图视图
+ *
+ * @export
+ * @class TaskEstimateOptionView
+ * @extends {TaskEstimateOptionViewBase}
+ */
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class TaskEstimateOptionView extends TaskEstimateOptionViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TaskEstimateOptionView extends TaskEstimateOptionViewBase { }
 </script>

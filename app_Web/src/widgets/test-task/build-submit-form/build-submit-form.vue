@@ -1,14 +1,22 @@
+<template src="./build-submit-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BuildSUBMITBase from './build-submit-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BuildSUBMITEditFormBase } from './build-submit-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class BuildSUBMITEditForm
+ * @extends {BuildSUBMITEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class BuildSUBMIT extends BuildSUBMITBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BuildSUBMITEditForm extends BuildSUBMITEditFormBase { }
 </script>

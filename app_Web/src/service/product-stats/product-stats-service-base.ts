@@ -32,6 +32,8 @@ export default class ProductStatsServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'productstats';
         this.APPDETEXT = 'name';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -46,7 +48,9 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/productstats/${context.productstats}/select`,isloading);
+            let res:any = Http.getInstance().get(`/productstats/${context.productstats}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -69,6 +73,7 @@ export default class ProductStatsServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productstats`,data,isloading);
+        
         return res;
     }
 
@@ -85,6 +90,7 @@ export default class ProductStatsServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productstats/${context.productstats}`,data,isloading);
+            
             return res;
     }
 
@@ -98,8 +104,8 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
-
+            let res:any = Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
+            return res;
     }
 
     /**
@@ -113,8 +119,8 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}`,isloading);
+            
             return res;
-
     }
 
     /**
@@ -129,6 +135,7 @@ export default class ProductStatsServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/productstats/getdraft`,isloading);
         res.data.productstats = data.productstats;
+        
         return res;
     }
 
@@ -142,7 +149,8 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -156,8 +164,8 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async GetTestStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}/getteststats`,isloading);
+            
             return res;
-
     }
 
     /**
@@ -173,6 +181,7 @@ export default class ProductStatsServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productstats/${context.productstats}/save`,data,isloading);
+            
             return res;
     }
 
@@ -187,6 +196,7 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productstats/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/productstats/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

@@ -1,19 +1,22 @@
+<template src="./task-main-grid-view-by-module.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TaskMainGridView_ByModuleBase from './task-main-grid-view-by-module-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TaskMainGridView_ByModuleBase } from './task-main-grid-view-by-module-base';
 import view_grid from '@widgets/task/main-grid/main-grid.vue';
+
+/**
+ * task表格视图视图
+ *
+ * @export
+ * @class TaskMainGridView_ByModule
+ * @extends {TaskMainGridView_ByModuleBase}
+ */
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class TaskMainGridView_ByModule extends TaskMainGridView_ByModuleBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TaskMainGridView_ByModule extends TaskMainGridView_ByModuleBase { }
 </script>

@@ -1,14 +1,22 @@
+<template src="./main-edit-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainEditBase from './main-edit-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainEditGridBase } from './main-edit-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class MainEditGrid
+ * @extends {MainEditGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MainEdit extends MainEditBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainEditGrid extends MainEditGridBase { }
 </script>

@@ -1,14 +1,22 @@
+<template src="./activate-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ActivateBase from './activate-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ActivateEditFormBase } from './activate-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class ActivateEditForm
+ * @extends {ActivateEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Activate extends ActivateBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ActivateEditForm extends ActivateEditFormBase { }
 </script>

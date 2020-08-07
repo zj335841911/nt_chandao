@@ -1,14 +1,22 @@
+<template src="./build-bug-new-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BuildBugNewBase from './build-bug-new-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BuildBugNewEditFormBase } from './build-bug-new-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class BuildBugNewEditForm
+ * @extends {BuildBugNewEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class BuildBugNew extends BuildBugNewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BuildBugNewEditForm extends BuildBugNewEditFormBase { }
 </script>

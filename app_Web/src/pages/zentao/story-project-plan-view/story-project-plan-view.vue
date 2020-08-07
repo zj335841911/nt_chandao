@@ -1,19 +1,22 @@
+<template src="./story-project-plan-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryProjectPlanViewBase from './story-project-plan-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryProjectPlanViewBase } from './story-project-plan-view-base';
 import view_form from '@widgets/story/project-plan-form/project-plan-form.vue';
+
+/**
+ * 按照计划关联视图
+ *
+ * @export
+ * @class StoryProjectPlanView
+ * @extends {StoryProjectPlanViewBase}
+ */
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class StoryProjectPlanView extends StoryProjectPlanViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class StoryProjectPlanView extends StoryProjectPlanViewBase { }
 </script>

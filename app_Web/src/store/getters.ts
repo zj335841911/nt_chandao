@@ -76,3 +76,36 @@ export const getZIndex = (state: any) => () => {
 export const getViewSplit = (state: any) => (viewUID: string) => {
   return state.viewSplit[viewUID];
 }
+
+/**
+ * 获取拷贝数据
+ * 
+ * @param state 
+ */
+export const getCopyData = (state: any) => (srfkey: string) => {
+  let copyData = state.copyDataMap[srfkey];
+  if(copyData){
+      delete state.copyDataMap[srfkey];
+  }
+  return copyData;
+}
+
+/**
+ * 获取单位数据
+ * 
+ * @param state 
+ */
+export const getOrgData = (state: any) => (srfkey: string) => {
+    let orgData = state.orgDataMap[srfkey];
+    return orgData;
+}
+
+/**
+ * 获取部门数据
+ * 
+ * @param state 
+ */
+export const getDepData = (state: any) => (srfkey: string) => {
+  let depData = state.depDataMap[srfkey];
+  return depData;
+}

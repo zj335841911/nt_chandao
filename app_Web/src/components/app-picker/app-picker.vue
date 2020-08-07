@@ -8,14 +8,17 @@
                 :trigger-on-focus="true" :fetch-suggestions="(query, callback) => { this.onSearch(query, callback, true) }" @select="onACSelect"
                 @input="onInput" @blur="onBlur" style='width:100%;'>
                 <template v-slot:default="{item}">
-                    <template v-if="item.isNew">
+                    <!-- <template v-if="item.isNew">
                         <div v-if="linkview" @click="newAndEdit">{{$t('components.appPicker.newAndEdit')}}</div>
+                    </template> -->
+                    <template v-if="item.tag">
+                        <div @click="clickAction(item.tag)">{{item.caption}}</div>
                     </template>
                     <slot v-else name="default" :item="item"></slot>
                 </template>
                 <template v-slot:suffix>
                     <i v-if="curvalue && !disabled" class='el-icon-circle-close' @click="onClear"></i>
-                    <i v-if="!Object.is(editortype, 'ac')" class='el-icon-search' @click="openView"></i>
+                    <i v-if="!Object.is(editortype, 'ac') && showButton" class='el-icon-search' @click="openView"></i>
                     <icon v-if="linkview" type="ios-open-outline" @click="openLinkView"/>
                 </template>
             </el-autocomplete>
@@ -37,7 +40,10 @@
             @change="onSelect" :disabled="disabled" style='width:100%;' clearable
             @clear="onClear" @visible-change="onSelectOpen">
             <template v-if="items">
-                <el-option v-for="_item in items" :key="_item[deKeyField]" :value="_item[deKeyField]" :label="_item[deMajorField]" :disabled="_item.disabled"></el-option>
+                <template v-for="_item in items">
+                    <el-option  v-if="!_item.tag" :key="_item[deKeyField]" :value="_item[deKeyField]" :label="_item[deMajorField]" :disabled="_item.disabled"></el-option>
+                    <el-option  v-else :key="_item[deKeyField]" value="action"><span  @click="clickAction(_item.tag)" style="float: left; width: 100%;">{{ _item.caption }}</span></el-option>
+                </template>
             </template>
         </el-select>
         <span style='position: absolute;right: 5px;color: #c0c4cc;top:0;font-size: 13px;'>
@@ -55,7 +61,6 @@ import { AppModal } from '@/utils';
 @Component({
 })
 export default class AppPicker extends Vue {
-
     /**
      * 视图上下文
      *
@@ -129,6 +134,14 @@ export default class AppPicker extends Vue {
     @Prop() public disabled?: boolean;
 
     /**
+     * 是否显示按钮
+     *
+     * @type {boolean}
+     * @memberof AppPicker
+     */
+    @Prop({default:true}) public showButton?: boolean;
+
+    /**
      * 类型
      *
      * @type {string}
@@ -153,12 +166,20 @@ export default class AppPicker extends Vue {
     @Prop() public linkview?: any;
 
     /**
-     * 表单项参数
+     * 局部上下文导航参数
      * 
      * @type {any}
      * @memberof AppPicker
      */
-    @Prop() public itemParam: any;
+    @Prop() public localContext!:any;
+
+    /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof AppPicker
+     */
+    @Prop() public localParam!:any;
 
     /**
      * 值项名称
@@ -167,6 +188,23 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     @Prop() public valueitem!: string;
+
+    /**
+     * 排序
+     *
+     * @type {string}
+     * @memberof AppPicker
+     */
+    @Prop() public sort?: string;
+
+    /**
+     * 行为组
+     *
+     * @type {Array<any>}
+     * @memberof AppPicker
+     */
+    @Prop() public actionDetails?:Array<any>;
+
 
     /**
      * 值
@@ -215,6 +253,14 @@ export default class AppPicker extends Vue {
     public selectValue = this.value;
 
     /**
+     * 值格式
+     *
+     * @type {*}
+     * @memberof AppPicker
+     */
+    @Prop() public valFormat?: any;
+
+    /**
      * 获取关联数据项值
      *
      * @readonly
@@ -222,6 +268,9 @@ export default class AppPicker extends Vue {
      */
     get refvalue() {
         if (this.valueitem && this.data) {
+            if(this.valFormat && this.valFormat.hasOwnProperty(this.data[this.valueitem])) {
+                return this.valFormat[this.data[this.valueitem]];
+            }
             return this.data[this.valueitem];
         }
         return this.curvalue;
@@ -234,7 +283,7 @@ export default class AppPicker extends Vue {
      * @param {*} oldVal
      * @memberof AppPicker
      */
-    @Watch('value')
+    @Watch('value',{immediate:true})
     public onValueChange(newVal: any, oldVal: any) {
         this.curvalue = newVal;
         if (Object.is(this.editortype, 'dropdown') && this.valueitem) {
@@ -257,8 +306,8 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public created() {
-        if(Object.is(this.editortype, 'dropdown')){
-            this.onSearch("", null, true);
+        if(!Object.is(this.editortype, 'pickup-no-ac') && !Object.is(this.editortype, 'dropdown')){
+            this.curvalue = this.value;
         }
     }
 
@@ -309,7 +358,10 @@ export default class AppPicker extends Vue {
             query = '';
         }
         this.inputState = false;
-        Object.assign(_param, { query: query });
+        if(this.sort && !Object.is(this.sort, "")) {
+            Object.assign(_param, { sort: this.sort });
+        }
+        Object.assign(_param, { query: query, size: 1000 });
         // 错误信息国际化
         let error: string = (this.$t('components.appPicker.error') as any);
         let miss: string = (this.$t('components.appPicker.miss') as any);
@@ -327,8 +379,11 @@ export default class AppPicker extends Vue {
               } else {
                   this.items = [...response];
               }
-              if(this.acParams && this.linkview){
-                  this.items.push({ isNew :true });
+            //   if(this.acParams && this.linkview){
+            //       this.items.push({ isNew :true });
+            //   }
+             if(this.acParams && this.actionDetails && this.actionDetails.length >0){
+                  this.items = [...this.items,...this.actionDetails];
               }
               if (callback) {
                   callback(this.items);
@@ -410,9 +465,9 @@ export default class AppPicker extends Vue {
         // 判断打开方式
         if (view.placement && !Object.is(view.placement, '')) {
             if (Object.is(view.placement, 'POPOVER')) {
-                this.openPopOver($event, view, _context, data);
+                this.openPopOver($event, view, _context, _param);
             } else {
-                this.openDrawer(view, _context, data);
+                this.openDrawer(view, _context, _param);
             }
         } else {
             this.openPopupModal(view, _context, _param);
@@ -639,30 +694,34 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public handlePublicParams(arg: any): boolean {
-        if (!this.itemParam) {
-            return true;
-        }
         if (!this.data) {
             this.$Notice.error({ title: (this.$t('components.appPicker.error') as any), desc: (this.$t('components.appPicker.formdataException') as any) });
             return false;
         }
         // 合并表单参数
-        arg.param = JSON.parse(JSON.stringify(this.viewparams));
-        arg.context = JSON.parse(JSON.stringify(this.context));
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.itemParam.context) {
-          let _context = this.$util.formatData(this.data,this.itemParam.context);
+        if (this.localContext && Object.keys(this.localContext).length >0) {
+            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
             Object.assign(arg.context,_context);
         }
-        if (this.itemParam.param) {
-          let _param = this.$util.formatData(this.data,this.itemParam.param);
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
             Object.assign(arg.param,_param);
         }
-        if (this.itemParam.parentdata) {
-          let _parentdata = this.$util.formatData(this.data,this.itemParam.parentdata);
-            Object.assign(arg.param,_parentdata);
-        }
         return true;
+    }
+
+    /**
+     * 触发界面行为
+     *
+     * @param {*} arg
+     * @returns
+     * @memberof AppPicker
+     */
+    public clickAction(arg:any){
+        this.$emit('editoractionclick',arg);
     }
 
     /**
@@ -691,9 +750,9 @@ export default class AppPicker extends Vue {
         // 判断打开方式
         if (view.placement && !Object.is(view.placement, '')) {
             if (Object.is(view.placement, 'POPOVER')) {
-                this.openPopOver($event, view, _context, data);
+                this.openPopOver($event, view, _context, _param);
             } else {
-                this.openDrawer(view, _context, data);
+                this.openDrawer(view, _context, _param);
             }
         } else {
             this.openPopupModal(view, _context, _param);

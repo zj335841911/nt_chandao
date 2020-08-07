@@ -1,14 +1,22 @@
+<template src="./putoff-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import PutoffBase from './putoff-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { PutoffEditFormBase } from './putoff-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class PutoffEditForm
+ * @extends {PutoffEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Putoff extends PutoffBase {
-
-}
+@VueLifeCycleProcessing()
+export default class PutoffEditForm extends PutoffEditFormBase { }
 </script>

@@ -1,15 +1,22 @@
-
+<template src="./story-related-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryStoryRelatedBase from './story-related-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryRelatedPortletBase } from './story-related-portlet-base';
  
+
+/**
+ * dashboard_sysportlet5部件
+ *
+ * @export
+ * @class StoryRelatedPortlet
+ * @extends {StoryRelatedPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class StoryStoryRelated extends StoryStoryRelatedBase {
-
-}
+@VueLifeCycleProcessing()
+export default class StoryRelatedPortlet extends StoryRelatedPortletBase { }
 </script>

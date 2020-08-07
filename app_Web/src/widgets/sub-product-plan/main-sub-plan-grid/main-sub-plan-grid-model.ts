@@ -65,6 +65,7 @@ export default class MainSubPlanModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'end',
@@ -78,7 +79,7 @@ export default class MainSubPlanModel {
         },
         {
           name: 'productplan',
-          prop: 'id',
+          prop: 'parent',
           dataType: 'FONTKEY',
         },
         {
@@ -92,6 +93,10 @@ export default class MainSubPlanModel {
         {
           name:'query',
           prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
         },
         {
           name:'page',

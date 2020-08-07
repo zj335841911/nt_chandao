@@ -171,6 +171,16 @@ export default class AppRangeEditor extends Vue {
      */
     public onValueChange(name: string, value: any) {
         this.$emit('formitemvaluechange', { name: name, value: value });
+
+        let count = 0;
+        if(this.refFormItem) {
+            this.refFormItem.forEach((item: any) => {
+                if(this.activeData[item] != null && !Object.is(this.activeData[item], '')) {
+                    count++;
+                }
+            })
+        }
+        this.$emit('formitemvaluechange', {name: this.name, value: count === this.refFormItem.length ? "not null" : null});
     }
 
 }

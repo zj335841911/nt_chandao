@@ -1,19 +1,22 @@
+<template src="./test-task-my-dgrid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestTaskMyDGridViewBase from './test-task-my-dgrid-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestTaskMyDGridViewBase } from './test-task-my-dgrid-view-base';
 import view_grid from '@widgets/test-task/main-grid/main-grid.vue';
+
+/**
+ * 测试单表格视图视图
+ *
+ * @export
+ * @class TestTaskMyDGridView
+ * @extends {TestTaskMyDGridViewBase}
+ */
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class TestTaskMyDGridView extends TestTaskMyDGridViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TestTaskMyDGridView extends TestTaskMyDGridViewBase { }
 </script>

@@ -1,14 +1,25 @@
+<template src="./block-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BlockBase from './block-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BlockEditFormBase } from './block-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class BlockEditForm
+ * @extends {BlockEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Block extends BlockBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BlockEditForm extends BlockEditFormBase { }
 </script>
+<style lang='less'>
+@import './block-form.less';
+</style>

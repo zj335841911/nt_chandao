@@ -32,6 +32,8 @@ export default class BranchServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'branches';
         this.APPDETEXT = 'name';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -47,9 +49,13 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().get(`/products/${context.product}/branches/${context.branch}/select`,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/branches/${context.branch}/select`,isloading);
+            
+            return res;
         }
-            return Http.getInstance().get(`/branches/${context.branch}/select`,isloading);
+            let res:any = Http.getInstance().get(`/branches/${context.branch}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -63,13 +69,18 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/branches`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/branches`,data,isloading);
+            
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -81,6 +92,7 @@ export default class BranchServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/branches`,data,isloading);
+        
         return res;
     }
 
@@ -95,11 +107,16 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().put(`/products/${context.product}/branches/${context.branch}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/branches/${context.branch}`,data,isloading);
+            
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/branches/${context.branch}`,data,isloading);
+            
             return res;
     }
 
@@ -114,10 +131,11 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().delete(`/products/${context.product}/branches/${context.branch}`,isloading);
+            let res:any = Http.getInstance().delete(`/products/${context.product}/branches/${context.branch}`,isloading);
+            return res;
         }
-            return Http.getInstance().delete(`/branches/${context.branch}`,isloading);
-
+            let res:any = Http.getInstance().delete(`/branches/${context.branch}`,isloading);
+            return res;
     }
 
     /**
@@ -131,11 +149,13 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().get(`/products/${context.product}/branches/${context.branch}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/${context.branch}`,isloading);
+            
+            return res;
         }
             let res:any = await Http.getInstance().get(`/branches/${context.branch}`,isloading);
+            
             return res;
-
     }
 
     /**
@@ -149,10 +169,14 @@ export default class BranchServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/branches/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/getdraft`,isloading);
+            res.data.branch = data.branch;
+            
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/branches/getdraft`,isloading);
         res.data.branch = data.branch;
+        
         return res;
     }
 
@@ -167,9 +191,14 @@ export default class BranchServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/checkkey`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/branches/${context.branch}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/branches/${context.branch}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -183,11 +212,16 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/save`,data,isloading);
+            
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/branches/${context.branch}/save`,data,isloading);
+            
             return res;
     }
 
@@ -202,9 +236,14 @@ export default class BranchServiceBase extends EntityService {
      */
     public async Sort(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            return Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/sort`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/sort`,data,isloading);
+            
+            return res;
         }
-            return Http.getInstance().post(`/branches/${context.branch}/sort`,data,isloading);
+            let res:any = Http.getInstance().post(`/branches/${context.branch}/sort`,data,isloading);
+            return res;
     }
 
     /**
@@ -219,10 +258,12 @@ export default class BranchServiceBase extends EntityService {
     public async FetchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/branches/fetchcurproduct`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/branches/fetchcurproduct`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/branches/fetchcurproduct`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/branches/fetchcurproduct`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -237,9 +278,11 @@ export default class BranchServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/branches/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/branches/fetchdefault`,tempData,isloading);
+            return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/branches/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/branches/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

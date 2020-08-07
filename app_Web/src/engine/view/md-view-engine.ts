@@ -117,6 +117,9 @@ export default class MDViewEngine extends ViewEngine {
         if (Object.is(eventName, 'load')) {
             this.onSearchFormLoad(args);
         }
+        if (Object.is(eventName, 'search')) {
+            this.onSearchFormLoad(args);
+        }
     }
 
     /**
@@ -150,6 +153,20 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public onSearchFormLoad(args: any = {}): void {
+        if (this.getMDCtrl() && this.isLoadDefault) {
+            const tag = this.getMDCtrl().name;
+            this.setViewState2({ tag: tag, action: 'load', viewdata: this.view.viewparams });
+        }
+        this.isLoadDefault = true;
+    }
+
+    /**
+     * 搜索表单搜索
+     *
+     * @param {*} [args={}]
+     * @memberof MDViewEngine
+     */
+    public onSearchFormSearch(args: any = {}): void {
         if (this.getMDCtrl() && this.isLoadDefault) {
             const tag = this.getMDCtrl().name;
             this.setViewState2({ tag: tag, action: 'load', viewdata: this.view.viewparams });
@@ -341,6 +358,9 @@ export default class MDViewEngine extends ViewEngine {
         }
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;
         this.calcToolbarItemState(state);
+        if(args && args.length > 0){
+            this.calcToolbarItemAuthState(this.transformData(args[0]));
+        }
     }
 
     /**
@@ -350,6 +370,13 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public MDCtrlLoad(args: any[]) {
+        let cacheArray:Array<any> = [];
+        if(args.length >0){
+            args.forEach((item:any) =>{
+                cacheArray.push({srfkey:item.srfkey,srfmajortext:item.srfmajortext});
+            })
+        }
+        this.view.viewCacheData = cacheArray;
         if (this.view) {
             this.view.$emit('viewload', args);
         }
@@ -369,9 +396,21 @@ export default class MDViewEngine extends ViewEngine {
         if (this.getSearchForm() && this.view.isExpandSearchForm) {
             Object.assign(arg, this.getSearchForm().getData());
         }
+        if (this.view && this.view.$refs.searchbar && this.view.isExpandSearchForm) {
+            Object.assign(arg, this.view.$refs.searchbar.getData());
+        }
         if (this.view && !this.view.isExpandSearchForm) {
             Object.assign(arg, { query: this.view.query });
         }
+        // 快速分组和快速搜索栏
+        let otherQueryParam:any = {};
+        if(this.view && this.view.quickGroupData){
+            Object.assign(otherQueryParam,this.view.quickGroupData);
+        }
+        if(this.view && this.view.quickFormData){
+            Object.assign(otherQueryParam,this.view.quickFormData);
+        }
+        Object.assign(arg,{viewparams:otherQueryParam});
     }
 
     /**
@@ -397,5 +436,18 @@ export default class MDViewEngine extends ViewEngine {
     public getPropertyPanel() {
         return this.propertypanel;
     }
+
+    /**
+     * 转化数据
+     *
+     * @memberof EditViewEngine
+     */
+    public transformData(arg:any){
+        if(!this.getMDCtrl() || !(this.getMDCtrl().transformData instanceof Function)){
+            return null;
+        }
+        return this.getMDCtrl().transformData(arg);
+    }
+
 
 }

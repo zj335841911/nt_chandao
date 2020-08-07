@@ -1,5 +1,6 @@
 import qs from 'qs';
 import { Route } from 'vue-router';
+import Schema from "async-validator";
 
 /**
  * 平台工具类
@@ -292,11 +293,12 @@ export class Util {
      *
      * @static
      * @param {any} arg 表单数据
+     * @param {any} parent 外层context或viewparams
      * @param {any} params 附加参数
      * @returns {any}
      * @memberof Util
      */
-    public static formatData(arg: any, params: any): any {
+    public static formatData(arg: any,parent:any, params: any): any {
         let _data: any = {};
         Object.keys(params).forEach((name: string) => {
             if (!name) {
@@ -306,13 +308,57 @@ export class Util {
             if (value && value.startsWith('%') && value.endsWith('%')) {
                 const key = value.substring(1, value.length - 1);
                 if (arg && arg.hasOwnProperty(key)) {
-                    value = (arg[key] !== null && arg[key] !== undefined) ? arg[key] : null;
+                    if(arg[key] !== null && arg[key] !== undefined){
+                        value = arg[key];
+                    }else if(parent[key] !== null && parent[key] !== undefined){
+                        value = parent[key];
+                    }else{
+                        value = null;
+                    }
                 } else {
                     value = null;
                 }
             }
             Object.assign(_data, { [name]: value });
         });
+        return _data;
+    }
+
+    /**
+     * 计算导航数据
+     * 先从当前数据目标计算，然后再从当前上下文计算，最后从当前视图参数计算，没有则为null
+     * 
+     * @static
+     * @param {any} data 表单数据
+     * @param {any} parentContext 外层context
+     * @param {any} parentParam 外层param
+     * @param {any} params 附加参数
+     * @returns {any}
+     * @memberof Util
+     */ 
+    public static computedNavData(data:any,parentContext:any,parentParam:any,params:any):any{
+        let _data: any = {};
+        if(params && Object.keys(params).length >0){
+            Object.keys(params).forEach((name: string) => {
+                if (!name) {
+                    return;
+                }
+                let value: string | null = params[name];
+                if (value && value.startsWith('%') && value.endsWith('%')) {
+                    const key = value.substring(1, value.length - 1).toLowerCase();
+                    if (data && data.hasOwnProperty(key)) {
+                        value = data[key];
+                    }else if(parentContext && parentContext[key]){
+                        value = parentContext[key];
+                    }else if(parentParam && parentParam[key]){
+                        value = parentParam[key];
+                    } else {
+                        value = null;
+                    }
+                }
+                Object.assign(_data, { [name.toLowerCase()]: value });
+            });
+        }
         return _data;
     }
 
@@ -362,4 +408,23 @@ export class Util {
         return FirstOBJ;
     }
 
+    
+    /**
+     * 表单项校验
+     * 
+     * @param property 表单项属性名
+     * @param data 表单数据
+     * @param rules 表单值规则
+     * @returns {Promise}
+     * @memberof Util
+     */
+    public static validateItem(property: string, data:any, rules:any) {
+        // 1.获取数值和规则
+        const value = data[property];
+        const rule = rules[property];
+        // 2.创建校验规则
+        const schema = new Schema({ [property]: rule })
+        // 校验返回Promise
+        return schema.validate({ [property]: value })
+    }
 }

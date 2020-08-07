@@ -1,14 +1,22 @@
+<template src="./work-info-form-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import WorkInfoFormBase from './work-info-form-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { WorkInfoFormEditFormBase } from './work-info-form-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class WorkInfoFormEditForm
+ * @extends {WorkInfoFormEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class WorkInfoForm extends WorkInfoFormBase {
-
-}
+@VueLifeCycleProcessing()
+export default class WorkInfoFormEditForm extends WorkInfoFormEditFormBase { }
 </script>

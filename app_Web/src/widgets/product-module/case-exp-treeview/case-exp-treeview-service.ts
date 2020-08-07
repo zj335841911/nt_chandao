@@ -56,47 +56,47 @@ export default class CaseExpService extends ControlService {
     /**
      * 节点分隔符号
      *
-     * @private
+     * @public
      * @type {string}
      * @memberof CaseExpService
      */
-    private TREENODE_SEPARATOR: string = ';';
+    public TREENODE_SEPARATOR: string = ';';
 
     /**
      * 根模块（动态）节点分隔符号
      *
-     * @private
+     * @public
      * @type {string}
      * @memberof CaseExpService
      */
-	private TREENODE_ROOTMODULE: string = 'ROOTMODULE';
+	public TREENODE_ROOTMODULE: string = 'ROOTMODULE';
 
     /**
      * 非根模块（动态）节点分隔符号
      *
-     * @private
+     * @public
      * @type {string}
      * @memberof CaseExpService
      */
-	private TREENODE_MODULE: string = 'MODULE';
+	public TREENODE_MODULE: string = 'MODULE';
 
     /**
      * 全部节点分隔符号
      *
-     * @private
+     * @public
      * @type {string}
      * @memberof CaseExpService
      */
-	private TREENODE_ALL: string = 'ALL';
+	public TREENODE_ALL: string = 'ALL';
 
     /**
      * 默认根节点节点分隔符号
      *
-     * @private
+     * @public
      * @type {string}
      * @memberof CaseExpService
      */
-	private TREENODE_ROOT: string = 'ROOT';
+	public TREENODE_ROOT: string = 'ROOT';
 
     /**
      * 获取节点数据
@@ -146,7 +146,8 @@ export default class CaseExpService extends ControlService {
                 srfnodefilter: srfnodefilter,
                 strRealNodeId: strRealNodeId,
                 srfnodeid: srfnodeid,
-                strNodeType: strNodeType
+                strNodeType: strNodeType,
+                viewparams: JSON.parse(JSON.stringify(data)).viewparams
             }
         );
 
@@ -193,15 +194,20 @@ export default class CaseExpService extends ControlService {
     /**
      * 填充 树视图节点[根模块（动态）]
      *
-     * @private
+     * @public
      * @param {any{}} context     
      * @param {*} filter
      * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
      * @returns {Promise<any>}
      * @memberof CaseExpService
      */
     @Errorlog
-    private fillRootmoduleNodes(context:any={},filter: any, list: any[]): Promise<any> {
+    public fillRootmoduleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
@@ -216,8 +222,9 @@ export default class CaseExpService extends ControlService {
                         let strId: string = entity.id;
                         let strText: string = entity.name;
                         Object.assign(treeNode,{srfparentdename:'ProductModule',srfparentkey:entity.id});
-                        Object.assign(treeNode,{srfappctxkey:'productmodule'});
-                        Object.assign(treeNode,{srfappctx:{'productmodule':strId}});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'ProductModule',srfparentkey:entity.id,productmodule:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
                         Object.assign(treeNode,{'productmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
@@ -228,7 +235,9 @@ export default class CaseExpService extends ControlService {
                         Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
-                        Object.assign(treeNode, { navparams: '{}' });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -249,7 +258,7 @@ export default class CaseExpService extends ControlService {
     /**
      * 获取查询集合
      *
-     * @private
+     * @public
      * @param {any{}} context     
      * @param {*} searchFilter
      * @param {*} filter
@@ -257,13 +266,22 @@ export default class CaseExpService extends ControlService {
      * @memberof TestEnetityDatasService
      */
     @Errorlog
-    private searchRootmodule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public searchRootmodule(context:any={}, searchFilter: any, filter: any): Promise<any> {
         return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
             }
             if(!searchFilter.size){
                 Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
@@ -271,7 +289,9 @@ export default class CaseExpService extends ControlService {
                 const response: Promise<any> = _appEntityService['FetchRoot'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
-                        reject("数据集异常!");
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchRoot数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -281,7 +301,9 @@ export default class CaseExpService extends ControlService {
                         resolve([]);
                     }
                 }).catch((response: any) => {
-                    reject("数据集异常!");
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchRoot数据集异常!');
                 });
             }
         })
@@ -290,7 +312,7 @@ export default class CaseExpService extends ControlService {
     /**
      * 填充 树视图节点[根模块（动态）]子节点
      *
-     * @private
+     * @public
      * @param {any{}} context         
      * @param {*} filter
      * @param {any[]} list
@@ -298,28 +320,39 @@ export default class CaseExpService extends ControlService {
      * @memberof CaseExpService
      */
     @Errorlog
-    private async fillRootmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillRootmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充非根模块（动态）
-			await this.fillModuleNodes(context, filter, list);
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 		} else {
 			// 填充非根模块（动态）
-			await this.fillModuleNodes(context, filter, list);
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 		}
 	}
 
     /**
      * 填充 树视图节点[非根模块（动态）]
      *
-     * @private
+     * @public
      * @param {any{}} context     
      * @param {*} filter
      * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
      * @returns {Promise<any>}
      * @memberof CaseExpService
      */
     @Errorlog
-    private fillModuleNodes(context:any={},filter: any, list: any[]): Promise<any> {
+    public fillModuleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
@@ -342,8 +375,9 @@ export default class CaseExpService extends ControlService {
                         let strId: string = entity.id;
                         let strText: string = entity.name;
                         Object.assign(treeNode,{srfparentdename:'ProductModule',srfparentkey:entity.id});
-                        Object.assign(treeNode,{srfappctxkey:'productmodule'});
-                        Object.assign(treeNode,{srfappctx:{'productmodule':strId}});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'ProductModule',srfparentkey:entity.id,productmodule:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
                         Object.assign(treeNode,{'productmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
@@ -354,7 +388,9 @@ export default class CaseExpService extends ControlService {
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
-                        Object.assign(treeNode, { navparams: '{}' });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -375,7 +411,7 @@ export default class CaseExpService extends ControlService {
     /**
      * 获取查询集合
      *
-     * @private
+     * @public
      * @param {any{}} context     
      * @param {*} searchFilter
      * @param {*} filter
@@ -383,13 +419,22 @@ export default class CaseExpService extends ControlService {
      * @memberof TestEnetityDatasService
      */
     @Errorlog
-    private searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
         return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
             }
             if(!searchFilter.size){
                 Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
@@ -397,7 +442,9 @@ export default class CaseExpService extends ControlService {
                 const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
-                        reject("数据集异常!");
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDefault数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -407,7 +454,9 @@ export default class CaseExpService extends ControlService {
                         resolve([]);
                     }
                 }).catch((response: any) => {
-                    reject("数据集异常!");
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDefault数据集异常!');
                 });
             }
         })
@@ -416,7 +465,7 @@ export default class CaseExpService extends ControlService {
     /**
      * 填充 树视图节点[非根模块（动态）]子节点
      *
-     * @private
+     * @public
      * @param {any{}} context         
      * @param {*} filter
      * @param {any[]} list
@@ -424,31 +473,42 @@ export default class CaseExpService extends ControlService {
      * @memberof CaseExpService
      */
     @Errorlog
-    private async fillModuleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillModuleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充非根模块（动态）
-			await this.fillModuleNodes(context, filter, list);
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 		} else {
 			// 填充非根模块（动态）
-			await this.fillModuleNodes(context, filter, list);
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 		}
 	}
 
     /**
      * 填充 树视图节点[全部]
      *
-     * @private
+     * @public
      * @param {any{}} context     
      * @param {*} filter
      * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
      * @returns {Promise<any>}
      * @memberof CaseExpService
      */
     @Errorlog
-    private fillAllNodes(context:any={},filter: any, list: any[]): Promise<any> {
+    public fillAllNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: 'entities.productmodule.caseexp_treeview.nodes.all' });
+            Object.assign(treeNode, { text: i18n.t('entities.productmodule.caseexp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -463,7 +523,8 @@ export default class CaseExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, { navparams: '{}' });
+            Object.assign(treeNode, {navigateContext: {BRANCH:"0"} });
+            Object.assign(treeNode, {navigateParams: {branch:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);
@@ -474,7 +535,7 @@ export default class CaseExpService extends ControlService {
     /**
      * 填充 树视图节点[全部]子节点
      *
-     * @private
+     * @public
      * @param {any{}} context         
      * @param {*} filter
      * @param {any[]} list
@@ -482,31 +543,42 @@ export default class CaseExpService extends ControlService {
      * @memberof CaseExpService
      */
     @Errorlog
-    private async fillAllNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillAllNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充根模块（动态）
-			await this.fillRootmoduleNodes(context, filter, list);
+            let RootmoduleRsNavContext:any = {};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		} else {
 			// 填充根模块（动态）
-			await this.fillRootmoduleNodes(context, filter, list);
+            let RootmoduleRsNavContext:any = {};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		}
 	}
 
     /**
      * 填充 树视图节点[默认根节点]
      *
-     * @private
+     * @public
      * @param {any{}} context     
      * @param {*} filter
      * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
      * @returns {Promise<any>}
      * @memberof CaseExpService
      */
     @Errorlog
-    private fillRootNodes(context:any={},filter: any, list: any[]): Promise<any> {
+    public fillRootNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: 'entities.productmodule.caseexp_treeview.nodes.root' });
+            Object.assign(treeNode, { text: i18n.t('entities.productmodule.caseexp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -520,7 +592,6 @@ export default class CaseExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: filter.isAutoexpand });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, { navparams: '{}' });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);
@@ -531,7 +602,7 @@ export default class CaseExpService extends ControlService {
     /**
      * 填充 树视图节点[默认根节点]子节点
      *
-     * @private
+     * @public
      * @param {any{}} context         
      * @param {*} filter
      * @param {any[]} list
@@ -539,13 +610,19 @@ export default class CaseExpService extends ControlService {
      * @memberof CaseExpService
      */
     @Errorlog
-    private async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充全部
-			await this.fillAllNodes(context, filter, list);
+            let AllRsNavContext:any = {};
+            let AllRsNavParams:any = {};
+            let AllRsParams:any = {};
+			await this.fillAllNodes(context, filter, list ,AllRsNavContext,AllRsNavParams,AllRsParams);
 		} else {
 			// 填充全部
-			await this.fillAllNodes(context, filter, list);
+            let AllRsNavContext:any = {};
+            let AllRsNavParams:any = {};
+            let AllRsParams:any = {};
+			await this.fillAllNodes(context, filter, list ,AllRsNavContext,AllRsNavParams,AllRsParams);
 		}
 	}
 
@@ -614,5 +691,126 @@ export default class CaseExpService extends ControlService {
             callBack(context,item);
         })
     }
+
+    /**
+     * 处理节点关系导航上下文
+     *
+     * @param context 应用上下文
+     * @param filter 参数 
+     * @param resNavContext 节点关系导航上下文
+     *
+     * @memberof CaseExpService
+     */
+    public handleResNavContext(context:any,filter:any,resNavContext:any){
+        if(resNavContext && Object.keys(resNavContext).length > 0){
+            let tempContextData:any = JSON.parse(JSON.stringify(context));
+            let tempViewParams:any = {};
+            if(filter && filter.viewparams){
+                tempViewParams = filter.viewparams;
+            }
+            Object.keys(resNavContext).forEach((item:any) =>{
+                let curDataObj:any = resNavContext[item];
+                this.handleCustomDataLogic(context,tempViewParams,curDataObj,tempContextData,item);
+            })
+            return tempContextData;
+        }else{
+            return context;
+        }
+    }
+
+    /**
+     * 处理关系导航参数
+     *
+     * @param context 应用上下文
+     * @param filter 参数 
+     * @param resNavParams 节点关系导航参数
+     * @param resParams 节点关系参数
+     *
+     * @memberof CaseExpService
+     */
+	public handleResNavParams(context:any,filter:any,resNavParams:any,resParams:any){
+        if((resNavParams && Object.keys(resNavParams).length >0) || (resParams && Object.keys(resParams).length >0)){
+            let tempViewParamData:any = {};
+            let tempViewParams:any = {};
+            if(filter && filter.viewparams){
+                tempViewParams = filter.viewparams;
+                tempViewParamData = JSON.parse(JSON.stringify(filter.viewparams));
+            }
+            if( Object.keys(resNavParams).length > 0){
+                Object.keys(resNavParams).forEach((item:any) =>{
+                    let curDataObj:any = resNavParams[item];
+                    this.handleCustomDataLogic(context,tempViewParams,curDataObj,tempViewParamData,item);
+                })
+            }
+            if( Object.keys(resParams).length > 0){
+                Object.keys(resParams).forEach((item:any) =>{
+                    let curDataObj:any = resParams[item];
+                    tempViewParamData[item.toLowerCase()] = curDataObj.value;
+                })
+            }
+            Object.assign(filter,{viewparams:tempViewParamData});
+            return filter;
+        }else{
+            return filter;
+        }
+    }
+    
+    /**
+     * 处理自定义节点关系导航数据
+     * 
+     * @param context 应用上下文
+     * @param viewparams 参数 
+     * @param curNavData 节点关系导航参数对象
+     * @param tempData 返回数据
+     * @param item 节点关系导航参数键值
+     *
+     * @memberof CaseExpService
+     */
+	public handleCustomDataLogic(context:any,viewparams:any,curNavData:any,tempData:any,item:string){
+		// 直接值直接赋值
+		if(curNavData.isRawValue){
+			if(Object.is(curNavData.value,"null") || Object.is(curNavData.value,"")){
+                Object.defineProperty(tempData, item.toLowerCase(), {
+                    value: null,
+                    writable : true,
+                    enumerable : true,
+                    configurable : true
+                });
+            }else{
+                Object.defineProperty(tempData, item.toLowerCase(), {
+                    value: curNavData.value,
+                    writable : true,
+                    enumerable : true,
+                    configurable : true
+                });
+            }
+		}else{
+			// 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
+			if(context[(curNavData.value).toLowerCase()]){
+				Object.defineProperty(tempData, item.toLowerCase(), {
+					value: context[(curNavData.value).toLowerCase()],
+					writable : true,
+					enumerable : true,
+					configurable : true
+				});
+			}else{
+				if(viewparams[(curNavData.value).toLowerCase()]){
+					Object.defineProperty(tempData, item.toLowerCase(), {
+						value: viewparams[(curNavData.value).toLowerCase()],
+						writable : true,
+						enumerable : true,
+						configurable : true
+					});
+				}else{
+					Object.defineProperty(tempData, item.toLowerCase(), {
+						value: null,
+						writable : true,
+						enumerable : true,
+						configurable : true
+					});
+				}
+			}
+		}
+	}
 
 }

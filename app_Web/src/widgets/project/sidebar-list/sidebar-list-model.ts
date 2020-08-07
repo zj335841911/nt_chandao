@@ -16,6 +16,7 @@ export default class SidebarModel {
 		return [
 			{
 				name: 'type',
+        codelist:{tag:'Project__type',codelistType:'STATIC'},
 			},
 			{
 				name: 'taskcnt',
@@ -28,6 +29,7 @@ export default class SidebarModel {
 			},
 			{
 				name: 'status',
+        codelist:{tag:'Project__status',codelistType:'STATIC'},
 			},
 			{
 				name: 'name',
@@ -68,6 +70,10 @@ export default class SidebarModel {
       {
         name:'query',
         prop:'query'
+      },
+      {
+        name:'sort',
+        prop:'sort'
       },
       {
         name:'page',

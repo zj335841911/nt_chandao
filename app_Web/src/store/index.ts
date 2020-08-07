@@ -7,6 +7,7 @@ import * as mutations from './mutations';
 import * as getters from './getters';
 
 import viewaction from './modules/view-action'
+import authresource from './modules/auth-resource'
 
 const state = {
     ...rootstate
@@ -20,7 +21,8 @@ const store = new Vuex.Store({
     mutations,
     getters,
     modules: {
-        viewaction
+        viewaction,
+        authresource
     },
 });
 

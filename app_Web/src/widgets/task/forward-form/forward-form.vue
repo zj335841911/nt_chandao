@@ -1,14 +1,22 @@
+<template src="./forward-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ForwardBase from './forward-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ForwardEditFormBase } from './forward-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class ForwardEditForm
+ * @extends {ForwardEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Forward extends ForwardBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ForwardEditForm extends ForwardEditFormBase { }
 </script>
