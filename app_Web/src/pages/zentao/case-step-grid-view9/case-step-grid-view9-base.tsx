@@ -154,7 +154,7 @@ export class CaseStepGridView9Base extends GridView9Base {
             grid: this.$refs.grid,
             keyPSDEField: 'casestep',
             majorPSDEField: 'expect',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
