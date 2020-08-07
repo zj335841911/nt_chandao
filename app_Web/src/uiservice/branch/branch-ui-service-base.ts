@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import BranchService from '@/service/branch/branch-service';
+import BranchAuthService from '@/authservice/branch/branch-auth-service';
 
 /**
  * 产品的分支和平台信息UI服务对象基类
@@ -17,49 +18,56 @@ export default class BranchUIServiceBase extends UIService {
      * 
      * @memberof  BranchUIServiceBase
      */
-    protected isEnableWorkflow:boolean = false;
+    public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  BranchUIServiceBase
      */
-    protected dataService:BranchService = new BranchService();
+    public dataService:BranchService = new BranchService();
 
     /**
      * 所有关联视图
      * 
      * @memberof  BranchUIServiceBase
      */ 
-    protected allViewMap: Map<string, Object> = new Map();
+    public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
      * @memberof  BranchUIServiceBase
      */ 
-    protected stateValue: number = 0;
+    public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
      * @memberof  BranchUIServiceBase
      */ 
-    protected stateField: string = "";
+    public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
      * @memberof  BranchUIServiceBase
      */  
-    protected mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
      * @memberof  BranchUIServiceBase
      */  
-    protected allDeMainStateMap:Map<string,string> = new Map();
+    public allDeMainStateMap:Map<string,string> = new Map();
+
+    /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  BranchUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
      * Creates an instance of  BranchUIServiceBase.
@@ -69,8 +77,10 @@ export default class BranchUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new BranchAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -91,6 +101,14 @@ export default class BranchUIServiceBase extends UIService {
      * @memberof  BranchUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  BranchUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
     }
 
 
@@ -133,7 +151,7 @@ export default class BranchUIServiceBase extends UIService {
      * 
      * @memberof  BranchUIServiceBase
 	 */
-	protected getRealDEType(entity:any){
+	public getRealDEType(entity:any){
 
     }
 
@@ -145,7 +163,7 @@ export default class BranchUIServiceBase extends UIService {
      * @param bWFMode   是否工作流模式
      * @memberof  BranchUIServiceBase
      */
-    protected async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
+    public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
 		if (bDataInWF) {
 			// 判断数据是否在流程中
@@ -163,12 +181,12 @@ export default class BranchUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -179,16 +197,14 @@ export default class BranchUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  BranchUIServiceBase
      */  
-    protected async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -210,5 +226,29 @@ export default class BranchUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  BranchUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  BranchUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }

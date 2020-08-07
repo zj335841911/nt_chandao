@@ -1,19 +1,22 @@
+<template src="./story-pickup-grid-view2.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryPickupGridView2Base from './story-pickup-grid-view2-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryPickupGridView2Base } from './story-pickup-grid-view2-base';
 import view_grid from '@widgets/story/pickup-grid-grid/pickup-grid-grid.vue';
+
+/**
+ * 需求视图
+ *
+ * @export
+ * @class StoryPickupGridView2
+ * @extends {StoryPickupGridView2Base}
+ */
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class StoryPickupGridView2 extends StoryPickupGridView2Base {
-
-}
+@VueLifeCycleProcessing()
+export default class StoryPickupGridView2 extends StoryPickupGridView2Base { }
 </script>

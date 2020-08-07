@@ -32,6 +32,8 @@ export default class SuiteCaseServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'suitecases';
         this.APPDETEXT = '';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -46,7 +48,9 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/suitecases/${context.suitecase}/select`,isloading);
+            let res:any = Http.getInstance().get(`/suitecases/${context.suitecase}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -69,6 +73,7 @@ export default class SuiteCaseServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/suitecases`,data,isloading);
+        
         return res;
     }
 
@@ -85,6 +90,7 @@ export default class SuiteCaseServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/suitecases/${context.suitecase}`,data,isloading);
+            
             return res;
     }
 
@@ -98,8 +104,8 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().delete(`/suitecases/${context.suitecase}`,isloading);
-
+            let res:any = Http.getInstance().delete(`/suitecases/${context.suitecase}`,isloading);
+            return res;
     }
 
     /**
@@ -113,8 +119,8 @@ export default class SuiteCaseServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/suitecases/${context.suitecase}`,isloading);
+            
             return res;
-
     }
 
     /**
@@ -129,6 +135,7 @@ export default class SuiteCaseServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,isloading);
         res.data.suitecase = data.suitecase;
+        
         return res;
     }
 
@@ -142,7 +149,8 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().post(`/suitecases/${context.suitecase}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/suitecases/${context.suitecase}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -158,6 +166,7 @@ export default class SuiteCaseServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/suitecases/${context.suitecase}/save`,data,isloading);
+            
             return res;
     }
 
@@ -172,6 +181,7 @@ export default class SuiteCaseServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/suitecases/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/suitecases/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

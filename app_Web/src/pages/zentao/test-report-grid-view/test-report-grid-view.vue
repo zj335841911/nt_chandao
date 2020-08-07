@@ -1,19 +1,22 @@
+<template src="./test-report-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestReportGridViewBase from './test-report-grid-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestReportGridViewBase } from './test-report-grid-view-base';
 import view_grid from '@widgets/test-report/main-grid/main-grid.vue';
+
+/**
+ * 测试报告表格视图视图
+ *
+ * @export
+ * @class TestReportGridView
+ * @extends {TestReportGridViewBase}
+ */
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class TestReportGridView extends TestReportGridViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TestReportGridView extends TestReportGridViewBase { }
 </script>

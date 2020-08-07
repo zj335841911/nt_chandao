@@ -1,14 +1,22 @@
+<template src="./main-carry-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainCarryBase from './main-carry-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainCarryEditFormBase } from './main-carry-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class MainCarryEditForm
+ * @extends {MainCarryEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MainCarry extends MainCarryBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainCarryEditForm extends MainCarryEditFormBase { }
 </script>

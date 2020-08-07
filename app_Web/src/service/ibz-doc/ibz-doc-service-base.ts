@@ -32,6 +32,8 @@ export default class IBzDocServiceBase extends EntityService {
         this.APPDEKEY = 'ibzdocid';
         this.APPDENAME = 'ibzdocs';
         this.APPDETEXT = 'ibzdocname';
+        this.APPNAME = 'web';
+        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -46,7 +48,9 @@ export default class IBzDocServiceBase extends EntityService {
      * @memberof IBzDocServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/ibzdocs/${context.ibzdoc}/select`,isloading);
+            let res:any = Http.getInstance().get(`/ibzdocs/${context.ibzdoc}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -59,7 +63,5 @@ export default class IBzDocServiceBase extends EntityService {
      * @memberof IBzDocServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/ibzdocs/select`,tempData,isloading);
     }
 }

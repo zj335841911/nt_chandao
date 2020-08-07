@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import TodoService from '@/service/todo/todo-service';
+import TodoAuthService from '@/authservice/todo/todo-auth-service';
 
 /**
  * 待办事宜表UI服务对象基类
@@ -17,49 +18,56 @@ export default class TodoUIServiceBase extends UIService {
      * 
      * @memberof  TodoUIServiceBase
      */
-    protected isEnableWorkflow:boolean = false;
+    public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TodoUIServiceBase
      */
-    protected dataService:TodoService = new TodoService();
+    public dataService:TodoService = new TodoService();
 
     /**
      * 所有关联视图
      * 
      * @memberof  TodoUIServiceBase
      */ 
-    protected allViewMap: Map<string, Object> = new Map();
+    public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
      * @memberof  TodoUIServiceBase
      */ 
-    protected stateValue: number = 0;
+    public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
      * @memberof  TodoUIServiceBase
      */ 
-    protected stateField: string = "";
+    public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
      * @memberof  TodoUIServiceBase
      */  
-    protected mainStateFields:Array<any> = ['status'];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
      * 
      * @memberof  TodoUIServiceBase
      */  
-    protected allDeMainStateMap:Map<string,string> = new Map();
+    public allDeMainStateMap:Map<string,string> = new Map();
+
+    /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  TodoUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
      * Creates an instance of  TodoUIServiceBase.
@@ -69,8 +77,10 @@ export default class TodoUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new TodoAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -102,6 +112,18 @@ export default class TodoUIServiceBase extends UIService {
     }
 
     /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  TodoUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('done',{'ACTIVATE':1,'ASSIGNTO':0,'CLOSE':1,'CREATE':0,'DELETE':1,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CREATE':0,'DELETE':1,'FINISH':1,'READ':0,'TOBUG':1,'TOTASK':1,'UPDATE':1});
+    }
+
+    /**
      * 转Bug
      *
      * @param {any[]} args 当前数据
@@ -113,16 +135,27 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_toBug(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Todo_toBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{NAME:"%name%",ASSIGNEDTO:"%assignedto%",DESC:"%desc%"});
+        Object.assign(params,{assignedto:"%assignedto%",desc:"%desc%",name:"%name%"});
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -143,10 +176,6 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -172,16 +201,25 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_assignTo(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Todo_assignTo(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -199,10 +237,6 @@ export default class TodoUIServiceBase extends UIService {
                     const _this: any = actionContext;
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
-                    }
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
                     }
                     return result.datas;
                 });
@@ -228,16 +262,25 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_edit1(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Todo_edit1(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -253,10 +296,6 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -282,16 +321,24 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_close(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_close(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -341,16 +388,27 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_toTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Todo_toTask(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{NAME:"%name%",ASSIGNEDTO:"%assignedto%",DESC:"%desc%"});
+        Object.assign(params,{assignedto:"%assignedto%",desc:"%desc%",name:"%name%"});
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -371,10 +429,6 @@ export default class TodoUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
                     return result.datas;
                 });
             }
@@ -400,16 +454,24 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_delete(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -459,16 +521,24 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_activate(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_activate(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -518,16 +588,24 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_finish(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_finish(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { todo: '%todo%' });
         Object.assign(params, { id: '%todo%' });
         Object.assign(params, { name: '%name%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -605,7 +683,7 @@ export default class TodoUIServiceBase extends UIService {
      * 
      * @memberof  TodoUIServiceBase
 	 */
-	protected getRealDEType(entity:any){
+	public getRealDEType(entity:any){
 
     }
 
@@ -617,7 +695,7 @@ export default class TodoUIServiceBase extends UIService {
      * @param bWFMode   是否工作流模式
      * @memberof  TodoUIServiceBase
      */
-    protected async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
+    public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
 		if (bDataInWF) {
 			// 判断数据是否在流程中
@@ -635,12 +713,12 @@ export default class TodoUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -651,16 +729,14 @@ export default class TodoUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  TodoUIServiceBase
      */  
-    protected async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
+                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -682,5 +758,29 @@ export default class TodoUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  TodoUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  TodoUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }

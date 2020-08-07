@@ -1,19 +1,22 @@
+<template src="./bug-main-dashboard-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BugMainDashboardViewBase from './bug-main-dashboard-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BugMainDashboardViewBase } from './bug-main-dashboard-view-base';
 import view_dashboard from '@widgets/bug/main-dashboard/main-dashboard.vue';
+
+/**
+ * Bug数据看板视图视图
+ *
+ * @export
+ * @class BugMainDashboardView
+ * @extends {BugMainDashboardViewBase}
+ */
 @Component({
     components: {
         view_dashboard, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class BugMainDashboardView extends BugMainDashboardViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BugMainDashboardView extends BugMainDashboardViewBase { }
 </script>

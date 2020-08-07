@@ -1,14 +1,22 @@
+<template src="./edit-form-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import EditFormBase from './edit-form-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { EditFormEditFormBase } from './edit-form-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class EditFormEditForm
+ * @extends {EditFormEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class EditForm extends EditFormBase {
-
-}
+@VueLifeCycleProcessing()
+export default class EditFormEditForm extends EditFormEditFormBase { }
 </script>

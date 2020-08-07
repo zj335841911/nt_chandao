@@ -43,6 +43,10 @@ export default class ListModel {
         prop:'query'
       },
       {
+        name:'sort',
+        prop:'sort'
+      },
+      {
         name:'page',
         prop:'page'
       },

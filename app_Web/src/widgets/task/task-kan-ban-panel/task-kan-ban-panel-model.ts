@@ -15,167 +15,66 @@ export default class TaskKanBanModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'canceledby',
-      },
-      {
-        name: 'left',
-      },
-      {
-        name: 'openeddate',
-      },
-      {
-        name: 'color',
-      },
-      {
-        name: 'task',
-        prop: 'id',
-      },
-      {
-        name: 'finishedby',
-      },
-      {
-        name: 'finishedlist',
-      },
-      {
-        name: 'realstarted',
-      },
-      {
-        name: 'closedby',
-      },
-      {
-        name: 'substatus',
-      },
-      {
-        name: 'closedreason',
-      },
-      {
-        name: 'lastediteddate',
-      },
-      {
-        name: 'assigneddate',
-      },
-      {
-        name: 'pri',
-      },
-      {
-        name: 'lasteditedby',
-      },
-      {
-        name: 'status',
-      },
-      {
         name: 'name',
-      },
-      {
-        name: 'closeddate',
-      },
-      {
-        name: 'type',
+        prop: 'name'
       },
       {
         name: 'assignedto',
-      },
-      {
-        name: 'desc',
-      },
-      {
-        name: 'eststarted',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
+        prop: 'assignedto'
       },
       {
         name: 'deadline',
-      },
-      {
-        name: 'deleted',
-      },
-      {
-        name: 'mailto',
-      },
-      {
-        name: 'consumed',
+        prop: 'deadline'
       },
       {
         name: 'estimate',
-      },
-      {
-        name: 'openedby',
-      },
-      {
-        name: 'canceleddate',
-      },
-      {
-        name: 'finisheddate',
-      },
-      {
-        name: 'modulename',
-      },
-      {
-        name: 'storyname',
-      },
-      {
-        name: 'projectname',
-      },
-      {
-        name: 'product',
-      },
-      {
-        name: 'storyversion',
-      },
-      {
-        name: 'productname',
-      },
-      {
-        name: 'parentname',
+        prop: 'estimate'
       },
       {
         name: 'project',
-      },
-      {
-        name: 'story',
-      },
-      {
-        name: 'parent',
-      },
-      {
-        name: 'frombug',
-      },
-      {
-        name: 'duration',
+        prop: 'project'
       },
       {
         name: 'module',
+        prop: 'module'
       },
       {
-        name: 'path',
+        name: 'srfkey',
+        prop: 'id'
       },
       {
-        name: 'comment',
+        name: 'story',
+        prop: 'story'
       },
       {
-        name: 'currentconsumed',
+        name: 'pri',
+        prop: 'pri'
       },
       {
-        name: 'totaltime',
+        name: 'desc',
+        prop: 'desc'
       },
       {
-        name: 'isleaf',
+        name: 'mailto',
+        prop: 'mailto'
       },
       {
-        name: 'allmodules',
+        name: 'parent',
+        prop: 'parent'
       },
       {
-        name: 'multiple',
+        name: 'eststarted',
+        prop: 'eststarted'
       },
       {
-        name: 'taskteams',
+        name: 'consumed',
+        prop: 'consumed'
       },
       {
-        name: 'modulename1',
-      },
-      {
-        name: 'ibztaskestimates',
-      },
+        name: 'color',
+        prop: 'color'
+      }
     ]
   }
-
-
 }

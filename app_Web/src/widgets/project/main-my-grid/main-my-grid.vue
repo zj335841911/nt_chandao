@@ -1,14 +1,22 @@
+<template src="./main-my-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainMyBase from './main-my-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainMyGridBase } from './main-my-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class MainMyGrid
+ * @extends {MainMyGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MainMy extends MainMyBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainMyGrid extends MainMyGridBase { }
 </script>

@@ -14,35 +14,35 @@ export default class DYNADASHBOARDUtilServiceBase extends UtilService {
      * 
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected stoageDataService: DynaDashboardService = new DynaDashboardService();
+    public stoageDataService: DynaDashboardService = new DynaDashboardService();
 
     /**
      * 获取数据行为
      * 
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected loadAction: string = "Get";
+    public loadAction: string = "Get";
 
     /**
      * 建立数据行为
      * 
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected createAction: string = "Create";
+    public createAction: string = "Create";
 
     /**
      * 更新数据行为
      * 
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected updateAction: string = "Update";
+    public updateAction: string = "Update";
 
     /**
      * 删除数据行为
      * 
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected removeAction: string = "Remove";
+    public removeAction: string = "Remove";
 
     /**
      * Creates an instance of  DYNADASHBOARDUtilServiceBase.
@@ -76,14 +76,27 @@ export default class DYNADASHBOARDUtilServiceBase extends UtilService {
      * @param isloading 是否加载
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected loadModelData(context: any = {},data: any = {}, isloading?: boolean): Promise<any>{
+    public loadModelData(context: any = {},data: any = {}, isloading?: boolean): Promise<any>{
         return new Promise((resolve: any, reject: any) => {
-            let dataStr = window.localStorage.getItem(data.modelid);
-            if(dataStr) {
-                const data: any = JSON.parse(dataStr);
-                resolve({status:200,data:data.model});
-            } else {
-                resolve({status:200,data:[]});
+            //从接口加载
+            if(data && data.utilServiceName){
+                const requestParam:any ={configType:data.utilServiceName,targetType:data.modelid};
+                this.stoageDataService.getDynaModel(context,requestParam).then((res:any) =>{
+                    if(res && res.status === 200){
+                        const data: any = res.data;
+                        resolve({status:200,data:(data && data.model)?data.model:[]});
+                    }
+                }).catch((error:any) =>{
+                    reject(error);
+                })
+            }else{
+                let dataStr = window.localStorage.getItem(data.modelid);
+                if(dataStr) {
+                    const data: any = JSON.parse(dataStr);
+                    resolve({status:200,data:data.model});
+                } else {
+                    resolve({status:200,data:[]});
+                }
             }
         });
     }
@@ -97,55 +110,24 @@ export default class DYNADASHBOARDUtilServiceBase extends UtilService {
      * @param isloading 是否加载
      * @memberof  DYNADASHBOARDUtilServiceBase
      */ 
-    protected saveModelData(context: any = {},action:string,data: any = {}, isloading?: boolean):Promise<any>{
+    public saveModelData(context: any = {},action:string,data: any = {}, isloading?: boolean):Promise<any>{
         return new Promise((resolve: any, reject: any) => {
-            window.localStorage.setItem(data.modelid, JSON.stringify(data));
-            resolve({status:200,data:data.model});
-        });
+            // 存储到数据库
+            if(data && data.utilServiceName){
+                const requestParam:any ={configType:data.utilServiceName,targetType:data.modelid,model:data.model};
+                this.stoageDataService.setDynaModel(context,requestParam).then((res:any) =>{
+                    if(res && res.status === 200){
+                        resolve({status:200,data:data.model});
+                    }
+                }).catch((error:any) =>{
+                    reject(error);
+                })
+            }else{
+                window.localStorage.setItem(data.modelid, JSON.stringify(data));
+                resolve({status:200,data:data.model});
+            }
+        });   
     }
 
-    /**
-     * 新建模型数据
-     * 
-     * @param context 应用上下文 
-     * @param data 传入模型数据
-     * @param isloading 是否加载
-     * @memberof  DYNADASHBOARDUtilServiceBase
-     */ 
-    protected createdModelData(context: any = {},data: any = {}, isloading?: boolean):Promise<any>{
-        const {context:contextResult,data:dataResult} = this.handlePreParam(context,data);
-        return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.stoageDataService;
-            result = _appEntityService[this.createAction](contextResult,dataResult, isloading);
-            result.then((response) => {
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
-        });
-    }
-
-    /**
-     * 更新模型数据
-     * 
-     * @param context 应用上下文 
-     * @param data 传入模型数据
-     * @param isloading 是否加载
-     * @memberof  DYNADASHBOARDUtilServiceBase
-     */     
-    protected updateModelData(context: any = {},data: any = {}, isloading?: boolean):Promise<any>{
-        const {context:contextResult,data:dataResult} = this.handlePreParam(context,data);
-        return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.stoageDataService;
-            result = _appEntityService[this.updateAction](contextResult,dataResult, isloading);
-            result.then((response) => {
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
-        });
-    }
 
 }

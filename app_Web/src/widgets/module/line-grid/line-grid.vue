@@ -1,14 +1,22 @@
+<template src="./line-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import LineBase from './line-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { LineGridBase } from './line-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class LineGrid
+ * @extends {LineGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Line extends LineBase {
-
-}
+@VueLifeCycleProcessing()
+export default class LineGrid extends LineGridBase { }
 </script>

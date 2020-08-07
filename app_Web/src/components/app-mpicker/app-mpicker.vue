@@ -45,6 +45,27 @@ export default class AppMpicker extends Vue {
     @Prop() curvalue?: any;
 
     /**
+     * 值项
+     */
+    @Prop() valueitem?: any;
+
+    /**
+     * 局部上下文导航参数
+     * 
+     * @type {any}
+     * @memberof AppMpicker
+     */
+    @Prop() public localContext!:any;
+
+    /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof AppMpicker
+     */
+    @Prop() public localParam!:any;
+
+    /**
      * 表单项名称
      */
     @Prop() name: any;
@@ -53,7 +74,7 @@ export default class AppMpicker extends Vue {
      * 视图上下文
      *
      * @type {*}
-     * @memberof AppFormDRUIPart
+     * @memberof AppMpicker
      */
     @Prop() public context!: any;
 
@@ -61,7 +82,7 @@ export default class AppMpicker extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof AppFormDRUIPart
+     * @memberof AppMpicker
      */
     @Prop() public viewparams!: any;
 
@@ -69,15 +90,23 @@ export default class AppMpicker extends Vue {
      * AC参数
      *
      * @type {*}
-     * @memberof AppFormDRUIPart
+     * @memberof AppMpicker
      */
     @Prop({default: () => {}}) public acParams?: any;
+
+    /**
+     * 编辑器额外填充参数
+     *
+     * @type {string}
+     * @memberof AppMpicker
+     */
+    @Prop() public extraFillParams?: any;
 
     /**
      * 应用实体主信息属性名称
      *
      * @type {string}
-     * @memberof AppAutocomplete
+     * @memberof AppMpicker
      */
     @Prop({default: 'srfmajortext'}) public deMajorField!: string;
 
@@ -85,7 +114,7 @@ export default class AppMpicker extends Vue {
      * 应用实体主键属性名称
      *
      * @type {string}
-     * @memberof AppAutocomplete
+     * @memberof AppMpicker
      */
     @Prop({default: 'srfkey'}) public deKeyField!: string;
 
@@ -93,7 +122,7 @@ export default class AppMpicker extends Vue {
      * 表单服务
      *
      * @type {*}
-     * @memberof AppFormDRUIPart
+     * @memberof AppMpicker
      */
     @Prop() public service?: any;
 
@@ -123,19 +152,39 @@ export default class AppMpicker extends Vue {
      * @param newVal 
      * @param val 
      */
-    @Watch('curvalue', { deep: true })
+    @Watch('curvalue', {immediate:true, deep: true })
     oncurvalueChange(newVal: any, val: any) {
         this.value = [];
         this.selectItems = [];
         if (newVal) {
-            this.selectItems = JSON.parse(newVal);
-            this.selectItems.forEach((item: any) => {
-                this.value.push(item[this.deKeyField]);
-                let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
-                if (index < 0) {
-                    this.items.push({ [this.deMajorField]: item[this.deMajorField], [this.deKeyField]: item[this.deKeyField] });
+            try {
+              this.selectItems = this.parseValue(JSON.parse(newVal));
+              this.selectItems.forEach((item: any) => {
+                  this.value.push(item[this.deKeyField]);
+                  let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
+                  if (index < 0) {
+                      this.items.push({ [this.deMajorField]: item[this.deMajorField], [this.deKeyField]: item[this.deKeyField] });
+                  }
+              });
+            } catch (error) {
+              if(error.name === 'SyntaxError'){
+                let srfkeys:any = newVal.split(',');
+                let srfmajortexts:any = null;
+                if(this.valueitem && this.activeData[this.valueitem]){
+                    srfmajortexts = this.activeData[this.valueitem].split(',');
                 }
-            });
+                if(srfkeys.length && srfkeys.length > 0 && srfmajortexts.length && srfmajortexts.length > 0 && srfkeys.length == srfmajortexts.length){
+                    srfkeys.forEach((id: any, index: number) => {
+                        this.value.push(id);
+                        this.selectItems.push({[this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index]});
+                        let _index = this.items.findIndex((i) => Object.is(i[this.deKeyField],id));
+                        if (_index < 0) {
+                            this.items.push({[this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index]});
+                        }
+                    });
+                }
+              }
+            }
         }
         this.$forceUpdate();
     }
@@ -147,9 +196,18 @@ export default class AppMpicker extends Vue {
      * @memberof AppMpicker
      */
     public onSearch(query: any) {
-        let param: any = { query: query };
+        // 公共参数处理
+        let data: any = {};
+        const bcancel: boolean = this.handlePublicParams(data);
+        if (!bcancel) {
+            return;
+        }
+        // 参数处理
+        let _context = data.context;
+        let _param = data.param;
+        Object.assign(_param ,{ query: query });
         if (this.activeData) {
-            Object.assign(param, { srfreferdata: this.activeData });
+            Object.assign(_param, { srfreferdata: this.activeData });
         }
         // 错误信息国际化
         let error: string = (this.$t('components.appMpicker.error') as any);
@@ -162,7 +220,7 @@ export default class AppMpicker extends Vue {
         } else if(!this.acParams.interfaceName) {
             this.$Notice.error({ title: error, desc: miss+'interfaceName' });
         } else {
-          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, param).then((response: any) => {
+          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, _context, _param).then((response: any) => {
               if (!response) {
                   this.$Notice.error({ title: error, desc: requestException });
               } else {
@@ -181,13 +239,15 @@ export default class AppMpicker extends Vue {
      * @memberof AppMpicker
      */
     public onSelect(selects: any) {
-        let val: Array<any> = [];
+        const val: Array<any> = [];
         if (selects.length > 0) {
             selects.forEach((select: any) => {
                 let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], select));
                 if (index >= 0) {
-                    let item = this.items[index];
-                    val.push({ [this.deKeyField]: item[this.deKeyField], [this.deMajorField]: item.text });
+                    const item = this.items[index];
+                    const params = { [this.deKeyField]: item[this.deKeyField], [this.deMajorField]: item[this.deMajorField] };
+                    this.fillExtraValue(params, item);
+                    val.push(params);
                 } else {
                     index = this.selectItems.findIndex((item: any) => Object.is(item[this.deKeyField], select));
                     if (index >= 0) {
@@ -196,7 +256,7 @@ export default class AppMpicker extends Vue {
                     }
                 }
             });
-            let value = val.length > 0 ? JSON.stringify(val) : '';
+            const value = val.length > 0 ? JSON.stringify(this.formatValue(val)) : '';
             this.$emit('formitemvaluechange', { name: this.name, value: value });
         }
     }
@@ -211,9 +271,36 @@ export default class AppMpicker extends Vue {
         let index = this.selectItems.findIndex((item: any) => Object.is(item[this.deKeyField], tag));
         if (index >= 0) {
             this.selectItems.splice(index, 1);
-            let value = this.selectItems.length > 0 ? JSON.stringify(this.selectItems) : '';
+            let value = this.selectItems.length > 0 ? JSON.stringify(this.formatValue(this.selectItems)) : '';
             this.$emit('formitemvaluechange', { name: this.name, value: value });
         }
+    }
+
+    /**
+     * 公共参数处理
+     *
+     * @param {*} arg
+     * @returns
+     * @memberof AppMpicker
+     */
+    public handlePublicParams(arg: any): boolean {
+        if (!this.activeData) {
+            this.$Notice.error({ title: (this.$t('components.AppMpicker.error') as any), desc: (this.$t('components.AppMpicker.formdataException') as any) });
+            return false;
+        }
+        // 合并表单参数
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+        // 附加参数处理
+        if (this.localContext && Object.keys(this.localContext).length >0) {
+            let _context = this.$util.computedNavData(this.activeData,arg.context,arg.param,this.localContext);
+            Object.assign(arg.context,_context);
+        }
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.activeData,arg.param,arg.param,this.localParam);
+            Object.assign(arg.param,_param);
+        }
+        return true;
     }
 
     /**
@@ -229,8 +316,15 @@ export default class AppMpicker extends Vue {
         if (this.pickupView && Object.keys(this.pickupView).length > 0) {
             // 参数处理
             const view = { ...this.pickupView };
-            let _viewparams = JSON.parse(JSON.stringify(this.viewparams));
-            let _context = JSON.parse(JSON.stringify(this.context));
+            // 公共参数处理
+            let data: any = {};
+            const bcancel: boolean = this.handlePublicParams(data);
+            if (!bcancel) {
+                return;
+            }
+            // 参数处理
+            let _context = data.context;
+            let _viewparams = data.param;
             let _selectItems = JSON.parse(JSON.stringify(this.selectItems));
             if(!Object.is(this.deKeyField,"srfkey")){
                 _selectItems.forEach((item:any, index:number)=>{
@@ -248,18 +342,77 @@ export default class AppMpicker extends Vue {
                 let selects: Array<any> = [];
                 if (result.datas && Array.isArray(result.datas)) {
                     result.datas.forEach((select: any) => {
-                        selects.push({ [this.deKeyField]: select[this.deKeyField], [this.deMajorField]: select[this.deMajorField] });
+                        const params = { [this.deMajorField]: select[this.deMajorField], [this.deKeyField]: select[this.deKeyField] }
+                        this.fillExtraValue(params, select);
+                        selects.push(params);
                         let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], select[this.deKeyField]));
                         if (index < 0) {
-                            this.items.push({ [this.deMajorField]: select[this.deMajorField], [this.deKeyField]: select[this.deKeyField] });
+                            this.items.push(params);
                         }
                     });
                 }
                 if (this.name && this.activeData) {
-                    let value = selects.length > 0 ? JSON.stringify(selects) : '';
+                    let value = selects.length > 0 ? JSON.stringify(this.formatValue(selects)) : '';
                     this.$emit('formitemvaluechange', { name: this.name, value: value });
                 }
             })
+        }
+    }
+
+    /**
+     * 解析值,把srfkey和srfmajortext解析成实体属性名
+     *
+     * @param {any[]} value 需要转换的数组
+     * @memberof AppMpicker
+     */
+    public parseValue(value: any[]){
+        let result = [];
+        if(this.deKeyField !== "srfkey" || this.deMajorField !== "srfmajortext"){
+            value.forEach((item: any) => {
+                const params = {[this.deMajorField]: item.srfmajortext, [this.deKeyField]: item.srfkey};
+                this.fillExtraValue(params, item);
+                result.push(params);
+            });
+        }else{
+            result = value;
+        }
+        return result;
+    }
+
+    /**
+     * 格式化值，把实体属性名格式化成srfkey和srfmajortext
+     *
+     * @param {any[]} value 需要转换的数组
+     * @memberof AppMpicker
+     */
+    public formatValue(value: any[]){
+        let result = [];
+        if(this.deKeyField !== "srfkey" || this.deMajorField !== "srfmajortext"){
+            value.forEach((item: any) => {
+                const params = {srfmajortext : item[this.deMajorField], srfkey : item[this.deKeyField]};
+                this.fillExtraValue(params, item);
+                result.push(params);
+            });
+        }else{
+            result = value;
+        }
+        return result;
+    }
+
+    /**
+     * 填充额外参数
+     *
+     * @param {*} params 
+     * @param {*} item 
+     * @memberof AppMpicker
+     */
+    public fillExtraValue(params: any, item: any): void {
+        if (isExist(this.extraFillParams)) {
+            this.extraFillParams.forEach((self: any) => {
+                if (isExist(item[self.key])) {
+                    Object.assign(params, { [self.value]: item[self.key]});
+                }
+            });
         }
     }
 

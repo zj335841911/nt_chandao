@@ -30,11 +30,13 @@ export default class MainEditModel {
           name: 'consumed',
           prop: 'consumed',
           dataType: 'DECIMAL',
+          isEditable:true
         },
         {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'account_text',
@@ -45,21 +47,25 @@ export default class MainEditModel {
           name: 'account',
           prop: 'account',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'left',
           prop: 'left',
           dataType: 'DECIMAL',
+          isEditable:true
         },
         {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'DECIMAL',
+          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -75,10 +81,11 @@ export default class MainEditModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'task',
-          prop: 'id',
+          prop: 'root',
           dataType: 'FONTKEY',
         },
         {
@@ -92,6 +99,10 @@ export default class MainEditModel {
         {
           name:'query',
           prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
         },
         {
           name:'page',

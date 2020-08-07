@@ -7,6 +7,7 @@
       size='small'
       :trigger-on-focus="true" 
       :fetch-suggestions="onSearch" 
+      :sort="sort"
       @select="onACSelect"
       @input="onInput" 
       @blur="onBlur" 
@@ -100,12 +101,20 @@ export default class AppAutocomplete extends Vue {
     @Prop() public name!: string;
 
     /**
-     * 编辑器参数
-     *
-     * @type {string}
+     * 局部上下文导航参数
+     * 
+     * @type {any}
      * @memberof AppAutocomplete
      */
-    @Prop() public itemParam?: any;
+    @Prop() public localContext!:any;
+
+    /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof AppAutocomplete
+     */
+    @Prop() public localParam!:any;
 
     /**
      * 值项名称
@@ -116,10 +125,19 @@ export default class AppAutocomplete extends Vue {
     @Prop() public valueitem?: string;
 
     /**
+     * 排序
+     *
+     * @type {string}
+     * @memberof AppAutocomplete
+     */
+    @Prop() public sort?: string;
+
+
+    /**
      * 值
      *
      * @type {*}
-     * @memberof AppPicker
+     * @memberof AppAutocomplete
      */
     @Model('change') public value?: any;
 
@@ -127,7 +145,7 @@ export default class AppAutocomplete extends Vue {
      * 当前值
      *
      * @type {string}
-     * @memberof AppPicker
+     * @memberof AppAutocomplete
      */
     public curvalue: string = '';
 
@@ -160,7 +178,7 @@ export default class AppAutocomplete extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof AppPicker
+     * @memberof AppAutocomplete
      */
     @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
@@ -173,29 +191,25 @@ export default class AppAutocomplete extends Vue {
      * @param callback 
      */
     public onSearch(query: any, callback: any): void {
+        // 公共参数处理
+        let data: any = {};
+        const bcancel: boolean = this.handlePublicParams(data);
+        if (!bcancel) {
+            return;
+        }
+        // 参数处理
+        let _context = data.context;
+        let _param = data.param;
         // 处理搜索参数
         query = !query ? '' : query;
         if (!this.inputState && Object.is(query, this.value)) {
             query = '';
         }
         this.inputState = false;
-        // 合并视图上下文参数和视图参数
-        let param: any = JSON.parse(JSON.stringify(this.viewparams));
-        let context: any = JSON.parse(JSON.stringify(this.context));
-        Object.assign(param, { query: query });
-        // 附加参数处理
-        if (this.itemParam.context) {
-            let _context = this.$util.formatData(this.data,this.itemParam.context);
-            Object.assign(context,_context);
+        if(this.sort && !Object.is(this.sort, "")) {
+            Object.assign(_param, { sort: this.sort });
         }
-        if (this.itemParam.param) {
-            let _param = this.$util.formatData(this.data,this.itemParam.param);
-            Object.assign(param,_param);
-        }
-        if (this.itemParam.parentdata) {
-            let _parentdata = this.$util.formatData(this.data,this.itemParam.parentdata);
-            Object.assign(param,_parentdata);
-        }
+        Object.assign(_param, { query: query });
         // 错误信息国际化
         let error: string = (this.$t('components.appAutocomplete.error') as any);
         let miss: string = (this.$t('components.appAutocomplete.miss') as any);
@@ -208,7 +222,7 @@ export default class AppAutocomplete extends Vue {
         } else if(!this.acParams.interfaceName) {
             this.$Notice.error({ title: error, desc: miss+'interfaceName' });
         } else {
-          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, context, param).then((response: any) => {
+          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, _context, _param).then((response: any) => {
               if (!response) {
                   this.$Notice.error({ title: error, desc: requestException });
               } else {
@@ -272,6 +286,34 @@ export default class AppAutocomplete extends Vue {
             this.$emit('formitemvaluechange', { name: this.valueitem, value: '' });
         }
         this.$forceUpdate();
+    }
+
+    
+    /**
+     * 公共参数处理
+     *
+     * @param {*} arg
+     * @returns
+     * @memberof AppAutocomplete
+     */
+    public handlePublicParams(arg: any): boolean {
+        if (!this.data) {
+            this.$Notice.error({ title: (this.$t('components.AppAutocomplete.error') as any), desc: (this.$t('components.AppAutocomplete.formdataException') as any) });
+            return false;
+        }
+        // 合并表单参数
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+        // 附加参数处理
+        if (this.localContext && Object.keys(this.localContext).length >0) {
+            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
+            Object.assign(arg.context,_context);
+        }
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
+            Object.assign(arg.param,_param);
+        }
+        return true;
     }
 
 }

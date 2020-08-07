@@ -8,6 +8,7 @@
         <component
             :is="viewname"
             class="viewcontainer2"
+            :viewUsage="2"
             :viewDefaultUsage="false"
             :viewdata="JSON.stringify(viewdata)"
             :viewparam="JSON.stringify(viewparams)"
@@ -166,7 +167,7 @@ export default class AppDrawerCompponent extends Vue {
     public beforeDestroy() {
         if (this.zIndex) {
             const zIndex: any = this.zIndex;
-            this.$store.commit('updateZIndex', zIndex - 100);
+            this.$store.commit('updateZIndex', zIndex - 1);
         }
     }
 
@@ -178,7 +179,7 @@ export default class AppDrawerCompponent extends Vue {
     public handleZIndex(mask: string, wrap: string) {
         const zIndex = this.$store.getters.getZIndex();
         if (zIndex) {
-            this.zIndex = zIndex + 100;
+            this.zIndex = zIndex + 1;
             this.$store.commit('updateZIndex', this.zIndex);
         }
         const element: Element = this.$el;
@@ -274,9 +275,6 @@ export default class AppDrawerCompponent extends Vue {
             this.subject = null;
         }, 500)
     }
-
-
-
 
 }
 </script>

@@ -1,15 +1,22 @@
-
+<template src="./get-roadmaps-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductLifeGetRoadmapsBase from './get-roadmaps-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { GetRoadmapsPortletBase } from './get-roadmaps-portlet-base';
  
+
+/**
+ * dashboard_sysportlet1部件
+ *
+ * @export
+ * @class GetRoadmapsPortlet
+ * @extends {GetRoadmapsPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class ProductLifeGetRoadmaps extends ProductLifeGetRoadmapsBase {
-
-}
+@VueLifeCycleProcessing()
+export default class GetRoadmapsPortlet extends GetRoadmapsPortletBase { }
 </script>

@@ -1,14 +1,22 @@
+<template src="./batch-new-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BatchNewBase from './batch-new-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BatchNewGridBase } from './batch-new-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class BatchNewGrid
+ * @extends {BatchNewGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class BatchNew extends BatchNewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BatchNewGrid extends BatchNewGridBase { }
 </script>

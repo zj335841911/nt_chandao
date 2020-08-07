@@ -14,6 +14,7 @@
         <component
             :is="viewname"
             class="viewcontainer2"
+            :viewUsage="2"
             :viewDefaultUsage="false"
             :viewdata="JSON.stringify(viewdata)"
             :viewparam="JSON.stringify(viewparams)"
@@ -162,7 +163,7 @@ export default class AppModalCompponent extends Vue {
             this.width = this.view.width;
         }
         if (this.view.height && !Object.is(this.view.height, '0px')) {
-            Object.assign(this.style, { height: this.view.height + 'px' });
+            Object.assign(this.style, { height: `${this.view.height}${this.view.height > 100 ? 'px' : 'vh'}` });
         }
     }
 
@@ -178,7 +179,7 @@ export default class AppModalCompponent extends Vue {
         };
         const zIndex = this.$store.getters.getZIndex();
         if (zIndex) {
-            this.zIndex = zIndex + 100;
+            this.zIndex = zIndex + 1;
             this.$store.commit('updateZIndex', this.zIndex);
         }
         this.isShow = true;
@@ -192,7 +193,7 @@ export default class AppModalCompponent extends Vue {
     public beforeDestroy() {
         if (this.zIndex) {
             const zIndex: any = this.zIndex;
-            this.$store.commit('updateZIndex', zIndex - 100);
+            this.$store.commit('updateZIndex', zIndex - 1);
         }
     }
 

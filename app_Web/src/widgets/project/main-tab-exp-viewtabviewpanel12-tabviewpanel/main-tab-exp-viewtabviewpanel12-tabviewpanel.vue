@@ -1,14 +1,22 @@
+<template src="./main-tab-exp-viewtabviewpanel12-tabviewpanel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainTabExpViewtabviewpanel12Base from './main-tab-exp-viewtabviewpanel12-tabviewpanel-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainTabExpViewtabviewpanel12TabviewpanelBase } from './main-tab-exp-viewtabviewpanel12-tabviewpanel-base';
  
+
+/**
+ * tabviewpanel12部件
+ *
+ * @export
+ * @class MainTabExpViewtabviewpanel12Tabviewpanel
+ * @extends {MainTabExpViewtabviewpanel12TabviewpanelBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MainTabExpViewtabviewpanel12 extends MainTabExpViewtabviewpanel12Base {
-
-}
+@VueLifeCycleProcessing()
+export default class MainTabExpViewtabviewpanel12Tabviewpanel extends MainTabExpViewtabviewpanel12TabviewpanelBase { }
 </script>

@@ -1,19 +1,22 @@
+<template src="./story-activite-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryActiviteViewBase from './story-activite-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryActiviteViewBase } from './story-activite-view-base';
 import view_form from '@widgets/story/activation-form/activation-form.vue';
+
+/**
+ * 需求激活视图
+ *
+ * @export
+ * @class StoryActiviteView
+ * @extends {StoryActiviteViewBase}
+ */
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class StoryActiviteView extends StoryActiviteViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class StoryActiviteView extends StoryActiviteViewBase { }
 </script>

@@ -1,14 +1,22 @@
+<template src="./review-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ReviewBase from './review-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ReviewEditFormBase } from './review-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class ReviewEditForm
+ * @extends {ReviewEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Review extends ReviewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ReviewEditForm extends ReviewEditFormBase { }
 </script>

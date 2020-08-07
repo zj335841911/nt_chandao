@@ -30,6 +30,22 @@ export default class AppColumnLink extends Vue {
      */
     @Prop() public linkview?: any;
 
+        /**
+     * 局部上下文导航参数
+     * 
+     * @type {any}
+     * @memberof AppColumnLink
+     */
+    @Prop() public localContext!:any;
+
+    /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof AppColumnLink
+     */
+    @Prop() public localParam!:any;
+
     /**
      * 值项名称
      *
@@ -191,7 +207,7 @@ export default class AppColumnLink extends Vue {
     private openRedirectView($event: any, view: any, data: any): void {
         this.$http.get(view.url, data).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '错误', desc: '请求异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.error') as string), desc: (this.$t('app.commonWords.reqException') as string) });
             }
             if (response.status === 401) {
                 return;
@@ -243,7 +259,7 @@ export default class AppColumnLink extends Vue {
             }
         }).catch((response: any) => {
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常！' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.error') as string), desc: (this.$t('app.commonWords.reqException') as string) });
                 return;
             }
             if (response.status === 401) {
@@ -279,8 +295,17 @@ export default class AppColumnLink extends Vue {
             return false;
         }
         // 合并表单参数
-        arg.param = JSON.parse(JSON.stringify(this.viewparams));
-        arg.context = JSON.parse(JSON.stringify(this.context));
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+         // 附加参数处理
+        if (this.localContext && Object.keys(this.localContext).length >0) {
+            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
+            Object.assign(arg.context,_context);
+        }
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
+            Object.assign(arg.param,_param);
+        }
         return true;
     }
 

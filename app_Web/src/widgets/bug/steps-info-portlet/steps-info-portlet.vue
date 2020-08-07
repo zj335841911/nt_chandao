@@ -1,15 +1,22 @@
-
+<template src="./steps-info-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BugStepsInfoBase from './steps-info-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StepsInfoPortletBase } from './steps-info-portlet-base';
  
+
+/**
+ * dashboard_sysportlet1部件
+ *
+ * @export
+ * @class StepsInfoPortlet
+ * @extends {StepsInfoPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class BugStepsInfo extends BugStepsInfoBase {
-
-}
+@VueLifeCycleProcessing()
+export default class StepsInfoPortlet extends StepsInfoPortletBase { }
 </script>

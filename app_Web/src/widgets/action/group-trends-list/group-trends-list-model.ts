@@ -19,6 +19,7 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'actionmanner',
+        codelist:{tag:'ActionManner',codelistType:'STATIC'},
 			},
 			{
 				name: 'date',
@@ -31,6 +32,7 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'read',
+        codelist:{tag:'Action__read',codelistType:'STATIC'},
 			},
 			{
 				name: 'id',
@@ -40,6 +42,7 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'actor',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'objecttype',
@@ -51,6 +54,10 @@ export default class GroupTrendsModel {
       {
         name:'query',
         prop:'query'
+      },
+      {
+        name:'sort',
+        prop:'sort'
       },
       {
         name:'page',

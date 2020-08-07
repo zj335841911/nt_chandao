@@ -1,19 +1,22 @@
+<template src="./task-estimate-edit-grid-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TaskEstimateEditGridView9Base from './task-estimate-edit-grid-view9-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TaskEstimateEditGridView9Base } from './task-estimate-edit-grid-view9-base';
 import view_grid from '@widgets/task-estimate/main-edit-grid/main-edit-grid.vue';
+
+/**
+ * 任务预计表格视图视图
+ *
+ * @export
+ * @class TaskEstimateEditGridView9
+ * @extends {TaskEstimateEditGridView9Base}
+ */
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class TaskEstimateEditGridView9 extends TaskEstimateEditGridView9Base {
-
-}
+@VueLifeCycleProcessing()
+export default class TaskEstimateEditGridView9 extends TaskEstimateEditGridView9Base { }
 </script>

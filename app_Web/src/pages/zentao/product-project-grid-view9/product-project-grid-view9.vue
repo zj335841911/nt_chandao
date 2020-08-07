@@ -1,19 +1,22 @@
+<template src="./product-project-grid-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductProjectGridView9Base from './product-project-grid-view9-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductProjectGridView9Base } from './product-project-grid-view9-base';
 import view_grid from '@widgets/product/main-project-grid/main-project-grid.vue';
+
+/**
+ * 产品表格视图（项目）视图
+ *
+ * @export
+ * @class ProductProjectGridView9
+ * @extends {ProductProjectGridView9Base}
+ */
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class ProductProjectGridView9 extends ProductProjectGridView9Base {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductProjectGridView9 extends ProductProjectGridView9Base { }
 </script>

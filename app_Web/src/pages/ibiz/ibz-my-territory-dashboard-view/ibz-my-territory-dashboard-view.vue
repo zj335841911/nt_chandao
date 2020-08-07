@@ -1,19 +1,22 @@
+<template src="./ibz-my-territory-dashboard-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import IbzMyTerritoryDashboardViewBase from './ibz-my-territory-dashboard-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { IbzMyTerritoryDashboardViewBase } from './ibz-my-territory-dashboard-view-base';
 import view_dashboard from '@widgets/ibz-my-territory/home-dashboard/home-dashboard.vue';
+
+/**
+ * 首页视图
+ *
+ * @export
+ * @class IbzMyTerritoryDashboardView
+ * @extends {IbzMyTerritoryDashboardViewBase}
+ */
 @Component({
     components: {
         view_dashboard, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class IbzMyTerritoryDashboardView extends IbzMyTerritoryDashboardViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class IbzMyTerritoryDashboardView extends IbzMyTerritoryDashboardViewBase { }
 </script>

@@ -29,7 +29,7 @@ export class FormTabPageModel extends FormDetailModel {
      * @memberof FormTabPageModel
      */
     public setVisible(state: boolean): void {
-        this.visible = state;
+        super.setVisible(state);
         const tabPanel = this.getTabPanelModel();
         if (tabPanel) {
             tabPanel.setActiviePage();

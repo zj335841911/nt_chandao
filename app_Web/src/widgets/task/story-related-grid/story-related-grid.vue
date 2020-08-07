@@ -1,14 +1,22 @@
+<template src="./story-related-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryRelatedBase from './story-related-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryRelatedGridBase } from './story-related-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class StoryRelatedGrid
+ * @extends {StoryRelatedGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class StoryRelated extends StoryRelatedBase {
-
-}
+@VueLifeCycleProcessing()
+export default class StoryRelatedGrid extends StoryRelatedGridBase { }
 </script>

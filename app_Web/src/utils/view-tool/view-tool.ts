@@ -43,7 +43,7 @@ export class ViewTool {
         // 视图常规参数
         Object.assign(viewdata, data);
         // 传入父视图的srfsessionid
-        Object.assign(viewdata, {srfsessionid:viewParam['srfsessionid']});
+        Object.assign(viewdata, { srfsessionid: viewParam['srfsessionid'] });
         return viewdata;
     }
 
@@ -63,7 +63,7 @@ export class ViewTool {
     public static buildUpRoutePath(route: Route, viewParam: any = {}, deResParameters: any[], parameters: any[], args: any[], data: any): string {
         const indexRoutePath = this.getIndexRoutePath(route);
         const deResRoutePath = this.getDeResRoutePath(viewParam, deResParameters, args);
-        const deRoutePath = this.getActiveRoutePath(parameters, args, data);
+        const deRoutePath = this.getActiveRoutePath(parameters, args, data, viewParam);
         return `${indexRoutePath}${deResRoutePath}${deRoutePath}`;
     }
 
@@ -79,10 +79,10 @@ export class ViewTool {
         const { parameters: _parameters }: { parameters: any[] } = route.meta;
         const { pathName: _pathName, parameterName: _parameterName }: { pathName: string, parameterName: string } = _parameters[0];
         const param = route.params[_parameterName];
-        if (param && !Object.is(param, '')) {
+        if (isExistAndNotEmpty(param)) {
             return `/${_pathName}/${param}`;
         }
-        return `/${_pathName}/null`;
+        return `/${_pathName}`;
     }
 
     /**
@@ -99,15 +99,17 @@ export class ViewTool {
         let routePath: string = '';
         let [arg] = args;
         arg = arg ? arg : {};
-        deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
-            let value:any = null;
-            if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
-                value = viewParam[parameterName];
-            } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
-                value = arg[parameterName];
-            }
-            routePath = `${routePath}/${pathName}/${value}`;
-        });
+        if (deResParameters && deResParameters.length > 0) {
+            deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
+                let value: any = null;
+                if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
+                    value = viewParam[parameterName];
+                } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
+                    value = arg[parameterName];
+                }
+                routePath = `${routePath}/${pathName}` + (isExistAndNotEmpty(value) ? `/${value}` : '');
+            });
+        }
         return routePath;
     }
 
@@ -121,24 +123,25 @@ export class ViewTool {
      * @returns {string}
      * @memberof ViewTool
      */
-    public static getActiveRoutePath(parameters: any[], args: any[], data: any): string {
+    public static getActiveRoutePath(parameters: any[], args: any[], data: any, viewParam: any = {}): string {
         let routePath: string = '';
         // 不存在应用实体
-        if (parameters.length === 1) {
-            const [{ pathName, parameterName }] = parameters;
-            routePath = `/${pathName}`;
-            if (Object.keys(data).length > 0) {
-                routePath = `${routePath}/${qs.stringify(data, { delimiter: ';' })}`;
-            }
-        } else if (parameters.length === 2) {
-            let [arg] = args;
-            arg = arg ? arg : {};
-            const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
-            const _value: any = arg[_parameterName] && !Object.is(arg[_parameterName], '') ?
-                arg[_parameterName] : null;
-            routePath = `/${_pathName}/${_value}/${_pathName2}`;
-            if (Object.keys(data).length > 0) {
-                routePath = `${routePath}/${qs.stringify(data, { delimiter: ';' })}`;
+        if (parameters && parameters.length > 0) {
+            if (parameters.length === 1) {
+                const [{ pathName, parameterName }] = parameters;
+                routePath = `/${pathName}`;
+                if (Object.keys(data).length > 0) {
+                    routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
+                }
+            } else if (parameters.length === 2) {
+                let [arg] = args;
+                arg = arg ? arg : {};
+                const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
+                const _value: any = arg[_parameterName] || viewParam[_parameterName] || null;
+                routePath = `/${_pathName}${isExistAndNotEmpty(_value) ? `/${_value}` : ''}/${_pathName2}`;
+                if (Object.keys(data).length > 0) {
+                    routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
+                }
             }
         }
         return routePath;
@@ -152,8 +155,8 @@ export class ViewTool {
      * @returns {*}
      * @memberof ViewTool
      */
-    public static formatRouteParams(params: any,route:any,context:any,viewparams:any): void {
-        Object.keys(params).forEach((key: string,index:number) => {
+    public static formatRouteParams(params: any, route: any, context: any, viewparams: any): void {
+        Object.keys(params).forEach((key: string, index: number) => {
             const param: string | null | undefined = params[key];
             if (!param || Object.is(param, '') || Object.is(param, 'null')) {
                 return;
@@ -165,11 +168,11 @@ export class ViewTool {
                 Object.assign(context, { [key]: param });
             }
         });
-        if(route && route.fullPath && route.fullPath.indexOf("?") > -1){
-            const _viewparams:any = route.fullPath.slice(route.fullPath.indexOf("?")+1);
-            const _viewparamArray:Array<string> = decodeURIComponent(_viewparams).split(";")
-            if(_viewparamArray.length > 0){
-                _viewparamArray.forEach((item:any) =>{
+        if (route && route.fullPath && route.fullPath.indexOf("?") > -1) {
+            const _viewparams: any = route.fullPath.slice(route.fullPath.indexOf("?") + 1);
+            const _viewparamArray: Array<string> = decodeURIComponent(_viewparams).split(";")
+            if (_viewparamArray.length > 0) {
+                _viewparamArray.forEach((item: any) => {
                     Object.assign(viewparams, qs.parse(item));
                 })
             }
@@ -237,5 +240,42 @@ export class ViewTool {
      */
     public static getIndexViewParam(): any {
         return this.indexViewParam;
+    }
+
+    /**
+     * 计算界面行为项权限状态
+     *
+     * @static
+     * @param {*} [data] 传入数据
+     * @param {*} [ActionModel] 界面行为模型
+     * @param {*} [UIService] 界面行为服务
+     * @memberof ViewTool
+     */
+    public static calcActionItemAuthState(data: any, ActionModel: any, UIService: any) {
+        for (const key in ActionModel) {
+            if (!ActionModel.hasOwnProperty(key)) {
+                return;
+            }
+            const _item = ActionModel[key];
+            if (_item && _item['dataaccaction'] && UIService && data && Object.keys(data).length > 0) {
+                let dataActionResult: any = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                // 无权限:0;有权限:1
+                if (dataActionResult === 0) {
+                    // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                    if (_item.noprivdisplaymode === 1) {
+                        _item.disabled = true;
+                    }
+                    if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
+                        _item.visabled = false;
+                    } else {
+                        _item.visabled = true;
+                    }
+                }
+                if (dataActionResult === 1) {
+                    _item.visabled = true;
+                    _item.disabled = false;
+                }
+            }
+        }
     }
 }

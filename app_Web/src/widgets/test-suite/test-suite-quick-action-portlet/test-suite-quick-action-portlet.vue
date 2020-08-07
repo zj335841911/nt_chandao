@@ -1,15 +1,22 @@
-
+<template src="./test-suite-quick-action-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestSuiteTestSuiteQuickActionBase from './test-suite-quick-action-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestSuiteQuickActionPortletBase } from './test-suite-quick-action-portlet-base';
  
+
+/**
+ * dashboard_sysportlet4部件
+ *
+ * @export
+ * @class TestSuiteQuickActionPortlet
+ * @extends {TestSuiteQuickActionPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class TestSuiteTestSuiteQuickAction extends TestSuiteTestSuiteQuickActionBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TestSuiteQuickActionPortlet extends TestSuiteQuickActionPortletBase { }
 </script>

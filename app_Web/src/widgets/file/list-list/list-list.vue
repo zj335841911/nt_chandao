@@ -1,14 +1,22 @@
+<template src="./list-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ListBase from './list-list-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ListListBase } from './list-list-base';
  
+
+/**
+ * list部件
+ *
+ * @export
+ * @class ListList
+ * @extends {ListListBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class List extends ListBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ListList extends ListListBase { }
 </script>

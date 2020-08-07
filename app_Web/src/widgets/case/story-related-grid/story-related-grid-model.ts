@@ -88,6 +88,7 @@ export default class StoryRelatedModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'case',
@@ -100,6 +101,10 @@ export default class StoryRelatedModel {
         {
           name:'query',
           prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
         },
         {
           name:'page',

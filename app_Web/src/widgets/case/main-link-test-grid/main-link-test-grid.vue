@@ -1,14 +1,22 @@
+<template src="./main-link-test-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainLinkTestBase from './main-link-test-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainLinkTestGridBase } from './main-link-test-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class MainLinkTestGrid
+ * @extends {MainLinkTestGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class MainLinkTest extends MainLinkTestBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainLinkTestGrid extends MainLinkTestGridBase { }
 </script>

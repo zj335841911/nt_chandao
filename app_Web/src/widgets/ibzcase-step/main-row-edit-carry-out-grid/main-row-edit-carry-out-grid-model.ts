@@ -30,6 +30,7 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'files',
           prop: 'files',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'desc',
@@ -45,11 +46,13 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'steps',
           prop: 'steps',
           dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -60,11 +63,13 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'reals',
           prop: 'reals',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -90,10 +95,11 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'case',
-          prop: 'id',
+          prop: 'ibizcase',
           dataType: 'FONTKEY',
         },
         {
@@ -107,6 +113,10 @@ export default class Main_RowEdit_CarryOutModel {
         {
           name:'query',
           prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
         },
         {
           name:'page',

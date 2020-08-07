@@ -1,15 +1,22 @@
-
+<template src="./my-upcoming-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TodoMyUpcomingBase from './my-upcoming-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MyUpcomingPortletBase } from './my-upcoming-portlet-base';
  
+
+/**
+ * dashboard_sysportlet10部件
+ *
+ * @export
+ * @class MyUpcomingPortlet
+ * @extends {MyUpcomingPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class TodoMyUpcoming extends TodoMyUpcomingBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MyUpcomingPortlet extends MyUpcomingPortletBase { }
 </script>

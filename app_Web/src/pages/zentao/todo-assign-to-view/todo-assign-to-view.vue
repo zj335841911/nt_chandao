@@ -1,19 +1,22 @@
+<template src="./todo-assign-to-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TodoAssignToViewBase from './todo-assign-to-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TodoAssignToViewBase } from './todo-assign-to-view-base';
 import view_form from '@widgets/todo/assignto-form-form/assignto-form-form.vue';
+
+/**
+ * 指派表单视图视图
+ *
+ * @export
+ * @class TodoAssignToView
+ * @extends {TodoAssignToViewBase}
+ */
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
-        });
-    },
+    }
 })
-export default class TodoAssignToView extends TodoAssignToViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TodoAssignToView extends TodoAssignToViewBase { }
 </script>
