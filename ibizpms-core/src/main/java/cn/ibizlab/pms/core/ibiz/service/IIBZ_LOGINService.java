@@ -25,17 +25,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIBZ_LOGINService extends IService<IBZ_LOGIN>{
 
-    boolean create(IBZ_LOGIN et) ;
-    void createBatch(List<IBZ_LOGIN> list) ;
-    boolean update(IBZ_LOGIN et) ;
-    void updateBatch(List<IBZ_LOGIN> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IBZ_LOGIN get(BigInteger key) ;
-    IBZ_LOGIN getDraft(IBZ_LOGIN et) ;
-    boolean checkKey(IBZ_LOGIN et) ;
-    boolean save(IBZ_LOGIN et) ;
-    void saveBatch(List<IBZ_LOGIN> list) ;
+    IBZ_LOGIN getUser(IBZ_LOGIN et) ;
+    IBZ_LOGIN ztlogin(IBZ_LOGIN et) ;
     Page<IBZ_LOGIN> searchDefault(IBZ_LOGINSearchContext context) ;
     /**
      *自定义查询SQL

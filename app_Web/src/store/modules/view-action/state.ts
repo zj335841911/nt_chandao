@@ -61,6 +61,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0946cbeb1bf3dc832384ec4ee62310e8',
+            viewmodule: 'zentao',
+            viewname: 'TestResultEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '09b6c2af7dcc4b719d4c8aad2319f1c5',
             viewmodule: 'zentao',
             viewname: 'BugBuildSubGridView_New',
@@ -182,6 +191,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '1bd39348fb4dc22c08e997bd771a2419',
+            viewmodule: 'zentao',
+            viewname: 'TestResultGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0946cbeb1bf3dc832384ec4ee62310e8',
             ],
         },
         {
@@ -312,6 +331,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '43a086ef952c56ebce8a14743f5157d6',
                 'a694d988e3134a33bb5a99e6e07246f6',
             ],
         },
@@ -564,6 +584,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '43a086ef952c56ebce8a14743f5157d6',
+            viewmodule: 'zentao',
+            viewname: 'TestRunMEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd1078175fef9a3fd5dab94f9fbd0c2b3',
             ],
         },
         {
@@ -2151,6 +2181,16 @@ export const viewstate: any = {
                 '572e63d8153209ef20848682018326b2',
                 'b507b8efc20db47d7b01d67561638cd6',
                 '983aa1b77ca021f30978523ddef010a0',
+            ],
+        },
+        {
+            viewtag: 'd1078175fef9a3fd5dab94f9fbd0c2b3',
+            viewmodule: 'zentao',
+            viewname: 'TestRunEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1bd39348fb4dc22c08e997bd771a2419',
             ],
         },
         {

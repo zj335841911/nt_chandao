@@ -1,0 +1,20 @@
+<div class='items multieditviewpanel'>
+     <div v-for="(item,index) in items" class='item' :key="index">
+             <test-run-edit-view9      
+        class="viewcontainer2" 
+        :viewdata="toString(item.viewdata)"
+        :viewparam="toString(item.viewparam)"
+        :viewDefaultUsage="false" 
+        :panelState="panelState"  
+        @viewdataschange="viewDataChange.apply(_self, arguments)"
+        @viewload="viewload.apply(_self, arguments)"
+        @viewdirty="viewdirty(item,$event)">
+        </test-run-edit-view9>
+        <divider />
+     </div>
+    <div>
+    <i-button type="primary" @click="handleAdd.apply(_self, arguments)" style="float: right;">
+        {{ $t('app.local.add')}}
+    </i-button>
+    </div>
+</div>

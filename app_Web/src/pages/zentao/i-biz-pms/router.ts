@@ -4640,6 +4640,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-grid-view/test-task-grid-view.vue'),
                 },
                 {
+                    path: 'testresults/:testresult?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.testresult.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testresults', parameterName: 'testresult' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-result-grid-view9/test-result-grid-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
                     meta: {
                         caption: 'entities.burn.views.chartview.title',
@@ -4799,6 +4813,34 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'),
+                },
+                {
+                    path: 'testresults/:testresult?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.testresult.views.editview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testresults', parameterName: 'testresult' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-result-edit-view/test-result-edit-view.vue'),
+                },
+                {
+                    path: 'testruns/:testrun?/meditview9/:meditview9?',
+                    meta: {
+                        caption: 'entities.testrun.views.meditview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testruns', parameterName: 'testrun' },
+                            { pathName: 'meditview9', parameterName: 'meditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-run-medit-view9/test-run-medit-view9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assingtoview/:assingtoview?',
@@ -5169,6 +5211,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
+                },
+                {
+                    path: 'testruns/:testrun?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.testrun.views.editview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testruns', parameterName: 'testrun' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-run-edit-view9/test-run-edit-view9.vue'),
                 },
                 {
                     path: 'products/:product?/pickupview/:pickupview?',

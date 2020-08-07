@@ -1,0 +1,113 @@
+<i-form :model="this.data" class='app-form' ref='form'  id='testrun_main' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testrun.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+    <app-form-item name='id' :itemRules="this.rules.id" class='' :caption="$t('entities.testrun.main_form.details.id')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.id.error" :isEmptyCaption="true" labelPos="LEFT">
+    
+<app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.lastrundate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='lastrundate' :itemRules="this.rules.lastrundate" class='' :caption="$t('entities.testrun.main_form.details.lastrundate')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastrundate.error" :isEmptyCaption="true" labelPos="LEFT">
+    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.lastrundate" :disabled="detailsModel.lastrundate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.lastrundate = val1 }"></date-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.lastrunner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='lastrunner' :itemRules="this.rules.lastrunner" class='' :caption="$t('entities.testrun.main_form.details.lastrunner')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastrunner.error" :isEmptyCaption="true" labelPos="LEFT">
+    <input-box 
+    v-model="data.lastrunner"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.lastrunner.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.lastrunresult.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='lastrunresult' :itemRules="this.rules.lastrunresult" class='' :caption="$t('entities.testrun.main_form.details.lastrunresult')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastrunresult.error" :isEmptyCaption="true" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.lastrunresult"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.lastrunresult.disabled"
+    valueType="string"
+    tag='Testrun__result'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.testrun.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="true" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.status"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.status.disabled"
+    valueType="string"
+    tag='Testrun__status'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='testrun' 
+    :parentdata='{"srfparentdefname":"RUN","srfparentdename":"ZT_TESTRUN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TESTRESULT_ZT_TESTRUN_RUN","SRFDER1NID":"DER1N_ZT_TESTRESULT_ZT_TESTRUN_RUN"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='testrun'
+    parentName="TestRun"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='test-result-grid-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>

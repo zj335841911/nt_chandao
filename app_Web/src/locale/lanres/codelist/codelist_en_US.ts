@@ -722,6 +722,13 @@ export default {
         "cycle": "周期",
         "empty": ""
     },
+    Testrun__status: {
+        "wait": "未开始",
+        "doing": "进行中",
+        "done": "已完成",
+        "blocked": "被阻塞",
+        "empty": ""
+    },
     TASK_QuickacketMy: {
         "TOME": "指派给我",
         "CANCELLED": "由我创建",
@@ -795,6 +802,13 @@ export default {
     Company__guest: {
         "1": "允许",
         "0": "不允许",
+        "empty": ""
+    },
+    Testrun__result: {
+        "n/a": "忽略",
+        "pass": "通过",
+        "fail": "失败",
+        "blocked": "阻塞",
         "empty": ""
     },
     YesNo3: {

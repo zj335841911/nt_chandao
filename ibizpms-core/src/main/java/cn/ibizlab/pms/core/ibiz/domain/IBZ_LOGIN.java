@@ -69,6 +69,13 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     @JSONField(name = "commiter")
     @JsonProperty("commiter")
     private String commiter;
+    /**
+     * token
+     */
+    @TableField(exist = false)
+    @JSONField(name = "token")
+    @JsonProperty("token")
+    private String token;
 
 
 

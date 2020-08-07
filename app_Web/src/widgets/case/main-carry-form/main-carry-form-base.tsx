@@ -74,7 +74,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainCarryEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 2;
 
     /**
      * 表单数据对象
@@ -125,6 +125,8 @@ export class MainCarryEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maincarry_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -164,6 +166,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
 
 
 
