@@ -89,6 +89,8 @@ export default class TestRunUIServiceBase extends UIService {
      * @memberof  TestRunUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'meditview9',srfappde:'testruns'});
+        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testruns'});
     }
 
     /**

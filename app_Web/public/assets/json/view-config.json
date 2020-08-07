@@ -79,6 +79,16 @@
         "viewtag": "08ca1b1e6234a0d038e1fbf52478ea7f",
         "memo": ""
     },
+    "testresulteditview": {
+        "title": "testresult编辑视图",
+        "caption": "测试结果",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestResultEditView",
+        "viewfilename": "test-result-edit-view",
+        "viewtag": "0946cbeb1bf3dc832384ec4ee62310e8",
+        "memo": ""
+    },
     "bugbuildsubgridview_new": {
         "title": "bug表格视图",
         "caption": "Bug",
@@ -207,6 +217,16 @@
         "viewname": "ProductTestDashboardView",
         "viewfilename": "product-test-dashboard-view",
         "viewtag": "1884d01229cee824d7577705da288043",
+        "memo": ""
+    },
+    "testresultgridview9": {
+        "title": "测试结果表格视图",
+        "caption": "测试结果",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TestResultGridView9",
+        "viewfilename": "test-result-grid-view9",
+        "viewtag": "1bd39348fb4dc22c08e997bd771a2419",
         "memo": ""
     },
     "producttestgridview": {
@@ -577,6 +597,16 @@
         "viewname": "TodoAssignToView",
         "viewfilename": "todo-assign-to-view",
         "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3",
+        "memo": ""
+    },
+    "testrunmeditview9": {
+        "title": "测试运行多表单编辑视图",
+        "caption": "测试运行",
+        "viewtype": "DEMEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TestRunMEditView9",
+        "viewfilename": "test-run-medit-view9",
+        "viewtag": "43a086ef952c56ebce8a14743f5157d6",
         "memo": ""
     },
     "bugbuildsubgridview_new_9212": {
@@ -2237,6 +2267,16 @@
         "viewname": "BranchPickupView",
         "viewfilename": "branch-pickup-view",
         "viewtag": "d0851a0acfe0e92a6a5ba34b1552bc66",
+        "memo": ""
+    },
+    "testruneditview9": {
+        "title": "测试运行编辑视图",
+        "caption": "测试运行",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TestRunEditView9",
+        "viewfilename": "test-run-edit-view9",
+        "viewtag": "d1078175fef9a3fd5dab94f9fbd0c2b3",
         "memo": ""
     },
     "productmytesttabexpview": {

@@ -197,6 +197,7 @@ export default {
 	maincarry_form: {
 		details: {
 			druipart1: "用例步骤", 
+			druipart2: "", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 

@@ -5611,6 +5611,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Testrun__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "被阻塞",
+                text: "被阻塞",
+                "data":"",
+                "codename":"Blocked",
+                value: "blocked",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "TASK_QuickacketMy",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -6130,6 +6177,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_0",
                 value: "0",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testrun__result",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "n/a",
+                label: "忽略",
+                text: "忽略",
+                "data":"",
+                "codename":"N_a",
+                value: "n/a",
+                
+                disabled: false,
+            },
+            {
+                id: "pass",
+                label: "通过",
+                text: "通过",
+                "data":"",
+                "codename":"Pass",
+                value: "pass",
+                
+                disabled: false,
+            },
+            {
+                id: "fail",
+                label: "失败",
+                text: "失败",
+                "data":"",
+                "codename":"Fail",
+                value: "fail",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "阻塞",
+                text: "阻塞",
+                "data":"",
+                "codename":"Blocked",
+                value: "blocked",
                 
                 disabled: false,
             },

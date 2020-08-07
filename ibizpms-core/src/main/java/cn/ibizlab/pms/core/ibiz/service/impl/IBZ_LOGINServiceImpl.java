@@ -49,94 +49,15 @@ public class IBZ_LOGINServiceImpl extends ServiceImpl<IBZ_LOGINMapper, IBZ_LOGIN
     protected int batchSize = 500;
 
     @Override
-    @Transactional
-    public boolean create(IBZ_LOGIN et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<IBZ_LOGIN> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(IBZ_LOGIN et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<IBZ_LOGIN> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public IBZ_LOGIN get(BigInteger key) {
-        IBZ_LOGIN et = getById(key);
-        if(et==null){
-            et=new IBZ_LOGIN();
-            et.setId(key);
-        }
-        else{
-        }
+    public IBZ_LOGIN getUser(IBZ_LOGIN et) {
+        //自定义代码
         return et;
     }
 
     @Override
-    public IBZ_LOGIN getDraft(IBZ_LOGIN et) {
+    public IBZ_LOGIN ztlogin(IBZ_LOGIN et) {
+        //自定义代码
         return et;
-    }
-
-    @Override
-    public boolean checkKey(IBZ_LOGIN et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean save(IBZ_LOGIN et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional
-    public boolean saveOrUpdate(IBZ_LOGIN et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<IBZ_LOGIN> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<IBZ_LOGIN> list) {
-        saveOrUpdateBatch(list,batchSize);
     }
 
 
