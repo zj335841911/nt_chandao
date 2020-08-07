@@ -320,10 +320,19 @@ export class MainEditGridBase extends GridControlBase {
             let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
             if (Object.is(item.rowDataState, 'create')) {
                 Data.id = null;
+                Data.root = null;
             }
-            Object.assign(Data, { viewparams: this.viewparams });
-            let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), Data, this.showBusyIndicator);
-            successItems.push(JSON.parse(JSON.stringify(response.data)));
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[this.createAction] && _appEntityService[this.createAction] instanceof Function) {
+                result = _appEntityService[this.createAction](Context,Data, this.showBusyIndicator);
+            }else{
+                result =this.appEntityService.Create(Context,Data, this.showBusyIndicator);
+            }
+            result.then((response) => {
+                this.service.handleResponse(this.createAction, response);
+                successItems.push(JSON.parse(JSON.stringify(response.data)));
+            })
         }
         this.$emit('save', successItems);
     }
