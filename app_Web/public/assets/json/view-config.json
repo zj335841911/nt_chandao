@@ -1179,6 +1179,16 @@
         "viewtag": "6c7b582273d0726bcf77214807cfe40c",
         "memo": ""
     },
+    "caseexceditview": {
+        "title": "测试用例编辑视图（执行结果）",
+        "caption": "执行结果",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseExcEditView",
+        "viewfilename": "case-exc-edit-view",
+        "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce",
+        "memo": ""
+    },
     "actionmyalltrendslistview": {
         "title": "系统日志列表视图",
         "caption": "系统日志",
