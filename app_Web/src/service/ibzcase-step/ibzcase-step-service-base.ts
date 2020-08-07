@@ -39,6 +39,52 @@ export default class IBZCaseStepServiceBase extends EntityService {
 // 实体接口
 
     /**
+     * FetchCurTest接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async FetchCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchCurTest ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempCurTest接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async FetchTempCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempCurTest ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

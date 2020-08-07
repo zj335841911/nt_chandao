@@ -36,6 +36,7 @@ public interface ICaseStepService extends IService<CaseStep>{
     boolean checkKey(CaseStep et) ;
     boolean save(CaseStep et) ;
     void saveBatch(List<CaseStep> list) ;
+    Page<CaseStep> searchCurTest(CaseStepSearchContext context) ;
     Page<CaseStep> searchDefault(CaseStepSearchContext context) ;
     Page<CaseStep> searchDefault1(CaseStepSearchContext context) ;
     Page<CaseStep> searchVersion(CaseStepSearchContext context) ;

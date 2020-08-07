@@ -26,17 +26,18 @@ export default {
 	},
 	main_form: {
 		details: {
-			group1: "testresult基本信息", 
+			grouppanel1: "用例步骤", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			id: "编号", 
+			id: "", 
+			date: "", 
+			lastrunner: "", 
+			caseresult: "", 
 		},
 		uiactions: {
 		},
