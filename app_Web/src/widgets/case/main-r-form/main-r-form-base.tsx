@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
-import MainCarryService from './main-carry-form-service';
+import MainRService from './main-r-form-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainCarryEditFormBase}
+ * @extends {MainREditFormBase}
  */
-export class MainCarryEditFormBase extends EditFormControlBase {
+export class MainREditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainCarryService}
-     * @memberof MainCarryEditFormBase
+     * @type {MainRService}
+     * @memberof MainREditFormBase
      */
-    public service: MainCarryService = new MainCarryService({ $store: this.$store });
+    public service: MainRService = new MainRService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     protected appDeName: string = 'case';
 
@@ -55,14 +55,14 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     protected appDeLogicName: string = '测试用例';
     /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
@@ -72,15 +72,15 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {number}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -102,7 +102,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     public rules: any = {
     }
@@ -111,7 +111,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainCarryBase
+     * @memberof MainRBase
      */
     public deRules:any = {
     };
@@ -120,16 +120,14 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     public detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maincarry_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.mainr_form', extractMode: 'ITEM', details: [] } }),
 
-        group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maincarry_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.mainr_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -164,11 +162,10 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {Promise<void>}
-     * @memberof MainCarryEditFormBase
+     * @memberof MainREditFormBase
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
-
 
 
 

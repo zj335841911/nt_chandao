@@ -951,6 +951,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMainTabExpView",
             "viewtag": "6c7b582273d0726bcf77214807cfe40c"
         },
+        "caseexceditview": {
+            "title": "测试用例编辑视图（执行结果）",
+            "caption": "执行结果",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseExcEditView",
+            "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce"
+        },
         "actionmyalltrendslistview": {
             "title": "系统日志列表视图",
             "caption": "系统日志",
