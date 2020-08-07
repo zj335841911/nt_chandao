@@ -32,6 +32,18 @@ export default {
 		uiactions: {
 		},
 	},
+	mainr_grid: {
+		columns: {
+			id: "编号",
+			desc: "步骤",
+			type: "类型",
+			expect: "预期",
+			steps: "测试结果",
+			reals: "实际情况",
+		},
+		uiactions: {
+		},
+	},
 	maingridview9toolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
