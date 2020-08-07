@@ -136,7 +136,6 @@ export class MainEditRowGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
-          root: new FormItemModel(),
           account: new FormItemModel(),
           type: new FormItemModel(),
           estimate: new FormItemModel(),
@@ -151,10 +150,6 @@ export class MainEditRowGridBase extends GridControlBase {
      * @memberof MainEditRowGridBase
      */
     public rules: any = {
-        root: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
-        ],
         account: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },

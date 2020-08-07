@@ -30,7 +30,6 @@ export default class MainEditRowModel {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'account_text',

@@ -889,8 +889,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{IDS:"%id%",TASK:"%task%",ID:"0",VERSIONS:"%version%",CASE:"0"});
-        Object.assign(params,{id:"0",versions:"%version%",ids:"%id%",task:"%task%",case:"0"});
+        Object.assign(context,{IDS:"%id%",TASK:"%task%",VERSIONS:"%version%"});
+        Object.assign(params,{versions:"%version%",ids:"%id%",task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { case: '%case%' });
