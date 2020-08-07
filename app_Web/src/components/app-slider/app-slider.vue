@@ -76,7 +76,6 @@ export default class AppSlider extends Vue {
      */
     @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
-        newVal = (newVal === null) ? 0 : newVal;
         this.currentVal = parseInt(newVal);
     }
 

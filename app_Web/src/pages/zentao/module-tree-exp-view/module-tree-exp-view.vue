@@ -1,22 +1,19 @@
-<template src="./module-tree-exp-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ModuleTreeExpViewBase } from './module-tree-exp-view-base';
-import view_treeexpbar from '@widgets/module/tree-exp-viewtreeexpbar-treeexpbar/tree-exp-viewtreeexpbar-treeexpbar.vue';
+import ModuleTreeExpViewBase from './module-tree-exp-view-base.vue';
 
-/**
- * 所有产品视图
- *
- * @export
- * @class ModuleTreeExpView
- * @extends {ModuleTreeExpViewBase}
- */
+import view_treeexpbar from '@widgets/module/tree-exp-viewtreeexpbar-treeexpbar/tree-exp-viewtreeexpbar-treeexpbar.vue';
 @Component({
     components: {
         view_treeexpbar, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ModuleTreeExpView extends ModuleTreeExpViewBase { }
+export default class ModuleTreeExpView extends ModuleTreeExpViewBase {
+
+}
 </script>

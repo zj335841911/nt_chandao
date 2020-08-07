@@ -1,22 +1,19 @@
-<template src="./test-suite-edit-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestSuiteEditViewBase } from './test-suite-edit-view-base';
-import view_form from '@widgets/test-suite/main-form/main-form.vue';
+import TestSuiteEditViewBase from './test-suite-edit-view-base.vue';
 
-/**
- * 测试套件编辑视图视图
- *
- * @export
- * @class TestSuiteEditView
- * @extends {TestSuiteEditViewBase}
- */
+import view_form from '@widgets/test-suite/main-form/main-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TestSuiteEditView extends TestSuiteEditViewBase { }
+export default class TestSuiteEditView extends TestSuiteEditViewBase {
+
+}
 </script>

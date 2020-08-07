@@ -1,22 +1,19 @@
-<template src="./task-done-task-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskDoneTaskViewBase } from './task-done-task-view-base';
-import view_form from '@widgets/task/complete-form-form/complete-form-form.vue';
+import TaskDoneTaskViewBase from './task-done-task-view-base.vue';
 
-/**
- * 完成任务视图
- *
- * @export
- * @class TaskDoneTaskView
- * @extends {TaskDoneTaskViewBase}
- */
+import view_form from '@widgets/task/complete-form-form/complete-form-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TaskDoneTaskView extends TaskDoneTaskViewBase { }
+export default class TaskDoneTaskView extends TaskDoneTaskViewBase {
+
+}
 </script>

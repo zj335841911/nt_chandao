@@ -19,7 +19,6 @@ export default class GetRoadmapSModel {
 			},
 			{
 				name: 'marker',
-        codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
 			{
 				name: 'year',
@@ -52,10 +51,6 @@ export default class GetRoadmapSModel {
       {
         name:'query',
         prop:'query'
-      },
-      {
-        name:'sort',
-        prop:'sort'
       },
       {
         name:'page',

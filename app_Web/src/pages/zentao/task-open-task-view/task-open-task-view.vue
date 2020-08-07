@@ -1,22 +1,19 @@
-<template src="./task-open-task-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskOpenTaskViewBase } from './task-open-task-view-base';
-import view_form from '@widgets/task/start-form-form/start-form-form.vue';
+import TaskOpenTaskViewBase from './task-open-task-view-base.vue';
 
-/**
- * 开始任务视图
- *
- * @export
- * @class TaskOpenTaskView
- * @extends {TaskOpenTaskViewBase}
- */
+import view_form from '@widgets/task/start-form-form/start-form-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TaskOpenTaskView extends TaskOpenTaskViewBase { }
+export default class TaskOpenTaskView extends TaskOpenTaskViewBase {
+
+}
 </script>

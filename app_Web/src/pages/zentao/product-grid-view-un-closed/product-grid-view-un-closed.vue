@@ -1,22 +1,19 @@
-<template src="./product-grid-view-un-closed.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProductGridView_UnClosedBase } from './product-grid-view-un-closed-base';
-import view_grid from '@widgets/product/main2-grid/main2-grid.vue';
+import ProductGridView_UnClosedBase from './product-grid-view-un-closed-base.vue';
 
-/**
- * 产品表格视图视图
- *
- * @export
- * @class ProductGridView_UnClosed
- * @extends {ProductGridView_UnClosedBase}
- */
+import view_grid from '@widgets/product/main2-grid/main2-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProductGridView_UnClosed extends ProductGridView_UnClosedBase { }
+export default class ProductGridView_UnClosed extends ProductGridView_UnClosedBase {
+
+}
 </script>

@@ -1,25 +1,14 @@
-<template src="./dash-board-info-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { DashBoardInfoEditFormBase } from './dash-board-info-form-base';
- 
+import DashBoardInfoBase from './dash-board-info-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class DashBoardInfoEditForm
- * @extends {DashBoardInfoEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class DashBoardInfoEditForm extends DashBoardInfoEditFormBase { }
+export default class DashBoardInfo extends DashBoardInfoBase {
+
+}
 </script>
-<style lang='less'>
-@import './dash-board-info-form.less';
-</style>

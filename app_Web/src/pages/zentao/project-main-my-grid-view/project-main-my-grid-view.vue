@@ -1,22 +1,19 @@
-<template src="./project-main-my-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectMainMyGridViewBase } from './project-main-my-grid-view-base';
-import view_grid from '@widgets/project/main-my-grid/main-my-grid.vue';
+import ProjectMainMyGridViewBase from './project-main-my-grid-view-base.vue';
 
-/**
- * 项目视图
- *
- * @export
- * @class ProjectMainMyGridView
- * @extends {ProjectMainMyGridViewBase}
- */
+import view_grid from '@widgets/project/main-my-grid/main-my-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProjectMainMyGridView extends ProjectMainMyGridViewBase { }
+export default class ProjectMainMyGridView extends ProjectMainMyGridViewBase {
+
+}
 </script>

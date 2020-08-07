@@ -16,23 +16,21 @@ export const Environment = {
     // 文件上传
     UploadFile: 'ibizutil/upload',
     // 是否为pc端应用
-    isAppMode: true,
+    isAppMode:true,
     //统一地址
-    uniteAddress: "http://172.16.100.202:8114",
-    // 是否开启权限认证
-    enablePermissionValid:false,
+    uniteAddress:"http://172.16.100.202:8114",
     // 是否为开发模式
     devMode: true,
     // 项目模板地址
-    ProjectUrl: "http://demo.ibizlab.cn/groups/ibizr7pfstdtempl/ibizvuer7plus",
+    ProjectUrl: "http://172.16.180.229/wangxiang1/VUE_R7_FTL",
     // 配置平台地址
-    StudioUrl: "http://neko.org.cn:3333/",
-    // 方案标识
-    SlnId: "506FF789-2742-4C35-A91D-E3990C379D41",
+    StudioUrl: "http://172.16.170.145/slnstudio/",
+    // 中心标识
+    SlnId: "B4BF5C84-D020-4D9A-A986-8FA4FD72816C",
     // 系统标识
-    SysId: "3A921F6B-613D-4975-ACD6-79565D82E1DE",
+    SysId: "B428B5BE-EA90-4101-A493-BA7085D89F0A",
     // 前端应用标识
-    AppId: "67ca55365f7abcc05c30f4fba9f8ee37",
+    AppId: "6e0b7357169ef4eba84e1347ed94bd84",
     // 项目发布文件地址
     PublishProjectUrl: 'https://oauth2:0fc5b56b52f5ad87efd3850b6536e034@gitee.com/ibizlab/iBizPMS.git',
     // ibiz开放平台地址
@@ -40,7 +38,3 @@ export const Environment = {
     // ibiz论坛地址
     ibizbbstUrl: 'https://bbs.ibizlab.cn',
 };
-// 挂载外部配置文件
-if ((window as any).Environment) {
-    Object.assign(Environment, (window as any).Environment);
-}

@@ -1,22 +1,19 @@
-<template src="./action-my-all-trends-list-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ActionMyAllTrendsListViewBase } from './action-my-all-trends-list-view-base';
-import view_list from '@widgets/action/trends-list/trends-list.vue';
+import ActionMyAllTrendsListViewBase from './action-my-all-trends-list-view-base.vue';
 
-/**
- * 系统日志列表视图视图
- *
- * @export
- * @class ActionMyAllTrendsListView
- * @extends {ActionMyAllTrendsListViewBase}
- */
+import view_list from '@widgets/action/trends-list/trends-list.vue';
 @Component({
     components: {
         view_list, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ActionMyAllTrendsListView extends ActionMyAllTrendsListViewBase { }
+export default class ActionMyAllTrendsListView extends ActionMyAllTrendsListViewBase {
+
+}
 </script>

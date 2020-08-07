@@ -32,31 +32,13 @@ export default class GetModuleBranchLogicBase {
     private defaultParamName:string = "Default";
 
     /**
-     * 参数集合
-     * 
-     * @memberof  GetModuleBranchLogicBase
-     */
-    private paramsMap:Map<string,any> = new Map();
-
-    /**
      * Creates an instance of  GetModuleBranchLogicBase.
      * 
      * @param {*} [opts={}]
      * @memberof  GetModuleBranchLogicBase
      */
     constructor(opts: any = {}) {
-        this.initParams(opts);
-    }
-
-    /**
-     * 初始化参数集合
-     * 
-     * @param {*} [opts={}]
-     * @memberof  GetModuleBranchLogicBase
-     */
-    public initParams(opts:any){
-        this.paramsMap.set('Default',opts);
-        this.paramsMap.set('Module',{});
+        
     }
 
 
@@ -110,12 +92,8 @@ export default class GetModuleBranchLogicBase {
     */
     private async executePrepareparam2(context:any,params:any,isloading:boolean){
         // 准备参数节点
-    let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
-    let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    let tempSrcParam0Data:any = this.paramsMap.get('Module').data?this.paramsMap.get('Module').data:{};
-    Object.assign(tempDstParam0Data,{branch:tempSrcParam0Data['branch']});
-    this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
-        return this.paramsMap.get(this.defaultParamName).data;
+        Object.assign(params,{branch:params.branch});
+        return params;
     }
 
     /**
@@ -139,13 +117,12 @@ export default class GetModuleBranchLogicBase {
     private async executeDeaction1(context:any,params:any,isloading:boolean){
         // 行为处理节点
         let result: any;
-        let actionParam:any = this.paramsMap.get('Module');
         const targetService:ModuleService = new ModuleService();
         if (targetService['Get'] && targetService['Get'] instanceof Function) {
-            result = await targetService['Get'](actionParam.context,actionParam.data, false);
+            result = await targetService['Get'](context,params, false);
         }
         if(result && result.status == 200){
-            Object.assign(actionParam.data,result.data);
+            Object.assign(params,result.data);
         if(this.compute0Cond(params)){
             return this.executePrepareparam2(context,params,isloading);   
         }
@@ -160,12 +137,7 @@ export default class GetModuleBranchLogicBase {
     */
     private async executePrepareparam1(context:any,params:any,isloading:boolean){
         // 准备参数节点
-    let tempDstParam0Context:any = this.paramsMap.get('Module').context?this.paramsMap.get('Module').context:{};
-    let tempDstParam0Data:any = this.paramsMap.get('Module').data?this.paramsMap.get('Module').data:{};
-    let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    Object.assign(tempDstParam0Context,{module:tempSrcParam0Data['module']});
-    Object.assign(tempDstParam0Data,{id:tempSrcParam0Data['module']});
-    this.paramsMap.set('Module',{data:tempDstParam0Data,context:tempDstParam0Context});
+        Object.assign(params,{id:params.module});
         if(this.compute2Cond(params)){
             return this.executeDeaction1(context,params,isloading);   
         }

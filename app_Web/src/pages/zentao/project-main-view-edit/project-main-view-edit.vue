@@ -1,22 +1,19 @@
-<template src="./project-main-view-edit.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectMainView_EditBase } from './project-main-view-edit-base';
-import view_form from '@widgets/project/main-edit-form/main-edit-form.vue';
+import ProjectMainView_EditBase from './project-main-view-edit-base.vue';
 
-/**
- * 项目编辑视图视图
- *
- * @export
- * @class ProjectMainView_Edit
- * @extends {ProjectMainView_EditBase}
- */
+import view_form from '@widgets/project/main-edit-form/main-edit-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProjectMainView_Edit extends ProjectMainView_EditBase { }
+export default class ProjectMainView_Edit extends ProjectMainView_EditBase {
+
+}
 </script>

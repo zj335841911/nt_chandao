@@ -1,22 +1,14 @@
-<template src="./confirm-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ConfirmEditFormBase } from './confirm-form-base';
- 
+import ConfirmBase from './confirm-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class ConfirmEditForm
- * @extends {ConfirmEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class ConfirmEditForm extends ConfirmEditFormBase { }
+export default class Confirm extends ConfirmBase {
+
+}
 </script>

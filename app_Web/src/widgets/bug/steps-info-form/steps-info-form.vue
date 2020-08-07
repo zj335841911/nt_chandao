@@ -1,25 +1,14 @@
-<template src="./steps-info-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { StepsInfoEditFormBase } from './steps-info-form-base';
- 
+import StepsInfoBase from './steps-info-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class StepsInfoEditForm
- * @extends {StepsInfoEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class StepsInfoEditForm extends StepsInfoEditFormBase { }
+export default class StepsInfo extends StepsInfoBase {
+
+}
 </script>
-<style lang='less'>
-@import './steps-info-form.less';
-</style>

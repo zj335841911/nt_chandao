@@ -1,22 +1,19 @@
-<template src="./story-mpickup-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { StoryMPickupViewBase } from './story-mpickup-view-base';
-import view_pickupviewpanel from '@widgets/story/mpickup-viewpickupviewpanel-pickupviewpanel/mpickup-viewpickupviewpanel-pickupviewpanel.vue';
+import StoryMPickupViewBase from './story-mpickup-view-base.vue';
 
-/**
- * 关联需求视图
- *
- * @export
- * @class StoryMPickupView
- * @extends {StoryMPickupViewBase}
- */
+import view_pickupviewpanel from '@widgets/story/mpickup-viewpickupviewpanel-pickupviewpanel/mpickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
         view_pickupviewpanel, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class StoryMPickupView extends StoryMPickupViewBase { }
+export default class StoryMPickupView extends StoryMPickupViewBase {
+
+}
 </script>

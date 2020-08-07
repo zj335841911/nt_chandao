@@ -70,14 +70,17 @@ export default class DataViewEngine extends MDViewEngine {
      * @memberof DataViewEngine
      */
     public doRemove(): void {
+
         let selectedData = this.getMDCtrl() && this.getMDCtrl().getSelection();
         if (!selectedData || selectedData == null || selectedData.length === 0) {
             return;
         }
+
         let dataInfo = '';
+
         selectedData.forEach((record: any, index: number) => {
-        let srfmajortext = record.srfmajortext;
-        if (index < 5) {
+            let srfmajortext = record.srfmajortext;
+            if (index < 5) {
                 if (!Object.is(dataInfo, '')) {
                     dataInfo += '、';
                 }
@@ -85,13 +88,18 @@ export default class DataViewEngine extends MDViewEngine {
             } else {
                 return false;
             }
+
         });
+
+
         if (selectedData.length < 5) {
             dataInfo = dataInfo + '共' + selectedData.length + '条数据';
         } else {
             dataInfo = dataInfo + '...' + '共' + selectedData.length + '条数据';
         }
+
         dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '').replace(/[ ]/g, '');
+
         // 询问框
         this.view.$Modal.confirm({
             title:'警告',
@@ -99,7 +107,9 @@ export default class DataViewEngine extends MDViewEngine {
             onOk:() => {
                 this.removeData(null);
             },
-            onCancel: () => {}
+            onCancel: () => {
+
+            }
         });
     }
 
@@ -114,6 +124,15 @@ export default class DataViewEngine extends MDViewEngine {
         if (!arg) {
             arg = {};
         }
+
+        // if (this.getParentMode()) {
+        //     Object.assign(arg, this.getParentMode());
+        // }
+
+        // if (this.getParentData()) {
+        //     Object.assign(arg, this.getParentData());
+        // }
+
         if (!arg.srfkeys) {
             // 获取要删除的数据集合
             const selectedData: Array<any> = this.getMDCtrl() && this.getMDCtrl().getSelection();

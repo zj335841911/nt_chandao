@@ -68,7 +68,6 @@ export default class PickupGirdModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -156,10 +155,6 @@ export default class PickupGirdModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

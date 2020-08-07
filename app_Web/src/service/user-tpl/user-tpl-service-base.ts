@@ -32,8 +32,6 @@ export default class UserTplServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'usertpls';
         this.APPDETEXT = 'title';
-        this.APPNAME = 'web';
-        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口
@@ -48,9 +46,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/usertpls/${context.usertpl}/select`,isloading);
-            
-            return res;
+            return Http.getInstance().get(`/usertpls/${context.usertpl}/select`,isloading);
     }
 
     /**
@@ -73,7 +69,6 @@ export default class UserTplServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/usertpls`,data,isloading);
-        
         return res;
     }
 
@@ -90,7 +85,6 @@ export default class UserTplServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/usertpls/${context.usertpl}`,data,isloading);
-            
             return res;
     }
 
@@ -104,8 +98,8 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/usertpls/${context.usertpl}`,isloading);
-            return res;
+            return Http.getInstance().delete(`/usertpls/${context.usertpl}`,isloading);
+
     }
 
     /**
@@ -119,8 +113,8 @@ export default class UserTplServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/usertpls/${context.usertpl}`,isloading);
-            
             return res;
+
     }
 
     /**
@@ -135,7 +129,6 @@ export default class UserTplServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/usertpls/getdraft`,isloading);
         res.data.usertpl = data.usertpl;
-        
         return res;
     }
 
@@ -149,8 +142,7 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/usertpls/${context.usertpl}/checkkey`,data,isloading);
-            return res;
+            return Http.getInstance().post(`/usertpls/${context.usertpl}/checkkey`,data,isloading);
     }
 
     /**
@@ -166,7 +158,6 @@ export default class UserTplServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/usertpls/${context.usertpl}/save`,data,isloading);
-            
             return res;
     }
 
@@ -181,7 +172,6 @@ export default class UserTplServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/usertpls/fetchdefault`,tempData,isloading);
-        return res;
+        return Http.getInstance().get(`/usertpls/fetchdefault`,tempData,isloading);
     }
 }

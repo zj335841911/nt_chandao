@@ -1,22 +1,19 @@
-<template src="./product-main-tab-exp-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProductMainTabExpViewBase } from './product-main-tab-exp-view-base';
-import view_tabexppanel from '@widgets/product/main-tab-exp-viewtabexppanel-tabexppanel/main-tab-exp-viewtabexppanel-tabexppanel.vue';
+import ProductMainTabExpViewBase from './product-main-tab-exp-view-base.vue';
 
-/**
- * 产品视图
- *
- * @export
- * @class ProductMainTabExpView
- * @extends {ProductMainTabExpViewBase}
- */
+import view_tabexppanel from '@widgets/product/main-tab-exp-viewtabexppanel-tabexppanel/main-tab-exp-viewtabexppanel-tabexppanel.vue';
 @Component({
     components: {
         view_tabexppanel, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProductMainTabExpView extends ProductMainTabExpViewBase { }
+export default class ProductMainTabExpView extends ProductMainTabExpViewBase {
+
+}
 </script>

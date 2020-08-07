@@ -46,10 +46,6 @@ export default class ExpModel {
         prop:'query'
       },
       {
-        name:'sort',
-        prop:'sort'
-      },
-      {
         name:'page',
         prop:'page'
       },

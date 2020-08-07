@@ -1,22 +1,19 @@
-<template src="./todo-grid-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TodoGridView9Base } from './todo-grid-view9-base';
-import view_grid from '@widgets/todo/my-upcoming-grid/my-upcoming-grid.vue';
+import TodoGridView9Base from './todo-grid-view9-base.vue';
 
-/**
- * 我的待办视图
- *
- * @export
- * @class TodoGridView9
- * @extends {TodoGridView9Base}
- */
+import view_grid from '@widgets/todo/my-upcoming-grid/my-upcoming-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TodoGridView9 extends TodoGridView9Base { }
+export default class TodoGridView9 extends TodoGridView9Base {
+
+}
 </script>

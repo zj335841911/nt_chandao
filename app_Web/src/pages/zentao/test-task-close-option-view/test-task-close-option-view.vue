@@ -1,22 +1,19 @@
-<template src="./test-task-close-option-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestTaskCloseOptionViewBase } from './test-task-close-option-view-base';
-import view_form from '@widgets/test-task/close-form/close-form.vue';
+import TestTaskCloseOptionViewBase from './test-task-close-option-view-base.vue';
 
-/**
- * 关闭视图
- *
- * @export
- * @class TestTaskCloseOptionView
- * @extends {TestTaskCloseOptionViewBase}
- */
+import view_form from '@widgets/test-task/close-form/close-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TestTaskCloseOptionView extends TestTaskCloseOptionViewBase { }
+export default class TestTaskCloseOptionView extends TestTaskCloseOptionViewBase {
+
+}
 </script>

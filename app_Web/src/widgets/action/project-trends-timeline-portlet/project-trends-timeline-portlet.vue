@@ -1,22 +1,15 @@
-<template src="./project-trends-timeline-portlet.html"/>
+
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectTrendsTimelinePortletBase } from './project-trends-timeline-portlet-base';
- 
+import ActionProjectTrendsTimelineBase from './project-trends-timeline-portlet-base.vue';
 
-/**
- * dashboard_sysportlet2部件
- *
- * @export
- * @class ProjectTrendsTimelinePortlet
- * @extends {ProjectTrendsTimelinePortletBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class ProjectTrendsTimelinePortlet extends ProjectTrendsTimelinePortletBase { }
+export default class ActionProjectTrendsTimeline extends ActionProjectTrendsTimelineBase {
+
+}
 </script>

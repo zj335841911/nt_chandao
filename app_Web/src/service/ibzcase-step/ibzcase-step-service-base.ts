@@ -32,8 +32,6 @@ export default class IBZCaseStepServiceBase extends EntityService {
         this.APPDEKEY = 'id';
         this.APPDENAME = 'ibzcasesteps';
         this.APPDETEXT = 'expect';
-        this.APPNAME = 'web';
-        this.SYSTEMNAME = 'pms';
     }
 
 // 实体接口

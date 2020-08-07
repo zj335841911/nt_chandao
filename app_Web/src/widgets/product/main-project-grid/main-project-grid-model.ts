@@ -73,7 +73,6 @@ export default class MainProjectModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'product',
@@ -86,10 +85,6 @@ export default class MainProjectModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

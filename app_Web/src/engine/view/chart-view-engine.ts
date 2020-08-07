@@ -36,15 +36,7 @@ export default class ChartViewEngine extends SearchViewEngine {
      * @memberof ChartViewEngine
      */
     public load(opts: any = {}): void {
-        if (this.getSearchForm()) {
-            const tag = this.getSearchForm().name;
-            this.setViewState2({ tag: tag, action: 'loaddraft', viewdata: this.view.viewparams });
-        } else if (this.getChart() && this.isLoadDefault) {
-            const tag = this.getChart().name;
-            this.setViewState2({ tag: tag, action: 'load', viewdata: {} });
-        } else {
-            this.isLoadDefault = true;
-        }
+        super.load(opts);
     }
 
     /**

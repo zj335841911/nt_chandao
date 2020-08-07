@@ -1,22 +1,14 @@
-<template src="./main-project-new-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainProjectNewEditFormBase } from './main-project-new-form-base';
- 
+import MainProjectNewBase from './main-project-new-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class MainProjectNewEditForm
- * @extends {MainProjectNewEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class MainProjectNewEditForm extends MainProjectNewEditFormBase { }
+export default class MainProjectNew extends MainProjectNewBase {
+
+}
 </script>

@@ -1,22 +1,19 @@
-<template src="./bug-build-sub-grid-view-new-9212.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugBuildSubGridView_New_9212Base } from './bug-build-sub-grid-view-new-9212-base';
-import view_grid from '@widgets/bug/main-build-sub-grid/main-build-sub-grid.vue';
+import BugBuildSubGridView_New_9212Base from './bug-build-sub-grid-view-new-9212-base.vue';
 
-/**
- * bug表格视图视图
- *
- * @export
- * @class BugBuildSubGridView_New_9212
- * @extends {BugBuildSubGridView_New_9212Base}
- */
+import view_grid from '@widgets/bug/main-build-sub-grid/main-build-sub-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class BugBuildSubGridView_New_9212 extends BugBuildSubGridView_New_9212Base { }
+export default class BugBuildSubGridView_New_9212 extends BugBuildSubGridView_New_9212Base {
+
+}
 </script>

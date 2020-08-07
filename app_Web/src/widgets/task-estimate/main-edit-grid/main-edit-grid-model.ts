@@ -70,11 +70,10 @@ export default class MainEditModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'task',
-          prop: 'task',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {
@@ -88,10 +87,6 @@ export default class MainEditModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

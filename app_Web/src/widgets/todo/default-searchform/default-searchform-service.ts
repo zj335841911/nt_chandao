@@ -80,8 +80,6 @@ export default class DefaultService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        data.page = data.page ? data.page : 0;
-        data.size = data.size ? data.size : 1000;
 
         return Promise.reject([])
     }
@@ -93,21 +91,20 @@ export default class DefaultService extends ControlService {
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
-     * @param {*} [localdata]
      * @returns {Promise<any>}
      * @memberof DefaultService
      */
     @Errorlog
-    public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+    public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         data = this.handleWFData(data);
         context = this.handleRequestData(action,context,data).context;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](context,data, isloading,localdata);
+                result = _appEntityService[action](context,data, isloading);
             } else {
-                result = this.appEntityService.WFStart(context,data, isloading,localdata);
+                result = this.appEntityService.Create(context,data, isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
@@ -125,21 +122,20 @@ export default class DefaultService extends ControlService {
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
-     * @param {*} [localdata]
      * @returns {Promise<any>}
      * @memberof DefaultService
      */
     @Errorlog
-    public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+    public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
         data = this.handleWFData(data,true);
-        context = this.handleRequestData(action,context,data,true).context;
+        context = this.handleRequestData(action,context,data).context;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](context,data, isloading,localdata);
+                result = _appEntityService[action](context,data, isloading);
             } else {
-                result = this.appEntityService.WFSubmit(context,data, isloading,localdata);
+                result = this.appEntityService.Create(context,data, isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
@@ -149,6 +145,7 @@ export default class DefaultService extends ControlService {
             });
         });
     }
+
 
     /**
      * 添加数据
@@ -282,6 +279,9 @@ export default class DefaultService extends ControlService {
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        //仿真主键数据
+        Data.id = Util.createUUID();
+        Data.todo = Data.id;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -335,16 +335,13 @@ export default class DefaultService extends ControlService {
      * @param data 数据
      * @memberof DefaultService
      */
-    public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
+    public handleRequestData(action: string,context:any, data: any = {}){
         let mode: any = this.getMode();
         if (!mode && mode.getDataItems instanceof Function) {
             return data;
         }
         let formItemItems: any[] = mode.getDataItems();
         let requestData:any = {};
-        if(isMerge && (data && data.viewparams)){
-            Object.assign(requestData,data.viewparams);
-        }
         formItemItems.forEach((item:any) =>{
             if(item && item.dataType && Object.is(item.dataType,'FONTKEY')){
                 if(item && item.prop){
@@ -356,33 +353,15 @@ export default class DefaultService extends ControlService {
                 }
             }
         });
+        if(data && data.viewparams){
+            Object.assign(requestData,data.viewparams);
+        }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         if(tempContext && tempContext.srfsessionid){
             tempContext.srfsessionkey = tempContext.srfsessionid;
             delete tempContext.srfsessionid;
         }
         return {context:tempContext,data:requestData};
-    }
-
-    /**
-     * 通过属性名称获取表单项名称
-     * 
-     * @param name 实体属性名称 
-     * @memberof DefaultService
-     */
-    public getItemNameByDeName(name:string) :string{
-        let itemName = name;
-        let mode: any = this.getMode();
-        if (!mode && mode.getDataItems instanceof Function) {
-            return name;
-        }
-        let formItemItems: any[] = mode.getDataItems();
-        formItemItems.forEach((item:any)=>{
-            if(item.prop === name){
-                itemName = item.name;
-            }
-        });
-        return itemName.trim();
     }
 
 }

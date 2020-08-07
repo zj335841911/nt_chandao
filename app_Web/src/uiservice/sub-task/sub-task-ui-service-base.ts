@@ -3,7 +3,6 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import SubTaskService from '@/service/sub-task/sub-task-service';
-import SubTaskAuthService from '@/authservice/sub-task/sub-task-auth-service';
 
 /**
  * 任务UI服务对象基类
@@ -18,56 +17,49 @@ export default class SubTaskUIServiceBase extends UIService {
      * 
      * @memberof  SubTaskUIServiceBase
      */
-    public isEnableWorkflow:boolean = false;
+    protected isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  SubTaskUIServiceBase
      */
-    public dataService:SubTaskService = new SubTaskService();
+    protected dataService:SubTaskService = new SubTaskService();
 
     /**
      * 所有关联视图
      * 
      * @memberof  SubTaskUIServiceBase
      */ 
-    public allViewMap: Map<string, Object> = new Map();
+    protected allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
      * @memberof  SubTaskUIServiceBase
      */ 
-    public stateValue: number = 0;
+    protected stateValue: number = 0;
 
     /**
      * 状态属性
      * 
      * @memberof  SubTaskUIServiceBase
      */ 
-    public stateField: string = "";
+    protected stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
      * @memberof  SubTaskUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status'];
+    protected mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
      * 
      * @memberof  SubTaskUIServiceBase
      */  
-    public allDeMainStateMap:Map<string,string> = new Map();
-
-    /**
-     * 主状态操作标识Map
-     * 
-     * @memberof  SubTaskUIServiceBase
-     */ 
-    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+    protected allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * Creates an instance of  SubTaskUIServiceBase.
@@ -77,10 +69,8 @@ export default class SubTaskUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.authService = new SubTaskAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
-        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -104,20 +94,6 @@ export default class SubTaskUIServiceBase extends UIService {
         this.allDeMainStateMap.set('done','done');
         this.allDeMainStateMap.set('pause','pause');
         this.allDeMainStateMap.set('wait','wait');
-    }
-
-    /**
-     * 初始化主状态操作标识
-     * 
-     * @memberof  SubTaskUIServiceBase
-     */  
-    public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':1,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':1,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('done',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('pause',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':1,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':1,'SUBTASKS':1,'UPDATE':0});
     }
 
 
@@ -160,7 +136,7 @@ export default class SubTaskUIServiceBase extends UIService {
      * 
      * @memberof  SubTaskUIServiceBase
 	 */
-	public getRealDEType(entity:any){
+	protected getRealDEType(entity:any){
 
     }
 
@@ -172,7 +148,7 @@ export default class SubTaskUIServiceBase extends UIService {
      * @param bWFMode   是否工作流模式
      * @memberof  SubTaskUIServiceBase
      */
-    public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
+    protected async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
 		if (bDataInWF) {
 			// 判断数据是否在流程中
@@ -190,12 +166,12 @@ export default class SubTaskUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -206,14 +182,16 @@ export default class SubTaskUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  SubTaskUIServiceBase
      */  
-    public getDEMainStateTag(curData:any){
+    protected async getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
+                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
+
+        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -235,29 +213,5 @@ export default class SubTaskUIServiceBase extends UIService {
         }
         return null;
     }
-
-    /**
-    * 获取数据对象当前操作标识
-    * 
-    * @param data 当前数据
-    * @memberof  SubTaskUIServiceBase
-    */  
-   public getDEMainStateOPPrivs(data:any){
-        if(this.getDEMainStateTag(data)){
-            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
-        }else{
-            return null;
-        }
-   }
-
-    /**
-    * 获取数据对象所有的操作标识
-    * 
-    * @param data 当前数据
-    * @memberof  SubTaskUIServiceBase
-    */ 
-   public getAllOPPrivs(data:any){
-       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
-   }
 
 }

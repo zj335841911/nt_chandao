@@ -1,22 +1,19 @@
-<template src="./todo-base-edit-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { TodoBaseEditView9Base } from './todo-base-edit-view9-base';
-import view_form from '@widgets/todo/dashboard-basic-form/dashboard-basic-form.vue';
+import TodoBaseEditView9Base from './todo-base-edit-view9-base.vue';
 
-/**
- * 待办事宜表编辑视图视图
- *
- * @export
- * @class TodoBaseEditView9
- * @extends {TodoBaseEditView9Base}
- */
+import view_form from '@widgets/todo/dashboard-basic-form/dashboard-basic-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class TodoBaseEditView9 extends TodoBaseEditView9Base { }
+export default class TodoBaseEditView9 extends TodoBaseEditView9Base {
+
+}
 </script>

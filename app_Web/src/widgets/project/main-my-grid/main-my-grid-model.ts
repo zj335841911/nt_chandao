@@ -63,7 +63,6 @@ export default class MainMyModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -106,10 +105,6 @@ export default class MainMyModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

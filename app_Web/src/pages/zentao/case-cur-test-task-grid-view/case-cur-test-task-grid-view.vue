@@ -1,22 +1,19 @@
-<template src="./case-cur-test-task-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseCurTestTaskGridViewBase } from './case-cur-test-task-grid-view-base';
-import view_grid from '@widgets/case/test-main-grid-grid/test-main-grid-grid.vue';
+import CaseCurTestTaskGridViewBase from './case-cur-test-task-grid-view-base.vue';
 
-/**
- * 功能测试视图
- *
- * @export
- * @class CaseCurTestTaskGridView
- * @extends {CaseCurTestTaskGridViewBase}
- */
+import view_grid from '@widgets/case/test-main-grid-grid/test-main-grid-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class CaseCurTestTaskGridView extends CaseCurTestTaskGridViewBase { }
+export default class CaseCurTestTaskGridView extends CaseCurTestTaskGridViewBase {
+
+}
 </script>

@@ -1,0 +1,446 @@
+<template>
+    <split id="testlistexpviewlistexpbar" class="app-list-exp-bar " v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+        <div slot='left'>
+           <div class="container-header">
+                <div class='search-container'>
+                    <i-input :search="true"
+                        @on-change="($event) => { this.searchText = $event.target.value; }"
+                        @on-search="onSearch">
+                    </i-input>
+                </div>
+           </div>
+            <div class='list-exp-bar-content2'>
+                <view_listexpbar_list 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+    createAction="Create"
+    removeAction="Remove"
+    updateAction="Update"
+    fetchAction="FetchDefault"
+    :showBusyIndicator="true"
+    :isSelectFirstDefault="true"
+    name="listexpbar_list"  
+    ref='listexpbar_list' 
+    @selectionchange="listexpbar_list_selectionchange($event)"  
+    @load="listexpbar_list_load($event)"  
+    @closeview="closeView($event)">
+</view_listexpbar_list>
+            </div>
+        </div>
+        <div slot='right'>
+            <component 
+              v-if="selection.view && !Object.is(this.selection.view.viewname, '')" 
+              :is="selection.view.viewname"
+              class="viewcontainer2"
+              :viewDefaultUsage="false"
+              :viewdata="JSON.stringify(selection.data)">
+            </component>
+        </div>
+    </split>
+</template>
+
+
+<script lang='tsx'>
+import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { CreateElement } from 'vue';
+import { Subject, Subscription } from 'rxjs';
+import { ControlInterface } from '@/interface/control';
+import { UIActionTool,Util } from '@/utils';
+import ProductService from '@/service/product/product-service';
+import TestListExpViewlistexpbarService from './test-list-exp-viewlistexpbar-listexpbar-service';
+
+
+
+@Component({
+    components: {
+      
+    }
+})
+export default class TestListExpViewlistexpbarBase extends Vue implements ControlInterface {
+
+    /**
+     * 名称
+     *
+     * @type {string}
+     * @memberof TestListExpViewlistexpbar
+     */
+    @Prop() protected name?: string;
+
+    /**
+     * 视图通讯对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof TestListExpViewlistexpbar
+     */
+    @Prop() protected viewState!: Subject<ViewState>;
+
+    /**
+     * 应用上下文
+     *
+     * @type {*}
+     * @memberof TestListExpViewlistexpbar
+     */
+    @Prop() protected context: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof TestListExpViewlistexpbar
+     */
+    @Prop() protected viewparams: any;
+
+    /**
+     * 视图状态事件
+     *
+     * @protected
+     * @type {(Subscription | undefined)}
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected viewStateEvent: Subscription | undefined;
+
+    /**
+     * 获取部件类型
+     *
+     * @returns {string}
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected getControlType(): string {
+        return 'LISTEXPBAR'
+    }
+
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestListExpViewlistexpbar
+     */    
+    protected counterServiceArray:Array<any> = [];
+
+    /**
+     * 建构部件服务对象
+     *
+     * @type {TestListExpViewlistexpbarService}
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected service: TestListExpViewlistexpbarService = new TestListExpViewlistexpbarService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductService}
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected appEntityService: ProductService = new ProductService({ $store: this.$store });
+
+    /**
+     * listexpbar_list 部件 selectionchange 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected listexpbar_list_selectionchange($event: any, $event2?: any) {
+        this.listexpbar_selectionchange($event, 'listexpbar_list', $event2);
+    }
+
+    /**
+     * listexpbar_list 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected listexpbar_list_load($event: any, $event2?: any) {
+        this.listexpbar_load($event, 'listexpbar_list', $event2);
+    }
+    
+
+
+    /**
+     * 关闭视图
+     *
+     * @param {any} args
+     * @memberof TestListExpViewlistexpbar
+     */
+    protected closeView(args: any): void {
+        let _this: any = this;
+        _this.$emit('closeview', [args]);
+    }
+
+    /**
+     *  计数器刷新
+     *
+     * @memberof TestListExpViewlistexpbar
+     */
+    public counterRefresh(){
+        const _this:any =this;
+        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
+            _this.counterServiceArray.forEach((item:any) =>{
+                if(item.refreshData && item.refreshData instanceof Function){
+                    item.refreshData();
+                }
+            })
+        }
+    }
+
+
+    /**
+     * 视图唯一标识
+     *
+     * @type {boolean}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    @Prop() protected viewUID!:string;
+
+    /**
+     * 是否单选
+     * 
+     * @protected
+     * @type {(boolean)}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected isSingleSelect:boolean = true;
+
+    /**
+     * 呈现模式，可选值：horizontal或者vertical
+     * 
+     * @protected
+     * @type {(string)}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected showMode:string ="horizontal";
+
+    /**
+     * 控件宽度
+     *
+     * @type {number}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected ctrlWidth:number = 0;
+
+    /**
+     * 控件高度
+     *
+     * @type {number}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected ctrlHeight: number = 0;
+
+    /**
+     * 搜素值
+     * 
+     * @protected
+     * @type {(string)}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected searchText:string = "";
+
+    /**
+     * 分割宽度
+     *
+     * @type {number}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected split: number = 0.5;
+
+
+    /**
+     * 导航视图名称
+     *
+     * @type {string}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected navViewName: string = "product-stats-test-edit-view9";
+
+    /**
+     * 导航视图参数
+     *
+     * @type {string}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected navViewParam: string = '{}';
+
+    /**
+     * 导航过滤项
+     *
+     * @type {string}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected navFilter: string = "";
+
+    /**
+     * 显示处理提示
+     *
+     * @type {boolean}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    @Prop({ default: true }) protected showBusyIndicator!: boolean;
+
+
+    /**
+     * 获取多项数据
+     *
+     * @returns {any[]}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    public getDatas(): any[] {
+        return [];
+    }
+
+    /**
+     * 获取单项树
+     *
+     * @returns {*}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    public getData(): any {
+        return null;
+    }
+
+    /**
+     * 选中数据
+     *
+     * @type {*}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected selection: any = {};
+
+    /**
+     * split值变化事件
+     *
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    public onSplitChange() {
+        if(this.split){
+          this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split});
+        }
+    }
+
+    /**
+    * Vue声明周期(组件初始化完毕)
+    *
+    * @memberof TestListExpViewlistexpbarBase
+    */
+    public created() {
+         this.afterCreated();     
+    }
+
+    /**
+    * 执行created后的逻辑
+    *
+    * @memberof TestListExpViewlistexpbarBase
+    */
+    public afterCreated(){
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+                this.viewState.next({ tag: 'listexpbar_list', action: action, data: data });
+            });
+        }
+    }
+
+    /**
+    * 执行mounted后的逻辑
+    *
+    * @memberof TestListExpViewlistexpbarBase
+    */
+    public afterMounted(){ 
+        if(this.$store.getters.getViewSplit(this.viewUID)){
+            this.split = this.$store.getters.getViewSplit(this.viewUID);
+        }else{
+            let containerWidth:number = (document.getElementById("testlistexpviewlistexpbar") as any).offsetWidth;
+            let containerHeight:number = (document.getElementById("testlistexpviewlistexpbar") as any).offsetHeight;
+            if(Object.is(this.showMode,'horizontal')){
+                if(this.ctrlWidth){
+                    this.split = this.ctrlWidth/containerWidth;
+                }
+            }else{
+                if(this.ctrlHeight){
+                    this.split = this.ctrlHeight/containerHeight;
+                }
+            }
+            this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split}); 
+        }  
+    }
+
+    /**
+    * Vue声明周期(组件渲染完毕)
+    *
+    * @memberof TestListExpViewlistexpbarBase
+    */
+    public mounted() {
+        this.afterMounted();     
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+    
+    /**
+     * listexpbar的选中数据事件
+     * 
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected listexpbar_selectionchange(args: any [], tag?: string, $event2?: any): void {
+        let data:any = {};
+        if (args.length === 0) {
+            return ;
+        }
+        const arg:any = args[0];
+        Object.assign(data,{'product':arg['product']});
+        Object.assign(data,{srfparentdename:'Product',srfparentkey:arg['product']});
+        if(this.context){
+            Object.assign(data,JSON.parse(JSON.stringify(this.context)));
+        }
+        this.selection = {};
+        Object.assign(this.selection, { view: { viewname: this.navViewName }, data:data });
+        this.$emit('selectionchange',args);
+        this.$forceUpdate();
+    }
+
+    /**
+     * listexpbar的load完成事件
+     * 
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    protected listexpbar_load(args:any, tag?: string, $event2?: any){
+        this.$emit('load',args);
+    }
+
+    /**
+    * 执行搜索
+    *
+    * @memberof TestListExpViewlistexpbarBase
+    */
+    protected onSearch($event:any) {
+        this.viewState.next({ tag: 'listexpbar_list', action: "load", data: {query : this.searchText}});
+    }
+
+}
+</script>
+
+<style lang='less'>
+@import './test-list-exp-viewlistexpbar-listexpbar.less';
+</style>

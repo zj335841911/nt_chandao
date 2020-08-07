@@ -65,11 +65,10 @@ export default class MainModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'task',
-          prop: 'root',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {
@@ -83,10 +82,6 @@ export default class MainModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

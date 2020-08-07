@@ -1,22 +1,19 @@
-<template src="./bug-mpickup-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugMPickupViewBase } from './bug-mpickup-view-base';
-import view_pickupviewpanel from '@widgets/bug/mpickup-viewpickupviewpanel-pickupviewpanel/mpickup-viewpickupviewpanel-pickupviewpanel.vue';
+import BugMPickupViewBase from './bug-mpickup-view-base.vue';
 
-/**
- * 关联Bug视图
- *
- * @export
- * @class BugMPickupView
- * @extends {BugMPickupViewBase}
- */
+import view_pickupviewpanel from '@widgets/bug/mpickup-viewpickupviewpanel-pickupviewpanel/mpickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
         view_pickupviewpanel, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class BugMPickupView extends BugMPickupViewBase { }
+export default class BugMPickupView extends BugMPickupViewBase {
+
+}
 </script>

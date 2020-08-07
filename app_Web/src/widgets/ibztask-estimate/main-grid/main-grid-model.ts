@@ -35,19 +35,16 @@ export default class MainModel {
           name: 'work',
           prop: 'work',
           dataType: 'LONGTEXT',
-          isEditable:true
         },
         {
           name: 'consumed',
           prop: 'consumed',
           dataType: 'FLOAT',
-          isEditable:true
         },
         {
           name: 'dates',
           prop: 'dates',
           dataType: 'DATE',
-          isEditable:true
         },
         {
           name: 'task',
@@ -58,7 +55,6 @@ export default class MainModel {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
-          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -74,11 +70,10 @@ export default class MainModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'task',
-          prop: 'task',
+          prop: 'id',
           dataType: 'FONTKEY',
         },
         {
@@ -92,10 +87,6 @@ export default class MainModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

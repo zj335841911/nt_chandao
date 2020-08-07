@@ -1,22 +1,19 @@
-<template src="./release-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ReleaseGridViewBase } from './release-grid-view-base';
-import view_grid from '@widgets/release/main-grid/main-grid.vue';
+import ReleaseGridViewBase from './release-grid-view-base.vue';
 
-/**
- * 发布表格视图视图
- *
- * @export
- * @class ReleaseGridView
- * @extends {ReleaseGridViewBase}
- */
+import view_grid from '@widgets/release/main-grid/main-grid.vue';
 @Component({
     components: {
         view_grid, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ReleaseGridView extends ReleaseGridViewBase { }
+export default class ReleaseGridView extends ReleaseGridViewBase {
+
+}
 </script>

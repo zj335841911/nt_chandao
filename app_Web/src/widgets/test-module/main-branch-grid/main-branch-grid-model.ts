@@ -30,7 +30,6 @@ export default class MainBranchModel {
           name: 'short',
           prop: 'ibizshort',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'root',
@@ -46,7 +45,6 @@ export default class MainBranchModel {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'owner',
@@ -57,19 +55,16 @@ export default class MainBranchModel {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
-          isEditable:true
         },
         {
           name: 'branch',
           prop: 'branch',
           dataType: 'INT',
-          isEditable:true
         },
         {
           name: 'type',
           prop: 'type',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -85,7 +80,6 @@ export default class MainBranchModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'testmodule',
@@ -98,10 +92,6 @@ export default class MainBranchModel {
         {
           name:'query',
           prop:'query'
-        },
-        {
-          name:'filter',
-          prop:'filter'
         },
         {
           name:'page',

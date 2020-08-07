@@ -1,22 +1,19 @@
-<template src="./product-case-tree-exp-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProductCaseTreeExpViewBase } from './product-case-tree-exp-view-base';
-import view_treeexpbar from '@widgets/product/case-tree-exp-viewtreeexpbar-treeexpbar/case-tree-exp-viewtreeexpbar-treeexpbar.vue';
+import ProductCaseTreeExpViewBase from './product-case-tree-exp-view-base.vue';
 
-/**
- * 产品需求导航视图视图
- *
- * @export
- * @class ProductCaseTreeExpView
- * @extends {ProductCaseTreeExpViewBase}
- */
+import view_treeexpbar from '@widgets/product/case-tree-exp-viewtreeexpbar-treeexpbar/case-tree-exp-viewtreeexpbar-treeexpbar.vue';
 @Component({
     components: {
         view_treeexpbar, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProductCaseTreeExpView extends ProductCaseTreeExpViewBase { }
+export default class ProductCaseTreeExpView extends ProductCaseTreeExpViewBase {
+
+}
 </script>

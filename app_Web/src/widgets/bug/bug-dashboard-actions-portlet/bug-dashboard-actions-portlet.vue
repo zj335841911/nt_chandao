@@ -1,22 +1,15 @@
-<template src="./bug-dashboard-actions-portlet.html"/>
+
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugDashboardActionsPortletBase } from './bug-dashboard-actions-portlet-base';
- 
+import BugBugDashboardActionsBase from './bug-dashboard-actions-portlet-base.vue';
 
-/**
- * dashboard_sysportlet5部件
- *
- * @export
- * @class BugDashboardActionsPortlet
- * @extends {BugDashboardActionsPortletBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class BugDashboardActionsPortlet extends BugDashboardActionsPortletBase { }
+export default class BugBugDashboardActions extends BugBugDashboardActionsBase {
+
+}
 </script>

@@ -3,7 +3,6 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import ModuleService from '@/service/module/module-service';
-import ModuleAuthService from '@/authservice/module/module-auth-service';
 
 /**
  * 模块UI服务对象基类
@@ -18,56 +17,49 @@ export default class ModuleUIServiceBase extends UIService {
      * 
      * @memberof  ModuleUIServiceBase
      */
-    public isEnableWorkflow:boolean = false;
+    protected isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ModuleUIServiceBase
      */
-    public dataService:ModuleService = new ModuleService();
+    protected dataService:ModuleService = new ModuleService();
 
     /**
      * 所有关联视图
      * 
      * @memberof  ModuleUIServiceBase
      */ 
-    public allViewMap: Map<string, Object> = new Map();
+    protected allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
      * @memberof  ModuleUIServiceBase
      */ 
-    public stateValue: number = 0;
+    protected stateValue: number = 0;
 
     /**
      * 状态属性
      * 
      * @memberof  ModuleUIServiceBase
      */ 
-    public stateField: string = "";
+    protected stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
      * @memberof  ModuleUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    protected mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
      * @memberof  ModuleUIServiceBase
      */  
-    public allDeMainStateMap:Map<string,string> = new Map();
-
-    /**
-     * 主状态操作标识Map
-     * 
-     * @memberof  ModuleUIServiceBase
-     */ 
-    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+    protected allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * Creates an instance of  ModuleUIServiceBase.
@@ -77,10 +69,8 @@ export default class ModuleUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.authService = new ModuleAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
-        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -106,14 +96,6 @@ export default class ModuleUIServiceBase extends UIService {
     }
 
     /**
-     * 初始化主状态操作标识
-     * 
-     * @memberof  ModuleUIServiceBase
-     */  
-    public initDeMainStateOPPrivsMap(){
-    }
-
-    /**
      * 维护产品线
      *
      * @param {any[]} args 当前数据
@@ -125,22 +107,13 @@ export default class ModuleUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Module_SeLine(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
+    public async Module_SeLine(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
         const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -156,6 +129,10 @@ export default class ModuleUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
                     return result.datas;
                 });
             }
@@ -209,7 +186,7 @@ export default class ModuleUIServiceBase extends UIService {
      * 
      * @memberof  ModuleUIServiceBase
 	 */
-	public getRealDEType(entity:any){
+	protected getRealDEType(entity:any){
 
     }
 
@@ -221,7 +198,7 @@ export default class ModuleUIServiceBase extends UIService {
      * @param bWFMode   是否工作流模式
      * @memberof  ModuleUIServiceBase
      */
-    public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
+    protected async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
 		if (bDataInWF) {
 			// 判断数据是否在流程中
@@ -239,12 +216,12 @@ export default class ModuleUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -255,14 +232,16 @@ export default class ModuleUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  ModuleUIServiceBase
      */  
-    public getDEMainStateTag(curData:any){
+    protected async getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
             if(!(singleMainField in curData)){
-                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
+                console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
+
+        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -284,29 +263,5 @@ export default class ModuleUIServiceBase extends UIService {
         }
         return null;
     }
-
-    /**
-    * 获取数据对象当前操作标识
-    * 
-    * @param data 当前数据
-    * @memberof  ModuleUIServiceBase
-    */  
-   public getDEMainStateOPPrivs(data:any){
-        if(this.getDEMainStateTag(data)){
-            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
-        }else{
-            return null;
-        }
-   }
-
-    /**
-    * 获取数据对象所有的操作标识
-    * 
-    * @param data 当前数据
-    * @memberof  ModuleUIServiceBase
-    */ 
-   public getAllOPPrivs(data:any){
-       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
-   }
 
 }

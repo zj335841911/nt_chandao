@@ -1,22 +1,14 @@
-<template src="./quick-create-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { QuickCreateEditFormBase } from './quick-create-form-base';
- 
+import QuickCreateBase from './quick-create-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class QuickCreateEditForm
- * @extends {QuickCreateEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class QuickCreateEditForm extends QuickCreateEditFormBase { }
+export default class QuickCreate extends QuickCreateBase {
+
+}
 </script>

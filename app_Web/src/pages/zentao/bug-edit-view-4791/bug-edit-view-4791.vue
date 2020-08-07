@@ -1,22 +1,19 @@
-<template src="./bug-edit-view-4791.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugEditView_4791Base } from './bug-edit-view-4791-base';
-import view_form from '@widgets/bug/build-bug-new-form/build-bug-new-form.vue';
+import BugEditView_4791Base from './bug-edit-view-4791-base.vue';
 
-/**
- * Bug视图
- *
- * @export
- * @class BugEditView_4791
- * @extends {BugEditView_4791Base}
- */
+import view_form from '@widgets/bug/build-bug-new-form/build-bug-new-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class BugEditView_4791 extends BugEditView_4791Base { }
+export default class BugEditView_4791 extends BugEditView_4791Base {
+
+}
 </script>

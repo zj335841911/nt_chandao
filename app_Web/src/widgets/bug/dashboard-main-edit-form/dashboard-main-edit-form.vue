@@ -1,22 +1,14 @@
-<template src="./dashboard-main-edit-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { DashboardMainEditEditFormBase } from './dashboard-main-edit-form-base';
- 
+import DashboardMainEditBase from './dashboard-main-edit-form-base.vue';
 
-/**
- * form部件
- *
- * @export
- * @class DashboardMainEditEditForm
- * @extends {DashboardMainEditEditFormBase}
- */
+ 
 @Component({
     components: {
          
     }
 })
-@VueLifeCycleProcessing()
-export default class DashboardMainEditEditForm extends DashboardMainEditEditFormBase { }
+export default class DashboardMainEdit extends DashboardMainEditBase {
+
+}
 </script>

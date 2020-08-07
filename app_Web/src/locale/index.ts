@@ -26,8 +26,7 @@ vueApp.locale = () => { };
 
 const i18n = new VueI18n({
     locale: lang,
-    messages,
-    silentTranslationWarn:true
+    messages
 });
 
 export default i18n;

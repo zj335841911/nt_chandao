@@ -1,22 +1,19 @@
-<template src="./product-portal-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProductPortalViewBase } from './product-portal-view-base';
-import view_dashboard from '@widgets/app/product-portal-view-db-dashboard/product-portal-view-db-dashboard.vue';
+import ProductPortalViewBase from './product-portal-view-base.vue';
 
-/**
- * 产品主页视图
- *
- * @export
- * @class ProductPortalView
- * @extends {ProductPortalViewBase}
- */
+import view_dashboard from '@widgets/app/product-portal-view-db-dashboard/product-portal-view-db-dashboard.vue';
 @Component({
     components: {
         view_dashboard, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class ProductPortalView extends ProductPortalViewBase { }
+export default class ProductPortalView extends ProductPortalViewBase {
+
+}
 </script>

@@ -1,22 +1,19 @@
-<template src="./build-main-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
-import { BuildMainViewBase } from './build-main-view-base';
-import view_form from '@widgets/build/main-form/main-form.vue';
+import BuildMainViewBase from './build-main-view-base.vue';
 
-/**
- * 版本编辑视图视图
- *
- * @export
- * @class BuildMainView
- * @extends {BuildMainViewBase}
- */
+import view_form from '@widgets/build/main-form/main-form.vue';
 @Component({
     components: {
         view_form, 
-    }
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+        });
+    },
 })
-@VueLifeCycleProcessing()
-export default class BuildMainView extends BuildMainViewBase { }
+export default class BuildMainView extends BuildMainViewBase {
+
+}
 </script>

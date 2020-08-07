@@ -54,12 +54,12 @@ export default class Main_EditRowService extends ControlService {
     /**
      * 处理数据
      *
-     * @public
+     * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
      * @memberof Main_EditRowService
      */
-    public doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
+    private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
             promise.then((response: any) => {
                 if (response && response.status === 200) {
@@ -90,8 +90,6 @@ export default class Main_EditRowService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        data.page = data.page ? data.page : 0;
-        data.size = data.size ? data.size : 1000;
         if (Object.is(serviceName, 'UserService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.userService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'user');
         }
@@ -111,7 +109,7 @@ export default class Main_EditRowService extends ControlService {
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
             const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
@@ -170,14 +168,14 @@ export default class Main_EditRowService extends ControlService {
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
             const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](Context,Data,isloading);
+                result = _appEntityService[action](Data,Context,isloading);
             }else{
-                result =_appEntityService.Update(Context,Data,isloading);
+                result =_appEntityService.Update(Data,Context,isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
@@ -278,14 +276,28 @@ export default class Main_EditRowService extends ControlService {
                 if(response.data){
                     Object.assign(response.data,{srfuf:'0'});
                     //仿真主键数据
-                    response.data.id = Util.createUUID();
+                    response.data.projectteam = Util.createUUID();
                 }
                 this.handleResponse(action, response, true);
+                this.mergeDefaults(response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
             });
         });
+    }
+
+    /**
+     * 合并配置的默认值
+     * @param {*} 
+     * @memberof Main_EditRowService
+     */
+    public mergeDefaults(response:any = {}){ 
+        if(response.data){                    
+            Object.assign(response.data,{'limited':'no'});
+            Object.assign(response.data,{'days':'45'});
+            Object.assign(response.data,{'hours':'7'});
+        }
     }
 
 
@@ -296,7 +308,7 @@ export default class Main_EditRowService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof Main_EditRowService
+     * @memberof MainService
      */
     @Errorlog
     public frontLogic(action:string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
@@ -316,42 +328,6 @@ export default class Main_EditRowService extends ControlService {
                 reject(response);
             });
         })
-    }
-
-    /**
-     * 处理请求数据(修改或增加数据)
-     * 
-     * @param action 行为 
-     * @param data 数据
-     * @memberof Main_EditRowService
-     */
-    public handleRequestDataWithUpdate(action: string,context:any ={},data: any = {},isMerge:boolean = false){
-        let model: any = this.getMode();
-        if (!model && model.getDataItems instanceof Function) {
-            return data;
-        }
-        let dataItems: any[] = model.getDataItems();
-        let requestData:any = {};
-        if(isMerge && (data && data.viewparams)){
-            Object.assign(requestData,data.viewparams);
-        }
-        dataItems.forEach((item:any) =>{
-            if(item && item.dataType && Object.is(item.dataType,'FONTKEY')){
-                if(item && item.prop && item.name ){
-                    requestData[item.prop] = context[item.name];
-                }
-            }else{
-                if(item && item.isEditable && item.prop && item.name && (data[item.name] || Object.is(data[item.name],0)) ){
-                    requestData[item.prop] = data[item.name];
-                }
-            }
-        });
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        if(tempContext && tempContext.srfsessionid){
-            tempContext.srfsessionkey = tempContext.srfsessionid;
-            delete tempContext.srfsessionid;
-        }
-        return {context:tempContext,data:requestData};
     }
     
 }
