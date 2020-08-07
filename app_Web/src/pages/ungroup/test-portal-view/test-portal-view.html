@@ -1,0 +1,14 @@
+<studio-view viewName="testportalview" viewTitle="测试主页" class='appportalview test-portal-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <view_dashboard 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="JSON.parse(JSON.stringify(context))" 
+        :isEnableCustomized = "true"
+        name="dashboard"  
+        ref='dashboard' 
+        @closeview="closeView($event)">
+    </view_dashboard>
+</studio-view>
