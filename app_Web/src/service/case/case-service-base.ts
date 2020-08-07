@@ -123,6 +123,7 @@ export default class CaseServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases`,data,isloading);
             this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_testresults',JSON.stringify(res.data.testresults?res.data.testresults:[]));
             
             return res;
         }
@@ -171,6 +172,7 @@ export default class CaseServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/stories/${context.story}/cases`,data,isloading);
             this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_testresults',JSON.stringify(res.data.testresults?res.data.testresults:[]));
             
             return res;
         }
@@ -219,6 +221,7 @@ export default class CaseServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
             this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_testresults',JSON.stringify(res.data.testresults?res.data.testresults:[]));
             
             return res;
         }
@@ -266,6 +269,7 @@ export default class CaseServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/cases`,data,isloading);
         this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_testresults',JSON.stringify(res.data.testresults?res.data.testresults:[]));
         
         return res;
     }

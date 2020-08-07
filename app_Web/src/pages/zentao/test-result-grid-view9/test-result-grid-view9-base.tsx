@@ -204,7 +204,12 @@ export class TestResultGridView9Base extends GridView9Base {
         if(args.length >0){
             Object.assign(tempContext,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(tempContext.case && true){
+            deResParameters = [
+            { pathName: 'cases', parameterName: 'case' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'testresults', parameterName: 'testresult' },
             { pathName: 'editview', parameterName: 'editview' },
@@ -238,7 +243,12 @@ export class TestResultGridView9Base extends GridView9Base {
         if(args.length >0){
             Object.assign(tempContext,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(tempContext.case && true){
+            deResParameters = [
+            { pathName: 'cases', parameterName: 'case' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'testresults', parameterName: 'testresult' },
             { pathName: 'editview', parameterName: 'editview' },

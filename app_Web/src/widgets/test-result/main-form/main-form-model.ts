@@ -51,6 +51,21 @@ export default class MainModel {
         dataType: 'ACID',
       },
       {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATETIME',
+      },
+      {
+        name: 'lastrunner',
+        prop: 'lastrunner',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'caseresult',
+        prop: 'caseresult',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'testresult',
         prop: 'id',
         dataType: 'FONTKEY',
