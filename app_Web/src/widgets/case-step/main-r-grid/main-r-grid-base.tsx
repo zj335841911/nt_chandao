@@ -77,20 +77,12 @@ export class MainRGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
-     * 排序方向
+     * 是否禁用排序
      *
-     * @type {string}
+     * @type {boolean}
      * @memberof MainRGridBase
      */
-    public minorSortDir: string = 'ASC';
-
-    /**
-     * 排序字段
-     *
-     * @type {string}
-     * @memberof MainRGridBase
-     */
-    public minorSortPSDEF: string = 'id';
+    public isNoSort: boolean = true;
 
     /**
      * 分页条数

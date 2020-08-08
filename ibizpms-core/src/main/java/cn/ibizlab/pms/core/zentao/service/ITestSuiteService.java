@@ -37,6 +37,7 @@ public interface ITestSuiteService extends IService<TestSuite>{
     boolean save(TestSuite et) ;
     void saveBatch(List<TestSuite> list) ;
     Page<TestSuite> searchDefault(TestSuiteSearchContext context) ;
+    Page<TestSuite> searchPublicTestSuite(TestSuiteSearchContext context) ;
     List<TestSuite> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;
     /**
