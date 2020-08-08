@@ -280,6 +280,19 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return et;
     }
 
+    @Override
+    @Transactional
+    public Case unlinkSuiteCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.unlinkSuiteCase(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
 
 	@Override
     public List<Case> selectByBranch(BigInteger id) {
