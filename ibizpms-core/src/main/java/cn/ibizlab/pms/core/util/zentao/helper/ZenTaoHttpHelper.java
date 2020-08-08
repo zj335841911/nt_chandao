@@ -10,10 +10,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+
 import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -115,11 +113,15 @@ public class ZenTaoHttpHelper {
         log.debug(ZenTaoMessage.MSG_INFO_0001, url, httpMethod, paramMap);
         ResponseEntity<String> responseEntity = HttpUtil.doRequest(url, httpMethod, httpHeaders, paramMap, String.class);
         String body = responseEntity.getBody();
+        if (HttpStatus.FOUND.equals(responseEntity.getStatusCode()) && (body == null || body.isEmpty())) {
+            body = responseEntity.toString();
+        }
+
         log.debug(ZenTaoMessage.MSG_INFO_0002, body);
         if (body == null || body.isEmpty()) {
             return null;
         }
-        if (body.startsWith("<html>")) {
+        if (body.startsWith("<html>") || body.startsWith("<302")) {
             jo.put("html", body);
         } else {
             jo = JSONObject.parseObject(body);
@@ -669,5 +671,47 @@ public class ZenTaoHttpHelper {
         String regex = "\\{(\\d+)(\\..+)\\}";
         source = source.replaceAll(regex, "/zentao/file-read-$1$2");
         return source;
+    }
+
+    /**
+     * 解析禅道用例执行步骤结果的str为json。<br>
+     * 原始数据（例子）为<br>
+     * a:8:{i:160;a:2:{s:6:"result";s:3:"n/a";s:4:"real";s:4:"real";}i:162;a:2:{s:6:"result";s:4:"fail";s:4:"real";s:6:"result";}i:163;a:2:{s:6:"result";s:7:"blocked";s:4:"real";s:7:"blocked";}i:164;a:2:{s:6:"result";s:4:"fail";s:4:"real";s:19:"测试0093535*33#ss";}i:166;a:2:{s:6:"result";s:4:"fail";s:4:"real";s:14:"11111111111111";}i:167;a:2:{s:6:"result";s:4:"pass";s:4:"real";s:12:"111111111111";}i:168;a:2:{s:6:"result";s:4:"fail";s:4:"real";s:6:"111111";}i:169;a:2:{s:6:"result";s:4:"fail";s:4:"real";s:27:"111111111111111111111111111";}}<br>
+     * 解析后为<br>
+     * [<br>
+     *  {<br>
+     *     "id": 160,<br>
+     *     "result": "n/a",<br>
+     *     "comment": "real"<br>
+     *  }<br>
+     * ]<br>
+     *
+     * @param caseStepsStr 待解析的字符串
+     * @return 解析后的json
+     * @throws Exception 传入格式异常
+     */
+    public static JSONArray formatCaseSteps(String caseStepsStr) throws Exception {
+        if (caseStepsStr == null || caseStepsStr.isEmpty()) {
+            return null;
+        }
+        JSONArray ja = new JSONArray();
+        caseStepsStr = caseStepsStr.substring(2, caseStepsStr.length());
+        caseStepsStr = caseStepsStr.substring(caseStepsStr.indexOf(":") + 2, caseStepsStr.length() - 1);
+        caseStepsStr = caseStepsStr.replaceAll("s:6:\\\"result\\\";(s)", "$1");
+        caseStepsStr = caseStepsStr.replaceAll("s:4:\\\"real\\\";(s)", "$1");
+        caseStepsStr = caseStepsStr.replaceAll("(\\\";\\})(i:)", "$1\r\n$2");
+        String[] caseStepsArray = caseStepsStr.split("\r\n");
+        for (String caseStep : caseStepsArray) {
+            JSONObject jo = new JSONObject();
+            caseStep = caseStep.substring(2, caseStep.length());
+            Integer caseStepId = Integer.parseInt(caseStep.substring(0, caseStep.indexOf(";")));
+            jo.put("id", caseStepId);
+            caseStep = caseStep.substring(9, caseStep.length() - 1);
+            String[] rstArray = caseStep.split("\\\"");
+            jo.put("result", rstArray[1]);
+            jo.put("comment", rstArray[3]);
+            ja.add(jo);
+        }
+        return ja;
     }
 }
