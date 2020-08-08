@@ -51,6 +51,9 @@ export default class MainModel {
       {
         name: 'compile',
       },
+      {
+        name: 'task',
+      },
     ]
   }
 

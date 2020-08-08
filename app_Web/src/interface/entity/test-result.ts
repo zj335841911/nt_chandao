@@ -101,4 +101,12 @@ export interface TestResult {
      * @memberof TestResult
      */
     compile?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    task?: any;
 }
