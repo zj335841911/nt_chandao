@@ -127,6 +127,16 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/"+uploadpath).permitAll()
                 .antMatchers("/"+ztuploadpath).permitAll()
                 .antMatchers("/"+previewpath+"/**").permitAll()
+
+
+               //开放ZT API登录接口
+               .antMatchers("/ztlogin").permitAll()
+               //开放账号名查询接口
+               .antMatchers("/ztusers/uaaloginname").permitAll()
+
+//               .antMatchers("/depts/all").permitAll()
+//
+//               .antMatchers("/users/all").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

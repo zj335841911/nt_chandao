@@ -19,14 +19,14 @@ ibiz:
   auth:
     #本地用户认证：IBZZTUserService
     #UAA认证：IBZUAAZTUserService
-    service: IBZUAAZTUserService
+    service: IBZUAAUserService
     token:
     # 本地ZT账户认证模式：SimpleTokenUtil
     # UAA认证模式：SimpleTokenUtil
       util: UAATokenUtil
   ref:
     service:
-      uaa: ibzuaa-api-pms
+      uaa: ibzuaa-apipms
 
 spring:
   servlet:

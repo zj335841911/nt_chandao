@@ -1,26 +1,16 @@
 package cn.ibizlab.pms.util.service;
 
-import com.alibaba.fastjson.JSONObject;
-import cn.ibizlab.pms.util.client.IBZOUFeignClient;
-import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.client.IBZUAAFeignClient;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.stereotype.Service;
 
-/**
- * 实体[IBZUSER] 服务对象接口实现
- */
-@Primary
-@Service("IBZUAAUserService")
-@ConditionalOnExpression("${ibiz.enablePermissionValid:false}&&'${ibiz.auth.service:SimpleUserService}'.equals('IBZUAAUserService')")
-public class IBZUAAUserService implements AuthenticationUserService{
+@Service
+@ConditionalOnExpression("'${spring.application.name}'.startsWith('pms-web')")
+public class SimulUserService implements AuthenticationUserService {
 
 	@Autowired
 	private IBZUAAFeignClient uaaFeignClient;
@@ -30,7 +20,7 @@ public class IBZUAAUserService implements AuthenticationUserService{
 
 		AuthenticationUser user=uaaFeignClient.loginByUsername(username);
 		if(user==null)
-			throw new BadRequestAlertException("登录失败","IBZUAAUser",username);
+			throw new BadRequestAlertException("登录失败","IBZUAAUser",username)	;
 		return user;
 	}
 
@@ -59,5 +49,4 @@ public class IBZUAAUserService implements AuthenticationUserService{
 	public void resetByUsername(String username) {
 
 	}
-
 }
