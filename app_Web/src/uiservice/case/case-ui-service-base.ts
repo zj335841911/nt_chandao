@@ -376,10 +376,7 @@ export default class CaseUIServiceBase extends UIService {
         Object.assign(context,{TASK:"%task%"});
         Object.assign(params,{task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { case: '%case%' });
-        Object.assign(params, { id: '%case%' });
-        Object.assign(params, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
