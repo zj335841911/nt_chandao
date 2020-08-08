@@ -125,7 +125,7 @@ export class CasesuiteLinkCaseGridViewBase extends GridViewBase {
      * @memberof CasesuiteLinkCaseGridView
      */
     public toolBarModels: any = {
-        deuiaction1_linkcase: { name: 'deuiaction1_linkcase', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'linkCase', target: 'MULTIKEY', class: '' } },
+        deuiaction1_suitelinkcase: { name: 'deuiaction1_suitelinkcase', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'suitelinkCase', target: 'MULTIKEY', class: '' } },
 
     };
 
@@ -181,8 +181,8 @@ export class CasesuiteLinkCaseGridViewBase extends GridViewBase {
      * @memberof CasesuiteLinkCaseGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction1_linkcase')) {
-            this.toolbar_deuiaction1_linkcase_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_suitelinkcase')) {
+            this.toolbar_deuiaction1_suitelinkcase_click(null, '', $event2);
         }
     }
 
@@ -282,7 +282,7 @@ export class CasesuiteLinkCaseGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction1_linkcase_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_suitelinkcase_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -300,7 +300,7 @@ export class CasesuiteLinkCaseGridViewBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_linkCase(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_suitelinkCase(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
