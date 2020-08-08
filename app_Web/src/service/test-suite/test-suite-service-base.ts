@@ -184,4 +184,19 @@ export default class TestSuiteServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/testsuites/fetchdefault`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchPublicTestSuite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestSuiteServiceBase
+     */
+    public async FetchPublicTestSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/testsuites/fetchpublictestsuite`,tempData,isloading);
+        return res;
+    }
 }

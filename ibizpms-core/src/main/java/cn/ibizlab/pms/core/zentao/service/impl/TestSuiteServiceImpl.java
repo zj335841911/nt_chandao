@@ -182,6 +182,15 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
         return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 公开套件
+     */
+    @Override
+    public Page<TestSuite> searchPublicTestSuite(TestSuiteSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchPublicTestSuite(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

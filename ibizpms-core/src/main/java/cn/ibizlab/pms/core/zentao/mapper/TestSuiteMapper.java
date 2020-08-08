@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface TestSuiteMapper extends BaseMapper<TestSuite>{
 
     Page<TestSuite> searchDefault(IPage page, @Param("srf") TestSuiteSearchContext context, @Param("ew") Wrapper<TestSuite> wrapper) ;
+    Page<TestSuite> searchPublicTestSuite(IPage page, @Param("srf") TestSuiteSearchContext context, @Param("ew") Wrapper<TestSuite> wrapper) ;
     @Override
     TestSuite selectById(Serializable id);
     @Override
