@@ -240,6 +240,18 @@ domain.setId(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCase-all')")
+    @ApiOperation(value = "移除用例", tags = {"测试用例" },  notes = "移除用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinksuitecase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkSuiteCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+domain.setId(case_id);
+        domain = caseService.unlinkSuiteCase(domain);
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchBatchNew-all')")
 	@ApiOperation(value = "获取批量新建用例", tags = {"测试用例" } ,notes = "获取批量新建用例")
     @RequestMapping(method= RequestMethod.GET , value="/cases/fetchbatchnew")
@@ -567,6 +579,18 @@ domain.setId(case_id);
         Case domain = caseMapping.toDomain(casedto);
         domain.setProduct(product_id);
         domain = caseService.unlinkCase(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCase-all')")
+    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/unlinksuitecase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkSuiteCaseByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setProduct(product_id);
+        domain = caseService.unlinkSuiteCase(domain) ;
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
@@ -914,6 +938,18 @@ domain.setId(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCase-all')")
+    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/unlinksuitecase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkSuiteCaseByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.unlinkSuiteCase(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchBatchNew-all')")
 	@ApiOperation(value = "根据需求获取批量新建用例", tags = {"测试用例" } ,notes = "根据需求获取批量新建用例")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchbatchnew")
@@ -1253,6 +1289,18 @@ domain.setId(case_id);
         Case domain = caseMapping.toDomain(casedto);
         domain.setStory(story_id);
         domain = caseService.unlinkCase(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCase-all')")
+    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinksuitecase")
+    @Transactional
+    public ResponseEntity<CaseDTO> unlinkSuiteCaseByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.unlinkSuiteCase(domain) ;
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }

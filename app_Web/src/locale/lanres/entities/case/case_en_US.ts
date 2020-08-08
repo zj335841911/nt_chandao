@@ -493,6 +493,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        case_unlinksuitecase: "移除",
         case_opentestrunresultview: "结果",
         case_execute: "执行",
 		},
