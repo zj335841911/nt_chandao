@@ -127,6 +127,13 @@ public class TestResult extends EntityMP implements Serializable {
     @JSONField(name = "compile")
     @JsonProperty("compile")
     private BigInteger compile;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
 
     /**
      * 

@@ -121,6 +121,14 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JsonProperty("compile")
     private BigInteger compile;
 
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+
 
     /**
      * 设置 [LASTRUNNER]

@@ -12,6 +12,7 @@ export default {
     ibizcase: "用例",
     run: "测试执行",
     compile: "代码编译",
+    task: "属性",
   },
 	views: {
 		editview: {
