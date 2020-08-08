@@ -135,6 +135,7 @@ export class MainRGridBase extends GridControlBase {
             show: true,
             util: 'STAR',
             width: -1,
+            codelistId: 'Testresult__result'
         },
         {
             name: 'steps',
@@ -220,6 +221,14 @@ export class MainRGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'expect',
+                srfkey: 'Testresult__result',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
             {
                 name: 'steps',
                 srfkey: 'Testresult__result',
