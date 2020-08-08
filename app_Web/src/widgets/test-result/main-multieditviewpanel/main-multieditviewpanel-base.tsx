@@ -335,7 +335,7 @@ export class MainMultieditviewpanelBase extends MainControlBase {
      */
     public load(data: any): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'TestResultMEditView9' + (this.$t('app.multiEditView.notConfig.fetchAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'TestResultTestTaskMEditView9' + (this.$t('app.multiEditView.notConfig.fetchAction') as string) });
             return;
         }
         let arg: any = {};
@@ -370,7 +370,7 @@ export class MainMultieditviewpanelBase extends MainControlBase {
      */
     public handleAdd(){
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'TestResultMEditView9' + (this.$t('app.multiEditView.notConfig.loaddraftAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'TestResultTestTaskMEditView9' + (this.$t('app.multiEditView.notConfig.loaddraftAction') as string) });
             return;
         }
         const promice: Promise<any> = this.service.loadDraft(this.loaddraftAction,JSON.parse(JSON.stringify(this.context)),{viewparams:this.viewparams}, this.showBusyIndicator);

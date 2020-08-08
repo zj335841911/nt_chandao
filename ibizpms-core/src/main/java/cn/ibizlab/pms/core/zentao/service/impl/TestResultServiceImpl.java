@@ -201,6 +201,15 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
 
     /**
+     * 查询集合 CurTestRun
+     */
+    @Override
+    public Page<TestResult> searchCurTestRun(TestResultSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestResult> pages=baseMapper.searchCurTestRun(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestResult>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

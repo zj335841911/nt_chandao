@@ -138,6 +138,27 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "获取CurTestRun", tags = {"测试结果" } ,notes = "获取CurTestRun")
+    @RequestMapping(method= RequestMethod.GET , value="/testresults/fetchcurtestrun")
+	public ResponseEntity<List<TestResultDTO>> fetchCurTestRun(TestResultSearchContext context) {
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+        List<TestResultDTO> list = testresultMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "查询CurTestRun", tags = {"测试结果" } ,notes = "查询CurTestRun")
+    @RequestMapping(method= RequestMethod.POST , value="/testresults/searchcurtestrun")
+	public ResponseEntity<Page<TestResultDTO>> searchCurTestRun(@RequestBody TestResultSearchContext context) {
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试结果" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testresults/fetchdefault")
@@ -268,6 +289,29 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据测试用例获取CurTestRun", tags = {"测试结果" } ,notes = "根据测试用例获取CurTestRun")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/testresults/fetchcurtestrun")
+	public ResponseEntity<List<TestResultDTO>> fetchTestResultCurTestRunByCase(@PathVariable("case_id") BigInteger case_id,TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+        List<TestResultDTO> list = testresultMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据测试用例查询CurTestRun", tags = {"测试结果" } ,notes = "根据测试用例查询CurTestRun")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/testresults/searchcurtestrun")
+	public ResponseEntity<Page<TestResultDTO>> searchTestResultCurTestRunByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "根据测试用例获取DEFAULT", tags = {"测试结果" } ,notes = "根据测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/testresults/fetchdefault")
@@ -400,6 +444,29 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据产品测试用例获取CurTestRun", tags = {"测试结果" } ,notes = "根据产品测试用例获取CurTestRun")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/testresults/fetchcurtestrun")
+	public ResponseEntity<List<TestResultDTO>> fetchTestResultCurTestRunByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+        List<TestResultDTO> list = testresultMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据产品测试用例查询CurTestRun", tags = {"测试结果" } ,notes = "根据产品测试用例查询CurTestRun")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/testresults/searchcurtestrun")
+	public ResponseEntity<Page<TestResultDTO>> searchTestResultCurTestRunByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "根据产品测试用例获取DEFAULT", tags = {"测试结果" } ,notes = "根据产品测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/testresults/fetchdefault")
@@ -532,6 +599,29 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据需求测试用例获取CurTestRun", tags = {"测试结果" } ,notes = "根据需求测试用例获取CurTestRun")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/testresults/fetchcurtestrun")
+	public ResponseEntity<List<TestResultDTO>> fetchTestResultCurTestRunByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+        List<TestResultDTO> list = testresultMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据需求测试用例查询CurTestRun", tags = {"测试结果" } ,notes = "根据需求测试用例查询CurTestRun")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/testresults/searchcurtestrun")
+	public ResponseEntity<Page<TestResultDTO>> searchTestResultCurTestRunByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "根据需求测试用例获取DEFAULT", tags = {"测试结果" } ,notes = "根据需求测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/testresults/fetchdefault")
@@ -664,6 +754,29 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据产品需求测试用例获取CurTestRun", tags = {"测试结果" } ,notes = "根据产品需求测试用例获取CurTestRun")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/fetchcurtestrun")
+	public ResponseEntity<List<TestResultDTO>> fetchTestResultCurTestRunByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+        List<TestResultDTO> list = testresultMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchCurTestRun-all')")
+	@ApiOperation(value = "根据产品需求测试用例查询CurTestRun", tags = {"测试结果" } ,notes = "根据产品需求测试用例查询CurTestRun")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/searchcurtestrun")
+	public ResponseEntity<Page<TestResultDTO>> searchTestResultCurTestRunByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody TestResultSearchContext context) {
+        context.setN_case_eq(case_id);
+        Page<TestResult> domains = testresultService.searchCurTestRun(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取DEFAULT", tags = {"测试结果" } ,notes = "根据产品需求测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/fetchdefault")

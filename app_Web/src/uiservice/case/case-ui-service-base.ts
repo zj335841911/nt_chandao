@@ -111,6 +111,7 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'testtaskexceditview',srfappde:'cases'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases'});
     }
 
@@ -405,6 +406,9 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }
@@ -570,6 +574,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASK:"%task%"});
+        Object.assign(params,{task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { case: '%case%' });
@@ -607,10 +613,10 @@ export default class CaseUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'case-exc-edit-view', 
+                viewname: 'case-test-task-exc-edit-view', 
                 height: 800, 
                 width: 800,  
-                title: actionContext.$t('entities.case.views.exceditview.title'),
+                title: actionContext.$t('entities.case.views.testtaskexceditview.title'),
             };
             openPopupModal(view, data);
     }

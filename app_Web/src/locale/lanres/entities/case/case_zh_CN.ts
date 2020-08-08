@@ -143,6 +143,10 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		testtaskexceditview: {
+			caption: "执行结果",
+      		title: "测试用例编辑视图（执行结果）",
+		},
 		gridview: {
 			caption: "测试用例",
       		title: "功能测试表格视图",
@@ -342,6 +346,7 @@ export default {
 	maintesttask_form: {
 		details: {
 			druipart1: "用例步骤", 
+			druipart2: "", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -353,6 +358,28 @@ export default {
 			srfsourcekey: "", 
 			version: "版本#", 
 			task: "属性", 
+			precondition: "前置条件", 
+			resultcnt: "测试结果数", 
+			resultfalicnt: "测试失败数", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	testtaskrmain_form: {
+		details: {
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
 			precondition: "前置条件", 
 			resultcnt: "测试结果数", 
 			resultfalicnt: "测试失败数", 
