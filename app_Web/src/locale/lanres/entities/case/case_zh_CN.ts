@@ -552,16 +552,24 @@ export default {
 			tip: "导出",
 		},
 	},
-	curtesttaskgridviewtoolbar_toolbar: {
-		deuiaction7: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
 	linkcasegridviewtoolbar_toolbar: {
 		deuiaction1_linkcase: {
 			caption: "保存",
 			tip: "保存",
+		},
+	},
+	curtesttaskgridviewtoolbar_toolbar: {
+		deuiaction1_linkcasec: {
+			caption: "关联用例",
+			tip: "关联用例",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	gridviewtoolbar_toolbar: {

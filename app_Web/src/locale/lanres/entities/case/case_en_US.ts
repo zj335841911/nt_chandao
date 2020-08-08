@@ -553,16 +553,24 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	curtesttaskgridviewtoolbar_toolbar: {
-		deuiaction7: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
 	linkcasegridviewtoolbar_toolbar: {
 		deuiaction1_linkcase: {
 			caption: "保存",
 			tip: "保存",
+		},
+	},
+	curtesttaskgridviewtoolbar_toolbar: {
+		deuiaction1_linkcasec: {
+			caption: "关联用例",
+			tip: "关联用例",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	gridviewtoolbar_toolbar: {

@@ -60,28 +60,11 @@ export class MainRGridBase extends GridControlBase {
     protected appDeLogicName: string = '用例步骤';
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {CaseStepUIService}
-     * @memberof MainRBase
-     */  
-    public appUIService:CaseStepUIService = new CaseStepUIService(this.$store);
-
-    /**
-     * 界面行为模型
-     *
-     * @type {*}
-     * @memberof MainRBase
-     */  
-    public ActionModel: any = {
-    };
-
-    /**
      * 本地缓存标识
      *
      * @protected
      * @type {string}
-     * @memberof MainRBase
+     * @memberof GridControlBase
      */
     protected localStorageTag: string = 'zt_casestep_mainr_grid';
 
@@ -99,7 +82,7 @@ export class MainRGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainRGridBase
      */
-    public minorSortDir: string = 'DESC';
+    public minorSortDir: string = 'ASC';
 
     /**
      * 排序字段
@@ -126,51 +109,59 @@ export class MainRGridBase extends GridControlBase {
     public allColumns: any[] = [
         {
             name: 'id',
+            property: 'id',
             label: '编号',
             langtag: 'entities.casestep.mainr_grid.columns.id',
-            show: true,
+            show: false,
             util: 'PX',
-            isEnableRowEdit: false,
+            width: 100,
         },
         {
             name: 'desc',
+            property: 'desc',
             label: '步骤',
             langtag: 'entities.casestep.mainr_grid.columns.desc',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            width: 100,
         },
         {
             name: 'type',
+            property: 'type',
             label: '类型',
             langtag: 'entities.casestep.mainr_grid.columns.type',
             show: false,
             util: 'PX',
-            isEnableRowEdit: false,
+            width: 100,
+            codelistId: 'Casestep__type'
         },
         {
             name: 'expect',
+            property: 'expect',
             label: '预期',
             langtag: 'entities.casestep.mainr_grid.columns.expect',
             show: true,
             util: 'STAR',
-            isEnableRowEdit: false,
+            width: -1,
         },
         {
             name: 'steps',
+            property: 'steps',
             label: '测试结果',
             langtag: 'entities.casestep.mainr_grid.columns.steps',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            width: 100,
+            codelistId: 'Testresult__result'
         },
         {
             name: 'reals',
+            property: 'reals',
             label: '实际情况',
             langtag: 'entities.casestep.mainr_grid.columns.reals',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            width: 200,
         },
     ]
 
@@ -248,4 +239,92 @@ export class MainRGridBase extends GridControlBase {
         ]);
     }
 
+    /**
+     * 添加数据
+     * @param {*}  row 行数据
+     * @memberof MainR
+     */
+    public add({ row, index }: { row: any, index: number }, func: Function) {
+        if(!this.loaddraftAction){
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格loaddraftAction参数未配置' });
+            return;
+        }
+        let _this = this;
+        let param: any = {};
+        Object.assign(param,{viewparams:this.viewparams});
+        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), param, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data = response.data;
+            this.createDefault(data);
+            data.rowDataState = "create";
+            if(row.type) {
+                if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                    data.type = 'item';
+                } else {
+                    data.type = 'step';
+                }
+            }
+            if(func instanceof Function) {
+                func(data);
+            }
+            _this.gridItemsModel.push(_this.getGridRowModel());
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
+
+    /**
+     * 保存
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @returns
+     * @memberof MainR
+     */
+    public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        for (const item of this.items) {
+            if(Object.is(item.rowDataState, 'create')) {
+                continue;
+            }
+            let _removeAction = this.removeAction;
+            let _keys = item.srfkey;
+            const _context: any = JSON.parse(JSON.stringify(this.context));
+            await this.service.delete(_removeAction, Object.assign(_context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
+        }
+        let successItems: any = [];
+        for (const item of this.items) {
+            const _context: any = JSON.parse(JSON.stringify(this.context));
+            let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
+            if (Object.is(item.rowDataState, 'create')) {
+                Data.id = null;
+                Data.ibizcase = null;
+            }
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[this.createAction] && _appEntityService[this.createAction] instanceof Function) {
+                result = _appEntityService[this.createAction](Context,Data, this.showBusyIndicator);
+            }else{
+                result =this.appEntityService.Create(Context,Data, this.showBusyIndicator);
+            }
+            result.then((response) => {
+                this.service.handleResponse(this.createAction, response);
+                successItems.push(JSON.parse(JSON.stringify(response.data)));
+            })
+        }
+        this.$emit('save', successItems);
+    }
 }
