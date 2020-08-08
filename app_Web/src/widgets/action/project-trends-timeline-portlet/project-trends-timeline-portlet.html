@@ -1,0 +1,11 @@
+<div class='portlet project-trends-timeline ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            最新动态
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <action-project-trends-list-view9 :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-project-trends-list-view9>
+        </div>
+</div>
