@@ -1716,6 +1716,7 @@ export const viewstate: any = {
             refviews: [
                 '7a983ef690626958a9897f58efe15e58',
                 'c2e4200fb7c9760b4931b43561289980',
+                'e53ca619c1e2592cff68b05a9a64ff0f',
             ],
         },
         {
@@ -2317,6 +2318,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e53ca619c1e2592cff68b05a9a64ff0f',
+            viewmodule: 'zentao',
+            viewname: 'CasesuiteLinkCaseGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
