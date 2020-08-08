@@ -84,8 +84,8 @@ logging:
 
 #zuul网关超时设置
 ribbon:
-  ReadTimeout: 60000
-  ConnectTimeout: 60000
+  ReadTimeout: 600000
+  ConnectTimeout: 600000
 
 #系统是否开启权限验证、是否开启缓存
 #缓存级别：无缓存(无配置项)、一级缓存(L1)、二级缓存(L2)

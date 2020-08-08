@@ -1,16 +1,16 @@
 zuul:
   routes:
     common:
-      path: /appdata
-      serviceId: pms-webapi
+      path:
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     v7:
-      path: /v7/**
-      serviceId: pms-webapi
+      path: /appdata
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibizutil:
       path: /ibizutil/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
 
 environment:
@@ -21,13 +21,12 @@ ibiz:
   ref:
     service:
       pms-webapi: pms-webapi
-      uaa: ibzuaa-api-pms
+      uaa: ibzuaa-apipms
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
       # UAA认证模式：UAATokenUtil
       util: UAATokenUtil
-#    service: ZTUserService
 
 spring:
   servlet:
