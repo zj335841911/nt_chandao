@@ -79,6 +79,7 @@ export default class TestTaskServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_testruns',JSON.stringify(res.data.testruns?res.data.testruns:[]));
             
             return res;
         }
@@ -92,6 +93,7 @@ export default class TestTaskServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/testtasks`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_testruns',JSON.stringify(res.data.testruns?res.data.testruns:[]));
         
         return res;
     }
