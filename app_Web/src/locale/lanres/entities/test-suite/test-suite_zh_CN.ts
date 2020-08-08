@@ -76,6 +76,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			testsuite_linkcase: "关联用例",
 			testsuite_editsuite: "编辑",
 			remove: "删除",
 		},
