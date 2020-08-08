@@ -24,7 +24,7 @@ final public class ZTTestSuiteHelper {
     /**
      * 接口模块名
      */
-    private final static String MODULE_NAME = "testcase";
+    private final static String MODULE_NAME = "testsuite";
 
     // ----------
     // 参数日期格式
@@ -129,6 +129,10 @@ final public class ZTTestSuiteHelper {
         ACTION_PARAMS_EDIT.put("desc", null);
         ACTION_PARAMS_EDIT.put("type", null);
 
+        // LINKCASE
+        ACTION_PARAMS_LINKCASE.put("cases[]", null);
+        ACTION_PARAMS_LINKCASE.put("versions[cases]", null);
+
     }
 
     // ----------
@@ -145,6 +149,14 @@ final public class ZTTestSuiteHelper {
         // DELETE
         ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
+
+        // UNLINKCASE
+        ACTION_URL_PARAMS_UNLINKCASE.add("id");
+        ACTION_URL_PARAMS_UNLINKCASE.add("case");
+        ACTION_URL_PARAMS_UNLINKCASE.add("confirm");
+
+        // LINKCASE
+        ACTION_URL_PARAMS_LINKCASE.add("id");
 
     }
 
@@ -222,6 +234,52 @@ final public class ZTTestSuiteHelper {
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_DELETE;
 
         jo.put("confirm", "yes");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * unlinkCas 移除用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = "testsuite";
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_UNLINKCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_UNLINKCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_UNLINKCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_UNLINKCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_UNLINKCASE;
+
+        jo.put("confirm", "yes");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * linkCas 关联用例
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = "testsuite";
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LINKCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LINKCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_LINKCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_LINKCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_LINKCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_LINKCASE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
