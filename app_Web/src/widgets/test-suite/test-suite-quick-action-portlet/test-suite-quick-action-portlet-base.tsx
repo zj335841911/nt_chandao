@@ -94,6 +94,34 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet4_u3a52055_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestSuiteUIService  = new TestSuiteUIService();
+        curUIService.TestSuite_linkCase(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet4_ud269d16_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -189,6 +217,11 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         },
+        { viewlogicname:"dashboard_sysportlet4_u3a52055_click",
+        text: "关联用例",
+        iconcls: "fa fa-link",
+        icon: "",
+        },
         { viewlogicname:"dashboard_sysportlet4_ud269d16_click",
         text: "编辑",
         iconcls: "fa fa-edit",
@@ -209,6 +242,9 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet4_u21343aa_click')){
             this.dashboard_sysportlet4_u21343aa_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u3a52055_click')){
+            this.dashboard_sysportlet4_u3a52055_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet4_ud269d16_click')){
             this.dashboard_sysportlet4_ud269d16_click(null);
