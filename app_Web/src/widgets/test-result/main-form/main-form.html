@@ -26,7 +26,7 @@
     <app-form-item name='lastrunner' :itemRules="this.rules.lastrunner" class='' :caption="$t('entities.testresult.main_form.details.lastrunner')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastrunner.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='lastrunner' :value="data.lastrunner" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 
 </app-form-item>
