@@ -237,6 +237,9 @@ final public class ZTTestTaskHelper {
         ACTION_PARAMS_RUNCASE.put("case", null);
         ACTION_PARAMS_RUNCASE.put("version", null);
 
+        // LINKCASE
+        ACTION_PARAMS_LINKCASE.put("cases[]", null);
+        ACTION_PARAMS_LINKCASE.put("versions[cases]", null);
 
         // START
         ACTION_PARAMS_START.put("comment", null);
@@ -271,6 +274,9 @@ final public class ZTTestTaskHelper {
         // UNLINKCASE
         ACTION_URL_PARAMS_UNLINKCASE.add("id");
         ACTION_URL_PARAMS_UNLINKCASE.add("confirm");
+
+        // LINKCASE
+        ACTION_URL_PARAMS_LINKCASE.add("id");
 
         // START
         ACTION_URL_PARAMS_START.add("id");
