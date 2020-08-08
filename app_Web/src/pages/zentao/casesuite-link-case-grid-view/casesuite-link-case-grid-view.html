@@ -1,0 +1,52 @@
+<studio-view viewName="casesuitelinkcasegridview" viewTitle="测试用例表格视图（关联用例）" class='degridview casesuite-link-case-grid-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="用例标题" search @on-search="onSearch($event)"/>
+    <template slot="toolbar">
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
+    <template slot="searchForm">
+                <view_searchform 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true"
+            v-show="isExpandSearchForm"
+            loaddraftAction="FilterGetDraft"
+            loadAction="FilterGet"
+        
+            name="searchform"  
+            ref='searchform' 
+            @save="searchform_save($event)"  
+            @search="searchform_search($event)"  
+            @load="searchform_load($event)"  
+            @closeview="closeView($event)">
+        </view_searchform>
+    </template>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isGridSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="true"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave.apply(_self, arguments)"
+        updateAction="Update"
+        removeAction="Remove"
+        loaddraftAction="GetDraft"
+        loadAction="Get"
+        createAction="Create"
+        fetchAction="FetchNotCurTestSuite"
+        :newdata="newdata.bind(_self)"
+        :opendata="opendata.bind(_self)"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
+</studio-view>

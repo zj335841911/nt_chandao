@@ -1991,6 +1991,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskStartOptionView",
             "viewtag": "e3daebb0eca3c90b800021c84de8c19e"
         },
+        "casesuitelinkcasegridview": {
+            "title": "测试用例表格视图（关联用例）",
+            "caption": "关联用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CasesuiteLinkCaseGridView",
+            "viewtag": "e53ca619c1e2592cff68b05a9a64ff0f"
+        },
         "storyeditview_storychange": {
             "title": "需求编辑视图",
             "caption": "变更",

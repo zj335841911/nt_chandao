@@ -143,6 +143,10 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		suitelinkcasegridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（关联用例）",
+		},
 		testtaskexceditview: {
 			caption: "执行结果",
       		title: "测试用例编辑视图（执行结果）",
@@ -597,6 +601,12 @@ export default {
 		deuiaction7: {
 			caption: "导出",
 			tip: "导出",
+		},
+	},
+	suitelinkcasegridviewtoolbar_toolbar: {
+		deuiaction1_linkcase: {
+			caption: "保存",
+			tip: "保存",
 		},
 	},
 	gridviewtoolbar_toolbar: {

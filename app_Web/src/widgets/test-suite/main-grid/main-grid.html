@@ -101,6 +101,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                          <a v-show="scope.row.linkCase.visabled" :disabled="scope.row.linkCase.disabled" @click="uiAction(scope.row, 'linkCase', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_linkcase')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Editsuite.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Editsuite.visabled" :disabled="scope.row.Editsuite.disabled" @click="uiAction(scope.row, 'Editsuite', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_editsuite')">
                             <i class='fa fa-edit'></i>
                             
