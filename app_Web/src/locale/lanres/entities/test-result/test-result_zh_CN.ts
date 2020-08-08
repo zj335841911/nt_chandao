@@ -26,6 +26,10 @@ export default {
 			caption: "测试结果",
       		title: "测试结果表格视图",
 		},
+		testtaskmeditview9: {
+			caption: "测试结果",
+      		title: "测试结果多表单编辑视图",
+		},
 		editview9: {
 			caption: "测试结果",
       		title: "测试结果编辑视图",

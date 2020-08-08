@@ -36,6 +36,7 @@ public interface ITestResultService extends IService<TestResult>{
     boolean checkKey(TestResult et) ;
     boolean save(TestResult et) ;
     void saveBatch(List<TestResult> list) ;
+    Page<TestResult> searchCurTestRun(TestResultSearchContext context) ;
     Page<TestResult> searchDefault(TestResultSearchContext context) ;
     List<TestResult> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;

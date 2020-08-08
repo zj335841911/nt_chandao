@@ -316,6 +316,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '27374a7bc38f2581e433db58d85e14e4',
+            viewmodule: 'zentao',
+            viewname: 'TestResultTestTaskMEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd000027bf12084d69b1e064264d06962',
+            ],
+        },
+        {
             viewtag: '27e6b14e0243582fc67753b58a64066d',
             viewmodule: 'zentao',
             viewname: 'CaseOptionView',
@@ -433,7 +443,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6ca0081833718834ca4bbd9ebbf1ccce',
+                'ef44fe10b2c0c55b17c75fee5e11a5fe',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '14d95e9a02db631c2b9af47641fcec4e',
@@ -639,8 +649,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ef44fe10b2c0c55b17c75fee5e11a5fe',
                 '8e070a3e9ad67b127db723463198f9ac',
-                '6ca0081833718834ca4bbd9ebbf1ccce',
                 '507c88b3f8f66c00a44443748f68125d',
                 '6b041208cbc10321a4d9cd74eaac3689',
                 '770a170098d148e438a7666b248e6519',
@@ -1080,6 +1090,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '27374a7bc38f2581e433db58d85e14e4',
                 'a694d988e3134a33bb5a99e6e07246f6',
             ],
         },
@@ -2443,6 +2454,16 @@ export const viewstate: any = {
             refviews: [
                 '0b1b51910ca13751bfd6d356dcadbbce',
                 '908a34af4784424622d2f7905335d023',
+            ],
+        },
+        {
+            viewtag: 'ef44fe10b2c0c55b17c75fee5e11a5fe',
+            viewmodule: 'zentao',
+            viewname: 'CaseTestTaskExcEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '27374a7bc38f2581e433db58d85e14e4',
             ],
         },
         {

@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
-import MainTestTaskService from './main-test-task-form-service';
+import TestTaskRMainService from './test-task-rmain-form-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainTestTaskEditFormBase}
+ * @extends {TestTaskRMainEditFormBase}
  */
-export class MainTestTaskEditFormBase extends EditFormControlBase {
+export class TestTaskRMainEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainTestTaskService}
-     * @memberof MainTestTaskEditFormBase
+     * @type {TestTaskRMainService}
+     * @memberof TestTaskRMainEditFormBase
      */
-    public service: MainTestTaskService = new MainTestTaskService({ $store: this.$store });
+    public service: TestTaskRMainService = new TestTaskRMainService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     protected appDeName: string = 'case';
 
@@ -55,14 +55,14 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     protected appDeLogicName: string = '测试用例';
     /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
@@ -72,15 +72,15 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {number}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -91,7 +91,6 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         version: null,
-        task: null,
         precondition: null,
         resultcnt: null,
         resultfalicnt: null,
@@ -103,7 +102,7 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     public rules: any = {
     }
@@ -112,7 +111,7 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainTestTaskBase
+     * @memberof TestTaskRMainBase
      */
     public deRules:any = {
     };
@@ -121,14 +120,14 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     public detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maintesttask_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.testtaskrmain_form', extractMode: 'ITEM', details: [] } }),
+
+        group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.testtaskrmain_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -148,8 +147,6 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
 
         version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        task: new FormItemModel({ caption: '属性', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         resultcnt: new FormItemModel({ caption: '测试结果数', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -165,11 +162,10 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {Promise<void>}
-     * @memberof MainTestTaskEditFormBase
+     * @memberof TestTaskRMainEditFormBase
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
-
 
 
 
@@ -194,15 +190,5 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
 
 
 
-    }
-
-    /**
-     * 更新默认值
-     * @memberof MainTestTaskEditFormBase
-     */
-    public updateDefault(){                    
-        if (this.data.hasOwnProperty('task') && !this.data.task) {
-            this.data['task'] = this.viewparams['task'];
-        }
     }
 }

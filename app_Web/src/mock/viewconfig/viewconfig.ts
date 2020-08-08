@@ -279,6 +279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleEditView",
             "viewtag": "2671388d4c12a6f139e6fd806c524dc7"
         },
+        "testresulttesttaskmeditview9": {
+            "title": "测试结果多表单编辑视图",
+            "caption": "测试结果",
+            "viewtype": "DEMEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TestResultTestTaskMEditView9",
+            "viewtag": "27374a7bc38f2581e433db58d85e14e4"
+        },
         "caseoptionview": {
             "title": "测试用例选项操作视图",
             "caption": "执行",
@@ -2094,6 +2102,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectDashboardInfoView",
             "viewtag": "ef1a8c8701140368af895304274c602a"
+        },
+        "casetesttaskexceditview": {
+            "title": "测试用例编辑视图（执行结果）",
+            "caption": "执行结果",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseTestTaskExcEditView",
+            "viewtag": "ef44fe10b2c0c55b17c75fee5e11a5fe"
         },
         "taskmaindetailview9": {
             "title": "任务编辑视图",

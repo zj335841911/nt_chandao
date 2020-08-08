@@ -1,0 +1,21 @@
+<studio-view viewName="testresulttesttaskmeditview9" viewTitle="测试结果多表单编辑视图" class='demeditview9 test-result-test-task-medit-view9'>
+    <i-input slot="quickSearch" v-model="query" placeholder="" search @on-search="onSearch($event)"/>
+    <view_meditviewpanel 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    :showBusyIndicator="true" 
+                    :saveRefView="saveRefView" 
+                    @viewdatadirty="onViewDataDirty" 
+                    @drdatasaved="onDRDataSaved" 
+                    updateAction=""
+                    removeAction="Remove"
+                    loaddraftAction="GetDraft"
+                    loadAction=""
+                    createAction=""
+                    fetchAction="FetchCurTestRun"
+                    name="meditviewpanel"  
+                    ref='meditviewpanel' 
+                    @closeview="closeView($event)">
+                </view_meditviewpanel>
+</studio-view>
