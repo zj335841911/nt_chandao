@@ -248,7 +248,7 @@ final public class ZTTestSuiteHelper {
      */
     public static boolean unlinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
-        String moduleName = "testsuite";
+        String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
         String actionName = ACTION_UNLINKCASE;
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKCASE;
@@ -272,7 +272,7 @@ final public class ZTTestSuiteHelper {
      */
     public static boolean linkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
-        String moduleName = "testsuite";
+        String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
         String actionName = ACTION_LINKCASE;
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LINKCASE;
