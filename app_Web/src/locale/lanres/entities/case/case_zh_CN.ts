@@ -605,7 +605,7 @@ export default {
 		},
 	},
 	suitelinkcasegridviewtoolbar_toolbar: {
-		deuiaction1_linkcase: {
+		deuiaction1_suitelinkcase: {
 			caption: "保存",
 			tip: "保存",
 		},
