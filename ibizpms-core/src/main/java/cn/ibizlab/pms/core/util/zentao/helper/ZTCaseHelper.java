@@ -482,6 +482,20 @@ final public class ZTCaseHelper {
     }
 
     /**
+     * unlinkCase 移除用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkSuiteCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestSuiteHelper.unlinkCase(zentaoSid, jo, rst);
+    }
+
+    /**
      * linkCase 用例关联
      *
      * @param zentaoSid
@@ -493,6 +507,20 @@ final public class ZTCaseHelper {
 
 
         return ZTTestTaskHelper.linkCase(zentaoSid, jo, rst);
+    }
+
+    /**
+     * linkCase 用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean testsuitelinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestSuiteHelper.linkCase(zentaoSid, jo, rst);
     }
 
 }

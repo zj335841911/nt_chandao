@@ -58,6 +58,25 @@ public class CaseExService extends CaseServiceImpl {
         return et;
     }
 
+    @Override
+    @Transactional
+    public Case unlinkSuiteCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        jo.remove("id");
+        if(et.getId() != null && et.get("suite") != null) {
+           jo.put("id", et.get("suite"));
+           jo.put("case", et.getId());
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.unlinkSuiteCase(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
     /**
      * 自定义行为[RunCase]用户扩展
      * @param et
@@ -204,6 +223,40 @@ public class CaseExService extends CaseServiceImpl {
             context.setN_version_eq(et.getVersion());
             et.setCasestep(casestepService.searchDefault(context).getContent());
         }
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Case testsuitelinkCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+
+        if(et.get("suite") != null) {
+            jo.put("id", String.valueOf(et.get("suite")).split(",")[0]);
+        }
+        JSONArray jsonArray = new JSONArray();
+
+        if(et.get("ids") != null && et.get("versions") != null) {
+            String[] cases = String.valueOf(et.get("ids")).split(",");
+            String[] versions = String.valueOf(et.get("versions")).split(",");
+            if(cases.length == versions.length) {
+                for(int i = 0; i < cases.length; i ++) {
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("cases", cases[i]);
+                    jsonObject.put("versions", versions[i]);
+                    jsonArray.add(jsonObject);
+                }
+            }
+
+        }
+        jo.put("srfarray", jsonArray);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.testsuitelinkCase(zentaoSid, jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
         return et;
     }
 
