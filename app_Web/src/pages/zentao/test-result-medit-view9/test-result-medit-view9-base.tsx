@@ -29,7 +29,15 @@ export class TestResultMEditView9Base extends EditView9Base {
      * @memberof TestResultMEditView9Base
      */
     protected appDeKey: string = 'id';
-// 应用实体「TestResult」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestResultMEditView9Base
+     */
+    protected appDeMajor: string = 'casename';
 
     /**
      * 实体服务对象

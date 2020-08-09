@@ -113,6 +113,7 @@ export class MainEditFormBase extends EditFormControlBase {
     public data: any = {
         srforikey: null,
         srfkey: null,
+        srfmajortext: null,
         srftempmode: null,
         srfuf: null,
         srfdeid: null,
@@ -163,6 +164,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
+        srfmajortext: new FormItemModel({ caption: '用例名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -200,6 +203,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
 
 
 

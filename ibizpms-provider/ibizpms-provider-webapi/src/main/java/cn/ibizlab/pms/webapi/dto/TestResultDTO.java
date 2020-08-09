@@ -129,6 +129,14 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JsonProperty("task")
     private String task;
 
+    /**
+     * 属性 [CASENAME]
+     *
+     */
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    private String casename;
+
 
     /**
      * 设置 [LASTRUNNER]
@@ -216,6 +224,14 @@ public class TestResultDTO extends DTOBase implements Serializable {
     public void setCompile(BigInteger  compile){
         this.compile = compile ;
         this.modify("compile",compile);
+    }
+
+    /**
+     * 设置 [CASENAME]
+     */
+    public void setCasename(String  casename){
+        this.casename = casename ;
+        this.modify("casename",casename);
     }
 
 

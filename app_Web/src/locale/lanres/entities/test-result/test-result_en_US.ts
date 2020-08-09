@@ -14,6 +14,7 @@ export default {
     run: "测试执行",
     compile: "代码编译",
     task: "属性",
+    casename: "用例名称",
   },
 	views: {
 		editview: {
@@ -46,6 +47,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
+			srfmajortext: "用例名称", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 
