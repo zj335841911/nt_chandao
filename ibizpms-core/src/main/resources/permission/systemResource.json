@@ -1,6 +1,16 @@
     {
     "systemid":"pms",
     "unires":[
+        
+       {
+            "unirescode":"PRODUCTEDIT",
+            "uniresname":"产品编辑按钮资源"
+       }
+        ,
+       {
+            "unirescode":"PRODUCTLEFT",
+            "uniresname":"产品左侧资源"
+       }
     ],
     "entities":[
     {

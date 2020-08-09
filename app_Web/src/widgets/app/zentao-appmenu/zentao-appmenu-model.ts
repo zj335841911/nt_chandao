@@ -178,7 +178,7 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto2',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-left-sidebar-list-view',
-                	resourcetag: '',
+                	resourcetag: 'PRODUCTLEFT',
                 }
                 ,
                 		        {

@@ -154,7 +154,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	icon: '',
 	textcls: '',
 	appfunctag: 'Auto2',
-	resourcetag: '',
+	resourcetag: 'PRODUCTLEFT',
 },
 		{
 	id: '1bc9bde6c2735da9d300fc5925d5ecf8',
