@@ -72,6 +72,23 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
 </app-form-druipart>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testresult.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 22 }">
+        <i-button type="primary" @click="button1_click($event)"
+         style="">
+           
+        <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
+    </i-button>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
     
     </row>
 </app-form-group>

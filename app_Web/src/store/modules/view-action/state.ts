@@ -447,6 +447,7 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '14d95e9a02db631c2b9af47641fcec4e',
+                '3a9645e5ad29ed73b59ccd2f548d602c',
                 '6b041208cbc10321a4d9cd74eaac3689',
                 '454743e1c8070362a873d0d4fe35740b',
             ],
@@ -490,6 +491,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4970832ed515bc37ec3c7c61b55d444b',
+            ],
+        },
+        {
+            viewtag: '3a9645e5ad29ed73b59ccd2f548d602c',
+            viewmodule: 'zentao',
+            viewname: 'CaseToBugEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '136cd30bd141450ecd9e7791215733e6',
             ],
         },
         {
@@ -563,6 +574,7 @@ export const viewstate: any = {
                 '6ca0081833718834ca4bbd9ebbf1ccce',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '3a9645e5ad29ed73b59ccd2f548d602c',
                 '27e6b14e0243582fc67753b58a64066d',
                 '66769499a681f12bd2ebff8859f1d4ea',
             ],
@@ -1141,6 +1153,7 @@ export const viewstate: any = {
             refviews: [
                 '8e070a3e9ad67b127db723463198f9ac',
                 '6ca0081833718834ca4bbd9ebbf1ccce',
+                '3a9645e5ad29ed73b59ccd2f548d602c',
                 '27e6b14e0243582fc67753b58a64066d',
                 'b54ba4ee901e1a450acac8723a4ae97a',
                 '770a170098d148e438a7666b248e6519',
@@ -1900,6 +1913,7 @@ export const viewstate: any = {
                 '6ca0081833718834ca4bbd9ebbf1ccce',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '3a9645e5ad29ed73b59ccd2f548d602c',
                 '27e6b14e0243582fc67753b58a64066d',
             ],
         },
@@ -2172,6 +2186,7 @@ export const viewstate: any = {
                 '6ca0081833718834ca4bbd9ebbf1ccce',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '3a9645e5ad29ed73b59ccd2f548d602c',
                 '27e6b14e0243582fc67753b58a64066d',
             ],
         },
@@ -2211,6 +2226,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '41bfd828761fc42ef9a7acdd4f4babcf',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {

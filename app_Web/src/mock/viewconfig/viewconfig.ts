@@ -423,6 +423,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskTodoEditView",
             "viewtag": "3a8aaf8bc175455ca2be6ace38f821a1"
         },
+        "casetobugeditview": {
+            "title": "测试用例编辑视图（执行结果）",
+            "caption": "执行结果",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseToBugEditView",
+            "viewtag": "3a9645e5ad29ed73b59ccd2f548d602c"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",

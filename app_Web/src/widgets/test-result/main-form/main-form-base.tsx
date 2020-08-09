@@ -58,6 +58,34 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeLogicName: string = '测试结果';
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestResultUIService  = new TestResultUIService();
+        curUIService.TestResult_ToBug(datas,contextJO, paramJO,  $event, xData,this,"TestResult");
+    }
     /**
      * 界面UI服务对象
      *
@@ -123,6 +151,10 @@ export class MainEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        button1: new FormButtonModel({ caption: '转Bug', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'ToBug', actiontarget: 'SINGLEKEY' } }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testresult.main_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel1: new FormGroupPanelModel({ caption: '用例步骤', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testresult.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -148,4 +180,48 @@ export class MainEditFormBase extends EditFormControlBase {
         caseresult: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'caseresult', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof MainEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+        if (Object.is(name, '') || Object.is(name, 'caseresult')) {
+            let ret = false;
+            const _caseresult = this.data.caseresult;
+            if (this.$verify.testCond(_caseresult, 'EQ', 'fail')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel2.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+	/**
+	 * 表单 转Bug 事件
+	 *
+	 * @memberof @memberof MainEditFormBase
+	 */
+    public button1_click($event: any): void {
+        this.form_button1_click(null, null, $event);
+
+    }
 }

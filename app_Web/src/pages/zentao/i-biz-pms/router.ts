@@ -7633,6 +7633,66 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-module-main-grid-view/project-module-main-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/tobugeditview/:tobugeditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugeditview', parameterName: 'tobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/tobugeditview/:tobugeditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugeditview', parameterName: 'tobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/tobugeditview/:tobugeditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugeditview', parameterName: 'tobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/tobugeditview/:tobugeditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugeditview', parameterName: 'tobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
                         caption: 'entities.ibzcasestep.views.carryouteditmode.title',
