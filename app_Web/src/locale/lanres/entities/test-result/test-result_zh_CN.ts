@@ -13,7 +13,7 @@ export default {
     run: "测试执行",
     compile: "代码编译",
     task: "属性",
-    casename: "用例名称",
+    title: "用例名称",
   },
 	views: {
 		editview: {

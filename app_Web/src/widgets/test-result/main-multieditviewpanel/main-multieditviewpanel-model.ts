@@ -55,7 +55,7 @@ export default class MainModel {
         name: 'task',
       },
       {
-        name: 'casename',
+        name: 'title',
       },
     ]
   }

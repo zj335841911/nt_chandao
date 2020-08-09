@@ -37,7 +37,7 @@ export class TestResultTestTaskMEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestResultTestTaskMEditView9Base
      */
-    protected appDeMajor: string = 'casename';
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

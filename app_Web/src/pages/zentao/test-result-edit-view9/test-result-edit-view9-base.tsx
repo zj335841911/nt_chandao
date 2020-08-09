@@ -38,7 +38,7 @@ export class TestResultEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestResultEditView9Base
      */
-    protected appDeMajor: string = 'casename';
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象
@@ -145,7 +145,7 @@ export class TestResultEditView9Base extends EditView9Base {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'testresult',
-            majorPSDEField: 'casename',
+            majorPSDEField: 'title',
             isLoadDefault: true,
         });
     }

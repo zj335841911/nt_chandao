@@ -116,5 +116,5 @@ export interface TestResult {
      * @returns {*}
      * @memberof TestResult
      */
-    casename?: any;
+    title?: any;
 }
