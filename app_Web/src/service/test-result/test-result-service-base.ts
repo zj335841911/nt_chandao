@@ -31,7 +31,7 @@ export default class TestResultServiceBase extends EntityService {
         this.APPLYDEKEY ='testresult';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'testresults';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'casename';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

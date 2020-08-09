@@ -30,7 +30,15 @@ export class TestResultEditView9Base extends EditView9Base {
      * @memberof TestResultEditView9Base
      */
     protected appDeKey: string = 'id';
-// 应用实体「TestResult」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestResultEditView9Base
+     */
+    protected appDeMajor: string = 'casename';
 
     /**
      * 实体服务对象
@@ -137,6 +145,7 @@ export class TestResultEditView9Base extends EditView9Base {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'testresult',
+            majorPSDEField: 'casename',
             isLoadDefault: true,
         });
     }

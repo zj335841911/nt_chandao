@@ -134,6 +134,13 @@ public class TestResult extends EntityMP implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     private String task;
+    /**
+     * 用例名称
+     */
+    @TableField(value = "casename")
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    private String casename;
 
     /**
      * 
@@ -265,6 +272,14 @@ public class TestResult extends EntityMP implements Serializable {
     public void setCompile(BigInteger compile){
         this.compile = compile ;
         this.modify("compile",compile);
+    }
+
+    /**
+     * 设置 [用例名称]
+     */
+    public void setCasename(String casename){
+        this.casename = casename ;
+        this.modify("casename",casename);
     }
 
 

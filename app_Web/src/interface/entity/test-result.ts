@@ -109,4 +109,12 @@ export interface TestResult {
      * @memberof TestResult
      */
     task?: any;
+
+    /**
+     * 用例名称
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    casename?: any;
 }
