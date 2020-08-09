@@ -134,7 +134,7 @@ export default class TestResultUIServiceBase extends UIService {
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testresult: '%testresult%' });
         Object.assign(params, { id: '%testresult%' });
-        Object.assign(params, { casename: '%casename%' });
+        Object.assign(params, { title: '%title%' });
         if(_this.context){
             parentContext = _this.context;
         }

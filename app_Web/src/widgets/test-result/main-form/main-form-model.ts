@@ -35,7 +35,7 @@ export default class MainModel {
       },
       {
         name: 'srfmajortext',
-        prop: 'casename',
+        prop: 'title',
         dataType: 'TEXT',
       },
       {

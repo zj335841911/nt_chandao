@@ -64,7 +64,7 @@ public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("casename", query)   
+                     wrapper.like("title", query)   
             );
 		 }
 	}
