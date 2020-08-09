@@ -94,6 +94,7 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'optionview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9_my',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'curtesttaskgridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'tobugeditview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'testmaindashboardview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'maininfoeditview9',srfappde:'cases'});
@@ -1168,6 +1169,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASK:"%task%"});
+        Object.assign(params,{task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { case: '%case%' });
@@ -1194,8 +1197,8 @@ export default class CaseUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
                     if (!result || !Object.is(result.ret, 'OK')) {
                         return;
@@ -1205,13 +1208,12 @@ export default class CaseUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'case-main-dashboard-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.case.views.maindashboardview.title'),
-                placement: 'DRAWER_TOP',
+                viewname: 'case-to-bug-edit-view', 
+                height: 800, 
+                width: 800,  
+                title: actionContext.$t('entities.case.views.tobugeditview.title'),
             };
-            openDrawer(view, data);
+            openPopupModal(view, data);
     }
 
 

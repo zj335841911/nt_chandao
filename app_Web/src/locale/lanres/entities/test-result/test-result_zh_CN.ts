@@ -39,6 +39,8 @@ export default {
 	main_form: {
 		details: {
 			druipart1: "", 
+			button1: "转Bug", 
+			grouppanel2: "分组面板", 
 			grouppanel1: "用例步骤", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -53,6 +55,7 @@ export default {
 			caseresult: "", 
 		},
 		uiactions: {
+			testresult_tobug: "转Bug",
 		},
 	},
 	main_grid: {

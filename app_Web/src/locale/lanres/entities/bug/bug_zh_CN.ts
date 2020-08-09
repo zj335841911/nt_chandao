@@ -720,6 +720,12 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
 		deuiaction3_planrelationbug: {
 			caption: "关联Bug",
@@ -732,12 +738,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
