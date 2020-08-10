@@ -20,3 +20,6 @@ import { MainREditFormBase } from './main-r-form-base';
 @VueLifeCycleProcessing()
 export default class MainREditForm extends MainREditFormBase { }
 </script>
+<style lang='less'>
+@import './main-r-form.less';
+</style>

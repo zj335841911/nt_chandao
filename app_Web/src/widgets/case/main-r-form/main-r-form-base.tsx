@@ -123,6 +123,10 @@ export class MainREditFormBase extends EditFormControlBase {
      * @memberof MainREditFormBase
      */
     public detailsModel: any = {
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.mainr_form', extractMode: 'ITEM', details: [] } }),
@@ -149,9 +153,9 @@ export class MainREditFormBase extends EditFormControlBase {
 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        resultcnt: new FormItemModel({ caption: '测试结果数', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        resultcnt: new FormItemModel({ caption: '共执行', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        resultfalicnt: new FormItemModel({ caption: '测试失败数', detailType: 'FORMITEM', name: 'resultfalicnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        resultfalicnt: new FormItemModel({ caption: '失败', detailType: 'FORMITEM', name: 'resultfalicnt', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
@@ -166,6 +170,17 @@ export class MainREditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
+        if (Object.is(name, '') || Object.is(name, 'resultcnt') || Object.is(name, 'resultfalicnt')) {
+            let ret = false;
+            const _resultcnt = this.data.resultcnt;
+            const _resultfalicnt = this.data.resultfalicnt;
+            if (this.$verify.testCond(_resultfalicnt, 'EQ', '0') && this.$verify.testCond(_resultcnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
 
 
 
@@ -188,6 +203,14 @@ export class MainREditFormBase extends EditFormControlBase {
         }
 
 
+        if (Object.is(name, '') || Object.is(name, 'resultfalicnt')) {
+            let ret = false;
+            const _resultfalicnt = this.data.resultfalicnt;
+            if (this.$verify.testCond(_resultfalicnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.resultfalicnt.setVisible(ret);
+        }
 
 
     }

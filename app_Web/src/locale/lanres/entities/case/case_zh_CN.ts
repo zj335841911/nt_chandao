@@ -236,6 +236,8 @@ export default {
 	},
 	mainr_form: {
 		details: {
+			rawitem1: "", 
+			rawitem2: "", 
 			druipart2: "", 
 			grouppanel1: "执行结果", 
 			group1: "测试用例基本信息", 
@@ -249,8 +251,8 @@ export default {
 			srfsourcekey: "", 
 			version: "版本#", 
 			precondition: "前置条件", 
-			resultcnt: "测试结果数", 
-			resultfalicnt: "测试失败数", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
 			id: "用例编号", 
 		},
 		uiactions: {
