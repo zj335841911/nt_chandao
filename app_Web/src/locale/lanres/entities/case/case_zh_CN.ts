@@ -214,6 +214,9 @@ export default {
 	maincarry_form: {
 		details: {
 			druipart1: "用例步骤", 
+			rawitem1: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
 			druipart2: "", 
 			grouppanel1: "执行结果", 
 			group1: "测试用例基本信息", 
@@ -227,8 +230,8 @@ export default {
 			srfsourcekey: "", 
 			version: "版本#", 
 			precondition: "前置条件", 
-			resultcnt: "测试结果数", 
-			resultfalicnt: "测试失败数", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -238,6 +241,7 @@ export default {
 		details: {
 			rawitem1: "", 
 			rawitem2: "", 
+			grouppanel2: "分组面板", 
 			druipart2: "", 
 			grouppanel1: "执行结果", 
 			group1: "测试用例基本信息", 
@@ -377,6 +381,10 @@ export default {
 	maintesttask_form: {
 		details: {
 			druipart1: "用例步骤", 
+			rawitem1: "", 
+			rawitem3: "", 
+			rawitem2: "", 
+			grouppanel1: "分组面板", 
 			druipart2: "", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
@@ -390,8 +398,8 @@ export default {
 			version: "版本#", 
 			task: "属性", 
 			precondition: "前置条件", 
-			resultcnt: "测试结果数", 
-			resultfalicnt: "测试失败数", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -399,6 +407,10 @@ export default {
 	},
 	testtaskrmain_form: {
 		details: {
+			rawitem1: "", 
+			rawitem3: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
 			druipart2: "", 
 			grouppanel1: "执行结果", 
 			group1: "测试用例基本信息", 
@@ -412,8 +424,8 @@ export default {
 			srfsourcekey: "", 
 			version: "版本#", 
 			precondition: "前置条件", 
-			resultcnt: "测试结果数", 
-			resultfalicnt: "测试失败数", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
 			id: "用例编号", 
 		},
 		uiactions: {
