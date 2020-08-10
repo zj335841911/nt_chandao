@@ -71,6 +71,9 @@ export default class MainModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'formitem',
+      },
+      {
         name: 'testresult',
         prop: 'id',
         dataType: 'FONTKEY',
