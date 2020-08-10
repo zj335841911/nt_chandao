@@ -311,6 +311,34 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u5cd6c83_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_delete(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 当前数据
@@ -396,6 +424,11 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "建用例",
         iconcls: null,
         icon: null,
+        },
+        { viewlogicname:"dashboard_sysportlet5_u5cd6c83_click",
+        text: "删除",
+        iconcls: null,
+        icon: null,
         }
     ];
 
@@ -431,6 +464,9 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet5_ucf86385_click')){
             this.dashboard_sysportlet5_ucf86385_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_u5cd6c83_click')){
+            this.dashboard_sysportlet5_u5cd6c83_click(null);
         }
     }
 

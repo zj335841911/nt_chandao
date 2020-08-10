@@ -53,7 +53,7 @@ export default class CaseUIServiceBase extends UIService {
      * 
      * @memberof  CaseUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status1'];
+    public mainStateFields:Array<any> = ['status1','lastrunresult'];
 
     /**
      * 主状态集合Map
@@ -124,12 +124,40 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('blocked','blocked');
+        this.allDeMainStateMap.set('blocked__blocked','blocked__blocked');
+        this.allDeMainStateMap.set('blocked__fail','blocked__fail');
+        this.allDeMainStateMap.set('blocked__n/a','blocked__n/a');
+        this.allDeMainStateMap.set('blocked__pass','blocked__pass');
         this.allDeMainStateMap.set('casechange','casechange');
+        this.allDeMainStateMap.set('casechange__blocked','casechange__blocked');
+        this.allDeMainStateMap.set('casechange__fail','casechange__fail');
+        this.allDeMainStateMap.set('casechange__n/a','casechange__n/a');
+        this.allDeMainStateMap.set('casechange__pass','casechange__pass');
         this.allDeMainStateMap.set('done','done');
+        this.allDeMainStateMap.set('done__blocked','done__blocked');
+        this.allDeMainStateMap.set('done__fail','done__fail');
+        this.allDeMainStateMap.set('done__n/a','done__n/a');
+        this.allDeMainStateMap.set('done__pass','done__pass');
         this.allDeMainStateMap.set('investigate','investigate');
+        this.allDeMainStateMap.set('investigate__blocked','investigate__blocked');
+        this.allDeMainStateMap.set('investigate__fail','investigate__fail');
+        this.allDeMainStateMap.set('investigate__n/a','investigate__n/a');
+        this.allDeMainStateMap.set('investigate__pass','investigate__pass');
         this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('normal__blocked','normal__blocked');
+        this.allDeMainStateMap.set('normal__fail','normal__fail');
+        this.allDeMainStateMap.set('normal__n/a','normal__n/a');
+        this.allDeMainStateMap.set('normal__pass','normal__pass');
         this.allDeMainStateMap.set('storychange','storychange');
+        this.allDeMainStateMap.set('storychange__blocked','storychange__blocked');
+        this.allDeMainStateMap.set('storychange__fail','storychange__fail');
+        this.allDeMainStateMap.set('storychange__n/a','storychange__n/a');
+        this.allDeMainStateMap.set('storychange__pass','storychange__pass');
         this.allDeMainStateMap.set('wait','wait');
+        this.allDeMainStateMap.set('wait__blocked','wait__blocked');
+        this.allDeMainStateMap.set('wait__fail','wait__fail');
+        this.allDeMainStateMap.set('wait__n/a','wait__n/a');
+        this.allDeMainStateMap.set('wait__pass','wait__pass');
     }
 
     /**
@@ -139,12 +167,40 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('blocked',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('blocked__blocked',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('blocked__fail',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('blocked__n/a',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('blocked__pass',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('casechange',{'CASECOF':1,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('casechange__blocked',{'CASECOF':1,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('casechange__fail',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('casechange__n/a',{'CASECOF':1,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('casechange__pass',{'CASECOF':1,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
         this.allDeMainStateOPPrivsMap.set('done',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('done__blocked',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('done__fail',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':1,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('done__n/a',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('done__pass',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
         this.allDeMainStateOPPrivsMap.set('investigate',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate__blocked',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate__fail',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate__n/a',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('investigate__pass',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('normal',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal__blocked',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal__fail',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal__n/a',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal__pass',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':1,'EDIT':1,'READ':0,'RESULT':1,'RUN':1,'TOBUG':0,'UNLINK':1,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('storychange',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':1,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('storychange__blocked',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':1,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('storychange__fail',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':1,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('storychange__n/a',{'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':1,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('storychange__pass',{'CASECOF':1,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0});
         this.allDeMainStateOPPrivsMap.set('wait',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait__blocked',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait__fail',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':1,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait__n/a',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('wait__pass',{'CASECOF':0,'CASERESULT':1,'CASERUN':1,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':1,'UPDATE':0});
     }
 
     /**
