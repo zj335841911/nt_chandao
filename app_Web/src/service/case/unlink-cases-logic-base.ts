@@ -1,3 +1,4 @@
+import CaseService from '@/service/case/case-service';
 import { Verify } from '@/utils/verify/verify';
 
 
@@ -78,6 +79,15 @@ export default class UnlinkCasesLogicBase {
     }
 
     /**
+     * 计算2节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute2Cond(params:any):boolean{
+        return true;
+    }
+
+    /**
      * 执行逻辑
      * 
      * @param context 应用上下文
@@ -98,6 +108,26 @@ export default class UnlinkCasesLogicBase {
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;
+    }
+
+    /**
+    * 处理移除接口
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeDeaction1(context:any,params:any,isloading:boolean){
+        // 行为处理节点
+        let result: any;
+        let actionParam:any = this.paramsMap.get('Default');
+        const targetService:CaseService = new CaseService();
+        if (targetService['UnlinkCase'] && targetService['UnlinkCase'] instanceof Function) {
+            result = await targetService['UnlinkCase'](actionParam.context,actionParam.data, false);
+        }
+        if(result && result.status == 200){
+            Object.assign(actionParam.data,result.data);
+        return this.paramsMap.get(this.defaultParamName).data;
+        }
     }
 
     /**
@@ -126,7 +156,9 @@ export default class UnlinkCasesLogicBase {
     Object.assign(tempDstParam0Context,{case:tempSrcParam0Data['id']});
     Object.assign(tempDstParam0Data,{id:tempSrcParam0Data['id']});
     this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
-        return this.paramsMap.get(this.defaultParamName).data;
+        if(this.compute2Cond(params)){
+            return this.executeDeaction1(context,params,isloading);   
+        }
     }
 
 

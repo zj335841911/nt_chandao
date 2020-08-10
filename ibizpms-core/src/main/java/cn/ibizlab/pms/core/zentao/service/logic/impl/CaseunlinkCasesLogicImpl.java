@@ -26,6 +26,13 @@ public class CaseunlinkCasesLogicImpl implements ICaseunlinkCasesLogic{
     @Autowired
     private KieContainer kieContainer;
 
+    @Autowired
+    private cn.ibizlab.pms.core.zentao.service.ICaseService caseservice;
+
+    public cn.ibizlab.pms.core.zentao.service.ICaseService getCaseService() {
+        return this.caseservice;
+    }
+
 
     @Autowired
     private cn.ibizlab.pms.core.zentao.service.ICaseService iBzSysDefaultService;
@@ -44,6 +51,7 @@ public class CaseunlinkCasesLogicImpl implements ICaseunlinkCasesLogic{
            kieSession.setGlobal("caseunlinkcasestestrun",caseunlinkcasestestrun);
            kieSession.insert(et); 
            kieSession.setGlobal("caseunlinkcasesdefault",et);
+           kieSession.setGlobal("caseservice",caseservice);
            kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.caseunlinkcases");
