@@ -13,6 +13,6 @@ import cn.ibizlab.pms.core.zentao.domain.Case;
  */
 public interface ICaseunlinkCasesLogic {
 
-    void execute(Case case ) ;
+    void execute(Case et) ;
 
 }

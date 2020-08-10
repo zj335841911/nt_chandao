@@ -13,6 +13,6 @@ import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
  */
 public interface IProductModuleFixPathLogic {
 
-    void execute(ProductModule productmodule ) ;
+    void execute(ProductModule et) ;
 
 }

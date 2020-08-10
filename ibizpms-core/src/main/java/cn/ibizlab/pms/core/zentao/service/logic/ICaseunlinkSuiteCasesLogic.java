@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-import cn.ibizlab.pms.core.zentao.domain.Task;
+import cn.ibizlab.pms.core.zentao.domain.Case;
 
 /**
- * 关系型数据实体[UpdateTempMajor__MSDeny] 对象
+ * 关系型数据实体[unlinkSuiteCases] 对象
  */
-public interface ITaskUpdateTempMajor__MSDenyLogic {
+public interface ICaseunlinkSuiteCasesLogic {
 
-    void execute(Task et) ;
+    void execute(Case et) ;
 
 }

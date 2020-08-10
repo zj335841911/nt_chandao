@@ -80,7 +80,19 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaserunCasesLogic runcasesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICasetestRunCasesLogic testruncasesLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkCasesLogic unlinkcasesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkSuiteCasesLogic unlinksuitecasesLogic;
 
     protected int batchSize = 500;
 
@@ -222,6 +234,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     @Transactional
+    public Case runCases(Case et) {
+        runcasesLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
     public boolean save(Case et) {
         if(!saveOrUpdate(et))
             return false;
@@ -262,6 +281,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Case testRunCases(Case et) {
+        testruncasesLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -308,6 +334,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Case unlinkSuiteCases(Case et) {
+        unlinksuitecasesLogic.execute(et);
+         return et ;
     }
 
 

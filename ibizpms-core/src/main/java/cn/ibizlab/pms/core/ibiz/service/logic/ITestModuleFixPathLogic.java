@@ -13,6 +13,6 @@ import cn.ibizlab.pms.core.ibiz.domain.TestModule;
  */
 public interface ITestModuleFixPathLogic {
 
-    void execute(TestModule testmodule ) ;
+    void execute(TestModule et) ;
 
 }
