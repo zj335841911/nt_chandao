@@ -244,6 +244,7 @@ export default {
 			grouppanel2: "分组面板", 
 			druipart2: "", 
 			grouppanel1: "执行结果", 
+			grouppanel3: "分组面板", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
