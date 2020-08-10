@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import UnlinkCasesLogic from '@/service/case/unlink-cases-logic';
 
 
 
@@ -1860,6 +1861,21 @@ export default class CaseServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/cases/${context.case}/unlinkcase`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkCases接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async UnlinkCases(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:UnlinkCasesLogic = new UnlinkCasesLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**

@@ -388,7 +388,7 @@ export default class CaseUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:CaseService =  new CaseService();
-            curService.UnlinkCase(context,data, true).then((response: any) => {
+            curService.UnlinkCases(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;

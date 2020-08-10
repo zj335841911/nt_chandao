@@ -78,6 +78,10 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkCasesLogic unlinkcasesLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -284,6 +288,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Case unlinkCases(Case et) {
+        unlinkcasesLogic.execute(et);
+         return et ;
     }
 
     @Override
