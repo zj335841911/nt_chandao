@@ -26,7 +26,7 @@
 </div>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
     <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='' :caption="$t('entities.case.testtaskrmain_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resultcnt' :value="data.resultcnt" dataType="INT" unitName="次"     :precision="0"

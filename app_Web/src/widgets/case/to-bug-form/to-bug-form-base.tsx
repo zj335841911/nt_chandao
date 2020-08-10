@@ -121,9 +121,15 @@ export class ToBugEditFormBase extends EditFormControlBase {
      * @memberof ToBugEditFormBase
      */
     public detailsModel: any = {
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.tobug_form', extractMode: 'ITEM', details: [] } }),
+
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.tobug_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.tobug_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.tobug_form', extractMode: 'ITEM', details: [] } }),
 
@@ -143,11 +149,56 @@ export class ToBugEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        resultcnt: new FormItemModel({ caption: '测试结果数', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        resultcnt: new FormItemModel({ caption: '共执行', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        resultfalicnt: new FormItemModel({ caption: '测试失败数', detailType: 'FORMITEM', name: 'resultfalicnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        resultfalicnt: new FormItemModel({ caption: '失败', detailType: 'FORMITEM', name: 'resultfalicnt', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof ToBugEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+        if (Object.is(name, '') || Object.is(name, 'resultcnt') || Object.is(name, 'resultfalicnt')) {
+            let ret = false;
+            const _resultcnt = this.data.resultcnt;
+            const _resultfalicnt = this.data.resultfalicnt;
+            if (this.$verify.testCond(_resultfalicnt, 'EQ', '0') && this.$verify.testCond(_resultcnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'resultfalicnt')) {
+            let ret = false;
+            const _resultfalicnt = this.data.resultfalicnt;
+            if (this.$verify.testCond(_resultfalicnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.resultfalicnt.setVisible(ret);
+        }
+
+
+    }
 }
