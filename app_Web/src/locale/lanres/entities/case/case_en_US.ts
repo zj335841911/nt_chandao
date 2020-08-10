@@ -67,7 +67,7 @@ export default {
 		},
 		optionview: {
 			caption: "执行",
-      		title: "测试用例选项操作视图",
+      		title: "执行",
 		},
 		gridview9_my: {
 			caption: "测试用例",
@@ -78,8 +78,8 @@ export default {
       		title: "功能测试",
 		},
 		tobugeditview: {
-			caption: "执行结果",
-      		title: "测试用例编辑视图（执行结果）",
+			caption: "转BUG",
+      		title: "转BUG",
 		},
 		maingridview: {
 			caption: "功能测试",
@@ -111,11 +111,11 @@ export default {
 		},
 		testoptionview: {
 			caption: "执行",
-      		title: "测试用例选项操作视图",
+      		title: "执行",
 		},
 		exceditview: {
 			caption: "执行结果",
-      		title: "测试用例编辑视图（执行结果）",
+      		title: "执行结果",
 		},
 		maindashboardview: {
 			caption: "功能测试",
@@ -155,7 +155,7 @@ export default {
 		},
 		testtaskexceditview: {
 			caption: "执行结果",
-      		title: "测试用例编辑视图（执行结果）",
+      		title: "执行结果",
 		},
 		gridview: {
 			caption: "测试用例",

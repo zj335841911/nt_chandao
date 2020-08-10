@@ -7,7 +7,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.testtaskrmain_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.testtaskrmain_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='precondition' :value="data.precondition" dataType="LONGTEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  

@@ -6,7 +6,7 @@ import { CaseTestTaskExcEditViewBase } from './case-test-task-exc-edit-view-base
 import view_form from '@widgets/case/test-task-rmain-form/test-task-rmain-form.vue';
 
 /**
- * 测试用例编辑视图（执行结果）视图
+ * 执行结果视图
  *
  * @export
  * @class CaseTestTaskExcEditView

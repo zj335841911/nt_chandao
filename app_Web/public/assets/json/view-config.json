@@ -350,7 +350,7 @@
         "memo": ""
     },
     "caseoptionview": {
-        "title": "测试用例选项操作视图",
+        "title": "执行",
         "caption": "执行",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
@@ -520,8 +520,8 @@
         "memo": ""
     },
     "casetobugeditview": {
-        "title": "测试用例编辑视图（执行结果）",
-        "caption": "执行结果",
+        "title": "转BUG",
+        "caption": "转BUG",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
         "viewname": "CaseToBugEditView",
@@ -1180,7 +1180,7 @@
         "memo": ""
     },
     "casetestoptionview": {
-        "title": "测试用例选项操作视图",
+        "title": "执行",
         "caption": "执行",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
@@ -1200,7 +1200,7 @@
         "memo": ""
     },
     "caseexceditview": {
-        "title": "测试用例编辑视图（执行结果）",
+        "title": "执行结果",
         "caption": "执行结果",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
@@ -2640,7 +2640,7 @@
         "memo": ""
     },
     "casetesttaskexceditview": {
-        "title": "测试用例编辑视图（执行结果）",
+        "title": "执行结果",
         "caption": "执行结果",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

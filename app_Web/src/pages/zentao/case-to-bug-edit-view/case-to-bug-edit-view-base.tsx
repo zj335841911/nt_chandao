@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
- * 测试用例编辑视图（执行结果）视图基类
+ * 转BUG视图基类
  *
  * @export
  * @class CaseToBugEditViewBase
