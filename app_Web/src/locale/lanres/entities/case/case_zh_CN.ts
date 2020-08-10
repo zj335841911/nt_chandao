@@ -402,7 +402,6 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			version: "版本#", 
-			task: "属性", 
 			precondition: "前置条件", 
 			resultcnt: "共执行", 
 			resultfalicnt: "失败", 

@@ -91,7 +91,6 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         version: null,
-        task: null,
         precondition: null,
         resultcnt: null,
         resultfalicnt: null,
@@ -158,8 +157,6 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
 
         version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        task: new FormItemModel({ caption: '属性', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         resultcnt: new FormItemModel({ caption: '共执行', detailType: 'FORMITEM', name: 'resultcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -205,7 +202,6 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'precondition')) {
             let ret = false;
             const _precondition = this.data.precondition;
@@ -226,15 +222,5 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
         }
 
 
-    }
-
-    /**
-     * 更新默认值
-     * @memberof MainTestTaskEditFormBase
-     */
-    public updateDefault(){                    
-        if (this.data.hasOwnProperty('task') && !this.data.task) {
-            this.data['task'] = this.viewparams['task'];
-        }
     }
 }
