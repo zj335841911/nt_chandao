@@ -213,6 +213,7 @@ export default {
 	},
 	maincarry_form: {
 		details: {
+			grouppanel4: "分组面板", 
 			druipart1: "用例步骤", 
 			rawitem1: "", 
 			rawitem2: "", 
@@ -240,6 +241,7 @@ export default {
 	},
 	mainr_form: {
 		details: {
+			grouppanel4: "分组面板", 
 			rawitem1: "", 
 			rawitem2: "", 
 			grouppanel2: "分组面板", 
@@ -385,6 +387,7 @@ export default {
 	},
 	maintesttask_form: {
 		details: {
+			grouppanel4: "分组面板", 
 			druipart1: "用例步骤", 
 			rawitem1: "", 
 			rawitem3: "", 
@@ -412,6 +415,7 @@ export default {
 	},
 	testtaskrmain_form: {
 		details: {
+			grouppanel4: "分组面板", 
 			rawitem1: "", 
 			rawitem3: "", 
 			grouppanel2: "分组面板", 

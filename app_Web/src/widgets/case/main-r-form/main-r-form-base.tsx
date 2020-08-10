@@ -123,6 +123,8 @@ export class MainREditFormBase extends EditFormControlBase {
      * @memberof MainREditFormBase
      */
     public detailsModel: any = {
+        grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.mainr_form', extractMode: 'ITEM', details: [] } }),
+
         rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -174,6 +176,7 @@ export class MainREditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
 
         if (Object.is(name, '') || Object.is(name, 'resultcnt') || Object.is(name, 'resultfalicnt')) {
             let ret = false;
