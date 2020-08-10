@@ -1,6 +1,6 @@
 <studio-view viewName="modulelinegridview" viewTitle="产品线" class='degridview module-line-grid-view'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <i-input slot="quickSearch" v-model="query" placeholder="模块名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">

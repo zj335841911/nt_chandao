@@ -1,6 +1,6 @@
 <studio-view viewName="casebatchnewgridview" viewTitle="测试用例" class='degridview case-batch-new-grid-view'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
