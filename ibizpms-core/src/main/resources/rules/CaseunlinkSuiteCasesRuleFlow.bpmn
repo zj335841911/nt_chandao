@@ -5,20 +5,16 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
-        <tns:global identifier="caseunlinksuitecasestestrun" type="cn.ibizlab.pms.core.zentao.domain.TestRun" />
         <tns:global identifier="caseunlinksuitecasesdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesprepareparam1" id="552625AF-E3B3-4F94-991E-FEECDC8152A8" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesprepareparam1" id="FA8AD8F6-E65F-4C4B-8368-A89A4EECE9D3" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesdeaction1" id="BB6E6E35-C4D8-4FCE-9128-379CF5B32857" implementation="http://www.jboss.org/drools/rule" name="移除用例"/>
      <endEvent id="BB6E6E35-C4D8-4FCE-9128-379CF5B32857_End" name="End"/>
      <sequenceFlow id="BB6E6E35-C4D8-4FCE-9128-379CF5B32857_End_Line" sourceRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857" targetRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesrawsqlcall1" id="D66D609B-9219-4841-9FBD-E5FC2E2E7EC7" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <startEvent id="750348F7-256B-4A96-8975-83D0AEAB08C2" isInterrupting="true"/>
-     <sequenceFlow id="274366F4-294B-459E-99DB-5B9E78BDB1DC" sourceRef="552625AF-E3B3-4F94-991E-FEECDC8152A8" targetRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857">
+     <sequenceFlow id="A6BF84C5-0492-4A28-9C8F-06C5889ACA48" sourceRef="750348F7-256B-4A96-8975-83D0AEAB08C2" targetRef="FA8AD8F6-E65F-4C4B-8368-A89A4EECE9D3">
      </sequenceFlow>
-     <sequenceFlow id="7E99A53E-EE78-4C51-9A3F-49EC3C144FAC" sourceRef="750348F7-256B-4A96-8975-83D0AEAB08C2" targetRef="D66D609B-9219-4841-9FBD-E5FC2E2E7EC7">
-     </sequenceFlow>
-     <sequenceFlow id="1D1881DE-8ABF-4DDB-986C-08576B74B1DB" sourceRef="D66D609B-9219-4841-9FBD-E5FC2E2E7EC7" targetRef="552625AF-E3B3-4F94-991E-FEECDC8152A8">
+     <sequenceFlow id="67A900F2-B47F-4856-BE57-450DE14E68F9" sourceRef="FA8AD8F6-E65F-4C4B-8368-A89A4EECE9D3" targetRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857">
      </sequenceFlow>
     </process>
 </definitions>

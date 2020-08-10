@@ -30,7 +30,7 @@ public class PermissionSyncJob implements ApplicationRunner {
     @Value("${ibiz.systemid:pms}")
     private String systemId;
     
-    @Value("${ibiz.systemid:pms}")
+    @Value("${ibiz.systemname:pms}")
     private String systemName;
 
 

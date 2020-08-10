@@ -6,19 +6,12 @@
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="caseruncasesdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
-        <tns:global identifier="caseruncasestestrun" type="cn.ibizlab.pms.core.zentao.domain.TestRun" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesprepareparam1" id="669FDE54-61A0-4793-B874-4E7B7BB86858" implementation="http://www.jboss.org/drools/rule" name="重置ID"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesrawsqlcall1" id="37F33CF2-65F0-44E8-8A72-7C58505F3B0E" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <startEvent id="687D83DD-A007-4137-804B-7ABC04B7FF48" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesdeaction1" id="04BF942E-4DDC-4B29-B288-8BCDA79A21DB" implementation="http://www.jboss.org/drools/rule" name="执行测试"/>
      <endEvent id="04BF942E-4DDC-4B29-B288-8BCDA79A21DB_End" name="End"/>
      <sequenceFlow id="04BF942E-4DDC-4B29-B288-8BCDA79A21DB_End_Line" sourceRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB" targetRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB_End"/>
-     <sequenceFlow id="7D3DD656-2491-4B63-A93A-21C3E5291927" sourceRef="37F33CF2-65F0-44E8-8A72-7C58505F3B0E" targetRef="669FDE54-61A0-4793-B874-4E7B7BB86858">
-     </sequenceFlow>
-     <sequenceFlow id="7C9DE685-EC14-431D-B070-526907F352FC" sourceRef="669FDE54-61A0-4793-B874-4E7B7BB86858" targetRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB">
-     </sequenceFlow>
-     <sequenceFlow id="C766FAF3-1F79-4314-8E47-C99F9E374F1D" sourceRef="687D83DD-A007-4137-804B-7ABC04B7FF48" targetRef="37F33CF2-65F0-44E8-8A72-7C58505F3B0E">
+     <sequenceFlow id="B96716F2-6820-4A1A-B375-25FB33B43F23" sourceRef="687D83DD-A007-4137-804B-7ABC04B7FF48" targetRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB">
      </sequenceFlow>
     </process>
 </definitions>

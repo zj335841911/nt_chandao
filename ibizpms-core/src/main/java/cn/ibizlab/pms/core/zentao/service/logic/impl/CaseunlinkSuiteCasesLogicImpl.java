@@ -46,9 +46,6 @@ public class CaseunlinkSuiteCasesLogicImpl implements ICaseunlinkSuiteCasesLogic
           KieSession kieSession = null;
         try{
            kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.zentao.domain.TestRun  caseunlinksuitecasestestrun =new cn.ibizlab.pms.core.zentao.domain.TestRun();
-           kieSession.insert(caseunlinksuitecasestestrun); 
-           kieSession.setGlobal("caseunlinksuitecasestestrun",caseunlinksuitecasestestrun);
            kieSession.insert(et); 
            kieSession.setGlobal("caseunlinksuitecasesdefault",et);
            kieSession.setGlobal("caseservice",caseservice);
