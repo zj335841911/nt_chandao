@@ -195,12 +195,11 @@ export default class EditViewEngine extends ViewEngine {
      */
     public setTabCaption(info: string, isNew: boolean): void {
         let viewdata: any = this.view.model;
-        if (viewdata && info && !Object.is(info, '') && this.view.$tabPageExp && (viewdata.srfTitle.indexOf(" - ") === -1)) {
+        if (viewdata && info && !Object.is(info, '')) {
             if (this.view.$route) {
                 this.view.$route.meta.info = info;
             }
-            const title = this.view.model.srfTitle = `${this.view.$t(viewdata.srfTitle)} - ${viewdata.dataInfo}`;
-            this.view.$emit('viewModelChange', title);
+            this.view.$emit('viewModelChange', this.view.viewCaption);
             this.view.$appService.navHistory.setCaption({ tag: this.view.viewtag, info: viewdata.dataInfo });
         }
     }
