@@ -43,9 +43,9 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <icon v-if="data.formitem == 1" type="ios-arrow-down" />
-<Icon v-if="data.formitem == 0" type="ios-arrow-back" />
+    <div class="medit-arrow" style="">
+    <icon v-if="data.formitem == '1'" type="ios-arrow-down" @click="onFormItemValueChange({name: 'formitem', value: '0'})"/>
+<icon v-if="!data.formitem || data.formitem == '0'" type="ios-arrow-back" @click="onFormItemValueChange({name: 'formitem', value: '1'})"/>
 </div>
 
 </i-col>
