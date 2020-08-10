@@ -17,6 +17,18 @@ ruleflow-group "caseruncasesbegin"
     then
     end
 
+//逻辑处理节点[准备参数]
+rule "prepareparam1"
+ruleflow-group "caseruncasesprepareparam1"
+    when
+    then
+    caseruncasesdefault.set("srfarray",caseruncasesdefault.get("casestep"));
+    caseruncasesdefault.set("case",caseruncasesdefault.get("id"));
+    caseruncasesdefault.set("version",caseruncasesdefault.get("version"));
+    caseruncasesdefault.set("id","0");
+    update(caseruncasesdefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[执行测试]
 rule "deaction1"
 ruleflow-group "caseruncasesdeaction1"
