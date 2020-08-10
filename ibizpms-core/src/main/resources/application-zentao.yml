@@ -27,7 +27,7 @@ ibiz:
   ref:
     service:
       uaa: ibzuaa-apipms
-
+      ou: ibzou-apipms
 spring:
   servlet:
     multipart:
