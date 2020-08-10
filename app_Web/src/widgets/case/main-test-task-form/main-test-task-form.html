@@ -53,7 +53,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
-    <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='' :caption="$t('entities.case.maintesttask_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='text-center-blue' labelStyle="editorlabel" :caption="$t('entities.case.maintesttask_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resultcnt' :value="data.resultcnt" dataType="INT" unitName="次"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -63,7 +63,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.resultfalicnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-    <app-form-item name='resultfalicnt' :itemRules="this.rules.resultfalicnt" class='' :caption="$t('entities.case.maintesttask_form.details.resultfalicnt')" uiStyle="DEFAULT" :labelWidth="40" :isShowCaption="true" :error="detailsModel.resultfalicnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='resultfalicnt' :itemRules="this.rules.resultfalicnt" class='textcenterred' labelStyle="editorlabel" :caption="$t('entities.case.maintesttask_form.details.resultfalicnt')" uiStyle="DEFAULT" :labelWidth="40" :isShowCaption="true" :error="detailsModel.resultfalicnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resultfalicnt' :value="data.resultfalicnt" dataType="INT" unitName="次"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
