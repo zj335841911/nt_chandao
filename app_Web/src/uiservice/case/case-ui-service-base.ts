@@ -338,8 +338,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-option-view', 
-                height: 600, 
-                width: 800,  
+                height: 850, 
+                width: 1350,  
                 title: actionContext.$t('entities.case.views.optionview.title'),
             };
             openPopupModal(view, data);
@@ -672,8 +672,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-test-task-exc-edit-view', 
-                height: 800, 
-                width: 800,  
+                height: 850, 
+                width: 1350,  
                 title: actionContext.$t('entities.case.views.testtaskexceditview.title'),
             };
             openPopupModal(view, data);
@@ -737,8 +737,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-test-option-view', 
-                height: 600, 
-                width: 800,  
+                height: 850, 
+                width: 1350,  
                 title: actionContext.$t('entities.case.views.testoptionview.title'),
             };
             openPopupModal(view, data);
@@ -994,8 +994,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-exc-edit-view', 
-                height: 800, 
-                width: 800,  
+                height: 850, 
+                width: 1350,  
                 title: actionContext.$t('entities.case.views.exceditview.title'),
             };
             openPopupModal(view, data);
@@ -1265,8 +1265,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-to-bug-edit-view', 
-                height: 800, 
-                width: 800,  
+                height: 850, 
+                width: 1350,  
                 title: actionContext.$t('entities.case.views.tobugeditview.title'),
             };
             openPopupModal(view, data);
