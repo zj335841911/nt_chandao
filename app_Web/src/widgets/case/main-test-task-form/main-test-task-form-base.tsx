@@ -216,7 +216,7 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'resultfalicnt')) {
             let ret = false;
             const _resultfalicnt = this.data.resultfalicnt;
-            if (this.$verify.testCond(_resultfalicnt, 'GT', '')) {
+            if (this.$verify.testCond(_resultfalicnt, 'GT', '0')) {
                 ret = true;
             }
             this.detailsModel.resultfalicnt.setVisible(ret);
