@@ -53,6 +53,7 @@ export default {
     status1: "用例状态",
     assignedto: "指派给",
     task: "属性",
+    srfarray: "属性2",
   },
 	views: {
 		editview: {
