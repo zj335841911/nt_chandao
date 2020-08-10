@@ -6,7 +6,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
- * 测试用例选项操作视图视图基类
+ * 执行视图基类
  *
  * @export
  * @class CaseTestOptionViewBase

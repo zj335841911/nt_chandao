@@ -16,7 +16,9 @@ rule "prepareparam1"
 ruleflow-group "casetestruncasesprepareparam1"
     when
     then
+    casetestruncasesdefault.set("case",casetestruncasesdefault.get("id"));
     casetestruncasesdefault.set("id",casetestruncasestestrun.get("id"));
+    casetestruncasesdefault.set("version",casetestruncasestestrun.get("version"));
     update(casetestruncasestestrun);//更新fact中变量值
     update(casetestruncasesdefault);//更新fact中变量值
     end

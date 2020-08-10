@@ -6,14 +6,23 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maincarry_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
+        <i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class=' form-left-margin' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maincarry_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
         <i-col class="form-layout-container" v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.maincarry_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.maincarry_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='precondition' :value="data.precondition" dataType="LONGTEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -42,8 +51,22 @@
 </app-form-druipart>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='' :caption="$t('entities.case.maincarry_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class=' group-stlye-backcolor' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maincarry_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maincarry_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+    <div class="direct-content-line" style="">
+    测试结果
+</div>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+    <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='text-center-blue' labelStyle="editorlabel" :caption="$t('entities.case.maincarry_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resultcnt' :value="data.resultcnt" dataType="INT" unitName="次"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -52,8 +75,8 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.resultfalicnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='resultfalicnt' :itemRules="this.rules.resultfalicnt" class='' :caption="$t('entities.case.maincarry_form.details.resultfalicnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resultfalicnt.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.resultfalicnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+    <app-form-item name='resultfalicnt' :itemRules="this.rules.resultfalicnt" class='textcenterred' labelStyle="editorlabel" :caption="$t('entities.case.maincarry_form.details.resultfalicnt')" uiStyle="DEFAULT" :labelWidth="40" :isShowCaption="true" :error="detailsModel.resultfalicnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resultfalicnt' :value="data.resultfalicnt" dataType="INT" unitName="次"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -62,8 +85,19 @@
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <div class="text-center-green" style="">
+    全部通过
+</div>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maincarry_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maincarry_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -90,6 +124,11 @@
     @drdatasaved="drdatasaved($event)"
     style="overflow: auto;">
 </app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     

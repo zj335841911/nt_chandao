@@ -6,7 +6,7 @@ import { CaseToBugEditViewBase } from './case-to-bug-edit-view-base';
 import view_form from '@widgets/case/to-bug-form/to-bug-form.vue';
 
 /**
- * 测试用例编辑视图（执行结果）视图
+ * 转BUG视图
  *
  * @export
  * @class CaseToBugEditView

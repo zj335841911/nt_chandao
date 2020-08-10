@@ -20,3 +20,6 @@ import { MainCarryEditFormBase } from './main-carry-form-base';
 @VueLifeCycleProcessing()
 export default class MainCarryEditForm extends MainCarryEditFormBase { }
 </script>
+<style lang='less'>
+@import './main-carry-form.less';
+</style>

@@ -108,10 +108,20 @@ export default class TestRunCasesLogicBase {
         // 准备参数节点
     let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
     let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    let tempSrcParam0Data:any = this.paramsMap.get('testrun').data?this.paramsMap.get('testrun').data:{};
-    Object.assign(tempDstParam0Context,{case:tempSrcParam0Data['id']});
-    Object.assign(tempDstParam0Data,{id:tempSrcParam0Data['id']});
+    let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam0Data,{case:tempSrcParam0Data['id']});
     this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
+    let tempDstParam1Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam1Data:any = this.paramsMap.get('testrun').data?this.paramsMap.get('testrun').data:{};
+    Object.assign(tempDstParam1Context,{case:tempSrcParam1Data['id']});
+    Object.assign(tempDstParam1Data,{id:tempSrcParam1Data['id']});
+    this.paramsMap.set('Default',{data:tempDstParam1Data,context:tempDstParam1Context});
+    let tempDstParam2Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam2Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam2Data:any = this.paramsMap.get('testrun').data?this.paramsMap.get('testrun').data:{};
+    Object.assign(tempDstParam2Data,{version:tempSrcParam2Data['version']});
+    this.paramsMap.set('Default',{data:tempDstParam2Data,context:tempDstParam2Context});
         if(this.compute2Cond(params)){
             return this.executeDeaction1(context,params,isloading);   
         }

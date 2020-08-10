@@ -48,9 +48,6 @@ public class CaserunCasesLogicImpl implements ICaserunCasesLogic{
            kieSession=kieContainer.newKieSession();
            kieSession.insert(et); 
            kieSession.setGlobal("caseruncasesdefault",et);
-           cn.ibizlab.pms.core.zentao.domain.TestRun  caseruncasestestrun =new cn.ibizlab.pms.core.zentao.domain.TestRun();
-           kieSession.insert(caseruncasestestrun); 
-           kieSession.setGlobal("caseruncasestestrun",caseruncasestestrun);
            kieSession.setGlobal("caseservice",caseservice);
            kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());

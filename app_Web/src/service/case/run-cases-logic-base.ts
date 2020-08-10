@@ -56,7 +56,6 @@ export default class RunCasesLogicBase {
      */
     public initParams(opts:any){
         this.paramsMap.set('Default',opts);
-        this.paramsMap.set('testrun',{});
     }
 
 
@@ -79,15 +78,6 @@ export default class RunCasesLogicBase {
     }
 
     /**
-     * 计算2节点结果
-     * 
-     * @param params 传入参数
-     */
-    public compute2Cond(params:any):boolean{
-        return true;
-    }
-
-    /**
      * 执行逻辑
      * 
      * @param context 应用上下文
@@ -99,7 +89,19 @@ export default class RunCasesLogicBase {
 
 
     /**
-    * 重置ID
+    * 开始
+    * 
+    * @param params 传入参数
+    */
+    private async executeBegin(context:any,params:any,isloading:boolean){
+        //开始节点
+        if(this.compute0Cond(params)){
+            return this.executePrepareparam1(context,params,isloading);   
+        }
+    }
+
+    /**
+    * 准备参数
     * 
     * @param context 应用上下文
     * @param params 传入参数
@@ -108,36 +110,26 @@ export default class RunCasesLogicBase {
         // 准备参数节点
     let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
     let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    let tempSrcParam0Data:any = this.paramsMap.get('testrun').data?this.paramsMap.get('testrun').data:{};
-    Object.assign(tempDstParam0Context,{case:tempSrcParam0Data['id']});
-    Object.assign(tempDstParam0Data,{id:tempSrcParam0Data['id']});
+    let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam0Data,{srfarray:tempSrcParam0Data['casestep']});
     this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
+    let tempDstParam1Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam1Data,{case:tempSrcParam1Data['id']});
+    this.paramsMap.set('Default',{data:tempDstParam1Data,context:tempDstParam1Context});
+    let tempDstParam2Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam2Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam2Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam2Data,{version:tempSrcParam2Data['version']});
+    this.paramsMap.set('Default',{data:tempDstParam2Data,context:tempDstParam2Context});
+    let tempDstParam3Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam3Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam3Context,{case:0});
+    Object.assign(tempDstParam3Data,{id:"0"});
+    this.paramsMap.set('Default',{data:tempDstParam3Data,context:tempDstParam3Context});
         if(this.compute1Cond(params)){
             return this.executeDeaction1(context,params,isloading);   
-        }
-    }
-
-    /**
-    * 获取数据
-    * 
-    * @param context 应用上下文
-    * @param params 传入参数
-    */
-    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
-        // RAWSQLCALL暂未支持
-        console.log("RAWSQLCALL暂未支持");
-        return this.paramsMap.get(this.defaultParamName).data;
-    }
-
-    /**
-    * 开始
-    * 
-    * @param params 传入参数
-    */
-    private async executeBegin(context:any,params:any,isloading:boolean){
-        //开始节点
-        if(this.compute2Cond(params)){
-            return this.executeRawsqlcall1(context,params,isloading);   
         }
     }
 

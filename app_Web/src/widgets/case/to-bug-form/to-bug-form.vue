@@ -20,3 +20,6 @@ import { ToBugEditFormBase } from './to-bug-form-base';
 @VueLifeCycleProcessing()
 export default class ToBugEditForm extends ToBugEditFormBase { }
 </script>
+<style lang='less'>
+@import './to-bug-form.less';
+</style>

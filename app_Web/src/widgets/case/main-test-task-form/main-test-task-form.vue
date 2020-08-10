@@ -20,3 +20,6 @@ import { MainTestTaskEditFormBase } from './main-test-task-form-base';
 @VueLifeCycleProcessing()
 export default class MainTestTaskEditForm extends MainTestTaskEditFormBase { }
 </script>
+<style lang='less'>
+@import './main-test-task-form.less';
+</style>
