@@ -23,7 +23,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='' :caption="$t('entities.case.mainr_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='resultcnt' :itemRules="this.rules.resultcnt" class='text-center-blue' :caption="$t('entities.case.mainr_form.details.resultcnt')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resultcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resultcnt' :value="data.resultcnt" dataType="INT" unitName="次"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -43,7 +43,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <div class="" style="">
+    <div class="text-center-green" style="">
     全部通过
 </div>
 
