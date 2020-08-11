@@ -1122,7 +1122,7 @@ export default class CaseUIServiceBase extends UIService {
                     }
                     const _this: any = actionContext;
                     if (_this.Refresh && _this.Refresh instanceof Function) {
-                        _this.Refresh(result.datas[0],context,params, $event, xData,actionContext);
+                        _this.Refresh(result.datas,context,params, $event, xData,actionContext);
                     }
                     return result.datas;
                 });

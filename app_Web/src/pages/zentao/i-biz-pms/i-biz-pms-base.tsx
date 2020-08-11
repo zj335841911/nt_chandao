@@ -170,6 +170,10 @@ export class IBizPMSBase extends Vue {
    * @memberof IBizPMSBase
    */
   protected created() {
+    this.left_exp = this.handleMenusResource(this.left_exp);
+    this.bottom_exp = this.handleMenusResource(this.bottom_exp);
+    this.top_menus = this.handleMenusResource(this.top_menus);
+    this.user_menus = this.handleMenusResource(this.user_menus);
     const secondtag = this.$util.createUUID();
     this.$store.commit("viewaction/createdView", {
       viewtag: this.viewtag,
@@ -228,6 +232,61 @@ export class IBizPMSBase extends Vue {
       Object.assign(context, this.context);
     }
   }
+
+  /**
+   * 通过统一资源标识计算菜单
+   *
+   * @param {*} data
+   * @memberof ZentaoBase
+   */
+  public handleMenusResource(inputMenus: Array<any>) {
+    if (Environment.enablePermissionValid) {
+      this.computedEffectiveMenus(inputMenus);
+      this.computeParentMenus(inputMenus);
+    }
+    return inputMenus;
+  }
+
+  /**
+   * 计算父项菜单项是否隐藏
+   *
+   * @param {*} inputMenus
+   * @memberof ZentaoBase
+   */
+  public computeParentMenus(inputMenus: Array<any>) {
+    if (inputMenus && inputMenus.length > 0) {
+      inputMenus.forEach((item: any) => {
+        if (item.hidden && item.items && item.items.length > 0) {
+          item.items.map((singleItem: any) => {
+            if (!singleItem.hidden) {
+              item.hidden = false;
+            }
+            if (singleItem.items && singleItem.items.length > 0) {
+              this.computeParentMenus(singleItem.items);
+            }
+          })
+        }
+      })
+    }
+  }
+
+  /**
+   * 计算有效菜单项
+   *
+   * @param {*} inputMenus
+   * @memberof ZentaoBase
+   */
+  public computedEffectiveMenus(inputMenus: Array<any>) {
+    inputMenus.forEach((_item: any) => {
+      if (!this.$store.getters['authresource/getAuthMenu'](_item)) {
+        _item.hidden = true;
+        if (_item.items && _item.items.length > 0) {
+          this.computedEffectiveMenus(_item.items);
+        }
+      }
+    })
+  }
+
 
   /**
    * 绘制内容
