@@ -327,6 +327,18 @@ domain.setId(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
+    @ApiOperation(value = "获取需求描述", tags = {"需求" },  notes = "获取需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/getstoryspecs")
+    @Transactional
+    public ResponseEntity<StoryDTO> getStorySpecs(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+domain.setId(story_id);
+        domain = storyService.getStorySpecs(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ImportPlanStories-all')")
     @ApiOperation(value = "项目关联需求-按计划关联", tags = {"需求" },  notes = "项目关联需求-按计划关联")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/importplanstories")
@@ -1035,6 +1047,18 @@ domain.setId(story_id);
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.getStorySpec(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/getstoryspecs")
+    @Transactional
+    public ResponseEntity<StoryDTO> getStorySpecsByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.getStorySpecs(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }

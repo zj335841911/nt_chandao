@@ -324,6 +324,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
+    public Story getStorySpecs(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Story importPlanStories(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
