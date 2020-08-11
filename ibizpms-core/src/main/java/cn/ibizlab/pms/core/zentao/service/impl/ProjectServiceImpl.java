@@ -93,6 +93,10 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectgetProjectProductPlanLogic getprojectproductplanLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateCycle__MSDenyLogic updatecycle__msdenyLogic;
 
     @Autowired
@@ -161,6 +165,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public Project get(BigInteger key) {
+        Project tempET=new Project();
+        tempET.set("id",key);
         Project et = getById(key);
         if(et==null){
             et=new Project();
@@ -168,6 +174,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         }
         else{
         }
+        getprojectproductplanLogic.execute(et);
         return et;
     }
 
