@@ -12,17 +12,13 @@ environment:
 
 #API替换相关配置。
 ibiz:
-  # 是否放行所有请求
-  permitall: false
-  # 是否使用UAA认证。
-  uaa: true
   auth:
     #本地用户认证：IBZZTUserService
     #UAA认证：IBZUAAZTUserService
     service: IBZUAAUserService
     token:
     # 本地ZT账户认证模式：SimpleTokenUtil
-    # UAA认证模式：SimpleTokenUtil
+    # UAA认证模式：UAATokenUtil
       util: UAATokenUtil
   ref:
     service:
