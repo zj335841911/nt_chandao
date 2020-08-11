@@ -441,7 +441,7 @@ export default class RichTextEditor extends Vue {
                 richtexteditor.editor = editor;
                 editor.on('blur', () => {
                     let content = editor.getContent();
-                    const url = richtexteditor.downloadUrl.substring(3);
+                    const url = richtexteditor.downloadUrl.indexOf('../') === 0 ? richtexteditor.downloadUrl.substring(3) : richtexteditor.downloadUrl;
                     let newContent: string = "";
                     const imgsrc = richtexteditor.imgsrc;
                     if(imgsrc && imgsrc.length > 0){
