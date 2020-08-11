@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.storybuildunlinkstorys" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.storybuildunlinkstorys">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="storybuildunlinkstorysdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
+        </extensionElements>
+     <startEvent id="A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storybuildunlinkstorysprepareparam1" id="380E74D6-2A39-48FF-B08E-EAC821714950" implementation="http://www.jboss.org/drools/rule" name="参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storybuildunlinkstorysdeaction1" id="27F560A6-83D4-4D90-A6D4-002BEE50D160" implementation="http://www.jboss.org/drools/rule" name="处理"/>
+     <endEvent id="27F560A6-83D4-4D90-A6D4-002BEE50D160_End" name="End"/>
+     <sequenceFlow id="27F560A6-83D4-4D90-A6D4-002BEE50D160_End_Line" sourceRef="27F560A6-83D4-4D90-A6D4-002BEE50D160" targetRef="27F560A6-83D4-4D90-A6D4-002BEE50D160_End"/>
+     <sequenceFlow id="D0FC8D88-B3C3-48A7-848A-1026C3E1C861" sourceRef="380E74D6-2A39-48FF-B08E-EAC821714950" targetRef="27F560A6-83D4-4D90-A6D4-002BEE50D160">
+     </sequenceFlow>
+     <sequenceFlow id="B39E902C-F0A1-454E-A032-3B5F7869E007" sourceRef="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" targetRef="380E74D6-2A39-48FF-B08E-EAC821714950">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $storybuildunlinkstorysdefault:Story();
+            eval($storybuildunlinkstorysdefault==storybuildunlinkstorysdefault);
+                eval((RuleUtils.test($storybuildunlinkstorysdefault.get(""),"","")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+    <exclusiveGateway id="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" name="Gateway" gatewayDirection="Diverging" default="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8_End_Line"></exclusiveGateway>
+    <sequenceFlow id="B39E902C-F0A1-454E-A032-3B5F7869E007-gatewayline" sourceRef="A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" targetRef="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8"></sequenceFlow>
+    <sequenceFlow id="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8_End_Line" sourceRef="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" targetRef="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8_End"/>
+    <endEvent id="gateway-A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8_End" name="End"/>
+    </process>
+</definitions>
+

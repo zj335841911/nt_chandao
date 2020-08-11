@@ -273,7 +273,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
+	newform_form: {
 		details: {
 			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
@@ -289,8 +289,7 @@ export default {
 			name: "项目名称", 
 			code: "项目代号", 
 			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
+			end: "至", 
 			period: "", 
 			days: "可用工作日", 
 			team: "团队名称", 

@@ -1,48 +1,48 @@
-import CaseService from '@/service/case/case-service';
+import StoryService from '@/service/story/story-service';
 import { Verify } from '@/utils/verify/verify';
 
 
 /**
- * testRunCases
+ * buildUnlinkStorys
  *
  * @export
- * @class TestRunCasesLogicBase
+ * @class BuildUnlinkStorysLogicBase
  */
-export default class TestRunCasesLogicBase {
+export default class BuildUnlinkStorysLogicBase {
 
     /**
      * 名称
      * 
-     * @memberof  TestRunCasesLogicBase
+     * @memberof  BuildUnlinkStorysLogicBase
      */
-    private name:string ="testRunCases";
+    private name:string ="buildUnlinkStorys";
 
     /**
      * 唯一标识
      * 
-     * @memberof  TestRunCasesLogicBase
+     * @memberof  BuildUnlinkStorysLogicBase
      */
-    private id:string = "589422AB-B708-4249-A3C9-990DFF28AAC5";
+    private id:string = "A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8";
 
     /**
      * 默认参数名称
      * 
-     * @memberof  TestRunCasesLogicBase
+     * @memberof  BuildUnlinkStorysLogicBase
      */
     private defaultParamName:string = "Default";
 
     /**
      * 参数集合
      * 
-     * @memberof  TestRunCasesLogicBase
+     * @memberof  BuildUnlinkStorysLogicBase
      */
     private paramsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  TestRunCasesLogicBase.
+     * Creates an instance of  BuildUnlinkStorysLogicBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  TestRunCasesLogicBase
+     * @memberof  BuildUnlinkStorysLogicBase
      */
     constructor(opts: any = {}) {
         this.initParams(opts);
@@ -52,10 +52,9 @@ export default class TestRunCasesLogicBase {
      * 初始化参数集合
      * 
      * @param {*} [opts={}]
-     * @memberof  TestRunCasesLogicBase
+     * @memberof  BuildUnlinkStorysLogicBase
      */
     public initParams(opts:any){
-        this.paramsMap.set('testrun',{});
         this.paramsMap.set('Default',opts);
     }
 
@@ -75,16 +74,11 @@ export default class TestRunCasesLogicBase {
      * @param params 传入参数
      */
     public compute1Cond(params:any):boolean{
-        return true;
-    }
-
-    /**
-     * 计算2节点结果
-     * 
-     * @param params 传入参数
-     */
-    public compute2Cond(params:any):boolean{
-        return true;
+        if(Verify.testCond(params., '', '')){
+           return true;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -99,7 +93,19 @@ export default class TestRunCasesLogicBase {
 
 
     /**
-    * 重置ID
+    * 开始
+    * 
+    * @param params 传入参数
+    */
+    private async executeBegin(context:any,params:any,isloading:boolean){
+        //开始节点
+        if(this.compute1Cond(params)){
+            return this.executePrepareparam1(context,params,isloading);   
+        }
+    }
+
+    /**
+    * 参数
     * 
     * @param context 应用上下文
     * @param params 传入参数
@@ -109,50 +115,21 @@ export default class TestRunCasesLogicBase {
     let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
     let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
     let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    Object.assign(tempDstParam0Data,{case:tempSrcParam0Data['id']});
+    Object.assign(tempDstParam0Data,{build:tempSrcParam0Data['build']});
     this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
     let tempDstParam1Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
     let tempDstParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
     let tempSrcParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    Object.assign(tempDstParam1Data,{version:tempSrcParam1Data['version']});
+    Object.assign(tempDstParam1Context,{story:tempSrcParam1Data['id']});
+    Object.assign(tempDstParam1Data,{id:tempSrcParam1Data['id']});
     this.paramsMap.set('Default',{data:tempDstParam1Data,context:tempDstParam1Context});
-    let tempDstParam2Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
-    let tempDstParam2Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    let tempSrcParam2Data:any = this.paramsMap.get('testrun').data?this.paramsMap.get('testrun').data:{};
-    Object.assign(tempDstParam2Context,{case:tempSrcParam2Data['id']});
-    Object.assign(tempDstParam2Data,{id:tempSrcParam2Data['id']});
-    this.paramsMap.set('Default',{data:tempDstParam2Data,context:tempDstParam2Context});
-        if(this.compute2Cond(params)){
+        if(this.compute0Cond(params)){
             return this.executeDeaction1(context,params,isloading);   
         }
     }
 
     /**
-    * 获取数据
-    * 
-    * @param context 应用上下文
-    * @param params 传入参数
-    */
-    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
-        // RAWSQLCALL暂未支持
-        console.log("RAWSQLCALL暂未支持");
-        return this.paramsMap.get(this.defaultParamName).data;
-    }
-
-    /**
-    * 开始
-    * 
-    * @param params 传入参数
-    */
-    private async executeBegin(context:any,params:any,isloading:boolean){
-        //开始节点
-        if(this.compute1Cond(params)){
-            return this.executeRawsqlcall1(context,params,isloading);   
-        }
-    }
-
-    /**
-    * 执行测试
+    * 处理
     * 
     * @param context 应用上下文
     * @param params 传入参数
@@ -161,9 +138,9 @@ export default class TestRunCasesLogicBase {
         // 行为处理节点
         let result: any;
         let actionParam:any = this.paramsMap.get('Default');
-        const targetService:CaseService = new CaseService();
-        if (targetService['TestRunCase'] && targetService['TestRunCase'] instanceof Function) {
-            result = await targetService['TestRunCase'](actionParam.context,actionParam.data, false);
+        const targetService:StoryService = new StoryService();
+        if (targetService['BuildUnlinkStory'] && targetService['BuildUnlinkStory'] instanceof Function) {
+            result = await targetService['BuildUnlinkStory'](actionParam.context,actionParam.data, false);
         }
         if(result && result.status == 200){
             Object.assign(actionParam.data,result.data);

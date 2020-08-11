@@ -22,9 +22,9 @@ rule "prepareparam1"
 ruleflow-group "caseruncasesprepareparam1"
     when
     then
-    caseruncasesdefault.set("srfarray",caseruncasesdefault.get("casestep"));
     caseruncasesdefault.set("case",caseruncasesdefault.get("id"));
     caseruncasesdefault.set("version",caseruncasesdefault.get("version"));
+    caseruncasesdefault.set("srfarray",caseruncasesdefault.get("casestep"));
     caseruncasesdefault.set("id","0");
     update(caseruncasesdefault);//更新fact中变量值
     end

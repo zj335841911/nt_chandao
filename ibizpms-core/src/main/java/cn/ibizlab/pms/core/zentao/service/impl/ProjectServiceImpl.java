@@ -93,6 +93,10 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateCycle__MSDenyLogic updatecycle__msdenyLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateOrder__MSDenyLogic updateorder__msdenyLogic;
 
     @Autowired
