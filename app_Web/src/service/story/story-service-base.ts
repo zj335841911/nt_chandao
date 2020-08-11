@@ -1111,9 +1111,49 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async BuildUnlinkStorys(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:BuildUnlinkStorysLogic = new BuildUnlinkStorysLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/buildunlinkstorys`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/buildunlinkstorys`,data,isloading);
+            return res;
     }
 
     /**
@@ -1346,9 +1386,18 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async GetStorySpecs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:GetStorySpecsLogic = new GetStorySpecsLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
+        if(context.product && context.story){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/getstoryspecs`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/getstoryspecs`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
     }
 
     /**
@@ -1636,9 +1685,49 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async ProjectUnlinkStorys(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:ProjectUnlinkStorysLogic = new ProjectUnlinkStorysLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/projectunlinkstorys`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/projectunlinkstorys`,data,isloading);
+            return res;
     }
 
     /**
