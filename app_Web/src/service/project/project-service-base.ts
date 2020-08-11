@@ -444,6 +444,18 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * UpdateCycle接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async UpdateCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * UpdateProjectCycle接口方法
      *
      * @param {*} [context={}]

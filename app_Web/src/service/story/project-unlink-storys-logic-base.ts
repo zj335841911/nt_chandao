@@ -60,6 +60,24 @@ export default class ProjectUnlinkStorysLogicBase {
 
 
     /**
+     * 计算0节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute0Cond(params:any):boolean{
+        return true;
+    }
+
+    /**
+     * 计算1节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute1Cond(params:any):boolean{
+        return true;
+    }
+
+    /**
      * 执行逻辑
      * 
      * @param context 应用上下文
@@ -77,7 +95,9 @@ export default class ProjectUnlinkStorysLogicBase {
     */
     private async executeBegin(context:any,params:any,isloading:boolean){
         //开始节点
-        return this.paramsMap.get(this.defaultParamName).data;
+        if(this.compute0Cond(params)){
+            return this.executePrepareparam1(context,params,isloading);   
+        }
     }
 
     /**
@@ -108,7 +128,20 @@ export default class ProjectUnlinkStorysLogicBase {
     */
     private async executePrepareparam1(context:any,params:any,isloading:boolean){
         // 准备参数节点
-        return this.paramsMap.get(this.defaultParamName).data;
+    let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam0Data,{story:tempSrcParam0Data['id']});
+    this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
+    let tempDstParam1Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam1Context,{story:tempSrcParam1Data['project']});
+    Object.assign(tempDstParam1Data,{id:tempSrcParam1Data['project']});
+    this.paramsMap.set('Default',{data:tempDstParam1Data,context:tempDstParam1Context});
+        if(this.compute1Cond(params)){
+            return this.executeDeaction1(context,params,isloading);   
+        }
     }
 
 

@@ -31,6 +31,8 @@ rule "prepareparam1"
 ruleflow-group "storyprojectunlinkstorysprepareparam1"
     when
     then
+    storyprojectunlinkstorysdefault.set("story",storyprojectunlinkstorysdefault.get("id"));
+    storyprojectunlinkstorysdefault.set("id",storyprojectunlinkstorysdefault.get("project"));
     update(storyprojectunlinkstorysdefault);//更新fact中变量值
     end
 

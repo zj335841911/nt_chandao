@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectEditViewBase } from './project-edit-view-base';
-import view_form from '@widgets/project/main-form/main-form.vue';
+import view_form from '@widgets/project/new-form-form/new-form-form.vue';
 
 /**
  * 项目视图
