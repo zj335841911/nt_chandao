@@ -74,11 +74,7 @@ export default class BuildUnlinkStorysLogicBase {
      * @param params 传入参数
      */
     public compute1Cond(params:any):boolean{
-        if(Verify.testCond(params., '', '')){
-           return true;
-        }else{
-            return false;
-        }
+        return true;
     }
 
     /**
