@@ -85,7 +85,6 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         code: null,
         begin: null,
         end: null,
-        formitemex1: null,
         period: null,
         days: null,
         type: null,
@@ -121,6 +120,16 @@ export class Main_EditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
         ],
+        begin: [
+            { required: true, type: 'string', message: '起始日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '起始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '至 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '至 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'blur' },
+        ],
         days: [
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
@@ -134,6 +143,27 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditBase
      */
     public deRules:any = {
+                end:[
+                  {
+                      type:"GROUP",
+                      condOP:"AND",
+                      ruleInfo:"截止日期应该大于起始日期", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      group:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截止日期应该大于起始日期", 
+                      isKeyCond:false,
+                      paramValue:"BEGIN",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"end",
+                  },
+                        ]
+                  },
+                ],
     };
 
     /**
@@ -171,11 +201,9 @@ export class Main_EditEditFormBase extends EditFormControlBase {
 
         code: new FormItemModel({ caption: '项目代号', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        begin: new FormItemModel({ caption: '开始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        begin: new FormItemModel({ caption: '起始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        formitemex1: new FormItemModel({ caption: '项目周期', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        end: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         period: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'period', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -212,6 +240,24 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof Main_EditEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'begin')) {
+            this.onFormItemValueChange({ name: 'end', value: null });
+        }
+        if (Object.is(name, 'end')) {
+            this.onFormItemValueChange({ name: 'period', value: null });
+        }
+        if (Object.is(name, 'begin')) {
+            this.onFormItemValueChange({ name: 'days', value: null });
+        }
+    }
 
     /**
      * 表单项逻辑
@@ -255,7 +301,10 @@ export class Main_EditEditFormBase extends EditFormControlBase {
 
 
 
-
+        if (Object.is(name, 'end')) {
+            const details: string[] = ['days'];
+            this.updateFormItems('UpdateCycle', this.data, details, true);
+        }
         if (Object.is(name, 'period')) {
             const details: string[] = ['end', 'days'];
             this.updateFormItems('UpdateProjectCycle', this.data, details, true);

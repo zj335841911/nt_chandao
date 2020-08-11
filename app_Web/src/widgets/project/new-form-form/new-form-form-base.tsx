@@ -118,8 +118,6 @@ export class NewFormEditFormBase extends EditFormControlBase {
         begin: [
             { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("begin").isPast},message: this.verifyDeRules("begin").infoMessage, trigger: 'change' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("begin").isPast},message: this.verifyDeRules("begin").infoMessage, trigger: 'blur' },
         ],
         end: [
             { required: true, type: 'string', message: '至 值不能为空', trigger: 'change' },
@@ -144,22 +142,14 @@ export class NewFormEditFormBase extends EditFormControlBase {
                   {
                       type:"GROUP",
                       condOP:"AND",
-                      ruleInfo:"(『截止日期』不能为空。)", 
+                      ruleInfo:"截止日期应该大于起始日期", 
                       isKeyCond:false,
                       isNotMode:false,
                       group:[
                   {
                       type:"SIMPLE",
-                      condOP:"ISNOTNULL",
-                      ruleInfo:"『截止日期』不能为空。", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      deName:"end",
-                  },
-                  {
-                      type:"SIMPLE",
                       condOP:"GTANDEQ",
-                      ruleInfo:"", 
+                      ruleInfo:"截止日期应该大于起始日期", 
                       isKeyCond:false,
                       paramValue:"BEGIN",
                       paramType:"ENTITYFIELD",
@@ -167,16 +157,6 @@ export class NewFormEditFormBase extends EditFormControlBase {
                       deName:"end",
                   },
                         ]
-                  },
-                ],
-                begin:[
-                  {
-                      type:"SIMPLE",
-                      condOP:"ISNOTNULL",
-                      ruleInfo:"『开始日期』不能为空。", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      deName:"begin",
                   },
                 ],
     };

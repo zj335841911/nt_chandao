@@ -75,6 +75,18 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStorybuildUnlinkStorysLogic buildunlinkstorysLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryGetStorySpecsLogic getstoryspecsLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryprojectUnlinkStorysLogic projectunlinkstorysLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -287,6 +299,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
+    public Story buildUnlinkStorys(Story et) {
+        buildunlinkstorysLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
     public Story change(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -325,8 +344,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story getStorySpecs(Story et) {
-        //自定义代码
-        return et;
+        getstoryspecsLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -392,6 +411,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Story projectUnlinkStorys(Story et) {
+        projectunlinkstorysLogic.execute(et);
+         return et ;
     }
 
     @Override

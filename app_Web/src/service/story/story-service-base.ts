@@ -1102,6 +1102,21 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BuildUnlinkStorys接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BuildUnlinkStorys(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:BuildUnlinkStorysLogic = new BuildUnlinkStorysLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
+    }
+
+    /**
      * Change接口方法
      *
      * @param {*} [context={}]
@@ -1331,49 +1346,9 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async GetStorySpecs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story){
-            let masterData:any = {};
-        let casesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
-            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
-                casesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/getstoryspecs`,data,isloading);
-                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
-
-            return res;
-        }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/getstoryspecs`,data,isloading);
-            return res;
+        let appLogic:GetStorySpecsLogic = new GetStorySpecsLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**
@@ -1649,6 +1624,21 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/stories/${context.story}/projectunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ProjectUnlinkStorys接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ProjectUnlinkStorys(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:ProjectUnlinkStorysLogic = new ProjectUnlinkStorysLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**
