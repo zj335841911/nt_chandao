@@ -174,9 +174,6 @@ export default class MainDetailModel {
       {
         name: 'task',
       },
-      {
-        name: 'srfarray',
-      },
     ]
   }
 

@@ -174,9 +174,6 @@ export default class TestDashboardQuickActionModel {
       {
         name: 'task',
       },
-      {
-        name: 'srfarray',
-      },
     ]
   }
 

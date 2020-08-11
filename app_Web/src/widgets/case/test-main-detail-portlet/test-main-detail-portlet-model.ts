@@ -174,9 +174,6 @@ export default class TestMainDetailModel {
       {
         name: 'task',
       },
-      {
-        name: 'srfarray',
-      },
     ]
   }
 

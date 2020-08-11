@@ -287,7 +287,7 @@ export interface Project {
     storycnt?: any;
 
     /**
-     * 关联产品集合
+     * 关联产品
      *
      * @returns {*}
      * @memberof Project
@@ -303,7 +303,7 @@ export interface Project {
     branchs?: any;
 
     /**
-     * 关联产品产品计划
+     * 关联计划
      *
      * @returns {*}
      * @memberof Project

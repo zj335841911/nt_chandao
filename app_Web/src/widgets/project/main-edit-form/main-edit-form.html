@@ -239,7 +239,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products', unique: true },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联产品产品计划', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品', prop: 'products', unique: true },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联计划', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
       <div style="display: flex;">
          <dropdown-list-dynamic 

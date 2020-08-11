@@ -300,7 +300,7 @@ public class Project extends EntityMP implements Serializable {
     @JsonProperty("storycnt")
     private Integer storycnt;
     /**
-     * 关联产品集合
+     * 关联产品
      */
     @TableField(exist = false)
     @JSONField(name = "products")
@@ -314,7 +314,7 @@ public class Project extends EntityMP implements Serializable {
     @JsonProperty("branchs")
     private String branchs;
     /**
-     * 关联产品产品计划
+     * 关联计划
      */
     @TableField(exist = false)
     @JSONField(name = "plans")

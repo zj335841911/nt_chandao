@@ -174,9 +174,6 @@ export default class DashboardQuickActionModel {
       {
         name: 'task',
       },
-      {
-        name: 'srfarray',
-      },
     ]
   }
 

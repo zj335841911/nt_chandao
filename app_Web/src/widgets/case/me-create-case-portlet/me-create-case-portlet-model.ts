@@ -174,9 +174,6 @@ export default class MeCreateCaseModel {
       {
         name: 'task',
       },
-      {
-        name: 'srfarray',
-      },
     ]
   }
 
