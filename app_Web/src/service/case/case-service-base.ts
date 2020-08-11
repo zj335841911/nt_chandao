@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetCaseStepByIdVersionLogic from '@/service/case/get-case-step-by-id-version-logic';
 import RunCasesLogic from '@/service/case/run-cases-logic';
 import TestRunCasesLogic from '@/service/case/test-run-cases-logic';
 import UnlinkCasesLogic from '@/service/case/unlink-cases-logic';
@@ -492,6 +493,9 @@ export default class CaseServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+    let getcasestepbyidversion:GetCaseStepByIdVersionLogic = new GetCaseStepByIdVersionLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await getcasestepbyidversion.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
 
             return res;
         }
@@ -499,6 +503,9 @@ export default class CaseServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+    let getcasestepbyidversion:GetCaseStepByIdVersionLogic = new GetCaseStepByIdVersionLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await getcasestepbyidversion.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
 
             return res;
         }
@@ -506,12 +513,18 @@ export default class CaseServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+    let getcasestepbyidversion:GetCaseStepByIdVersionLogic = new GetCaseStepByIdVersionLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await getcasestepbyidversion.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
 
             return res;
         }
             let res:any = await Http.getInstance().get(`/cases/${context.case}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+    let getcasestepbyidversion:GetCaseStepByIdVersionLogic = new GetCaseStepByIdVersionLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await getcasestepbyidversion.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
 
             return res;
     }

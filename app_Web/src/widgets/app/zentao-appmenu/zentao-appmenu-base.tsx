@@ -6,10 +6,19 @@ import { Vue } from 'vue-property-decorator';
 export class ZentaoBase extends Vue {
 
     /**
+     * 获取应用上下文
+     *
+     * @memberof ZentaoBase
+     */
+    get context(): any {
+        return this.$appService.contextStore.appContext || {};
+    }
+
+    /**
      * 菜单点击
      *
      * @param {*} item 菜单数据
-     * @memberof Zentao
+     * @memberof ZentaoBase
      */
     public click(item: any) {
         if (item) {
@@ -226,7 +235,7 @@ export class ZentaoBase extends Vue {
      * 绘制内容
      *
      * @private
-     * @memberof Zentao
+     * @memberof ZentaoBase
      */
     public render(): any {
         return <span style="display: none;"/>
