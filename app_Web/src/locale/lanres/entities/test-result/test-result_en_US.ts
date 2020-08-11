@@ -40,6 +40,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			rawitem1: "", 
 			druipart1: "", 
 			button1: "转Bug", 
 			grouppanel2: "分组面板", 
@@ -56,6 +57,7 @@ export default {
 			date: "", 
 			lastrunner: "", 
 			caseresult: "", 
+			formitem: "", 
 		},
 		uiactions: {
         testresult_tobug: "转Bug",

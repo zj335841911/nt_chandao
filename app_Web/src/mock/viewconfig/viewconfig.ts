@@ -288,7 +288,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "27374a7bc38f2581e433db58d85e14e4"
         },
         "caseoptionview": {
-            "title": "测试用例选项操作视图",
+            "title": "执行",
             "caption": "执行",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
@@ -424,8 +424,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "3a8aaf8bc175455ca2be6ace38f821a1"
         },
         "casetobugeditview": {
-            "title": "测试用例编辑视图（执行结果）",
-            "caption": "执行结果",
+            "title": "转BUG",
+            "caption": "转BUG",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "CaseToBugEditView",
@@ -952,7 +952,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "6991c25388155df89dc9c44eeb11ad90"
         },
         "casetestoptionview": {
-            "title": "测试用例选项操作视图",
+            "title": "执行",
             "caption": "执行",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
@@ -968,7 +968,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "6c7b582273d0726bcf77214807cfe40c"
         },
         "caseexceditview": {
-            "title": "测试用例编辑视图（执行结果）",
+            "title": "执行结果",
             "caption": "执行结果",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -2120,7 +2120,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "ef1a8c8701140368af895304274c602a"
         },
         "casetesttaskexceditview": {
-            "title": "测试用例编辑视图（执行结果）",
+            "title": "执行结果",
             "caption": "执行结果",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",

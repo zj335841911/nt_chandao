@@ -20,3 +20,6 @@ import view_meditviewpanel from '@widgets/test-result/main-multieditviewpanel/ma
 @VueLifeCycleProcessing()
 export default class TestResultMEditView9 extends TestResultMEditView9Base { }
 </script>
+<style lang='less'>
+@import './test-result-medit-view9.less';
+</style>

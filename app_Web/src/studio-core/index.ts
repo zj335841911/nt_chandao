@@ -78,7 +78,7 @@ import { StudioEmbedView } from './components/studio-embed-view/studio-embed-vie
 import { StudioEmbedViewStyle2 } from './components/studio-embed-view-style2/studio-embed-view-style2';
 import { ViewToolbar } from './components/view-toolbar/view-toolbar';
 import { ViewConfigActions } from './components/view-config-actions/view-config-actions';
-import HtmlContainer from './components/html-container/html-container.vue';
+import HtmlContainer from './components/html-container/html-container';
 // 组件 End
 // 服务 Start
 import { acc } from './message-center/app-communications-center';

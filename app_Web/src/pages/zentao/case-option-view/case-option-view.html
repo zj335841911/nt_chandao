@@ -1,6 +1,6 @@
-<studio-view viewName="caseoptionview" viewTitle="测试用例选项操作视图" class='deoptview case-option-view'>
+<studio-view viewName="caseoptionview" viewTitle="执行" class='deoptview case-option-view'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <view_form 
                     :viewState="viewState"  
@@ -9,7 +9,7 @@
                     :autosave="false" 
                     :viewtag="viewtag"
                     :showBusyIndicator="true"
-                    updateAction="RunCase"
+                    updateAction="RunCases"
                     removeAction="Remove"
                     loaddraftAction="GetDraft"
                     loadAction="Get"

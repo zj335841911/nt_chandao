@@ -122,6 +122,7 @@ export class MainEditFormBase extends EditFormControlBase {
         date: null,
         lastrunner: null,
         caseresult: null,
+        formitem: null,
         testresult:null,
     };
 
@@ -150,13 +151,15 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         button1: new FormButtonModel({ caption: '转Bug', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'ToBug', actiontarget: 'SINGLEKEY' } }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testresult.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '用例步骤', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testresult.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '用例步骤', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testresult.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -182,6 +185,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         caseresult: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'caseresult', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        formitem: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
     };
 
     /**
@@ -195,6 +200,7 @@ export class MainEditFormBase extends EditFormControlBase {
                 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'caseresult')) {
             let ret = false;
             const _caseresult = this.data.caseresult;
@@ -202,6 +208,15 @@ export class MainEditFormBase extends EditFormControlBase {
                 ret = true;
             }
             this.detailsModel.grouppanel2.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'formitem')) {
+            let ret = false;
+            const _formitem = this.data.formitem;
+            if (this.$verify.testCond(_formitem, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel1.setVisible(ret);
         }
 
 

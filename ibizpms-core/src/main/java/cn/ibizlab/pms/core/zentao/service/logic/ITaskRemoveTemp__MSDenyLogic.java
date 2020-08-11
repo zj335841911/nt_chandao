@@ -13,6 +13,6 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 public interface ITaskRemoveTemp__MSDenyLogic {
 
-    void execute(Task task ) ;
+    void execute(Task et) ;
 
 }

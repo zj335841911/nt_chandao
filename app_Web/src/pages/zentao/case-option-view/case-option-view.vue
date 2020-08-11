@@ -6,7 +6,7 @@ import { CaseOptionViewBase } from './case-option-view-base';
 import view_form from '@widgets/case/main-carry-form/main-carry-form.vue';
 
 /**
- * 测试用例选项操作视图视图
+ * 执行视图
  *
  * @export
  * @class CaseOptionView

@@ -1,6 +1,6 @@
 <studio-view viewName="projectmainview_edit" viewTitle="项目编辑视图" class='deeditview project-main-view-edit'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>

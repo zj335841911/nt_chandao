@@ -174,6 +174,9 @@ export default class MainInfoModel {
       {
         name: 'task',
       },
+      {
+        name: 'srfarray',
+      },
     ]
   }
 

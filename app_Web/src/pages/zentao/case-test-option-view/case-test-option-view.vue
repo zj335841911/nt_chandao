@@ -6,7 +6,7 @@ import { CaseTestOptionViewBase } from './case-test-option-view-base';
 import view_form from '@widgets/case/main-test-task-form/main-test-task-form.vue';
 
 /**
- * 测试用例选项操作视图视图
+ * 执行视图
  *
  * @export
  * @class CaseTestOptionView

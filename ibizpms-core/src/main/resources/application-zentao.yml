@@ -27,7 +27,8 @@ ibiz:
   ref:
     service:
       uaa: ibzuaa-apipms
-
+      ou: ibzou-apipms
+  cacheLevel: L2
 spring:
   servlet:
     multipart:

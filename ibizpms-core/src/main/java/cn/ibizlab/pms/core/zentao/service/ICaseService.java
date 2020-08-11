@@ -39,12 +39,16 @@ public interface ICaseService extends IService<Case>{
     Case getByTestTask(Case et) ;
     Case linkCase(Case et) ;
     Case runCase(Case et) ;
+    Case runCases(Case et) ;
     boolean save(Case et) ;
     void saveBatch(List<Case> list) ;
     Case testRunCase(Case et) ;
+    Case testRunCases(Case et) ;
     Case testsuitelinkCase(Case et) ;
     Case unlinkCase(Case et) ;
+    Case unlinkCases(Case et) ;
     Case unlinkSuiteCase(Case et) ;
+    Case unlinkSuiteCases(Case et) ;
     Page<Case> searchBatchNew(CaseSearchContext context) ;
     Page<Case> searchCurSuite(CaseSearchContext context) ;
     Page<Case> searchCurTestTask(CaseSearchContext context) ;

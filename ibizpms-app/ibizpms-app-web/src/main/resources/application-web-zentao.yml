@@ -22,12 +22,13 @@ ibiz:
     service:
       pms-webapi: pms-webapi
       uaa: ibzuaa-apipms
+      ou: ibzou-apipms
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
       # UAA认证模式：UAATokenUtil
       util: UAATokenUtil
-
+  cacheLevel: L2
 spring:
   servlet:
     multipart:

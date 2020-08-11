@@ -429,4 +429,12 @@ export interface Case {
      * @memberof Case
      */
     task?: any;
+
+    /**
+     * 属性2
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    srfarray?: any;
 }
