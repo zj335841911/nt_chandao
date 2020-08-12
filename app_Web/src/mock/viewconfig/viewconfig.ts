@@ -775,14 +775,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyMainTabExpView",
             "viewtag": "56084e37dc061358abd4a3f5340b27e9"
         },
-        "bugbuildsubgridview_linkdone": {
-            "title": "bug表格视图",
-            "caption": "Bug",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "BugBuildSubGridView_LINKDONE",
-            "viewtag": "5678993d5f15b1b7d40664d120ca31a5"
-        },
         "storypickupgridview": {
             "title": "需求",
             "caption": "需求",
@@ -1254,6 +1246,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryReleaseSubGridView",
             "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
+        },
+        "bugusr2gridview": {
+            "title": "Bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugUsr2GridView",
+            "viewtag": "8af65044ab1633eb5b68d99478e9350f"
         },
         "taskestimategridview9": {
             "title": "任务预计表格视图",

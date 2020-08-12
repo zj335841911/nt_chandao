@@ -118,10 +118,6 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
-		buildsubgridview_linkdone: {
-			caption: "Bug",
-      		title: "bug表格视图",
-		},
 		releasesubgridview_done: {
 			caption: "Bug",
       		title: "bug表格视图",
@@ -135,6 +131,10 @@ export default {
       		title: "确认Bug",
 		},
 		gridview9_assignedtome: {
+			caption: "Bug",
+      		title: "Bug表格视图",
+		},
+		usr2gridview: {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
@@ -632,26 +632,6 @@ export default {
 			bug_unlinkbug_build: "解除关联",
 		},
 	},
-	main_buildsub3_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "创建",
-			assignedto: "指派",
-			resolvedby: "解决者",
-			resolution: "方案",
-			uagridcolumn1: "操作列",
-		},
-		uiactions: {
-			bug_confirmbug: "确认",
-			bug_resolvebug: "解决",
-			bug_closebug: "关闭",
-			copy: "拷贝",
-			bug_mainedit: "编辑",
-		},
-	},
 	main_buildsub_grid: {
 		columns: {
 			id: "ID",
@@ -738,6 +718,26 @@ export default {
 		uiactions: {
 		},
 	},
+	main_buildsub3_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "创建",
+			assignedto: "指派",
+			resolvedby: "解决者",
+			resolution: "方案",
+			uagridcolumn1: "操作列",
+		},
+		uiactions: {
+			bug_confirmbug: "确认",
+			bug_resolvebug: "解决",
+			bug_closebug: "关闭",
+			copy: "拷贝",
+			bug_mainedit: "编辑",
+		},
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -762,12 +762,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	buildsubgridview_linkdonetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "保存",
-			tip: "保存",
 		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
@@ -844,6 +838,12 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	usr2gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "保存",
+			tip: "保存",
 		},
 	},
 };

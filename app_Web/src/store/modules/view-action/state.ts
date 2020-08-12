@@ -878,21 +878,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '5678993d5f15b1b7d40664d120ca31a5',
-            viewmodule: 'zentao',
-            viewname: 'BugBuildSubGridView_LINKDONE',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'e67fe0ec86d17b74944c16e187da482d',
-                '7c6956b0c4bcc773697adb506d3ce5e9',
-                '1540523a668e920d831510cfbec2c5e2',
-                '46517a803b2470cd0bef27aeda0dbcaf',
-                'c1e9611b6972b1877b75fa5d2c67aad6',
-                '122af527bf38b47ddc53c882847b490e',
-            ],
-        },
-        {
             viewtag: '569cd532c6b545ffc53cf5fb93427028',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView',
@@ -2588,7 +2573,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
-                '5678993d5f15b1b7d40664d120ca31a5',
                 '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },

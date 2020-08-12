@@ -959,16 +959,6 @@
         "viewtag": "56084e37dc061358abd4a3f5340b27e9",
         "memo": ""
     },
-    "bugbuildsubgridview_linkdone": {
-        "title": "bug表格视图",
-        "caption": "Bug",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "zentao",
-        "viewname": "BugBuildSubGridView_LINKDONE",
-        "viewfilename": "bug-build-sub-grid-view-linkdone",
-        "viewtag": "5678993d5f15b1b7d40664d120ca31a5",
-        "memo": ""
-    },
     "storypickupgridview": {
         "title": "需求",
         "caption": "需求",
@@ -1558,6 +1548,16 @@
         "viewfilename": "story-release-sub-grid-view",
         "viewtag": "87b3a9ce09500f304291ed2d69799d5e",
         "memo": ""
+    },
+    "bugusr2gridview": {
+        "title": "Bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugUsr2GridView",
+        "viewfilename": "bug-usr2-grid-view",
+        "viewtag": "8af65044ab1633eb5b68d99478e9350f",
+        "memo": "版本-----已解决的Bug---关联bug—打开表格视图进行Bug"
     },
     "taskestimategridview9": {
         "title": "任务预计表格视图",
