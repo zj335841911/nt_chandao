@@ -32,7 +32,7 @@ export default class AuthService {
      * @type {(any)}
      * @memberof AuthService
      */
-    public defaultOPPrivs: any = {CREATE: 1,DELETE: 1,DENY: 1,NONE: 1,READ: 1,SRFUR__PRODUCTEDIT: 1,UPDATE: 1,WFSTART: 1}; 
+    public defaultOPPrivs: any = {CREATE: 1,DELETE: 1,DENY: 1,NONE: 1,READ: 1,SRFUR__PRODUCTEDIT: 1,SRFUR__STORY_ACTIVE_BUTTON: 1,UPDATE: 1,WFSTART: 1}; 
 
     /**
      * Creates an instance of AuthService.
@@ -92,6 +92,7 @@ export default class AuthService {
      */ 
     public registerSysOPPrivs(){
         this.sysOPPrivsMap.set('SRFUR__PRODUCTEDIT','PRODUCTEDIT');
+        this.sysOPPrivsMap.set('SRFUR__STORY_ACTIVE_BUTTON','STORY_ACTIVE_BUTTON');
     }
 
     /**

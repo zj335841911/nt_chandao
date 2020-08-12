@@ -643,6 +643,7 @@ export default {
 			resolvedby: "解决者",
 			resolution: "方案",
 			uagridcolumn1: "操作列",
+			project: "所属项目",
 		},
 		uiactions: {
 			bug_confirmbug: "确认",

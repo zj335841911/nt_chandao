@@ -343,7 +343,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             langtag: 'entities.bug.main_buildsub3_grid.columns.resolvedby',
             show: true,
             util: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
         },
         {
             name: 'resolution',
@@ -358,6 +358,14 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: '操作列',
             langtag: 'entities.bug.main_buildsub3_grid.columns.uagridcolumn1',
             show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'project',
+            label: '所属项目',
+            langtag: 'entities.bug.main_buildsub3_grid.columns.project',
+            show: false,
             util: 'PX',
             isEnableRowEdit: false,
         },
@@ -406,9 +414,10 @@ export class Main_BuildSub3GridBase extends GridControlBase {
         'status':false,
         'openedby':false,
         'assignedto':false,
-        'resolvedby':false,
+        'resolvedby':true,
         'resolution':false,
         'uagridcolumn1':false,
+        'project':false,
     };
 
     /**
@@ -468,7 +477,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             },
             {
                 name: 'resolvedby',
-                srfkey: 'UserRealName',
+                srfkey: 'BugUserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
