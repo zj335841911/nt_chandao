@@ -139,6 +139,9 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     protected renderMenuItem(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <menuItem title={item.tooltip} name={item.name}>
             <menu-icon item={item} />
             {item.text}
@@ -154,6 +157,9 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     protected renderSubMenu(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <submenu name={item.name}>
             <template slot="title">
                 <menu-icon item={item} />

@@ -301,7 +301,7 @@ export default class AppRichTextEditor extends Vue {
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
         const content: any = this.editor ? this.editor.getContent() : undefined;
-        const url = this.downloadUrl.substring(3);
+        const url = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
         if(newval) {
             newval = newval.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
         }
@@ -364,7 +364,7 @@ export default class AppRichTextEditor extends Vue {
                 richtexteditor.editor = editor;
                 editor.on('blur', () => {
                     let content = editor.getContent();
-                    const url = richtexteditor.downloadUrl.substring(3);
+                    const url = richtexteditor.downloadUrl.indexOf('../') === 0 ? richtexteditor.downloadUrl.substring(3) : richtexteditor.downloadUrl;
                     let newContent: string = "";
                     const imgsrc = richtexteditor.imgsrc;
                     if(imgsrc && imgsrc.length > 0){

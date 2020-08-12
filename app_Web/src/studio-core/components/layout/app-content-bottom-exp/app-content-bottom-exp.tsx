@@ -120,7 +120,7 @@ export class AppContentBottomExp extends Vue {
         return <div class="app-content-bottom-exp">
             <tabs size="small" animated={false} value={this.activeIndex.toString()} on-on-click={(name: string) => this.activeTab(name)}>
                 {this.menus.map((item: any, i: number) => {
-                    if (!Object.is(item.appfuncyype, 'APPVIEW')) {
+                    if (!Object.is(item.appfuncyype, 'APPVIEW') || item.hidden) {
                         return;
                     }
                     return <tabPane label={(h: any) => this.renderTitle(h, item)} name={i.toString()}>

@@ -140,6 +140,9 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     protected renderMenuItem(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <dropdownItem name={item.name} title={item.tooltip}>
             <menu-icon item={item} />
             {item.text}
@@ -155,6 +158,9 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     protected renderMenuGroup(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <dropdown class="user-menu-child" placement="left-start">
             <dropdownItem name={item.name} title={item.tooltip}>
                 <icon type="ios-arrow-back"></icon>
