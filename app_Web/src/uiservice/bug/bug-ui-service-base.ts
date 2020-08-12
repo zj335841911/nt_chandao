@@ -102,11 +102,11 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'mpickupview2',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'editview_1162',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'testreportsubgridview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'buildsubgridview_linkdone',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_done',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
-        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'editview_4791',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
@@ -142,6 +142,75 @@ export default class BugUIServiceBase extends UIService {
         this.allDeMainStateOPPrivsMap.set('active',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('resolved',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_buildlinkbugs(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{BUG:"0",BUILD:"%srfparentkey%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'MULTIKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.BuildLinkBug(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -1088,7 +1157,7 @@ export default class BugUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+            { pathName: 'buildsubgridview_linkdone', parameterName: 'buildsubgridview_linkdone' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

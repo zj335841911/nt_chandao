@@ -119,6 +119,10 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		buildsubgridview_linkdone: {
+			caption: "Bug",
+      		title: "bug表格视图",
+		},
 		releasesubgridview_done: {
 			caption: "Bug",
       		title: "bug表格视图",
@@ -132,10 +136,6 @@ export default {
       		title: "确认Bug",
 		},
 		gridview9_assignedtome: {
-			caption: "Bug",
-      		title: "Bug表格视图",
-		},
-		usr2gridview: {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
@@ -739,13 +739,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -772,7 +765,11 @@ export default {
 			tip: "刷新",
 		},
 	},
-	usr2gridviewtoolbar_toolbar: {
+	buildsubgridview_linkdonetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "保存",
+			tip: "保存",
+		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
 		deuiaction1: {

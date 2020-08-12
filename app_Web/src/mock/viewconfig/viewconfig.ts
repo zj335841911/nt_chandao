@@ -775,6 +775,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyMainTabExpView",
             "viewtag": "56084e37dc061358abd4a3f5340b27e9"
         },
+        "bugbuildsubgridview_linkdone": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugBuildSubGridView_LINKDONE",
+            "viewtag": "5678993d5f15b1b7d40664d120ca31a5"
+        },
         "storypickupgridview": {
             "title": "需求",
             "caption": "需求",
@@ -1390,14 +1398,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ReleaseMainInfoView",
             "viewtag": "983aa1b77ca021f30978523ddef010a0"
-        },
-        "bugusr2gridview": {
-            "title": "Bug表格视图",
-            "caption": "Bug",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "BugUsr2GridView",
-            "viewtag": "996f80dcc7bfb432f0646db165ea5267"
         },
         "projecteditview_close": {
             "title": "项目",

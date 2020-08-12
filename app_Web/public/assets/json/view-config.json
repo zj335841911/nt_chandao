@@ -959,6 +959,16 @@
         "viewtag": "56084e37dc061358abd4a3f5340b27e9",
         "memo": ""
     },
+    "bugbuildsubgridview_linkdone": {
+        "title": "bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugBuildSubGridView_LINKDONE",
+        "viewfilename": "bug-build-sub-grid-view-linkdone",
+        "viewtag": "5678993d5f15b1b7d40664d120ca31a5",
+        "memo": ""
+    },
     "storypickupgridview": {
         "title": "需求",
         "caption": "需求",
@@ -1727,16 +1737,6 @@
         "viewname": "ReleaseMainInfoView",
         "viewfilename": "release-main-info-view",
         "viewtag": "983aa1b77ca021f30978523ddef010a0",
-        "memo": ""
-    },
-    "bugusr2gridview": {
-        "title": "Bug表格视图",
-        "caption": "Bug",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "zentao",
-        "viewname": "BugUsr2GridView",
-        "viewfilename": "bug-usr2-grid-view",
-        "viewtag": "996f80dcc7bfb432f0646db165ea5267",
         "memo": ""
     },
     "projecteditview_close": {
