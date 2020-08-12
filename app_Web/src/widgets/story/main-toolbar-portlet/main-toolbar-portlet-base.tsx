@@ -336,41 +336,61 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u9faaee3_click",
         text: "变更",
         iconcls: "fa fa-exchange",
         icon: "",
+        dataaccaction:'CHANGED',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u5ad249a_click",
         text: "评审",
         iconcls: "fa fa-search",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u1159f16_click",
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u7e5d174_click",
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        dataaccaction:'CLOSED',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u77b985d_click",
         text: "激活",
         iconcls: null,
         icon: null,
+        dataaccaction:'ACTIVE',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u80095ee_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        dataaccaction:'EDIT',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_uab5fac9_click",
         text: "删除",
         iconcls: null,
         icon: null,
+        visabled:true,
+        disabled:false
         }
     ];
 

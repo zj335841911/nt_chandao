@@ -178,16 +178,23 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u993e8bf_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        dataaccaction:'SRFUR__PRODUCTEDIT',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u0828b1d_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
+        visabled:true,
+        disabled:false
         }
     ];
 

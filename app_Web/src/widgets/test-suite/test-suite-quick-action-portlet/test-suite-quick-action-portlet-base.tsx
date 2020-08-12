@@ -224,21 +224,29 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u3a52055_click",
         text: "关联用例",
         iconcls: "fa fa-link",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_ud269d16_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u35c5cd5_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
+        visabled:true,
+        disabled:false
         }
     ];
 

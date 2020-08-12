@@ -281,31 +281,48 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "延期",
         iconcls: "fa fa-calendar-o",
         icon: "",
+        dataaccaction:'DELAY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u6e94857_click",
         text: "挂起",
         iconcls: "fa fa-pause",
         icon: "",
+        dataaccaction:'SUSPEND',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u2db4a08_click",
         text: "激活",
         iconcls: "fa fa-plug",
         icon: "",
+        dataaccaction:'ACTIVATION',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u698efc2_click",
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        dataaccaction:'CLOSED',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u209627c_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        dataaccaction:'EDIT',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_ufb9f459_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
+        visabled:true,
+        disabled:false
         }
     ];
 

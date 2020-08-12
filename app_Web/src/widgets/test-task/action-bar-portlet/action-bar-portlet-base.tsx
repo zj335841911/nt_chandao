@@ -252,26 +252,36 @@ export class ActionBarPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u7e8df99_click",
         text: "激活",
         iconcls: "fa fa-magic",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_udf94c25_click",
         text: "开始",
         iconcls: "fa fa-play",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u403cfd0_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_ufbd0009_click",
         text: "阻塞",
         iconcls: "fa fa-pause",
         icon: "",
+        visabled:true,
+        disabled:false
         }
     ];
 

@@ -272,26 +272,40 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u3c66854_click",
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
+        dataaccaction:'CASERUN',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u20add63_click",
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
+        dataaccaction:'CASERESULT',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u09cf58f_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        dataaccaction:'EDIT',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_ua34bf46_click",
         text: "删除",
         iconcls: null,
         icon: null,
+        dataaccaction:'DELETE',
+        visabled:true,
+        disabled:false
         }
     ];
 
