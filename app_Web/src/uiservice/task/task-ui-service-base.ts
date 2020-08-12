@@ -138,12 +138,12 @@ export default class TaskUIServiceBase extends UIService {
      * @memberof  TaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':1,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':1,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('done',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('pause',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':1,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':1,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('cancel',Object.assign({'ACTIVATION':0,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':0,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':0,'UPDATE':0},{'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CLOSE':1,'SUBTASKS':1,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATION':0,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':0,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':0,'UPDATE':0},{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1,}));
+        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'ACTIVATION':0,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':0,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':0,'UPDATE':0},{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1,}));
+        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'ACTIVATION':0,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':0,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':0,'UPDATE':0},{'CLOSE':1,'EDIT':1,'ASSIGN':1,'ACTIVATION':1,'SUBTASKS':1,'DELETE':1,}));
+        this.allDeMainStateOPPrivsMap.set('pause',Object.assign({'ACTIVATION':0,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':0,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':0,'UPDATE':0},{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1,}));
+        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATION':0,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':0,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':0,'UPDATE':0},{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1,}));
     }
 
     /**

@@ -128,10 +128,10 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':0,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('suspended',{'ACTIVATION':0,'CLOSED':0,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':0,'SUSPEND':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'DELETE':0,'ACTIVATION':0,'EDIT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'SUSPEND':0,'CLOSED':0,'DELAY':0,'DELETE':0,'EDIT':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'CLOSED':0,'ACTIVATION':0,'EDIT':0,'DELETE':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'CLOSED':0,'EDIT':0,'SUSPEND':0,'START':0,'DELETE':0,'DELAY':0,}));
     }
 
     /**
