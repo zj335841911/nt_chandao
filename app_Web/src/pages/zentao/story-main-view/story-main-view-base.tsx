@@ -151,4 +151,34 @@ export class StoryMainViewBase extends DashboardViewBase {
     }
 
 
+
+    /**
+     * 加载数据
+     * 
+     * @memberof StoryMainViewBase
+     */
+    public loadModel(){
+        if(this.context.story){
+            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data: _data } = response;
+                this.viewState.next({ tag: 'app-actionbar', action: 'loadmodel', data:_data});
+                if (_data.title) {
+                    Object.assign(this.model, { dataInfo: _data.title });
+                    if(this.$tabPageExp){
+                        let _this:any = this;
+                        this.$tabPageExp.setCurPageCaption(_this.$t(this.model.srfTitle), _this.$t(this.model.srfTitle), _this.model.dataInfo);
+                    }
+                    if(this.$route){
+                        this.$route.meta.info = this.model.dataInfo;
+                    }
+                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                }
+            })
+        }
+    }
+
+
 }
