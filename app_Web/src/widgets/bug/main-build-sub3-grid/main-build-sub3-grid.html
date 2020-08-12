@@ -119,8 +119,30 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.resolvedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+             <dropdown-list-extend
+              :name="column.property"
+              v-model="row[column.property]" 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              :data="row" 
+              :datas="items"
+              :context="context"
+              :viewparams="viewparams" 
+              :localContext ='{ PROJECT:"%project%" }' 
+              :localParam ='{ project:"%project%" }' 
+              tag='BugUserRealName' 
+              codelistType='DYNAMIC'
+              placeholder='请选择...' 
+              style="" 
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+             </dropdown-list-extend>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <codelist :value="row.resolvedby" tag='BugUserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -173,6 +195,18 @@
                             {{$t('entities.bug.main_buildsub3_grid.uiactions.bug_mainedit')}}
                           </a>
                         </div>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('project')">
+                <el-table-column show-overflow-tooltip :prop="'project'" :label="$t('entities.bug.main_buildsub3_grid.columns.project')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_buildsub3_grid.columns.project')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.project}}</span>
                     </template>
                 </el-table-column>
             </template>
