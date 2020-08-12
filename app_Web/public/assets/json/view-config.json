@@ -1557,7 +1557,7 @@
         "viewname": "BugUsr2GridView",
         "viewfilename": "bug-usr2-grid-view",
         "viewtag": "8af65044ab1633eb5b68d99478e9350f",
-        "memo": "版本-----已解决的Bug---关联bug—打开表格视图进行Bug"
+        "memo": "版本-----已解决的Bug---关联bug—打开表格视图进行Bug批量关联（设置为已解决）"
     },
     "taskestimategridview9": {
         "title": "任务预计表格视图",

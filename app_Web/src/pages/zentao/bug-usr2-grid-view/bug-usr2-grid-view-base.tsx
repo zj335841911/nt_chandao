@@ -93,7 +93,6 @@ export class BugUsr2GridViewBase extends GridViewBase {
     protected containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
 
     /**
@@ -103,6 +102,8 @@ export class BugUsr2GridViewBase extends GridViewBase {
      * @memberof BugUsr2GridView
      */
     public toolBarModels: any = {
+        deuiaction2: { name: 'deuiaction2', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-bug', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildlinkbugs', target: 'MULTIKEY', class: '' } },
+
     };
 
 
@@ -114,7 +115,7 @@ export class BugUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = '996f80dcc7bfb432f0646db165ea5267';
+	protected viewtag: string = '8af65044ab1633eb5b68d99478e9350f';
 
 
     /**
@@ -142,11 +143,23 @@ export class BugUsr2GridViewBase extends GridViewBase {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'bug',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugUsr2GridViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
+        }
     }
 
     /**
@@ -205,36 +218,32 @@ export class BugUsr2GridViewBase extends GridViewBase {
     }
 
     /**
-     * searchform 部件 save 事件
+     * 逻辑事件
      *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BugUsr2GridViewBase
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
      */
-    public searchform_save($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BugUsr2GridViewBase
-     */
-    public searchform_search($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BugUsr2GridViewBase
-     */
-    public searchform_load($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
+    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_buildlinkbugs(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
