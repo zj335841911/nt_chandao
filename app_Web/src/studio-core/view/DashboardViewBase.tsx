@@ -45,6 +45,7 @@ export class DashboardViewBase extends ViewBase {
                     return;
                 }
                 const { data } = response;
+                this.viewState.next({ tag: 'app-actionbar', action: 'loadmodel', data: data});
                 if (data && data[this.appDeMajor]) {
                     data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
