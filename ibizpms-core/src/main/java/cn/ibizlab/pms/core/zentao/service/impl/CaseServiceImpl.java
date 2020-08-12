@@ -80,10 +80,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseGetCaseStepByIdVersionLogic getcasestepbyidversionLogic;
-
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ICaserunCasesLogic runcasesLogic;
 
     @Autowired
@@ -156,8 +152,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public Case get(BigInteger key) {
-        Case tempET=new Case();
-        tempET.set("id",key);
         Case et = getById(key);
         if(et==null){
             et=new Case();
@@ -166,7 +160,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         else{
             et.setCasestep(casestepService.selectByIbizcase(key));
         }
-        getcasestepbyidversionLogic.execute(et);
         return et;
     }
 
