@@ -14,7 +14,7 @@ environment:
 ibiz:
   auth:
     #本地用户认证：IBZZTUserService
-    #UAA认证：IBZUAAZTUserService
+    #UAA认证：IBZUAAUserService
     service: IBZUAAUserService
     token:
     # 本地ZT账户认证模式：SimpleTokenUtil
