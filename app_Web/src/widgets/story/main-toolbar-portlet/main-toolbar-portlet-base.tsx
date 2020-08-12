@@ -373,7 +373,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "激活",
         iconcls: null,
         icon: null,
-        dataaccaction:'ACTIVE',
+        dataaccaction:'SRFUR__STORY_ACTIVE_BUTTON',
         visabled:true,
         disabled:false
         },

@@ -11,6 +11,26 @@
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
        }
+        ,
+       {
+            "unirescode":"STORY_ACTIVE_BUTTON",
+            "uniresname":"需求激活"
+       }
+        ,
+       {
+            "unirescode":"STORY_EDIT_BUTTON",
+            "uniresname":"需求编辑"
+       }
+        ,
+       {
+            "unirescode":"STORY_CLOSED_BUTTON",
+            "uniresname":"需求关闭"
+       }
+        ,
+       {
+            "unirescode":"STORY_CHANGED_BUTTON",
+            "uniresname":"需求变更"
+       }
     ],
     "entities":[
     {
