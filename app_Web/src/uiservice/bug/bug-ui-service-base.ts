@@ -161,8 +161,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUG:"0",BUILD:"%srfparentkey%",PROJECT:"%project%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",project:"%project%",build:"%srfparentkey%"});
+        Object.assign(context,{BUG:"0",BUILD:"%build%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%build%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { bug: '%bug%' });
@@ -1135,7 +1135,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUILD:"%srfparentkey% SRFNAVPARAM.build=%srfparentkey% SRFNAVPARAM.product=%product% SRFNAVCTX.product=%product% SRFNAVCTX.project=%project% SRFNAVPARAM.project=%project% SRFNAVCTX.bug=0"});
+        Object.assign(context,{BUG:"0",BUILD:"%srfparentkey%",PROJECT:"%project% ",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%srfparentkey%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
