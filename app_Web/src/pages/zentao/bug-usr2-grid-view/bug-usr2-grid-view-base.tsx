@@ -69,6 +69,17 @@ export class BugUsr2GridViewBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugUsr2GridViewBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *
