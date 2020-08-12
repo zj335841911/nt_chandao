@@ -61,7 +61,9 @@ export default class PutoffModel {
         dataType: 'DATE',
       },
       {
-        name: 'formitemex1',
+        name: 'period',
+        prop: 'period',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'days',
