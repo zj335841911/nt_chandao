@@ -170,6 +170,7 @@ export default class Main_BuildSub3Model {
           name: 'bug',
           prop: 'id',
         },
+
         {
           name:'size',
           prop:'size'

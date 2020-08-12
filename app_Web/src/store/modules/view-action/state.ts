@@ -738,16 +738,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '4b87d5ed612c8f0bc1a3c01344372a26',
-            viewmodule: 'zentao',
-            viewname: 'BugMPickupView2',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b4a2b69da4d3cd9c597b5113df650e00',
-            ],
-        },
-        {
             viewtag: '4b8db6d139edb8adadbef2f0c0b3350a',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Activate',
@@ -1652,6 +1642,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '996f80dcc7bfb432f0646db165ea5267',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
             viewtag: '9a8c28c2365d7dc8bb5619f39576b558',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Close',
@@ -1915,19 +1919,6 @@ export const viewstate: any = {
                 '5890a810365fec51e801d2cffce44fde',
                 '3a9645e5ad29ed73b59ccd2f548d602c',
                 '27e6b14e0243582fc67753b58a64066d',
-            ],
-        },
-        {
-            viewtag: 'b4a2b69da4d3cd9c597b5113df650e00',
-            viewmodule: 'zentao',
-            viewname: 'BugPickupGridView_buildLinkResolvedBugs',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'e67fe0ec86d17b74944c16e187da482d',
-                '7c6956b0c4bcc773697adb506d3ce5e9',
-                'c1e9611b6972b1877b75fa5d2c67aad6',
-                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {
@@ -2597,7 +2588,7 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
-                '4b87d5ed612c8f0bc1a3c01344372a26',
+                '996f80dcc7bfb432f0646db165ea5267',
             ],
         },
         {

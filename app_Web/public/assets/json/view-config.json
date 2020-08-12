@@ -1729,6 +1729,16 @@
         "viewtag": "983aa1b77ca021f30978523ddef010a0",
         "memo": ""
     },
+    "bugusr2gridview": {
+        "title": "Bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugUsr2GridView",
+        "viewfilename": "bug-usr2-grid-view",
+        "viewtag": "996f80dcc7bfb432f0646db165ea5267",
+        "memo": ""
+    },
     "projecteditview_close": {
         "title": "项目",
         "caption": "项目",

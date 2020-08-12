@@ -9,19 +9,19 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * bug表格视图视图基类
+ * Bug表格视图视图基类
  *
  * @export
- * @class BugBuildSubGridView_DoneBase
+ * @class BugUsr2GridViewBase
  * @extends {GridViewBase}
  */
-export class BugBuildSubGridView_DoneBase extends GridViewBase {
+export class BugUsr2GridViewBase extends GridViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     protected appDeName: string = 'bug';
 
@@ -30,7 +30,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -39,7 +39,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     protected appDeMajor: string = 'title';
 
@@ -47,7 +47,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     protected appEntityService: BugService = new BugService;
 
@@ -55,7 +55,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * 实体权限服务对象
      *
      * @type BugUIService
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
@@ -65,45 +65,21 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @protected
      * @type {Array<*>}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */    
     protected counterServiceArray: Array<any> = [];
-
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugBuildSubGridView_DoneBase
-	 */
-    protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugBuildSubGridView_DoneBase
-	 */
-    protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' }
-    };
 
     /**
      * 视图模型数据
      *
      * @protected
      * @type {*}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.bug.views.buildsubgridview_done.caption',
-        srfTitle: 'entities.bug.views.buildsubgridview_done.title',
-        srfSubTitle: 'entities.bug.views.buildsubgridview_done.subtitle',
+        srfCaption: 'entities.bug.views.usr2gridview.caption',
+        srfTitle: 'entities.bug.views.usr2gridview.title',
+        srfSubTitle: 'entities.bug.views.usr2gridview.subtitle',
         dataInfo: ''
     }
 
@@ -112,22 +88,21 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     protected containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
 
     /**
      * 工具栏模型
      *
      * @type {*}
-     * @memberof BugBuildSubGridView_Done
+     * @memberof BugUsr2GridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'openBugGridView', target: 'NONE', class: '' } },
-
     };
 
 
@@ -139,7 +114,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = 'f8ffad31189703973765c5a9c4fc8a5c';
+	protected viewtag: string = '996f80dcc7bfb432f0646db165ea5267';
 
 
     /**
@@ -147,7 +122,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
 
@@ -155,7 +130,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -167,6 +142,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
+            searchform: this.$refs.searchform,
             keyPSDEField: 'bug',
             majorPSDEField: 'title',
             isLoadDefault: true,
@@ -174,24 +150,11 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
     }
 
     /**
-     * toolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BugBuildSubGridView_DoneBase
-     */
-    public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.toolbar_deuiaction1_click(null, '', $event2);
-        }
-    }
-
-    /**
      * grid 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -202,7 +165,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -213,7 +176,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -224,7 +187,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -235,39 +198,43 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugBuildSubGridView_DoneBase
+     * @memberof BugUsr2GridViewBase
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
     }
 
     /**
-     * 逻辑事件
+     * searchform 部件 save 事件
      *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugUsr2GridViewBase
      */
-    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_openBugGridView(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    public searchform_save($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'save', $event);
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugUsr2GridViewBase
+     */
+    public searchform_search($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugUsr2GridViewBase
+     */
+    public searchform_load($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -278,7 +245,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof BugBuildSubGridView_Done
+     * @memberof BugUsr2GridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -319,7 +286,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.bug.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }
@@ -333,7 +300,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof BugBuildSubGridView_Done
+     * @memberof BugUsr2GridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
@@ -366,10 +333,10 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'bug-main-dashboard-view', 
+            viewname: 'bug-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.bug.views.maindashboardview.title'),
+            title: this.$t('entities.bug.views.editview.title'),
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);

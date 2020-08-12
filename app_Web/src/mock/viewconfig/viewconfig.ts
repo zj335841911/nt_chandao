@@ -1391,6 +1391,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseMainInfoView",
             "viewtag": "983aa1b77ca021f30978523ddef010a0"
         },
+        "bugusr2gridview": {
+            "title": "Bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugUsr2GridView",
+            "viewtag": "996f80dcc7bfb432f0646db165ea5267"
+        },
         "projecteditview_close": {
             "title": "项目",
             "caption": "项目",

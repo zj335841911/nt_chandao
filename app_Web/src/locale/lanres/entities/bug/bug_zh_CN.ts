@@ -134,6 +134,10 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
+		usr2gridview: {
+			caption: "Bug",
+      		title: "Bug表格视图",
+		},
 		editview_4791: {
 			caption: "Bug",
       		title: "Bug",
@@ -734,6 +738,13 @@ export default {
 		uiactions: {
 		},
 	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -759,6 +770,8 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+	},
+	usr2gridviewtoolbar_toolbar: {
 	},
 	buildsubgridview_donetoolbar_toolbar: {
 		deuiaction1: {
