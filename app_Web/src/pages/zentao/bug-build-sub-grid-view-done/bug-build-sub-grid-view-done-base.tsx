@@ -78,7 +78,8 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
 	 */
     protected customViewNavContexts: any = {
         'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PRODUCT': { isRawValue: false, value: 'product' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
     };
 
 	/**
@@ -90,6 +91,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
         'project': { isRawValue: false, value: 'project' }
     };
 
