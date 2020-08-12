@@ -118,7 +118,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public Task recordEstimate(Task et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = (JSONObject) JSONObject.toJSON(et);
         List<TaskEstimate> list = et.getTaskestimate();
@@ -164,7 +164,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public boolean create(Task et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         if(et.getMultiple() != null && et.getMultiple() == 1) {
@@ -197,7 +197,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public boolean update(Task et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         if(et.getMultiple() != null && et.getMultiple() == 1) {
