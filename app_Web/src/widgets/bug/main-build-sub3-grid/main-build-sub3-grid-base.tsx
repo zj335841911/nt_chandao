@@ -68,174 +68,6 @@ export class Main_BuildSub3GridBase extends GridControlBase {
     public appUIService:BugUIService = new BugUIService(this.$store);
 
     /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u5f3af70_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_ConfirmBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u424511e_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_ResolveBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u13bca5a_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_CloseBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_udb5e3af_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_uea0faba_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 拷贝
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugUsr2GridViewBase
-     */
-    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { bug: args[0].bug });
-            }
-            if(!params) params = {};
-            Object.assign(params,{copymode:true});
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            Object.assign(this.viewparams,{copymode:true});
-        }
-    }
-
-    /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
@@ -250,11 +82,6 @@ export class Main_BuildSub3GridBase extends GridControlBase {
      * @memberof Main_BuildSub3Base
      */  
     public ActionModel: any = {
-        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
-        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESOLVE', target: 'SINGLEKEY'},
-        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };
 
     /**
@@ -354,14 +181,6 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'uagridcolumn1',
-            label: '操作列',
-            langtag: 'entities.bug.main_buildsub3_grid.columns.uagridcolumn1',
-            show: true,
-            util: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
             name: 'project',
             label: '所属项目',
             langtag: 'entities.bug.main_buildsub3_grid.columns.project',
@@ -416,7 +235,6 @@ export class Main_BuildSub3GridBase extends GridControlBase {
         'assignedto':false,
         'resolvedby':true,
         'resolution':false,
-        'uagridcolumn1':false,
         'project':false,
     };
 
@@ -494,31 +312,4 @@ export class Main_BuildSub3GridBase extends GridControlBase {
         ]);
     }
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof Main_BuildSub3GridBase
-     */
-	public uiAction(row: any, tag: any, $event: any): void {
-        $event.stopPropagation();
-        if(Object.is('ConfirmBug', tag)) {
-            this.grid_uagridcolumn1_u5f3af70_click(row, tag, $event);
-        }
-        if(Object.is('ResolveBug', tag)) {
-            this.grid_uagridcolumn1_u424511e_click(row, tag, $event);
-        }
-        if(Object.is('CloseBug', tag)) {
-            this.grid_uagridcolumn1_u13bca5a_click(row, tag, $event);
-        }
-        if(Object.is('Copy', tag)) {
-            this.grid_uagridcolumn1_udb5e3af_click(row, tag, $event);
-        }
-        if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_uea0faba_click(row, tag, $event);
-        }
-    }
 }

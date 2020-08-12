@@ -115,14 +115,6 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @memberof PutoffEditFormBase
      */
     public rules: any = {
-        begin: [
-            { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
-        ],
-        end: [
-            { required: true, type: 'string', message: '至 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '至 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -180,6 +172,18 @@ export class PutoffEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof PutoffEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'end')) {
+            this.onFormItemValueChange({ name: 'period', value: null });
+        }
+    }
 
     /**
      * 表单项逻辑

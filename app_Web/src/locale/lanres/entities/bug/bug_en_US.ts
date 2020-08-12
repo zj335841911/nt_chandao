@@ -643,15 +643,9 @@ export default {
 			assignedto: "指派",
 			resolvedby: "解决者",
 			resolution: "方案",
-			uagridcolumn1: "操作列",
 			project: "所属项目",
 		},
 		uiactions: {
-        bug_confirmbug: "确认",
-        bug_resolvebug: "解决",
-        bug_closebug: "关闭",
-        copy: "Copy",
-        bug_mainedit: "编辑",
 		},
 	},
 	main_buildsub_grid: {
