@@ -68,6 +68,14 @@ export class PlatformManagementGridBase extends GridControlBase {
     public appUIService:BranchUIService = new BranchUIService(this.$store);
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BranchUIService}
+     * @memberof PlatformManagementBase
+     */  
+    public appUIService:BranchUIService = new BranchUIService(this.$store);
+
+    /**
      * 界面行为模型
      *
      * @type {*}

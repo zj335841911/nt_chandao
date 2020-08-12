@@ -60,6 +60,14 @@ export class Main_BuildSub3GridBase extends GridControlBase {
     protected appDeLogicName: string = 'Bug';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof Main_BuildSub3Base
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

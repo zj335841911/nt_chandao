@@ -58,6 +58,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeLogicName: string = '任务预计';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskEstimateUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
     /**
      * 界面UI服务对象
      *

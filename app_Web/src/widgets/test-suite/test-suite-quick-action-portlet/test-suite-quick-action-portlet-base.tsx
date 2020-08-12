@@ -60,6 +60,14 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     protected appDeLogicName: string = '测试套件';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestSuiteUIService}
+     * @memberof TestSuiteQuickActionBase
+     */  
+    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

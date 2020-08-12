@@ -59,6 +59,14 @@ export class ProductLineTreeBase extends MainControlBase {
     protected appDeLogicName: string = '模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ModuleUIService}
+     * @memberof ProductLineBase
+     */  
+    public appUIService:ModuleUIService = new ModuleUIService(this.$store);
+
+    /**
      * all_cm 部件 click 事件
      *
      * @param {*} [args={}]

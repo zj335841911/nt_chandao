@@ -58,6 +58,14 @@ export class InfoEditFormBase extends EditFormControlBase {
      * @memberof InfoEditFormBase
      */
     protected appDeLogicName: string = '产品计划';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductPlanUIService}
+     * @memberof InfoBase
+     */  
+    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
     /**
      * 界面UI服务对象
      *

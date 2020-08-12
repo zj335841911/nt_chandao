@@ -57,6 +57,14 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeLogicName: string = '测试报告';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestReportUIService}
+     * @memberof MainTabExpViewtabexppanelBase
+     */  
+    public appUIService:TestReportUIService = new TestReportUIService(this.$store);
     /**
      * 是否初始化
      *

@@ -58,6 +58,14 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainInfoBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
     /**
      * 界面UI服务对象
      *

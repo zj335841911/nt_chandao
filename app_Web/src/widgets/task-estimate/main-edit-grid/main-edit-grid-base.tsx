@@ -60,6 +60,14 @@ export class MainEditGridBase extends GridControlBase {
     protected appDeLogicName: string = '任务预计';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TaskEstimateUIService}
+     * @memberof MainEditBase
+     */  
+    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

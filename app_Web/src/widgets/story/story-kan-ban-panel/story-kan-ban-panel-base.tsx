@@ -62,6 +62,14 @@ export class StoryKanBanPanelBase extends PanelControlBase {
     protected appDeLogicName: string = '需求';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof StoryKanBanBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

@@ -60,6 +60,14 @@ export class AssignToMePortletBase extends MainControlBase {
     protected appDeLogicName: string = '任务';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof AssignToMeBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

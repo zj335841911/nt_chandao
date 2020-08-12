@@ -60,6 +60,14 @@ export class MainDetailPortletBase extends MainControlBase {
     protected appDeLogicName: string = '测试用例';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainDetailBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

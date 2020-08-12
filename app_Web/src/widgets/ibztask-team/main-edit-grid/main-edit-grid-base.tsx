@@ -60,6 +60,14 @@ export class MainEditGridBase extends GridControlBase {
     protected appDeLogicName: string = '任务团队';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IBZTaskTeamUIService}
+     * @memberof MainEditBase
+     */  
+    public appUIService:IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
+
+    /**
      * 本地缓存标识
      *
      * @protected

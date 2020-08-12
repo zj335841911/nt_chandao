@@ -59,6 +59,14 @@ export class MainTabExpViewtabviewpanel11TabviewpanelBase extends MainControlBas
     protected appDeLogicName: string = '项目';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MainTabExpViewtabviewpanel11Base
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

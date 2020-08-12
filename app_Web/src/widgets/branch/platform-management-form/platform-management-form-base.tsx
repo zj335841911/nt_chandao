@@ -58,6 +58,14 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      * @memberof PlatformManagementEditFormBase
      */
     protected appDeLogicName: string = '产品的分支和平台信息';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BranchUIService}
+     * @memberof PlatformManagementBase
+     */  
+    public appUIService:BranchUIService = new BranchUIService(this.$store);
     /**
      * 界面UI服务对象
      *

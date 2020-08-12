@@ -64,6 +64,14 @@ export class ProductStatusChartBase extends MainControlBase {
     protected appDeLogicName: string = '产品';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof ProductStatusBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

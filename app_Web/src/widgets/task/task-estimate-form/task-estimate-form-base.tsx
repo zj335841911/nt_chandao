@@ -58,6 +58,14 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @memberof TaskEstimateEditFormBase
      */
     protected appDeLogicName: string = '任务';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof TaskEstimateBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
     /**
      * 界面UI服务对象
      *

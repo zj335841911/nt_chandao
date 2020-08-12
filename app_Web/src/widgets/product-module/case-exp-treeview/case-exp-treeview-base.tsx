@@ -59,6 +59,14 @@ export class CaseExpTreeBase extends MainControlBase {
     protected appDeLogicName: string = '需求模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductModuleUIService}
+     * @memberof CaseExpBase
+     */  
+    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

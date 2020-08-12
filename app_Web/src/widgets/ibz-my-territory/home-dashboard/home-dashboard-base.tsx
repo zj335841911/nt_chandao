@@ -58,6 +58,14 @@ export class HomeDashboardBase extends MainControlBase {
      * @memberof HomeDashboardBase
      */
     protected appDeLogicName: string = '我的地盘';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof HomeBase
+     */  
+    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
     /**
      * 是否支持看板定制
      *

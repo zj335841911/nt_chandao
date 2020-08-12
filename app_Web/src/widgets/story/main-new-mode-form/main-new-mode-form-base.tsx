@@ -58,6 +58,14 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      * @memberof Main_NewModeEditFormBase
      */
     protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main_NewModeBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
     /**
      * 界面UI服务对象
      *

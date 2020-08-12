@@ -58,6 +58,14 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * @memberof AssignFormEditFormBase
      */
     protected appDeLogicName: string = '任务';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof AssignFormBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
     /**
      * 界面UI服务对象
      *

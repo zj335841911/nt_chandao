@@ -60,6 +60,14 @@ export class MainGridBase extends GridControlBase {
     protected appDeLogicName: string = '待办事宜表';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

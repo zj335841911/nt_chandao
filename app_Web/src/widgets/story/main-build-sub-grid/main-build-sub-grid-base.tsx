@@ -60,6 +60,14 @@ export class Main_BuildSubGridBase extends GridControlBase {
     protected appDeLogicName: string = '需求';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main_BuildSubBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

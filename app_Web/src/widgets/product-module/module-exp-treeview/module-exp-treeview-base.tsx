@@ -59,6 +59,14 @@ export class ModuleExpTreeBase extends MainControlBase {
     protected appDeLogicName: string = '需求模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductModuleUIService}
+     * @memberof ModuleExpBase
+     */  
+    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+
+    /**
      * branchs_cm 部件 click 事件
      *
      * @param {*} [args={}]

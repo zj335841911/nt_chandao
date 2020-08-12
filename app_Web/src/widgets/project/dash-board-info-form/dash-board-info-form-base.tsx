@@ -58,6 +58,14 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      * @memberof DashBoardInfoEditFormBase
      */
     protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof DashBoardInfoBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
     /**
      * 界面UI服务对象
      *

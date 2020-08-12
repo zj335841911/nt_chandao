@@ -60,6 +60,14 @@ export class ToolbarPortletBase extends MainControlBase {
     protected appDeLogicName: string = '任务';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof ToolbarBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

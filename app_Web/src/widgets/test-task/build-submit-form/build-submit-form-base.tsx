@@ -58,6 +58,14 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
      * @memberof BuildSUBMITEditFormBase
      */
     protected appDeLogicName: string = '测试版本';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof BuildSUBMITBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     /**
      * 界面UI服务对象
      *

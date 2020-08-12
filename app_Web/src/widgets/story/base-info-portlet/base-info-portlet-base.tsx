@@ -60,6 +60,14 @@ export class BaseInfoPortletBase extends MainControlBase {
     protected appDeLogicName: string = '需求';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof BaseInfoBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

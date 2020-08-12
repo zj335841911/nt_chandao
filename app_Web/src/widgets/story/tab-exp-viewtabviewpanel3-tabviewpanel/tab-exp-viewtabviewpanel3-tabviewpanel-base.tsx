@@ -59,6 +59,14 @@ export class TabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase {
     protected appDeLogicName: string = '需求';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof TabExpViewtabviewpanel3Base
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

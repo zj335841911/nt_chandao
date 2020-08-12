@@ -62,6 +62,14 @@ export class MyWork2PanelBase extends PanelControlBase {
     protected appDeLogicName: string = '我的地盘';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof MyWork2Base
+     */  
+    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
+    /**
      * 详情模型集合
      *
      * @type {*}

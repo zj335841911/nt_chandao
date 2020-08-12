@@ -60,6 +60,14 @@ export class TodoBasePortletBase extends MainControlBase {
     protected appDeLogicName: string = '待办事宜表';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof TodoBaseBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

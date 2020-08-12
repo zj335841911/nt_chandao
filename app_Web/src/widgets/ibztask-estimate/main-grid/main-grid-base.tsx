@@ -60,6 +60,14 @@ export class MainGridBase extends GridControlBase {
     protected appDeLogicName: string = '任务预计';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IBZTaskEstimateUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:IBZTaskEstimateUIService = new IBZTaskEstimateUIService(this.$store);
+
+    /**
      * 本地缓存标识
      *
      * @protected

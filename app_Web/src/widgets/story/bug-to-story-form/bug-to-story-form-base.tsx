@@ -58,6 +58,14 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
      * @memberof BugToStoryEditFormBase
      */
     protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof BugToStoryBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
     /**
      * 界面UI服务对象
      *

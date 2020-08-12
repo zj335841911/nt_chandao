@@ -58,6 +58,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeLogicName: string = '测试模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestModuleUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
     /**
      * 界面UI服务对象
      *

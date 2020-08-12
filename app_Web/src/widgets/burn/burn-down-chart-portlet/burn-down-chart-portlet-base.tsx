@@ -60,6 +60,14 @@ export class BurnDownChartPortletBase extends MainControlBase {
     protected appDeLogicName: string = 'burn';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BurnUIService}
+     * @memberof BurnDownChartBase
+     */  
+    public appUIService:BurnUIService = new BurnUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

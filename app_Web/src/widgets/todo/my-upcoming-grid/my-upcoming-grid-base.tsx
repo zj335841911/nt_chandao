@@ -68,6 +68,14 @@ export class MyUpcomingGridBase extends GridControlBase {
     public appUIService:TodoUIService = new TodoUIService(this.$store);
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MyUpcomingBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 界面行为模型
      *
      * @type {*}

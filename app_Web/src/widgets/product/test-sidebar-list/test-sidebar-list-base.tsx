@@ -59,6 +59,14 @@ export class TestSidebarListBase extends ListControlBase {
     protected appDeLogicName: string = '产品';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof TestSidebarBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

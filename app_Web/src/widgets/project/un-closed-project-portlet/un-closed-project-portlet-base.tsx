@@ -60,6 +60,14 @@ export class UnClosedProjectPortletBase extends MainControlBase {
     protected appDeLogicName: string = '项目';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof UnClosedProjectBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

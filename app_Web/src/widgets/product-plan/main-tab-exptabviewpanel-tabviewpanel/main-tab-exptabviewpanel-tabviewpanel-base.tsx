@@ -59,6 +59,14 @@ export class MainTabExptabviewpanelTabviewpanelBase extends MainControlBase {
     protected appDeLogicName: string = '产品计划';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductPlanUIService}
+     * @memberof MainTabExptabviewpanelBase
+     */  
+    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

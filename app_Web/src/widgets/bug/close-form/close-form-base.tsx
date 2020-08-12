@@ -58,6 +58,14 @@ export class CloseEditFormBase extends EditFormControlBase {
      * @memberof CloseEditFormBase
      */
     protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof CloseBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
     /**
      * 界面UI服务对象
      *

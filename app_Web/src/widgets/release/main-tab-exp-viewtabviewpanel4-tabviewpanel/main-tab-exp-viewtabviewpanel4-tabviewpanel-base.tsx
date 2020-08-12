@@ -59,6 +59,14 @@ export class MainTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBase
     protected appDeLogicName: string = '发布';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ReleaseUIService}
+     * @memberof MainTabExpViewtabviewpanel4Base
+     */  
+    public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

@@ -57,6 +57,14 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MainTabExpViewtabexppanelBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
     /**
      * 是否初始化
      *

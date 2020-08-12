@@ -58,6 +58,14 @@ export class EditFormEditFormBase extends EditFormControlBase {
      * @memberof EditFormEditFormBase
      */
     protected appDeLogicName: string = '待办事宜表';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof EditFormBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
     /**
      * 界面UI服务对象
      *

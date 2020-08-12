@@ -59,6 +59,14 @@ export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeLogicName: string = '产品';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof CaseTreeExpViewtreeexpbarBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

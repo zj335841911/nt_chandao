@@ -57,6 +57,14 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeLogicName: string = '测试版本';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof MainTabExpViewtabexppanelBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     /**
      * 是否初始化
      *

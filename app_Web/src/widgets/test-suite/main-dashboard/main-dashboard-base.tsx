@@ -58,6 +58,14 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     protected appDeLogicName: string = '测试套件';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestSuiteUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
     /**
      * 是否支持看板定制
      *

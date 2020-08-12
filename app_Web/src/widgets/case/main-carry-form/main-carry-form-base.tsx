@@ -58,6 +58,14 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * @memberof MainCarryEditFormBase
      */
     protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainCarryBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
     /**
      * 界面UI服务对象
      *

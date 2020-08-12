@@ -68,6 +68,14 @@ export class Main_EditRowGridBase extends GridControlBase {
     public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectTeamUIService}
+     * @memberof Main_EditRowBase
+     */  
+    public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
+
+    /**
      * 界面行为模型
      *
      * @type {*}

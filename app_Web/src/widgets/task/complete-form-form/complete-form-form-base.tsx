@@ -58,6 +58,14 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      * @memberof CompleteFormEditFormBase
      */
     protected appDeLogicName: string = '任务';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof CompleteFormBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
     /**
      * 界面UI服务对象
      *

@@ -68,6 +68,14 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
     public appUIService:IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IBZCaseStepUIService}
+     * @memberof Main_RowEdit_CarryOutBase
+     */  
+    public appUIService:IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
+
+    /**
      * 界面行为模型
      *
      * @type {*}

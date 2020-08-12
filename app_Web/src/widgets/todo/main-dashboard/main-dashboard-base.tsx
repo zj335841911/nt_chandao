@@ -58,6 +58,14 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     protected appDeLogicName: string = '待办事宜表';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
     /**
      * 是否支持看板定制
      *

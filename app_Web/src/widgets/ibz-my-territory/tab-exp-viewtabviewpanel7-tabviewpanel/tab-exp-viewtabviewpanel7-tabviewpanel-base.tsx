@@ -59,6 +59,14 @@ export class TabExpViewtabviewpanel7TabviewpanelBase extends MainControlBase {
     protected appDeLogicName: string = '我的地盘';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof TabExpViewtabviewpanel7Base
+     */  
+    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

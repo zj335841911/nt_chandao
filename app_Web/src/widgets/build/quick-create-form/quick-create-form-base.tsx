@@ -58,6 +58,14 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     protected appDeLogicName: string = 'build';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BuildUIService}
+     * @memberof QuickCreateBase
+     */  
+    public appUIService:BuildUIService = new BuildUIService(this.$store);
     /**
      * 界面UI服务对象
      *

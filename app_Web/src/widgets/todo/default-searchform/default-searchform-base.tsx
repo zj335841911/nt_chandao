@@ -61,6 +61,14 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     protected appDeLogicName: string = '待办事宜表';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof DefaultBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 表单数据对象
      *
      * @type {*}

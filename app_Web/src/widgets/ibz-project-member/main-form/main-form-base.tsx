@@ -60,6 +60,14 @@ export class MainEditFormBase extends EditFormControlBase {
     protected appDeLogicName: string = '项目相关成员';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IbzProjectMemberUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

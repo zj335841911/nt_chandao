@@ -59,6 +59,14 @@ export class TestListExpViewlistexpbarListexpbarBase extends MainControlBase {
     protected appDeLogicName: string = '产品';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof TestListExpViewlistexpbarBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * listexpbar_list 部件 selectionchange 事件
      *
      * @param {*} [args={}]

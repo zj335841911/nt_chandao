@@ -59,6 +59,14 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     protected appDeLogicName: string = '任务模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectModuleUIService}
+     * @memberof TaskModuleExpBase
+     */  
+    public appUIService:ProjectModuleUIService = new ProjectModuleUIService(this.$store);
+
+    /**
      * zt_product_cm 部件 click 事件
      *
      * @param {*} [args={}]

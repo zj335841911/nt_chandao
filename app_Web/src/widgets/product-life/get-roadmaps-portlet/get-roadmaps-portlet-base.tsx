@@ -60,6 +60,14 @@ export class GetRoadmapsPortletBase extends MainControlBase {
     protected appDeLogicName: string = '产品生命周期';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductLifeUIService}
+     * @memberof GetRoadmapsBase
+     */  
+    public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

@@ -60,6 +60,14 @@ export class MainInfoViewPortletBase extends MainControlBase {
     protected appDeLogicName: string = '测试套件';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestSuiteUIService}
+     * @memberof MainInfoViewBase
+     */  
+    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

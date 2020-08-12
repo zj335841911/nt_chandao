@@ -60,6 +60,14 @@ export class MainBranchGridBase extends GridControlBase {
     protected appDeLogicName: string = '测试模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestModuleUIService}
+     * @memberof MainBranchBase
+     */  
+    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

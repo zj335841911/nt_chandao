@@ -1,5 +1,5 @@
 <div class='portlet test-dashboard-quick-action ' :style="{}">
         <div class="portlet-without-title">
-            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick.apply(_self, arguments)"></app-actionbar>
+            <app-actionbar :viewState="viewState" :uiService="appUIService" :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
 </div>

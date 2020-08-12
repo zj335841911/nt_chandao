@@ -59,6 +59,14 @@ export class MyTestTabExpViewtabviewpanel5TabviewpanelBase extends MainControlBa
     protected appDeLogicName: string = '产品';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MyTestTabExpViewtabviewpanel5Base
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

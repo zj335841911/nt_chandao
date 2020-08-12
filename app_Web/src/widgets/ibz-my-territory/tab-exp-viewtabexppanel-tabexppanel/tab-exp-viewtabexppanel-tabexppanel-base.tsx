@@ -57,6 +57,14 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof TabExpViewtabexppanelTabexppanelBase
      */
     protected appDeLogicName: string = '我的地盘';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof TabExpViewtabexppanelBase
+     */  
+    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
     /**
      * 是否初始化
      *

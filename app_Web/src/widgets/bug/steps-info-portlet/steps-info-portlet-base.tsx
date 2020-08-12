@@ -60,6 +60,14 @@ export class StepsInfoPortletBase extends MainControlBase {
     protected appDeLogicName: string = 'Bug';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof StepsInfoBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

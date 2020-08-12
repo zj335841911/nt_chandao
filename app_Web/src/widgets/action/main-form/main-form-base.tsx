@@ -60,6 +60,14 @@ export class MainEditFormBase extends EditFormControlBase {
     protected appDeLogicName: string = '系统日志';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ActionUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ActionUIService = new ActionUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

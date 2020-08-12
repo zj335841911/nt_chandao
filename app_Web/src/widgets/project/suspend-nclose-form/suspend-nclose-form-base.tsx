@@ -58,6 +58,14 @@ export class SuspendNCloseEditFormBase extends EditFormControlBase {
      * @memberof SuspendNCloseEditFormBase
      */
     protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof SuspendNCloseBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
     /**
      * 界面UI服务对象
      *

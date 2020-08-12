@@ -58,6 +58,14 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
     /**
      * 是否支持看板定制
      *

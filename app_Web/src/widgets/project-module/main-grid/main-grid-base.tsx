@@ -60,6 +60,14 @@ export class MainGridBase extends GridControlBase {
     protected appDeLogicName: string = '任务模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectModuleUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProjectModuleUIService = new ProjectModuleUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

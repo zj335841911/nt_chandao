@@ -59,6 +59,14 @@ export class DEFAULTListBase extends ListControlBase {
     protected appDeLogicName: string = '操作历史';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {HistoryUIService}
+     * @memberof DEFAULTBase
+     */  
+    public appUIService:HistoryUIService = new HistoryUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

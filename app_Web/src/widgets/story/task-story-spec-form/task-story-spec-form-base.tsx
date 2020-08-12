@@ -58,6 +58,14 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      * @memberof TaskStorySpecEditFormBase
      */
     protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof TaskStorySpecBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
     /**
      * 界面UI服务对象
      *

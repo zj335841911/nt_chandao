@@ -59,6 +59,14 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeLogicName: string = '测试模块';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestModuleUIService}
+     * @memberof TreeExpViewtreeexpbarBase
+     */  
+    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

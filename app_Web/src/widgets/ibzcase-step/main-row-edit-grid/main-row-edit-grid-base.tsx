@@ -60,6 +60,14 @@ export class Main_RowEditGridBase extends GridControlBase {
     protected appDeLogicName: string = '用例步骤';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {IBZCaseStepUIService}
+     * @memberof Main_RowEditBase
+     */  
+    public appUIService:IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
+
+    /**
      * 本地缓存标识
      *
      * @protected

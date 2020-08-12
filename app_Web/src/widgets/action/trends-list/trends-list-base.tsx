@@ -59,6 +59,14 @@ export class TrendsListBase extends ListControlBase {
     protected appDeLogicName: string = '系统日志';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ActionUIService}
+     * @memberof TrendsBase
+     */  
+    public appUIService:ActionUIService = new ActionUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

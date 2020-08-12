@@ -60,6 +60,14 @@ export class CurSuitCaseGridViewPortletBase extends MainControlBase {
     protected appDeLogicName: string = '测试套件';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestSuiteUIService}
+     * @memberof CurSuitCaseGridViewBase
+     */  
+    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

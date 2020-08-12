@@ -59,6 +59,14 @@ export class ListListBase extends ListControlBase {
     protected appDeLogicName: string = '附件';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {FileUIService}
+     * @memberof ListBase
+     */  
+    public appUIService:FileUIService = new FileUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

@@ -68,6 +68,14 @@ export class Main9GridBase extends GridControlBase {
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main9Base
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 界面行为模型
      *
      * @type {*}

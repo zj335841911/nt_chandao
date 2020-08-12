@@ -59,6 +59,14 @@ export class MPickupView3pickupviewpanelPickupviewpanelBase extends MainControlB
      */
     protected appDeLogicName: string = '需求';
 
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof MPickupView3pickupviewpanelBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
 
     /**
      * 选中数据字符串

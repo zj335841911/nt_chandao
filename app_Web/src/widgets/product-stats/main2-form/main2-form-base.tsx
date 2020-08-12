@@ -60,6 +60,14 @@ export class Main2EditFormBase extends EditFormControlBase {
     protected appDeLogicName: string = '产品统计';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductStatsUIService}
+     * @memberof Main2Base
+     */  
+    public appUIService:ProductStatsUIService = new ProductStatsUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

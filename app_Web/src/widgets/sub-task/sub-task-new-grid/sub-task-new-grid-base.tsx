@@ -68,6 +68,14 @@ export class SubTaskNewGridBase extends GridControlBase {
     public appUIService:SubTaskUIService = new SubTaskUIService(this.$store);
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {SubTaskUIService}
+     * @memberof SubTaskNewBase
+     */  
+    public appUIService:SubTaskUIService = new SubTaskUIService(this.$store);
+
+    /**
      * 界面行为模型
      *
      * @type {*}

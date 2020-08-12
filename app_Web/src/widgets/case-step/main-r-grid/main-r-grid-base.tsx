@@ -60,6 +60,14 @@ export class MainRGridBase extends GridControlBase {
     protected appDeLogicName: string = '用例步骤';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {CaseStepUIService}
+     * @memberof MainRBase
+     */  
+    public appUIService:CaseStepUIService = new CaseStepUIService(this.$store);
+
+    /**
      * 本地缓存标识
      *
      * @protected

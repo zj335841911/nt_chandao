@@ -60,6 +60,14 @@ export class AllTrendsPortletBase extends MainControlBase {
     protected appDeLogicName: string = '系统日志';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ActionUIService}
+     * @memberof AllTrendsBase
+     */  
+    public appUIService:ActionUIService = new ActionUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}
