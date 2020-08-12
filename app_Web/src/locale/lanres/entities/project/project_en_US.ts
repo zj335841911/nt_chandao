@@ -132,6 +132,7 @@ export default {
 	},
 	putoff_form: {
 		details: {
+			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
 			druipart1: "", 
 			group1: "project基本信息", 
@@ -144,8 +145,8 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
+			end: "至", 
+			period: "", 
 			days: "可用工作日", 
 			type: "项目类型", 
 			comment: "备注", 

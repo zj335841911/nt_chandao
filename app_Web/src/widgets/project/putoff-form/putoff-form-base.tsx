@@ -100,7 +100,7 @@ export class PutoffEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         begin: null,
         end: null,
-        formitemex1: null,
+        period: null,
         days: null,
         type: null,
         comment: null,
@@ -115,6 +115,14 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @memberof PutoffEditFormBase
      */
     public rules: any = {
+        begin: [
+            { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '至 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '至 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -133,6 +141,8 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @memberof PutoffEditFormBase
      */
     public detailsModel: any = {
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.putoff_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.putoff_form', extractMode: 'ITEM', details: [] } }),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -157,9 +167,9 @@ export class PutoffEditFormBase extends EditFormControlBase {
 
         begin: new FormItemModel({ caption: '开始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        end: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitemex1: new FormItemModel({ caption: '项目周期', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        period: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'period', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         days: new FormItemModel({ caption: '可用工作日', detailType: 'FORMITEM', name: 'days', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -170,4 +180,46 @@ export class PutoffEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof PutoffEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'begin')) {
+            const details: string[] = ['days'];
+            this.updateFormItems('UpdateCycle', this.data, details, true);
+        }
+        if (Object.is(name, 'end')) {
+            const details: string[] = ['days'];
+            this.updateFormItems('UpdateCycle', this.data, details, true);
+        }
+        if (Object.is(name, 'period')) {
+            const details: string[] = ['end', 'days'];
+            this.updateFormItems('UpdateProjectCycle', this.data, details, true);
+        }
+    }
 }
