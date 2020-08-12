@@ -91,12 +91,12 @@ export default class AppActionBar extends Vue {
    * @memberof AppActionBar
    */
   public handleClick(item: any, $event:any){
-    let _data = {
-      tag : item.viewlogicname,
-      params : this.data,
-      event : $event
-    };
-    this.$emit('itemClick',_data);
+    // let _data = {
+    //   tag : item.viewlogicname,
+    //   params : this.data,
+    //   event : $event
+    // };
+    this.$emit('itemClick', item);
   }
 
   /**

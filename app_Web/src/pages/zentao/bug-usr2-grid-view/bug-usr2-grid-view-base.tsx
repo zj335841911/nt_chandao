@@ -78,8 +78,8 @@ export class BugUsr2GridViewBase extends GridViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
-        'project': { isRawValue: false, value: 'project' }
+        'project': { isRawValue: false, value: 'project' },
+        'build': { isRawValue: false, value: 'build' }
     };
 
     /**
