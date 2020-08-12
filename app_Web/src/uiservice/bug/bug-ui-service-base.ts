@@ -1157,14 +1157,24 @@ export default class BugUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-usr2-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.bug.views.usr2gridview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 
