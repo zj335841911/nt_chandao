@@ -161,8 +161,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUG:"0",IDS:"%id%",BUILD:"0",PRODUCTS:"%product%",ID:"0",PROJECT:"0",PRODUCT:"0",PROJECTS:"%project%",BUILDS:"%build%"});
-        Object.assign(params,{projects:"%project%",builds:"%build%",products:"%product%"});
+        Object.assign(context,{PRODUCTS:"%product%",PROJECTS:"%project%",BUILDS:"%build%"});
+        Object.assign(params,{id:"0",product:"0",projects:"%project%",project:"0",builds:"%build%",ids:"%id%",build:"0",products:"%product%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { bug: '%bug%' });
