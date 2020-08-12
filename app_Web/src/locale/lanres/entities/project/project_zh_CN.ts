@@ -196,6 +196,7 @@ export default {
 		details: {
 			grouppanel3: "分组面板", 
 			grouppanel2: "负责人", 
+			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
 			group1: "project基本信息", 
 			formpage1: "基本信息", 

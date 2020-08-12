@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugPickupGridView_buildLinkResolvedBugsBase } from './bug-pickup-grid-view-build-link-resolved-bugs-base';
-import view_grid from '@widgets/bug/pickup-gird-grid/pickup-gird-grid.vue';
+import view_grid from '@widgets/bug/main-build-sub3-grid/main-build-sub3-grid.vue';
 
 /**
  * bug选择表格视图视图

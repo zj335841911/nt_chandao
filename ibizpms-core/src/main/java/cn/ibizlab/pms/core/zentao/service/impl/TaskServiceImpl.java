@@ -85,6 +85,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemoveTempMajor__MSDenyLogic removetempmajor__msdenyLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskResetTaskestimateLogic resettaskestimateLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -143,6 +147,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task get(BigInteger key) {
+        Task tempET=new Task();
+        tempET.set("id",key);
         Task et = getById(key);
         if(et==null){
             et=new Task();
@@ -152,6 +158,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setTaskteam(taskteamService.selectByRoot(key));
             et.setTaskestimate(taskestimateService.selectByTask(key));
         }
+        resettaskestimateLogic.execute(et);
         return et;
     }
 

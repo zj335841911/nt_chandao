@@ -629,6 +629,26 @@ export default {
         bug_unlinkbug_build: "解除关联",
 		},
 	},
+	main_buildsub3_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "创建",
+			assignedto: "指派",
+			resolvedby: "解决者",
+			resolution: "方案",
+			uagridcolumn1: "操作列",
+		},
+		uiactions: {
+        bug_confirmbug: "确认",
+        bug_resolvebug: "解决",
+        bug_closebug: "关闭",
+        copy: "Copy",
+        bug_mainedit: "编辑",
+		},
+	},
 	main_buildsub_grid: {
 		columns: {
 			id: "ID",

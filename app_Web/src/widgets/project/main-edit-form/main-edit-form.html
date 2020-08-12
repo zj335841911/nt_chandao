@@ -238,7 +238,11 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.main_edit_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品', prop: 'products', unique: true },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联计划', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
       <div style="display: flex;">
@@ -284,6 +288,11 @@
    </template>
 </comb-form-item>
 
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     

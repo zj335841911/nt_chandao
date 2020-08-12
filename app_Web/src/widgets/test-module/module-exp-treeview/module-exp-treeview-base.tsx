@@ -618,7 +618,7 @@ export class ModuleExpTreeBase extends MainControlBase {
      * @type {boolean}
      * @memberof ModuleExpBase
      */
-    public isOutputIconDefault: boolean = true;
+    public isOutputIconDefault: boolean = false;
 
 
     /**
