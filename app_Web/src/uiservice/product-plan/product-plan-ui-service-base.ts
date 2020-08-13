@@ -102,6 +102,9 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('chlid','chlid');
+        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('parent','parent');
     }
 
     /**
@@ -110,6 +113,9 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{}));
+        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{}));
+        this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{}));
     }
 
     /**

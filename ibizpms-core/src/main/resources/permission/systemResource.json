@@ -28,6 +28,11 @@
        }
         ,
        {
+            "unirescode":"PROP_DELETE_BUT",
+            "uniresname":"计划删除"
+       }
+        ,
+       {
             "unirescode":"TASK_PAUSE_BUT",
             "uniresname":"任务暂停"
        }
@@ -48,6 +53,11 @@
        }
         ,
        {
+            "unirescode":"PROP_EDIT_BUT",
+            "uniresname":"计划编辑"
+       }
+        ,
+       {
             "unirescode":"PROD_DELETE_BUT",
             "uniresname":"产品删除"
        }
@@ -63,6 +73,11 @@
        }
         ,
        {
+            "unirescode":"PROP_CREATE_BUT",
+            "uniresname":"计划新建"
+       }
+        ,
+       {
             "unirescode":"TASK_EDIT_BUT",
             "uniresname":"任务编辑"
        }
@@ -70,6 +85,11 @@
        {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
+       }
+        ,
+       {
+            "unirescode":"PROP_LSTORY_BUT",
+            "uniresname":"计划关联需求"
        }
         ,
        {
@@ -95,6 +115,11 @@
        {
             "unirescode":"TASK_PROCEED_BUT",
             "uniresname":"任务继续"
+       }
+        ,
+       {
+            "unirescode":"PROP_LBUG_BUT",
+            "uniresname":"计划关联bug"
        }
         ,
        {
