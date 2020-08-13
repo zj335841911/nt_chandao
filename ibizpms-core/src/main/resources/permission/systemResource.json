@@ -8,6 +8,11 @@
        }
         ,
        {
+            "unirescode":"BUG_ASSIGNTO_BUT",
+            "uniresname":"Bug指派"
+       }
+        ,
+       {
             "unirescode":"PROD_EDIT_BUT",
             "uniresname":"产品编辑"
        }
@@ -15,6 +20,16 @@
        {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
+       }
+        ,
+       {
+            "unirescode":"TASK_ACTIVATION_BUT",
+            "uniresname":"任务激活"
+       }
+        ,
+       {
+            "unirescode":"TASK_PAUSE_BUT",
+            "uniresname":"任务暂停"
        }
         ,
        {
@@ -28,13 +43,48 @@
        }
         ,
        {
+            "unirescode":"TASK_SUBTASKS_BUT",
+            "uniresname":"任务子任务"
+       }
+        ,
+       {
             "unirescode":"PROD_DELETE_BUT",
             "uniresname":"产品删除"
        }
         ,
        {
+            "unirescode":"TASK_CLOSE_BUT",
+            "uniresname":"任务关闭"
+       }
+        ,
+       {
+            "unirescode":"TASK_EDIT_BUT",
+            "uniresname":"任务编辑"
+       }
+        ,
+       {
+            "unirescode":"TASK_START_BUT",
+            "uniresname":"任务开始"
+       }
+        ,
+       {
+            "unirescode":"BUG_ACTIVATE_BUT",
+            "uniresname":"Bug激活"
+       }
+        ,
+       {
+            "unirescode":"TASK_CANCEL_BUT",
+            "uniresname":"任务取消"
+       }
+        ,
+       {
             "unirescode":"STORY_EDIT_BUT",
             "uniresname":"需求编辑"
+       }
+        ,
+       {
+            "unirescode":"TASK_PROCEED_BUT",
+            "uniresname":"任务继续"
        }
         ,
        {
@@ -45,6 +95,16 @@
        {
             "unirescode":"STORY_CLOSED_BUT",
             "uniresname":"需求关闭"
+       }
+        ,
+       {
+            "unirescode":"TASK_ASSIGN_BUT",
+            "uniresname":"任务指派"
+       }
+        ,
+       {
+            "unirescode":"TASK_COMPLETE_BUT",
+            "uniresname":"任务完成"
        }
         ,
        {

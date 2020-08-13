@@ -102,7 +102,7 @@ export class ProductGridViewBase extends GridViewBase {
      * @memberof ProductGridView
      */
     public toolBarModels: any = {
-        deuiaction3_remove: { name: 'deuiaction3_remove', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
+        deuiaction3_remove: { name: 'deuiaction3_remove', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'remove', target: '', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
@@ -249,7 +249,7 @@ export class ProductGridViewBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:ProductUIService  = new ProductUIService();
-        curUIService.Product_Remove(datas,contextJO, paramJO,  $event, xData,this,"Product");
+        curUIService.remove(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
 
     /**
