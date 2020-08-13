@@ -392,7 +392,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -400,7 +400,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -408,7 +408,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'CLOSE',
         visabled:true,
         disabled:false
@@ -417,7 +417,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "解决",
         iconcls: "fa fa-check-square-o",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'RESOLVE',
         visabled:true,
         disabled:false
@@ -426,7 +426,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "指派",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'ASSIGNTO',
         visabled:true,
         disabled:false
@@ -435,7 +435,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "确认",
         iconcls: "fa fa-eye",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'CONFIRM',
         visabled:true,
         disabled:false
@@ -444,7 +444,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "激活",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'ACTIVATE',
         visabled:true,
         disabled:false
@@ -453,7 +453,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "提需求",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -461,7 +461,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "建用例",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'ASSIGNTO',
         visabled:true,
         disabled:false
@@ -470,7 +470,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "删除",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         }

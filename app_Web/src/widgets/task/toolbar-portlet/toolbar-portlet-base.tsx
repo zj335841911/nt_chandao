@@ -476,7 +476,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -484,7 +484,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "子任务",
         iconcls: "iconfont studio-icon-subnets",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         dataaccaction:'SUBTASKS',
         visabled:true,
         disabled:false
@@ -493,7 +493,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "指派",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'ASSIGN',
         visabled:true,
         disabled:false
@@ -502,7 +502,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "转交",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -510,7 +510,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "开始",
         iconcls: "fa fa-play-circle-o",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'START',
         visabled:true,
         disabled:false
@@ -519,7 +519,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "工时",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -527,7 +527,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "暂停",
         iconcls: "fa fa-circle-o",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'PAUSE',
         visabled:true,
         disabled:false
@@ -536,7 +536,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "激活",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'ACTIVATION',
         visabled:true,
         disabled:false
@@ -545,7 +545,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "完成",
         iconcls: "fa fa-check-square-o",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'COMPLETE',
         visabled:true,
         disabled:false
@@ -554,7 +554,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "取消",
         iconcls: "fa fa-ban",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'CANCEL',
         visabled:true,
         disabled:false
@@ -563,7 +563,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'CLOSE',
         visabled:true,
         disabled:false
@@ -572,7 +572,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode:'1',
+        noprivdisplaymode: 1,
         dataaccaction:'EDIT',
         visabled:true,
         disabled:false
@@ -581,7 +581,7 @@ export class ToolbarPortletBase extends MainControlBase {
         text: "删除",
         iconcls: null,
         icon: null,
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         }

@@ -224,7 +224,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -232,7 +232,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "关联用例",
         iconcls: "fa fa-link",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -240,7 +240,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -248,7 +248,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
-        noprivdisplaymode:'2',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         }
