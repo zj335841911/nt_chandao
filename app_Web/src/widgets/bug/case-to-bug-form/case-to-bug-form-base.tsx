@@ -103,8 +103,8 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
         taskname: null,
         mailto: null,
         keywords: null,
-        id: null,
         story: null,
+        id: null,
         task: null,
         bug:null,
     };
@@ -208,9 +208,9 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
-
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -254,17 +254,17 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];
         }
-        if (this.data.hasOwnProperty('module')) {
-            this.data['module'] = this.viewparams['module'];
-        }
         if (this.data.hasOwnProperty('project')) {
             this.data['project'] = this.viewparams['project'];
         }
         if (this.data.hasOwnProperty('title')) {
             this.data['title'] = this.viewparams['title'];
         }
-        if (this.data.hasOwnProperty('storyname')) {
-            this.data['storyname'] = this.viewparams['story'];
+        if (this.data.hasOwnProperty('steps')) {
+            this.data['steps'] = this.viewparams['precondition'];
+        }
+        if (this.data.hasOwnProperty('story')) {
+            this.data['story'] = this.viewparams['story'];
         }
     }
 }

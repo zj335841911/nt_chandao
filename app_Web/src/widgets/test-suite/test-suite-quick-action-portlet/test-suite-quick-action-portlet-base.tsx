@@ -102,7 +102,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u3a52055_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u3a61388_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +119,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestSuiteUIService  = new TestSuiteUIService();
-        curUIService.TestSuite_linkCase(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+        curUIService.TestSuite_linkCaseDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
     }
 
     /**
@@ -130,7 +130,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ud269d16_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_ue9fd837_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +147,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestSuiteUIService  = new TestSuiteUIService();
-        curUIService.TestSuite_Editsuite(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+        curUIService.TestSuite_EditsuiteDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
     }
 
     /**
@@ -158,7 +158,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u35c5cd5_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_uacb055d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +175,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestSuiteUIService  = new TestSuiteUIService();
-        curUIService.TestSuite_Delete(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+        curUIService.TestSuite_DeleteDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
     }
 
     /**
@@ -228,7 +228,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u3a52055_click",
+        { viewlogicname:"dashboard_sysportlet4_u3a61388_click",
         text: "关联用例",
         iconcls: "fa fa-link",
         icon: "",
@@ -237,7 +237,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_ud269d16_click",
+        { viewlogicname:"dashboard_sysportlet4_ue9fd837_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -246,7 +246,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u35c5cd5_click",
+        { viewlogicname:"dashboard_sysportlet4_uacb055d_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -266,14 +266,14 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet4_u21343aa_click')){
             this.dashboard_sysportlet4_u21343aa_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u3a52055_click')){
-            this.dashboard_sysportlet4_u3a52055_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u3a61388_click')){
+            this.dashboard_sysportlet4_u3a61388_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_ud269d16_click')){
-            this.dashboard_sysportlet4_ud269d16_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_ue9fd837_click')){
+            this.dashboard_sysportlet4_ue9fd837_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u35c5cd5_click')){
-            this.dashboard_sysportlet4_u35c5cd5_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_uacb055d_click')){
+            this.dashboard_sysportlet4_uacb055d_click(null);
         }
     }
 

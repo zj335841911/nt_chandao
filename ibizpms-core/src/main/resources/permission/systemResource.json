@@ -43,6 +43,11 @@
        }
         ,
        {
+            "unirescode":"PROJT_TM_BUT",
+            "uniresname":"项目团队管理"
+       }
+        ,
+       {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
        }

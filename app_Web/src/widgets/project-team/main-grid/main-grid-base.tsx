@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        RemoveMember: { name: 'RemoveMember',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        RemoveMember: { name: 'RemoveMember',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROJT_TM_BUT', target: 'SINGLEKEY'}
     };
 
     /**

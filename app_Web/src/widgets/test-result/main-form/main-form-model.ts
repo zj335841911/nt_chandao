@@ -36,7 +36,7 @@ export default class MainModel {
       {
         name: 'srfmajortext',
         prop: 'title',
-        dataType: 'TEXT',
+        dataType: 'PICKUPDATA',
       },
       {
         name: 'srftempmode',
@@ -76,7 +76,7 @@ export default class MainModel {
       {
         name: 'title',
         prop: 'title',
-        dataType: 'TEXT',
+        dataType: 'PICKUPDATA',
       },
       {
         name: 'module',

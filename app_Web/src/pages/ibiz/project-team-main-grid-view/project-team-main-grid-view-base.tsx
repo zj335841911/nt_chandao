@@ -102,7 +102,7 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @memberof ProjectTeamMainGridView
      */
     public toolBarModels: any = {
-        deuiaction3_managermember: { name: 'deuiaction3_managermember', caption: '团队管理', 'isShowCaption': true, 'isShowIcon': true, tooltip: '团队管理', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ManagerMember', target: 'NONE', class: '' } },
+        deuiaction3_managermember: { name: 'deuiaction3_managermember', caption: '团队管理', 'isShowCaption': true, 'isShowIcon': true, tooltip: '团队管理', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJT_TM_BUT', uiaction: { tag: 'ManagerMember', target: 'NONE', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },

@@ -434,8 +434,8 @@ export default {
 			taskname: "相关任务", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
-			id: "Bug编号", 
 			story: "相关需求", 
+			id: "Bug编号", 
 			task: "相关任务", 
 		},
 		uiactions: {

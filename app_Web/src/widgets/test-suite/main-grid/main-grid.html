@@ -102,17 +102,17 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.linkCaseDash.visabled" :disabled="scope.row.linkCaseDash.disabled" @click="uiAction(scope.row, 'linkCaseDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_linkcasedash')">
-                            <i class=''></i>
+                            <i class='fa fa-link'></i>
                             
                           </a>
                           <divider v-show="scope.row.EditsuiteDash.visabled" type='vertical'></divider>
                           <a v-show="scope.row.EditsuiteDash.visabled" :disabled="scope.row.EditsuiteDash.disabled" @click="uiAction(scope.row, 'EditsuiteDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_editsuitedash')">
-                            <i class=''></i>
+                            <i class='fa fa-edit'></i>
                             
                           </a>
                           <divider v-show="scope.row.DeleteDash.visabled" type='vertical'></divider>
                           <a v-show="scope.row.DeleteDash.visabled" :disabled="scope.row.DeleteDash.disabled" @click="uiAction(scope.row, 'DeleteDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_deletedash')">
-                            <i class=''></i>
+                            <i class='fa fa-remove'></i>
                             
                           </a>
                         </div>

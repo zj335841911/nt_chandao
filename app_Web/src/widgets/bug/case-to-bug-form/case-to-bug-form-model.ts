@@ -161,14 +161,14 @@ export default class CaseToBugModel {
         dataType: 'TEXT',
       },
       {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
-      },
-      {
         name: 'story',
         prop: 'story',
         dataType: 'PICKUP',
+      },
+      {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'task',
