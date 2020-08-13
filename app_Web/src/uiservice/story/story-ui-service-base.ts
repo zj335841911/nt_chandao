@@ -153,7 +153,7 @@ export default class StoryUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('active',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__STORY_CHANGED_BUT':1,'DELETE':1,'SRFUR__STORY_EDIT_BUT':1,'SRFUR__STORY_CLOSED_BUT':1,}));
-        this.allDeMainStateOPPrivsMap.set('changed',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__STORY_EDIT_BUT':1,'DELETE':1,'SRFUR__STORY_CLOSED_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('changed',Object.assign({'ACTIVE':1,'CHANGED':1,'CLOSED':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__PROP_LSTORY_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__STORY_ACTIVE_BUT':1,'SRFUR__STORY_EDIT_BUT':1,'DELETE':1,}));
         this.allDeMainStateOPPrivsMap.set('draft',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__STORY_CLOSED_BUT':1,'DELETE':1,'SRFUR__STORY_EDIT_BUT':1,'SRFUR__STORY_CHANGED_BUT':1,'SRFUR__STORY_ACTIVE_BUT':1,}));
     }

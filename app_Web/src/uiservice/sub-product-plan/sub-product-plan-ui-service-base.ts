@@ -111,9 +111,9 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * @memberof  SubProductPlanUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{'SRFUR__PROP_EDIT_BUT':1,'SRFUR__PROP_LBUG_BUT':1,'SRFUR__PROP_DELETE_BUT':1,'SRFUR__PROP_LSTORY_BUT':1,}));
-        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{'SRFUR__PROP_CHILD_BUT':1,'SRFUR__PROP_DELETE_BUT':1,'SRFUR__PROP_LSTORY_BUT':1,'SRFUR__PROP_EDIT_BUT':1,'SRFUR__PROP_LBUG_BUT':1,}));
-        this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{'SRFUR__PROP_LBUG_BUT':1,'SRFUR__PROP_CHILD_BUT':1,'SRFUR__PROP_LSTORY_BUT':1,'SRFUR__PROP_EDIT_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_CHILD_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_DELETE_BUT':0,}));
     }
 
 
