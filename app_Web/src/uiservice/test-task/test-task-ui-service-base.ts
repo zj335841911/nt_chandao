@@ -124,10 +124,10 @@ export default class TestTaskUIServiceBase extends UIService {
      * @memberof  TestTaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('blocked',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_BLOCK_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_ACTIVITE_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_BLOCK_BUT':0,'SRFUR__TESTT_CLOSED_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_ACTIVITE_BUT':0,}));
     }
 
     /**

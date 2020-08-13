@@ -177,8 +177,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkCase: { name: 'linkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Editsuite: { name: 'Editsuite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        linkCase: { name: 'linkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', target: 'SINGLEKEY'},
+        Editsuite: { name: 'Editsuite',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', target: 'SINGLEKEY'},
         Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
 
