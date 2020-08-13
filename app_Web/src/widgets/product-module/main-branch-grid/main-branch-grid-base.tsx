@@ -115,14 +115,6 @@ export class MainBranchGridBase extends GridControlBase {
 
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {ProductModuleUIService}
-     * @memberof MainBranchBase
-     */  
-    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

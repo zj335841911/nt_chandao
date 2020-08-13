@@ -1919,6 +1919,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BranchPMEditView",
             "viewtag": "d4cb26555e6d81a172652580cf7d9f7f"
         },
+        "bugcasetobugeditview": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugCaseToBugEditView",
+            "viewtag": "d5171a52df7b22d69c6a5ca34699233a"
+        },
         "storygridview9_child": {
             "title": "细分需求",
             "caption": "细分需求",

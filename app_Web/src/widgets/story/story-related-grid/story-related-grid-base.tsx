@@ -68,14 +68,6 @@ export class StoryRelatedGridBase extends GridControlBase {
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof StoryRelatedBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

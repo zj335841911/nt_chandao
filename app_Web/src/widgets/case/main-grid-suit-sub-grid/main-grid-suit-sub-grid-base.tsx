@@ -152,14 +152,6 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {CaseUIService}
-     * @memberof MainGrid_SuitSubBase
-     */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

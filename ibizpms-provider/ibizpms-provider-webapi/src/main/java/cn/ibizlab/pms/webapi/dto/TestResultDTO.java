@@ -137,6 +137,38 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     private String title;
 
+    /**
+     * 属性 [STORY]
+     *
+     */
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    private BigInteger story;
+
+    /**
+     * 属性 [MODULE]
+     *
+     */
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
+
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private BigInteger product;
+
+    /**
+     * 属性 [PRECONDITION]
+     *
+     */
+    @JSONField(name = "precondition")
+    @JsonProperty("precondition")
+    private String precondition;
+
 
     /**
      * 设置 [LASTRUNNER]

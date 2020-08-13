@@ -131,6 +131,13 @@ export class MainEditFormBase extends EditFormControlBase {
         lastrunner: null,
         caseresult: null,
         formitem: null,
+        title: null,
+        module: null,
+        job: null,
+        precondition: null,
+        story: null,
+        product: null,
+        case: null,
         testresult:null,
     };
 
@@ -195,6 +202,20 @@ export class MainEditFormBase extends EditFormControlBase {
 
         formitem: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        title: new FormItemModel({ caption: '用例名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        job: new FormItemModel({ caption: '构建任务', detailType: 'FORMITEM', name: 'job', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        case: new FormItemModel({ caption: '用例', detailType: 'FORMITEM', name: 'case', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
     };
 
     /**
@@ -226,6 +247,13 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
+
+
+
+
+
+
 
 
 

@@ -2217,7 +2217,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '41bfd828761fc42ef9a7acdd4f4babcf',
-                '46517a803b2470cd0bef27aeda0dbcaf',
+                'd5171a52df7b22d69c6a5ca34699233a',
             ],
         },
         {
@@ -2237,6 +2237,15 @@ export const viewstate: any = {
             viewtag: 'd4cb26555e6d81a172652580cf7d9f7f',
             viewmodule: 'zentao',
             viewname: 'BranchPMEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'd5171a52df7b22d69c6a5ca34699233a',
+            viewmodule: 'zentao',
+            viewname: 'BugCaseToBugEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

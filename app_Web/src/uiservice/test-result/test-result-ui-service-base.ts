@@ -130,6 +130,8 @@ export default class TestResultUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{STORY:"%story%",MODULE:"%module%",PRECONDITION:"%precondition%",PRODUCT:"%product%",TITLE:"%title%",CASE:"%case%"});
+        Object.assign(params,{product:"%product%",story:"%story%",module:"%module%",precondition:"%precondition%",title:"%title%",case:"%case%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testresult: '%testresult%' });
@@ -170,10 +172,10 @@ export default class TestResultUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'bug-edit-view', 
+                viewname: 'bug-case-to-bug-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.bug.views.editview.title'),
+                title: actionContext.$t('entities.bug.views.casetobugeditview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);

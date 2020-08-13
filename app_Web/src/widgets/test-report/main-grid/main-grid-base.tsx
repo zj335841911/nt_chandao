@@ -68,14 +68,6 @@ export class MainGridBase extends GridControlBase {
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {TestReportUIService}
-     * @memberof MainBase
-     */  
-    public appUIService:TestReportUIService = new TestReportUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

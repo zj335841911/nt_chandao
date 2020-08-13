@@ -74,6 +74,41 @@ export default class MainModel {
         name: 'formitem',
       },
       {
+        name: 'title',
+        prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUPDATA',
+      },
+      {
+        name: 'job',
+        prop: 'job',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'precondition',
+        prop: 'precondition',
+        dataType: 'PICKUPDATA',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUPDATA',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'case',
+        prop: 'ibizcase',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'testresult',
         prop: 'id',
         dataType: 'FONTKEY',

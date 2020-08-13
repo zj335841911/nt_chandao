@@ -68,14 +68,6 @@ export class MainMyGridBase extends GridControlBase {
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {ProjectUIService}
-     * @memberof MainMyBase
-     */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

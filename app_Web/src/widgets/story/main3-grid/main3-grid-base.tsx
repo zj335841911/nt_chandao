@@ -208,14 +208,6 @@ export class Main3GridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof Main3Base
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

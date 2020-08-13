@@ -68,14 +68,6 @@ export class Main_BuildSub3GridBase extends GridControlBase {
     public appUIService:BugUIService = new BugUIService(this.$store);
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof Main_BuildSub3Base
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

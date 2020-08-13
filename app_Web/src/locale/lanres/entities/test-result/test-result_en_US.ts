@@ -15,6 +15,10 @@ export default {
     compile: "代码编译",
     task: "属性",
     title: "用例名称",
+    story: "相关需求",
+    module: "所属模块",
+    product: "所属产品",
+    precondition: "前置条件",
   },
 	views: {
 		editview: {
@@ -58,6 +62,13 @@ export default {
 			lastrunner: "", 
 			caseresult: "", 
 			formitem: "", 
+			title: "用例名称", 
+			module: "所属模块", 
+			job: "构建任务", 
+			precondition: "前置条件", 
+			story: "相关需求", 
+			product: "所属产品", 
+			case: "用例", 
 		},
 		uiactions: {
         testresult_tobug: "转Bug",

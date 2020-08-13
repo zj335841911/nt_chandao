@@ -2389,6 +2389,16 @@
         "viewtag": "d4cb26555e6d81a172652580cf7d9f7f",
         "memo": ""
     },
+    "bugcasetobugeditview": {
+        "title": "Bug",
+        "caption": "Bug",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugCaseToBugEditView",
+        "viewfilename": "bug-case-to-bug-edit-view",
+        "viewtag": "d5171a52df7b22d69c6a5ca34699233a",
+        "memo": "临时充当主信息展示页面"
+    },
     "storygridview9_child": {
         "title": "细分需求",
         "caption": "细分需求",

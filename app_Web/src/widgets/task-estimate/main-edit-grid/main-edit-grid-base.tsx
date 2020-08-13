@@ -143,14 +143,6 @@ export class MainEditGridBase extends GridControlBase {
 
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {TaskEstimateUIService}
-     * @memberof MainEditBase
-     */  
-    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}

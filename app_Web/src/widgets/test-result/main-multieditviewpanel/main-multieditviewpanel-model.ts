@@ -57,6 +57,18 @@ export default class MainModel {
       {
         name: 'title',
       },
+      {
+        name: 'story',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'product',
+      },
+      {
+        name: 'precondition',
+      },
     ]
   }
 
