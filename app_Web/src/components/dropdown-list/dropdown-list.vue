@@ -10,7 +10,7 @@
             :placeholder="$t('components.dropDownList.placeholder')">
             <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
         </i-select>
-        <icon v-if="currentVal == null || currentVal == '' ? false :true" @click="clear" type="md-close" class="icon-circle" />
+        <i v-if="currentVal == null || currentVal == '' ? false :true" @click="clear" type="md-close" class="el-icon-circle-close" />
     </div>
 </template>
 
