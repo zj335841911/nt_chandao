@@ -66,14 +66,6 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof ActivationEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量

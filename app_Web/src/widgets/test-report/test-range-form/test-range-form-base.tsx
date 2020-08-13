@@ -66,14 +66,6 @@ export class TestRangeEditFormBase extends EditFormControlBase {
      * @memberof TestRangeBase
      */  
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TestReportUIService}
-     * @memberof TestRangeEditFormBase
-     */  
-    public appUIService:TestReportUIService = new TestReportUIService(this.$store);
-
 
     /**
      * 关系界面数量

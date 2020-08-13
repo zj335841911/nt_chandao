@@ -66,14 +66,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {CaseUIService}
-     * @memberof MainInfoEditFormBase
-     */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
-
 
     /**
      * 关系界面数量

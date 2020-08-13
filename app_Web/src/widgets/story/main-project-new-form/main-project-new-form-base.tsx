@@ -66,14 +66,6 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
      * @memberof MainProjectNewBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof MainProjectNewEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 表单数据对象

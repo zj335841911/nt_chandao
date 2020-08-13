@@ -66,14 +66,6 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TaskUIService}
-     * @memberof ActivationEditFormBase
-     */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 关系界面数量

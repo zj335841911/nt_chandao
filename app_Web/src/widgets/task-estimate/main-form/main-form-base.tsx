@@ -66,14 +66,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */  
     public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TaskEstimateUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
-
 
     /**
      * 表单数据对象

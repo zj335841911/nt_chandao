@@ -66,14 +66,6 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      * @memberof StepsInfoBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof StepsInfoEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量

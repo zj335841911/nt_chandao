@@ -66,14 +66,6 @@ export class ActiviteEditFormBase extends EditFormControlBase {
      * @memberof ActiviteBase
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TestTaskUIService}
-     * @memberof ActiviteEditFormBase
-     */  
-    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-
 
     /**
      * 关系界面数量

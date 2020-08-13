@@ -66,14 +66,6 @@ export class CosedEditFormBase extends EditFormControlBase {
      * @memberof CosedBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof CosedEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 关系界面数量

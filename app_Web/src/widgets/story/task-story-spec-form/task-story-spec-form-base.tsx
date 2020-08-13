@@ -66,14 +66,6 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      * @memberof TaskStorySpecBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof TaskStorySpecEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 关系界面数量

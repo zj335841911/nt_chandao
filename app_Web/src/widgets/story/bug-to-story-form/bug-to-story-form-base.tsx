@@ -66,14 +66,6 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
      * @memberof BugToStoryBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof BugToStoryEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 表单数据对象

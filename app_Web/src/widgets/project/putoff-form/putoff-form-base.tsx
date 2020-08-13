@@ -66,14 +66,6 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @memberof PutoffBase
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProjectUIService}
-     * @memberof PutoffEditFormBase
-     */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
-
 
     /**
      * 关系界面数量

@@ -66,14 +66,6 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainBase
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TodoUIService}
-     * @memberof DashboardMainEditFormBase
-     */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
-
 
     /**
      * 表单数据对象

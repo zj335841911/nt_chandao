@@ -66,14 +66,6 @@ export class TestTaskRMainEditFormBase extends EditFormControlBase {
      * @memberof TestTaskRMainBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {CaseUIService}
-     * @memberof TestTaskRMainEditFormBase
-     */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
-
 
     /**
      * 关系界面数量

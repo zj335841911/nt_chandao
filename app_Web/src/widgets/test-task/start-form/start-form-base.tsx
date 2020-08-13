@@ -66,14 +66,6 @@ export class StartEditFormBase extends EditFormControlBase {
      * @memberof StartBase
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TestTaskUIService}
-     * @memberof StartEditFormBase
-     */  
-    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-
 
     /**
      * 关系界面数量

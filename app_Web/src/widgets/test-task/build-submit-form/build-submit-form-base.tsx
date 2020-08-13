@@ -66,14 +66,6 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
      * @memberof BuildSUBMITBase
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TestTaskUIService}
-     * @memberof BuildSUBMITEditFormBase
-     */  
-    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-
 
     /**
      * 表单数据对象

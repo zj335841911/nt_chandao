@@ -66,14 +66,6 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * @memberof ConfirmBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof ConfirmEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量

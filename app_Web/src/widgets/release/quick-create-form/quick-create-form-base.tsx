@@ -66,14 +66,6 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateBase
      */  
     public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ReleaseUIService}
-     * @memberof QuickCreateEditFormBase
-     */  
-    public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
-
 
     /**
      * 表单数据对象

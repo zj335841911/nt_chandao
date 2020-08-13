@@ -66,14 +66,6 @@ export class EditFormEditFormBase extends EditFormControlBase {
      * @memberof EditFormBase
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TodoUIService}
-     * @memberof EditFormEditFormBase
-     */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
-
 
     /**
      * 表单数据对象

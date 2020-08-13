@@ -66,14 +66,6 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
      * @memberof DashboardInfoBase
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProductUIService}
-     * @memberof DashboardInfoEditFormBase
-     */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
-
 
     /**
      * 表单数据对象

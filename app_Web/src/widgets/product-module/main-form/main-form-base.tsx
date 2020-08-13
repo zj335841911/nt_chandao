@@ -66,14 +66,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */  
     public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProductModuleUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
-
 
     /**
      * 表单数据对象

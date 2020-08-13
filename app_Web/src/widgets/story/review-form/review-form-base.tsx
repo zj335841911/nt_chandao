@@ -66,14 +66,6 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof ReviewEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 关系界面数量

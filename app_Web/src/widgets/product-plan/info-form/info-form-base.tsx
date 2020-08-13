@@ -66,14 +66,6 @@ export class InfoEditFormBase extends EditFormControlBase {
      * @memberof InfoBase
      */  
     public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProductPlanUIService}
-     * @memberof InfoEditFormBase
-     */  
-    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
-
 
     /**
      * 关系界面数量

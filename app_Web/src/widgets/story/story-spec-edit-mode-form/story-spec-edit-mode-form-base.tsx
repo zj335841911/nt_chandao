@@ -66,14 +66,6 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @memberof StorySpec_EditModeBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof StorySpec_EditModeEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 关系界面数量

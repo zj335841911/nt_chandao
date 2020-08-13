@@ -66,14 +66,6 @@ export class ActivateEditFormBase extends EditFormControlBase {
      * @memberof ActivateBase
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProjectUIService}
-     * @memberof ActivateEditFormBase
-     */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
-
 
     /**
      * 关系界面数量

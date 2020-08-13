@@ -94,14 +94,6 @@ export class MainEditFormBase extends EditFormControlBase {
         const curUIService:TestResultUIService  = new TestResultUIService();
         curUIService.TestResult_ToBug(datas,contextJO, paramJO,  $event, xData,this,"TestResult");
     }
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TestResultUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:TestResultUIService = new TestResultUIService(this.$store);
-
 
     /**
      * 关系界面数量

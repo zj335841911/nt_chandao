@@ -66,14 +66,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof DashboardMainEditEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量

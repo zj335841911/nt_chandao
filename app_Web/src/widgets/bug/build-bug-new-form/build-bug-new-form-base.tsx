@@ -66,14 +66,6 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
      * @memberof BuildBugNewBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof BuildBugNewEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 表单数据对象

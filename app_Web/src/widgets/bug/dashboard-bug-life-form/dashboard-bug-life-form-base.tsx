@@ -66,14 +66,6 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
      * @memberof DashboardBugLifeBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof DashboardBugLifeEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 表单数据对象

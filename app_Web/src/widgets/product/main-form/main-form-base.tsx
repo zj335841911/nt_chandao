@@ -94,14 +94,6 @@ export class MainEditFormBase extends EditFormControlBase {
         const curUIService:ProductUIService  = new ProductUIService();
         curUIService.Product_SeLine(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProductUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
-
 
     /**
      * 表单数据对象

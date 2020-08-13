@@ -94,14 +94,6 @@ export class MainEditFormBase extends EditFormControlBase {
         const curUIService:IbzProjectMemberUIService  = new IbzProjectMemberUIService();
         curUIService.IbzProjectMember_TeamManagement(datas,contextJO, paramJO,  $event, xData,this,"IbzProjectMember");
     }
-    /**
-     * 界面UI服务对象
-     *
-     * @type {IbzProjectMemberUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
-
 
     /**
      * 表单数据对象

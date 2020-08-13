@@ -66,14 +66,6 @@ export class ClosePauseCancelFormEditFormBase extends EditFormControlBase {
      * @memberof ClosePauseCancelFormBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TaskUIService}
-     * @memberof ClosePauseCancelFormEditFormBase
-     */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 关系界面数量

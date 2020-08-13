@@ -66,14 +66,6 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * @memberof MainSubPlanBase
      */  
     public appUIService:SubProductPlanUIService = new SubProductPlanUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {SubProductPlanUIService}
-     * @memberof MainSubPlanEditFormBase
-     */  
-    public appUIService:SubProductPlanUIService = new SubProductPlanUIService(this.$store);
-
 
     /**
      * 表单数据对象

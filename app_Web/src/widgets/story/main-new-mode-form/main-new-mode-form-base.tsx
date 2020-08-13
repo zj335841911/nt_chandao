@@ -66,14 +66,6 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      * @memberof Main_NewModeBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof Main_NewModeEditFormBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
 
     /**
      * 表单数据对象

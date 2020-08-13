@@ -66,14 +66,6 @@ export class CloseEditFormBase extends EditFormControlBase {
      * @memberof CloseBase
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProductUIService}
-     * @memberof CloseEditFormBase
-     */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
-
 
     /**
      * 关系界面数量

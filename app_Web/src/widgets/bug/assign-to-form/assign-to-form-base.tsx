@@ -66,14 +66,6 @@ export class AssignToEditFormBase extends EditFormControlBase {
      * @memberof AssignToBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof AssignToEditFormBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量

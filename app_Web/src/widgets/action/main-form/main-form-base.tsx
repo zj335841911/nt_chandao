@@ -173,14 +173,6 @@ export class MainEditFormBase extends EditFormControlBase {
             });
         }
     }
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ActionUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:ActionUIService = new ActionUIService(this.$store);
-
 
     /**
      * 表单数据对象

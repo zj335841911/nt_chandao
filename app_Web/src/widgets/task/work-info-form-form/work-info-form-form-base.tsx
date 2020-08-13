@@ -66,14 +66,6 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * @memberof WorkInfoFormBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TaskUIService}
-     * @memberof WorkInfoFormEditFormBase
-     */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 表单数据对象
