@@ -298,7 +298,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ue3e1dd6_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u9a8a4de_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -315,7 +315,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_DoneTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_DoneTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -326,7 +326,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u10fc642_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ua6eebe5_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -343,7 +343,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_CancelTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_CancelTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -354,7 +354,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ua25395e_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u6b21184_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -371,7 +371,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_CloseTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_MainEditDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -382,7 +382,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u6c059c5_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u532db70_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -399,7 +399,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_CloseTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -541,39 +541,39 @@ export class ToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ue3e1dd6_click",
+        { viewlogicname:"dashboard_sysportlet2_u9a8a4de_click",
         text: "完成",
         iconcls: "fa fa-check-square-o",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_COMPLETE_BUT',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u10fc642_click",
+        { viewlogicname:"dashboard_sysportlet2_ua6eebe5_click",
         text: "取消",
         iconcls: "fa fa-ban",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_CANCEL_BUT',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ua25395e_click",
-        text: "关闭",
-        iconcls: "fa fa-power-off",
-        icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__TASK_CLOSE_BUT',
-        visabled:true,
-        disabled:false
-        },
-        { viewlogicname:"dashboard_sysportlet2_u6c059c5_click",
+        { viewlogicname:"dashboard_sysportlet2_u6b21184_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_EDIT_BUT',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet2_u532db70_click",
+        text: "关闭",
+        iconcls: "fa fa-power-off",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TASK_CLOSE_BUT',
         visabled:true,
         disabled:false
         },
@@ -617,17 +617,17 @@ export class ToolbarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet2_u4b8cbc4_click')){
             this.dashboard_sysportlet2_u4b8cbc4_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ue3e1dd6_click')){
-            this.dashboard_sysportlet2_ue3e1dd6_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u9a8a4de_click')){
+            this.dashboard_sysportlet2_u9a8a4de_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u10fc642_click')){
-            this.dashboard_sysportlet2_u10fc642_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ua6eebe5_click')){
+            this.dashboard_sysportlet2_ua6eebe5_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ua25395e_click')){
-            this.dashboard_sysportlet2_ua25395e_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u6b21184_click')){
+            this.dashboard_sysportlet2_u6b21184_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u6c059c5_click')){
-            this.dashboard_sysportlet2_u6c059c5_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u532db70_click')){
+            this.dashboard_sysportlet2_u532db70_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_uf7c7e04_click')){
             this.dashboard_sysportlet2_uf7c7e04_click(null);
