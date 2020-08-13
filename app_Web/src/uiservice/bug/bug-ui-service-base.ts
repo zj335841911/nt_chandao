@@ -200,6 +200,18 @@ export default class BugUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                if (_this.Refresh && _this.Refresh instanceof Function) {
+                    _this.Refresh(_args,context, params, $event, xData,actionContext);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {

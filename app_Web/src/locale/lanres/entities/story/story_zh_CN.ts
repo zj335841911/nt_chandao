@@ -462,7 +462,7 @@ export default {
 		uiactions: {
 		},
 	},
-	assignto_form: {
+	activation_form: {
 		details: {
 			druipart1: "", 
 			grouppanel2: "分组面板", 
@@ -482,7 +482,7 @@ export default {
 		uiactions: {
 		},
 	},
-	activation_form: {
+	assignto_form: {
 		details: {
 			druipart1: "", 
 			grouppanel2: "分组面板", 
