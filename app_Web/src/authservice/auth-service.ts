@@ -32,7 +32,7 @@ export default class AuthService {
      * @type {(any)}
      * @memberof AuthService
      */
-    public defaultOPPrivs: any = {CREATE: 1,DELETE: 1,DENY: 1,NONE: 1,READ: 1,SRFUR__PROD_CLOSED_BUT: 1,SRFUR__PROD_CREATE_BUT: 1,SRFUR__PROD_DELETE_BUT: 1,SRFUR__PROD_EDIT_BUT: 1,SRFUR__PROD_UPDATE_BUT: 1,SRFUR__STORY_ACTIVE_BUT: 1,SRFUR__STORY_CHANGED_BUT: 1,SRFUR__STORY_CLOSED_BUT: 1,SRFUR__STORY_EDIT_BUT: 1,SRFUR__STORY_REVIEW_BUT: 1,UPDATE: 1,WFSTART: 1}; 
+    public defaultOPPrivs: any = {CREATE: 1,DELETE: 1,DENY: 1,NONE: 1,READ: 1,SRFUR__BUG_ACTIVATE_BUT: 1,SRFUR__BUG_ASSIGNTO_BUT: 1,SRFUR__BUG_CLOSE_BUT: 1,SRFUR__BUG_CONFIRM_BUT: 1,SRFUR__BUG_CREATECASE_BUT: 1,SRFUR__BUG_RESOLVE_BUT: 1,SRFUR__PROD_CLOSED_BUT: 1,SRFUR__PROD_CREATE_BUT: 1,SRFUR__PROD_DELETE_BUT: 1,SRFUR__PROD_EDIT_BUT: 1,SRFUR__PROD_UPDATE_BUT: 1,SRFUR__STORY_ACTIVE_BUT: 1,SRFUR__STORY_CHANGED_BUT: 1,SRFUR__STORY_CLOSED_BUT: 1,SRFUR__STORY_EDIT_BUT: 1,SRFUR__STORY_REVIEW_BUT: 1,SRFUR__TASK_ACTIVATION_BUT: 1,SRFUR__TASK_ASSIGN_BUT: 1,SRFUR__TASK_CANCEL_BUT: 1,SRFUR__TASK_CLOSE_BUT: 1,SRFUR__TASK_COMPLETE_BUT: 1,SRFUR__TASK_EDIT_BUT: 1,SRFUR__TASK_PAUSE_BUT: 1,SRFUR__TASK_PROCEED_BUT: 1,SRFUR__TASK_START_BUT: 1,SRFUR__TASK_SUBTASKS_BUT: 1,UPDATE: 1,WFSTART: 1}; 
 
     /**
      * Creates an instance of AuthService.
@@ -91,6 +91,12 @@ export default class AuthService {
      * @memberof AuthService
      */ 
     public registerSysOPPrivs(){
+        this.sysOPPrivsMap.set('SRFUR__BUG_ACTIVATE_BUT','BUG_ACTIVATE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__BUG_ASSIGNTO_BUT','BUG_ASSIGNTO_BUT');
+        this.sysOPPrivsMap.set('SRFUR__BUG_CLOSE_BUT','BUG_CLOSE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__BUG_CONFIRM_BUT','BUG_CONFIRM_BUT');
+        this.sysOPPrivsMap.set('SRFUR__BUG_CREATECASE_BUT','BUG_CREATECASE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__BUG_RESOLVE_BUT','BUG_RESOLVE_BUT');
         this.sysOPPrivsMap.set('SRFUR__PROD_CLOSED_BUT','PROD_CLOSED_BUT');
         this.sysOPPrivsMap.set('SRFUR__PROD_CREATE_BUT','PROD_CREATE_BUT');
         this.sysOPPrivsMap.set('SRFUR__PROD_DELETE_BUT','PROD_DELETE_BUT');
@@ -101,6 +107,16 @@ export default class AuthService {
         this.sysOPPrivsMap.set('SRFUR__STORY_CLOSED_BUT','STORY_CLOSED_BUT');
         this.sysOPPrivsMap.set('SRFUR__STORY_EDIT_BUT','STORY_EDIT_BUT');
         this.sysOPPrivsMap.set('SRFUR__STORY_REVIEW_BUT','STORY_REVIEW_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_ACTIVATION_BUT','TASK_ACTIVATION_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_ASSIGN_BUT','TASK_ASSIGN_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_CANCEL_BUT','TASK_CANCEL_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_CLOSE_BUT','TASK_CLOSE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_COMPLETE_BUT','TASK_COMPLETE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_EDIT_BUT','TASK_EDIT_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_PAUSE_BUT','TASK_PAUSE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_PROCEED_BUT','TASK_PROCEED_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_START_BUT','TASK_START_BUT');
+        this.sysOPPrivsMap.set('SRFUR__TASK_SUBTASKS_BUT','TASK_SUBTASKS_BUT');
     }
 
     /**

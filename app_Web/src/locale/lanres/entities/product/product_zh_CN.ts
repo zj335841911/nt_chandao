@@ -372,14 +372,6 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction3_remove: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

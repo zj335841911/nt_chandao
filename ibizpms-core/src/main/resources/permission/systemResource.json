@@ -58,6 +58,11 @@
        }
         ,
        {
+            "unirescode":"BUG_RESOLVE_BUT",
+            "uniresname":"Bug解决"
+       }
+        ,
+       {
             "unirescode":"TASK_EDIT_BUT",
             "uniresname":"任务编辑"
        }
@@ -65,6 +70,11 @@
        {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
+       }
+        ,
+       {
+            "unirescode":"BUG_CONFIRM_BUT",
+            "uniresname":"Bug确认"
        }
         ,
        {
@@ -108,8 +118,18 @@
        }
         ,
        {
+            "unirescode":"BUG_CREATECASE_BUT",
+            "uniresname":"Bug建用例"
+       }
+        ,
+       {
             "unirescode":"STORY_REVIEW_BUT",
             "uniresname":"需求评审"
+       }
+        ,
+       {
+            "unirescode":"BUG_CLOSE_BUT",
+            "uniresname":"Bug关闭"
        }
         ,
        {

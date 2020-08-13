@@ -102,9 +102,6 @@ export class ProductGridViewBase extends GridViewBase {
      * @memberof ProductGridView
      */
     public toolBarModels: any = {
-        deuiaction3_remove: { name: 'deuiaction3_remove', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'remove', target: '', class: '' } },
-
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
@@ -160,9 +157,6 @@ export class ProductGridViewBase extends GridViewBase {
      * @memberof ProductGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_remove')) {
-            this.toolbar_deuiaction3_remove_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
@@ -221,35 +215,6 @@ export class ProductGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_remove_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProductUIService  = new ProductUIService();
-        curUIService.remove(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
 
     /**

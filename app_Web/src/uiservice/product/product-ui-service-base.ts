@@ -136,15 +136,6 @@ export default class ProductUIServiceBase extends UIService {
         this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__PROD_DELETE_BUT':1,'SRFUR__PROD_CLOSED_BUT':1,'SRFUR__PROD_EDIT_BUT':1,}));
     }
 
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${view.name}  [in template "TEMPLCODE_en_US" at line 10, column 34]
-	- Reached through: ${srfclassname("${view.name}")}  [in template "TEMPLCODE_en_US" at line 10, column 18]
-----
     /**
      * 编辑
      *
