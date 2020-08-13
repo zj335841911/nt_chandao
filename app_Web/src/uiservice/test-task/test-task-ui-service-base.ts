@@ -489,10 +489,7 @@ export default class TestTaskUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
-        Object.assign(params, { name: '%name%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }

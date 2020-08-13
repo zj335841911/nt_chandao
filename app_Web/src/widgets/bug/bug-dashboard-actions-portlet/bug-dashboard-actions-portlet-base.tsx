@@ -408,7 +408,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
         dataaccaction:'SRFUR__BUG_CLOSE_BUT',
         visabled:true,
         disabled:false
@@ -417,7 +417,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "解决",
         iconcls: "fa fa-check-square-o",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
         dataaccaction:'SRFUR__BUG_RESOLVE_BUT',
         visabled:true,
         disabled:false
@@ -426,7 +426,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "指派",
         iconcls: null,
         icon: null,
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
         dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',
         visabled:true,
         disabled:false
@@ -435,7 +435,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "确认",
         iconcls: "fa fa-eye",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
         dataaccaction:'SRFUR__BUG_CONFIRM_BUT',
         visabled:true,
         disabled:false
