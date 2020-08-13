@@ -485,7 +485,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "iconfont studio-icon-subnets",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'SUBTASKS',
+        dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',
         visabled:true,
         disabled:false
         },
@@ -511,7 +511,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-play-circle-o",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'START',
+        dataaccaction:'SRFUR__TASK_START_BUT',
         visabled:true,
         disabled:false
         },
@@ -528,7 +528,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-circle-o",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'PAUSE',
+        dataaccaction:'SRFUR__TASK_PAUSE_BUT',
         visabled:true,
         disabled:false
         },
@@ -546,7 +546,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-check-square-o",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'COMPLETE',
+        dataaccaction:'SRFUR__TASK_COMPLETE_BUT',
         visabled:true,
         disabled:false
         },
@@ -555,7 +555,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-ban",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'CANCEL',
+        dataaccaction:'SRFUR__TASK_CANCEL_BUT',
         visabled:true,
         disabled:false
         },
@@ -564,7 +564,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-power-off",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'CLOSE',
+        dataaccaction:'SRFUR__TASK_CLOSE_BUT',
         visabled:true,
         disabled:false
         },
@@ -573,7 +573,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'EDIT',
+        dataaccaction:'SRFUR__TASK_EDIT_BUT',
         visabled:true,
         disabled:false
         },

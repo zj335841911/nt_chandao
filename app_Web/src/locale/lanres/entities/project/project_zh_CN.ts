@@ -428,11 +428,7 @@ export default {
 			caption: "管理",
 			tip: "管理",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
 		},

@@ -149,6 +149,9 @@ export default {
         "on": "暂时不设定时间",
         "empty": "",
     },
+    UserRealNameW: {
+        "empty": "未指派",
+    },
     CodeList47: {
         "1": "1号",
         "2": "2号",

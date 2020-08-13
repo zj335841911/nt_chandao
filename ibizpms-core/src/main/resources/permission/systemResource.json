@@ -13,6 +13,21 @@
        }
         ,
        {
+            "unirescode":"TESTSU_DELETE_BUT",
+            "uniresname":"测试套件删除"
+       }
+        ,
+       {
+            "unirescode":"PROJ_CREATE_BUT",
+            "uniresname":"项目新建"
+       }
+        ,
+       {
+            "unirescode":"TESTT_CREATE_BUT",
+            "uniresname":"测试版本新建"
+       }
+        ,
+       {
             "unirescode":"PROJ_START_BUT",
             "uniresname":"项目开始"
        }
@@ -20,6 +35,11 @@
        {
             "unirescode":"PROD_EDIT_BUT",
             "uniresname":"产品编辑"
+       }
+        ,
+       {
+            "unirescode":"TESTSU_EDITSUITE_BUT",
+            "uniresname":"测试套件编辑"
        }
         ,
        {
@@ -33,6 +53,11 @@
        }
         ,
        {
+            "unirescode":"TESTT_DELETE_BUT",
+            "uniresname":"测试版本删除"
+       }
+        ,
+       {
             "unirescode":"PROJ_EDIT_BUT",
             "uniresname":"项目编辑"
        }
@@ -43,8 +68,23 @@
        }
         ,
        {
+            "unirescode":"TESTT_LCASE_BUT",
+            "uniresname":"测试版本关联用例"
+       }
+        ,
+       {
             "unirescode":"PROP_DELETE_BUT",
             "uniresname":"计划删除"
+       }
+        ,
+       {
+            "unirescode":"PROJ_DELETE_BUT",
+            "uniresname":"项目删除"
+       }
+        ,
+       {
+            "unirescode":"TESTT_EDIT_BUT",
+            "uniresname":"测试版本编辑"
        }
         ,
        {
@@ -73,6 +113,11 @@
        }
         ,
        {
+            "unirescode":"TESTT_CLOSED_BUT",
+            "uniresname":"测试版本关闭"
+       }
+        ,
+       {
             "unirescode":"PROP_CHILD_BUT",
             "uniresname":"计划子计划"
        }
@@ -98,8 +143,18 @@
        }
         ,
        {
+            "unirescode":"TESTT_START_BUT",
+            "uniresname":"测试版本开始"
+       }
+        ,
+       {
             "unirescode":"PROP_CREATE_BUT",
             "uniresname":"计划新建"
+       }
+        ,
+       {
+            "unirescode":"TESTSU_LINKCASE_BUT",
+            "uniresname":"测试套件关联用例"
        }
         ,
        {
@@ -125,6 +180,11 @@
        {
             "unirescode":"BUG_CONFIRM_BUT",
             "uniresname":"Bug确认"
+       }
+        ,
+       {
+            "unirescode":"TESTT_OPEN_BUT",
+            "uniresname":"测试版本打开概况"
        }
         ,
        {
@@ -158,6 +218,11 @@
        }
         ,
        {
+            "unirescode":"TESTT_ACTIVITE_BUT",
+            "uniresname":"测试版本激活"
+       }
+        ,
+       {
             "unirescode":"STORY_CLOSED_BUT",
             "uniresname":"需求关闭"
        }
@@ -183,6 +248,11 @@
        }
         ,
        {
+            "unirescode":"TESTSU_CREATE_BUT",
+            "uniresname":"测试套件新建"
+       }
+        ,
+       {
             "unirescode":"BUG_CLOSE_BUT",
             "uniresname":"Bug关闭"
        }
@@ -193,8 +263,18 @@
        }
         ,
        {
+            "unirescode":"TESTT_BLOCK_BUT",
+            "uniresname":"测试版本阻塞"
+       }
+        ,
+       {
             "unirescode":"PROJ_CLOSED_BUT",
             "uniresname":"项目关闭"
+       }
+        ,
+       {
+            "unirescode":"PROJ_MANAGE_BUT",
+            "uniresname":"项目管理"
        }
     ],
     "entities":[

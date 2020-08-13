@@ -315,7 +315,7 @@ export default {
 			testtask_linkcase: "关联用例",
 			testtask_openinfoview: "概况",
 			testtask_editedit: "编辑",
-			remove: "删除",
+			testtask_delete: "删除",
 		},
 	},
 	main2_grid: {
@@ -343,14 +343,16 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	editviewtoolbar_toolbar: {
 		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
 		},
 		seperator1: {
 			caption: "",
@@ -360,19 +362,13 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

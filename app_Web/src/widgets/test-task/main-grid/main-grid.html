@@ -180,8 +180,8 @@
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testtask.main_grid.uiactions.remove')">
+                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

@@ -389,7 +389,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'EDIT',
+        dataaccaction:'SRFUR__TASK_EDIT_BUT',
         visabled:true,
         disabled:false
         },

@@ -436,7 +436,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-eye",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'CONFIRM',
+        dataaccaction:'SRFUR__BUG_CONFIRM_BUT',
         visabled:true,
         disabled:false
         },

@@ -140,9 +140,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',Object.assign({'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':1,'CREATE':1,'CREATECASE':1,'DELETE':1,'READ':1,'RESOLVE':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':1,'CREATE':1,'CREATECASE':1,'DELETE':1,'READ':1,'RESOLVE':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':1,'CREATE':1,'CREATECASE':1,'DELETE':1,'READ':1,'RESOLVE':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
     }
 
     /**
@@ -163,7 +163,7 @@ export default class BugUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         Object.assign(context,{BUG:"0",PRODUCTS:"%product%",PROJECTS:"%project%",BUILDS:"%build%"});
-        Object.assign(params,{product:"0",projects:"%project%",project:"0",builds:"%build%",ids:"%id%",bug:"0",resovledby:"%resovledby%",statuses:"%status%",build:"0",products:"%product%"});
+        Object.assign(params,{product:"0",projects:"%project%",project:"0",builds:"%build%",ids:"%id%",resolvedby:"%resolvedBy%",bug:"0",statuses:"%status%",build:"0",products:"%product%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { bug: '%bug%' });
