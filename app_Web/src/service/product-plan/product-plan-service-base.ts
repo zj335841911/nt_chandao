@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetOldPlanNameLogic from '@/service/product-plan/get-old-plan-name-logic';
 
 
 
@@ -411,5 +412,17 @@ export default class ProductPlanServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * GetEnd接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async GetEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }

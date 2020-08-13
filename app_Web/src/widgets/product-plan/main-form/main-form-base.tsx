@@ -82,9 +82,12 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         product: null,
+        branch: null,
         title: null,
         begin: null,
+        future: null,
         end: null,
+        delta: null,
         desc: null,
         id: null,
         productplan:null,
@@ -141,15 +144,79 @@ export class MainEditFormBase extends EditFormControlBase {
 
         product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        future: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'future', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        delta: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'delta', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof MainEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.begin.setDisabled(!ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.end.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.delta.setVisible(ret);
+        }
+
+
+
+        if (Object.is(name, 'delta')) {
+            const details: string[] = ['end'];
+            this.updateFormItems('getEnd', this.data, details, true);
+        }
+    }
 }
