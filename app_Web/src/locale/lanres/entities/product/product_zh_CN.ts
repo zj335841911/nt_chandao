@@ -398,6 +398,10 @@ export default {
 			caption: "管理",
 			tip: "管理",
 		},
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
 		seperator2: {
 			caption: "",
 			tip: "",

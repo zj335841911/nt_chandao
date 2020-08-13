@@ -155,7 +155,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allDeMainStateOPPrivsMap.set('active',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'CHANGED':1,'CLOSED':1,'DELETE':1,'EDIT':1,}));
         this.allDeMainStateOPPrivsMap.set('changed',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'DELETE':1,'EDIT':1,'CLOSED':1,}));
         this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'EDIT':1,'ACTIVE':1,'DELETE':1,}));
-        this.allDeMainStateOPPrivsMap.set('draft',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'EDIT':1,'DELETE':1,'CLOSED':1,'CHANGED':1,'SRFUR__STORY_ACTIVE_BUTTON':1,}));
+        this.allDeMainStateOPPrivsMap.set('draft',Object.assign({'ACTIVE':0,'CHANGED':0,'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'EDIT':1,'DELETE':1,'CLOSED':1,'CHANGED':1,'SRFUR__STORY_ACTIVE_BUT':1,}));
     }
 
     /**

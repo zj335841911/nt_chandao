@@ -32,7 +32,7 @@ export default class AuthService {
      * @type {(any)}
      * @memberof AuthService
      */
-    public defaultOPPrivs: any = {CREATE: 1,DELETE: 1,DENY: 1,NONE: 1,READ: 1,SRFUR__PRODUCTEDIT: 1,SRFUR__STORY_ACTIVE_BUTTON: 1,UPDATE: 1,WFSTART: 1}; 
+    public defaultOPPrivs: any = {CREATE: 1,DELETE: 1,DENY: 1,NONE: 1,READ: 1,SRFUR__PROD_CLOSED_BUT: 1,SRFUR__PROD_CREATE_BUT: 1,SRFUR__PROD_DELETE_BUT: 1,SRFUR__PROD_EDIT_BUT: 1,SRFUR__PROD_EDIT_BUT: 1,SRFUR__PROD_UPDATE_BUT: 1,SRFUR__STORY_ACTIVE_BUT: 1,SRFUR__STORY_CLOSED_BUT: 1,UPDATE: 1,WFSTART: 1}; 
 
     /**
      * Creates an instance of AuthService.
@@ -91,8 +91,14 @@ export default class AuthService {
      * @memberof AuthService
      */ 
     public registerSysOPPrivs(){
-        this.sysOPPrivsMap.set('SRFUR__PRODUCTEDIT','PRODUCTEDIT');
-        this.sysOPPrivsMap.set('SRFUR__STORY_ACTIVE_BUTTON','STORY_ACTIVE_BUTTON');
+        this.sysOPPrivsMap.set('SRFUR__PROD_CLOSED_BUT','PROD_CLOSED_BUT');
+        this.sysOPPrivsMap.set('SRFUR__PROD_CREATE_BUT','PROD_CREATE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__PROD_DELETE_BUT','PROD_DELETE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__PROD_EDIT_BUT','PROD_EDIT_BUT');
+        this.sysOPPrivsMap.set('SRFUR__PROD_EDIT_BUT','PROD_EDIT_BUT');
+        this.sysOPPrivsMap.set('SRFUR__PROD_UPDATE_BUT','PROD_UPDATE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__STORY_ACTIVE_BUT','STORY_ACTIVE_BUT');
+        this.sysOPPrivsMap.set('SRFUR__STORY_CLOSED_BUT','STORY_CLOSED_BUT');
     }
 
     /**

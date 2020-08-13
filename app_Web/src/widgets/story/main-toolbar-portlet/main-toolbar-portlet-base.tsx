@@ -379,7 +379,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__STORY_ACTIVE_BUTTON',
+        dataaccaction:'SRFUR__STORY_ACTIVE_BUT',
         visabled:true,
         disabled:false
         },

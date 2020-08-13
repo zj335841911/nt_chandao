@@ -178,7 +178,8 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
+        dataaccaction:'SRFUR__PROD_CLOSED_BUT',
         visabled:true,
         disabled:false
         },
@@ -187,7 +188,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__PRODUCTEDIT',
+        dataaccaction:'SRFUR__PROD_EDIT_BUT',
         visabled:true,
         disabled:false
         },
@@ -195,7 +196,8 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
+        dataaccaction:'SRFUR__PROD_DELETE_BUT',
         visabled:true,
         disabled:false
         }

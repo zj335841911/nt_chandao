@@ -3,8 +3,13 @@
     "unires":[
         
        {
-            "unirescode":"PRODUCTEDIT",
-            "uniresname":"产品编辑按钮资源"
+            "unirescode":"PROD_UPDATE_BUT",
+            "uniresname":"产品更新"
+       }
+        ,
+       {
+            "unirescode":"PROD_EDIT_BUT",
+            "uniresname":"产品编辑"
        }
         ,
        {
@@ -13,22 +18,37 @@
        }
         ,
        {
-            "unirescode":"STORY_ACTIVE_BUTTON",
+            "unirescode":"PROD_CREATE_BUT",
+            "uniresname":"产品新建"
+       }
+        ,
+       {
+            "unirescode":"STORY_ACTIVE_BUT",
             "uniresname":"需求激活"
        }
         ,
        {
-            "unirescode":"STORY_EDIT_BUTTON",
+            "unirescode":"PROD_DELETE_BUT",
+            "uniresname":"产品删除"
+       }
+        ,
+       {
+            "unirescode":"STORY_EDIT_BUT",
             "uniresname":"需求编辑"
        }
         ,
        {
-            "unirescode":"STORY_CLOSED_BUTTON",
+            "unirescode":"PROD_CLOSED_BUT",
+            "uniresname":"产品关闭"
+       }
+        ,
+       {
+            "unirescode":"STORY_CLOSED_BUT",
             "uniresname":"需求关闭"
        }
         ,
        {
-            "unirescode":"STORY_CHANGED_BUTTON",
+            "unirescode":"STORY_CHANGED_BUT",
             "uniresname":"需求变更"
        }
     ],
