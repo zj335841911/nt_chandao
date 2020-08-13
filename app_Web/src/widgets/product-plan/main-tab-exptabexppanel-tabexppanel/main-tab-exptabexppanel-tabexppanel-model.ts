@@ -51,6 +51,12 @@ export default class MainTabExptabexppanelModel {
       {
         name: 'statuss',
       },
+      {
+        name: 'future',
+      },
+      {
+        name: 'delta',
+      },
     ]
   }
 

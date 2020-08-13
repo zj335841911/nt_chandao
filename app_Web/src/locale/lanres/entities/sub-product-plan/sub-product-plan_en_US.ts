@@ -13,6 +13,8 @@ export default {
     parent: "父计划",
     product: "产品",
     statuss: "状态",
+    future: "待定",
+    delta: "周期",
   },
 	views: {
 		subplancreateview: {

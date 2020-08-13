@@ -51,6 +51,12 @@ export default class MainTabExptabviewpanel2Model {
       {
         name: 'statuss',
       },
+      {
+        name: 'future',
+      },
+      {
+        name: 'delta',
+      },
     ]
   }
 

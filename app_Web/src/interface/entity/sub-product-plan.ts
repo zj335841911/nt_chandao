@@ -101,4 +101,20 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     statuss?: any;
+
+    /**
+     * 待定
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    future?: any;
+
+    /**
+     * 周期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    delta?: any;
 }

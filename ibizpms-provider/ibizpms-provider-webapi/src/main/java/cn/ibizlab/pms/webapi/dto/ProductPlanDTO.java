@@ -122,6 +122,22 @@ public class ProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("statuss")
     private String statuss;
 
+    /**
+     * 属性 [FUTURE]
+     *
+     */
+    @JSONField(name = "future")
+    @JsonProperty("future")
+    private String future;
+
+    /**
+     * 属性 [DELTA]
+     *
+     */
+    @JSONField(name = "delta")
+    @JsonProperty("delta")
+    private String delta;
+
 
     /**
      * 设置 [TITLE]

@@ -186,34 +186,6 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet3_uf8a8e0c_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_CloseStoryDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public dashboard_sysportlet3_u92abbe0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -232,6 +204,34 @@ export class MainToolbarPortletBase extends MainControlBase {
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
         curUIService.Story_AssignToDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet3_uf8a8e0c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_CloseStoryDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -367,20 +367,20 @@ export class MainToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
+        { viewlogicname:"dashboard_sysportlet3_u92abbe0_click",
+        text: "指派",
+        iconcls: "fa fa-hand-o-right",
+        icon: "",
+        noprivdisplaymode: 2,
+        visabled:true,
+        disabled:false
+        },
         { viewlogicname:"dashboard_sysportlet3_uf8a8e0c_click",
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_CLOSED_BUT',
-        visabled:true,
-        disabled:false
-        },
-        { viewlogicname:"dashboard_sysportlet3_u92abbe0_click",
-        text: "指派",
-        iconcls: "fa fa-hand-o-right",
-        icon: "",
-        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },
@@ -421,11 +421,11 @@ export class MainToolbarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet3_u09da395_click')){
             this.dashboard_sysportlet3_u09da395_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet3_uf8a8e0c_click')){
-            this.dashboard_sysportlet3_uf8a8e0c_click(null);
-        }
         if(Object.is($event,'dashboard_sysportlet3_u92abbe0_click')){
             this.dashboard_sysportlet3_u92abbe0_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_uf8a8e0c_click')){
+            this.dashboard_sysportlet3_uf8a8e0c_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_u80095ee_click')){
             this.dashboard_sysportlet3_u80095ee_click(null);

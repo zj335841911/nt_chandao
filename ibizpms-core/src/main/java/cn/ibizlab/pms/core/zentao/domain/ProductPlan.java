@@ -130,6 +130,20 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "statuss")
     @JsonProperty("statuss")
     private String statuss;
+    /**
+     * 待定
+     */
+    @TableField(exist = false)
+    @JSONField(name = "future")
+    @JsonProperty("future")
+    private String future;
+    /**
+     * 周期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delta")
+    @JsonProperty("delta")
+    private String delta;
 
     /**
      * 
