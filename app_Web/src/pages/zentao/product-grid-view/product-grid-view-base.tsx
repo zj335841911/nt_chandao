@@ -104,6 +104,9 @@ export class ProductGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
+        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
+        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+
     };
 
 
@@ -159,6 +162,9 @@ export class ProductGridViewBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
         }
     }
 
@@ -243,6 +249,34 @@ export class ProductGridViewBase extends GridViewBase {
         }
         // 界面行为
         this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Product");
     }
 
     /**
@@ -345,5 +379,23 @@ export class ProductGridViewBase extends GridViewBase {
         } else if (_this.refresh && _this.refresh instanceof Function) {
             _this.refresh(args);
         }
+    }
+    /**
+     * 导出
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProductGridViewBase
+     */
+    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
+            return ;
+        }
+        xData.exportExcel($event.exportparms);
     }
 }

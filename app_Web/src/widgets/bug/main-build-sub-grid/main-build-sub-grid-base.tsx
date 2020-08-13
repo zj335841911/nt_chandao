@@ -243,8 +243,8 @@ export class Main_BuildSubGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
-        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESOLVE', target: 'SINGLEKEY'},
-        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
+        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY'},
+        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', target: 'SINGLEKEY'},
         Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };

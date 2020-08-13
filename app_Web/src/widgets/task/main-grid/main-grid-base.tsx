@@ -242,7 +242,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ASSIGN', target: 'SINGLEKEY'},
+        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY'},
         StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'START', target: 'SINGLEKEY'},
         CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
         DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'COMPLETE', target: 'SINGLEKEY'},

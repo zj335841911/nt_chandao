@@ -60,6 +60,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

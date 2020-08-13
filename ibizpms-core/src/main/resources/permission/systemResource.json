@@ -13,7 +13,7 @@
        }
         ,
        {
-            "unirescode":"PROJECT_START_BUT",
+            "unirescode":"PROJ_START_BUT",
             "uniresname":"项目开始"
        }
         ,
@@ -25,6 +25,16 @@
        {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
+       }
+        ,
+       {
+            "unirescode":"PROJ_DELAY_BUT",
+            "uniresname":"项目延期"
+       }
+        ,
+       {
+            "unirescode":"PROJ_EDIT_BUT",
+            "uniresname":"项目编辑"
        }
         ,
        {
@@ -43,6 +53,11 @@
        }
         ,
        {
+            "unirescode":"PROJ_SUSPEND_BUT",
+            "uniresname":"项目挂起"
+       }
+        ,
+       {
             "unirescode":"PROD_CREATE_BUT",
             "uniresname":"产品新建"
        }
@@ -55,6 +70,11 @@
        {
             "unirescode":"TASK_SUBTASKS_BUT",
             "uniresname":"任务子任务"
+       }
+        ,
+       {
+            "unirescode":"PROP_CHILD_BUT",
+            "uniresname":"计划子计划"
        }
         ,
        {
@@ -90,6 +110,11 @@
        {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
+       }
+        ,
+       {
+            "unirescode":"PROJ_ACTIVATION_BUT",
+            "uniresname":"项目激活"
        }
         ,
        {
@@ -165,6 +190,11 @@
        {
             "unirescode":"STORY_CHANGED_BUT",
             "uniresname":"需求变更"
+       }
+        ,
+       {
+            "unirescode":"PROJ_CLOSED_BUT",
+            "uniresname":"项目关闭"
        }
     ],
     "entities":[

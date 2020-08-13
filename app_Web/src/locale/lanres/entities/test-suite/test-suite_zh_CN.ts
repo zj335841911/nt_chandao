@@ -100,5 +100,13 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 };

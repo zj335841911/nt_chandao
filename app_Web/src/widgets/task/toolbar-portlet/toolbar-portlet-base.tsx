@@ -494,7 +494,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 1,
-        dataaccaction:'ASSIGN',
+        dataaccaction:'SRFUR__TASK_ASSIGN_BUT',
         visabled:true,
         disabled:false
         },
@@ -537,7 +537,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 1,
-        dataaccaction:'ACTIVATION',
+        dataaccaction:'SRFUR__TASK_ACTIVATION_BUT',
         visabled:true,
         disabled:false
         },

@@ -113,9 +113,9 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{}));
-        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{}));
-        this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{}));
+        this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{'SRFUR__PROP_EDIT_BUT':1,'SRFUR__PROP_LBUG_BUT':1,'SRFUR__PROP_DELETE_BUT':1,'SRFUR__PROP_LSTORY_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{'SRFUR__PROP_CHILD_BUT':1,'SRFUR__PROP_DELETE_BUT':1,'SRFUR__PROP_LSTORY_BUT':1,'SRFUR__PROP_EDIT_BUT':1,'SRFUR__PROP_LBUG_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':0,'DELETE':0,'READ':0,'UPDATE':0},{'SRFUR__PROP_LBUG_BUT':1,'SRFUR__PROP_CHILD_BUT':1,'SRFUR__PROP_LSTORY_BUT':1,'SRFUR__PROP_EDIT_BUT':1,}));
     }
 
     /**
@@ -319,6 +319,67 @@ export default class ProductPlanUIServiceBase extends UIService {
                 backend();
             }
         });
+    }
+
+    /**
+     * 创建计划
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductPlan_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+        ];
+        const parameters: any[] = [
+            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'product-plan-sub-plan-create-view', 
+                height: 500, 
+                width: 800,  
+                title: actionContext.$t('entities.subproductplan.views.subplancreateview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**

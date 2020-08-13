@@ -354,6 +354,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-search",
         icon: "",
         noprivdisplaymode: 1,
+        dataaccaction:'SRFUR__STORY_REVIEW_BUT',
         visabled:true,
         disabled:false
         },
@@ -370,7 +371,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-power-off",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'CLOSED',
+        dataaccaction:'SRFUR__STORY_CLOSED_BUT',
         visabled:true,
         disabled:false
         },

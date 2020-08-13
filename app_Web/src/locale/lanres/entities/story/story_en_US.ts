@@ -863,6 +863,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	plansubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1031,11 +1039,27 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	reportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {

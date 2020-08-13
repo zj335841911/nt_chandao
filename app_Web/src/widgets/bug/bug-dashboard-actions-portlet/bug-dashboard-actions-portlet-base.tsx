@@ -409,7 +409,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-power-off",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'CLOSE',
+        dataaccaction:'SRFUR__BUG_CLOSE_BUT',
         visabled:true,
         disabled:false
         },
@@ -418,7 +418,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-check-square-o",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'RESOLVE',
+        dataaccaction:'SRFUR__BUG_RESOLVE_BUT',
         visabled:true,
         disabled:false
         },
@@ -427,7 +427,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 1,
-        dataaccaction:'ASSIGNTO',
+        dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',
         visabled:true,
         disabled:false
         },
@@ -445,7 +445,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 1,
-        dataaccaction:'ACTIVATE',
+        dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',
         visabled:true,
         disabled:false
         },
@@ -462,7 +462,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 1,
-        dataaccaction:'ASSIGNTO',
+        dataaccaction:'SRFUR__BUG_CREATECASE_BUT',
         visabled:true,
         disabled:false
         },

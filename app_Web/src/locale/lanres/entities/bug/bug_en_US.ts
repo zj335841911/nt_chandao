@@ -805,6 +805,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -829,6 +837,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	editview_4791toolbar_toolbar: {
 		deuiaction1: {
@@ -847,11 +863,27 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -884,6 +916,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	todoeditviewtoolbar_toolbar: {

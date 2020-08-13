@@ -804,6 +804,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -828,6 +836,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	editview_4791toolbar_toolbar: {
 		deuiaction1: {
@@ -846,11 +862,27 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -883,6 +915,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	todoeditviewtoolbar_toolbar: {
