@@ -467,7 +467,7 @@ export default class SubProductPlanServiceBase extends EntityService {
     }
 
     /**
-     * GetEnd接口方法
+     * GetPlanEnd接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -475,12 +475,12 @@ export default class SubProductPlanServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof SubProductPlanServiceBase
      */
-    public async GetEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async GetPlanEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan &&  true){
-            return Http.getInstance().post(`products/${context.product}/productplans/${context.productplan}/subproductplans/getend`,data,isloading);
+            return Http.getInstance().post(`products/${context.product}/productplans/${context.productplan}/subproductplans/getplanend`,data,isloading);
         }
         if(context.productplan &&  true){
-            return Http.getInstance().post(`productplans/${context.productplan}/subproductplans/getend`,data,isloading);
+            return Http.getInstance().post(`productplans/${context.productplan}/subproductplans/getplanend`,data,isloading);
         }
     }
 }

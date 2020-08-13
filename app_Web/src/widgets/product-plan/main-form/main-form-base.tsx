@@ -168,6 +168,24 @@ export class MainEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof MainEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'future')) {
+            this.onFormItemValueChange({ name: 'begin', value: null });
+        }
+        if (Object.is(name, 'future')) {
+            this.onFormItemValueChange({ name: 'end', value: null });
+        }
+        if (Object.is(name, 'end')) {
+            this.onFormItemValueChange({ name: 'delta', value: null });
+        }
+    }
+
+    /**
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
@@ -193,7 +211,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'oldtitle')) {
             let ret = false;
             const _oldtitle = this.data.oldtitle;
-            if (this.$verify.testCond(_oldtitle, 'NOTEQ', '')) {
+            if (this.$verify.testCond(_oldtitle, 'ISNOTNULL', '')) {
                 ret = true;
             }
             this.detailsModel.oldtitle.setVisible(ret);
@@ -231,7 +249,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         if (Object.is(name, 'delta')) {
             const details: string[] = ['end'];
-            this.updateFormItems('getEnd', this.data, details, true);
+            this.updateFormItems('getPlanEnd', this.data, details, true);
         }
     }
 }

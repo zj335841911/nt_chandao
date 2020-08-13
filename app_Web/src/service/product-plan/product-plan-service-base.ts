@@ -414,7 +414,7 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
-     * GetEnd接口方法
+     * GetPlanEnd接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -422,6 +422,6 @@ export default class ProductPlanServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProductPlanServiceBase
      */
-    public async GetEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async GetPlanEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }
