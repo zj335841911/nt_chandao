@@ -14,6 +14,7 @@ export default {
     statuss: "状态",
     future: "待定",
     delta: "周期",
+    oldtitle: "上一次计划名称",
   },
 	views: {
 		maintabexp: {
@@ -63,6 +64,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
 			group1: "productplan基本信息", 
 			formpage1: "基本信息", 
@@ -76,6 +78,7 @@ export default {
 			product: "产品", 
 			branch: "平台/分支", 
 			title: "名称", 
+			oldtitle: "", 
 			begin: "开始日期", 
 			future: "", 
 			end: "结束日期", 

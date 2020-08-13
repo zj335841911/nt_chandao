@@ -66,6 +66,11 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'oldtitle',
+        prop: 'oldtitle',
+        dataType: 'TEXT',
+      },
+      {
         name: 'begin',
         prop: 'begin',
         dataType: 'DATE',

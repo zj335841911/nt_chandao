@@ -117,4 +117,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     delta?: any;
+
+    /**
+     * 上一次计划名称
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    oldtitle?: any;
 }

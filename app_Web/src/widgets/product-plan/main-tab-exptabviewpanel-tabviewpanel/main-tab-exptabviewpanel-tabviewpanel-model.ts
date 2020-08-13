@@ -57,6 +57,9 @@ export default class MainTabExptabviewpanelModel {
       {
         name: 'delta',
       },
+      {
+        name: 'oldtitle',
+      },
     ]
   }
 

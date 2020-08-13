@@ -8,8 +8,11 @@
         <tns:global identifier="productplangetoldplannamedefault" type="cn.ibizlab.pms.core.zentao.domain.ProductPlan" />
         </extensionElements>
      <startEvent id="E64BB774-5C7C-4316-8337-DB49DC1DCC4A" isInterrupting="true"/>
-     <endEvent id="E64BB774-5C7C-4316-8337-DB49DC1DCC4A_End" name="End"/>
-     <sequenceFlow id="E64BB774-5C7C-4316-8337-DB49DC1DCC4A_End_Line" sourceRef="E64BB774-5C7C-4316-8337-DB49DC1DCC4A" targetRef="E64BB774-5C7C-4316-8337-DB49DC1DCC4A_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productplangetoldplannamerawsqlcall1" id="CC147C68-D749-4B19-9234-7B29C47C1B43" implementation="http://www.jboss.org/drools/rule" name="获取名称"/>
+     <endEvent id="CC147C68-D749-4B19-9234-7B29C47C1B43_End" name="End"/>
+     <sequenceFlow id="CC147C68-D749-4B19-9234-7B29C47C1B43_End_Line" sourceRef="CC147C68-D749-4B19-9234-7B29C47C1B43" targetRef="CC147C68-D749-4B19-9234-7B29C47C1B43_End"/>
+     <sequenceFlow id="5E98A0E0-69EA-472C-9B6B-3282F0CAE758" sourceRef="E64BB774-5C7C-4316-8337-DB49DC1DCC4A" targetRef="CC147C68-D749-4B19-9234-7B29C47C1B43">
+     </sequenceFlow>
     </process>
 </definitions>
 

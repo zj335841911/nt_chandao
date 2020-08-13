@@ -57,6 +57,9 @@ export default class MainTabExptabexppanelModel {
       {
         name: 'delta',
       },
+      {
+        name: 'oldtitle',
+      },
     ]
   }
 

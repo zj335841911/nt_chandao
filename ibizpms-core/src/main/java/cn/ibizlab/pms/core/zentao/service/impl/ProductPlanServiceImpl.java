@@ -60,6 +60,10 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetOldPlanNameLogic getoldplannameLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -131,6 +135,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     public ProductPlan getDraft(ProductPlan et) {
         fillParentData(et);
+        getoldplannameLogic.execute(et);
         return et;
     }
 

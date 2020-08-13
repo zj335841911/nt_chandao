@@ -117,4 +117,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     delta?: any;
+
+    /**
+     * 上一次计划名称
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    oldtitle?: any;
 }

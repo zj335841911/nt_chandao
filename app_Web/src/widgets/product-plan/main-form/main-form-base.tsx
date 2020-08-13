@@ -84,6 +84,7 @@ export class MainEditFormBase extends EditFormControlBase {
         product: null,
         branch: null,
         title: null,
+        oldtitle: null,
         begin: null,
         future: null,
         end: null,
@@ -122,6 +123,8 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.main_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.main_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: 'productplan基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.main_form', extractMode: 'ITEM', details: [] } }),
@@ -147,6 +150,8 @@ export class MainEditFormBase extends EditFormControlBase {
         branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        oldtitle: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'oldtitle', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -183,6 +188,16 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+
+
+        if (Object.is(name, '') || Object.is(name, 'oldtitle')) {
+            let ret = false;
+            const _oldtitle = this.data.oldtitle;
+            if (this.$verify.testCond(_oldtitle, 'NOTEQ', '')) {
+                ret = true;
+            }
+            this.detailsModel.oldtitle.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'future')) {
             let ret = false;

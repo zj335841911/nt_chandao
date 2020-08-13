@@ -138,6 +138,14 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("delta")
     private String delta;
 
+    /**
+     * 属性 [OLDTITLE]
+     *
+     */
+    @JSONField(name = "oldtitle")
+    @JsonProperty("oldtitle")
+    private String oldtitle;
+
 
     /**
      * 设置 [TITLE]

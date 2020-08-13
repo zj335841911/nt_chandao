@@ -14,6 +14,7 @@ export default {
     statuss: "状态",
     future: "待定",
     delta: "周期",
+    oldtitle: "上一次计划名称",
   },
 	views: {
 		subplancreateview: {
