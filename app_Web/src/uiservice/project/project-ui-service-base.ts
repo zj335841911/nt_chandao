@@ -130,7 +130,7 @@ export default class ProjectUIServiceBase extends UIService {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'DELETE':0,'ACTIVATION':0,'EDIT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'SUSPEND':0,'CLOSED':0,'DELAY':0,'DELETE':0,'EDIT':0,}));
-        this.allDeMainStateOPPrivsMap.set('suspended',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'CLOSED':0,'SRFUR__PROJ_CLOSED_BUT':0,'ACTIVATION':0,'EDIT':0,'DELETE':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'DELETE':0,'SRFUR__PROJ_EDIT_BUT':0,'SRFUR__PROJ_ACTIVATION_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATION':1,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':1,'EDIT':1,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1},{'CLOSED':0,'EDIT':0,'SUSPEND':0,'START':0,'DELETE':0,'DELAY':0,}));
     }
 
