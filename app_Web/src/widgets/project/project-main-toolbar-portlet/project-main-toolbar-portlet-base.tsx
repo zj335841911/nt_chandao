@@ -282,7 +282,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-calendar-o",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'DELAY',
+        dataaccaction:'SRFUR__PROJ_DELAY_BUT',
         visabled:true,
         disabled:false
         },
@@ -291,7 +291,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-pause",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'SUSPEND',
+        dataaccaction:'SRFUR__PROJ_SUSPEND_BUT',
         visabled:true,
         disabled:false
         },
@@ -300,7 +300,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-plug",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'ACTIVATION',
+        dataaccaction:'SRFUR__PROJ_ACTIVATION_BUT',
         visabled:true,
         disabled:false
         },
@@ -309,7 +309,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-power-off",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'CLOSED',
+        dataaccaction:'SRFUR__PROJ_CLOSED_BUT',
         visabled:true,
         disabled:false
         },
@@ -318,7 +318,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'EDIT',
+        dataaccaction:'SRFUR__PROJ_EDIT_BUT',
         visabled:true,
         disabled:false
         },

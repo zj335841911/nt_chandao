@@ -12,7 +12,7 @@ import { authServiceRegister } from '@/authservice/auth-service-register';
 import { utilServiceRegister } from '@/utilservice/util-service-register';
 import { entityServiceRegister } from '@/service/entity-service-register';
 import { counterServiceRegister } from '@/counter/counter-service-register';
-
+import iBizVueLib from 'ibiz-vue-lib';
 import InputBox from './components/input-box/input-box.vue'
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue'
 import TabPageExp from './components/tab-page-exp/tab-page-exp.vue'
@@ -96,6 +96,7 @@ export const AppComponents = {
         v.prototype.$verify = Verify;
         v.prototype.$viewTool = ViewTool;
         v.prototype.$uiActionTool = UIActionTool;
+        v.use(iBizVueLib);
         v.component('input-box', InputBox);
         v.component('app-keep-alive',AppKeepAlive);
         v.component('tab-page-exp',TabPageExp);
@@ -160,5 +161,7 @@ export const AppComponents = {
         v.component('app-transfer',AppTransfer);
         v.component('context-menu-drag',ContextMenuDrag);
         v.component('app-update-password',UpdatePwd);
+        v.component('app-department-select', () => import('./components/app-department-select/app-department-select.vue'));
+        v.component('app-org-select', () => import('./components/app-org-select/app-org-select.vue'));
     },
 };

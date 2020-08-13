@@ -132,7 +132,7 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__PROD_DELETE_BUT':1,'SRFUR__PROD_EDIT_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CLOSED':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'UPDATE':1},{'SRFUR__PROD_CLOSED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CLOSED':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'UPDATE':0},{'SRFUR__PROD_DELETE_BUT':1,'SRFUR__PROD_CLOSED_BUT':1,'SRFUR__PROD_EDIT_BUT':1,}));
     }
 

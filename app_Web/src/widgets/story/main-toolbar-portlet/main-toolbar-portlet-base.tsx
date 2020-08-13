@@ -345,7 +345,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-exchange",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'CHANGED',
+        dataaccaction:'SRFUR__STORY_CHANGED_BUT',
         visabled:true,
         disabled:false
         },

@@ -214,7 +214,7 @@ export class Main3GridBase extends GridControlBase {
      * @memberof Main3Base
      */  
     public ActionModel: any = {
-        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CHANGED', target: 'SINGLEKEY'},
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
         ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
         CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
         OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'EDIT', target: 'SINGLEKEY'},

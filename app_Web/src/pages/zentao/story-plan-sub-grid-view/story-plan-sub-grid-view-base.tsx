@@ -124,7 +124,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @memberof StoryPlanSubGridView
      */
     public toolBarModels: any = {
-        deuiaction3_planrelationstory: { name: 'deuiaction3_planrelationstory', caption: '关联需求', 'isShowCaption': false, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'PlanRelationStory', target: 'NONE', class: '' } },
+        deuiaction3_planrelationstory: { name: 'deuiaction3_planrelationstory', caption: '关联需求', 'isShowCaption': false, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', uiaction: { tag: 'PlanRelationStory', target: 'NONE', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
