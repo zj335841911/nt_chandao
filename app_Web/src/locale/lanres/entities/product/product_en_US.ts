@@ -373,9 +373,9 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
+		deuiaction3_remove: {
+			caption: "删除",
+			tip: "删除",
 		},
 		seperator1: {
 			caption: "",
@@ -384,14 +384,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
@@ -402,14 +394,6 @@ export default {
 		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
 		},
 		seperator1: {
 			caption: "",

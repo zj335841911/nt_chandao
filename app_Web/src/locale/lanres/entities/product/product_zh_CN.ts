@@ -372,7 +372,7 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction4: {
+		deuiaction3_remove: {
 			caption: "删除",
 			tip: "删除",
 		},
@@ -384,14 +384,6 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "导出",
-			tip: "导出",
-		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
@@ -399,14 +391,6 @@ export default {
 			tip: "管理",
 		},
 		deuiaction3_create: {
-			caption: "新建",
-			tip: "新建",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
 			caption: "新建",
 			tip: "新建",
 		},
