@@ -11,6 +11,7 @@ export default {
     branch: "平台/分支",
     parent: "父计划",
     product: "产品",
+    statuss: "状态",
   },
 	views: {
 		subplancreateview: {

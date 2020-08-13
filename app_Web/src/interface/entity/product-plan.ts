@@ -93,4 +93,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     product?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    statuss?: any;
 }

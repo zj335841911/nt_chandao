@@ -114,6 +114,14 @@ public class ProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("product")
     private BigInteger product;
 
+    /**
+     * 属性 [STATUSS]
+     *
+     */
+    @JSONField(name = "statuss")
+    @JsonProperty("statuss")
+    private String statuss;
+
 
     /**
      * 设置 [TITLE]

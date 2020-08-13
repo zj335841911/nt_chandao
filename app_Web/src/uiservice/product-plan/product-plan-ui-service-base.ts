@@ -53,7 +53,7 @@ export default class ProductPlanUIServiceBase extends UIService {
      * 
      * @memberof  ProductPlanUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['statuss'];
 
     /**
      * 主状态集合Map

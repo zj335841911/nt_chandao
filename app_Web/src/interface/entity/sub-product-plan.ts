@@ -93,4 +93,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     product?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    statuss?: any;
 }

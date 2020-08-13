@@ -48,6 +48,9 @@ export default class MainTabExptabviewpanel4Model {
       {
         name: 'product',
       },
+      {
+        name: 'statuss',
+      },
     ]
   }
 

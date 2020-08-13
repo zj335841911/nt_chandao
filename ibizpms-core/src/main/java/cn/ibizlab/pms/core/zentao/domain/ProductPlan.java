@@ -123,6 +123,13 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private BigInteger product;
+    /**
+     * 状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "statuss")
+    @JsonProperty("statuss")
+    private String statuss;
 
     /**
      * 

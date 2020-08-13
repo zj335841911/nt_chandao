@@ -140,9 +140,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':0,'DELETE':0,'READ':0,'RESOLVE':0,'UPDATE':0},{'UPDATE':1,'CONFIRM':1,'CREATECASE':1,'DELETE':1,'ASSIGNTO':1,'RESOLVE':1,}));
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':0,'DELETE':0,'READ':0,'RESOLVE':0,'UPDATE':0},{'UPDATE':1,'ASSIGNTO':1,'ACTIVATE':1,'DELETE':1,'CREATECASE':1,}));
-        this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':0,'DELETE':0,'READ':0,'RESOLVE':0,'UPDATE':0},{'CLOSE':1,'UPDATE':1,'ACTIVATE':1,'CREATECASE':1,'DELETE':1,'ASSIGNTO':1,}));
+        this.allDeMainStateOPPrivsMap.set('active',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':0,'DELETE':0,'READ':0,'RESOLVE':0,'UPDATE':0},{'SRFUR__BUG_CREATECASE_BUT':1,'UPDATE':1,'SRFUR__BUG_CONFIRM_BUT':1,'SRFUR__BUG_ASSIGNTO_BUT':1,'DELETE':1,'SRFUR__BUG_RESOLVE_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':0,'DELETE':0,'READ':0,'RESOLVE':0,'UPDATE':0},{'UPDATE':1,'SRFUR__BUG_CREATECASE_BUT':1,'SRFUR__BUG_ASSIGNTO_BUT':1,'DELETE':1,'SRFUR__BUG_ACTIVATE_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':0,'DELETE':0,'READ':0,'RESOLVE':0,'UPDATE':0},{'SRFUR__BUG_CLOSE_BUT':1,'UPDATE':1,'SRFUR__BUG_CREATECASE_BUT':1,'SRFUR__BUG_ASSIGNTO_BUT':1,'SRFUR__BUG_ACTIVATE_BUT':1,'DELETE':1,}));
     }
 
     /**

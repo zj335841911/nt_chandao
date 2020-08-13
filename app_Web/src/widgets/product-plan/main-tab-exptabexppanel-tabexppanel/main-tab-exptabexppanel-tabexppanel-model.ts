@@ -48,6 +48,9 @@ export default class MainTabExptabexppanelModel {
       {
         name: 'product',
       },
+      {
+        name: 'statuss',
+      },
     ]
   }
 
