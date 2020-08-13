@@ -98,6 +98,11 @@
        }
         ,
        {
+            "unirescode":"BUG_DELETE_BUT",
+            "uniresname":"Bug删除"
+       }
+        ,
+       {
             "unirescode":"PROJ_SUSPEND_BUT",
             "uniresname":"项目挂起"
        }

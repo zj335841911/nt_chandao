@@ -102,7 +102,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u1d352f4_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u7bbaff3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +119,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_MainEditDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -130,7 +130,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u09d7603_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u46c6b98_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +147,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_CloseBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_CloseBugDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -158,7 +158,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u84080b5_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u9666cf2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +175,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_ResolveBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_ResolveBugDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -214,7 +214,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u279d3f0_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u18c7ab6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -231,7 +231,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_ConfirmBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_ConfirmBugDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -396,7 +396,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u1d352f4_click",
+        { viewlogicname:"dashboard_sysportlet5_u7bbaff3_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -404,20 +404,20 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u09d7603_click",
+        { viewlogicname:"dashboard_sysportlet5_u46c6b98_click",
         text: "关闭",
-        iconcls: "fa fa-power-off",
+        iconcls: "fa fa-close",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CLOSE_BUT',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u84080b5_click",
+        { viewlogicname:"dashboard_sysportlet5_u9666cf2_click",
         text: "解决",
         iconcls: "fa fa-check-square-o",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_RESOLVE_BUT',
         visabled:true,
         disabled:false
@@ -431,11 +431,11 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u279d3f0_click",
+        { viewlogicname:"dashboard_sysportlet5_u18c7ab6_click",
         text: "确认",
         iconcls: "fa fa-eye",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CONFIRM_BUT',
         visabled:true,
         disabled:false
@@ -471,6 +471,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_DELETE_BUT',
         visabled:true,
         disabled:false
         }
@@ -485,20 +486,20 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet5_u3f6a0e7_click')){
             this.dashboard_sysportlet5_u3f6a0e7_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u1d352f4_click')){
-            this.dashboard_sysportlet5_u1d352f4_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u7bbaff3_click')){
+            this.dashboard_sysportlet5_u7bbaff3_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u09d7603_click')){
-            this.dashboard_sysportlet5_u09d7603_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u46c6b98_click')){
+            this.dashboard_sysportlet5_u46c6b98_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u84080b5_click')){
-            this.dashboard_sysportlet5_u84080b5_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u9666cf2_click')){
+            this.dashboard_sysportlet5_u9666cf2_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet5_ubef0a95_click')){
             this.dashboard_sysportlet5_ubef0a95_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u279d3f0_click')){
-            this.dashboard_sysportlet5_u279d3f0_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u18c7ab6_click')){
+            this.dashboard_sysportlet5_u18c7ab6_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet5_u1b279b1_click')){
             this.dashboard_sysportlet5_u1b279b1_click(null);

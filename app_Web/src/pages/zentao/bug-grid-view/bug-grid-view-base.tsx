@@ -442,11 +442,11 @@ export class BugGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'bug-edit-view', 
+            viewname: 'bug-main-dashboard-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.bug.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            title: this.$t('entities.bug.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }

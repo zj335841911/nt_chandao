@@ -755,7 +755,6 @@ export default {
         bug_resolvebug: "解决",
         bug_closebug: "关闭",
         bug_mainedit: "编辑",
-        copy: "Copy",
 		},
 	},
 	main_reportsub_grid: {

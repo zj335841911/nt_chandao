@@ -179,11 +179,6 @@
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Copy.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Copy.visabled" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.bug.main_grid.uiactions.copy')">
-                            <i class='fa fa-copy'></i>
-                            
-                          </a>
                         </div>
                     </template>
                 </el-table-column>
