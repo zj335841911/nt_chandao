@@ -232,7 +232,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "关联用例",
         iconcls: "fa fa-link",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_LINKCASE_BUT',
         visabled:true,
         disabled:false
@@ -241,7 +241,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_EDITSUITE_BUT',
         visabled:true,
         disabled:false
@@ -250,7 +250,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_DELETE_BUT',
         visabled:true,
         disabled:false

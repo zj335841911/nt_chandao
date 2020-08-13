@@ -102,7 +102,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u7e8df99_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_uc98202b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +119,7 @@ export class ActionBarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_Activite(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_ActiviteDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -130,7 +130,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_udf94c25_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u2824624_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +147,7 @@ export class ActionBarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_Start(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_StartDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -158,7 +158,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u403cfd0_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u71470a2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +175,7 @@ export class ActionBarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_Close(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_CloseDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -186,7 +186,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ufbd0009_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u134abc0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,7 +203,7 @@ export class ActionBarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_Block(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_BlockDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -256,38 +256,38 @@ export class ActionBarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u7e8df99_click",
+        { viewlogicname:"dashboard_sysportlet4_uc98202b_click",
         text: "激活",
         iconcls: "fa fa-magic",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_ACTIVITE_BUT',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_udf94c25_click",
+        { viewlogicname:"dashboard_sysportlet4_u2824624_click",
         text: "开始",
         iconcls: "fa fa-play",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_START_BUT',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u403cfd0_click",
+        { viewlogicname:"dashboard_sysportlet4_u71470a2_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_CLOSED_BUT',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_ufbd0009_click",
+        { viewlogicname:"dashboard_sysportlet4_u134abc0_click",
         text: "阻塞",
         iconcls: "fa fa-pause",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_BLOCK_BUT',
         visabled:true,
         disabled:false
@@ -303,17 +303,17 @@ export class ActionBarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet4_uff3ac3f_click')){
             this.dashboard_sysportlet4_uff3ac3f_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u7e8df99_click')){
-            this.dashboard_sysportlet4_u7e8df99_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_uc98202b_click')){
+            this.dashboard_sysportlet4_uc98202b_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_udf94c25_click')){
-            this.dashboard_sysportlet4_udf94c25_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u2824624_click')){
+            this.dashboard_sysportlet4_u2824624_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u403cfd0_click')){
-            this.dashboard_sysportlet4_u403cfd0_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u71470a2_click')){
+            this.dashboard_sysportlet4_u71470a2_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_ufbd0009_click')){
-            this.dashboard_sysportlet4_ufbd0009_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u134abc0_click')){
+            this.dashboard_sysportlet4_u134abc0_click(null);
         }
     }
 

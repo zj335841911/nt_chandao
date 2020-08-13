@@ -102,7 +102,7 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProjectLeftSidebarListView
      */
     public toolBarModels: any = {
-        deuiaction3_manager: { name: 'deuiaction3_manager', caption: '管理', 'isShowCaption': false, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROJ_MANAGE_BUT', uiaction: { tag: 'Manager', target: 'NONE', class: '' } },
+        deuiaction3_manager: { name: 'deuiaction3_manager', caption: '管理', 'isShowCaption': false, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_MANAGE_BUT', uiaction: { tag: 'Manager', target: 'NONE', class: '' } },
 
         deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 

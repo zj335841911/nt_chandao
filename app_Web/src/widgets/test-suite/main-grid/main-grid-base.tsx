@@ -75,7 +75,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u89500ba_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ud4ae5d7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -92,7 +92,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TestSuiteUIService  = new TestSuiteUIService();
-        curUIService.TestSuite_linkCase(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+        curUIService.TestSuite_linkCaseDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
     }
 
     /**
@@ -103,7 +103,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u880abe9_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u4c7125d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -120,7 +120,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TestSuiteUIService  = new TestSuiteUIService();
-        curUIService.TestSuite_Editsuite(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+        curUIService.TestSuite_EditsuiteDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
     }
 
     /**
@@ -131,7 +131,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u8c051a2_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uc4a3f1b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,28 +147,9 @@ export class MainGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"TestSuite");
+        const curUIService:TestSuiteUIService  = new TestSuiteUIService();
+        curUIService.TestSuite_DeleteDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
     }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof TestSuiteGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
-
 
     /**
      * 界面行为模型
@@ -177,9 +158,9 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkCase: { name: 'linkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', target: 'SINGLEKEY'},
-        Editsuite: { name: 'Editsuite',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', target: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        linkCaseDash: { name: 'linkCaseDash',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', target: 'SINGLEKEY'},
+        EditsuiteDash: { name: 'EditsuiteDash',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', target: 'SINGLEKEY'},
+        DeleteDash: { name: 'DeleteDash',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -349,14 +330,14 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('linkCase', tag)) {
-            this.grid_uagridcolumn1_u89500ba_click(row, tag, $event);
+        if(Object.is('linkCaseDash', tag)) {
+            this.grid_uagridcolumn1_ud4ae5d7_click(row, tag, $event);
         }
-        if(Object.is('Editsuite', tag)) {
-            this.grid_uagridcolumn1_u880abe9_click(row, tag, $event);
+        if(Object.is('EditsuiteDash', tag)) {
+            this.grid_uagridcolumn1_u4c7125d_click(row, tag, $event);
         }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u8c051a2_click(row, tag, $event);
+        if(Object.is('DeleteDash', tag)) {
+            this.grid_uagridcolumn1_uc4a3f1b_click(row, tag, $event);
         }
     }
 }

@@ -77,9 +77,9 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        testsuite_linkcase: "关联用例",
-        testsuite_editsuite: "编辑",
-        remove: "Remove",
+        testsuite_linkcasedash: "关联用例",
+        testsuite_editsuitedash: "编辑",
+        testsuite_deletedash: "删除",
 		},
 	},
 	editviewtoolbar_toolbar: {
