@@ -364,6 +364,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -371,6 +372,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'UPDATE',
         visabled:true,
         disabled:false
@@ -379,6 +381,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "删除",
         iconcls: "fa fa-trash",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'DELETE',
         visabled:true,
         disabled:false
@@ -387,6 +390,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'ASSIGNTO',
         visabled:true,
         disabled:false
@@ -395,6 +399,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "完成",
         iconcls: "fa fa-check-square-o",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'FINISH',
         visabled:true,
         disabled:false
@@ -403,6 +408,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "激活",
         iconcls: "fa fa-plane",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'ACTIVATE',
         visabled:true,
         disabled:false
@@ -411,6 +417,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'CLOSE',
         visabled:true,
         disabled:false
@@ -419,6 +426,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "转Bug",
         iconcls: null,
         icon: null,
+        noprivdisplaymode:'1',
         dataaccaction:'TOBUG',
         visabled:true,
         disabled:false
@@ -427,6 +435,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "转任务",
         iconcls: null,
         icon: null,
+        noprivdisplaymode:'1',
         dataaccaction:'TOTASK',
         visabled:true,
         disabled:false

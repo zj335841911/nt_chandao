@@ -300,6 +300,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -307,6 +308,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'RUN',
         visabled:true,
         disabled:false
@@ -315,6 +317,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'RESULT',
         visabled:true,
         disabled:false
@@ -323,6 +326,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "转Bug",
         iconcls: "fa fa-bug",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'TOBUG',
         visabled:true,
         disabled:false
@@ -331,6 +335,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'EDIT',
         visabled:true,
         disabled:false
@@ -339,6 +344,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "删除",
         iconcls: null,
         icon: null,
+        noprivdisplaymode:'1',
         dataaccaction:'DELETE',
         visabled:true,
         disabled:false

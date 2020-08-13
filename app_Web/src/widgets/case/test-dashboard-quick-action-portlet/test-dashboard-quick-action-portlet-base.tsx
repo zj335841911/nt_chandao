@@ -272,6 +272,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -279,6 +280,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'CASERUN',
         visabled:true,
         disabled:false
@@ -287,6 +289,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'CASERESULT',
         visabled:true,
         disabled:false
@@ -295,6 +298,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'EDIT',
         visabled:true,
         disabled:false
@@ -303,6 +307,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "删除",
         iconcls: null,
         icon: null,
+        noprivdisplaymode:'1',
         dataaccaction:'DELETE',
         visabled:true,
         disabled:false

@@ -336,6 +336,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -343,6 +344,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "变更",
         iconcls: "fa fa-exchange",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'CHANGED',
         visabled:true,
         disabled:false
@@ -351,6 +353,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "评审",
         iconcls: "fa fa-search",
         icon: "",
+        noprivdisplaymode:'1',
         visabled:true,
         disabled:false
         },
@@ -358,6 +361,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -365,6 +369,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'CLOSED',
         visabled:true,
         disabled:false
@@ -373,6 +378,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "激活",
         iconcls: null,
         icon: null,
+        noprivdisplaymode:'1',
         dataaccaction:'SRFUR__STORY_ACTIVE_BUTTON',
         visabled:true,
         disabled:false
@@ -381,6 +387,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode:'1',
         dataaccaction:'EDIT',
         visabled:true,
         disabled:false
@@ -389,6 +396,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         text: "删除",
         iconcls: null,
         icon: null,
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         }

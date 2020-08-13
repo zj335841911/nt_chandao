@@ -281,6 +281,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "延期",
         iconcls: "fa fa-calendar-o",
         icon: "",
+        noprivdisplaymode:'2',
         dataaccaction:'DELAY',
         visabled:true,
         disabled:false
@@ -289,6 +290,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "挂起",
         iconcls: "fa fa-pause",
         icon: "",
+        noprivdisplaymode:'2',
         dataaccaction:'SUSPEND',
         visabled:true,
         disabled:false
@@ -297,6 +299,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "激活",
         iconcls: "fa fa-plug",
         icon: "",
+        noprivdisplaymode:'2',
         dataaccaction:'ACTIVATION',
         visabled:true,
         disabled:false
@@ -305,6 +308,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        noprivdisplaymode:'2',
         dataaccaction:'CLOSED',
         visabled:true,
         disabled:false
@@ -313,6 +317,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode:'2',
         dataaccaction:'EDIT',
         visabled:true,
         disabled:false
@@ -321,6 +326,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         }

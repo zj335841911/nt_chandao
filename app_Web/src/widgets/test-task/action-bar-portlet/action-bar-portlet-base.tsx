@@ -252,6 +252,7 @@ export class ActionBarPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -259,6 +260,7 @@ export class ActionBarPortletBase extends MainControlBase {
         text: "激活",
         iconcls: "fa fa-magic",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -266,6 +268,7 @@ export class ActionBarPortletBase extends MainControlBase {
         text: "开始",
         iconcls: "fa fa-play",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -273,6 +276,7 @@ export class ActionBarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         },
@@ -280,6 +284,7 @@ export class ActionBarPortletBase extends MainControlBase {
         text: "阻塞",
         iconcls: "fa fa-pause",
         icon: "",
+        noprivdisplaymode:'2',
         visabled:true,
         disabled:false
         }

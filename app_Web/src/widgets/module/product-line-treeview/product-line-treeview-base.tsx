@@ -334,7 +334,7 @@ export class ProductLineTreeBase extends MainControlBase {
      * @type {boolean}
      * @memberof ProductLineBase
      */
-    public isOutputIconDefault: boolean = true;
+    public isOutputIconDefault: boolean = false;
 
 
     /**
