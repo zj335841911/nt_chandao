@@ -29,7 +29,7 @@ export default class UserRealNameW {
      * @type any
      * @memberof UserRealNameW
      */
-    public cacheTimeout:any = 6,000;
+    public cacheTimeout:any = 600;
 
     /**
      * 代码表模型对象
