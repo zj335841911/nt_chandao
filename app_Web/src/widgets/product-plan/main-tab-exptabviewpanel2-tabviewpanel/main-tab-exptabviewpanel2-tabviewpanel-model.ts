@@ -60,6 +60,9 @@ export default class MainTabExptabviewpanel2Model {
       {
         name: 'oldtitle',
       },
+      {
+        name: 'storycnt',
+      },
     ]
   }
 

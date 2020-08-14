@@ -109,8 +109,8 @@ export default class MainEditService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
+        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchCurUser')) {
+            return this.doItems(this.projectService.FetchCurUser(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
         if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchTaskModules')) {
             return this.doItems(this.projectmoduleService.FetchTaskModules(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'projectmodule');

@@ -81,6 +81,11 @@ export default class CaseToBugModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'projectname',
+        prop: 'projectname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'project',
         prop: 'project',
         dataType: 'PICKUP',
@@ -89,11 +94,6 @@ export default class CaseToBugModel {
         name: 'openedbuild',
         prop: 'openedbuild',
         dataType: 'SMCODELIST',
-      },
-      {
-        name: 'projectname',
-        prop: 'projectname',
-        dataType: 'PICKUPTEXT',
       },
       {
         name: 'assignedto',

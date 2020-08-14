@@ -448,42 +448,6 @@ export default {
 		uiactions: {
 		},
 	},
-	maingrid_grid: {
-		columns: {
-			id: "id",
-			pri: "P",
-			title: "用例标题",
-			type: "用例类型",
-			openedby: "创建",
-			lastrunner: "执行人",
-			lastrundate: "执行时间",
-			lastrunresult: "结果",
-			status1: "状态",
-			tobugcnt: "B",
-			resultcnt: "R",
-			casesteps: "S",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-        case_confirmstorychange: "确认",
-        case_opentestrunresultview: "结果",
-        case_execute: "执行",
-        case_mainedit: "编辑",
-        refresh: "刷新",
-        case_newbugbycaseresult: "转Bug",
-        remove: "Remove",
-		},
-	},
-	batchnew_grid: {
-		columns: {
-			modulename: "所属模块",
-			storyname: "相关需求",
-			title: "用例标题",
-			type: "用例类型",
-		},
-		uiactions: {
-		},
-	},
 	testmaingrid_grid: {
 		columns: {
 			id: "id",
@@ -522,6 +486,42 @@ export default {
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
 			status1: "状态",
+		},
+		uiactions: {
+		},
+	},
+	maingrid_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        case_confirmstorychange: "确认",
+        case_opentestrunresultview: "结果",
+        case_execute: "执行",
+        case_mainedit: "编辑",
+        refresh: "刷新",
+        case_newbugbycaseresult: "转Bug",
+        remove: "Remove",
+		},
+	},
+	batchnew_grid: {
+		columns: {
+			modulename: "所属模块",
+			storyname: "相关需求",
+			title: "用例标题",
+			type: "用例类型",
 		},
 		uiactions: {
 		},
@@ -588,6 +588,26 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	linkcasegridviewtoolbar_toolbar: {
+		deuiaction1_linkcase: {
+			caption: "保存",
+			tip: "保存",
+		},
+	},
+	curtesttaskgridviewtoolbar_toolbar: {
+		deuiaction1_linkcasec: {
+			caption: "关联用例",
+			tip: "关联用例",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
 	batchnewgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -628,26 +648,6 @@ export default {
 			tip: "",
 		},
 		deuiaction5: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
-	linkcasegridviewtoolbar_toolbar: {
-		deuiaction1_linkcase: {
-			caption: "保存",
-			tip: "保存",
-		},
-	},
-	curtesttaskgridviewtoolbar_toolbar: {
-		deuiaction1_linkcasec: {
-			caption: "关联用例",
-			tip: "关联用例",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

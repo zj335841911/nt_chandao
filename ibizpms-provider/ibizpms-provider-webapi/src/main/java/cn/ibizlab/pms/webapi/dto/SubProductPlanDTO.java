@@ -146,6 +146,14 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("oldtitle")
     private String oldtitle;
 
+    /**
+     * 属性 [STORYCNT]
+     *
+     */
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+
 
     /**
      * 设置 [TITLE]

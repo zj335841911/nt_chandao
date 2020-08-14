@@ -125,4 +125,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     oldtitle?: any;
+
+    /**
+     * 需求数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    storycnt?: any;
 }

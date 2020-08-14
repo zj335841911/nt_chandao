@@ -240,7 +240,7 @@ export class BugGridView9_StoryRelatedBase extends GridView9Base {
             height: 0, 
             width: 0,  
             title: this.$t('entities.bug.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

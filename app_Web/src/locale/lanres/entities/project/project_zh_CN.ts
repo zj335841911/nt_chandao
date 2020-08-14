@@ -56,6 +56,10 @@ export default {
 			caption: "项目",
       		title: "项目任务导航视图",
 		},
+		testtabexpview: {
+			caption: "测试",
+      		title: "项目分页导航视图（测试）",
+		},
 		editview_putoff: {
 			caption: "项目",
       		title: "项目",

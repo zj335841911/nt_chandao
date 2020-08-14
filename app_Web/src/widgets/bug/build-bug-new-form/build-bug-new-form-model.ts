@@ -86,14 +86,14 @@ export default class BuildBugNewModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'openedbuild',
-        prop: 'openedbuild',
-        dataType: 'SMCODELIST',
-      },
-      {
         name: 'projectname',
         prop: 'projectname',
         dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'openedbuild',
+        prop: 'openedbuild',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'assignedto',

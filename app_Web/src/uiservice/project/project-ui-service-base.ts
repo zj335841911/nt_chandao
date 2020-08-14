@@ -90,6 +90,7 @@ export default class ProjectUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});

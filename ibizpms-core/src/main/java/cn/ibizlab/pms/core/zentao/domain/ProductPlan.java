@@ -151,6 +151,13 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "oldtitle")
     @JsonProperty("oldtitle")
     private String oldtitle;
+    /**
+     * 需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
 
     /**
      * 

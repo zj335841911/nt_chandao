@@ -71,6 +71,11 @@ export default class ActivationModel {
         dataType: 'TEXT',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',

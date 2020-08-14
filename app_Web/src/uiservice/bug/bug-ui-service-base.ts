@@ -1385,7 +1385,7 @@ export default class BugUIServiceBase extends UIService {
     }
 
     /**
-     * 新建bug
+     * 新建
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -1443,7 +1443,7 @@ export default class BugUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.bug.views.editview.title'),
-                placement: 'DRAWER_TOP',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }

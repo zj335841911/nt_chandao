@@ -125,4 +125,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     oldtitle?: any;
+
+    /**
+     * 需求数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    storycnt?: any;
 }

@@ -94,6 +94,7 @@ export class ActivationEditFormBase extends EditFormControlBase {
         id: null,
         resolvedbuild: null,
         assignedto: null,
+        product: null,
         files: null,
         project: null,
         comment: null,
@@ -156,6 +157,8 @@ export class ActivationEditFormBase extends EditFormControlBase {
         resolvedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

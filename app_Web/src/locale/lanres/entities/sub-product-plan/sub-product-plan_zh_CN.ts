@@ -15,6 +15,7 @@ export default {
     future: "待定",
     delta: "周期",
     oldtitle: "上一次计划名称",
+    storycnt: "需求数",
   },
 	views: {
 		subplancreateview: {
