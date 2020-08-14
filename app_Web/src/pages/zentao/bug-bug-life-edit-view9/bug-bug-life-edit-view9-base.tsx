@@ -74,7 +74,7 @@ export class BugBugLifeEditView9Base extends EditView9Base {
 	 * @memberof BugBugLifeEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'BUGPRODUCT': { isRawValue: false, value: 'product' }
     };
 
 	/**
@@ -85,7 +85,7 @@ export class BugBugLifeEditView9Base extends EditView9Base {
 	 * @memberof BugBugLifeEditView9Base
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+        'bugproduct': { isRawValue: false, value: 'product' }
     };
 
     /**

@@ -21,7 +21,15 @@ export default class RelatedStory {
      * @type any
      * @memberof RelatedStory
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof RelatedStory
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class RelatedStory {
     public codelistModel:any = {
         codelistid:"RelatedStory"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof RelatedStory
+     */
+    public getExpirationTime(){
+        return RelatedStory.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof RelatedStory
+     */
+    public setExpirationTime(value:any){
+        RelatedStory.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class RelatedStory {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.title});
+            Object.assign(itemdata,{label:item.title});
             
             _items.push(itemdata);
         });

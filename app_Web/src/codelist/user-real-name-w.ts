@@ -21,7 +21,15 @@ export default class UserRealNameW {
      * @type any
      * @memberof UserRealNameW
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof UserRealNameW
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class UserRealNameW {
     public codelistModel:any = {
         codelistid:"UserRealNameW"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof UserRealNameW
+     */
+    public getExpirationTime(){
+        return UserRealNameW.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof UserRealNameW
+     */
+    public setExpirationTime(value:any){
+        UserRealNameW.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class UserRealNameW {
             Object.assign(itemdata,{id:item.account});
             Object.assign(itemdata,{value:item.account});
             Object.assign(itemdata,{text:item.realname});
+            Object.assign(itemdata,{label:item.realname});
             
             _items.push(itemdata);
         });

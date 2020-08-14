@@ -329,22 +329,6 @@ export default {
 		},
 	},
 	testgridviewtoolbar_toolbar: {
-		tbitem4: {
-			caption: "Edit",
-			tip: "Edit {0}",
-		},
-		tbitem7: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
-		},
 	},
 	testlistexpviewlistexpbar_list_quicktoolbar_toolbar: {
 		deuiaction1: {

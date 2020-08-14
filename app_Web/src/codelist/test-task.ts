@@ -21,7 +21,15 @@ export default class TestTask {
      * @type any
      * @memberof TestTask
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof TestTask
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class TestTask {
     public codelistModel:any = {
         codelistid:"TestTask"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof TestTask
+     */
+    public getExpirationTime(){
+        return TestTask.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof TestTask
+     */
+    public setExpirationTime(value:any){
+        TestTask.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class TestTask {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
             
             _items.push(itemdata);
         });

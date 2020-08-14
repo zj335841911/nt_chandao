@@ -1,23 +1,5 @@
-import RelatedStory from '@/codelist/related-story';   
-import ProductBranch_Cache from '@/codelist/product-branch-cache';   
-import CurProductPlan from '@/codelist/cur-product-plan';   
-import UserRealNameTask from '@/codelist/user-real-name-task';   
-import UserRealNameW from '@/codelist/user-real-name-w';   
-import UserRealName from '@/codelist/user-real-name';   
-import ProductBranch from '@/codelist/product-branch';   
-import CurProductBuild from '@/codelist/cur-product-build';   
-import BugModule from '@/codelist/bug-module';   
-import Role from '@/codelist/role';   
-import TestTask from '@/codelist/test-task';   
-import ProjectProductPlan from '@/codelist/project-product-plan';   
-import BugUserRealName from '@/codelist/bug-user-real-name';   
-import Product from '@/codelist/product';   
-import CurCaseVersion from '@/codelist/cur-case-version';   
-import ProductPlan from '@/codelist/product-plan';   
-import UserRealNameProject from '@/codelist/user-real-name-project';   
-import CurStory from '@/codelist/cur-story';   
-import UserRealNameTaskTeam from '@/codelist/user-real-name-task-team';   
-import { Store } from 'vuex';
+import store from '@/store';
+import EntityService from '../entity-service';
 
 /**
  * 动态代码表服务类
@@ -34,10 +16,10 @@ export default class CodeListService {
      * @type {(any | null)}
      * @memberof CodeListService
      */
-    private $store: Store<any> | null = null;
+    private $store: any;
 
     constructor(opts: any = {}) {
-        this.$store = opts.$store;
+        this.$store = store;
     }
 
     /**
@@ -46,7 +28,7 @@ export default class CodeListService {
      * @returns {(any | null)}
      * @memberof CodeListService
      */
-    public getStore(): Store<any> | null {
+    public getStore(): any {
         return this.$store;
     }
 
@@ -67,158 +49,79 @@ export default class CodeListService {
      */
     public static codelistCached:Map<string,any> = new Map();
 
-
     /**
-     * 代码表--关联需求（动态）
+     * 数据服务基类
      *
-     * @type {RelatedStory}
+     * @type {Minorentity}
      * @memberof CodeListService
      */
-    public RelatedStory: RelatedStory = new RelatedStory();
+    public entityService:EntityService = new EntityService();
 
     /**
-     * 代码表--产品平台（动态）_缓存
+     * 获取代码表服务
      *
-     * @type {ProductBranch_Cache}
-     * @memberof CodeListService
+     * @protected
+     * @param {string} name 实体名称
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public ProductBranch_Cache: ProductBranch_Cache = new ProductBranch_Cache();
+    public getService(name: string): Promise<any> {
+        return (window as any)['codeListRegister'].getService(name);
+    }
 
     /**
-     * 代码表--当前产品计划（动态）_缓存
+     * 获取静态代码表
      *
-     * @type {CurProductPlan}
+     * @param {string} tag 代码表标识
+     * @returns {Promise<any[]>}
      * @memberof CodeListService
      */
-    public CurProductPlan: CurProductPlan = new CurProductPlan();
+    public getStaticItems(tag: string):Promise<any[]>{
+        return new Promise((resolve:any,reject:any) =>{
+            const codelist = this.$store.getters.getCodeList(tag);
+            if (codelist) {
+                let items: Array<any> = [...JSON.parse(JSON.stringify(codelist.items))];
+                resolve(items);
+            }
+        })
+    }
 
     /**
-     * 代码表--用户真实名称（项目团队成员-任务）
+     * 获取预定义代码表
      *
-     * @type {UserRealNameTask}
+     * @param {string} tag 代码表标识
+     * @returns {Promise<any[]>}
      * @memberof CodeListService
      */
-    public UserRealNameTask: UserRealNameTask = new UserRealNameTask();
-
-    /**
-     * 代码表--用户真实名称（动态）（未指派）
-     *
-     * @type {UserRealNameW}
-     * @memberof CodeListService
-     */
-    public UserRealNameW: UserRealNameW = new UserRealNameW();
-
-    /**
-     * 代码表--用户真实名称（动态）
-     *
-     * @type {UserRealName}
-     * @memberof CodeListService
-     */
-    public UserRealName: UserRealName = new UserRealName();
-
-    /**
-     * 代码表--产品平台（动态）
-     *
-     * @type {ProductBranch}
-     * @memberof CodeListService
-     */
-    public ProductBranch: ProductBranch = new ProductBranch();
-
-    /**
-     * 代码表--当前产品版本（动态）
-     *
-     * @type {CurProductBuild}
-     * @memberof CodeListService
-     */
-    public CurProductBuild: CurProductBuild = new CurProductBuild();
-
-    /**
-     * 代码表--所属模板（动态）
-     *
-     * @type {BugModule}
-     * @memberof CodeListService
-     */
-    public BugModule: BugModule = new BugModule();
-
-    /**
-     * 代码表--群组（动态）
-     *
-     * @type {Role}
-     * @memberof CodeListService
-     */
-    public Role: Role = new Role();
-
-    /**
-     * 代码表--测试单（动态）
-     *
-     * @type {TestTask}
-     * @memberof CodeListService
-     */
-    public TestTask: TestTask = new TestTask();
-
-    /**
-     * 代码表--项目产品计划（动态）
-     *
-     * @type {ProjectProductPlan}
-     * @memberof CodeListService
-     */
-    public ProjectProductPlan: ProjectProductPlan = new ProjectProductPlan();
-
-    /**
-     * 代码表--用户真实名称（动态）（Bug）
-     *
-     * @type {BugUserRealName}
-     * @memberof CodeListService
-     */
-    public BugUserRealName: BugUserRealName = new BugUserRealName();
-
-    /**
-     * 代码表--产品（动态）
-     *
-     * @type {Product}
-     * @memberof CodeListService
-     */
-    public Product: Product = new Product();
-
-    /**
-     * 代码表--当前用例版本（动态）
-     *
-     * @type {CurCaseVersion}
-     * @memberof CodeListService
-     */
-    public CurCaseVersion: CurCaseVersion = new CurCaseVersion();
-
-    /**
-     * 代码表--产品计划（动态）
-     *
-     * @type {ProductPlan}
-     * @memberof CodeListService
-     */
-    public ProductPlan: ProductPlan = new ProductPlan();
-
-    /**
-     * 代码表--用户真实名称（项目团队成员）
-     *
-     * @type {UserRealNameProject}
-     * @memberof CodeListService
-     */
-    public UserRealNameProject: UserRealNameProject = new UserRealNameProject();
-
-    /**
-     * 代码表--当前需求版本（动态）
-     *
-     * @type {CurStory}
-     * @memberof CodeListService
-     */
-    public CurStory: CurStory = new CurStory();
-
-    /**
-     * 代码表--用户真实名称（任务团队）
-     *
-     * @type {UserRealNameTaskTeam}
-     * @memberof CodeListService
-     */
-    public UserRealNameTaskTeam: UserRealNameTaskTeam = new UserRealNameTaskTeam();
+    public getPredefinedItems(tag: string,data?: any, isloading?: boolean):Promise<any[]>{
+        return new Promise((resolve:any,reject:any) =>{
+            if(CodeListService.codelistCached.get(`${tag}`)){
+                let items:any = CodeListService.codelistCached.get(`${tag}`).items;
+                if(items.length >0) resolve(items);
+            }
+            const callback:Function = (tag:string,promise:Promise<any>) =>{
+                promise.then((res:any) =>{
+                    let result:any = res.data;
+                    if(result.items && result.items.length > 0){
+                        CodeListService.codelistCached.set(`${tag}`,{items:result.items});
+                        return resolve(result.items);
+                    }else{
+                        return resolve([]);
+                    }
+                }).catch((result:any) =>{
+                    return reject(result);
+                })
+            }
+            // 加载中，UI又需要数据，解决连续加载同一代码表问题
+            if(CodeListService.codelistCache.get(`${tag}`)){
+                callback(tag,CodeListService.codelistCache.get(`${tag}`));
+            }else{
+                let result:Promise<any> = this.entityService.getPredefinedCodelist(tag);
+                CodeListService.codelistCache.set(`${tag}`,result);
+                callback(tag,result);
+            }
+        })
+    }
 
     /**
      * 获取动态代码表
@@ -228,43 +131,28 @@ export default class CodeListService {
      * @returns {Promise<any[]>}
      * @memberof CodeListService
      */
-    public getItems(tag: string,context:any = {}, data?: any, isloading?: boolean,): Promise<any[]> {
+    public getItems(tag: string,context:any = {}, data?: any, isloading?: boolean): Promise<any[]> {
         let _this: any = this;
         if(context && context.srfsessionid){
             delete context.srfsessionid;
         }
-        let isEnableCache:boolean = _this[tag].isEnableCache;
-        let cacheTimeout:any = _this[tag].cacheTimeout;
         return new Promise((resolve:any,reject:any) =>{
-                // 启用缓存
-                if(isEnableCache){
-                    // 加载完成,从本地缓存获取
-                    if(CodeListService.codelistCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
-                        let items:any = CodeListService.codelistCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`);
-                        if(items.length >0){
-                            if(cacheTimeout !== -1){
-                                if(new Date().getTime() > _this[tag].expirationTime){
-                                    _this[tag].getItems(context,data,isloading).then((result:any) =>{
-                                        CodeListService.codelistCached.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,{items:result});
-                                        _this[tag].expirationTime = new Date().getTime() + cacheTimeout;
-                                        resolve(result);
-                                    }).catch((error:any) =>{
-                                        Promise.reject([]);
-                                    })
-                                }else{
-                                    return resolve(items); 
-                                }
-                            }else{
-                                return resolve(items);
-                            }
-                        }
-                    }
-                    if (_this[tag]) {
+            this.getService(tag).then((codelist:any) =>{
+                if(Object.is(codelist.predefinedType,"RUNTIME")){
+                    this.getPredefinedItems(tag).then((res:any) =>{
+                        resolve(res);
+                    })
+                    return;
+                }
+                let isEnableCache:boolean = codelist.isEnableCache;
+                let cacheTimeout:any = codelist.cacheTimeout;
+                    // 启用缓存
+                    if(isEnableCache){
                         const callback:Function = (context:any ={},data:any ={},tag:string,promise:Promise<any>) =>{
                             promise.then((result:any) =>{
-                                console.log()
                                 if(result.length > 0){
                                     CodeListService.codelistCached.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,{items:result});
+                                    CodeListService.codelistCache.delete(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`);
                                     return resolve(result);
                                 }else{
                                     return resolve([]);
@@ -273,29 +161,41 @@ export default class CodeListService {
                                 return reject(result);
                             })
                         }
-                        // 加载中，UI又需要数据，解决连续加载同一代码表问题
-                        if(CodeListService.codelistCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
-                            callback(context,data,tag,CodeListService.codelistCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`));
-                        }else{
-                            let result:Promise<any> = _this[tag].getItems(context,data,isloading);
-                            CodeListService.codelistCache.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,result);
-                            if(cacheTimeout !== -1){
-                                _this[tag].expirationTime = new Date().getTime() + cacheTimeout;
+                        // 加载完成,从本地缓存获取
+                        if(CodeListService.codelistCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
+                            let items:any = CodeListService.codelistCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`).items;
+                            if(items.length >0){
+                                if(new Date().getTime() <= codelist.getExpirationTime()){
+                                    return resolve(items); 
+                                }
                             }
-                            callback(context,data,tag,result);
                         }
-                    }
-                }else{
-                    if (_this[tag]) {
-                        _this[tag].getItems(context,data,isloading).then((result:any) =>{
-                            resolve(result);
-                        }).catch((error:any) =>{
-                            Promise.reject([]);
-                        })
+                        if (codelist) {
+                            // 加载中，UI又需要数据，解决连续加载同一代码表问题
+                            if(CodeListService.codelistCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
+                                callback(context,data,tag,CodeListService.codelistCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`));
+                            }else{
+                                let result:Promise<any> = codelist.getItems(context,data,isloading);
+                                CodeListService.codelistCache.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,result);
+                                codelist.setExpirationTime(new Date().getTime() + cacheTimeout);
+                                callback(context,data,tag,result);
+                            }
+                        }
                     }else{
-                        return Promise.reject([]);
-                    } 
-                }
+                        if (codelist) {
+                            codelist.getItems(context,data,isloading).then((result:any) =>{
+                                resolve(result);
+                            }).catch((error:any) =>{
+                                Promise.reject([]);
+                            })
+                        }else{
+                            return Promise.reject([]);
+                        } 
+                    }
+            }).catch((error:any) =>{
+                console.warn("获取代码表异常");
+                return Promise.reject([]);
+            })
         })
     }
 }

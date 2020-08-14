@@ -21,7 +21,15 @@ export default class ProjectProductPlan {
      * @type any
      * @memberof ProjectProductPlan
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof ProjectProductPlan
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class ProjectProductPlan {
     public codelistModel:any = {
         codelistid:"ProjectProductPlan"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof ProjectProductPlan
+     */
+    public getExpirationTime(){
+        return ProjectProductPlan.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof ProjectProductPlan
+     */
+    public setExpirationTime(value:any){
+        ProjectProductPlan.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class ProjectProductPlan {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.title});
+            Object.assign(itemdata,{label:item.title});
             
             _items.push(itemdata);
         });

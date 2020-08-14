@@ -21,7 +21,15 @@ export default class CurProductPlan {
      * @type any
      * @memberof CurProductPlan
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof CurProductPlan
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class CurProductPlan {
     public codelistModel:any = {
         codelistid:"CurProductPlan"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof CurProductPlan
+     */
+    public getExpirationTime(){
+        return CurProductPlan.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof CurProductPlan
+     */
+    public setExpirationTime(value:any){
+        CurProductPlan.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class CurProductPlan {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.title});
+            Object.assign(itemdata,{label:item.title});
             
             _items.push(itemdata);
         });

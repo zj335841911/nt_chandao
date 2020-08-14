@@ -21,7 +21,15 @@ export default class CurCaseVersion {
      * @type any
      * @memberof CurCaseVersion
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof CurCaseVersion
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class CurCaseVersion {
     public codelistModel:any = {
         codelistid:"CurCaseVersion"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof CurCaseVersion
+     */
+    public getExpirationTime(){
+        return CurCaseVersion.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof CurCaseVersion
+     */
+    public setExpirationTime(value:any){
+        CurCaseVersion.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -84,6 +112,7 @@ export default class CurCaseVersion {
             Object.assign(itemdata,{id:item.version});
             Object.assign(itemdata,{value:item.version});
             Object.assign(itemdata,{text:item.expect});
+            Object.assign(itemdata,{label:item.expect});
             
             _items.push(itemdata);
         });

@@ -12,6 +12,8 @@ import { authServiceRegister } from '@/authservice/auth-service-register';
 import { utilServiceRegister } from '@/utilservice/util-service-register';
 import { entityServiceRegister } from '@/service/entity-service-register';
 import { counterServiceRegister } from '@/counter/counter-service-register';
+import { codeListRegister } from '@codelist/codelist-register';
+
 import iBizVueLib from 'ibiz-vue-lib';
 import InputBox from './components/input-box/input-box.vue'
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue'
@@ -84,6 +86,8 @@ window['utilServiceRegister'] = utilServiceRegister;
 window['entityServiceRegister'] = entityServiceRegister;
 // 全局挂载计数器服务注册中心
 window['counterServiceRegister'] = counterServiceRegister;
+// 全局挂载代码表服务注册中心
+window['codeListRegister'] = codeListRegister;
 
 export const AppComponents = {
     install(v: any, opt: any) {

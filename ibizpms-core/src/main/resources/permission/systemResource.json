@@ -93,6 +93,11 @@
        }
         ,
        {
+            "unirescode":"CASE_DELETE_BUT",
+            "uniresname":"测试用例删除"
+       }
+        ,
+       {
             "unirescode":"PROP_DELETE_BUT",
             "uniresname":"计划删除"
        }

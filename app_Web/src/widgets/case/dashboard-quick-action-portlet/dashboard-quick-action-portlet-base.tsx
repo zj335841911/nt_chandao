@@ -344,8 +344,8 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "删除",
         iconcls: null,
         icon: null,
-        noprivdisplaymode: 1,
-        dataaccaction:'DELETE',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_DELETE_BUT',
         visabled:true,
         disabled:false
         }

@@ -21,7 +21,15 @@ export default class BugModule {
      * @type any
      * @memberof BugModule
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof BugModule
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class BugModule {
     public codelistModel:any = {
         codelistid:"BugModule"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof BugModule
+     */
+    public getExpirationTime(){
+        return BugModule.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof BugModule
+     */
+    public setExpirationTime(value:any){
+        BugModule.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class BugModule {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
             
             _items.push(itemdata);
         });

@@ -887,13 +887,9 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
+		deuiaction3_create: {
+			caption: "新建bug",
+			tip: "新建bug",
 		},
 		seperator1: {
 			caption: "",
@@ -903,11 +899,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},
