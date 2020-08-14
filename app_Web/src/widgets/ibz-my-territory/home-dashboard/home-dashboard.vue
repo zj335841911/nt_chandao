@@ -38,6 +38,3 @@ import view_dashboard_sysportlet3 from '@widgets/action/all-trends-portlet/all-t
 @VueLifeCycleProcessing()
 export default class HomeDashboard extends HomeDashboardBase { }
 </script>
-<style lang='less'>
-@import './home-dashboard.less';
-</style>
