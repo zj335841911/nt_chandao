@@ -281,12 +281,12 @@ export class MainGridGridBase extends GridControlBase {
      * @memberof MainGridBase
      */  
     public ActionModel: any = {
-        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESULT', target: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RUN', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
+        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', target: 'SINGLEKEY'},
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_RESULT_BUT', target: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_EDIT_BUT', target: 'SINGLEKEY'},
         Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: ''},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'TOBUG', target: 'SINGLEKEY'},
+        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', target: 'SINGLEKEY'},
         Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
 

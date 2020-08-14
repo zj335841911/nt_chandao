@@ -308,8 +308,8 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'RUN',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_CASERUN_BUT',
         visabled:true,
         disabled:false
         },
@@ -317,8 +317,8 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'RESULT',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_RESULT_BUT',
         visabled:true,
         disabled:false
         },
@@ -326,8 +326,8 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "转Bug",
         iconcls: "fa fa-bug",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'TOBUG',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_TOBUG_BUT',
         visabled:true,
         disabled:false
         },
@@ -335,8 +335,8 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'EDIT',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_EDIT_BUT',
         visabled:true,
         disabled:false
         },

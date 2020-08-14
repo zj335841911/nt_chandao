@@ -280,8 +280,8 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'CASERUN',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_CASERUN_BUT',
         visabled:true,
         disabled:false
         },
@@ -289,8 +289,8 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'CASERESULT',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_CASERESULT_BUT',
         visabled:true,
         disabled:false
         },
@@ -298,8 +298,8 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'EDIT',
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_EDIT_BUT',
         visabled:true,
         disabled:false
         },

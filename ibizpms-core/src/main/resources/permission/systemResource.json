@@ -18,6 +18,11 @@
        }
         ,
        {
+            "unirescode":"CASE_CASECOF_BUT",
+            "uniresname":"测试用例（用例确认）"
+       }
+        ,
+       {
             "unirescode":"PROJ_CREATE_BUT",
             "uniresname":"项目新建"
        }
@@ -40,6 +45,11 @@
        {
             "unirescode":"TESTSU_EDITSUITE_BUT",
             "uniresname":"测试套件编辑"
+       }
+        ,
+       {
+            "unirescode":"CASE_TOBUG_BUT",
+            "uniresname":"测试用例转BUG"
        }
         ,
        {
@@ -123,8 +133,18 @@
        }
         ,
        {
+            "unirescode":"CASE_RESULT_BUT",
+            "uniresname":"测试用例结果"
+       }
+        ,
+       {
             "unirescode":"TASK_SUBTASKS_BUT",
             "uniresname":"任务子任务"
+       }
+        ,
+       {
+            "unirescode":"CASE_CASERUN_BUT",
+            "uniresname":"测试用例（用例执行）"
        }
         ,
        {
@@ -168,6 +188,11 @@
        }
         ,
        {
+            "unirescode":"CASE_CASERESULT_BUT",
+            "uniresname":"测试用例（用例结果）"
+       }
+        ,
+       {
             "unirescode":"PROP_CREATE_BUT",
             "uniresname":"计划新建"
        }
@@ -185,6 +210,11 @@
        {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
+       }
+        ,
+       {
+            "unirescode":"CASE_CONFIRM_BUT",
+            "uniresname":"测试用例确认"
        }
         ,
        {
@@ -215,6 +245,11 @@
        {
             "unirescode":"BUG_ACTIVATE_BUT",
             "uniresname":"Bug激活"
+       }
+        ,
+       {
+            "unirescode":"CASE_CASETOBUG_BUT",
+            "uniresname":"测试用例（用例转BUG）"
        }
         ,
        {
@@ -273,6 +308,11 @@
        }
         ,
        {
+            "unirescode":"CASE_RUN_BUT",
+            "uniresname":"测试用例执行"
+       }
+        ,
+       {
             "unirescode":"STORY_REVIEW_BUT",
             "uniresname":"需求评审"
        }
@@ -295,6 +335,11 @@
        {
             "unirescode":"TESTT_BLOCK_BUT",
             "uniresname":"测试版本阻塞"
+       }
+        ,
+       {
+            "unirescode":"CASE_UNLINK_BUT",
+            "uniresname":"测试用例移除"
        }
         ,
        {

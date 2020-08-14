@@ -243,11 +243,11 @@ export class TestMainGridGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        confirmChange: { name: 'confirmChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASECOF', target: 'SINGLEKEY'},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'TOBUG', target: 'SINGLEKEY'},
-        CASEOpenTestRunResultView: { name: 'CASEOpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASERESULT', target: 'SINGLEKEY'},
-        CaseExecute: { name: 'CaseExecute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CASERUN', target: 'SINGLEKEY'},
-        unlinkCase: { name: 'unlinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UNLINK', target: 'SINGLEKEY'}
+        confirmChange: { name: 'confirmChange',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASECOF_BUT', target: 'SINGLEKEY'},
+        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', target: 'SINGLEKEY'},
+        CASEOpenTestRunResultView: { name: 'CASEOpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERESULT_BUT', target: 'SINGLEKEY'},
+        CaseExecute: { name: 'CaseExecute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', target: 'SINGLEKEY'},
+        unlinkCase: { name: 'unlinkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', target: 'SINGLEKEY'}
     };
 
     /**

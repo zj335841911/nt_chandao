@@ -159,8 +159,8 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         unlinkSuiteCase: { name: 'unlinkSuiteCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESULT', target: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RUN', target: 'SINGLEKEY'}
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_RESULT_BUT', target: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', target: 'SINGLEKEY'}
     };
 
     /**

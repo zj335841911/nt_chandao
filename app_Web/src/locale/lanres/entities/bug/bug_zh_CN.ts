@@ -754,6 +754,7 @@ export default {
 			bug_resolvebug: "解决",
 			bug_closebug: "关闭",
 			bug_mainedit: "编辑",
+			copy: "拷贝",
 		},
 	},
 	main_reportsub_grid: {
