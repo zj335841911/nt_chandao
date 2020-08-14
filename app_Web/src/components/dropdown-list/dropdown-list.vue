@@ -5,8 +5,8 @@
             :transfer="true"
             class='dropdown-list'
             v-model="currentVal"
-            :disabled="disabled === true ? true : false"
-            :filterable="filterable === true ? true : false"
+            :disabled="disabled"
+            :filterable="filterable"
             @on-open-change="onClick"
             :placeholder="$t('components.dropDownList.placeholder')">
             <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
@@ -166,7 +166,7 @@ export default class DropDownList extends Vue {
      * @type {boolean}
      * @memberof DropDownList
      */
-    @Prop() public filterable?: boolean;
+    public filterable: boolean = true;
 
     /**
      * 下拉选提示内容

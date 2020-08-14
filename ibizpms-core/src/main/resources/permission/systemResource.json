@@ -198,6 +198,11 @@
        }
         ,
        {
+            "unirescode":"BUG_CREATE_BUT",
+            "uniresname":"bug新建"
+       }
+        ,
+       {
             "unirescode":"BUG_ACTIVATE_BUT",
             "uniresname":"Bug激活"
        }

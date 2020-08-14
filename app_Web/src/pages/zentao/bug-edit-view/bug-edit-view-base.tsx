@@ -74,7 +74,7 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: true, value: 'product' }
+        'PRODUCT': { isRawValue: false, value: 'product' }
     };
 
 	/**
