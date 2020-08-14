@@ -143,6 +143,11 @@
        }
         ,
        {
+            "unirescode":"CASE_EDIT_BUT",
+            "uniresname":"测试用例编辑"
+       }
+        ,
+       {
             "unirescode":"PROD_DELETE_BUT",
             "uniresname":"产品删除"
        }
