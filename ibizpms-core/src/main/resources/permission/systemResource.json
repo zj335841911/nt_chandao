@@ -63,6 +63,11 @@
        }
         ,
        {
+            "unirescode":"TASK_CREATE_BUT",
+            "uniresname":"任务新建"
+       }
+        ,
+       {
             "unirescode":"PROJ_EDIT_BUT",
             "uniresname":"项目编辑"
        }
