@@ -30,7 +30,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='openedbuild' :value="data.openedbuild" dataType="SMCODELIST"     :precision="0"
-tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ BUGPRODUCT:"%product%" }'  :localParam ='{ bugproduct:"%product%" }'  style="">  
 </app-span>
 
 </app-form-item>
@@ -50,7 +50,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='resolvedbuild' :value="data.resolvedbuild" dataType="SSCODELIST"     :precision="0"
-tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ BUGPRODUCT:"%product%" }'  :localParam ='{ bugproduct:"%product%" }'  style="">  
 </app-span>
 
 </app-form-item>

@@ -517,8 +517,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ BUGPRODUCT:"%product%" }' 
+  :localParam ='{ bugproduct:"%product%" }' 
   :disabled="detailsModel.openedbuild.disabled"
   tag='CurProductBuild' 
   codelistType='DYNAMIC' 
@@ -576,8 +576,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ BUGPRODUCT:"%product%" }' 
+    :localParam ='{ bugproduct:"%product%" }' 
     :disabled="detailsModel.resolvedbuild.disabled"
     valueType="string"
     tag='CurProductBuild'
