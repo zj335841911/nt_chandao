@@ -38,8 +38,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext ='{ BUGPRODUCT:"%product%", PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%", bugproduct:"%product%" }' 
     :disabled="detailsModel.resolvedbuild.disabled"
     valueType="string"
     tag='CurProductBuild'

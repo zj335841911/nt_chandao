@@ -1,5 +1,5 @@
 <template>
-    <a class="app-column-link" @click="openLinkView($event)">
+    <a class="app-column-link" @click="openLinkView($event)" @dblclick="interceptDbl($event)">
         <slot></slot>
     </a>
 </template>
@@ -79,12 +79,36 @@ export default class AppColumnLink extends Vue {
     @Prop() public deKeyField!:string;
 
     /**
+     * 是否正在跳转页面
+     *
+     * @type {string}
+     * @memberof AppColumnLink
+     */
+    public isJumping: boolean = false;
+
+    /**
+     * 拦截双击事件
+     *
+     * @memberof AppColumnLink
+     */
+    public interceptDbl($event: any) {
+        $event.stopPropagation();
+    }
+
+    /**
      * 打开链接视图
      *
      * @memberof AppColumnLink
      */
     public openLinkView($event: any): void {
         $event.stopPropagation();
+        if(this.isJumping) {
+            return;
+        }
+        this.isJumping = true;
+        setTimeout(() => {
+            this.isJumping = false;
+        }, 1000);
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
             this.$Notice.error({ title: (this.$t('components.appColumnLink.error') as string), desc: (this.$t('components.appColumnLink.valueItemException') as string) });
             return;
