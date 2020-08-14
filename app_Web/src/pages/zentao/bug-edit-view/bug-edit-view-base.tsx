@@ -74,7 +74,7 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: true, value: 'null' }
+        'PRODUCT': { isRawValue: true, value: 'product' }
     };
 
 	/**
@@ -85,8 +85,6 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: true, value: 'null' },
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
         'productmodule': { isRawValue: false, value: 'productmodule' },
         'branch': { isRawValue: false, value: 'branch' }
     };

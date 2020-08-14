@@ -251,9 +251,6 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('branch')) {
             this.data['branch'] = this.viewparams['branch'];
         }
-        if (this.data.hasOwnProperty('product')) {
-            this.data['product'] = this.viewparams['srfparentkey'];
-        }
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['productmodule'];
         }
