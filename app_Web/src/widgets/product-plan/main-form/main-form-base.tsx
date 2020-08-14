@@ -180,7 +180,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'future')) {
             this.onFormItemValueChange({ name: 'end', value: null });
         }
-        if (Object.is(name, 'end')) {
+        if (Object.is(name, 'future')) {
             this.onFormItemValueChange({ name: 'delta', value: null });
         }
     }
@@ -247,6 +247,10 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, 'begin')) {
+            const details: string[] = ['end'];
+            this.updateFormItems('getPlanEnd', this.data, details, true);
+        }
         if (Object.is(name, 'delta')) {
             const details: string[] = ['end'];
             this.updateFormItems('getPlanEnd', this.data, details, true);

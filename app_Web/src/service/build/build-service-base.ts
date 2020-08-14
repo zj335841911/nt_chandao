@@ -309,6 +309,31 @@ export default class BuildServiceBase extends EntityService {
     }
 
     /**
+     * FetchBugProductBuild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async FetchBugProductBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchbugproductbuild`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchbugproductbuild`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/builds/fetchbugproductbuild`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchCurProduct接口方法
      *
      * @param {*} [context={}]

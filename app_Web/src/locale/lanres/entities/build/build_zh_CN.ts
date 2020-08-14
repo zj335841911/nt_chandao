@@ -14,6 +14,7 @@ export default {
     branch: "平台/分支",
     project: "所属项目",
     productname: "产品名称",
+    ids: "Bug版本健值",
   },
 	views: {
 		maingridview: {

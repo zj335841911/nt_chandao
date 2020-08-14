@@ -216,6 +216,15 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
     /**
+     * 查询集合 Bug产品版本
+     */
+    @Override
+    public Page<Build> searchBugProductBuild(BuildSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品版本
      */
     @Override

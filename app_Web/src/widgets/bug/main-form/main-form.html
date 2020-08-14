@@ -88,8 +88,8 @@
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ BUGPRODUCT:"%product%", PRODUCT:"0" }' 
+  :localParam ='{ product:"0", bugproduct:"%product%" }' 
   :disabled="detailsModel.openedbuild.disabled"
   tag='CurProductBuild' 
   codelistType='DYNAMIC' 
