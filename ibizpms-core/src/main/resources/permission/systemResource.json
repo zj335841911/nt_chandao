@@ -218,6 +218,11 @@
        }
         ,
        {
+            "unirescode":"STORY_CREATE_BUT",
+            "uniresname":"需求新建"
+       }
+        ,
+       {
             "unirescode":"TASK_PROCEED_BUT",
             "uniresname":"任务继续"
        }
