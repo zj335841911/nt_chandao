@@ -323,5 +323,8 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('multiple')) {
             this.data['multiple'] = 0;
         }
+        if (this.data.hasOwnProperty('story')) {
+            this.data['story'] = this.viewparams['story'];
+        }
     }
 }

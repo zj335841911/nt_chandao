@@ -130,10 +130,7 @@ export default class TestSuiteUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testsuite: '%testsuite%' });
-        Object.assign(params, { id: '%testsuite%' });
-        Object.assign(params, { name: '%name%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
