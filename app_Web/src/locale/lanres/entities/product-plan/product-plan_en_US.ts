@@ -105,6 +105,8 @@ export default {
 			title: "名称",
 			begin: "开始日期",
 			end: "结束日期",
+			storycnt: "需求数",
+			bugcnt: "bug数",
 			actions: "操作",
 		},
 		uiactions: {

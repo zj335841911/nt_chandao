@@ -41,6 +41,7 @@ export class CodeListRegister {
     protected init(): void {
             this.allCodeList.set('RelatedStory', () => import('@/codelist/related-story'));
         this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
+        this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));
         this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
         this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
         this.allCodeList.set('UserRealNameW', () => import('@/codelist/user-real-name-w'));

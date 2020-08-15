@@ -231,6 +231,21 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async FetchProjectTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/users/fetchprojectteamm`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchProjectTeamUser接口方法
      *
      * @param {*} [context={}]

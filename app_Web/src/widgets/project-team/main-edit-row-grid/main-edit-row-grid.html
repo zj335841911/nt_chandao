@@ -40,9 +40,9 @@
               :data="row" 
               :context="context"
               :viewparams="viewparams" 
-              :localContext ='{ }' 
-              :localParam ='{ }' 
-              tag='UserRealName' 
+              :localContext ='{ ACCOUNT:"%account%" }' 
+              :localParam ='{ account:"%account%" }' 
+              tag='RealNameProjectM' 
               codelistType='DYNAMIC'
               placeholder='请选择...' 
               style="" 
@@ -52,7 +52,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.account" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.account" tag='RealNameProjectM' codelistType='DYNAMIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>

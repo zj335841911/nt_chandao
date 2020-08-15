@@ -257,6 +257,22 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
+            name: 'storycnt',
+            label: '需求数',
+            langtag: 'entities.productplan.main_grid.columns.storycnt',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'bugcnt',
+            label: 'bug数',
+            langtag: 'entities.productplan.main_grid.columns.bugcnt',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
             name: 'actions',
             label: '操作',
             langtag: 'entities.productplan.main_grid.columns.actions',
@@ -302,6 +318,8 @@ export class MainGridBase extends GridControlBase {
         'title':false,
         'begin':false,
         'end':false,
+        'storycnt':false,
+        'bugcnt':false,
         'actions':false,
     };
 

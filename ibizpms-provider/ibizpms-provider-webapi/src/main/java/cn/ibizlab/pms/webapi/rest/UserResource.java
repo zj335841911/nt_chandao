@@ -213,6 +213,27 @@ domain.setId(user_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamM-all')")
+	@ApiOperation(value = "获取项目团队管理", tags = {"用户" } ,notes = "获取项目团队管理")
+    @RequestMapping(method= RequestMethod.GET , value="/users/fetchprojectteamm")
+	public ResponseEntity<List<UserDTO>> fetchProjectTeamM(UserSearchContext context) {
+        Page<User> domains = userService.searchProjectTeamM(context) ;
+        List<UserDTO> list = userMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamM-all')")
+	@ApiOperation(value = "查询项目团队管理", tags = {"用户" } ,notes = "查询项目团队管理")
+    @RequestMapping(method= RequestMethod.POST , value="/users/searchprojectteamm")
+	public ResponseEntity<Page<UserDTO>> searchProjectTeamM(@RequestBody UserSearchContext context) {
+        Page<User> domains = userService.searchProjectTeamM(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamUser-all')")
 	@ApiOperation(value = "获取项目团队成员", tags = {"用户" } ,notes = "获取项目团队成员")
     @RequestMapping(method= RequestMethod.GET , value="/users/fetchprojectteamuser")

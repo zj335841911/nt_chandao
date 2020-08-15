@@ -40,6 +40,7 @@ public interface IUserService extends IService<User>{
     Page<User> searchBugUser(UserSearchContext context) ;
     Page<User> searchDefault(UserSearchContext context) ;
     Page<User> searchGetByCommiter(UserSearchContext context) ;
+    Page<User> searchProjectTeamM(UserSearchContext context) ;
     Page<User> searchProjectTeamUser(UserSearchContext context) ;
     Page<User> searchProjectTeamUser_Task(UserSearchContext context) ;
     Page<User> searchTaskTeam(UserSearchContext context) ;

@@ -255,11 +255,11 @@ export class Main_EditRowGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'UserRealName',
+                srfkey: 'RealNameProjectM',
                 codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
             {
                 name: 'limited',
