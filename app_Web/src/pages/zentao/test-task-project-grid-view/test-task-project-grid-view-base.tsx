@@ -102,7 +102,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_projectcreate: { name: 'deuiaction3_projectcreate', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CREATE_BUT', uiaction: { tag: 'ProjectCreate', target: 'NONE', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
@@ -163,8 +163,8 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_create')) {
-            this.toolbar_deuiaction3_create_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction3_projectcreate')) {
+            this.toolbar_deuiaction3_projectcreate_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
@@ -237,7 +237,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction3_create_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction3_projectcreate_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -255,7 +255,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_Create(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_ProjectCreate(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**

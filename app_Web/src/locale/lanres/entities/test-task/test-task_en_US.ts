@@ -276,7 +276,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
+	projectnew_form: {
 		details: {
 			grouppanel2: "起止日期", 
 			grouppanel1: "分组面板", 
@@ -289,6 +289,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			productname: "产品", 
 			projecttname: "项目", 
 			buildname: "版本", 
 			owner: "负责人", 
@@ -307,7 +308,7 @@ export default {
 		uiactions: {
 		},
 	},
-	projectnew_form: {
+	main_form: {
 		details: {
 			grouppanel2: "起止日期", 
 			grouppanel1: "分组面板", 
@@ -320,7 +321,6 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			productname: "产品", 
 			projecttname: "项目", 
 			buildname: "版本", 
 			owner: "负责人", 
@@ -384,14 +384,14 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	editviewtoolbar_toolbar: {
+	projectneweditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
 	},
 	projectgridviewtoolbar_toolbar: {
-		deuiaction3_create: {
+		deuiaction3_projectcreate: {
 			caption: "新建",
 			tip: "新建",
 		},
@@ -412,7 +412,7 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	projectneweditviewtoolbar_toolbar: {
+	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

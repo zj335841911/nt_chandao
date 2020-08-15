@@ -275,7 +275,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
+	projectnew_form: {
 		details: {
 			grouppanel2: "起止日期", 
 			grouppanel1: "分组面板", 
@@ -288,6 +288,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			productname: "产品", 
 			projecttname: "项目", 
 			buildname: "版本", 
 			owner: "负责人", 
@@ -306,7 +307,7 @@ export default {
 		uiactions: {
 		},
 	},
-	projectnew_form: {
+	main_form: {
 		details: {
 			grouppanel2: "起止日期", 
 			grouppanel1: "分组面板", 
@@ -319,7 +320,6 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			productname: "产品", 
 			projecttname: "项目", 
 			buildname: "版本", 
 			owner: "负责人", 
@@ -383,14 +383,14 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	editviewtoolbar_toolbar: {
+	projectneweditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
 	},
 	projectgridviewtoolbar_toolbar: {
-		deuiaction3_create: {
+		deuiaction3_projectcreate: {
 			caption: "新建",
 			tip: "新建",
 		},
@@ -411,7 +411,7 @@ export default {
 			tip: "导出",
 		},
 	},
-	projectneweditviewtoolbar_toolbar: {
+	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",

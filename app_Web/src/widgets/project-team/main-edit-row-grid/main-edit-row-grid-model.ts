@@ -55,6 +55,11 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
+          name: 'account_text',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
           name: 'role',
           prop: 'role',
           dataType: 'TEXT',
