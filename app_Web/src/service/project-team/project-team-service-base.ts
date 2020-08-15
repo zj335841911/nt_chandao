@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetUserRoleLogic from '@/service/project-team/get-user-role-logic';
 
 
 
@@ -39,7 +40,7 @@ export default class ProjectTeamServiceBase extends EntityService {
 // 实体接口
 
     /**
-     * GetUserRole接口方法
+     * getuserrole接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -47,15 +48,17 @@ export default class ProjectTeamServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProjectTeamServiceBase
      */
-    public async GetUserRole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async getuserrole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let getuserrole:GetUserRoleLogic = new GetUserRoleLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        data = await getuserrole.onExecute(context,data,isloading?true:false);
         if(context.project && context.projectteam){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectteams/${context.projectteam}`,data,isloading);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectteams/${context.projectteam}/getuserrole`,data,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}`,data,isloading);
+            let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
             return res;
     }
 

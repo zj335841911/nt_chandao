@@ -49,6 +49,10 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetUserRoleLogic getuserroleLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -116,6 +120,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public ProjectTeam getUserRole(ProjectTeam et) {
+        getuserroleLogic.execute(et);
         //自定义代码
         return et;
     }

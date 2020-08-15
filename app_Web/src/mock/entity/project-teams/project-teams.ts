@@ -88,16 +88,16 @@ mock.onDelete(new RegExp(/^\/projectteams\/batch$/)).reply((config: any) => {
 
 
     
-// GetUserRole
-mock.onPut(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:projectteam 方法: GetUserRole");
+// getuserrole
+mock.onPut(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectteam 方法: getuserrole");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
     const paramArray:Array<any> = ['id','id'];
-    const matchArray:any = new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -114,16 +114,16 @@ mock.onPut(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-z
     return [status, {}];
 });
         
-// GetUserRole
-mock.onPut(new RegExp(/^\/projectteams\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:projectteam 方法: GetUserRole");
+// getuserrole
+mock.onPut(new RegExp(/^\/projectteams\/?([a-zA-Z0-9\-\;]{0,35})\/getuserrole$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectteam 方法: getuserrole");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
