@@ -199,9 +199,6 @@ export class ProjectNewEditFormBase extends EditFormControlBase {
      * @memberof ProjectNewEditFormBase
      */
     public createDefault(){                    
-        if (this.data.hasOwnProperty('project')) {
-            this.data['project'] = this.viewparams['project'];
-        }
         if (this.data.hasOwnProperty('status')) {
             this.data['status'] = 'wait';
         }

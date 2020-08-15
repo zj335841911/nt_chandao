@@ -36,7 +36,6 @@ export default class Main_EditRowModel {
           name: 'username',
           prop: 'username',
           dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'days',
@@ -56,14 +55,14 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
-          name: 'account',
-          prop: 'account',
+          name: 'role',
+          prop: 'role',
           dataType: 'TEXT',
           isEditable:true
         },
         {
-          name: 'role',
-          prop: 'role',
+          name: 'account',
+          prop: 'account',
           dataType: 'TEXT',
           isEditable:true
         },

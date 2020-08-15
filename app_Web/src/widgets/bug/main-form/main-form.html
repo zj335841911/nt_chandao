@@ -172,7 +172,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.main_form.details.os')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.main_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.os"

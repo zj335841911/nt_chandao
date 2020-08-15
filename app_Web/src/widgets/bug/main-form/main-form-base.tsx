@@ -254,8 +254,5 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['productmodule'];
         }
-        if (this.data.hasOwnProperty('project')) {
-            this.data['project'] = this.viewparams['project'];
-        }
     }
 }
