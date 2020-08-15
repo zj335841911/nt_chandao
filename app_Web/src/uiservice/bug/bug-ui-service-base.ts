@@ -108,6 +108,7 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'editview_4791',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'bugs'});
@@ -141,7 +142,7 @@ export default class BugUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('active',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
     }
 
@@ -753,6 +754,9 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }
@@ -1039,6 +1043,9 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }

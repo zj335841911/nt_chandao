@@ -869,6 +869,16 @@
         "viewtag": "50a62354d8e47841634e14c022dad22b",
         "memo": "临时充当主信息展示页面"
     },
+    "testtaskprojectneweditview": {
+        "title": "测试单编辑视图",
+        "caption": "提交测试",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskProjectNewEditView",
+        "viewfilename": "test-task-project-new-edit-view",
+        "viewtag": "513dfe852d9d8a97b32eccb44e7b55c3",
+        "memo": ""
+    },
     "bugtestreportsubgridview": {
         "title": "bug表格视图",
         "caption": "Bug",
@@ -1257,6 +1267,16 @@
         "viewname": "TaskKanbanView",
         "viewfilename": "task-kanban-view",
         "viewtag": "7088260bcd6a0303378af2f8e207f479",
+        "memo": ""
+    },
+    "testtaskprojectgridview": {
+        "title": "测试单表格视图（项目）",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskProjectGridView",
+        "viewfilename": "test-task-project-grid-view",
+        "viewtag": "72614f86125fa2a1421156c17116a4e3",
         "memo": ""
     },
     "casecursuitgridview": {
@@ -1877,6 +1897,16 @@
         "viewname": "CaseStepCarryOutEditMode",
         "viewfilename": "case-step-carry-out-edit-mode",
         "viewtag": "a694d988e3134a33bb5a99e6e07246f6",
+        "memo": ""
+    },
+    "bugprojectgridview": {
+        "title": "bug表格视图（项目）",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugProjectGridView",
+        "viewfilename": "bug-project-grid-view",
+        "viewtag": "a6a2a7565323deeebec407a8ce726b03",
         "memo": ""
     },
     "buildmainview": {

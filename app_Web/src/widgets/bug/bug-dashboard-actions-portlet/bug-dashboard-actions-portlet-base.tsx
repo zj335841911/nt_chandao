@@ -454,6 +454,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_TOSTORY_BUT',
         visabled:true,
         disabled:false
         },

@@ -208,6 +208,11 @@
        }
         ,
        {
+            "unirescode":"BUG_TOSTORY_BUT",
+            "uniresname":"Bug提需求"
+       }
+        ,
+       {
             "unirescode":"TASK_EDIT_BUT",
             "uniresname":"任务编辑"
        }

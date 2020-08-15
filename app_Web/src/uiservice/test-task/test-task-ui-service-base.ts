@@ -95,9 +95,11 @@ export default class TestTaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'blockoptionview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'editview9_detail',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'editview_committest',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'projectneweditview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'testtasks'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'editview9_info',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'activiteoptionview',srfappde:'testtasks'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testtasks'});

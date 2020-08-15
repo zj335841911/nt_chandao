@@ -81,6 +81,10 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBugGetProductsLogic getproductsLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -152,6 +156,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     public Bug getDraft(Bug et) {
         fillParentData(et);
+        getproductsLogic.execute(et);
         return et;
     }
 

@@ -201,9 +201,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'c9410c9f72535adf1fff569d5243edd1',
+                '72614f86125fa2a1421156c17116a4e3',
                 '8104f8c4c275f6ba17fb969edf52eb37',
-                'aae1ade339fe6a2ebe367489f6393db1',
+                'a6a2a7565323deeebec407a8ce726b03',
             ],
         },
         {
@@ -799,6 +799,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '513dfe852d9d8a97b32eccb44e7b55c3',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskProjectNewEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '51b05c15dcd26cd675a6e340f0023977',
             viewmodule: 'zentao',
             viewname: 'BugTestReportSubGridView',
@@ -1186,6 +1195,21 @@ export const viewstate: any = {
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '72614f86125fa2a1421156c17116a4e3',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskProjectGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e8763999350c7bd92e884e0381d7ac6b',
+                '14d95e9a02db631c2b9af47641fcec4e',
+                '513dfe852d9d8a97b32eccb44e7b55c3',
+                '5b139a407fa34f386f3f784f33841184',
+                '5273dc442a49b8c4d37ba9ff008531e7',
+                '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
         {
@@ -1798,6 +1822,21 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a6a2a7565323deeebec407a8ce726b03',
+            viewmodule: 'zentao',
+            viewname: 'BugProjectGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '1540523a668e920d831510cfbec2c5e2',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {

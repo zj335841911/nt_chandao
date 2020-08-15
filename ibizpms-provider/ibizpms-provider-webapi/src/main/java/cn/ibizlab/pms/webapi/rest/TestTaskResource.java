@@ -435,5 +435,209 @@ domain.setId(testtask_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
+    @ApiOperation(value = "根据项目建立测试版本", tags = {"测试版本" },  notes = "根据项目建立测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+		testtaskService.create(domain);
+        TestTaskDTO dto = testtaskMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
+    @ApiOperation(value = "根据项目批量建立测试版本", tags = {"测试版本" },  notes = "根据项目批量建立测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/batch")
+    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        List<TestTask> domainlist=testtaskMapping.toDomain(testtaskdtos);
+        for(TestTask domain:domainlist){
+            domain.setProject(project_id);
+        }
+        testtaskService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
+    @ApiOperation(value = "根据项目更新测试版本", tags = {"测试版本" },  notes = "根据项目更新测试版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testtasks/{testtask_id}")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain.setId(testtask_id);
+		testtaskService.update(domain);
+        TestTaskDTO dto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
+    @ApiOperation(value = "根据项目批量更新测试版本", tags = {"测试版本" },  notes = "根据项目批量更新测试版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testtasks/batch")
+    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        List<TestTask> domainlist=testtaskMapping.toDomain(testtaskdtos);
+        for(TestTask domain:domainlist){
+            domain.setProject(project_id);
+        }
+        testtaskService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
+    @ApiOperation(value = "根据项目删除测试版本", tags = {"测试版本" },  notes = "根据项目删除测试版本")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/testtasks/{testtask_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testtaskService.remove(testtask_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
+    @ApiOperation(value = "根据项目批量删除测试版本", tags = {"测试版本" },  notes = "根据项目批量删除测试版本")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/testtasks/batch")
+    public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<BigInteger> ids) {
+        testtaskService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Get-all')")
+    @ApiOperation(value = "根据项目获取测试版本", tags = {"测试版本" },  notes = "根据项目获取测试版本")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testtasks/{testtask_id}")
+    public ResponseEntity<TestTaskDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id) {
+        TestTask domain = testtaskService.get(testtask_id);
+        TestTaskDTO dto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据项目获取测试版本草稿", tags = {"测试版本" },  notes = "根据项目获取测试版本草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testtasks/getdraft")
+    public ResponseEntity<TestTaskDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
+        TestTask domain = new TestTask();
+        domain.setProject(project_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskMapping.toDto(testtaskService.getDraft(domain)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Activate-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/activate")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> activateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.activate(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/block")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> blockByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.block(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @ApiOperation(value = "根据项目检查测试版本", tags = {"测试版本" },  notes = "根据项目检查测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TestTaskDTO testtaskdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testtaskService.checkKey(testtaskMapping.toDomain(testtaskdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Close-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/close")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> closeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.close(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/linkcase")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> linkCaseByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.linkCase(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
+    @ApiOperation(value = "根据项目保存测试版本", tags = {"测试版本" },  notes = "根据项目保存测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/save")
+    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
+    @ApiOperation(value = "根据项目批量保存测试版本", tags = {"测试版本" },  notes = "根据项目批量保存测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        List<TestTask> domainlist=testtaskMapping.toDomain(testtaskdtos);
+        for(TestTask domain:domainlist){
+             domain.setProject(project_id);
+        }
+        testtaskService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Start-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/start")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> startByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.start(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/unlinkcase")
+    @Transactional
+    public ResponseEntity<TestTaskDTO> unlinkCaseByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.unlinkCase(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
+	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"测试版本" } ,notes = "根据项目获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/testtasks/fetchdefault")
+	public ResponseEntity<List<TestTaskDTO>> fetchTestTaskDefaultByProject(@PathVariable("project_id") BigInteger project_id,TestTaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<TestTask> domains = testtaskService.searchDefault(context) ;
+        List<TestTaskDTO> list = testtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
+	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"测试版本" } ,notes = "根据项目查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/testtasks/searchdefault")
+	public ResponseEntity<Page<TestTaskDTO>> searchTestTaskDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TestTaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<TestTask> domains = testtaskService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

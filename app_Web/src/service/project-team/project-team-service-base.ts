@@ -1,6 +1,5 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
-import GetUserRoleLogic from '@/service/project-team/get-user-role-logic';
 
 
 
@@ -49,8 +48,6 @@ export default class ProjectTeamServiceBase extends EntityService {
      * @memberof ProjectTeamServiceBase
      */
     public async getuserrole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let getuserrole:GetUserRoleLogic = new GetUserRoleLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        data = await getuserrole.onExecute(context,data,isloading?true:false);
         if(context.project && context.projectteam){
             let masterData:any = {};
             Object.assign(data,masterData);

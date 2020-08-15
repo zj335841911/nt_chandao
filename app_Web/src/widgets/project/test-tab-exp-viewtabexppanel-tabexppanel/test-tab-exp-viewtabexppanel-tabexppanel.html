@@ -33,6 +33,12 @@
         <tab-pane :index="1" name='tabviewpanel3' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
+                    h('i',{
+                        class:'fa fa-code-fork',
+                        style:{
+                            'margin-right' : '2px'
+                        }
+                    }),
                     h('span', '版本'),
                     h('Badge', {
                         props: {
@@ -57,6 +63,12 @@
         <tab-pane :index="2" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
+                    h('i',{
+                        class:'fa fa-clipboard',
+                        style:{
+                            'margin-right' : '2px'
+                        }
+                    }),
                     h('span', '测试单'),
                     h('Badge', {
                         props: {

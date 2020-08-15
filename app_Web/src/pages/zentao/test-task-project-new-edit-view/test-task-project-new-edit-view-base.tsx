@@ -1,33 +1,33 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
-import BugService from '@/service/bug/bug-service';
-import BugAuthService from '@/authservice/bug/bug-auth-service';
+import TestTaskService from '@/service/test-task/test-task-service';
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
-import BugUIService from '@/uiservice/bug/bug-ui-service';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
- * Bug视图基类
+ * 测试单编辑视图视图基类
  *
  * @export
- * @class BugEditViewBase
+ * @class TestTaskProjectNewEditViewBase
  * @extends {EditViewBase}
  */
-export class BugEditViewBase extends EditViewBase {
+export class TestTaskProjectNewEditViewBase extends EditViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
-    protected appDeName: string = 'bug';
+    protected appDeName: string = 'testtask';
 
     /**
      * 应用实体主键
      *
      * @protected
      * @type {string}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -36,25 +36,25 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
-    protected appDeMajor: string = 'title';
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象
      *
-     * @type {BugService}
-     * @memberof BugEditViewBase
+     * @type {TestTaskService}
+     * @memberof TestTaskProjectNewEditViewBase
      */
-    protected appEntityService: BugService = new BugService;
+    protected appEntityService: TestTaskService = new TestTaskService;
 
     /**
      * 实体权限服务对象
      *
-     * @type BugUIService
-     * @memberof BugEditViewBase
+     * @type TestTaskUIService
+     * @memberof TestTaskProjectNewEditViewBase
      */
-    public appUIService: BugUIService = new BugUIService(this.$store);
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
 
     /**
@@ -62,7 +62,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {Array<*>}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */    
     protected counterServiceArray: Array<any> = [];
 
@@ -71,10 +71,9 @@ export class BugEditViewBase extends EditViewBase {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof BugEditViewBase
+	 * @memberof TestTaskProjectNewEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
         'PRODUCT': { isRawValue: false, value: 'product' }
     };
 
@@ -83,11 +82,10 @@ export class BugEditViewBase extends EditViewBase {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof BugEditViewBase
+	 * @memberof TestTaskProjectNewEditViewBase
 	 */
     protected customViewParams: any = {
-        'productmodule': { isRawValue: false, value: 'productmodule' },
-        'branch': { isRawValue: false, value: 'branch' }
+        'product': { isRawValue: false, value: 'product' }
     };
 
     /**
@@ -95,12 +93,12 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.bug.views.editview.caption',
-        srfTitle: 'entities.bug.views.editview.title',
-        srfSubTitle: 'entities.bug.views.editview.subtitle',
+        srfCaption: 'entities.testtask.views.projectneweditview.caption',
+        srfTitle: 'entities.testtask.views.projectneweditview.title',
+        srfSubTitle: 'entities.testtask.views.projectneweditview.subtitle',
         dataInfo: ''
     }
 
@@ -109,7 +107,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     protected containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
@@ -120,7 +118,7 @@ export class BugEditViewBase extends EditViewBase {
      * 工具栏模型
      *
      * @type {*}
-     * @memberof BugEditView
+     * @memberof TestTaskProjectNewEditView
      */
     public toolBarModels: any = {
         deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
@@ -136,7 +134,7 @@ export class BugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = '46517a803b2470cd0bef27aeda0dbcaf';
+	protected viewtag: string = '513dfe852d9d8a97b32eccb44e7b55c3';
 
 
     /**
@@ -144,7 +142,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
 
@@ -152,15 +150,15 @@ export class BugEditViewBase extends EditViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public engineInit(): void {
         this.engine.init({
             view: this,
             form: this.$refs.form,
             p2k: '0',
-            keyPSDEField: 'bug',
-            majorPSDEField: 'title',
+            keyPSDEField: 'testtask',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }
@@ -170,7 +168,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -183,7 +181,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public form_save($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -194,7 +192,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public form_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -205,7 +203,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public form_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -236,7 +234,7 @@ export class BugEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Bug");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -248,7 +246,7 @@ export class BugEditViewBase extends EditViewBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugEditViewBase
+     * @memberof TestTaskProjectNewEditViewBase
      */
     public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;

@@ -48,6 +48,11 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && context.testrun){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
+            
+            return res;
+        }
         if(context.product && context.testtask && context.testrun){
             let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
             
@@ -73,6 +78,20 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/testtasks/${context.testtask}/testruns`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.testtask && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -125,6 +144,13 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && context.testrun){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.testtask && context.testrun){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -156,6 +182,10 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && context.testrun){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
+            return res;
+        }
         if(context.product && context.testtask && context.testrun){
             let res:any = Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
             return res;
@@ -178,6 +208,11 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && context.testrun){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
+            
+            return res;
+        }
         if(context.product && context.testtask && context.testrun){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
             
@@ -203,6 +238,12 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/getdraft`,isloading);
+            res.data.testrun = data.testrun;
+            
+            return res;
+        }
         if(context.product && context.testtask && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/getdraft`,isloading);
             res.data.testrun = data.testrun;
@@ -231,6 +272,13 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && context.testrun){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}/checkkey`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.testtask && context.testrun){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -259,6 +307,13 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && context.testrun){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}/save`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.testtask && context.testrun){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -290,6 +345,11 @@ export default class TestRunServiceBase extends EntityService {
      * @memberof TestRunServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
+            return res;
+        }
         if(context.product && context.testtask && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);

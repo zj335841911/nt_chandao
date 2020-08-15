@@ -61,6 +61,10 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskGetProductBuildLogic getproductbuildLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -132,6 +136,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Override
     public TestTask getDraft(TestTask et) {
         fillParentData(et);
+        getproductbuildLogic.execute(et);
         return et;
     }
 

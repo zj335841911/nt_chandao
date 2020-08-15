@@ -703,6 +703,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugEditView_1162",
             "viewtag": "50a62354d8e47841634e14c022dad22b"
         },
+        "testtaskprojectneweditview": {
+            "title": "测试单编辑视图",
+            "caption": "提交测试",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskProjectNewEditView",
+            "viewtag": "513dfe852d9d8a97b32eccb44e7b55c3"
+        },
         "bugtestreportsubgridview": {
             "title": "bug表格视图",
             "caption": "Bug",
@@ -1014,6 +1022,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskKanbanView",
             "viewtag": "7088260bcd6a0303378af2f8e207f479"
+        },
+        "testtaskprojectgridview": {
+            "title": "测试单表格视图（项目）",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskProjectGridView",
+            "viewtag": "72614f86125fa2a1421156c17116a4e3"
         },
         "casecursuitgridview": {
             "title": "功能测试",
@@ -1510,6 +1526,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseStepCarryOutEditMode",
             "viewtag": "a694d988e3134a33bb5a99e6e07246f6"
+        },
+        "bugprojectgridview": {
+            "title": "bug表格视图（项目）",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugProjectGridView",
+            "viewtag": "a6a2a7565323deeebec407a8ce726b03"
         },
         "buildmainview": {
             "title": "版本编辑视图",

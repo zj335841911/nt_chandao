@@ -142,6 +142,10 @@ export default {
 			caption: "Bug",
       		title: "Bug",
 		},
+		projectgridview: {
+			caption: "项目",
+      		title: "bug表格视图（项目）",
+		},
 		pickupgridview_buildlinkresolvedbugs: {
 			caption: "Bug",
       		title: "bug选择表格视图",
@@ -664,6 +668,29 @@ export default {
 		uiactions: {
 		},
 	},
+	main_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			confirmed: "确认",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			resolution: "方案",
+			uagridcolumn1: "操作",
+			lastediteddate: "修改日期",
+			activateddate: "激活日期",
+		},
+		uiactions: {
+			bug_confirmbug: "确认",
+			bug_resolvebug: "解决",
+			bug_closebug: "关闭",
+			bug_mainedit: "编辑",
+			copy: "拷贝",
+		},
+	},
 	main_buildsub2_grid: {
 		columns: {
 			id: "ID",
@@ -735,29 +762,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			confirmed: "确认",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
-			resolution: "方案",
-			uagridcolumn1: "操作",
-			lastediteddate: "修改日期",
-			activateddate: "激活日期",
-		},
-		uiactions: {
-			bug_confirmbug: "确认",
-			bug_resolvebug: "解决",
-			bug_closebug: "关闭",
-			bug_mainedit: "编辑",
-			copy: "拷贝",
-		},
-	},
 	main_reportsub_grid: {
 		columns: {
 			id: "ID",
@@ -819,6 +823,28 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	projectgridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	usr2gridviewtoolbar_toolbar: {

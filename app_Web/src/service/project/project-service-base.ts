@@ -96,6 +96,7 @@ export default class ProjectServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts?res.data.projectproducts:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_projectteams',JSON.stringify(res.data.projectteams?res.data.projectteams:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_testtasks',JSON.stringify(res.data.testtasks?res.data.testtasks:[]));
         
         return res;
     }
