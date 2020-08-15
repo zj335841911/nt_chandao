@@ -51,11 +51,11 @@ export default class ProjectTeamServiceBase extends EntityService {
         if(context.project && context.projectteam){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectteams/${context.projectteam}`,data,isloading);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectteams/${context.projectteam}`,data,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}`,data,isloading);
+            let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}`,data,isloading);
             return res;
     }
 

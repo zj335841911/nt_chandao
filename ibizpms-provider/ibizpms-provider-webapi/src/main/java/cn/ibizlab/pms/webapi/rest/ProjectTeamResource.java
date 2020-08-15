@@ -49,7 +49,7 @@ public class ProjectTeamResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "获取成员角色", tags = {"项目团队" },  notes = "获取成员角色")
-	@RequestMapping(method = RequestMethod.POST, value = "/projectteams/{projectteam_id}/getuserrole")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/{projectteam_id}/getuserrole")
     @Transactional
     public ResponseEntity<ProjectTeamDTO> getUserRole(@PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
@@ -194,7 +194,7 @@ domain.setId(projectteam_id);
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "根据项目项目团队", tags = {"项目团队" },  notes = "根据项目项目团队")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrole")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrole")
     @Transactional
     public ResponseEntity<ProjectTeamDTO> getUserRoleByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);

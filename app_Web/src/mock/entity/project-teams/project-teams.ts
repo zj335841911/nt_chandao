@@ -89,7 +89,7 @@ mock.onDelete(new RegExp(/^\/projectteams\/batch$/)).reply((config: any) => {
 
     
 // GetUserRole
-mock.onPost(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
     console.groupCollapsed("实体:projectteam 方法: GetUserRole");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -115,7 +115,7 @@ mock.onPost(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-
 });
         
 // GetUserRole
-mock.onPost(new RegExp(/^\/projectteams\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/projectteams\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
     console.groupCollapsed("实体:projectteam 方法: GetUserRole");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
