@@ -470,7 +470,16 @@ export default class ProjectServiceBase extends EntityService {
      */
     public async UpdateCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
-        !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 37, column 42:
-Encountered "(", but was expecting:
-    <ID>
+
+    /**
+     * UpdateProjectCycle接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async UpdateProjectCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }
