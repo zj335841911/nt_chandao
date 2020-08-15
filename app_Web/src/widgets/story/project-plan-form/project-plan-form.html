@@ -14,8 +14,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%" }' 
-    :localParam ='{ project:"%project%" }' 
+    :localContext ='{ PROJECT:"%project%", SRFPARENTKEY:"%project%" }' 
+    :localParam ='{ srfparentkey:"%project%", project:"%project%" }' 
     :disabled="detailsModel.plan.disabled"
     valueType="string"
     tag='ProjectProductPlan'

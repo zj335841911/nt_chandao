@@ -74,7 +74,9 @@ export class TaskEditViewBase extends EditViewBase {
 	 * @memberof TaskEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULE': { isRawValue: false, value: 'module' }
+        'STORY': { isRawValue: false, value: 'story' },
+        'MODULE': { isRawValue: false, value: 'module' },
+        'PROJECT': { isRawValue: false, value: 'project' }
     };
 
 	/**
@@ -85,6 +87,8 @@ export class TaskEditViewBase extends EditViewBase {
 	 * @memberof TaskEditViewBase
 	 */
     protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' },
+        'story': { isRawValue: false, value: 'story' },
         'module': { isRawValue: false, value: 'module' }
     };
 

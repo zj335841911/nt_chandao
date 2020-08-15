@@ -102,7 +102,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @memberof ProjectStoryBase
      */  
     public ActionModel: any = {
-        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
     };
 
     /**

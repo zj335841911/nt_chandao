@@ -58,6 +58,11 @@
        }
         ,
        {
+            "unirescode":"STORY_UNLP_BUT",
+            "uniresname":"需求移除项目关联"
+       }
+        ,
+       {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
        }
@@ -345,6 +350,11 @@
        {
             "unirescode":"TESTT_BLOCK_BUT",
             "uniresname":"测试版本阻塞"
+       }
+        ,
+       {
+            "unirescode":"STORY_FJTASK_BUT",
+            "uniresname":"需求分解任务"
        }
         ,
        {
