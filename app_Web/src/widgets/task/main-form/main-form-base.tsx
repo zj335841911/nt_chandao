@@ -228,6 +228,10 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'multiple')) {
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
+        if (Object.is(name, 'modulename')) {
+            this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
     }
 
     /**

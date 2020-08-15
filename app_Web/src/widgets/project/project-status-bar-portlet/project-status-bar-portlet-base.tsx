@@ -127,7 +127,7 @@ export class ProjectStatusBarPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '370px';
+            return '390px';
         }
     }
 

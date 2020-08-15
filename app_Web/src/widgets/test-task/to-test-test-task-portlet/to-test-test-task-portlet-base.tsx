@@ -127,7 +127,7 @@ export class ToTestTestTaskPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '300px';
         }
     }
 
