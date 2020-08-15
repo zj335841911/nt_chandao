@@ -39,6 +39,27 @@ export default class ProjectTeamServiceBase extends EntityService {
 // 实体接口
 
     /**
+     * GetUserRole接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async GetUserRole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectteams/${context.projectteam}`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}`,data,isloading);
+            return res;
+    }
+
+    /**
      * Select接口方法
      *
      * @param {*} [context={}]
@@ -198,26 +219,6 @@ export default class ProjectTeamServiceBase extends EntityService {
             return res;
         }
             let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
-            return res;
-    }
-
-    /**
-     * GetUserRole接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectTeamServiceBase
-     */
-    public async GetUserRole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectteam){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/getuserrole`,isloading);
-            
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/getuserrole`,isloading);
-            
             return res;
     }
 
