@@ -242,6 +242,15 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 测试版本
+     */
+    @Override
+    public Page<Build> searchTestBuild(BuildSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchTestBuild(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

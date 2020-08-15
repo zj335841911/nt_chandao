@@ -18,8 +18,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ SRFPARENTKEY:"%project%" }' 
+  :localParam ='{ srfparentkey:"%project%" }' 
   :disabled="detailsModel.productname.disabled"
   name='productname'
   deMajorField='name'
@@ -75,7 +75,7 @@
   deMajorField='name'
   deKeyField='build'
   :service="service"
-  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchTestBuild'}"
   valueitem='build' 
   :value="data.buildname" 
   editortype="dropdown"

@@ -115,8 +115,8 @@ export default class ProjectNewService extends ControlService {
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
             return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
-        if (Object.is(serviceName, 'BuildService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.buildService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'build');
+        if (Object.is(serviceName, 'BuildService') && Object.is(interfaceName, 'FetchTestBuild')) {
+            return this.doItems(this.buildService.FetchTestBuild(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'build');
         }
 
         return Promise.reject([])
