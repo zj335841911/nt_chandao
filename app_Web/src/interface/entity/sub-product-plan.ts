@@ -133,4 +133,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     storycnt?: any;
+
+    /**
+     * bug数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    bugcnt?: any;
 }

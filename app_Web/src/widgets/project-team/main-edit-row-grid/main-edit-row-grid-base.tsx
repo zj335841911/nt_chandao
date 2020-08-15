@@ -271,6 +271,24 @@ export class Main_EditRowGridBase extends GridControlBase {
 
 
     /**
+     * 表格编辑项值变化
+     *
+     * @public
+     * @param row 行数据
+     * @param property 列编辑项名
+     * @param row 列编辑项值
+     * @returns {void}
+     * @memberof Main_EditRowGridBase
+     */
+    public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
+        super.gridEditItemChange(row, property, value, rowIndex);
+        if(Object.is(property, 'username')){
+            const details: string[] = ['role'];
+            this.updateGridEditItem('GetUserRole', row, details, true);
+        }
+    }
+
+    /**
      * 新建默认值
      * @param {*}  row 行数据
      * @memberof Main_EditRowGridBase

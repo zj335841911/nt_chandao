@@ -133,4 +133,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     storycnt?: any;
+
+    /**
+     * bug数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    bugcnt?: any;
 }

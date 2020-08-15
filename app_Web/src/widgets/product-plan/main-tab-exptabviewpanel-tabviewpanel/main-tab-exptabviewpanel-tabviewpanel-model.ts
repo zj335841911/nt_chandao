@@ -63,6 +63,9 @@ export default class MainTabExptabviewpanelModel {
       {
         name: 'storycnt',
       },
+      {
+        name: 'bugcnt',
+      },
     ]
   }
 

@@ -16,6 +16,7 @@ export default {
     delta: "周期",
     oldtitle: "上一次计划名称",
     storycnt: "需求数",
+    bugcnt: "bug数",
   },
 	views: {
 		subplancreateview: {
