@@ -270,6 +270,10 @@ public class StoryExService extends StoryServiceImpl {
     public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
         context.getSelectCond().clear();
         context.setQuery(context.getQuery());
+        if(context.getN_module_eq() != null && !String.valueOf(context.getN_module_eq()).equals(0)) {
+            context.setN_module_eq(context.getN_module_eq());
+        }
+
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }

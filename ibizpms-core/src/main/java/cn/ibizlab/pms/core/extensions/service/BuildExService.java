@@ -6,6 +6,9 @@ import cn.ibizlab.pms.core.zentao.domain.Build;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+import cn.ibizlab.pms.core.zentao.filter.BuildSearchContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import java.util.*;
 
 /**
@@ -30,6 +33,17 @@ public class BuildExService extends BuildServiceImpl {
     @Transactional
     public Build linkStory(Build et) {
         return super.linkStory(et);
+    }
+
+    /**
+     * 查询集合 Bug产品版本
+     */
+    @Override
+    public Page<Build> searchBugProductBuild(BuildSearchContext context) {
+        context.getSelectCond().clear();
+        context.setQuery(context.getQuery());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 }
 

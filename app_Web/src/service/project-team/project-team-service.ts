@@ -21,5 +21,30 @@ export default class ProjectTeamService extends ProjectTeamServiceBase {
         super(opts);
     }
 
+    /**
+     * GetUserRole接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async GetUserRole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            context.projectteam = 0;
+            data.id = 0
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectteams/${context.projectteam}/getuserrole`,data,isloading);
+
+            return res;
+        }
+        context.projectteam = 0;
+        data.id = 0;
+        let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
+        return res;
+    }
+
 
 }
