@@ -717,6 +717,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			story_breakdowntasks: "分解任务",
 			story_projectunlinkstory: "移除",
 		},
 	},
