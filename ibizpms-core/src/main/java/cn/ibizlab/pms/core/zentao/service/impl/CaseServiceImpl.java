@@ -517,6 +517,16 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
             et.setStoryversion(ztstory.getVersion());
             et.setStoryname(ztstory.getTitle());
         }
+        //实体关系[DER1N_ZT_CASE_ZT_TESTSUITE_LIB]
+        if(!ObjectUtils.isEmpty(et.getLib())){
+            cn.ibizlab.pms.core.zentao.domain.TestSuite zttestsuite=et.getZttestsuite();
+            if(ObjectUtils.isEmpty(zttestsuite)){
+                cn.ibizlab.pms.core.zentao.domain.TestSuite majorEntity=testsuiteService.get(et.getLib());
+                et.setZttestsuite(majorEntity);
+                zttestsuite=majorEntity;
+            }
+            et.setLibname(zttestsuite.getName());
+        }
     }
 
 

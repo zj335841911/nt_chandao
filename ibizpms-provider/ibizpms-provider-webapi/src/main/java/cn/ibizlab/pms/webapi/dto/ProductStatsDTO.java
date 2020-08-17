@@ -224,6 +224,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("postponedprojectcnt")
     private Integer postponedprojectcnt;
 
+    /**
+     * 属性 [CURRPROJECT]
+     *
+     */
+    @JSONField(name = "currproject")
+    @JsonProperty("currproject")
+    private String currproject;
+
 
     /**
      * 设置 [NAME]

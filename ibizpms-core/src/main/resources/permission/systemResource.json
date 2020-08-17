@@ -552,6 +552,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"IbzLibModule",
+    "delogicname":"用例库模块",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"Root_NoBranch" , "name":"无枝叶"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
     "dename":"Task",
     "delogicname":"任务",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
@@ -746,6 +754,12 @@
     ],
     "appmenus":[
             
+            {
+               "appid":"Mob",
+               "appname":"iBiz软件生产管理（Mob）",
+               "appmenu":[{"menuid":"IconStyleMenu", "menuname":"IconStyleMenu", "menuitem":[{ "id":"menuitem1" , "name":"客户资料" },{ "id":"menuitem2" , "name":"报价记录" },{ "id":"menuitem3" , "name":"任务/跟进" },{ "id":"menuitem4" , "name":"销售机会" },{ "id":"menuitem5" , "name":"合同/订单" },{ "id":"menuitem6" , "name":"汇款记录" },{ "id":"menuitem7" , "name":"发货单" },{ "id":"menuitem8" , "name":"产品信息" },{ "id":"menuitem9" , "name":"数据审核" },{ "id":"menuitem10" , "name":"费用报销" },{ "id":"menuitem11" , "name":"日/周/月报" },{ "id":"menuitem12" , "name":"更多" }] },{"menuid":"AppIndexView", "menuname":"AppIndexView", "menuitem":[{ "id":"menuitem1" , "name":"工作台" },{ "id":"menuitem2" , "name":"待办" },{ "id":"menuitem3" , "name":"看板" },{ "id":"menuitem4" , "name":"我的" }] },{"menuid":"ListMenu", "menuname":"ListMenu", "menuitem":[{ "id":"menuitem1" , "name":"电脑" },{ "id":"menuitem2" , "name":"手机" },{ "id":"menuitem3" , "name":"杯子" },{ "id":"menuitem4" , "name":"用户" },{ "id":"menuitem5" , "name":"相机" },{ "id":"menuitem6" , "name":"望远镜" },{ "id":"menuitem7" , "name":"更多" }] },{"menuid":"ImgswipeStyleMenu", "menuname":"ImgswipeStyleMenu", "menuitem":[{ "id":"menuitem1" , "name":"京东" },{ "id":"menuitem2" , "name":"天猫" },{ "id":"menuitem3" , "name":"亚马逊" }] }]
+            }
+            ,
             {
                "appid":"Web",
                "appname":"iBiz软件生产管理",

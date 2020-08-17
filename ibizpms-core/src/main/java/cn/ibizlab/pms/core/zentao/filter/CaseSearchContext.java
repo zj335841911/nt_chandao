@@ -202,6 +202,20 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
         }
     }
+	private String n_libname_eq;//[用例库]
+	public void setN_libname_eq(String n_libname_eq) {
+        this.n_libname_eq = n_libname_eq;
+        if(!ObjectUtils.isEmpty(this.n_libname_eq)){
+            this.getSearchCond().eq("libname", n_libname_eq);
+        }
+    }
+	private String n_libname_like;//[用例库]
+	public void setN_libname_like(String n_libname_like) {
+        this.n_libname_like = n_libname_like;
+        if(!ObjectUtils.isEmpty(this.n_libname_like)){
+            this.getSearchCond().like("libname", n_libname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

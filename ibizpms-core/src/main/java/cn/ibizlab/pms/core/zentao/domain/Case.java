@@ -423,6 +423,13 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     private String task;
+    /**
+     * 用例库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
 
     /**
      * 

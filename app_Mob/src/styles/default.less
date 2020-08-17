@@ -1,0 +1,73 @@
+@import '../../node_modules/font-awesome/less/font-awesome.less';
+
+.view-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .view-header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        .van-button{
+            height: @nav-bar-height;
+            line-height: @nav-bar-height;
+        }
+        .app-view-lefttoolbar{
+            height: @nav-bar-height;
+            line-height: @nav-bar-height;
+        }
+        .app-nav-bar{
+            height: @nav-bar-height;
+            line-height: @nav-bar-height;
+            background: @nav-bar-backgroud;
+            .van-icon{
+                color:@nav-bar-color;
+            }
+            .van-nav-bar__title{
+                color: @nav-bar-color;
+                font-size: @nav-bar-fontSize;
+            }
+            .van-nav-bar__right {
+                height: @nav-bar-height;
+                line-height: @nav-bar-height;
+            }
+        }
+    }
+    .view-header-bottom {
+        height: 40px;
+        width: 100%;
+    }
+    >.view-content {
+        flex-grow: 1;
+        overflow: auto;
+        height: 50%;
+    }
+    >.view-search {
+        >.van-cell {
+            padding: 0px;
+            padding-right: @padding-md;
+            display: flex;
+            align-items: center;
+            .view-search__searchform {
+                font-size: @font-size-lg;
+                color: #969799;
+            }
+        }
+    }
+}
+.icon {
+    width: 4em;
+    height: 4em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+@import './user.less';
+
+
+// 视图标题样式
+// .ionoc-view-header {
+//     --background: @color-secondary-shade;
+// }

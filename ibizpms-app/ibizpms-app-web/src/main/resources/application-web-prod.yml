@@ -103,6 +103,10 @@ zuul:
       path: /todos/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_libmodule:
+      path: /ibzlibmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_subtask:
       path: /subtasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

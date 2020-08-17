@@ -445,6 +445,14 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("task")
     private String task;
 
+    /**
+     * 属性 [LIBNAME]
+     *
+     */
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
+
 
     /**
      * 设置 [LASTEDITEDDATE]
