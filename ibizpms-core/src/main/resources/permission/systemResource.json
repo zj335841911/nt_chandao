@@ -18,6 +18,11 @@
        }
         ,
        {
+            "unirescode":"LIBM_OPEN_BUT",
+            "uniresname":"用例库打开概况"
+       }
+        ,
+       {
             "unirescode":"CASE_CASECOF_BUT",
             "uniresname":"测试用例（用例确认）"
        }
