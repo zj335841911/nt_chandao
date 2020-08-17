@@ -150,18 +150,18 @@ export default {
 			tip: "Help",
 		},
 	},
-	treelibexp_treeview: {
-		nodes: {
-			all: "所有模板",
-			root: "默认根节点",
-		},
-		uiactions: {
-		},
-	},
 	treelibmodule_treeview: {
 		nodes: {
 			root: "默认根节点",
 			all: "所有模板",
+		},
+		uiactions: {
+		},
+	},
+	treelibexp_treeview: {
+		nodes: {
+			all: "所有模板",
+			root: "默认根节点",
 		},
 		uiactions: {
 		},
