@@ -34,6 +34,20 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
             this.getSearchCond().like("name", n_name_like);
         }
     }
+	private String n_status_eq;//[状态]
+	public void setN_status_eq(String n_status_eq) {
+        this.n_status_eq = n_status_eq;
+        if(!ObjectUtils.isEmpty(this.n_status_eq)){
+            this.getSearchCond().eq("status", n_status_eq);
+        }
+    }
+	private String n_status_noteq;//[状态]
+	public void setN_status_noteq(String n_status_noteq) {
+        this.n_status_noteq = n_status_noteq;
+        if(!ObjectUtils.isEmpty(this.n_status_noteq)){
+            this.getSearchCond().ne("status", n_status_noteq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

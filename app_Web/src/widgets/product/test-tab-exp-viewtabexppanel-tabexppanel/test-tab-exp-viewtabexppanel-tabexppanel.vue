@@ -9,6 +9,7 @@ import view_tabviewpanel4 from '@widgets/product/test-tab-exp-viewtabviewpanel4-
 import view_tabviewpanel5 from '@widgets/product/test-tab-exp-viewtabviewpanel5-tabviewpanel/test-tab-exp-viewtabviewpanel5-tabviewpanel.vue';
 import view_tabviewpanel6 from '@widgets/product/test-tab-exp-viewtabviewpanel6-tabviewpanel/test-tab-exp-viewtabviewpanel6-tabviewpanel.vue';
 import view_tabviewpanel7 from '@widgets/product/test-tab-exp-viewtabviewpanel7-tabviewpanel/test-tab-exp-viewtabviewpanel7-tabviewpanel.vue';
+import view_tabviewpanel8 from '@widgets/product/test-tab-exp-viewtabviewpanel8-tabviewpanel/test-tab-exp-viewtabviewpanel8-tabviewpanel.vue';
  
 
 /**
@@ -26,6 +27,7 @@ import view_tabviewpanel7 from '@widgets/product/test-tab-exp-viewtabviewpanel7-
         view_tabviewpanel5, 
         view_tabviewpanel6, 
         view_tabviewpanel7, 
+        view_tabviewpanel8, 
          
     }
 })

@@ -12,9 +12,19 @@ export default {
     version: "版本",
   },
 	views: {
+		maingridview9: {
+			caption: "用例库用例步骤",
+      		title: "用例库用例步骤表格视图（主数据）",
+		},
 		openstepview: {
 			caption: "用例库用例步骤",
       		title: "用例库用例步骤数据看板视图",
+		},
+	},
+	main_grid: {
+		columns: {
+		},
+		uiactions: {
 		},
 	},
 };

@@ -16,6 +16,8 @@ import CaseMainInfo from '@/widgets/case/main-info-portlet/main-info-portlet.vue
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
 import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
+import IbzLibIbzLibMain from '@/widgets/ibz-lib/ibz-lib-main-portlet/ibz-lib-main-portlet.vue';
+import IbzLibIbzLib from '@/widgets/ibz-lib/ibz-lib-portlet/ibz-lib-portlet.vue';
 import BurnBurnDownChart from '@/widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';
 import IbzProjectMemberRelatedMembers from '@/widgets/ibz-project-member/related-members-portlet/related-members-portlet.vue';
 import ActionActionHistory from '@/widgets/action/action-history-portlet/action-history-portlet.vue';
@@ -66,6 +68,8 @@ export const  PortletComponent = {
         v.component('app-bug-bug-dashboard-actions-portlet', BugBugDashboardActions);
         v.component('app-bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('app-bug-dashboard-bug-life-portlet', BugDashboardBugLife);
+        v.component('app-ibz-lib-ibz-lib-main-portlet', IbzLibIbzLibMain);
+        v.component('app-ibz-lib-ibz-lib-portlet', IbzLibIbzLib);
         v.component('app-story-storyspec-portlet', StoryStoryspec);
         v.component('app-action-action-history-portlet', ActionActionHistory);
         v.component('app-story-main-toolbar-portlet', StoryMainToolbar);
@@ -115,6 +119,8 @@ export const  PortletComponent = {
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('product-product-info-portlet', ProductProductInfo);
         v.component('product-un-closed-product-portlet', ProductUnClosedProduct);
+        v.component('ibz-lib-ibz-lib-main-portlet', IbzLibIbzLibMain);
+        v.component('ibz-lib-ibz-lib-portlet', IbzLibIbzLib);
         v.component('burn-burn-down-chart-portlet', BurnBurnDownChart);
         v.component('ibz-project-member-related-members-portlet', IbzProjectMemberRelatedMembers);
         v.component('action-action-history-portlet', ActionActionHistory);

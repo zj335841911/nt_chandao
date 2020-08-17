@@ -21,6 +21,10 @@ export default {
 			caption: "模块维护",
       		title: "用例库模块树导航视图（模块维护）",
 		},
+		casetreeexpview: {
+			caption: "用例",
+      		title: "用例库模块树导航视图（用例）",
+		},
 		maindashboardview: {
 			caption: "用例库模块",
       		title: "用例库模块数据看板视图",
@@ -143,6 +147,14 @@ export default {
 		tbitem22: {
 			caption: "帮助",
 			tip: "帮助",
+		},
+	},
+	treelibexp_treeview: {
+		nodes: {
+			all: "所有模板",
+			root: "默认根节点",
+		},
+		uiactions: {
 		},
 	},
 	treelibmodule_treeview: {

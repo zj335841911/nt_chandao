@@ -5839,6 +5839,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "ProductQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "normal",
+                label: "未关闭",
+                text: "未关闭",
+                "data":{"n_status_eq":'normal'},
+                "codename":"Normal",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":{"n_status_eq":'closed'},
+                "codename":"Closed",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__quickpacket",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -6645,6 +6682,73 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ProjectQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "nowait",
+                label: "未完成",
+                text: "未完成",
+                "data":{"n_status_noteq":'closed'},
+                "codename":"Nowait",
+                value: "nowait",
+                
+                disabled: false,
+            },
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":{"n_status_eq":'wait'},
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":{"n_status_eq":'doing'},
+                "codename":"Doing",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "suspended",
+                label: "已挂起",
+                text: "已挂起",
+                "data":{"n_status_eq":'suspended'},
+                "codename":"Suspended",
+                value: "suspended",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":{"n_status_eq":'closed'},
+                "codename":"Closed",
+                value: "closed",
                 
                 disabled: false,
             },

@@ -7,6 +7,18 @@ logging:
 #zuul网关路由设置
 zuul:
   routes:
+    zt_task:
+      path: /tasks/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_story:
+      path: /stories/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_bug:
+      path: /bugs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     loginv7:
       path: /v7/login
       serviceId: ${ibiz.ref.service.uaa:ibzuaa-api}

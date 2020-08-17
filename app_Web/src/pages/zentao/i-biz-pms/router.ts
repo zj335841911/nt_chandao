@@ -2890,6 +2890,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-main-tab-exp-view/test-report-main-tab-exp-view.vue'),
                 },
                 {
+                    path: 'ibzlibs/:ibzlib?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzlib.views.gridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-grid-view/ibz-lib-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
                     meta: {
                         caption: 'entities.bug.views.testreportsubgridview.title',
@@ -8377,6 +8391,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-rev-iew-view/story-rev-iew-view.vue'),
+                },
+                {
+                    path: 'ibzlibs/:ibzlib?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzlib.views.editview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-edit-view/ibz-lib-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/projectpickupgridview/:projectpickupgridview?',

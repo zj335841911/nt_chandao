@@ -143,7 +143,7 @@ export interface IbzCase {
     pri?: any;
 
     /**
-     * 类型
+     * 用例类型
      *
      * @returns {*}
      * @memberof IbzCase

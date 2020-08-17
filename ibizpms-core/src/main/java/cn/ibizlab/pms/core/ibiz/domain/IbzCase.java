@@ -169,7 +169,7 @@ public class IbzCase extends EntityMP implements Serializable {
     @JsonProperty("pri")
     private String pri;
     /**
-     * 类型
+     * 用例类型
      */
     @TableField(value = "type")
     @JSONField(name = "type")
@@ -390,7 +390,7 @@ public class IbzCase extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [类型]
+     * 设置 [用例类型]
      */
     public void setType(String type){
         this.type = type ;

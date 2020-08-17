@@ -47,6 +47,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseEditView",
             "viewtag": "02b7ecd8e994b90558a9d6c23705f600"
         },
+        "ibzcasenewediteditview9": {
+            "title": "用例库用例编辑视图（创建编辑）",
+            "caption": "创建编辑",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseNewEditEditView9",
+            "viewtag": "03840483160859a4e36e33e9f9471ed3"
+        },
         "projectproductplanlistview9": {
             "title": "项目产品列表视图",
             "caption": "关联计划",
@@ -119,6 +127,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBuildSubGridView_New",
             "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5"
         },
+        "ibzcaseediteditview": {
+            "title": "用例库用例编辑视图（编辑）",
+            "caption": "用例库用例",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseEditEditView",
+            "viewtag": "0a43b5a8be540dcb1227223ae1c9adc9"
+        },
         "productprojectgridview9": {
             "title": "产品表格视图（项目）",
             "caption": "项目",
@@ -142,6 +158,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestSuiteEditView9",
             "viewtag": "0d5db9e736e4556dcfc45c455888a1a6"
+        },
+        "ibzcasegridview": {
+            "title": "用例库用例表格视图",
+            "caption": "用例库用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IbzCaseGridView",
+            "viewtag": "0da13bc2f5883c69742cac5e4e866e2a"
         },
         "ibzmyterritorytabexpview": {
             "title": "我的地盘",
@@ -695,6 +719,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugEditView",
             "viewtag": "46517a803b2470cd0bef27aeda0dbcaf"
         },
+        "ibzlibeditview9": {
+            "title": "用例库编辑视图",
+            "caption": "用例库",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzLibEditView9",
+            "viewtag": "471a8a8d5b7ebf2a2e0fa7995c4e883c"
+        },
         "testreportgridview": {
             "title": "测试报告表格视图",
             "caption": "测试报告",
@@ -790,6 +822,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskEditView_commitTest",
             "viewtag": "4d32793fc57ec1ae930a18608526d00e"
+        },
+        "ibzcasestepgridview9": {
+            "title": "用例库用例步骤表格视图",
+            "caption": "用例库用例步骤",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseStepGridView9",
+            "viewtag": "4e7e2d804c6d390b585ca4fd12d577bd"
         },
         "productplansubplangridview": {
             "title": "子计划",
@@ -1047,6 +1087,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_StorySpec",
             "viewtag": "61f32b2b422e8f1a9825e1f704464a8c"
         },
+        "ibzcasestepmaingridview9": {
+            "title": "用例库用例步骤表格视图（主数据）",
+            "caption": "用例库用例步骤",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseStepMainGridView9",
+            "viewtag": "628a628e80372c6dee2b44e284686e32"
+        },
         "productcasetreeexpview": {
             "title": "产品需求导航视图",
             "caption": "产品",
@@ -1182,6 +1230,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryTabExpView",
             "viewtag": "76bd64e6d21e10838e42517992e58c65"
+        },
+        "ibzlibeditview": {
+            "title": "用例库编辑视图",
+            "caption": "用例库",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzLibEditView",
+            "viewtag": "76f07b59aab6db4512723cd3d24ee84e"
         },
         "actionhistorylistview": {
             "title": "历史记录",
@@ -1599,6 +1655,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView9",
             "viewtag": "985c8eb7591e5e00de8e3cda638d5727"
         },
+        "ibzlibmodulecasetreeexpview": {
+            "title": "用例库模块树导航视图（用例）",
+            "caption": "用例",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzLibModuleCaseTreeExpView",
+            "viewtag": "99b83386d61eab84cd7d65a445def4ed"
+        },
         "projecteditview_close": {
             "title": "项目",
             "caption": "项目",
@@ -1646,6 +1710,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzLibModuleMainDashboardView",
             "viewtag": "9f0915f02ae0ff8b4aba2772289bdacf"
+        },
+        "ibzcaseinfoeditview9": {
+            "title": "用例库用例编辑视图（基本信息）",
+            "caption": "基本信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseInfoEditView9",
+            "viewtag": "a0a25524d16a413d7e020c0af2cc9c9b"
         },
         "storygridview9_related": {
             "title": "相关需求",
@@ -1799,6 +1871,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskGridView",
             "viewtag": "aae1ade339fe6a2ebe367489f6393db1"
         },
+        "ibzcaseeditview": {
+            "title": "用例库用例编辑视图",
+            "caption": "用例库用例",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IbzCaseEditView",
+            "viewtag": "ab45ff5d2250ad8a5d88f39cc26b7646"
+        },
         "companymainview": {
             "title": "公司数据看板视图",
             "caption": "公司信息",
@@ -1894,6 +1974,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductDashboardInfoMainView9",
             "viewtag": "b5d2389c0dd12ae614b319090ecc2361"
+        },
+        "ibzcasemaineditview9": {
+            "title": "用例库用例编辑视图（主信息）",
+            "caption": "主信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseMainEditView9",
+            "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d"
         },
         "ibzcasestepopenstepview": {
             "title": "用例库用例步骤数据看板视图",
@@ -2295,6 +2383,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductEditView",
             "viewtag": "e042a1dee405b0a853f315b39a375783"
         },
+        "ibzcaseneweditview": {
+            "title": "用例库用例编辑视图（新建）",
+            "caption": "新建",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseNewEditView",
+            "viewtag": "e049cdde7095f179bf786984cb497fe5"
+        },
         "storycloseview": {
             "title": "需求关闭",
             "caption": "需求关闭",
@@ -2375,6 +2471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugCloseView",
             "viewtag": "e67fe0ec86d17b74944c16e187da482d"
         },
+        "ibzlibgridview": {
+            "title": "用例库表格视图",
+            "caption": "用例库",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzLibGridView",
+            "viewtag": "e698418f007d36b627d6af23c1042f31"
+        },
         "testtaskeditview_edit": {
             "title": "测试单编辑视图",
             "caption": "测试版本",
@@ -2438,6 +2542,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoDashboardView",
             "viewtag": "ebf37bf3881bb27c09db9bbe5d0b0f77"
+        },
+        "ibzlibtabexpview": {
+            "title": "用例库分页导航视图",
+            "caption": "用例库",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzLibTabExpView",
+            "viewtag": "ebf8f4c62f92ff24ff740558f12f7303"
         },
         "bugdashboardmaineditview9": {
             "title": "主信息",

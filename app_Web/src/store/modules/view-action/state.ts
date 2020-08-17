@@ -12,6 +12,7 @@ export const viewstate: any = {
             refviews: [
                 'f78c94cb0a20d7f459753a4070f8f3e7',
                 'a4c56767e9b34cd619d79b676fa2ccd9',
+                'e698418f007d36b627d6af23c1042f31',
                 'a3bd82ec712d2e3ad12e716655e960fc',
                 '63b82c8ee288130faca83833ec1f837c',
                 '48600bd551aa923b5fceabcb83f65239',
@@ -784,6 +785,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '471a8a8d5b7ebf2a2e0fa7995c4e883c',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '48600bd551aa923b5fceabcb83f65239',
             viewmodule: 'zentao',
             viewname: 'TestReportGridView',
@@ -1350,6 +1361,15 @@ export const viewstate: any = {
                 '427e28cc5267cfc2a6d6da6fde36ef9f',
                 '300e4e1f02be8e316e1e76b49c5c5ccc',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
+            ],
+        },
+        {
+            viewtag: '76f07b59aab6db4512723cd3d24ee84e',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2651,6 +2671,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e698418f007d36b627d6af23c1042f31',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '76f07b59aab6db4512723cd3d24ee84e',
             ],
         },
         {

@@ -759,6 +759,12 @@ export default {
         "TOME": "指派给我",
         "empty": "",
     },
+    ProductQuickpacket: {
+        "All": "所有",
+        "normal": "未关闭",
+        "closed": "已关闭",
+        "empty": "",
+    },
     Bug__quickpacket: {
         "All": "所有",
         "UNCLOSED": "未关闭",
@@ -870,6 +876,15 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    ProjectQuickpacket: {
+        "All": "所有",
+        "nowait": "未完成",
+        "wait": "未开始",
+        "doing": "进行中",
+        "suspended": "已挂起",
+        "closed": "已关闭",
         "empty": "",
     },
     Testcase__result: {
