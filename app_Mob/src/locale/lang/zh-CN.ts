@@ -61,10 +61,9 @@ export default {
                 menuitem12: '更多',
             },
             appindexview: {
-                menuitem1: '工作台',
-                menuitem2: '待办',
-                menuitem3: '看板',
-                menuitem4: '我的',
+                menuitem1: '项目',
+                menuitem2: '分类',
+                menuitem3: '测试',
             },
             listmenu: {
                 menuitem1: '电脑',
