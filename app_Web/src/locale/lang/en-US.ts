@@ -22,6 +22,7 @@ import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
+import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
@@ -316,6 +317,7 @@ export default {
         taskestimate: taskestimate_en_US,
         story: story_en_US,
         todo: todo_en_US,
+        ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,
         project: project_en_US,
         history: history_en_US,

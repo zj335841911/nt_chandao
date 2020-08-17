@@ -6,8 +6,8 @@ import TaskAssignToMe from '@/widgets/task/assign-to-me-portlet/assign-to-me-por
 import ProductTextExpView from '@/widgets/product/text-exp-view-portlet/text-exp-view-portlet.vue';
 import ProjectProjectExpView from '@/widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
 import ProductProductStatusChart from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
-import TodoMyUpcoming from '@/widgets/todo/my-upcoming-portlet/my-upcoming-portlet.vue';
 import CaseMeCreateCase from '@/widgets/case/me-create-case-portlet/me-create-case-portlet.vue';
+import TodoMyUpcoming from '@/widgets/todo/my-upcoming-portlet/my-upcoming-portlet.vue';
 import CaseTestMainDetail from '@/widgets/case/test-main-detail-portlet/test-main-detail-portlet.vue';
 import CaseMainDetail from '@/widgets/case/main-detail-portlet/main-detail-portlet.vue';
 import CaseTestDashboardQuickAction from '@/widgets/case/test-dashboard-quick-action-portlet/test-dashboard-quick-action-portlet.vue';
@@ -100,13 +100,13 @@ export const  PortletComponent = {
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
+        v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
+        v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
+        v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
         v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
         v.component('app-todo-todoaction-portlet', TodoTodoaction);
         v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
         v.component('app-todo-todo-base-portlet', TodoTodoBase);
-        v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
-        v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
-        v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
         v.component('case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);

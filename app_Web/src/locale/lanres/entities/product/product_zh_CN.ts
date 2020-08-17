@@ -327,7 +327,11 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	testgridviewtoolbar_toolbar: {
+	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
 	},
 	testlistexpviewlistexpbar_list_quicktoolbar_toolbar: {
 		deuiaction1: {
@@ -335,11 +339,7 @@ export default {
 			tip: "新建",
 		},
 	},
-	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
+	testgridviewtoolbar_toolbar: {
 	},
 	testleftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_testmanager: {

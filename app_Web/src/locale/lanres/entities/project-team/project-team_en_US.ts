@@ -18,11 +18,11 @@ export default {
     username: "用户",
   },
 	views: {
-		maingridview_editrow: {
+		maingridview: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
 		},
-		maingridview: {
+		maingridview_editrow: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
 		},

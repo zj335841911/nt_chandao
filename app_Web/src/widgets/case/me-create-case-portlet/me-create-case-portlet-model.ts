@@ -174,6 +174,9 @@ export default class MeCreateCaseModel {
       {
         name: 'task',
       },
+      {
+        name: 'libname',
+      },
     ]
   }
 

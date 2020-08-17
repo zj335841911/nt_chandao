@@ -174,6 +174,9 @@ export default class MainDashboardModel {
       {
         name: 'task',
       },
+      {
+        name: 'libname',
+      },
     ]
   }
 

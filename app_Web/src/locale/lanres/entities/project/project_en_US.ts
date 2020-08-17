@@ -323,17 +323,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main2_grid: {
-		columns: {
-			id: "ID",
-			name: "项目名称",
-			code: "项目代号",
-			status: "项目状态",
-			end: "结束日期",
-		},
-		uiactions: {
-		},
-	},
 	mainmy_grid: {
 		columns: {
 			id: "ID",
@@ -345,6 +334,17 @@ export default {
 			role: "角色",
 			join: "加盟日",
 			hours: "可用工时/天",
+		},
+		uiactions: {
+		},
+	},
+	main2_grid: {
+		columns: {
+			id: "ID",
+			name: "项目名称",
+			code: "项目代号",
+			status: "项目状态",
+			end: "结束日期",
 		},
 		uiactions: {
 		},
@@ -428,24 +428,6 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction3_manager: {
-			caption: "管理",
-			tip: "管理",
-		},
-		deuiaction3_create: {
-			caption: "新建",
-			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	mainmygridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
@@ -466,6 +448,24 @@ export default {
 		deuiaction4: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+	},
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_manager: {
+			caption: "管理",
+			tip: "管理",
+		},
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 };

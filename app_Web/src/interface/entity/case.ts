@@ -429,4 +429,12 @@ export interface Case {
      * @memberof Case
      */
     task?: any;
+
+    /**
+     * 用例库
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    libname?: any;
 }

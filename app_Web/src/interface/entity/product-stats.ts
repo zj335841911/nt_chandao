@@ -205,4 +205,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     postponedprojectcnt?: any;
+
+    /**
+     * 当前项目
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    currproject?: any;
 }

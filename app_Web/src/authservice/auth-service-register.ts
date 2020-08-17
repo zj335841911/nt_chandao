@@ -63,6 +63,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
         this.allAuthService.set('story', () => import('@/authservice/story/story-auth-service'));
         this.allAuthService.set('todo', () => import('@/authservice/todo/todo-auth-service'));
+        this.allAuthService.set('ibzlibmodule', () => import('@/authservice/ibz-lib-module/ibz-lib-module-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
         this.allAuthService.set('history', () => import('@/authservice/history/history-auth-service'));

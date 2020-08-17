@@ -174,6 +174,9 @@ export default class MainDashboardTestModel {
       {
         name: 'task',
       },
+      {
+        name: 'libname',
+      },
     ]
   }
 

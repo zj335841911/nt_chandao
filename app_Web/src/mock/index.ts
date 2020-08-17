@@ -31,6 +31,7 @@ import './entity/ibzcase-steps/ibzcase-steps';
 import './entity/task-estimates/task-estimates';
 import './entity/storys/storys';
 import './entity/todos/todos';
+import './entity/ibz-lib-modules/ibz-lib-modules';
 import './entity/sub-tasks/sub-tasks';
 import './entity/projects/projects';
 import './entity/historys/historys';

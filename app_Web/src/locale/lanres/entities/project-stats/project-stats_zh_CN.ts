@@ -23,6 +23,8 @@ export default {
     releasedstorycnt: "已发布需求数",
     yesterdayctaskcnt: "昨日完成任务数",
     yesterdayrbugcnt: "昨天解决Bug数",
+    end: "截止日期",
+    status: "状态",
   },
 	views: {
 		editview9: {
