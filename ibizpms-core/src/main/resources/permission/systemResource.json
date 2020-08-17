@@ -8,13 +8,28 @@
        }
         ,
        {
+            "unirescode":"LICASE_EDIT_BUT",
+            "uniresname":"用例库用例编辑"
+       }
+        ,
+       {
             "unirescode":"BUG_ASSIGNTO_BUT",
             "uniresname":"Bug指派"
        }
         ,
        {
+            "unirescode":"LIB_OPEN_BUT",
+            "uniresname":"用例库概况"
+       }
+        ,
+       {
             "unirescode":"TESTSU_DELETE_BUT",
             "uniresname":"测试套件删除"
+       }
+        ,
+       {
+            "unirescode":"STEP_CREATE_BUT",
+            "uniresname":"用例库用例步骤新建"
        }
         ,
        {
@@ -78,6 +93,16 @@
        }
         ,
        {
+            "unirescode":"LICASE_OPEN_BUT",
+            "uniresname":"用例库用例概况"
+       }
+        ,
+       {
+            "unirescode":"LIB_EDIT_BUT",
+            "uniresname":"用例库编辑"
+       }
+        ,
+       {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
        }
@@ -109,7 +134,7 @@
         ,
        {
             "unirescode":"LIBM_CREATE_BUT",
-            "uniresname":"用例库新建"
+            "uniresname":"用例库模块新建"
        }
         ,
        {
@@ -153,6 +178,11 @@
        }
         ,
        {
+            "unirescode":"LICASE_CREATE_BUT",
+            "uniresname":"用例库用例新建"
+       }
+        ,
+       {
             "unirescode":"PROD_CREATE_BUT",
             "uniresname":"产品新建"
        }
@@ -185,6 +215,11 @@
        {
             "unirescode":"PROP_CHILD_BUT",
             "uniresname":"计划子计划"
+       }
+        ,
+       {
+            "unirescode":"STEP_EDIT_BUT",
+            "uniresname":"用例库用例步骤编辑"
        }
         ,
        {
@@ -243,6 +278,11 @@
        }
         ,
        {
+            "unirescode":"LIB_CREATE_BUT",
+            "uniresname":"用例库新建"
+       }
+        ,
+       {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
        }
@@ -260,6 +300,11 @@
        {
             "unirescode":"PROP_LSTORY_BUT",
             "uniresname":"计划关联需求"
+       }
+        ,
+       {
+            "unirescode":"STEP_OPEN_BUT",
+            "uniresname":"用例库用例步骤概况"
        }
         ,
        {
@@ -796,7 +841,7 @@
             {
                "appid":"Mob",
                "appname":"iBiz软件生产管理（Mob）",
-               "appmenu":[{"menuid":"IconStyleMenu", "menuname":"IconStyleMenu", "menuitem":[{ "id":"menuitem1" , "name":"客户资料" },{ "id":"menuitem2" , "name":"报价记录" },{ "id":"menuitem3" , "name":"任务/跟进" },{ "id":"menuitem4" , "name":"销售机会" },{ "id":"menuitem5" , "name":"合同/订单" },{ "id":"menuitem6" , "name":"汇款记录" },{ "id":"menuitem7" , "name":"发货单" },{ "id":"menuitem8" , "name":"产品信息" },{ "id":"menuitem9" , "name":"数据审核" },{ "id":"menuitem10" , "name":"费用报销" },{ "id":"menuitem11" , "name":"日/周/月报" },{ "id":"menuitem12" , "name":"更多" }] },{"menuid":"AppIndexView", "menuname":"AppIndexView", "menuitem":[{ "id":"menuitem1" , "name":"项目" },{ "id":"menuitem2" , "name":"分类" },{ "id":"menuitem3" , "name":"测试" }] },{"menuid":"ListMenu", "menuname":"ListMenu", "menuitem":[{ "id":"menuitem1" , "name":"电脑" },{ "id":"menuitem2" , "name":"手机" },{ "id":"menuitem3" , "name":"杯子" },{ "id":"menuitem4" , "name":"用户" },{ "id":"menuitem5" , "name":"相机" },{ "id":"menuitem6" , "name":"望远镜" },{ "id":"menuitem7" , "name":"更多" }] },{"menuid":"ImgswipeStyleMenu", "menuname":"ImgswipeStyleMenu", "menuitem":[{ "id":"menuitem1" , "name":"京东" },{ "id":"menuitem2" , "name":"天猫" },{ "id":"menuitem3" , "name":"亚马逊" }] }]
+               "appmenu":[{"menuid":"IconStyleMenu", "menuname":"IconStyleMenu", "menuitem":[{ "id":"menuitem1" , "name":"客户资料" },{ "id":"menuitem2" , "name":"报价记录" },{ "id":"menuitem3" , "name":"任务/跟进" },{ "id":"menuitem4" , "name":"销售机会" },{ "id":"menuitem5" , "name":"合同/订单" },{ "id":"menuitem6" , "name":"汇款记录" },{ "id":"menuitem7" , "name":"发货单" },{ "id":"menuitem8" , "name":"产品信息" },{ "id":"menuitem9" , "name":"数据审核" },{ "id":"menuitem10" , "name":"费用报销" },{ "id":"menuitem11" , "name":"日/周/月报" },{ "id":"menuitem12" , "name":"更多" }] },{"menuid":"AppIndexView", "menuname":"AppIndexView", "menuitem":[{ "id":"menuitem1" , "name":"产品" },{ "id":"menuitem2" , "name":"项目" },{ "id":"menuitem3" , "name":"测试" }] },{"menuid":"ListMenu", "menuname":"ListMenu", "menuitem":[{ "id":"menuitem1" , "name":"电脑" },{ "id":"menuitem2" , "name":"手机" },{ "id":"menuitem3" , "name":"杯子" },{ "id":"menuitem4" , "name":"用户" },{ "id":"menuitem5" , "name":"相机" },{ "id":"menuitem6" , "name":"望远镜" },{ "id":"menuitem7" , "name":"更多" }] },{"menuid":"ImgswipeStyleMenu", "menuname":"ImgswipeStyleMenu", "menuitem":[{ "id":"menuitem1" , "name":"京东" },{ "id":"menuitem2" , "name":"天猫" },{ "id":"menuitem3" , "name":"亚马逊" }] }]
             }
             ,
             {

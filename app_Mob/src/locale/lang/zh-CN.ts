@@ -50,8 +50,8 @@ export default {
                 menuitem12: '更多',
             },
             appindexview: {
-                menuitem1: '项目',
-                menuitem2: '分类',
+                menuitem1: '产品',
+                menuitem2: '项目',
                 menuitem3: '测试',
             },
             listmenu: {
