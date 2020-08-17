@@ -33,6 +33,9 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzCase;
 import cn.ibizlab.pms.core.ibiz.service.IIbzCaseService;
 import cn.ibizlab.pms.core.ibiz.filter.IbzCaseSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
+import cn.ibizlab.pms.core.ibiz.filter.IbzCaseStepSearchContext;
+import cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep;
+import cn.ibizlab.pms.core.ibiz.service.IIbzCaseStepService;
 
 @Slf4j
 @Api(tags = {"用例库用例" })
@@ -46,6 +49,9 @@ public class IbzCaseResource {
     @Autowired
     @Lazy
     public IbzCaseMapping ibzcaseMapping;
+
+    @Autowired
+    private IIbzCaseStepService ibzcasestepService;
 
 }
 
