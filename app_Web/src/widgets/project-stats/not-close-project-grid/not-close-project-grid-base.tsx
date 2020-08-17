@@ -86,6 +86,22 @@ export class NotCloseProjectGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_projectstats_notcloseproject_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof NotCloseProjectGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof NotCloseProjectGridBase
+     */
+    public limit: number = 100;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -97,13 +113,13 @@ export class NotCloseProjectGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.projectstats.notcloseproject_grid.columns.name',
             show: true,
-            util: 'PX',
+            util: 'STAR',
             isEnableRowEdit: false,
         },
         {
-            name: 'endtime',
+            name: 'end',
             label: '截至日期',
-            langtag: 'entities.projectstats.notcloseproject_grid.columns.endtime',
+            langtag: 'entities.projectstats.notcloseproject_grid.columns.end',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -118,7 +134,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
         },
         {
             name: 'totalestimate',
-            label: '任务最初预计总工时',
+            label: '预计',
             langtag: 'entities.projectstats.notcloseproject_grid.columns.totalestimate',
             show: true,
             util: 'PX',
@@ -126,7 +142,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
         },
         {
             name: 'totalconsumed',
-            label: '任务消耗总工时',
+            label: '消耗',
             langtag: 'entities.projectstats.notcloseproject_grid.columns.totalconsumed',
             show: true,
             util: 'PX',
@@ -134,9 +150,17 @@ export class NotCloseProjectGridBase extends GridControlBase {
         },
         {
             name: 'totalleft',
-            label: '任务预计剩余总工时',
+            label: '剩余',
             langtag: 'entities.projectstats.notcloseproject_grid.columns.totalleft',
             show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'totalwh',
+            label: '总工时',
+            langtag: 'entities.projectstats.notcloseproject_grid.columns.totalwh',
+            show: false,
             util: 'PX',
             isEnableRowEdit: false,
         },
@@ -175,11 +199,12 @@ export class NotCloseProjectGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'name':false,
-        'endtime':false,
+        'end':false,
         'status':false,
         'totalestimate':false,
         'totalconsumed':false,
         'totalleft':false,
+        'totalwh':false,
     };
 
     /**
@@ -205,6 +230,14 @@ export class NotCloseProjectGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'status',
+                srfkey: 'Project__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 

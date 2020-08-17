@@ -149,10 +149,10 @@ export default {
 		columns: {
 			name: "产品名称",
 			currproject: "当前项目",
-			productplancnt: "计划总数",
-			releasecnt: "发布总数",
-			activestorycnt: "激活需求数",
-			activebugcnt: "未解决Bug数",
+			productplancnt: "计划数",
+			releasecnt: "发布数",
+			activestorycnt: "激活需求",
+			activebugcnt: "未解决Bug",
 		},
 		uiactions: {
 		},

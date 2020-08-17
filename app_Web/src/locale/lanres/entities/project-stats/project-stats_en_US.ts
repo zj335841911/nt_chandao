@@ -89,11 +89,12 @@ export default {
 	notcloseproject_grid: {
 		columns: {
 			name: "项目名称",
-			endtime: "截至日期",
+			end: "截至日期",
 			status: "状态",
-			totalestimate: "任务最初预计总工时",
-			totalconsumed: "任务消耗总工时",
-			totalleft: "任务预计剩余总工时",
+			totalestimate: "预计",
+			totalconsumed: "消耗",
+			totalleft: "剩余",
+			totalwh: "总工时",
 		},
 		uiactions: {
 		},

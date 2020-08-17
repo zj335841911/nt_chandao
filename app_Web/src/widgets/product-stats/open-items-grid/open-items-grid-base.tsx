@@ -86,6 +86,22 @@ export class OpenItemsGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_productstats_openitems_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof OpenItemsGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof OpenItemsGridBase
+     */
+    public limit: number = 100;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -97,7 +113,7 @@ export class OpenItemsGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.productstats.openitems_grid.columns.name',
             show: true,
-            util: 'PX',
+            util: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -110,7 +126,7 @@ export class OpenItemsGridBase extends GridControlBase {
         },
         {
             name: 'productplancnt',
-            label: '计划总数',
+            label: '计划数',
             langtag: 'entities.productstats.openitems_grid.columns.productplancnt',
             show: true,
             util: 'PX',
@@ -118,7 +134,7 @@ export class OpenItemsGridBase extends GridControlBase {
         },
         {
             name: 'releasecnt',
-            label: '发布总数',
+            label: '发布数',
             langtag: 'entities.productstats.openitems_grid.columns.releasecnt',
             show: true,
             util: 'PX',
@@ -126,7 +142,7 @@ export class OpenItemsGridBase extends GridControlBase {
         },
         {
             name: 'activestorycnt',
-            label: '激活需求数',
+            label: '激活需求',
             langtag: 'entities.productstats.openitems_grid.columns.activestorycnt',
             show: true,
             util: 'PX',
@@ -134,7 +150,7 @@ export class OpenItemsGridBase extends GridControlBase {
         },
         {
             name: 'activebugcnt',
-            label: '未解决Bug数',
+            label: '未解决Bug',
             langtag: 'entities.productstats.openitems_grid.columns.activebugcnt',
             show: true,
             util: 'PX',

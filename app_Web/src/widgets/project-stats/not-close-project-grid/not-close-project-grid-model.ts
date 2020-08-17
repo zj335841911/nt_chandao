@@ -70,7 +70,12 @@ export default class NotCloseProjectModel {
         {
           name: 'end',
           prop: 'end',
-          dataType: 'TEXT',
+          dataType: 'DATE',
+        },
+        {
+          name: 'totalwh',
+          prop: 'totalwh',
+          dataType: 'INT',
         },
         {
           name: 'projectstats',
