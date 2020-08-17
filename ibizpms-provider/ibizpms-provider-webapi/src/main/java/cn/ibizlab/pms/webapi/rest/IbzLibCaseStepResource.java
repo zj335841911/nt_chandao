@@ -29,9 +29,9 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import cn.ibizlab.pms.webapi.dto.*;
 import cn.ibizlab.pms.webapi.mapping.*;
-import cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep;
-import cn.ibizlab.pms.core.ibiz.service.IIbzCaseStepService;
-import cn.ibizlab.pms.core.ibiz.filter.IbzCaseStepSearchContext;
+import cn.ibizlab.pms.core.ibiz.domain.IbzLibCaseStep;
+import cn.ibizlab.pms.core.ibiz.service.IIbzLibCaseStepService;
+import cn.ibizlab.pms.core.ibiz.filter.IbzLibCaseStepSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
@@ -41,7 +41,7 @@ import cn.ibizlab.pms.util.annotation.VersionCheck;
 public class IbzLibCaseStepResource {
 
     @Autowired
-    public IIbzCaseStepService ibzcasestepService;
+    public IIbzLibCaseStepService ibzlibcasestepService;
 
     @Autowired
     @Lazy

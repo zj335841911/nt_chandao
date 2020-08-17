@@ -47,7 +47,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseStepService ibzcasestepService;
+    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibCaseStepService ibzlibcasestepService;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzLibModuleService ibzlibmoduleService;
@@ -63,7 +63,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        ibzcasestepService.saveByIbizcase(et.getId(),et.getIbzcasestep());
+        ibzlibcasestepService.saveByIbizcase(et.getId(),et.getIbzlibcasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -80,7 +80,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        ibzcasestepService.saveByIbizcase(et.getId(),et.getIbzcasestep());
+        ibzlibcasestepService.saveByIbizcase(et.getId(),et.getIbzlibcasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -94,7 +94,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        ibzcasestepService.removeByIbizcase(key) ;
+        ibzlibcasestepService.removeByIbizcase(key) ;
         boolean result=removeById(key);
         return result ;
     }
@@ -113,7 +113,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
             et.setId(key);
         }
         else{
-            et.setIbzcasestep(ibzcasestepService.selectByIbizcase(key));
+            et.setIbzlibcasestep(ibzlibcasestepService.selectByIbizcase(key));
         }
         return et;
     }

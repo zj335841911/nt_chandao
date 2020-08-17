@@ -418,7 +418,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JsonProperty("ibzlabcasestepqts")
     @JSONField(name = "ibzlabcasestepqts")
-	private List<IbzLabCaseStepQTDTO> ibzcasestep ;
+	private List<IbzLabCaseStepQTDTO> ibzlibcasestep ;
 
 }
 

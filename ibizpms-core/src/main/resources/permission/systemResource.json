@@ -500,7 +500,7 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
-    "dename":"IbzCaseStep",
+    "dename":"IbzLibCaseStep",
     "delogicname":"用例库用例步骤",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
