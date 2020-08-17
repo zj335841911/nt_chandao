@@ -219,6 +219,9 @@ export class StoryMainMyGridViewBase extends GridViewBase {
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
         }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
+        }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.story;
         if(args.length >0){

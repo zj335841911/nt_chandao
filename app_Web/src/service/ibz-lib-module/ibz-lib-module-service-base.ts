@@ -48,6 +48,11 @@ export default class IbzLibModuleServiceBase extends EntityService {
      * @memberof IbzLibModuleServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.ibzlib && context.ibzlibmodule){
+            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/${context.ibzlibmodule}/select`,isloading);
+            
+            return res;
+        }
             let res:any = Http.getInstance().get(`/ibzlibmodules/${context.ibzlibmodule}/select`,isloading);
             
             return res;

@@ -43,9 +43,11 @@ export class EntityServiceRegister {
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
         this.allEntityService.set('ibztaskteam', () => import('@/service/ibztask-team/ibztask-team-service'));
+        this.allEntityService.set('ibzlibcasestepqt', () => import('@/service/ibz-lib-case-step-qt/ibz-lib-case-step-qt-service'));
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
         this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
         this.allEntityService.set('file', () => import('@/service/file/file-service'));
+        this.allEntityService.set('ibzlib', () => import('@/service/ibz-lib/ibz-lib-service'));
         this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
@@ -88,6 +90,8 @@ export class EntityServiceRegister {
         this.allEntityService.set('bug', () => import('@/service/bug/bug-service'));
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));
+        this.allEntityService.set('ibzcase', () => import('@/service/ibz-case/ibz-case-service'));
+        this.allEntityService.set('ibzlibcasestep', () => import('@/service/ibz-lib-case-step/ibz-lib-case-step-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
         this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
     }

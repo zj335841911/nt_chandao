@@ -43,9 +43,11 @@ export class AuthServiceRegister {
         this.allAuthService.set('projectproduct', () => import('@/authservice/project-product/project-product-auth-service'));
         this.allAuthService.set('case', () => import('@/authservice/case/case-auth-service'));
         this.allAuthService.set('ibztaskteam', () => import('@/authservice/ibztask-team/ibztask-team-auth-service'));
+        this.allAuthService.set('ibzlibcasestepqt', () => import('@/authservice/ibz-lib-case-step-qt/ibz-lib-case-step-qt-auth-service'));
         this.allAuthService.set('product', () => import('@/authservice/product/product-auth-service'));
         this.allAuthService.set('taskteam', () => import('@/authservice/task-team/task-team-auth-service'));
         this.allAuthService.set('file', () => import('@/authservice/file/file-auth-service'));
+        this.allAuthService.set('ibzlib', () => import('@/authservice/ibz-lib/ibz-lib-auth-service'));
         this.allAuthService.set('suitecase', () => import('@/authservice/suite-case/suite-case-auth-service'));
         this.allAuthService.set('burn', () => import('@/authservice/burn/burn-auth-service'));
         this.allAuthService.set('subproductplan', () => import('@/authservice/sub-product-plan/sub-product-plan-auth-service'));
@@ -88,6 +90,8 @@ export class AuthServiceRegister {
         this.allAuthService.set('bug', () => import('@/authservice/bug/bug-auth-service'));
         this.allAuthService.set('projectmodule', () => import('@/authservice/project-module/project-module-auth-service'));
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
+        this.allAuthService.set('ibzcase', () => import('@/authservice/ibz-case/ibz-case-auth-service'));
+        this.allAuthService.set('ibzlibcasestep', () => import('@/authservice/ibz-lib-case-step/ibz-lib-case-step-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
         this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
     }

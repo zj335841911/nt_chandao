@@ -222,14 +222,14 @@ export class MainGridBase extends GridControlBase {
             return;
         }
         const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
+        if (_this.newdata && _this.newdata instanceof Function) {
             const data: any = { };
             if (args.length > 0) {
                 Object.assign(data, { bug: args[0].bug });
             }
             if(!params) params = {};
             Object.assign(params,{copymode:true});
-            _this.opendata([{ ...data }], params, $event, xData);
+            _this.newdata([{ ...data }], params, $event, xData);
         } else {
             Object.assign(this.viewparams,{copymode:true});
         }

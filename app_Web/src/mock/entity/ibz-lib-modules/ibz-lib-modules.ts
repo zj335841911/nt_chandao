@@ -87,6 +87,35 @@ mock.onDelete(new RegExp(/^\/ibzlibmodules\/batch$/)).reply((config: any) => {
 });
 
 
+
+// Select
+mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibmodules\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibmodule 方法: Select");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibmodules\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items];
+});
+
 // Select
 mock.onGet(new RegExp(/^\/ibzlibmodules\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzlibmodule 方法: Select");
@@ -114,13 +143,72 @@ mock.onGet(new RegExp(/^\/ibzlibmodules\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).rep
     console.groupEnd();
     return [status, _items];
 });
+
 // URI参数传递情况未实现
 // URI参数传递情况未实现
+
 // URI参数传递情况未实现
 // URI参数传递情况未实现
+
 // URI参数传递情况未实现
 // URI参数传递情况未实现
+
 // URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+
+// FetchDefault
+mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibmodules\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibmodule 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibmodules\/select$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
     
 // FetchDefault
 mock.onGet(new RegExp(/^\/ibzlibmodules\/select$/)).reply((config: any) => {
@@ -164,6 +252,51 @@ mock.onGet(new RegExp(/^\/ibzlibmodules\/select(\?[\w-./?%&=,]*)*$/)).reply((con
     console.groupEnd();
     console.groupEnd();
     return [status, records ?  records : []];
+});
+
+
+// FetchRoot_NoBranch
+mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibmodules\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibmodule 方法: FetchRoot_NoBranch");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibmodules\/select$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
     
 // FetchRoot_NoBranch
@@ -209,11 +342,25 @@ mock.onGet(new RegExp(/^\/ibzlibmodules\/select(\?[\w-./?%&=,]*)*$/)).reply((con
     console.groupEnd();
     return [status, records ?  records : []];
 });
+
 // URI参数传递情况未实现
 // URI参数传递情况未实现
+
 // URI参数传递情况未实现
 // URI参数传递情况未实现
+
 // URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 

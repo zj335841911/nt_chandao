@@ -331,6 +331,9 @@ export class TestSuiteGridViewBase extends GridViewBase {
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
         }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
+        }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.testsuite;
         if(args.length >0){

@@ -2,9 +2,11 @@ import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
 import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team_en_US';
+import ibzlibcasestepqt_en_US from '@locale/lanres/entities/ibz-lib-case-step-qt/ibz-lib-case-step-qt_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
+import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
@@ -47,6 +49,8 @@ import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
+import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
+import ibzlibcasestep_en_US from '@locale/lanres/entities/ibz-lib-case-step/ibz-lib-case-step_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
@@ -297,9 +301,11 @@ export default {
         projectproduct: projectproduct_en_US,
         case: case_en_US,
         ibztaskteam: ibztaskteam_en_US,
+        ibzlibcasestepqt: ibzlibcasestepqt_en_US,
         product: product_en_US,
         taskteam: taskteam_en_US,
         file: file_en_US,
+        ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
         subproductplan: subproductplan_en_US,
@@ -342,6 +348,8 @@ export default {
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
+        ibzcase: ibzcase_en_US,
+        ibzlibcasestep: ibzlibcasestep_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
     },

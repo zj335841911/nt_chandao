@@ -2,9 +2,11 @@ import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team_zh_CN';
+import ibzlibcasestepqt_zh_CN from '@locale/lanres/entities/ibz-lib-case-step-qt/ibz-lib-case-step-qt_zh_CN';
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
+import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
@@ -47,6 +49,8 @@ import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
+import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
+import ibzlibcasestep_zh_CN from '@locale/lanres/entities/ibz-lib-case-step/ibz-lib-case-step_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
@@ -296,9 +300,11 @@ export default {
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
         ibztaskteam: ibztaskteam_zh_CN,
+        ibzlibcasestepqt: ibzlibcasestepqt_zh_CN,
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
+        ibzlib: ibzlib_zh_CN,
         suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
         subproductplan: subproductplan_zh_CN,
@@ -341,6 +347,8 @@ export default {
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
+        ibzcase: ibzcase_zh_CN,
+        ibzlibcasestep: ibzlibcasestep_zh_CN,
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
     },

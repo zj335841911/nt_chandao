@@ -23,6 +23,10 @@ zuul:
       path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_libcasestepqt:
+      path: /ibzlibcasestepqts/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_product:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -33,6 +37,10 @@ zuul:
       stripPrefix: false
     zt_file:
       path: /files/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_lib:
+      path: /ibzlibs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_suitecase:
@@ -201,6 +209,14 @@ zuul:
       stripPrefix: false
     ibz_doc:
       path: /ibzdocs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_case:
+      path: /ibzcases/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_libcasestep:
+      path: /ibzlibcasesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_release:
