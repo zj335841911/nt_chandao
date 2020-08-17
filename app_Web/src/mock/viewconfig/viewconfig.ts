@@ -183,6 +183,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestResultMEditView9",
             "viewtag": "136cd30bd141450ecd9e7791215733e6"
         },
+        "productstatsallgridview": {
+            "title": "产品统计表格视图（产品管理）",
+            "caption": "所有产品",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductStatsALLGridView",
+            "viewtag": "1381e29846ae321ca2d06d71bbe3082d"
+        },
         "caselinkcasegridview": {
             "title": "测试用例表格视图（关联用例）",
             "caption": "关联用例",

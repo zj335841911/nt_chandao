@@ -55,7 +55,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('productplancnt')">
-                <el-table-column show-overflow-tooltip :prop="'productplancnt'" :label="$t('entities.productstats.openitems_grid.columns.productplancnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'productplancnt'" :label="$t('entities.productstats.openitems_grid.columns.productplancnt')" :width="90"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productstats.openitems_grid.columns.productplancnt')}}
@@ -67,7 +67,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('releasecnt')">
-                <el-table-column show-overflow-tooltip :prop="'releasecnt'" :label="$t('entities.productstats.openitems_grid.columns.releasecnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'releasecnt'" :label="$t('entities.productstats.openitems_grid.columns.releasecnt')" :width="90"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productstats.openitems_grid.columns.releasecnt')}}
@@ -91,7 +91,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('activebugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'activebugcnt'" :label="$t('entities.productstats.openitems_grid.columns.activebugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'activebugcnt'" :label="$t('entities.productstats.openitems_grid.columns.activebugcnt')" :width="115"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productstats.openitems_grid.columns.activebugcnt')}}

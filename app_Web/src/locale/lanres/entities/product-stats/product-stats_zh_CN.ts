@@ -28,6 +28,10 @@ export default {
     currproject: "当前项目",
   },
 	views: {
+		allgridview: {
+			caption: "所有产品",
+      		title: "产品统计表格视图（产品管理）",
+		},
 		testeditview9: {
 			caption: "产品统计",
       		title: "产品统计编辑视图",
@@ -155,5 +159,14 @@ export default {
 		},
 		uiactions: {
 		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	allgridviewtoolbar_toolbar: {
 	},
 };
