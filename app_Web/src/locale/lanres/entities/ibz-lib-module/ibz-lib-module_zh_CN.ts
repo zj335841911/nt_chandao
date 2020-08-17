@@ -21,6 +21,10 @@ export default {
 			caption: "模块维护",
       		title: "用例库模块树导航视图（模块维护）",
 		},
+		maindashboardview: {
+			caption: "用例库模块",
+      		title: "用例库模块数据看板视图",
+		},
 		editview: {
 			caption: "用例库模块",
       		title: "用例库模块编辑视图",

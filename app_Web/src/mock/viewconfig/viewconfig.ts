@@ -1399,6 +1399,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskEstimateGridView9",
             "viewtag": "8b96b7671df722e66d78808ee0636349"
         },
+        "productstatsgridview9": {
+            "title": "产品统计表格视图",
+            "caption": "产品统计",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "ProductStatsGridView9",
+            "viewtag": "8c3d000c53ed0d5490a133f568d98097"
+        },
         "taskworkinfoeditview9": {
             "title": "工时信息",
             "caption": "工时信息",
@@ -1598,6 +1606,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "FileListView9",
             "viewtag": "9ed41cee96088630f3d4b0a91e705930"
+        },
+        "ibzlibmodulemaindashboardview": {
+            "title": "用例库模块数据看板视图",
+            "caption": "用例库模块",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzLibModuleMainDashboardView",
+            "viewtag": "9f0915f02ae0ff8b4aba2772289bdacf"
         },
         "storygridview9_related": {
             "title": "相关需求",
@@ -2334,6 +2350,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugAssingToView",
             "viewtag": "e897cf80a700c92025004c4696d9ae10"
+        },
+        "projectstatsgridview9": {
+            "title": "项目统计表格视图",
+            "caption": "项目统计",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsGridView9",
+            "viewtag": "e8e346e34ba5e02170fe3bcea7e6ec7f"
         },
         "buildeditview": {
             "title": "版本编辑视图",

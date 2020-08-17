@@ -1889,6 +1889,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.projectstats.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-grid-view9/project-stats-grid-view9.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
                     meta: {
                         caption: 'entities.subproductplan.views.subplaneditview.title',
@@ -2902,20 +2916,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-report-main-tab-exp-view/test-report-main-tab-exp-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/gridview9_unclosed/:gridview9_unclosed?',
-                    meta: {
-                        caption: 'entities.project.views.gridview9_unclosed.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'gridview9_unclosed', parameterName: 'gridview9_unclosed' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-grid-view9-un-closed/project-grid-view9-un-closed.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
@@ -7872,6 +7872,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
                 },
                 {
+                    path: 'productstats/:productstats?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.productstats.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productstats', parameterName: 'productstats' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-stats-grid-view9/product-stats-grid-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
                         caption: 'entities.task.views.gridview9_assignedtome.title',
@@ -9403,20 +9417,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/action-project-trends-list-view9/action-project-trends-list-view9.vue'),
-                },
-                {
-                    path: 'products/:product?/gridview_unclosed/:gridview_unclosed?',
-                    meta: {
-                        caption: 'entities.product.views.gridview_unclosed.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'gridview_unclosed', parameterName: 'gridview_unclosed' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-grid-view-un-closed/product-grid-view-un-closed.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_committest/:editview_committest?',

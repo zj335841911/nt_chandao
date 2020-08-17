@@ -1739,6 +1739,16 @@
         "viewtag": "8b96b7671df722e66d78808ee0636349",
         "memo": ""
     },
+    "productstatsgridview9": {
+        "title": "产品统计表格视图",
+        "caption": "产品统计",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsGridView9",
+        "viewfilename": "product-stats-grid-view9",
+        "viewtag": "8c3d000c53ed0d5490a133f568d98097",
+        "memo": ""
+    },
     "taskworkinfoeditview9": {
         "title": "工时信息",
         "caption": "工时信息",
@@ -1988,6 +1998,16 @@
         "viewfilename": "file-list-view9",
         "viewtag": "9ed41cee96088630f3d4b0a91e705930",
         "memo": "视图参数从上下文中获取对应的对象类型"
+    },
+    "ibzlibmodulemaindashboardview": {
+        "title": "用例库模块数据看板视图",
+        "caption": "用例库模块",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzLibModuleMainDashboardView",
+        "viewfilename": "ibz-lib-module-main-dashboard-view",
+        "viewtag": "9f0915f02ae0ff8b4aba2772289bdacf",
+        "memo": ""
     },
     "storygridview9_related": {
         "title": "相关需求",
@@ -2907,6 +2927,16 @@
         "viewname": "BugAssingToView",
         "viewfilename": "bug-assing-to-view",
         "viewtag": "e897cf80a700c92025004c4696d9ae10",
+        "memo": ""
+    },
+    "projectstatsgridview9": {
+        "title": "项目统计表格视图",
+        "caption": "项目统计",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsGridView9",
+        "viewfilename": "project-stats-grid-view9",
+        "viewtag": "e8e346e34ba5e02170fe3bcea7e6ec7f",
         "memo": ""
     },
     "buildeditview": {

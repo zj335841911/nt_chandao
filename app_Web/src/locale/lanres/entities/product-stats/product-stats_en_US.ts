@@ -37,6 +37,10 @@ export default {
 			caption: "产品统计",
       		title: "产品统计编辑视图",
 		},
+		gridview9: {
+			caption: "产品统计",
+      		title: "产品统计表格视图",
+		},
 	},
 	main2_form: {
 		details: {
@@ -137,6 +141,18 @@ export default {
 			formitemex4: "", 
 			notclosedbugcnt: "未关闭", 
 			id: "产品编号", 
+		},
+		uiactions: {
+		},
+	},
+	openitems_grid: {
+		columns: {
+			name: "产品名称",
+			currproject: "当前项目",
+			productplancnt: "计划总数",
+			releasecnt: "发布总数",
+			activestorycnt: "激活需求数",
+			activebugcnt: "未解决Bug数",
 		},
 		uiactions: {
 		},

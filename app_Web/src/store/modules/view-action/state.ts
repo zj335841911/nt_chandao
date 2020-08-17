@@ -1617,6 +1617,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8c3d000c53ed0d5490a133f568d98097',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bc36be2ee4a78e69c13665a8ad03ab6a',
+            ],
+        },
+        {
             viewtag: '8ca35f54383cecb05da77cdb1a6588fd',
             viewmodule: 'zentao',
             viewname: 'TaskWorkInfoEditView9',
@@ -1920,8 +1930,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b82e9acf6c784b138b365d6011b296b',
-                '52e850ef857c81c2a96f5db0a84836f8',
                 'e396b6f39451e3bf963aec602106adf0',
+                '8c3d000c53ed0d5490a133f568d98097',
             ],
         },
         {
@@ -2005,17 +2015,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '971a6faeda9b1b090521472c06eba003',
-            ],
-        },
-        {
-            viewtag: 'a7a97014cad1917b94284db21ec968f1',
-            viewmodule: 'zentao',
-            viewname: 'ProjectGridView9_UnClosed',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'f83dac873b9215483c4bb91673284b41',
-                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {
@@ -2390,7 +2389,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '79b3a14f0431747becc48f5b9f3aa990',
-                'a7a97014cad1917b94284db21ec968f1',
+                'e8e346e34ba5e02170fe3bcea7e6ec7f',
                 '3aafb12bb0db2be013c0f5ced8c7dc50',
             ],
         },
@@ -2671,6 +2670,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e8e346e34ba5e02170fe3bcea7e6ec7f',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '85ee867b09a2d6303c061d91374ec975',
             ],
         },
         {

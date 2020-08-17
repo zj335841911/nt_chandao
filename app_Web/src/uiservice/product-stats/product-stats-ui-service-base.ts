@@ -91,6 +91,7 @@ export default class ProductStatsUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'testeditview9',srfappde:'productstats'});
         this.allViewMap.set(':',{viewname:'editview9',srfappde:'productstats'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'productstats'});
     }
 
     /**

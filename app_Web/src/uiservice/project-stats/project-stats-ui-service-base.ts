@@ -90,6 +90,7 @@ export default class ProjectStatsUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'editview9',srfappde:'projectstats'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'projectstats'});
     }
 
     /**

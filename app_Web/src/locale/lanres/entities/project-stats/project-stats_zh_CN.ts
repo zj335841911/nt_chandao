@@ -31,6 +31,10 @@ export default {
 			caption: "项目统计",
       		title: "项目统计编辑视图",
 		},
+		gridview9: {
+			caption: "项目统计",
+      		title: "项目统计表格视图",
+		},
 	},
 	main_form: {
 		details: {
@@ -77,6 +81,18 @@ export default {
 			formitemex3: "", 
 			activebugcnt: "未解决", 
 			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
+	notcloseproject_grid: {
+		columns: {
+			name: "项目名称",
+			endtime: "截至日期",
+			status: "状态",
+			totalestimate: "任务最初预计总工时",
+			totalconsumed: "任务消耗总工时",
+			totalleft: "任务预计剩余总工时",
 		},
 		uiactions: {
 		},
