@@ -39,26 +39,26 @@ export class CodeListRegister {
      * @memberof CodeListRegister
      */
     protected init(): void {
-            this.allCodeList.set('RelatedStory', () => import('@/codelist/related-story'));
-        this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
+            this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
         this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));
-        this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
-        this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
         this.allCodeList.set('UserRealNameW', () => import('@/codelist/user-real-name-w'));
         this.allCodeList.set('UserRealName', () => import('@/codelist/user-real-name'));
         this.allCodeList.set('ProductBranch', () => import('@/codelist/product-branch'));
         this.allCodeList.set('CurProductBuild', () => import('@/codelist/cur-product-build'));
         this.allCodeList.set('BugModule', () => import('@/codelist/bug-module'));
         this.allCodeList.set('Role', () => import('@/codelist/role'));
-        this.allCodeList.set('TestTask', () => import('@/codelist/test-task'));
-        this.allCodeList.set('ProjectProductPlan', () => import('@/codelist/project-product-plan'));
         this.allCodeList.set('BugUserRealName', () => import('@/codelist/bug-user-real-name'));
-        this.allCodeList.set('Product', () => import('@/codelist/product'));
         this.allCodeList.set('CurCaseVersion', () => import('@/codelist/cur-case-version'));
         this.allCodeList.set('ProductPlan', () => import('@/codelist/product-plan'));
         this.allCodeList.set('UserRealNameProject', () => import('@/codelist/user-real-name-project'));
-        this.allCodeList.set('CurStory', () => import('@/codelist/cur-story'));
         this.allCodeList.set('UserRealNameTaskTeam', () => import('@/codelist/user-real-name-task-team'));
+        this.allCodeList.set('RelatedStory', () => import('@/codelist/related-story'));
+        this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
+        this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
+        this.allCodeList.set('TestTask', () => import('@/codelist/test-task'));
+        this.allCodeList.set('ProjectProductPlan', () => import('@/codelist/project-product-plan'));
+        this.allCodeList.set('Product', () => import('@/codelist/product'));
+        this.allCodeList.set('CurStory', () => import('@/codelist/cur-story'));
     }
 
     /**

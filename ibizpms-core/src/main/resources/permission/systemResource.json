@@ -33,8 +33,18 @@
        }
         ,
        {
+            "unirescode":"TESTMOD_FIX_BUT",
+            "uniresname":"测试模块修复路径"
+       }
+        ,
+       {
             "unirescode":"PROJ_START_BUT",
             "uniresname":"项目开始"
+       }
+        ,
+       {
+            "unirescode":"TESTMOD_OQCVIEW_BUT",
+            "uniresname":"测试模块打开快速编辑试图"
        }
         ,
        {
