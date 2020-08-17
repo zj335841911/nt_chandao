@@ -18,40 +18,10 @@ module.exports = {
         // proxy: "http://127.0.0.1:8080/Mob",
         historyApiFallback: {
             rewrites: [
-               // { from: /^\/index$/, to: '/index.html' },
             ]
         }
     },
     pages: {
-        // 新增默认首页入口
-        index : {
-            // page 的入口
-            entry: 'src/pages/ungroup/index/main.ts',
-            // 模板来源
-            template: 'src/template.html',
-            // 在 dist/index.html 的输出
-            filename: 'index.html',
-            // 当使用 title 选项时，
-            // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-            title: '应用首页视图',
-            // 在这个页面中包含的块，默认情况下会包含
-            // 提取出来的通用 chunk 和 vendor chunk。
-            // chunks: ['chunk-vendors', 'chunk-common', 'index']
-        },
-        index: {
-            // page 的入口
-            entry: 'src/pages/ungroup/index/main.ts',
-            // 模板来源
-            template: 'src/template.html',
-            // 在 dist/index.html 的输出
-            filename: 'index.html',
-            // 当使用 title 选项时，
-            // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-            title: '应用首页视图',
-            // 在这个页面中包含的块，默认情况下会包含
-            // 提取出来的通用 chunk 和 vendor chunk。
-            // chunks: ['chunk-vendors', 'chunk-common', 'index']
-        },
         appindexview: {
             // page 的入口
             entry: 'src/pages/ungroup/app-index-view/main.ts',
@@ -74,8 +44,6 @@ module.exports = {
         config.plugins.delete('preload-appindexview')
         // 删除预加载资源
         config.plugins.delete('prefetch-appindexview')
-        config.plugins.delete('preload-index')
-        config.plugins.delete('prefetch-index')
         config.resolve.alias
             .set('@pages', resolve('src/pages'))
             .set('@components', resolve('src/components'))

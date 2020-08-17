@@ -27,25 +27,14 @@ export default {
         },
         // 非实体视图
         views: {
-            index: {
-                caption: '项目',
-            },
             appindexview: {
                 caption: '首页',
-            },
-            appportalviewtest: {
-                caption: '',
             },
             appportalview: {
                 caption: '',
             },
         },
         menus: {
-            index: {
-                menuitem1: '项目',
-                menuitem2: '分类',
-                menuitem3: '测试',
-            },
             iconstylemenu: {
                 menuitem1: '客户资料',
                 menuitem2: '报价记录',

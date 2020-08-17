@@ -117,7 +117,7 @@ export default class AppIndexViewBase extends Vue {
     protected model: any = {
         srfTitle: '应用首页视图',
         srfCaption: 'app.views.appindexview.caption',
-        srfSubCaption: '',
+        srfSubCaption: '工作台',
         dataInfo: ''
     }
 
