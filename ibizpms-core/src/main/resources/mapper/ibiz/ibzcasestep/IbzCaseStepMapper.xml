@@ -16,7 +16,7 @@
             
 		
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
-		<association property="ibzcasestep" javaType="cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep" column="parent" select="cn.ibizlab.pms.core.ibiz.mapper.IbzCaseStepMapper.selectById" fetchType="lazy"></association>
+		<association property="ibzcasesteps" javaType="cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep" column="parent" select="cn.ibizlab.pms.core.ibiz.mapper.IbzCaseStepMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ibzcase" javaType="cn.ibizlab.pms.core.ibiz.domain.IbzCase" column="case" select="cn.ibizlab.pms.core.ibiz.mapper.IbzCaseMapper.selectById" fetchType="lazy"></association>
     </resultMap>

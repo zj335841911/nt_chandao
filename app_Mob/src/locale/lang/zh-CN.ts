@@ -30,6 +30,9 @@ export default {
             index: {
                 caption: '项目',
             },
+            appportalviewtest: {
+                caption: '',
+            },
             appportalview: {
                 caption: '',
             },

@@ -14,6 +14,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5987D6EC-BF5B-41F3-8EB2-111F7FDC6F9A',
+            viewmodule: 'Ungroup',
+            viewname: 'AppPortalViewtest',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'E34EC471-1197-49DF-8C6C-79E175C2FC0E',
             viewmodule: 'Ungroup',
             viewname: 'AppPortalView',

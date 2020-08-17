@@ -25,7 +25,7 @@ export class IndexModel {
 	separator: false,
 	hidden: false,
 	hidesidebar: false,
-	opendefault: true,
+	opendefault: false,
 	iconcls: 'cafe',
 	icon: '',
 	textcls: '',

@@ -112,7 +112,7 @@ public class IbzCaseStep extends EntityMP implements Serializable {
     @JsonIgnore
     @JSONField(serialize = false)
     @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep ibzcasestep;
+    private cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep ibzcasesteps;
 
     /**
      * 用例
