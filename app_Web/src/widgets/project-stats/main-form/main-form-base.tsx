@@ -172,7 +172,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         custom7: new FormItemModel({ caption: '总工时', detailType: 'FORMITEM', name: 'custom7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        custom8: new FormItemModel({ caption: '任务预计剩余总工时', detailType: 'FORMITEM', name: 'custom8', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        custom8: new FormItemModel({ caption: '任务消耗总工时', detailType: 'FORMITEM', name: 'custom8', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitemex4: new FormItemModel({ caption: '已完成', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

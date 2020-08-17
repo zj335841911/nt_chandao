@@ -51,7 +51,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			custom7: "总工时", 
-			custom8: "任务预计剩余总工时", 
+			custom8: "任务消耗总工时", 
 			formitemex4: "已完成", 
 			totalestimate: "预计", 
 			totalconsumed: "消耗", 

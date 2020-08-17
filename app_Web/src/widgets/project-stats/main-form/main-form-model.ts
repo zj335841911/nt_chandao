@@ -57,7 +57,7 @@ export default class MainModel {
       },
       {
         name: 'custom8',
-        prop: 'totalleft',
+        prop: 'totalconsumed',
         dataType: 'FLOAT',
       },
       {
