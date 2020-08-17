@@ -31,7 +31,7 @@ export default {
                 caption: '首页',
             },
             appportalview: {
-                caption: '',
+                caption: '工作台',
             },
         },
         menus: {
