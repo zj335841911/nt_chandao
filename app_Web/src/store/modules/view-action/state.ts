@@ -834,6 +834,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4a9b92e583e055d7081125b3e19079a6',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibOpenLibView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '76f07b59aab6db4512723cd3d24ee84e',
+                '471a8a8d5b7ebf2a2e0fa7995c4e883c',
+            ],
+        },
+        {
             viewtag: '4acc52d66d0c31e82166d85b1b0cd826',
             viewmodule: 'zentao',
             viewname: 'TaskEstimateOptionView',
@@ -2680,6 +2691,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '4a9b92e583e055d7081125b3e19079a6',
                 '76f07b59aab6db4512723cd3d24ee84e',
             ],
         },

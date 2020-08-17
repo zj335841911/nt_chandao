@@ -2119,16 +2119,6 @@
         "viewtag": "9ed41cee96088630f3d4b0a91e705930",
         "memo": "视图参数从上下文中获取对应的对象类型"
     },
-    "ibzlibmodulemaindashboardview": {
-        "title": "用例库模块数据看板视图",
-        "caption": "用例库模块",
-        "viewtype": "DEPORTALVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IbzLibModuleMainDashboardView",
-        "viewfilename": "ibz-lib-module-main-dashboard-view",
-        "viewtag": "9f0915f02ae0ff8b4aba2772289bdacf",
-        "memo": ""
-    },
     "ibzcaseinfoeditview9": {
         "title": "用例库用例编辑视图（基本信息）",
         "caption": "基本信息",
@@ -2467,16 +2457,6 @@
         "viewname": "IbzCaseMainEditView9",
         "viewfilename": "ibz-case-main-edit-view9",
         "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d",
-        "memo": ""
-    },
-    "ibzcasestepopenstepview": {
-        "title": "用例库用例步骤数据看板视图",
-        "caption": "用例库用例步骤",
-        "viewtype": "DEPORTALVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IbzCaseStepOpenStepView",
-        "viewfilename": "ibz-case-step-open-step-view",
-        "viewtag": "b94d0f23e4297f138ffa3ffc8ad3e651",
         "memo": ""
     },
     "storympickupview": {

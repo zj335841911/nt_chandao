@@ -738,7 +738,7 @@ export class IbzLibGridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzlibs', parameterName: 'ibzlib' },
-            { pathName: 'editview', parameterName: 'editview' },
+            { pathName: 'openlibview', parameterName: 'openlibview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {

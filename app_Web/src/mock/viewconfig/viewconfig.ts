@@ -1703,14 +1703,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "FileListView9",
             "viewtag": "9ed41cee96088630f3d4b0a91e705930"
         },
-        "ibzlibmodulemaindashboardview": {
-            "title": "用例库模块数据看板视图",
-            "caption": "用例库模块",
-            "viewtype": "DEPORTALVIEW",
-            "viewmodule": "ibiz",
-            "viewname": "IbzLibModuleMainDashboardView",
-            "viewtag": "9f0915f02ae0ff8b4aba2772289bdacf"
-        },
         "ibzcaseinfoeditview9": {
             "title": "用例库用例编辑视图（基本信息）",
             "caption": "基本信息",
@@ -1982,14 +1974,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzCaseMainEditView9",
             "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d"
-        },
-        "ibzcasestepopenstepview": {
-            "title": "用例库用例步骤数据看板视图",
-            "caption": "用例库用例步骤",
-            "viewtype": "DEPORTALVIEW",
-            "viewmodule": "ibiz",
-            "viewname": "IbzCaseStepOpenStepView",
-            "viewtag": "b94d0f23e4297f138ffa3ffc8ad3e651"
         },
         "storympickupview": {
             "title": "关联需求",

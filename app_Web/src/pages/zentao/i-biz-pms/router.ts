@@ -2127,6 +2127,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-project-grid-view9/product-project-grid-view9.vue'),
                 },
                 {
+                    path: 'ibzlibs/:ibzlib?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.ibzlib.views.editview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-edit-view9/ibz-lib-edit-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
                     meta: {
                         caption: 'entities.taskestimate.views.optionview.title',
@@ -4051,6 +4065,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
+                },
+                {
+                    path: 'ibzlibs/:ibzlib?/openlibview/:openlibview?',
+                    meta: {
+                        caption: 'entities.ibzlib.views.openlibview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'openlibview', parameterName: 'openlibview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-open-lib-view/ibz-lib-open-lib-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_edit/:editview_edit?',

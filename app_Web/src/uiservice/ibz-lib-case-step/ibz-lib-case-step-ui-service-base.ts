@@ -90,7 +90,6 @@ export default class IbzLibCaseStepUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'maingridview9',srfappde:'ibzlibcasesteps'});
-        this.allViewMap.set(':',{viewname:'openstepview',srfappde:'ibzlibcasesteps'});
     }
 
     /**

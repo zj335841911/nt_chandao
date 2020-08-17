@@ -91,7 +91,6 @@ export default class IbzLibModuleUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'ibzlibmodules'});
         this.allViewMap.set(':',{viewname:'casetreeexpview',srfappde:'ibzlibmodules'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'ibzlibmodules'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzlibmodules'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzlibmodules'});
     }
