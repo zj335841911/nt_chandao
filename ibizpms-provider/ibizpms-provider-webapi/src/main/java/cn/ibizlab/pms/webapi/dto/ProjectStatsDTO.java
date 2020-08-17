@@ -212,9 +212,10 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      * 属性 [END]
      *
      */
-    @JSONField(name = "end")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
-    private String end;
+    private Timestamp end;
 
     /**
      * 属性 [STATUS]
@@ -236,7 +237,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     /**
      * 设置 [END]
      */
-    public void setEnd(String  end){
+    public void setEnd(Timestamp  end){
         this.end = end ;
         this.modify("end",end);
     }

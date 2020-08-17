@@ -208,9 +208,10 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 截止日期
      */
     @TableField(value = "end")
-    @JSONField(name = "end")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
-    private String end;
+    private Timestamp end;
     /**
      * 状态
      */
@@ -232,11 +233,21 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 设置 [截止日期]
      */
-    public void setEnd(String end){
+    public void setEnd(Timestamp end){
         this.end = end ;
         this.modify("end",end);
     }
 
+    /**
+     * 格式化日期 [截止日期]
+     */
+    public String formatEnd(){
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
+    }
     /**
      * 设置 [状态]
      */
