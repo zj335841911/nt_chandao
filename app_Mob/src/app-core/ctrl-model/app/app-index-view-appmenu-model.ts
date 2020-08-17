@@ -29,7 +29,7 @@ export class AppIndexViewModel {
 	iconcls: 'home',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: '',
 	resourcetag: '',
 },
         {

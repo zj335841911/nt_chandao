@@ -10,7 +10,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'E34EC471-1197-49DF-8C6C-79E175C2FC0E',
             ],
         },
         {
