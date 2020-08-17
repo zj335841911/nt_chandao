@@ -54,6 +54,177 @@ export default class IbzLibServiceBase extends EntityService {
     }
 
     /**
+     * Create接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        let ibzcasesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
+            ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+                ibzcasesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcases = ibzcasesData;
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/ibzlibs`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzlibmodules',JSON.stringify(res.data.ibzlibmodules?res.data.ibzlibmodules:[]));
+        
+        return res;
+    }
+
+    /**
+     * Update接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        let ibzcasesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
+            ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+                ibzcasesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcases = ibzcasesData;
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/ibzlibs/${context.ibzlib}`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
+
+            return res;
+    }
+
+    /**
+     * Remove接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().delete(`/ibzlibs/${context.ibzlib}`,isloading);
+            return res;
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
+
+            return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().get(`/ibzlibs/getdraft`,isloading);
+        res.data.ibzlib = data.ibzlib;
+                    this.tempStorage.setItem(context.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
+
+        return res;
+    }
+
+    /**
+     * CheckKey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzlibs/${context.ibzlib}/checkkey`,data,isloading);
+            return res;
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        let ibzcasesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
+            ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+                ibzcasesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcases = ibzcasesData;
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/ibzlibs/${context.ibzlib}/save`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
+
+            return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -63,5 +234,8 @@ export default class IbzLibServiceBase extends EntityService {
      * @memberof IbzLibServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzlibs/fetchdefault`,tempData,isloading);
+        return res;
     }
 }

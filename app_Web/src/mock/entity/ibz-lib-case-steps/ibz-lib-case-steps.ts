@@ -145,77 +145,263 @@ mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([
     return [status, _items];
 });
 
-// URI参数传递情况未实现
+    
+// Create
+mock.onPost(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Create");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
+    
+// Create
+mock.onPost(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Create");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
+    
+// Update
+mock.onPut(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Update");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
+    
+// Update
+mock.onPut(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Update");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
 
-// URI参数传递情况未实现
 
-// URI参数传递情况未实现
 
-// URI参数传递情况未实现
 
-// URI参数传递情况未实现
 
-// URI参数传递情况未实现
+// GetDraft
+mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
 
-// URI参数传递情况未实现
+// GetDraft
+mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
+    
+// CheckKey
+mock.onPost(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: CheckKey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
+    
+// CheckKey
+mock.onPost(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: CheckKey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
+    
+// Save
+mock.onPost(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Save");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
-
-// URI参数传递情况未实现
+    
+// Save
+mock.onPost(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Save");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
 
 
 // FetchDefault
-mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/select$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzlibcasestep 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -224,7 +410,7 @@ mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-
     }
     const paramArray:Array<any> = ['id','id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/select$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/fetchdefault$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -260,7 +446,7 @@ mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-
 
 
 // FetchDefault
-mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/select$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzlibcasestep 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -269,7 +455,7 @@ mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/se
     }
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/select$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/fetchdefault$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -335,3 +521,155 @@ mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/se
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+
+// Remove
+mock.onDelete(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Remove");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// Remove
+mock.onDelete(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Remove");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// Get
+mock.onGet(new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Get");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/ibzlibs\/([a-zA-Z0-9\-\;]{1,35})\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// Get
+mock.onGet(new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzlibcasestep 方法: Get");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/ibzcases\/([a-zA-Z0-9\-\;]{1,35})\/ibzlibcasesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
