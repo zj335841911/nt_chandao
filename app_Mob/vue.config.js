@@ -18,7 +18,7 @@ module.exports = {
         // proxy: "http://127.0.0.1:8080/Mob",
         historyApiFallback: {
             rewrites: [
-               // { from: /^\/appindexview$/, to: '/appindexview.html' },
+               // { from: /^\/index$/, to: '/index.html' },
             ]
         }
     },
@@ -26,7 +26,7 @@ module.exports = {
         // 新增默认首页入口
         index : {
             // page 的入口
-            entry: 'src/pages/ungroup/app-index-view/main.ts',
+            entry: 'src/pages/ungroup/index/main.ts',
             // 模板来源
             template: 'src/template.html',
             // 在 dist/index.html 的输出
@@ -38,13 +38,13 @@ module.exports = {
             // 提取出来的通用 chunk 和 vendor chunk。
             // chunks: ['chunk-vendors', 'chunk-common', 'index']
         },
-        appindexview: {
+        index: {
             // page 的入口
-            entry: 'src/pages/ungroup/app-index-view/main.ts',
+            entry: 'src/pages/ungroup/index/main.ts',
             // 模板来源
             template: 'src/template.html',
             // 在 dist/index.html 的输出
-            filename: 'appindexview.html',
+            filename: 'index.html',
             // 当使用 title 选项时，
             // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
             title: '应用首页视图',
@@ -56,8 +56,8 @@ module.exports = {
     // 多核打包
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
-        config.plugins.delete('preload-appindexview')
-        config.plugins.delete('prefetch-appindexview')
+        config.plugins.delete('preload-index')
+        config.plugins.delete('prefetch-index')
         config.resolve.alias
             .set('@pages', resolve('src/pages'))
             .set('@components', resolve('src/components'))

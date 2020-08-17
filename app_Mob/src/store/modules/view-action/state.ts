@@ -4,9 +4,9 @@
 export const viewstate: any = {
     appviews: [
         {
-            viewtag: '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D',
+            viewtag: '0E706EA2-B9B1-43E9-9D54-24A3797B1846',
             viewmodule: 'Ungroup',
-            viewname: 'AppIndexView',
+            viewname: 'index',
             viewaction: '',
             viewdatachange: false,
             refviews: [
