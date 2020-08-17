@@ -551,7 +551,7 @@
     "dename":"ProductStats",
     "delogicname":"产品统计",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"NoOpenProduct" , "name":"未关闭产品"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetTestStats" , "name":"获取测试统计详情" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
@@ -767,7 +767,7 @@
     "dename":"ProjectStats",
     "delogicname":"项目统计",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"TaskTime" , "name":"任务工时消耗剩余查询"}],
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"NoOpenProduct" , "name":"未关闭产品"},{"id":"TaskTime" , "name":"任务工时消耗剩余查询"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

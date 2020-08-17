@@ -213,4 +213,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     currproject?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    status?: any;
 }

@@ -38,6 +38,7 @@ public interface IProductStatsService extends IService<ProductStats>{
     boolean save(ProductStats et) ;
     void saveBatch(List<ProductStats> list) ;
     Page<ProductStats> searchDefault(ProductStatsSearchContext context) ;
+    Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

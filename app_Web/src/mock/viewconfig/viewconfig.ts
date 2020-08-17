@@ -64,7 +64,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "0568d197dda832ceb89ad0442ab9f230"
         },
         "projectstatsallgridview": {
-            "title": "项目统计表格视图（所有项目）",
+            "title": "所有项目",
             "caption": "所有项目",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
@@ -192,7 +192,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "136cd30bd141450ecd9e7791215733e6"
         },
         "productstatsallgridview": {
-            "title": "产品统计表格视图（产品管理）",
+            "title": "所有产品",
             "caption": "所有产品",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",

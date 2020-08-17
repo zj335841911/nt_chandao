@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface ProjectStatsMapper extends BaseMapper<ProjectStats>{
 
     Page<ProjectStats> searchDefault(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper) ;
+    Page<ProjectStats> searchNoOpenProduct(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper) ;
     Page<ProjectStats> searchTaskTime(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper) ;
     @Override
     ProjectStats selectById(Serializable id);

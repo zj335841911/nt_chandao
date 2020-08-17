@@ -164,6 +164,15 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 未关闭产品
+     */
+    @Override
+    public Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchNoOpenProduct(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

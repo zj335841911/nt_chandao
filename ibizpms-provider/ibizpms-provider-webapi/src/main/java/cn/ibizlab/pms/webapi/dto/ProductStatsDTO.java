@@ -232,6 +232,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("currproject")
     private String currproject;
 
+    /**
+     * 属性 [STATUS]
+     *
+     */
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+
 
     /**
      * 设置 [NAME]
@@ -239,6 +247,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     public void setName(String  name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [STATUS]
+     */
+    public void setStatus(String  status){
+        this.status = status ;
+        this.modify("status",status);
     }
 
 

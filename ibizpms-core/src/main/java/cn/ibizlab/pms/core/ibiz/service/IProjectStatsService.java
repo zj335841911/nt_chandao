@@ -37,6 +37,7 @@ public interface IProjectStatsService extends IService<ProjectStats>{
     boolean save(ProjectStats et) ;
     void saveBatch(List<ProjectStats> list) ;
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context) ;
+    Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context) ;
     Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) ;
     /**
      *自定义查询SQL

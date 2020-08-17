@@ -171,5 +171,26 @@ domain.setId(productstats_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-searchNoOpenProduct-all')")
+	@ApiOperation(value = "获取未关闭产品", tags = {"产品统计" } ,notes = "获取未关闭产品")
+    @RequestMapping(method= RequestMethod.GET , value="/productstats/fetchnoopenproduct")
+	public ResponseEntity<List<ProductStatsDTO>> fetchNoOpenProduct(ProductStatsSearchContext context) {
+        Page<ProductStats> domains = productstatsService.searchNoOpenProduct(context) ;
+        List<ProductStatsDTO> list = productstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-searchNoOpenProduct-all')")
+	@ApiOperation(value = "查询未关闭产品", tags = {"产品统计" } ,notes = "查询未关闭产品")
+    @RequestMapping(method= RequestMethod.POST , value="/productstats/searchnoopenproduct")
+	public ResponseEntity<Page<ProductStatsDTO>> searchNoOpenProduct(@RequestBody ProductStatsSearchContext context) {
+        Page<ProductStats> domains = productstatsService.searchNoOpenProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

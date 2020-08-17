@@ -1,7 +1,4 @@
-<studio-view viewName="projectstatsallgridview" viewTitle="项目统计表格视图（所有项目）" class='degridview project-stats-allgrid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{viewCaption}}</span>
-    </template>
+<studio-view viewName="projectstatsallgridview" viewTitle="所有项目" class='degridview project-stats-allgrid-view'>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="项目名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>

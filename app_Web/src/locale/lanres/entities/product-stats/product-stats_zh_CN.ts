@@ -26,11 +26,12 @@ export default {
     yesterdayresolvedbugcnt: "昨天解决Bug数",
     postponedprojectcnt: "已延期",
     currproject: "当前项目",
+    status: "状态",
   },
 	views: {
 		allgridview: {
 			caption: "所有产品",
-      		title: "产品统计表格视图（产品管理）",
+      		title: "所有产品",
 		},
 		testeditview9: {
 			caption: "产品统计",

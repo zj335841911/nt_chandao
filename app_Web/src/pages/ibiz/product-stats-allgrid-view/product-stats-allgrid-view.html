@@ -1,7 +1,4 @@
-<studio-view viewName="productstatsallgridview" viewTitle="产品统计表格视图（产品管理）" class='degridview product-stats-allgrid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{viewCaption}}</span>
-    </template>
+<studio-view viewName="productstatsallgridview" viewTitle="所有产品" class='degridview product-stats-allgrid-view'>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="产品名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>

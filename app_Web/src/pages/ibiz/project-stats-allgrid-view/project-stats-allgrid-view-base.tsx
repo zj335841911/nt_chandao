@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 项目统计表格视图（所有项目）视图基类
+ * 所有项目视图基类
  *
  * @export
  * @class ProjectStatsALLGridViewBase
@@ -103,6 +103,9 @@ export class ProjectStatsALLGridViewBase extends GridViewBase {
      * @memberof ProjectStatsALLGridView
      */
     public toolBarModels: any = {
+        deuiaction3_addproject: { name: 'deuiaction3_addproject', caption: '添加项目', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加项目', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', uiaction: { tag: 'AddProject', target: 'NONE', class: '' } },
+
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
@@ -162,6 +165,9 @@ export class ProjectStatsALLGridViewBase extends GridViewBase {
      * @memberof ProjectStatsALLGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction3_addproject')) {
+            this.toolbar_deuiaction3_addproject_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
@@ -256,6 +262,35 @@ export class ProjectStatsALLGridViewBase extends GridViewBase {
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_addproject_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProjectStatsUIService  = new ProjectStatsUIService();
+        curUIService.ProjectStats_AddProject(datas,contextJO, paramJO,  $event, xData,this,"ProjectStats");
     }
 
     /**

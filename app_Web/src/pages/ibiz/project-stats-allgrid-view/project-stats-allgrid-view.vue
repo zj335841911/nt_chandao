@@ -7,7 +7,7 @@ import view_grid from '@widgets/project-stats/all-project-grid/all-project-grid.
 import view_searchform from '@widgets/project-stats/default-searchform/default-searchform.vue';
 
 /**
- * 项目统计表格视图（所有项目）视图
+ * 所有项目视图
  *
  * @export
  * @class ProjectStatsALLGridView

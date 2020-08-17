@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface ProductStatsMapper extends BaseMapper<ProductStats>{
 
     Page<ProductStats> searchDefault(IPage page, @Param("srf") ProductStatsSearchContext context, @Param("ew") Wrapper<ProductStats> wrapper) ;
+    Page<ProductStats> searchNoOpenProduct(IPage page, @Param("srf") ProductStatsSearchContext context, @Param("ew") Wrapper<ProductStats> wrapper) ;
     @Override
     ProductStats selectById(Serializable id);
     @Override

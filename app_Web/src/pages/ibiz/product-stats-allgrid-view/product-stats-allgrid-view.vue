@@ -7,7 +7,7 @@ import view_grid from '@widgets/product-stats/allproduct-grid/allproduct-grid.vu
 import view_searchform from '@widgets/product-stats/default-searchform/default-searchform.vue';
 
 /**
- * 产品统计表格视图（产品管理）视图
+ * 所有产品视图
  *
  * @export
  * @class ProductStatsALLGridView

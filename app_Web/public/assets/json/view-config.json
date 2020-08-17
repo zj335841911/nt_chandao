@@ -70,7 +70,7 @@
         "memo": ""
     },
     "projectstatsallgridview": {
-        "title": "项目统计表格视图（所有项目）",
+        "title": "所有项目",
         "caption": "所有项目",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
@@ -230,7 +230,7 @@
         "memo": ""
     },
     "productstatsallgridview": {
-        "title": "产品统计表格视图（产品管理）",
+        "title": "所有产品",
         "caption": "所有产品",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",

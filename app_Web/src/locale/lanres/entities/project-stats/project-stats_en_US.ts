@@ -30,7 +30,7 @@ export default {
 	views: {
 		allgridview: {
 			caption: "所有项目",
-      		title: "项目统计表格视图（所有项目）",
+      		title: "所有项目",
 		},
 		editview9: {
 			caption: "项目统计",
@@ -124,6 +124,14 @@ export default {
 		},
 	},
 	allgridviewtoolbar_toolbar: {
+		deuiaction3_addproject: {
+			caption: "添加项目",
+			tip: "添加项目",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

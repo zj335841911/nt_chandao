@@ -225,6 +225,13 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "currproject")
     @JsonProperty("currproject")
     private String currproject;
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
 
 
 
@@ -234,6 +241,14 @@ public class ProductStats extends EntityMP implements Serializable {
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setStatus(String status){
+        this.status = status ;
+        this.modify("status",status);
     }
 
 

@@ -159,6 +159,27 @@ public class ProjectStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchNoOpenProduct-all')")
+	@ApiOperation(value = "获取未关闭产品", tags = {"项目统计" } ,notes = "获取未关闭产品")
+    @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchnoopenproduct")
+	public ResponseEntity<List<ProjectStatsDTO>> fetchNoOpenProduct(ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchNoOpenProduct(context) ;
+        List<ProjectStatsDTO> list = projectstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchNoOpenProduct-all')")
+	@ApiOperation(value = "查询未关闭产品", tags = {"项目统计" } ,notes = "查询未关闭产品")
+    @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchnoopenproduct")
+	public ResponseEntity<Page<ProjectStatsDTO>> searchNoOpenProduct(@RequestBody ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchNoOpenProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchTaskTime-all')")
 	@ApiOperation(value = "获取任务工时消耗剩余查询", tags = {"项目统计" } ,notes = "获取任务工时消耗剩余查询")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchtasktime")
