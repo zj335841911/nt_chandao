@@ -69,6 +69,16 @@
         "viewtag": "0568d197dda832ceb89ad0442ab9f230",
         "memo": ""
     },
+    "projectstatsallgridview": {
+        "title": "项目统计表格视图（所有项目）",
+        "caption": "所有项目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsALLGridView",
+        "viewfilename": "project-stats-allgrid-view",
+        "viewtag": "06ac640ed0240503d1d42ecd9a090787",
+        "memo": ""
+    },
     "bugplansubgridview": {
         "title": "Bug",
         "caption": "Bug",
@@ -467,6 +477,16 @@
         "viewname": "ProjectEditView_Putoff",
         "viewfilename": "project-edit-view-putoff",
         "viewtag": "28557f7c31a387e1deb552076d51f9f1",
+        "memo": ""
+    },
+    "ibzcaseopencaseview": {
+        "title": "用例库用例数据看板视图",
+        "caption": "用例库用例",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzCaseOpenCaseView",
+        "viewfilename": "ibz-case-open-case-view",
+        "viewtag": "29ef09f6db53edab023146b282f045d9",
         "memo": ""
     },
     "productchartview": {
@@ -877,6 +897,16 @@
         "viewname": "CaseMainInfoEditView9",
         "viewfilename": "case-main-info-edit-view9",
         "viewtag": "4a5cfcdc473166f49cea6c9628865006",
+        "memo": ""
+    },
+    "ibzlibopenlibview": {
+        "title": "用例库数据看板视图",
+        "caption": "用例库",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzLibOpenLibView",
+        "viewfilename": "ibz-lib-open-lib-view",
+        "viewtag": "4a9b92e583e055d7081125b3e19079a6",
         "memo": ""
     },
     "taskestimateoptionview": {

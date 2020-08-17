@@ -149,6 +149,18 @@ export default {
 		uiactions: {
 		},
 	},
+	allproduct_grid: {
+		columns: {
+			name: "产品名称",
+			currproject: "当前项目",
+			productplancnt: "计划数",
+			releasecnt: "发布数",
+			activestorycnt: "激活需求",
+			activebugcnt: "未解决Bug",
+		},
+		uiactions: {
+		},
+	},
 	openitems_grid: {
 		columns: {
 			name: "产品名称",
@@ -169,5 +181,25 @@ export default {
 		},
 	},
 	allgridviewtoolbar_toolbar: {
+		deuiaction3_addproduct: {
+			caption: "添加产品",
+			tip: "添加产品",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 };

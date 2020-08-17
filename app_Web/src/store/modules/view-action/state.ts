@@ -46,6 +46,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '06ac640ed0240503d1d42ecd9a090787',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsALLGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '85ee867b09a2d6303c061d91374ec975',
+            ],
+        },
+        {
             viewtag: '07004de8a7d23e97b76460f888c8b290',
             viewmodule: 'zentao',
             viewname: 'BugPlanSubGridView',
@@ -185,6 +195,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd000027bf12084d69b1e064264d06962',
+            ],
+        },
+        {
+            viewtag: '1381e29846ae321ca2d06d71bbe3082d',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsALLGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bc36be2ee4a78e69c13665a8ad03ab6a',
+                'e042a1dee405b0a853f315b39a375783',
             ],
         },
         {
@@ -596,17 +617,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'fd0b8748ff96edcde009d39903a9f211',
-            ],
-        },
-        {
-            viewtag: '3e2436a62be2ed493eda83693261274e',
-            viewmodule: 'zentao',
-            viewname: 'ModuleTreeExpView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '7caeaef893043533e8f388d25523328c',
-                '8eb13e4fe49406265e2ed5fb1e0a6b53',
             ],
         },
         {
@@ -1425,8 +1435,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '846ddf8e555650608d4f75c4595c1270',
                 'f83dac873b9215483c4bb91673284b41',
+                '06ac640ed0240503d1d42ecd9a090787',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
@@ -1437,17 +1447,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: '7caeaef893043533e8f388d25523328c',
-            viewmodule: 'zentao',
-            viewname: 'ProductGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '6c7b582273d0726bcf77214807cfe40c',
-                'e042a1dee405b0a853f315b39a375783',
             ],
         },
         {
@@ -1643,8 +1642,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+                '1381e29846ae321ca2d06d71bbe3082d',
                 'e042a1dee405b0a853f315b39a375783',
-                '3e2436a62be2ed493eda83693261274e',
             ],
         },
         {

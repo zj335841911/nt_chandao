@@ -378,8 +378,8 @@ export default class ProjectUIServiceBase extends UIService {
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'projectstats', parameterName: 'projectstats' },
+            { pathName: 'allgridview', parameterName: 'allgridview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

@@ -89,6 +89,7 @@ export default class IbzLibUIServiceBase extends UIService {
      * @memberof  IbzLibUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'openlibview',srfappde:'ibzlibs'});
     }
 
     /**

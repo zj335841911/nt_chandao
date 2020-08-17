@@ -10,4 +10,10 @@ export default {
     addedby: "由谁创建",
     lasteditedby: "最后编辑人",
   },
+	views: {
+		openlibview: {
+			caption: "用例库",
+      		title: "用例库数据看板视图",
+		},
+	},
 };

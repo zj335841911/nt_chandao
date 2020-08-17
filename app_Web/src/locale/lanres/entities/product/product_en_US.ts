@@ -356,20 +356,6 @@ export default {
 			tip: "刷新",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
 			caption: "管理",
@@ -386,6 +372,20 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

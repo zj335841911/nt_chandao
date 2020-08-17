@@ -19,7 +19,7 @@
         ,
        {
             "unirescode":"LIBM_OPEN_BUT",
-            "uniresname":"用例库打开概况"
+            "uniresname":"用例库模块概况"
        }
         ,
        {
@@ -379,7 +379,7 @@
         ,
        {
             "unirescode":"LIBM_EDIT_BUT",
-            "uniresname":"用例库编辑"
+            "uniresname":"用例库模块编辑"
        }
         ,
        {

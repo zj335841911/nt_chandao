@@ -28,6 +28,10 @@ export default {
     status: "状态",
   },
 	views: {
+		allgridview: {
+			caption: "所有项目",
+      		title: "项目统计表格视图（所有项目）",
+		},
 		editview9: {
 			caption: "项目统计",
       		title: "项目统计编辑视图",
@@ -86,6 +90,19 @@ export default {
 		uiactions: {
 		},
 	},
+	allproject_grid: {
+		columns: {
+			name: "项目名称",
+			end: "截至日期",
+			status: "状态",
+			totalestimate: "预计",
+			totalconsumed: "消耗",
+			totalleft: "剩余",
+			totalwh: "总工时",
+		},
+		uiactions: {
+		},
+	},
 	notcloseproject_grid: {
 		columns: {
 			name: "项目名称",
@@ -97,6 +114,27 @@ export default {
 			totalwh: "总工时",
 		},
 		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	allgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

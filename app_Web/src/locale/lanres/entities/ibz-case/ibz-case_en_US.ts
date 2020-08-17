@@ -30,4 +30,10 @@ export default {
     version: "用例版本",
     casesteps: "用例步骤集合",
   },
+	views: {
+		opencaseview: {
+			caption: "用例库用例",
+      		title: "用例库用例数据看板视图",
+		},
+	},
 };

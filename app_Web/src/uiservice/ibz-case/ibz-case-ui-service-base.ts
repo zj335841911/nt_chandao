@@ -89,6 +89,7 @@ export default class IbzCaseUIServiceBase extends UIService {
      * @memberof  IbzCaseUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'opencaseview',srfappde:'ibzcases'});
     }
 
     /**

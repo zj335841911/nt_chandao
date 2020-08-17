@@ -395,8 +395,8 @@ export default class ProductUIServiceBase extends UIService {
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'modules', parameterName: 'module' },
-            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+            { pathName: 'productstats', parameterName: 'productstats' },
+            { pathName: 'allgridview', parameterName: 'allgridview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
