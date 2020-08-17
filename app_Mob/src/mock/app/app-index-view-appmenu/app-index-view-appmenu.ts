@@ -25,7 +25,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'home',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: '_2',
 	resourcetag: '',
 },
             {

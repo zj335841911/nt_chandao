@@ -57,6 +57,18 @@ const router = new Router({
             },
             component: () => import('@/components/view-shell/view-shell.vue'),
             children: [
+                {
+                    path: 'appportalview/:appportalview?',
+                    meta: {
+                        caption: 'app.views.appportalview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'appportalview', parameterName: 'appportalview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ungroup/app-portal-view/app-portal-view.vue'),
+                },
             ]
         },
         {

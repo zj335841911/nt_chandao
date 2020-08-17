@@ -407,12 +407,32 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case '_2': 
+                    this.click_2(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
         }
     }
 
+    
+    /**
+     * 打开看板
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected click_2(item: any = {}) {
+        let params: any = {};
+        Object.assign(params, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'appportalview', parameterName: 'appportalview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam({ ...this.context }, deResParameters, parameters, [], params);
+        this.globaluiservice.openService.openView(routeParam);
+    }
 
     /**
      * 数据加载
