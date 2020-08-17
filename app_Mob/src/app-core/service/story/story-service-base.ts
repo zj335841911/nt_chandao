@@ -75,6 +75,7 @@ export class StoryServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -116,6 +117,7 @@ export class StoryServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }
@@ -632,6 +634,7 @@ export class StoryServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
                         }
                         delete item.srffrontuf;
                     }

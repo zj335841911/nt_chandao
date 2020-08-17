@@ -49,6 +49,11 @@ export class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.story && context.bug){
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}/select`,isloading);
+            
+            return res;
+        }
             let res:any = Http.getInstance().get(`/bugs/${context.bug}/select`,isloading);
             
             return res;
