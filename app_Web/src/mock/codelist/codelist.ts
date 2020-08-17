@@ -2793,6 +2793,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "1",
                 "data":"",
                 "codename":"Item_1",
+                "color": "rgba(197, 26, 26, 1)",
                 value: 1,
                 
                 disabled: false,
@@ -2803,6 +2804,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "2",
                 "data":"",
                 "codename":"Item_2",
+                "color": "rgba(197, 26, 26, 1)",
                 value: 2,
                 
                 disabled: false,
@@ -2813,6 +2815,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "3",
                 "data":"",
                 "codename":"Item_3",
+                "color": "rgba(197, 26, 26, 1)",
                 value: 3,
                 
                 disabled: false,
@@ -2823,6 +2826,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "4",
                 "data":"",
                 "codename":"Item_4",
+                "color": "rgba(197, 26, 26, 1)",
                 value: 4,
                 
                 disabled: false,

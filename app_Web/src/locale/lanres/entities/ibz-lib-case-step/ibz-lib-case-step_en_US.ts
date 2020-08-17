@@ -11,4 +11,10 @@ export default {
     type: "类型",
     version: "版本",
   },
+	views: {
+		openstepview: {
+			caption: "用例库用例步骤",
+      		title: "用例库用例步骤数据看板视图",
+		},
+	},
 };

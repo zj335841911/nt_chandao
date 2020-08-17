@@ -1871,6 +1871,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductDashboardInfoMainView9",
             "viewtag": "b5d2389c0dd12ae614b319090ecc2361"
         },
+        "ibzcasestepopenstepview": {
+            "title": "用例库用例步骤数据看板视图",
+            "caption": "用例库用例步骤",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseStepOpenStepView",
+            "viewtag": "b94d0f23e4297f138ffa3ffc8ad3e651"
+        },
         "storympickupview": {
             "title": "关联需求",
             "caption": "关联需求",

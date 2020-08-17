@@ -89,6 +89,7 @@ export default class IbzLibCaseStepUIServiceBase extends UIService {
      * @memberof  IbzLibCaseStepUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'openstepview',srfappde:'ibzlibcasesteps'});
     }
 
     /**

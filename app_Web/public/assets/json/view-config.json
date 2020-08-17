@@ -2329,6 +2329,16 @@
         "viewtag": "b5d2389c0dd12ae614b319090ecc2361",
         "memo": ""
     },
+    "ibzcasestepopenstepview": {
+        "title": "用例库用例步骤数据看板视图",
+        "caption": "用例库用例步骤",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzCaseStepOpenStepView",
+        "viewfilename": "ibz-case-step-open-step-view",
+        "viewtag": "b94d0f23e4297f138ffa3ffc8ad3e651",
+        "memo": ""
+    },
     "storympickupview": {
         "title": "关联需求",
         "caption": "关联需求",
