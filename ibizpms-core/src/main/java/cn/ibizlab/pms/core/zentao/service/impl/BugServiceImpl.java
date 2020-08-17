@@ -87,7 +87,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
@@ -104,7 +104,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public void createBatch(List<Bug> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -121,7 +121,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public void updateBatch(List<Bug> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -160,7 +160,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug activate(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -173,7 +173,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug assignTo(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -186,7 +186,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug batchUnlinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -199,7 +199,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug buildBatchUnlinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -212,7 +212,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug buildLinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -225,7 +225,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug buildUnlinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -242,7 +242,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public boolean checkKey(Bug et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Bug close(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -255,7 +255,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug confirm(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -268,7 +268,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug linkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -281,7 +281,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug releaaseBatchUnlinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -294,7 +294,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug releaseLinkBugbyBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -307,7 +307,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug releaseLinkBugbyLeftBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -320,7 +320,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug releaseUnlinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -333,7 +333,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug resolve(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -377,7 +377,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug toStory(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -390,7 +390,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Bug unlinkBug(Bug et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());

@@ -48,7 +48,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
@@ -65,7 +65,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public void createBatch(List<Todo> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -82,7 +82,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public void updateBatch(List<Todo> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -119,7 +119,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Todo activate(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -132,7 +132,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Todo assignTo(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -149,7 +149,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public boolean checkKey(Todo et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Todo close(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -162,7 +162,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Todo finish(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());

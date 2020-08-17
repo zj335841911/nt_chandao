@@ -96,7 +96,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
@@ -113,7 +113,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public void createBatch(List<Case> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -130,7 +130,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public void updateBatch(List<Case> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -173,7 +173,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public boolean checkKey(Case et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Case confirmChange(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -186,7 +186,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Case confirmstorychange(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -206,7 +206,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Case linkCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -219,7 +219,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Case runCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -270,7 +270,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public Case testRunCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -290,7 +290,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
          return et ;
     }
 
-    @Override
+        @Override
     @Transactional
     public Case testsuitelinkCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -303,7 +303,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Case unlinkCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -323,7 +323,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
          return et ;
     }
 
-    @Override
+        @Override
     @Transactional
     public Case unlinkSuiteCase(Case et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());

@@ -110,7 +110,7 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
     public boolean checkKey(Team et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Team managePorjectMembers(Team et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -152,7 +152,7 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public Team unlinkPorjectMember(Team et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());

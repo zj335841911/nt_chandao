@@ -81,7 +81,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         this.saveBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public boolean update(Module et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -98,7 +98,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public void updateBatch(List<Module> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -140,7 +140,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public boolean checkKey(Module et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Module fix(Module et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());

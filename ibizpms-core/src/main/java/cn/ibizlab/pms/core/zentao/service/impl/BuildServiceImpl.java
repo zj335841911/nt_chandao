@@ -63,7 +63,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Build et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
@@ -80,7 +80,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public void createBatch(List<Build> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Build et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -97,7 +97,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public void updateBatch(List<Build> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -139,7 +139,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Build linkStory(Build et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -215,15 +215,14 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
 
 
-    /**
-     * 查询集合 Bug产品版本
-     */
-    @Override
-    public Page<Build> searchBugProductBuild(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
+    !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${dedataset.getLogicName()}  [in template "TEMPLCODE_en_US" at line 2, column 13]
+----
     /**
      * 查询集合 产品版本
      */

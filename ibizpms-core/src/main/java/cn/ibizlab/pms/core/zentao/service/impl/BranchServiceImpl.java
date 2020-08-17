@@ -106,7 +106,7 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         updateBatchById(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -176,7 +176,7 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public Branch sort(Branch et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());

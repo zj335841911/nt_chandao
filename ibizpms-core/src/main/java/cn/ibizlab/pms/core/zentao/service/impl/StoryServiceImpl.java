@@ -89,7 +89,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
@@ -106,7 +106,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void createBatch(List<Story> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -123,7 +123,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void updateBatch(List<Story> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -163,7 +163,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story activate(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -176,7 +176,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story assignTo(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -238,7 +238,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story batchUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -258,7 +258,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story buildBatchUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -271,7 +271,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story buildLinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -284,7 +284,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story buildUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -304,7 +304,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
          return et ;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story change(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -321,7 +321,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public boolean checkKey(Story et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Story close(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -348,7 +348,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
          return et ;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story importPlanStories(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -361,7 +361,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story linkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -374,7 +374,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story projectBatchUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -387,7 +387,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story projectLinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -400,7 +400,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story projectUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -420,7 +420,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
          return et ;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story releaseBatchUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -433,7 +433,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story releaseLinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -446,7 +446,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story releaseUnlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -466,7 +466,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Story review(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
@@ -510,7 +510,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public Story unlinkStory(Story et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
