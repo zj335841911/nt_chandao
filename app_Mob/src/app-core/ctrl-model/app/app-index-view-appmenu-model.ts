@@ -96,6 +96,18 @@ export class AppIndexViewModel {
 	 * @memberof AppIndexViewModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: '_2',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'app-portal-view', 
+            codename: 'appportalview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/appportalview/:appportalview?',
+            parameters: [
+                { pathName: 'appportalview', parameterName: 'appportalview' },
+            ],
+        },
 	];
 
     /**

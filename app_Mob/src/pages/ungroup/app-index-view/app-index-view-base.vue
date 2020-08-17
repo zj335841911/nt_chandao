@@ -5,6 +5,11 @@
     :context="context" 
     :showBusyIndicator="true" 
     controlStyle=""   
+    v-model="collapseChange"  
+    :mode="mode"  
+    :selectTheme="selectTheme"  
+    :isDefaultPage="isDefaultPage"  
+    :defPSAppView="defPSAppView" 
     name="appmenu"  
     ref='appmenu' 
     @closeview="closeView($event)">
@@ -426,7 +431,7 @@ export default class AppIndexViewBase extends Vue {
      * @type {boolean}
      * @memberof AppIndexViewBase
      */
-    public isDefaultPage: boolean = false;
+    public isDefaultPage: boolean = true;
 
     /**
      * 获取样式

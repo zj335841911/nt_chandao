@@ -343,6 +343,79 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
 
 
     /**
+     * 处理菜单默认选中项
+     *
+     * @private
+     * @memberof AppIndexView
+     */
+    private doMenuSelect(): void {
+        if (!this.isDefaultPage) {
+            return;
+        }
+        const appFuncs: any[] = this.menuMode.getAppFuncs();
+        if (this.$route && this.$route.matched && this.$route.matched.length == 2) { // 存在二级路由
+            const [{ }, matched] = this.$route.matched;
+            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, matched.path) && Object.is(_appfunc.appfuncyype, 'APPVIEW'));
+            if (appfunc) {
+                this.computeMenuSelect(this.menus, appfunc.appfunctag);
+            }
+            return;
+        } else if (this.defPSAppView && Object.keys(this.defPSAppView).length > 0) { // 存在默认视图
+            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, this.defPSAppView.routepath) && Object.is(_appfunc.appfuncyype, 'APPVIEW'));
+            if (appfunc) {
+                this.computeMenuSelect(this.menus, appfunc.appfunctag);
+            }
+            const viewparam: any = {};
+            const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, this.defPSAppView.deResParameters, this.defPSAppView.parameters, [], viewparam);
+            this.$router.push(path);
+            return;
+        }
+
+        this.computeMenuSelect(this.menus, '');
+        let item = this.compute(this.menus, this.defaultActive);
+        if (Object.keys(item).length === 0) {
+            return;
+        }
+        this.click(item);
+    }
+
+    /**
+     * 计算菜单选中项
+     *
+     * @private
+     * @param {any[]} items
+     * @param {string} appfunctag
+     * @returns {boolean}
+     * @memberof AppIndexView
+     */
+    private computeMenuSelect(items: any[], appfunctag: string): boolean {
+        const appFuncs: any[] = this.menuMode.getAppFuncs();
+        return items.some((item: any) => {
+            if (Object.is(appfunctag, '') && !Object.is(item.appfunctag, '')) {
+                const appfunc = appFuncs.find((_appfunc: any) => Object.is(_appfunc.appfunctag, item.appfunctag));
+                if (appfunc.routepath) {
+                    this.defaultActive = item.name;
+                    this.setHideSideBar(item);
+                    return true;
+                }
+            }
+            if (Object.is(item.appfunctag, appfunctag)) {
+                this.setHideSideBar(item);
+                this.defaultActive = item.name;
+                return true;
+            }
+            if (item.items && item.items.length > 0) {
+                const state = this.computeMenuSelect(item.items, appfunctag);
+                if (state) {
+                    this.defaultOpeneds.push(item.name);
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
+
+    /**
      * 获取菜单项数据
      *
      * @private
@@ -379,6 +452,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @memberof AppIndexView
      */
     private setHideSideBar(item: any): void {
+        if (item.hidesidebar) {
+            this.$emit('collapsechange', true);
+        }
     }
 
     /**

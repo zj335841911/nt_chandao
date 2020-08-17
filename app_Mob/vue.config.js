@@ -19,7 +19,6 @@ module.exports = {
         historyApiFallback: {
             rewrites: [
                // { from: /^\/index$/, to: '/index.html' },
-               // { from: /^\/appindexview$/, to: '/appindexview.html' },
             ]
         }
     },
@@ -59,7 +58,7 @@ module.exports = {
             // 模板来源
             template: 'src/template.html',
             // 在 dist/index.html 的输出
-            filename: 'appindexview.html',
+            filename: 'index.html',
             // 当使用 title 选项时，
             // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
             title: '应用首页视图',
@@ -71,10 +70,12 @@ module.exports = {
     // 多核打包
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
+        // 删除自动计算预加载资源
+        config.plugins.delete('preload-appindexview')
+        // 删除预加载资源
+        config.plugins.delete('prefetch-appindexview')
         config.plugins.delete('preload-index')
         config.plugins.delete('prefetch-index')
-        config.plugins.delete('preload-appindexview')
-        config.plugins.delete('prefetch-appindexview')
         config.resolve.alias
             .set('@pages', resolve('src/pages'))
             .set('@components', resolve('src/components'))
