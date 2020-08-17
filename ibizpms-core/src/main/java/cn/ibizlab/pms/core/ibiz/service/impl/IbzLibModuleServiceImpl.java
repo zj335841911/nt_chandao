@@ -52,7 +52,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     protected cn.ibizlab.pms.core.ibiz.service.IIbzLibModuleService ibzlibmoduleService = this;
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
+    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibService ibzlibService;
 
     protected int batchSize = 500;
 

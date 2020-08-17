@@ -129,14 +129,6 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     private BigInteger parent;
 
     /**
-     * 属性 [ROOT]
-     *
-     */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private BigInteger root;
-
-    /**
      * 属性 [PARENTNAME]
      *
      */
@@ -145,12 +137,12 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     private String parentname;
 
     /**
-     * 属性 [ROOTNAME]
+     * 属性 [ROOT]
      *
      */
-    @JSONField(name = "rootname")
-    @JsonProperty("rootname")
-    private String rootname;
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
 
 
     /**
@@ -234,14 +226,6 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ROOT]
-     */
-    public void setRoot(BigInteger  root){
-        this.root = root ;
-        this.modify("root",root);
-    }
-
-    /**
      * 设置 [PARENTNAME]
      */
     public void setParentname(String  parentname){
@@ -250,11 +234,11 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ROOTNAME]
+     * 设置 [ROOT]
      */
-    public void setRootname(String  rootname){
-        this.rootname = rootname ;
-        this.modify("rootname",rootname);
+    public void setRoot(BigInteger  root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 

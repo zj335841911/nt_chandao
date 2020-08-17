@@ -123,6 +123,14 @@ public class IbzCaseStep extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.ibiz.domain.IbzCase ibzcase;
 
 
+    /**
+     * 用例库用例步骤
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep> ibzcasestep;
+
 
     /**
      * 设置 [预期]

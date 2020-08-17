@@ -39,6 +39,7 @@ public interface IIbzCaseStepService extends IService<IbzCaseStep>{
     Page<IbzCaseStep> searchDefault(IbzCaseStepSearchContext context) ;
     List<IbzCaseStep> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
+    void saveByParent(BigInteger id,List<IbzCaseStep> list) ;
     List<IbzCaseStep> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;
     void saveByIbizcase(BigInteger id,List<IbzCaseStep> list) ;

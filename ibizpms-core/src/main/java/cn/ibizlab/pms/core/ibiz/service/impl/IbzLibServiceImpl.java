@@ -48,6 +48,9 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseService ibzcaseService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibModuleService ibzlibmoduleService;
 
     protected int batchSize = 500;
 

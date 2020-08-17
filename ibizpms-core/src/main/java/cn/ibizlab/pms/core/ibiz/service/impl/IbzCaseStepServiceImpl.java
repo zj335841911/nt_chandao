@@ -59,6 +59,7 @@ public class IbzCaseStepServiceImpl extends ServiceImpl<IbzCaseStepMapper, IbzCa
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
+        ibzcasestepService.saveByParent(et.getId(),et.getIbzcasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -75,6 +76,7 @@ public class IbzCaseStepServiceImpl extends ServiceImpl<IbzCaseStepMapper, IbzCa
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
+        ibzcasestepService.saveByParent(et.getId(),et.getIbzcasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -106,6 +108,7 @@ public class IbzCaseStepServiceImpl extends ServiceImpl<IbzCaseStepMapper, IbzCa
             et.setId(key);
         }
         else{
+            et.setIbzcasestep(ibzcasestepService.selectByParent(key));
         }
         return et;
     }
@@ -162,6 +165,38 @@ public class IbzCaseStepServiceImpl extends ServiceImpl<IbzCaseStepMapper, IbzCa
         this.remove(new QueryWrapper<IbzCaseStep>().eq("parent",id));
     }
 
+    @Autowired
+    @Lazy
+    IIbzCaseStepService proxyService;
+	@Override
+    public void saveByParent(BigInteger id,List<IbzCaseStep> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<IbzCaseStep> _update=new ArrayList<IbzCaseStep>();
+        List<IbzCaseStep> _create=new ArrayList<IbzCaseStep>();
+        for(IbzCaseStep before:selectByParent(id)){
+            delIds.add(before.getId());
+        }
+        for(IbzCaseStep sub:list) {
+            sub.setParent(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            proxyService.updateBatch(_update);
+        if(_create.size()>0)
+            proxyService.createBatch(_create);
+        if(delIds.size()>0)
+            proxyService.removeBatch(delIds);
+	}
+
 	@Override
     public List<IbzCaseStep> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
@@ -172,9 +207,6 @@ public class IbzCaseStepServiceImpl extends ServiceImpl<IbzCaseStepMapper, IbzCa
         this.remove(new QueryWrapper<IbzCaseStep>().eq("case",id));
     }
 
-    @Autowired
-    @Lazy
-    IIbzCaseStepService proxyService;
 	@Override
     public void saveByIbizcase(BigInteger id,List<IbzCaseStep> list) {
         if(list==null)

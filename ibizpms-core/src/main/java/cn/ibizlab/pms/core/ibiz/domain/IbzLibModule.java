@@ -142,13 +142,6 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JsonProperty("parent")
     private BigInteger parent;
     /**
-     * 编号
-     */
-    @TableField(value = "root")
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private BigInteger root;
-    /**
      * 上级模块
      */
     @TableField(value = "parentname")
@@ -156,12 +149,12 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JsonProperty("parentname")
     private String parentname;
     /**
-     * 所属套件
+     * 编号
      */
-    @TableField(value = "rootname")
-    @JSONField(name = "rootname")
-    @JsonProperty("rootname")
-    private String rootname;
+    @TableField(value = "root")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
 
     /**
      * 父节点
@@ -172,12 +165,12 @@ public class IbzLibModule extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.ibiz.domain.IbzLibModule parentmodule;
 
     /**
-     * 套件模块
+     * 
      */
     @JsonIgnore
     @JSONField(serialize = false)
     @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.TestSuite zttestsuite;
+    private cn.ibizlab.pms.core.ibiz.domain.IbzLib lib;
 
 
 
@@ -262,14 +255,6 @@ public class IbzLibModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [编号]
-     */
-    public void setRoot(BigInteger root){
-        this.root = root ;
-        this.modify("root",root);
-    }
-
-    /**
      * 设置 [上级模块]
      */
     public void setParentname(String parentname){
@@ -278,11 +263,11 @@ public class IbzLibModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [所属套件]
+     * 设置 [编号]
      */
-    public void setRootname(String rootname){
-        this.rootname = rootname ;
-        this.modify("rootname",rootname);
+    public void setRoot(BigInteger root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 
