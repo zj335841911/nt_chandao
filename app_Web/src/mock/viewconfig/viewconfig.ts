@@ -208,8 +208,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "1bd39348fb4dc22c08e997bd771a2419"
         },
         "producttestgridview": {
-            "title": "产品表格视图",
-            "caption": "产品",
+            "title": "所有产品",
+            "caption": "测试",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductTestGridView",

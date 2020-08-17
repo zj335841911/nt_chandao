@@ -7,7 +7,7 @@ import view_grid from '@widgets/product/test-grid/test-grid.vue';
 import view_searchform from '@widgets/product/default-searchform/default-searchform.vue';
 
 /**
- * 产品表格视图视图
+ * 所有产品视图
  *
  * @export
  * @class ProductTestGridView

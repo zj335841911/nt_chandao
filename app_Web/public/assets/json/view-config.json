@@ -250,8 +250,8 @@
         "memo": ""
     },
     "producttestgridview": {
-        "title": "产品表格视图",
-        "caption": "产品",
+        "title": "所有产品",
+        "caption": "测试",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
         "viewname": "ProductTestGridView",

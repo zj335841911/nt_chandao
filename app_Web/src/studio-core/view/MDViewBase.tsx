@@ -73,11 +73,12 @@ export class MDViewBase extends ViewBase {
     /**
      * 快速搜索栏值变化
      *
-     * @param {*} $event
+     * @param {*} data
      * @memberof MDViewBase
      */
-    public quickFormValueChange = ($event: any) => {
-        this.quickFormData = $event;
+    public quickFormValueChange = (data: any) => {
+        this.quickFormData.clearAll();
+        Object.assign(this.quickFormData, data);
         this.onSearch();
     }
 

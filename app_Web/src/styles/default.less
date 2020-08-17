@@ -502,6 +502,37 @@ div::-webkit-scrollbar-thumb {
     color: var(--view-button-color-disabled);
 }
 
+//快速搜索表单
+.studio-view.view-container {
+
+    .quick-search-form {
+    
+        .app-search-form.ivu-form {
+            height: 100%;
+            padding: 0;
+    
+            .form-content {
+                height: 100%;
+            }
+    
+            .form-layout-container {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+    
+            .app-form-item {
+                margin-bottom: 0;
+    
+                .ivu-form-item-content {
+                    min-height: 26px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}
+
 // 编辑表单和搜索表单样式
 .app-search-form.ivu-form,
 .app-form.ivu-form {
@@ -543,6 +574,12 @@ div::-webkit-scrollbar-thumb {
                 width: 100%;
             }
         }
+    }
+
+    iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
     }
 
     // 表单项
@@ -1331,5 +1368,11 @@ div::-webkit-scrollbar-thumb {
             }
         }
     }
+}
+
+// 日历部件
+.calendar {
+    height: 100%;
+    width: 100%;
 }
 @import './user.less';

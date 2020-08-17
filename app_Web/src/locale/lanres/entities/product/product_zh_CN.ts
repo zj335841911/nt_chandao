@@ -57,8 +57,8 @@ export default {
       		title: "产品测试数据看板视图",
 		},
 		testgridview: {
-			caption: "产品",
-      		title: "产品表格视图",
+			caption: "测试",
+      		title: "所有产品",
 		},
 		chartview: {
 			caption: "产品",
