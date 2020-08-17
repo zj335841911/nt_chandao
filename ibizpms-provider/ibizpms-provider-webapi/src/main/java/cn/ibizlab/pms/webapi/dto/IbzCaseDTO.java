@@ -1,459 +1,417 @@
-package cn.ibizlab.pms.core.ibiz.domain;
+package cn.ibizlab.pms.webapi.dto;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.math.BigInteger;
+import java.util.Map;
 import java.util.HashMap;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.util.ObjectUtils;
-import org.springframework.util.DigestUtils;
-import cn.ibizlab.pms.util.domain.EntityBase;
-import cn.ibizlab.pms.util.annotation.DEField;
-import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
-import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
-import java.io.Serializable;
-import lombok.*;
-import org.springframework.data.annotation.Transient;
-import cn.ibizlab.pms.util.annotation.Audit;
-
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.baomidou.mybatisplus.annotation.*;
-import cn.ibizlab.pms.util.domain.EntityMP;
+import com.alibaba.fastjson.annotation.JSONField;
+import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
+import lombok.Data;
 
 /**
- * 实体[用例库用例]
+ * 服务DTO对象[IbzCaseDTO]
  */
-@Getter
-@Setter
-@NoArgsConstructor
-@JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_case",resultMap = "IbzCaseResultMap")
-public class IbzCase extends EntityMP implements Serializable {
+@Data
+public class IbzCaseDTO extends DTOBase implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
     /**
-     * 排序
+     * 属性 [ORDER]
+     *
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "order")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
+
     /**
-     * howRun
+     * 属性 [HOWRUN]
+     *
      */
-    @TableField(value = "howrun")
     @JSONField(name = "howrun")
     @JsonProperty("howrun")
     private String howrun;
+
     /**
-     * scriptedBy
+     * 属性 [SCRIPTEDBY]
+     *
      */
-    @TableField(value = "scriptedby")
     @JSONField(name = "scriptedby")
     @JsonProperty("scriptedby")
     private String scriptedby;
+
     /**
-     * path
+     * 属性 [PATH]
+     *
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "path")
     @JSONField(name = "path")
     @JsonProperty("path")
     private Integer path;
+
     /**
-     * 创建日期
+     * 属性 [OPENEDDATE]
+     *
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "openeddate" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
+
     /**
-     * 修改日期
+     * 属性 [LASTEDITEDDATE]
+     *
      */
-    @TableField(value = "lastediteddate")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
+
     /**
-     * scriptedDate
+     * 属性 [SCRIPTEDDATE]
+     *
      */
-    @TableField(value = "scripteddate")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "scripteddate" , format="yyyy-MM-dd")
     @JsonProperty("scripteddate")
     private Timestamp scripteddate;
+
     /**
-     * 备注
+     * 属性 [COMMENT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+
     /**
-     * auto
+     * 属性 [AUTO]
+     *
      */
-    @DEField(defaultValue = "no")
-    @TableField(value = "auto")
     @JSONField(name = "auto")
     @JsonProperty("auto")
     private String auto;
+
     /**
-     * 用例标题
+     * 属性 [TITLE]
+     *
      */
-    @TableField(value = "title")
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
+
     /**
-     * 已删除
+     * 属性 [DELETED]
+     *
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
-    @TableField(value = "deleted")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
+
     /**
-     * scriptLocation
+     * 属性 [SCRIPTLOCATION]
+     *
      */
-    @TableField(value = "scriptlocation")
     @JSONField(name = "scriptlocation")
     @JsonProperty("scriptlocation")
     private String scriptlocation;
+
     /**
-     * scriptStatus
+     * 属性 [SCRIPTSTATUS]
+     *
      */
-    @TableField(value = "scriptstatus")
     @JSONField(name = "scriptstatus")
     @JsonProperty("scriptstatus")
     private String scriptstatus;
+
     /**
-     * 关键词
+     * 属性 [KEYWORDS]
+     *
      */
-    @TableField(value = "keywords")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
     private String keywords;
+
     /**
-     * 用例编号
+     * 属性 [ID]
+     *
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
+
     /**
-     * 前置条件
+     * 属性 [PRECONDITION]
+     *
      */
-    @TableField(value = "precondition")
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
     private String precondition;
+
     /**
-     * 优先级
+     * 属性 [PRI]
+     *
      */
-    @TableField(value = "pri")
     @JSONField(name = "pri")
     @JsonProperty("pri")
     private String pri;
+
     /**
-     * 类型
+     * 属性 [TYPE]
+     *
      */
-    @TableField(value = "type")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+
     /**
-     * 状态
+     * 属性 [STATUS]
+     *
      */
-    @TableField(value = "status")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
+
     /**
-     * 适用阶段
+     * 属性 [STAGE]
+     *
      */
-    @TableField(value = "stage")
     @JSONField(name = "stage")
     @JsonProperty("stage")
     private String stage;
+
     /**
-     * 由谁创建
+     * 属性 [OPENEDBY]
+     *
      */
-    @TableField(value = "openedby")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
     private String openedby;
+
     /**
-     * 最后修改者
+     * 属性 [LASTEDITEDBY]
+     *
      */
-    @TableField(value = "lasteditedby")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     private String lasteditedby;
+
     /**
-     * 编号
+     * 属性 [LIB]
+     *
      */
-    @TableField(value = "lib")
     @JSONField(name = "lib")
     @JsonProperty("lib")
     private BigInteger lib;
+
     /**
-     * id
+     * 属性 [MODULE]
+     *
      */
-    @TableField(value = "module")
     @JSONField(name = "module")
     @JsonProperty("module")
     private BigInteger module;
+
     /**
-     * 所属模块
+     * 属性 [MODULENAME]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
     private String modulename;
+
     /**
-     * 用例库
+     * 属性 [LIBNAME]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "libname")
     @JsonProperty("libname")
     private String libname;
+
     /**
-     * 用例版本
+     * 属性 [VERSION]
+     *
      */
-    @TableField(value = "version")
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
 
-    /**
-     * 模块
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibiz.domain.IbzLibModule libmodule;
 
     /**
-     * 用例库
+     * 设置 [ORDER]
      */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibiz.domain.IbzLib caselib;
-
-
-    /**
-     * 用例库用例步骤
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private List<cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep> ibzcasestep;
-
-
-    /**
-     * 设置 [排序]
-     */
-    public void setOrder(Integer order){
+    public void setOrder(Integer  order){
         this.order = order ;
         this.modify("order",order);
     }
 
     /**
-     * 设置 [howRun]
+     * 设置 [HOWRUN]
      */
-    public void setHowrun(String howrun){
+    public void setHowrun(String  howrun){
         this.howrun = howrun ;
         this.modify("howrun",howrun);
     }
 
     /**
-     * 设置 [scriptedBy]
+     * 设置 [SCRIPTEDBY]
      */
-    public void setScriptedby(String scriptedby){
+    public void setScriptedby(String  scriptedby){
         this.scriptedby = scriptedby ;
         this.modify("scriptedby",scriptedby);
     }
 
     /**
-     * 设置 [path]
+     * 设置 [PATH]
      */
-    public void setPath(Integer path){
+    public void setPath(Integer  path){
         this.path = path ;
         this.modify("path",path);
     }
 
     /**
-     * 设置 [修改日期]
+     * 设置 [LASTEDITEDDATE]
      */
-    public void setLastediteddate(Timestamp lastediteddate){
+    public void setLastediteddate(Timestamp  lastediteddate){
         this.lastediteddate = lastediteddate ;
         this.modify("lastediteddate",lastediteddate);
     }
 
     /**
-     * 格式化日期 [修改日期]
+     * 设置 [SCRIPTEDDATE]
      */
-    public String formatLastediteddate(){
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
-    /**
-     * 设置 [scriptedDate]
-     */
-    public void setScripteddate(Timestamp scripteddate){
+    public void setScripteddate(Timestamp  scripteddate){
         this.scripteddate = scripteddate ;
         this.modify("scripteddate",scripteddate);
     }
 
     /**
-     * 格式化日期 [scriptedDate]
+     * 设置 [AUTO]
      */
-    public String formatScripteddate(){
-        if (this.scripteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(scripteddate);
-    }
-    /**
-     * 设置 [auto]
-     */
-    public void setAuto(String auto){
+    public void setAuto(String  auto){
         this.auto = auto ;
         this.modify("auto",auto);
     }
 
     /**
-     * 设置 [用例标题]
+     * 设置 [TITLE]
      */
-    public void setTitle(String title){
+    public void setTitle(String  title){
         this.title = title ;
         this.modify("title",title);
     }
 
     /**
-     * 设置 [scriptLocation]
+     * 设置 [SCRIPTLOCATION]
      */
-    public void setScriptlocation(String scriptlocation){
+    public void setScriptlocation(String  scriptlocation){
         this.scriptlocation = scriptlocation ;
         this.modify("scriptlocation",scriptlocation);
     }
 
     /**
-     * 设置 [scriptStatus]
+     * 设置 [SCRIPTSTATUS]
      */
-    public void setScriptstatus(String scriptstatus){
+    public void setScriptstatus(String  scriptstatus){
         this.scriptstatus = scriptstatus ;
         this.modify("scriptstatus",scriptstatus);
     }
 
     /**
-     * 设置 [关键词]
+     * 设置 [KEYWORDS]
      */
-    public void setKeywords(String keywords){
+    public void setKeywords(String  keywords){
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
 
     /**
-     * 设置 [前置条件]
+     * 设置 [PRECONDITION]
      */
-    public void setPrecondition(String precondition){
+    public void setPrecondition(String  precondition){
         this.precondition = precondition ;
         this.modify("precondition",precondition);
     }
 
     /**
-     * 设置 [优先级]
+     * 设置 [PRI]
      */
-    public void setPri(String pri){
+    public void setPri(String  pri){
         this.pri = pri ;
         this.modify("pri",pri);
     }
 
     /**
-     * 设置 [类型]
+     * 设置 [TYPE]
      */
-    public void setType(String type){
+    public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
     }
 
     /**
-     * 设置 [状态]
+     * 设置 [STATUS]
      */
-    public void setStatus(String status){
+    public void setStatus(String  status){
         this.status = status ;
         this.modify("status",status);
     }
 
     /**
-     * 设置 [适用阶段]
+     * 设置 [STAGE]
      */
-    public void setStage(String stage){
+    public void setStage(String  stage){
         this.stage = stage ;
         this.modify("stage",stage);
     }
 
     /**
-     * 设置 [由谁创建]
+     * 设置 [OPENEDBY]
      */
-    public void setOpenedby(String openedby){
+    public void setOpenedby(String  openedby){
         this.openedby = openedby ;
         this.modify("openedby",openedby);
     }
 
     /**
-     * 设置 [最后修改者]
+     * 设置 [LASTEDITEDBY]
      */
-    public void setLasteditedby(String lasteditedby){
+    public void setLasteditedby(String  lasteditedby){
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
     }
 
     /**
-     * 设置 [编号]
+     * 设置 [LIB]
      */
-    public void setLib(BigInteger lib){
+    public void setLib(BigInteger  lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
 
     /**
-     * 设置 [id]
+     * 设置 [MODULE]
      */
-    public void setModule(BigInteger module){
+    public void setModule(BigInteger  module){
         this.module = module ;
         this.modify("module",module);
     }
 
     /**
-     * 设置 [用例版本]
+     * 设置 [VERSION]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer  version){
         this.version = version ;
         this.modify("version",version);
     }
 
 
 }
-
 

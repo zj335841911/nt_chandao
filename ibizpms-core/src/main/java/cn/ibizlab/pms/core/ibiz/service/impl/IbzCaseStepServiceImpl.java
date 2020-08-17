@@ -23,70 +23,64 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
-import cn.ibizlab.pms.core.ibiz.domain.IbzCase;
-import cn.ibizlab.pms.core.ibiz.filter.IbzCaseSearchContext;
-import cn.ibizlab.pms.core.ibiz.service.IIbzCaseService;
+import cn.ibizlab.pms.core.ibiz.domain.IbzCaseStep;
+import cn.ibizlab.pms.core.ibiz.filter.IbzCaseStepSearchContext;
+import cn.ibizlab.pms.core.ibiz.service.IIbzCaseStepService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.ibizlab.pms.core.ibiz.mapper.IbzCaseMapper;
+import cn.ibizlab.pms.core.ibiz.mapper.IbzCaseStepMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 
 /**
- * 实体[用例库用例] 服务对象接口实现
+ * 实体[用例库用例步骤] 服务对象接口实现
  */
 @Slf4j
-@Service("IbzCaseServiceImpl")
-public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> implements IIbzCaseService {
+@Service("IbzCaseStepServiceImpl")
+public class IbzCaseStepServiceImpl extends ServiceImpl<IbzCaseStepMapper, IbzCaseStep> implements IIbzCaseStepService {
 
+
+    protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseStepService ibzcasestepService = this;
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseStepService ibzcasestepService;
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibModuleService ibzlibmoduleService;
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibService ibzlibService;
+    protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseService ibzcaseService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
-    public boolean create(IbzCase et) {
+    public boolean create(IbzCaseStep et) {
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        ibzcasestepService.saveByIbizcase(et.getId(),et.getIbzcasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    public void createBatch(List<IbzCase> list) {
+    public void createBatch(List<IbzCaseStep> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
-    public boolean update(IbzCase et) {
+    public boolean update(IbzCaseStep et) {
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        ibzcasestepService.saveByIbizcase(et.getId(),et.getIbzcasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    public void updateBatch(List<IbzCase> list) {
+    public void updateBatch(List<IbzCaseStep> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
@@ -94,7 +88,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        ibzcasestepService.removeByIbizcase(key) ;
         boolean result=removeById(key);
         return result ;
     }
@@ -106,31 +99,30 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
     @Override
     @Transactional
-    public IbzCase get(BigInteger key) {
-        IbzCase et = getById(key);
+    public IbzCaseStep get(BigInteger key) {
+        IbzCaseStep et = getById(key);
         if(et==null){
-            et=new IbzCase();
+            et=new IbzCaseStep();
             et.setId(key);
         }
         else{
-            et.setIbzcasestep(ibzcasestepService.selectByIbizcase(key));
         }
         return et;
     }
 
     @Override
-    public IbzCase getDraft(IbzCase et) {
+    public IbzCaseStep getDraft(IbzCaseStep et) {
         fillParentData(et);
         return et;
     }
 
     @Override
-    public boolean checkKey(IbzCase et) {
+    public boolean checkKey(IbzCaseStep et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
-    public boolean save(IbzCase et) {
+    public boolean save(IbzCaseStep et) {
         if(!saveOrUpdate(et))
             return false;
         return true;
@@ -138,7 +130,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
     @Override
     @Transactional
-    public boolean saveOrUpdate(IbzCase et) {
+    public boolean saveOrUpdate(IbzCaseStep et) {
         if (null == et) {
             return false;
         } else {
@@ -147,47 +139,79 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
 
     @Override
-    public boolean saveBatch(Collection<IbzCase> list) {
+    public boolean saveBatch(Collection<IbzCaseStep> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
-    public void saveBatch(List<IbzCase> list) {
+    public void saveBatch(List<IbzCaseStep> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
 
 	@Override
-    public List<IbzCase> selectByModule(BigInteger id) {
-        return baseMapper.selectByModule(id);
+    public List<IbzCaseStep> selectByParent(BigInteger id) {
+        return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
-        this.remove(new QueryWrapper<IbzCase>().eq("module",id));
+    public void removeByParent(BigInteger id) {
+        this.remove(new QueryWrapper<IbzCaseStep>().eq("parent",id));
     }
 
 	@Override
-    public List<IbzCase> selectByLib(BigInteger id) {
-        return baseMapper.selectByLib(id);
+    public List<IbzCaseStep> selectByIbizcase(BigInteger id) {
+        return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByLib(BigInteger id) {
-        this.remove(new QueryWrapper<IbzCase>().eq("lib",id));
+    public void removeByIbizcase(BigInteger id) {
+        this.remove(new QueryWrapper<IbzCaseStep>().eq("case",id));
     }
+
+    @Autowired
+    @Lazy
+    IIbzCaseStepService proxyService;
+	@Override
+    public void saveByIbizcase(BigInteger id,List<IbzCaseStep> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<IbzCaseStep> _update=new ArrayList<IbzCaseStep>();
+        List<IbzCaseStep> _create=new ArrayList<IbzCaseStep>();
+        for(IbzCaseStep before:selectByIbizcase(id)){
+            delIds.add(before.getId());
+        }
+        for(IbzCaseStep sub:list) {
+            sub.setIbizcase(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            proxyService.updateBatch(_update);
+        if(_create.size()>0)
+            proxyService.createBatch(_create);
+        if(delIds.size()>0)
+            proxyService.removeBatch(delIds);
+	}
 
 
     /**
      * 查询集合 DEFAULT
      */
     @Override
-    public Page<IbzCase> searchDefault(IbzCaseSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzCase> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<IbzCase>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    public Page<IbzCaseStep> searchDefault(IbzCaseStepSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzCaseStep> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<IbzCaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
@@ -196,26 +220,16 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
      * 为当前实体填充父数据（外键值文本、外键值附加数据）
      * @param et
      */
-    private void fillParentData(IbzCase et){
-        //实体关系[DER1N_IBZ_CASE_IBZ_LIBMODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
-            cn.ibizlab.pms.core.ibiz.domain.IbzLibModule libmodule=et.getLibmodule();
-            if(ObjectUtils.isEmpty(libmodule)){
-                cn.ibizlab.pms.core.ibiz.domain.IbzLibModule majorEntity=ibzlibmoduleService.get(et.getModule());
-                et.setLibmodule(majorEntity);
-                libmodule=majorEntity;
+    private void fillParentData(IbzCaseStep et){
+        //实体关系[DER1N_IBZ_CASESTEP_IBZ_CASE_CASE]
+        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+            cn.ibizlab.pms.core.ibiz.domain.IbzCase ibzcase=et.getIbzcase();
+            if(ObjectUtils.isEmpty(ibzcase)){
+                cn.ibizlab.pms.core.ibiz.domain.IbzCase majorEntity=ibzcaseService.get(et.getIbizcase());
+                et.setIbzcase(majorEntity);
+                ibzcase=majorEntity;
             }
-            et.setModulename(libmodule.getName());
-        }
-        //实体关系[DER1N_IBZ_CASE_IBZ_LIB_LIB]
-        if(!ObjectUtils.isEmpty(et.getLib())){
-            cn.ibizlab.pms.core.ibiz.domain.IbzLib caselib=et.getCaselib();
-            if(ObjectUtils.isEmpty(caselib)){
-                cn.ibizlab.pms.core.ibiz.domain.IbzLib majorEntity=ibzlibService.get(et.getLib());
-                et.setCaselib(majorEntity);
-                caselib=majorEntity;
-            }
-            et.setLibname(caselib.getName());
+            et.setVersion(ibzcase.getVersion());
         }
     }
 
