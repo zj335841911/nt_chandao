@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { FormItemModel } from '@/model/form-detail';
 import { MainControlBase } from './MainControlBase';
 import { events } from '../global';
-import {ViewTool} from '@utils';
+import { ViewTool } from '@/utils';
 import schema from 'async-validator';
 
 /**
