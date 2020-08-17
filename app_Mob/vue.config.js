@@ -9,7 +9,7 @@ module.exports = {
     publicPath: './',
     // 去除 map 文件 1
     productionSourceMap: false,
-    outputDir: process.env.outputDir,
+    outputDir: process.env.VUE_APP_OUTPUTDIR,
     devServer: {
         host: '0.0.0.0',
         port: 8111,

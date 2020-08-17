@@ -31,6 +31,13 @@ import router from './router';
 import { Interceptors } from '@/utils';
 import { ViewOpenService } from '@/utils/view-open-service/view-open-service';
 
+// 第三方登登录认证获取用户信息
+// import { ThirdPartyService } from '@/ibiz-core/third-party-service/ThirdPartyService';
+// const thirdPartyAuth = async () => {
+//     await ThirdPartyService.getInstance().login();
+// };
+// thirdPartyAuth();
+
 Vue.config.errorHandler = function (err: any, vm: any, info: any) {
     console.log(err);
 }

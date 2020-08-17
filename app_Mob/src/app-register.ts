@@ -1,4 +1,4 @@
-import { Http, Util, Verify } from '@/ibiz-core/utils';
+import { Http, Util, Verify, Loading } from '@/ibiz-core/utils';
 import { AppDrawer, AppModal, ViewTool, Notice } from '@/utils';
 import { IonPage } from './components/ion-page/ion-page';
 import { AppEmbedView } from './components/app-embed-view/app-embed-view';
@@ -17,6 +17,7 @@ export const AppComponents = {
         v.prototype.$appmodal = AppModal.getInstance();
         v.prototype.$viewTool = ViewTool.getInstance();
         v.prototype.$notice = Notice.getInstance();
+        v.prototype.$apploading = Loading;
         v.component('ion-page', IonPage);
         v.component('embed-view', AppEmbedView);
         v.component('app-list-menu', () => import('@/components/app-list-menu/app-list-menu.vue'));
@@ -52,7 +53,9 @@ export const AppComponents = {
         v.component('app-list-swipe', () => import('@/components/app-list-swipe/app-list-swipe.vue'));
         v.component('app-mob-rate', () => import('@/components/app-mob-rate/app-mob-rate.vue'));
         v.component('app-mob-select-drop-down', () => import('@/components/app-mob-select-drop-down/app-mob-select-drop-down.vue'));
-        v.component('app-mob-textarea',() => import('./components/app-mob-textarea/app-mob-textarea.vue'))
+        v.component('app-mob-textarea',() => import('./components/app-mob-textarea/app-mob-textarea.vue'));
+        // 日历组件
+        v.component('app-calendar',() => import('@/components/app-calendar/app-calendar.vue'));
 
         // 编辑器 BEGIN
         // 图片选择
@@ -71,8 +74,6 @@ export const AppComponents = {
         v.component('app-mob-dropdown-list', () => import('@/components/app-mob-dropdown-list/app-mob-dropdown-list.vue')); 
         //下拉单选
         v.component('app-mob-mpicker', () => import('@/components/app-mob-mpicker/app-mob-mpicker.vue'));  
-        //下拉单选(多语言) 
-        v.component('app-mob-dropdown-list-dynamic', () => import('@/components/app-mob-dropdown-list-dynamic/app-mob-dropdown-list-dynamic.vue'));   
         //span
         v.component('app-mob-span', () => import('@/components/app-mob-span/app-mob-span.vue'));   
         //录音 
@@ -86,6 +87,8 @@ export const AppComponents = {
         v.component('app-mob-menu-list-view', () => import('@/components/app-mob-menu-list-view/app-mob-menu-list-view.vue'));
         // 图片滑动视图
         v.component('app-mob-menu-swiper-view', () => import('@/components/app-mob-menu-swiper-view/app-mob-menu-swiper-view.vue'));
+        //快速分组组件
+        v.component('app-van-select', () => import('@/components/app-van-select/app-van-select.vue'));   
         // 默认样式视图
         v.component('app-mob-menu-default-view', () => import('@/components/app-mob-menu-default-view/app-mob-menu-default-view.vue'));
         // 菜单样式 END
@@ -95,5 +98,9 @@ export const AppComponents = {
 
         // 路由缓存
         v.component('app-keep-alive', AppKeepAlive);
+        // 工作流审批意见控件
+        v.component('app-wf-approval',() => import('@/components/app-wf-approval/app-wf-approval.vue'));
+        // 主题切换组件
+        v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
     },
 };

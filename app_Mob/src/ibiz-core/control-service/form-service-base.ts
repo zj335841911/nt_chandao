@@ -40,14 +40,13 @@ export class FormServiceBase extends ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.Create(context, data);
+            response = await this.service.Create(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -58,22 +57,22 @@ export class FormServiceBase extends ControlServiceBase {
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isLoading]
+     * @param {*} [wfdata]
      * @returns {Promise<HttpResponse>}
      * @memberof FormServiceBase
      */
-    public async wfsubmit(action: string, context: any = {}, data: any = {}, isLoading?: boolean): Promise<HttpResponse> {
+    public async wfsubmit(action: string, context: any = {}, data: any = {}, isLoading?: boolean, wfdata?: any): Promise<HttpResponse> {
         await this.onBeforeAction(action, context, data, isLoading);
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.Create(context, data);
+            response = await this.service.WFSubmit(context, data, wfdata);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -113,6 +112,30 @@ export class FormServiceBase extends ControlServiceBase {
         }
         Object.assign(data, item);
         return data;
+    }
+
+    /**
+     * 通过属性名称获取表单项名称
+     * 
+     * @param name 实体属性名称 
+     * @memberof ${srfclassname('${ctrl.codeName}')}Service
+     */
+    public getItemNameByDeName(name:string) :string{
+        if (!this.model || !Util.isFunction(this.model.getDataItems)) {
+            return name;
+        }
+        let itemName = name;
+        let mode: any = this.model.getDataItems();
+        if (!mode && mode.getDataItems instanceof Function) {
+            return name;
+        }
+        let formItemItems: any[] = mode.getDataItems();
+        formItemItems.forEach((item:any)=>{
+            if(item.prop === name){
+                itemName = item.name;
+            }
+        });
+        return itemName.trim();
     }
 
 }

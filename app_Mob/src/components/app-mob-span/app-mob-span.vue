@@ -1,6 +1,6 @@
 <template>
     <div class="app-mob-span">
-        <ion-input  readonly :value="text" ></ion-input>
+        <ion-input  v-if="!codeListType" readonly :value="text" ></ion-input>
         <ion-input  v-if="codeListType == 'DYNAMIC'" readonly :value="($t('userCustom.'+tag+'.'+value)!== ('userCustom.'+tag+'.'+value))?$t('userCustom.'+tag+'.'+value) : text" ></ion-input>
         <ion-input  v-if="codeListType == 'STATIC'" readonly :value="($t('codelist.'+tag+'.'+value)!== ('codelist.'+tag+'.'+value))?$t('codelist.'+tag+'.'+value) : text" ></ion-input>
     </div>
@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Provide, Emit, Watch, } from "vue-property-decorator";
-import CodeListService from "@app-core/service/app/code-list-service";
+import { CodeListService } from "@/ibiz-core";
 import { Loading } from '@/ibiz-core/utils';
 @Component({
   components: {}
@@ -145,14 +145,14 @@ export default class AppSpan extends Vue {
             return;
         }
         if (!this.isCached) {
-            Loading.show(this.$t('app.loadding'));
+            // Loading.show(this.$t('app.loadding'));
         }
         let response: any = await  this.codeListService.getItems(this.tag, this.isCache, { ...this.context }, this.queryParam);
         if (!this.isCached) {
-            Loading.hidden();
+            // Loading.hidden();
         }
-        if (response && response.status === 200) {
-            this.items = response.data;
+        if (response) {
+            this.items = response;
             this.setText();
             if (this.isCache) {
                 this.isCached = true;
@@ -172,7 +172,7 @@ export default class AppSpan extends Vue {
               return item.value == this.value;
           });
           if(currentItem){
-              this.text = currentItem.label;
+              this.text = currentItem.text;
           }else{
               // 不匹配显示原值，不存在显示空值
               if(this.value){

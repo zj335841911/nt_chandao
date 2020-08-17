@@ -37,6 +37,13 @@ export default class MobChartViewEngine extends SearchViewEngine {
      */
     public load(opts: any = {}): void {
         super.load(opts);
+        if (this.getChart()) {
+            const tag = this.getChart().name;
+            const data: any = {};
+            let action: string = 'load';
+            Object.assign(data, this.view.viewParam);
+            this.setViewState2({ tag: tag, action: action, viewdata: data });
+        }
     }
 
     /**

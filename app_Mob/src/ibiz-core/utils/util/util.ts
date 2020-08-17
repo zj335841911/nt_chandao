@@ -1,3 +1,4 @@
+import Schema from "async-validator";
 /**
  * 平台工具类
  * 
@@ -278,6 +279,42 @@ export class Util {
         }
         _str = _str.replace(/---/g, '-').replace(/--/g, '-');
         return _str;
+    }
+    
+    /**
+     * 深度合并对象
+     * 
+     * @param FirstOBJ 目标对象
+     * @param SecondOBJ 原对象
+     * @returns {Object}
+     * @memberof Util
+     */
+    public static deepObjectMerge(FirstOBJ:any, SecondOBJ:any) {
+        for (var key in SecondOBJ) {
+            FirstOBJ[key] = FirstOBJ[key] && FirstOBJ[key].toString() === "[object Object]" ?
+                this.deepObjectMerge(FirstOBJ[key], SecondOBJ[key]) : FirstOBJ[key] = SecondOBJ[key];
+        }
+        return FirstOBJ;
+    }
+
+
+    /**
+     * 表单项校验
+     * 
+     * @param property 表单项属性名
+     * @param data 表单数据
+     * @param rules 表单值规则
+     * @returns {Promise}
+     * @memberof Util
+     */
+    public static validateItem(property: string, data:any, rules:any) {
+        // 1.获取数值和规则
+        const value = data;
+        const rule = rules;
+        // 2.创建校验规则
+        const schema = new Schema({ [property]: rule })
+        // 校验返回Promise
+        return schema.validate({ [property]: value })
     }
 
 }

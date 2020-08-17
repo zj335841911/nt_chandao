@@ -87,6 +87,24 @@ export default {
         loadding: 'Loadding',
         fastsearch: 'Quick search',
         pulling_text: 'Pull down to refresh',
+        ctrl:{
+            form:"Form",
+            multieditviewpanel:"multieditviewpanel",
+            searchform:"searchform",
+        },
+        view:"View",
+        notConfig:" Parameter not configured",
+        message: {
+            success: "successfully",
+            fail: "failed",
+            savedSuccess: "Saved successfully",
+            deleteSccess: "successfully deleted",
+            warning: " Warning ",
+            confirmToDelete: "Confirm to delete",
+            unrecoverable: " Will the delete operation be unrecoverable ",
+            totle: " A total of ",
+            data: " data"
+        },
         statusMessage:{
             200: 'The server successfully returned the requested data',
             201: 'New or modified data is successful.',

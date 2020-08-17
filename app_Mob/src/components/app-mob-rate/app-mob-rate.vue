@@ -1,5 +1,5 @@
 <template>
-    <van-rate class="app-mobile-rate" v-model="curValue" :disabled="disabled"/>
+    <van-rate class="app-mobile-rate" v-model="curValue"/>
 </template>
 
 <script lang="ts">
@@ -37,17 +37,8 @@ export default class AppRate extends Vue {
      * @memberof AppRate
      */
     set curValue(val:any){
-        this.$emit('change',val);
+        this.$emit('change',val.toString());
     }
-    
-
-    /**
-     * 禁用
-     *
-     * @type {boolean}
-     * @memberof AppRate
-     */
-    @Prop() public disabled?: boolean;
 
     public mounted(){
         this.changeLabelStyle();

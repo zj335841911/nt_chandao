@@ -21,6 +21,8 @@ export class AppDrawer {
      */
     private static readonly $drawer = new AppDrawer();
 
+    private $refs :any=  {equipmentForm: HTMLFormElement,upload: HTMLFormElement}
+
     /**
      * 构造方法
      * 
@@ -63,7 +65,7 @@ export class AppDrawer {
      * @returns {Subject<any>}
      * @memberof AppDrawer
      */
-    private createVueExample(view: { viewname: string, title: string, width?: number, height?: number, placement?: any }, context: any = {}, viewparams: any = {}, uuid: string): Subject<any> {
+    private createVueExample(view: { viewname: string, title: string, width?: number, height?: number, placement?: any }, context: any = {}, viewparams: any = {}, uuid: string): Promise<any>{
         try {
             let props = { view: view, context: context, viewparams: viewparams, uuid: uuid };
             let component = AppDrawerCompponent;
@@ -75,12 +77,30 @@ export class AppDrawer {
                 }
             }).$mount();
             this.vueExample = vm;
-            document.body.appendChild(vm.$el);
+            let app =  document.getElementById("app");
+            if(app){
+                app.appendChild(vm.$el);
+            }
             const comp: any = vm.$children[0];
-            return comp.getSubject();
+            let subject =  comp.getSubject()
+            return new Promise((reaolve, reject) => {
+                subject.subscribe((result: any) => {
+                    if (vm && app) {
+                        app.removeChild(vm.$el);
+                    }
+                }, () => {
+                    if (vm  && app) {
+                        app.removeChild(vm.$el);
+                    }
+                }, () => {
+                    if (vm && app) {
+                        app.removeChild(vm.$el);
+                    }
+                });
+            });
         } catch (error) {
             console.error(error);
-            return new Subject<any>();
+            return new  Promise(()=>{});
         }
     }
 
@@ -93,18 +113,19 @@ export class AppDrawer {
      * @returns {Subject<any>}
      * @memberof AppDrawer
      */
-    public openDrawer(view: { viewname: string, title: string, width?: number, height?: number, placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT' }, context: any = {}, viewparams: any = {}): Subject<any> {
+    public openDrawer(view: { viewname: string, title: string, width?: number, height?: number, placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT' }, context: any = {}, viewparams: any = {}): Promise<any> {
         try {
             let _context: any = {};
             Object.assign(_context, context);
             const uuid = this.getUUID();
-            const subject = this.createVueExample(view, _context, viewparams, uuid);
-            return subject;
+            const promise = this.createVueExample(view, _context, viewparams, uuid);
+            return promise;
         } catch (error) {
             console.log(error);
-            return new Subject<any>();
+            return new  Promise(()=>{});
         }
     }
+    
 
     /**
      * 生成uuid

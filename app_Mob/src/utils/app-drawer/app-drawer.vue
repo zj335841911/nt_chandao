@@ -1,9 +1,11 @@
 <template>
-    <drawer
-        :placement="placement"
-        :closable="false"
-        v-model="isShow"
-        :width="width"
+<div >
+        <div :id="uuid"></div>
+        <ibiz-drawer
+        :content-id="uuid"
+        :ref="this.uuid+'drawer'"
+         @dropClick="close"
+        :close-view="closeView"
         @on-visible-change="onVisibleChange($event)">
         <component
             :is="viewname"
@@ -16,8 +18,11 @@
             @close="close($event)"
             :ref="viewname">
         </component>
-    </drawer>
+        </ibiz-drawer>
+        
+</div>
 </template>
+
 <script lang="ts">
 import { Vue, Component, Prop, Provide, Emit, Watch } from "vue-property-decorator";
 import { Subject } from "rxjs";
@@ -34,6 +39,15 @@ export default class AppDrawerCompponent extends Vue {
      */
     @Prop() public view!: any;
 
+
+    /**
+     * 是否关闭view
+     *
+     * @type {any}
+     * @memberof AppDrawerCompponent
+     */
+    public closeView = false;
+
     /**
      * 视图上下文
      *
@@ -41,6 +55,14 @@ export default class AppDrawerCompponent extends Vue {
      * @memberof AppDrawerCompponent
      */
     @Prop({ default: {} }) public context?: any;
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof AppDrawerCompponent
+     */
+    @Prop() public uuid?: any;
 
     /**
      * 视图参数
@@ -56,7 +78,8 @@ export default class AppDrawerCompponent extends Vue {
      * @type {(null | Subject<any>)}
      * @memberof AppDrawerCompponent
      */
-    public subject: null | Subject<any> = new Subject<any>();
+    public subject: Subject<any> = new Subject<any>();
+
 
     /**
      * 抽屉弹出位置
@@ -157,6 +180,10 @@ export default class AppDrawerCompponent extends Vue {
     public mounted() {
         this.isShow = true;
         this.handleZIndex('ivu-drawer-mask', 'ivu-drawer-wrap');
+        let drawer :any = this.$refs[this.uuid+'drawer'];
+            if(drawer){
+                drawer.open()
+        }
     }
 
     /**
@@ -177,16 +204,16 @@ export default class AppDrawerCompponent extends Vue {
      * @memberof AppDrawerCompponent
      */
     public handleZIndex(mask: string, wrap: string) {
-        const zIndex = this.$store.getters.getZIndex();
-        if (zIndex) {
-            this.zIndex = zIndex + 100;
-            this.$store.commit('updateZIndex', this.zIndex);
-        }
-        const element: Element = this.$el;
-        const maskTag: any = element.getElementsByClassName(mask)[0];
-        const warpTag: any = element.getElementsByClassName(wrap)[0];
-        maskTag.style.zIndex = this.zIndex;
-        warpTag.style.zIndex = this.zIndex;
+        // const zIndex = this.$store.getters.getZIndex();
+        // if (zIndex) {
+        //     this.zIndex = zIndex + 100;
+        //     this.$store.commit('updateZIndex', this.zIndex);
+        // }
+        // const element: Element = this.$el;
+        // const maskTag: any = element.getElementsByClassName(mask)[0];
+        // const warpTag: any = element.getElementsByClassName(wrap)[0];
+        // maskTag.style.zIndex = this.zIndex;
+        // warpTag.style.zIndex = this.zIndex;
     }
 
     /**
@@ -199,6 +226,8 @@ export default class AppDrawerCompponent extends Vue {
             Object.assign(this.tempResult, { ret: 'OK' }, { datas: JSON.parse(JSON.stringify(result)) });
         }
         this.isShow = false;
+        this.onVisibleChange(true);
+
     }
 
     /**
@@ -229,7 +258,7 @@ export default class AppDrawerCompponent extends Vue {
      *
      * @memberof AppDrawerCompponent
      */
-    public onVisibleChange($event: any) {
+    public async onVisibleChange($event: any) {
         const component: any = this.$refs[this.viewname];
         if (component) {
             const { viewtag: _viewtag } = component;
@@ -238,19 +267,21 @@ export default class AppDrawerCompponent extends Vue {
                 this.isShow = true;
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                // this.$Modal.confirm({
-                //     title: title,
-                //     content: contant,
-                //     onOk: () => {
-                //         this.$store.commit('viewaction/setViewDataChange', { viewtag: _viewtag, viewdatachange: false });
-                //         this.isShow = false;
-                //     },
-                //     onCancel: () => {
-                //         this.isShow = true;
-                //     }
-                // });
-            } else {
+                const result = await this.$notice.confirm(title, contant);
+                if (result) {
+                    this.$store.commit('viewaction/setViewDataChange', { viewtag: _viewtag, viewdatachange: false });
+                    this.isShow = false;
+                    this.handleShowState($event);
+                    this.closeView = true;
+                } else {
+                    this.closeView = false;
+                    this.isShow = true;
+                    let drawer :any = this.$refs[this.uuid+'drawer'];
+
+                }
+            }else{
                 this.handleShowState($event);
+                this.closeView = true;
             }
         }
     }
@@ -261,19 +292,18 @@ export default class AppDrawerCompponent extends Vue {
      * @memberof AppDrawerCompponent
      */
     public handleShowState($event: any) {
-        if ($event) {
+        if (!$event) {
             return;
         }
-        if (this.subject) {
+        if (this.subject && this.subject!=null) {
             if (this.tempResult && Object.is(this.tempResult.ret, 'OK')) {
-                this.subject.next(this.tempResult);
+                
             }
-        }
-        setTimeout(() => {
-            document.body.removeChild(this.$el);
-            this.$destroy();
-            this.subject = null;
+            setTimeout(() => {
+            this.subject.next(this.tempResult);
         }, 500)
+        }
+
     }
 }
 </script>

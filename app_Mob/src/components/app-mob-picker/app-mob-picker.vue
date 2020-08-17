@@ -1,42 +1,27 @@
 <template>
-    <div class="app-picker">
-        <ion-input class="ibz-input" :value="refvalue"  @ionFocus="openView"></ion-input>
-        <ion-icon  v-if="refvalue" class="delete-value " name="close-circle-outline" @click="onClear"></ion-icon>
-        <ion-icon class="open-picker" name="search-outline" @click="openView"></ion-icon>
-        <!-- <van-field
-            :value="refvalue"
-            clearable
-            right-icon="search"
-            @click-right-icon="openView"
-            style="padding: 0px;" 
-            @focus="onSelectOpen($event, true)"
-            @blur="onBlur($event)"
-            @clear="onClear($event)"
-            @input="onInput($event)">
-        </van-field>
-        <div class="app-picker-item" v-if="open"> 
-            <template v-for="item in items">
-                <van-cell :key="item.value" :clickable="true" :title="item.text"  @click="onSelect($event, item.value, false)"/>
-            </template>
-        </div> -->
+    <div  class="app-picker">
+        <ion-input :disabled="disabled" class="ibz-input" :value="refvalue"  readonly></ion-input>
+        <ion-icon  v-show="refvalue" class="delete-value " name="close-outline" @click="onClear"></ion-icon>
+        <ion-icon  v-show="refvalue == '' || refvalue == null" class="open-picker" name="search-outline" @click="openView"></ion-icon>
     </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Model, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { ViewOpenService } from '../../utils/view-open-service/view-open-service';
 
 @Component({
     i18n: {
         messages: {
-            'zh-CN': {
+            'ZH-CN': {
                 missingParameters: '缺少参数！',
                 requestException: '请求异常!',
                 formDataIsAbnormal: '表单数据异常!',
                 valueItemIsAbnormal: '值项异常!',
                 systemIsAbnormal: '系统异常!'
             },
-            'en-US': {
+            'EN-US': {
                 missingParameters: 'Missing parameters！',
                 requestException: 'Request exception！',
                 formDataIsAbnormal: 'Form data is abnormal！',
@@ -144,13 +129,6 @@ export default class AppPicker extends Vue {
      */
     @Prop() public linkview?: any;
 
-    /**
-     * 表单项参数
-     * 
-     * @type {any}
-     * @memberof AppPicker
-     */
-    @Prop() public itemParam: any;
 
     /**
      * 值项名称
@@ -167,6 +145,22 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     @Model('change') public value?: any;
+
+    /**
+     * 导航参数
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: {} }) protected navigateParam?: any;
+
+    /**
+     * 导航上下文
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: {} }) protected navigateContext?: any;
 
     /**
      * 当前值
@@ -207,6 +201,14 @@ export default class AppPicker extends Vue {
     public selectValue = this.value;
 
     /**
+     * 视图打开服务
+     *
+     * @type {ViewOpenService}
+     * @memberof AppPicker
+     */
+    public openService: ViewOpenService = ViewOpenService.getInstance();
+
+    /**
      * 获取关联数据项值
      *
      * @readonly
@@ -214,12 +216,12 @@ export default class AppPicker extends Vue {
      */
     get refvalue() {
         if (this.valueitem && this.data) {
-            if(this.data[this.deMajorField]){
+            if (this.data[this.deMajorField]) {
                 return this.data[this.deMajorField];
-            }else{
+            } else {
                 return this.value;
             }
-            
+
         }
         return this.curvalue;
     }
@@ -340,11 +342,11 @@ export default class AppPicker extends Vue {
         this.inputState = false;
         Object.assign(_param, { query: query });
         if (!this.service) {
-            this.$notify({ type: 'danger', message: this.$t("missingParameters")+'service' })
+            this.$notify({ type: 'danger', message: this.$t("missingParameters") + 'service' })
         } else if (!this.acParams.serviceName) {
-            this.$notify({ type: 'danger', message: this.$t("missingParameters")+'serviceName' })
+            this.$notify({ type: 'danger', message: this.$t("missingParameters") + 'serviceName' })
         } else if (!this.acParams.interfaceName) {
-            this.$notify({ type: 'danger', message: this.$t("missingParameters")+'interfaceName' })
+            this.$notify({ type: 'danger', message: this.$t("missingParameters") + 'interfaceName' })
         } else {
             let { serviceName: _serviceName, interfaceName: _interfaceName }: { serviceName: string, interfaceName: string } = this.acParams;
             const appEntityServiceConstructor = window.appEntityServiceConstructor;
@@ -352,7 +354,7 @@ export default class AppPicker extends Vue {
             if (entityService && entityService[_interfaceName] && entityService[_interfaceName] instanceof Function) {
                 entityService[_interfaceName](_context, _param).then((response: any) => {
                     if (!response) {
-                        this.$notify({ type: 'danger', message: this.$t("requestException")+"" })
+                        this.$notify({ type: 'danger', message: this.$t("requestException") + "" })
                     } else {
                         this.items = [...response.data];
                     }
@@ -421,9 +423,11 @@ export default class AppPicker extends Vue {
      */
     public onClear($event: any): void {
         if (this.valueitem) {
+            this.curvalue="";
             this.$emit('formitemvaluechange', { name: this.valueitem, value: '' });
         }
         if (this.name) {
+            this.curvalue="";
             this.$emit('formitemvaluechange', { name: this.name, value: '' });
         }
         // this.$forceUpdate();
@@ -468,8 +472,8 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     private openIndexViewTab(view: any, context: any, param: any): void {
-        const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [context], param);
-        this.$router.push(routePath);
+        const routeStr: any = this.openService.formatRouteParam(this.context, view.deResParameters, view.parameters, [context], param);
+        this.$router.push(routeStr);
     }
 
     /**
@@ -547,7 +551,7 @@ export default class AppPicker extends Vue {
     private openRedirectView($event: any, view: any, data: any): void {
         this.$http.get(view.url, data).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$notify({ type: 'danger', message: this.$t("requestException")+"" });
+                this.$notify({ type: 'danger', message: this.$t("requestException") + "" });
             }
             if (response.status === 401) {
                 return;
@@ -599,7 +603,7 @@ export default class AppPicker extends Vue {
             }
         }).catch((response: any) => {
             if (!response || !response.status || !response.data) {
-                this.$notify({ type: 'danger', message: this.$t('systemIsAbnormal')+"" });
+                this.$notify({ type: 'danger', message: this.$t('systemIsAbnormal') + "" });
                 return;
             }
             if (response.status === 401) {
@@ -618,7 +622,7 @@ export default class AppPicker extends Vue {
             return;
         }
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            this.$notify({ type: 'danger', message: this.$t('valueItemIsAbnormal')+"" });
+            this.$notify({ type: 'danger', message: this.$t('valueItemIsAbnormal') + "" });
             return;
         }
         // 公共参数处理
@@ -678,29 +682,13 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public handlePublicParams(arg: any): boolean {
-        if (!this.itemParam) {
-            return true;
-        }
         if (!this.data) {
-            this.$notify({ type: 'danger', message: this.$t('formDataIsAbnormal')+"" });
             return false;
         }
-        // 合并表单参数
-        arg.param = JSON.parse(JSON.stringify(this.viewparams));
-        arg.context = JSON.parse(JSON.stringify(this.context));
-        // 附加参数处理
-        if (this.itemParam.context) {
-            //   let _context = this.$util.formatData(this.data,this.itemParam.context);
-            Object.assign(arg.context, {});
-        }
-        if (this.itemParam.param) {
-            //   let _param = this.$util.formatData(this.data,this.itemParam.param);
-            Object.assign(arg.param, {});
-        }
-        if (this.itemParam.parentdata) {
-            //   let _parentdata = this.$util.formatData(this.data,this.itemParam.parentdata);
-            Object.assign(arg.param, {});
-        }
+        // 导航参数处理
+        const {context, param} = this.$viewTool.formatNavigateParam( this.navigateContext, this.navigateParam, this.context, this.viewparams, this.data );
+        arg.context =  context;
+        arg.param = param;
         return true;
     }
 

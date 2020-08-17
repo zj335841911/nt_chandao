@@ -1,209 +1,135 @@
-import { Http, Util, HttpResponse } from '../utils';
-import { DBService } from './db-service';
+import { Http } from '../utils';
+import { CodeListService } from "@/ibiz-core";
 
 /**
  * 实体服务基类
  *
  * @export
- * @class EntityServiceBase
+ * @class EntityService
  */
-export class EntityServiceBase {
+export  class EntityService {
 
     /**
-     * 实体本地数据库
+     * 获取实体数据服务
      *
      * @protected
-     * @type {DBService}
-     * @memberof EntityServiceBase
-     */
-    protected db: DBService;
-
-    /**
-     * http请求工具实例
-     *
-     * @protected
-     * @type {Http}
-     * @memberof EntityServiceBase
-     */
-    protected http: Http = Http.getInstance();
-
-    /**
-     * 所有从实体
-     *
-     * @protected
-     * @type {*}
-     * @memberof EntityServiceBase
-     */
-    protected allMinorAppEntity: any = {};
-
-    /**
-     * 当前实体主键标识
-     * 
-     * @protected
-     * @type {(string)}
-     * @memberof EntityServiceBase
-     */
-    protected readonly key: string = '';
-
-    /**
-     * 当前实体名称
-     * 
-     * @protected
-     * @type {(string)}
-     * @memberof EntityServiceBase
-     */
-    protected readonly dePath: string = '';
-
-    /**
-     * 实体名称
-     *
-     * @protected
-     * @type {string}
-     * @memberof EntityServiceBase
-     */
-    protected readonly deName: string;
-
-    /**
-     * 当前实体主信息标识
-     * 
-     * @protected
-     * @type {(string)}
-     * @memberof EntityServiceBase
-     */
-    protected readonly text: string = '';
-
-    /**
-     * 请求根路径
-     *
-     * @protected
-     * @type {string}
-     * @memberof EntityServiceBase
-     */
-    protected readonly rootUrl: string = '';
-
-    /**
-     * Creates an instance of EntityServiceBase.
-     * @param {string} deName
-     * @memberof EntityServiceBase
-     */
-    constructor(deName: string) {
-        this.deName = deName;
-        this.db = new DBService(deName);
-    }
-
-    /**
-     * 设置从实体本地缓存
-     *
-     * @protected
-     * @param {*} [context={}]
-     * @param {*} [data]
-     * @returns {Promise<void>}
-     * @memberof EntityServiceBase
-     */
-    protected async setMinorLocalCache(context: any = {}, data: any): Promise<void> {
-        if (data) {
-            for (const key in this.allMinorAppEntity) {
-                if (data.hasOwnProperty(key) && this.allMinorAppEntity.hasOwnProperty(key)) {
-                    const config: any = this.allMinorAppEntity[key];
-                    await this.setLocalCache(context, data[key], config.name);
-                }
-            }
-        }
-    }
-
-    /**
-     * 设置本地缓存
-     *
-     * @protected
-     * @param {*} [context={}]
-     * @param {*} data
-     * @param {string} [entityName] 指定实体
-     * @returns {Promise<boolean>}
-     * @memberof EntityServiceBase
-     */
-    protected async setLocalCache(context: any = {}, data: any, entityName?: string): Promise<boolean> {
-        if (data) {
-            if (entityName) {
-                const service: EntityServiceBase = await this.getService(entityName);
-                if (service) {
-                    return service.setLocalCache(context, data);
-                }
-            } else {
-                data = Util.deepCopy(data);
-                return this.db.set({ srfsessionkey: context.srfsessionkey, data });
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 获取所有从实体本地缓存数据
-     *
-     * @protected
-     * @param {*} [context={}]
+     * @param {string} name 实体名称
      * @returns {Promise<any>}
-     * @memberof EntityServiceBase
+     * @memberof EntityService
      */
-    protected async getMinorLocalCache(context: any = {}): Promise<any> {
-        const data: any = {};
-        for (const key in this.allMinorAppEntity) {
-            if (this.allMinorAppEntity.hasOwnProperty(key)) {
-                const config: any = this.allMinorAppEntity[key];
-                const results: any[] = await this.getLocalCache(context, config.name);
-                if (results) {
-                    results.forEach((item: any) => {
-                        if (item.srfuf == 0) {
-                            delete item[this.key];
-                        }
-                    });
+    public getService(name: string): Promise<any> {
+        return window.appEntityServiceConstructor.getService(name);
+    }
+
+    /**
+     * 零时储存,localStorage指向
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public tempStorage:any;
+
+    /**
+     * 当前DE标识
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public APPDEKEY:string= '';
+
+    /**
+     * 当前APPDE标识
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public APPLYDEKEY:string= '';
+
+    /**
+     * 当前NAME
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public APPDENAME:string= '';
+
+    /**
+     * 当前主信息名
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public APPDETEXT:string= '';
+
+    /**
+     * 当前系统名
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public SYSTEMNAME:string= '';
+
+    /**
+     * 当前应用名
+     * 
+     * @public
+     * @type {(string)}
+     * @memberof EntityService
+     */ 
+    public APPNAME:string= '';
+
+    /**
+     * Creates an instance of EntityService.
+     * 
+     * @param {*} [opts={}]
+     * @memberof EntityService
+     */
+    constructor(opts: any = {}) {
+        this.tempStorage = localStorage;
+        this.initBasicData();
+    }
+
+    /**
+     * 获取代码表
+     *
+     * @memberof EntityService
+     */
+    public getCodeList(tag:string,codelistType:string,context:any = {},param:any ={},store:any){
+        return new Promise((resolve:any,reject:any) =>{
+            if(tag && Object.is(codelistType,"STATIC")){
+                let returnItems:Array<any> = [];
+                const codelist = store.getters.getCodeList(tag);
+                if (codelist) {
+                    returnItems = [...JSON.parse(JSON.stringify(codelist.items))];
+                } else {
+                    console.log(`----${tag}----代码表不存在`);
                 }
-                data[key] = results || [];
+                resolve(returnItems);
+            }else if(tag && Object.is(codelistType,"DYNAMIC")){
+                let codeListService = new CodeListService({ $store: store });
+                codeListService.getItems(tag,context,param).then((res:any) => {
+                    resolve(res);
+                }).catch((error:any) => {
+                    reject(`${tag}代码表不存在`);
+                    console.log(`----${tag}----代码表不存在`);
+                });
             }
-        }
-        return data;
+        })
     }
 
     /**
-     * 获取本地缓存数据
+     * 初始化基础数据
      *
-     * @protected
-     * @param {*} [context={}]
-     * @param {string} [entityName] 指定实体
-     * @returns {Promise<any>}
-     * @memberof EntityServiceBase
+     * @memberof EntityService
      */
-    protected async getLocalCache(context: any = {}, entityName?: string): Promise<any> {
-        if (entityName) {
-            const service: EntityServiceBase = await this.getService(entityName);
-            if (service) {
-                return service.getLocalCache(context);
-            }
-        } else {
-            const item: any = await this.db.get(context.srfsessionkey);
-            if (item) {
-                return item.data;
-            }
-        }
-    }
-
-    /**
-     * 删除本地缓存
-     *
-     * @protected
-     * @param {*} [context={}]
-     * @returns {Promise<boolean>}
-     * @memberof EntityServiceBase
-     */
-    protected async removeLocalCache(context: any = {}, entityName?: string): Promise<boolean> {
-        if (entityName) {
-            const service: EntityServiceBase = await this.getService(entityName);
-            if (service) {
-                return service.removeLocalCache(context);
-            }
-        } else {
-            return this.db.remove(context.srfsessionkey);
-        }
-        return false;
+    public initBasicData(){
+        
     }
 
     /**
@@ -211,29 +137,36 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async Select(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「Select」未实现' });
+    public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.SelectTemp(context,data,isloading);
     }
 
     /**
-     * SelectTemp接口方法(暂未支持)
+     * SelectTemp接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async SelectTemp(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        if (context.srfsessionkey) {
-            const result: any[] = await this.getLocalCache(context) || [];
-            if (result) {
-                return new HttpResponse(200, result);
-            }
+    public async SelectTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
+            if(result){
+                let tempResult:any = result.filter((item:any) =>{
+                    return Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
+                })
+                let tempResultData:any = tempResult.length>0?tempResult[0]:Object.assign({},data);
+                return {"status":200,"data":tempResultData};
+            }else{
+                return {"status":500,"data":null};
+            } 
         }
-        return new HttpResponse(500, null, { code: 5001 });
     }
 
     /**
@@ -241,19 +174,20 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async CreateTemp(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        if (data && context.srfsessionkey) {
-            const result: any[] = await this.getLocalCache(context) || [];
-            data.srfuf = 0;
-            result.push(data);
-            if (await this.setLocalCache(context, result)) {
-                return new HttpResponse(200, data);
-            }
+    public async CreateTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
+            let tempData:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
+            data.srffrontuf = "0";
+            tempData.push(data);
+            this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempData));
+            return {"status":200,"data":data};
+        }else{
+            return {"status":200,"data":{}};
         }
-        return new HttpResponse(500, null, { code: 5003 });
     }
 
     /**
@@ -261,158 +195,23 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async GetTemp(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        if (context.srfsessionkey) {
-            const result: any[] = await this.getLocalCache(context) || [];
-            const self: any = result.find((item: any) => Object.is(item[this.key], context[this.deName]));
-            if (self) {
-                return new HttpResponse(200, self);
-            }
+    public async GetTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
+            if(result){
+                let tempResult:any = result.filter((item:any) =>{
+                    return Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
+                })
+                let tempResultData:any = tempResult.length>0?tempResult[0]:Object.assign({},data);
+                return {"status":200,"data":tempResultData};
+            }else{
+                return {"status":500,"data":null};
+            } 
         }
-        return new HttpResponse(500, null, { code: 5001 });
-    }
-
-    /**
-     * UpdateTemp接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async UpdateTemp(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        if (context.srfsessionkey) {
-            const result: any[] = await this.getLocalCache(context) || [];
-            const num: number = result.findIndex((item: any) => Object.is(item[this.key], data[this.key]));
-            if (num !== -1) {
-                result[num] = data;
-                if (await this.setLocalCache(context, result)) {
-                    return new HttpResponse(200, data);
-                }
-            }
-        }
-        return new HttpResponse(500, null, { code: 5004 });
-    }
-
-    /**
-     * RemoveTemp接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async RemoveTemp(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        if (context.srfsessionkey) {
-            const result: any[] = await this.getLocalCache(context) || [];
-            const str: string = context[this.deName];
-            if (str && !Object.is(str, '')) {
-                const keys: string[] = str.split(';');
-                keys.forEach((key: string) => {
-                    const num: number = result.findIndex((item: any) => item[this.key] == key);
-                    if (num !== -1) {
-                        result.splice(num, 1);
-                    }
-                });
-                if (await this.setLocalCache(context, result)) {
-                    return new HttpResponse(200, data);
-                }
-            }
-        }
-        return new HttpResponse(500, null, { code: 5005 });
-    }
-
-    /**
-     * UpdateTempMajor接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async UpdateTempMajor(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Update(context, data);
-    }
-
-    /**
-     * CreateTempMajor接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async CreateTempMajor(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Create(context, data);
-    }
-
-    /**
-     * RemoveTempMajor接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async RemoveTempMajor(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Remove(context, data);
-    }
-
-    /**
-     * GetDraftTempMajor接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async GetDraftTempMajor(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.GetDraft(context, data);
-    }
-
-    /**
-     * GetTempMajor接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async GetTempMajor(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Get(context, data);
-    }
-
-    /**
-     * FetchTempDefault接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async FetchTempDefault(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「FetchTempDefault」未实现' });
-    }
-
-    /**
-     * GetDraftTemp接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
-     */
-    public async GetDraftTemp(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        const tempData = { srfsessionkey: data.srfsessionkey };
-        Object.defineProperty(tempData, this.key, {
-            enumerable: true,
-            value: data[this.key]
-        });
-        Object.assign(data, tempData);
-        return new HttpResponse(200, data);
     }
 
     /**
@@ -420,11 +219,25 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async Update(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「Update」未实现' });
+    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.UpdateTemp(context,data,isloading);
+    }
+
+    /**
+     * UpdateTempMajor接口方法
+     * 
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async UpdateTempMajor(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Update(context,data,isloading);
     }
 
     /**
@@ -432,11 +245,72 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async Save(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「Save」未实现' });
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return { status: 500, data: { title: '失败', message: '预置实体行为 Save 未实现' }};
+    }
+
+    /**
+     * UpdateTemp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async UpdateTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
+            let tempData:Array<any> = [];
+            if(result && result.length >0){
+                result.forEach((item:any) => {
+                    let singleData:any = {};
+                    if(Object.is(item[this.APPDEKEY],data[this.APPDEKEY])){
+                        Object.keys(item).forEach((field:any) =>{
+                            singleData[field] = data[field]?data[field]:item[field];
+                        })
+                    }
+                    if(Object.keys(singleData).length >0){
+                        tempData.push(singleData);
+                    }else{
+                        tempData.push(item);
+                    }  
+                });
+                this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempData));
+                return {"status":200,"data":data};
+            }else{
+                return {"status":500,"data":null};
+            }
+        }
+    }
+
+    /**
+     * RemoveTemp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async RemoveTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
+            if(result){
+                let tempResult:any = result.filter((item:any) =>{
+                    // return !( Object.is(item[this.APPDEKEY],data[this.APPDEKEY]) && Object.is(item[this.APPDETEXT],data[this.APPDETEXT]));
+                    return !Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
+                })
+                this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempResult));
+                 return {"status":200,"data":data};
+            }else{
+                return {"status":500,"data":null};
+            } 
+        }
     }
 
     /**
@@ -444,17 +318,25 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async CheckKey(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        if (context.srfsessionkey) {
-            const result = await this.getLocalCache(context)
-            if (result) {
-                return new HttpResponse(200, true);
-            }
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
+            if(result){
+               let flag:boolean = false;
+                result.forEach((item:any) => {
+                    if(Object.is(item[this.APPDEKEY],data[this.APPDEKEY])){
+                        flag = true;
+                    }
+                });
+                return {"status":200,"data":flag};
+            }else{
+                return {"status":500,"data":null};
+            } 
         }
-        return new HttpResponse(200, false);
     }
 
     /**
@@ -462,11 +344,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async GetDraft(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「GetDraft」未实现' });
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.GetDraftTemp(context,data,isloading);
     }
 
     /**
@@ -474,11 +357,38 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async Remove(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「Remove」未实现' });
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.RemoveTemp(context,data,isloading);
+    }
+
+    /**
+     * CreateTempMajor接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async CreateTempMajor(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Create(context,data,isloading);
+    }
+
+    /**
+     * RemoveTempMajor接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async RemoveTempMajor(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Remove(context,data,isloading);
     }
 
     /**
@@ -486,11 +396,25 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async Get(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「Get」未实现' });
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.GetTemp(context,data,isloading);
+    }
+
+    /**
+     * GetDraftTempMajor接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetDraftTempMajor(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.GetDraft(context,data,isloading);
     }
 
     /**
@@ -498,11 +422,44 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async Create(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「Create」未实现' });
+    public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.CreateTemp(context,data,isloading);
+    }
+
+    /**
+     * GetTempMajor接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetTempMajor(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Get(context,data,isloading);
+    }
+
+    /**
+     * GetDraftTemp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetDraftTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData = {srfsessionkey:context.srfsessionkey};
+        Object.defineProperty(tempData, this.APPDEKEY, {
+            enumerable: true,
+            value: data[this.APPDEKEY]
+        });
+        Object.assign(data,tempData);
+        return {"status":200,"data":data}; 
     }
 
     /**
@@ -510,11 +467,25 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FetchDefault(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return new HttpResponse(500, null, { code: 100, message: '预置实体行为「FetchDefault」未实现' });
+    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return { status: 500, data: { title: '失败', message: '预置实体行为 FetchDefault 未实现' }};
+    }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}] 
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return { status: 500, data: { title: '失败', message: '预置实体行为 FetchDefault 未实现' }};
     }
 
     /**
@@ -522,11 +493,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterUpdate(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Update(context, data);
+    public async FilterUpdate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Update(context,data,isloading);
     }
 
     /**
@@ -534,11 +506,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterSearch(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.FetchDefault(context, data);
+    public async FilterSearch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.FetchDefault(context,data,isloading);
     }
 
     /**
@@ -546,11 +519,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterGet(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Get(context, data);
+    public async FilterGet(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Get(context,data,isloading);
     }
 
     /**
@@ -558,11 +532,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterCreate(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Create(context, data);
+    public async FilterCreate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Create(context,data,isloading);
     }
 
     /**
@@ -570,11 +545,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterGetDraft(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.GetDraft(context, data);
+    public async FilterGetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.GetDraft(context,data,isloading);
     }
 
     /**
@@ -582,11 +558,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterRemove(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.Remove(context, data);
+    public async FilterRemove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.Remove(context,data,isloading);
     }
 
     /**
@@ -594,11 +571,124 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async FilterFetch(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.FetchDefault(context, data);
+    public async FilterFetch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return this.FetchDefault(context,data,isloading);
+    }
+
+    /**
+     * ImportData接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async ImportData(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let _data:Array<any> = [];
+        if (data && data.importData) _data = data.importData;
+        return Http.getInstance().post(`/${this.APPDENAME}/import?config=${data.name}`,_data,isloading);
+    }
+
+    /**
+     * createBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async createBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/batch`,data,isloading);
+    }
+
+    /**
+     * saveBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async saveBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/savebatch`,data,isloading);
+    }
+
+    /**
+     * updateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async updateBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().put(`/${this.APPDENAME}/batch`,data,isloading);
+    }
+
+    /**
+     * removeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async removeBatch(context: any = {},data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().delete(`/${this.APPDENAME}/batch`,isloading,data[this.APPDEKEY]);
+    }
+
+    /**
+     * getDataInfo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async getDataInfo(context: any = {},data: any, isloading?: boolean):Promise<any> {
+        if(context[this.APPLYDEKEY]){
+            return this.Get(context,data, isloading);
+        }
+    }
+
+    /**
+     * getDynaModel(获取动态模型)接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async getDynaModel(context: any = {},data: any, isloading?: boolean):Promise<any> {
+        if(data && data.configType && data.targetType){
+            return Http.getInstance().get(`/configs/${data.configType}/${data.targetType}`);
+        }
+    }
+
+    /**
+     * setDynaModel(设置动态模型)接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async setDynaModel(context: any = {},data: any, isloading?: boolean):Promise<any> {
+        if(data && data.configType && data.targetType){
+            return Http.getInstance().put(`/configs/${data.configType}/${data.targetType}`,{model:data.model});
+        }
     }
 
 	/**
@@ -606,47 +696,63 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @param {*} [localdata]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFStart(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/wfstart`, { wfdata: data });
+    public async WFStart(context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+        if(localdata && Object.keys(localdata).length > 0){
+            const requestData:any = {};
+            Object.assign(requestData,{activedata:data});
+            Object.assign(requestData,localdata);
+            return Http.getInstance().post(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${data[this.APPDEKEY]}/process-instances`,requestData,isloading);
+        }else{
+            const requestData:any = {};
+            Object.assign(requestData,{wfdata:data});
+            return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfstart`,requestData,isloading);
+        }
     }
+
 
     /**
      * WFClose接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFClose(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfclose`, data);
+    public async WFClose(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfclose`,data,isloading);
     }
+
 
     /**
      * WFMarkRead接口方法
-     *
+     * 
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFMarkRead(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfmarkread`, data);
+    public async WFMarkRead(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfmarkread`,data,isloading);
     }
 
     /**
      * WFGoto接口方法
-     *
+     * 
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFGoto(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfgoto`, data);
+    public async WFGoto(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfgoto`,data,isloading);
     }
 
     /**
@@ -654,11 +760,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFRollback(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfrollback`, data);
+    public async WFRollback(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfrollback`,data,isloading);
     }
 
     /**
@@ -666,11 +773,12 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFRestart(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfrestart`, data);
+    public async WFRestart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfrestart`,data,isloading);
     }
 
     /**
@@ -678,11 +786,65 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFReassign(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfreassign`, data);
+    public async WFReassign(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfreassign`,data,isloading);
+    }
+
+
+    /**
+     * WFGetWorkFlow接口方法(获取工作流定义)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async WFGetWorkFlow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/process-definitions`);
+    }
+
+    /**
+     * WFGetWFStep接口方法(根据系统实体查找当前适配的工作流模型步骤)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async WFGetWFStep(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/process-definitions-nodes`);
+    }
+
+    /**
+     * GetWFLink接口方法(根据业务主键和当前步骤获取操作路径)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetWFLink(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${context[this.APPLYDEKEY]}/usertasks/${data['taskDefinitionKey']}/ways`);
+    }
+
+    /**
+     * GetWFHistory接口方法(根据业务主键获取工作流程记录)
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async GetWFHistory(context: any = {},data: any = {}, isloading?: boolean):Promise<any> {
+        return Http.getInstance().get(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${context[this.APPLYDEKEY]}/process-instances/alls/history`);
     }
 
     /**
@@ -690,23 +852,129 @@ export class EntityServiceBase {
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
-     * @returns {Promise<HttpResponse>}
-     * @memberof EntityServiceBase
+     * @param {boolean} [isloading]
+     * @param {*} [localdata]
+     * @returns {Promise<any>}
+     * @memberof EntityService
      */
-    public async WFSubmit(context: any = {}, data: any = {}): Promise<HttpResponse> {
-        return this.http.post(`/${this.dePath}/${context[this.key]}/wfsubmit`, data);
+    public async WFSubmit(context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+        if(localdata && Object.keys(localdata).length > 0){
+            const requestData:any = {};
+            if(data.viewparams){
+                delete data.viewparams;
+            }
+            Object.assign(requestData,{activedata:data});
+            Object.assign(requestData,localdata);
+            return Http.getInstance().post(`/wfcore/${this.SYSTEMNAME}-app-${this.APPNAME}/${this.APPDENAME}/${data[this.APPDEKEY]}/tasks/${localdata['taskId']}`,requestData,isloading);
+        }else{
+            const requestData:any = {};
+            if(data.srfwfmemo){
+                requestData.srfwfmemo = JSON.parse(JSON.stringify(data)).srfwfmemo;
+                delete data.srfwfmemo;
+            }
+            if(data.viewparams){
+                delete data.viewparams;
+            }
+            Object.assign(requestData,{wfdata:data});
+            Object.assign(requestData,{opdata:{srfwfiatag:context.srfwfiatag,srfwfstep:context.srfwfstep}});
+            return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/wfsubmit`,requestData,isloading);
+        }
     }
 
     /**
-     * 获取其他实体服务
+     * WFGetProxyData接口方法
      *
-     * @protected
-     * @param {string} name 实体名称
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof EntityServiceBase
+     * @memberof EntityService
      */
-    protected getService(name: string): Promise<any> {
-        return window.appEntityServiceConstructor.getService(name);
+    public async WFGetProxyData(context: any = {},data: any = {}, isloading?: boolean): Promise<any>{
+        return Http.getInstance().get(`/${this.APPDENAME}/${context[this.APPLYDEKEY]}/wfgetproxydata`,data,isloading);
+    }
+
+    /**
+     * 测试数据是否在工作流中
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async testDataInWF(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(!context.stateField || !context.stateValue) return false;
+        if(context.stateValue == data[context.stateField]){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 测试当前用户是否提交过工作流
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async testUserWFSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return true;
+    }
+
+    /**
+     * 测试当前用户是否存在待办列表
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async testUserExistWorklist(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const requestData:any = {};
+        Object.assign(requestData,{wfdata:data});
+        return Http.getInstance().post(`/${this.APPDENAME}/${data[this.APPDEKEY]}/testuserexistworklist`,requestData,isloading);
+    }
+
+    /**
+     * 获取所有应用数据
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async getAllApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`uaa/access-center/app-switcher/default`,data,isloading);
+    }
+
+    /**
+     * 更新已选择的应用
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async updateChooseApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().put(`uaa/access-center/app-switcher/default`,data,isloading);
+    }
+
+    /**
+     * 修改密码
+     * 
+     * @param context 
+     * @param data 
+     * @param isloading 
+     */
+    public async changPassword(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`v7/changepwd`,data,isloading);
+    }
+    
+    /**
+     * 获取数字字典
+     * 
+     * @param tag 
+     * @param data 
+     * @param isloading 
+     */
+    public async getPredefinedCodelist(tag:string,data: any = {}, isloading?: boolean): Promise<any> {
+        return Http.getInstance().get(`/dictionarys/codelist/${tag}`,data,isloading);
     }
 
 }

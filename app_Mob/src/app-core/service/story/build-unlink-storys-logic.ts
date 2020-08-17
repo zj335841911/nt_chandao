@@ -1,12 +1,25 @@
-import { buildUnlinkStorysLogicBase } from './build-unlink-storys-logic-base';
+import { Http,Util } from '@/ibiz-core/utils';
+import {BuildUnlinkStorysLogicBase} from './build-unlink-storys-logic-base';
 
 /**
- * buildUnlinkStorys处理逻辑
+ * buildUnlinkStorys
  *
  * @export
- * @class buildUnlinkStorysLogic
- * @extends {buildUnlinkStorysLogicBase}
+ * @class BuildUnlinkStorysLogic
  */
-export class buildUnlinkStorysLogic extends buildUnlinkStorysLogicBase { }
+export class BuildUnlinkStorysLogic extends BuildUnlinkStorysLogicBase{
+
+    /**
+     * Creates an instance of  BuildUnlinkStorysLogic
+     * 
+     * @param {*} [opts={}]
+     * @memberof  BuildUnlinkStorysLogic
+     */
+    constructor(opts: any = {}) {
+        super(opts);
+    }
+
+}
+
 // 默认导出
-export default buildUnlinkStorysLogic;
+export default BuildUnlinkStorysLogic;

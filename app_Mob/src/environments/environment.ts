@@ -11,13 +11,15 @@ export const Environment = {
     SysName: 'pms',
     // 远程登录地址，本地开发调试使用
     // RemoteLogin: 'ibizutil/login',
-    RemoteLogin: 'v7/login',
+    RemoteLogin: '/v7/login',
     // 文件导出
     ExportFile: 'ibizutil/download',
     // 文件上传
     UploadFile: 'ibizutil/upload',
     // 是否为pc端应用
     isAppMode: true,
+    // 是否开启权限认证
+    enablePermissionValid: false,
     //统一地址
     uniteAddress: "http://172.16.100.202:8114",
     // 是否为开发模式

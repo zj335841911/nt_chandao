@@ -1,18 +1,6 @@
 <template>
-  <!-- <div :class="[{'hidden':this.refvalue !=''},'app-select-drop-down']">
-    <van-dropdown-menu>
-      <van-dropdown-item
-      @open="(query) => this.onSearch(query,  true)"
-        v-model="refvalue"
-        :options="items"
-        :disabled="disabled ? disabled : false"
-      />
-    </van-dropdown-menu>  
-    <van-icon :style="{display :this.refvalue ==''? 'none' : 'block'}" @click="onClear" class="close_icon" name="cross" />
-  </div> -->
-
      <div class="app-mobile-select-drop-down">
-        <ion-icon v-if="curvalue" name="close-circle-outline" @click="clear"></ion-icon>
+        <ion-icon v-if="curvalue" name="close-outline" @click="clear"></ion-icon>
         <ion-select :value="curvalue"  :disabled="disabled " @ionChange="change" interface="popover">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
@@ -20,19 +8,11 @@
 </template>
 
 <script lang="ts">
-import {
-  Vue,
-  Component,
-  Prop,
-  Provide,
-  Emit,
-  Watch,
-  Model
-} from "vue-property-decorator";
-import CodeListService from "@app-core/service/app/code-list-service";
+import { Vue, Component, Prop, Watch, Model } from "vue-property-decorator";
 import { Subject } from 'rxjs';
+import { ViewOpenService } from '../../utils/view-open-service/view-open-service';
 @Component({
-  components: {}
+    components: {}
 })
 export default class AppSelectDropDown extends Vue {
     /**
@@ -57,7 +37,7 @@ export default class AppSelectDropDown extends Vue {
      * @type {*}
      * @memberof AppSelectDropDown
      */
-    @Prop({default: () => {}}) public acParams?: any;
+    @Prop({ default: () => { } }) public acParams?: any;
 
     /**
      * 表单服务
@@ -73,7 +53,7 @@ export default class AppSelectDropDown extends Vue {
      * @type {string}
      * @memberof AppSelectDropDown
      */
-    @Prop({default: 'srfmajortext'}) public deMajorField!: string;
+    @Prop({ default: 'srfmajortext' }) public deMajorField!: string;
 
     /**
      * 应用实体主键属性名称
@@ -81,7 +61,7 @@ export default class AppSelectDropDown extends Vue {
      * @type {string}
      * @memberof AppSelectDropDown
      */
-    @Prop({default: 'srfkey'}) public deKeyField!: string;
+    @Prop({ default: 'srfkey' }) public deKeyField!: string;
 
     /**
      * 表单数据
@@ -114,7 +94,7 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     @Prop() public editortype?: string;
-    
+
 
     /**
      * 视图参数（如：视图name，title，width，height）
@@ -157,6 +137,22 @@ export default class AppSelectDropDown extends Vue {
     @Model('change') public value?: any;
 
     /**
+     * 导航参数
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: {} }) protected navigateParam?: any;
+
+    /**
+     * 导航上下文
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: {} }) protected navigateContext?: any;
+
+    /**
      * 当前值
      *
      * @type {string}
@@ -186,13 +182,21 @@ export default class AppSelectDropDown extends Vue {
      */
     public inputState: boolean = false;
 
-   /**
-     * 当前选择的值
+    /**
+      * 当前选择的值
+      *
+      * @type {string}
+      * @memberof AppSelectDropDown
+      */
+    public selectValue = this.value;
+
+    /**
+     * 视图打开服务
      *
-     * @type {string}
+     * @type {ViewOpenService}
      * @memberof AppSelectDropDown
      */
-    public selectValue = this.value;
+    public openService: ViewOpenService = ViewOpenService.getInstance();
 
     /**
      * 获取关联数据项值
@@ -207,13 +211,13 @@ export default class AppSelectDropDown extends Vue {
         return this.curvalue;
     }
 
-   /**
-     * 关联数据项值
-     *
-     * @readonly
-     * @memberof AppSelectDropDown
-     */
-    set refvalue(item:any){
+    /**
+      * 关联数据项值
+      *
+      * @readonly
+      * @memberof AppSelectDropDown
+      */
+    set refvalue(item: any) {
         this.onSelect(item);
     }
 
@@ -235,9 +239,9 @@ export default class AppSelectDropDown extends Vue {
             }
             this.items = [];
             if (value) {
-                this.items.push({text: newVal, value: value});
+                this.items.push({ text: newVal, value: value });
             }
-            this.onSearch(newVal,  false);
+            this.onSearch(newVal, false);
         }
     }
 
@@ -248,8 +252,8 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     public created() {
-        if(Object.is(this.editortype, 'dropdown')){
-            this.onSearch(null,true);
+        if (Object.is(this.editortype, 'dropdown')) {
+            this.onSearch(null, true);
         }
     }
 
@@ -284,7 +288,7 @@ export default class AppSelectDropDown extends Vue {
      * @param query 
      * @param callback 
      */
-    public async onSearch(query:any,other: boolean): Promise<any> {
+    public async onSearch(query: any, other: boolean): Promise<any> {
         // 公共参数处理
         let data: any = {};
         const bcancel: boolean = this.handlePublicParams(data);
@@ -300,46 +304,41 @@ export default class AppSelectDropDown extends Vue {
         }
         this.inputState = false;
         Object.assign(_param, { query: query });
-        if(!this.service){
-            this.$notify({ type: 'danger', message: '错误，缺少参数service！' });
-            
-        } else if(!this.acParams.serviceName) {
-            this.$notify({ type: 'danger', message: '错误，缺少参数serviceName！' });
-        } else if(!this.acParams.interfaceName) {
-            this.$notify({ type: 'danger', message: '错误，缺少参数interfaceName！' });
+        if (!this.acParams.serviceName || !this.acParams.interfaceName) {
+            this.$notice.error('请在对应实体属性中配置关联实体与数据集！');
+            return;
         }
         const appEntityServiceConstructor = window.appEntityServiceConstructor;
         const entityService: any = await appEntityServiceConstructor.getService(this.acParams.serviceName);
-        if (entityService[this.acParams.interfaceName] && entityService[this.acParams.interfaceName] instanceof Function) {
-            entityService[this.acParams.interfaceName](_context, _param).then((response: any) => {
-                if (response && response.status === 200) {
-                    this.items = response.data;
-                    this.result(this.items);
-                }
-            }).catch((response: any) => {
-                this.$notify({ type: 'danger', message: '错误，请求异常！' });
-            });
+        if (entityService && entityService[this.acParams.interfaceName] && entityService[this.acParams.interfaceName] instanceof Function) {
+            const response = await entityService[this.acParams.interfaceName](_context, _param);
+            if (response && response.status === 200) {
+                this.items = response.data;
+                this.result(this.items);
+            } else {
+                this.$notice.error('错误，请求异常！');
+            }
         }
     }
 
 
 
-                
-    
 
-   /**
-     * 处理返回数据格式
-     */
-    public result(items:any) {
+
+
+    /**
+      * 处理返回数据格式
+      */
+    public result(items: any) {
         let _data = [];
-        items.forEach((item:any,index:number) => {
-            if(item[this.deMajorField]){
+        items.forEach((item: any, index: number) => {
+            if (item[this.deMajorField]) {
                 items[index].text = item[this.deMajorField];
-        
+
             }
-            if(item[this.deKeyField]){
+            if (item[this.deKeyField]) {
                 items[index].value = item[this.deKeyField];
-            
+
             }
         });
     }
@@ -419,7 +418,7 @@ export default class AppSelectDropDown extends Vue {
         } else {
             this.openPopupModal(view, _context, _param);
         }
-        
+
     }
 
     /**
@@ -431,8 +430,8 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     private openIndexViewTab(view: any, context: any, param: any): void {
-        const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [context] , param);
-        this.$router.push(routePath);
+        const routeStr: any = this.openService.formatRouteParam(this.context, view.deResParameters, view.parameters, [context], param);
+        this.$router.push(routeStr);
     }
 
     /**
@@ -458,8 +457,8 @@ export default class AppSelectDropDown extends Vue {
      * @param {*} data
      * @memberof AppSelectDropDown
      */
-    private openDrawer(view: any, context: any, param: any): void {
-        let container: Subject<any> = this.$appdrawer.openDrawer(view, context, param);
+    private async openDrawer(view: any, context: any, param: any): Promise<any> {
+        let container: Subject<any> = await this.$appdrawer.openDrawer(view, context, param);
         container.subscribe((result: any) => {
             if (!result || !Object.is(result.ret, 'OK')) {
                 return;
@@ -510,7 +509,7 @@ export default class AppSelectDropDown extends Vue {
     private openRedirectView($event: any, view: any, data: any): void {
         this.$http.get(view.url, data).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$notify({ type: 'danger', message: '错误，请求异常！' });
+                this.$notice.error('错误，请求异常！');
             }
             if (response.status === 401) {
                 return;
@@ -538,7 +537,7 @@ export default class AppSelectDropDown extends Vue {
                     width: result.width,
                     height: result.height,
                 }
-                this.openPopupModal(view, null,data);
+                this.openPopupModal(view, null, data);
             } else if (result.openmode.startsWith('DRAWER')) {
                 const viewname = this.$util.srfFilePath2(result.viewname);
                 const view: any = {
@@ -562,7 +561,7 @@ export default class AppSelectDropDown extends Vue {
             }
         }).catch((response: any) => {
             if (!response || !response.status || !response.data) {
-                this.$notify({ type: 'danger', message: '错误，系统异常！' });
+                this.$notice.error('错误，系统异常！');
                 return;
             }
             if (response.status === 401) {
@@ -581,7 +580,7 @@ export default class AppSelectDropDown extends Vue {
             return;
         }
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            this.$notify({ type: 'danger', message: '错误,值项异常' });
+            this.$notice.error('错误,值项异常');
             return;
         }
         // 公共参数处理
@@ -625,10 +624,10 @@ export default class AppSelectDropDown extends Vue {
 
         if (this.data) {
             if (this.valueitem) {
-                this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField]?item[this.deKeyField]:item["srfkey"] });
+                this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField] ? item[this.deKeyField] : item["srfkey"] });
             }
             if (this.name) {
-                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField]?item[this.deMajorField]:item["srfmajortext"] });
+                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField] ? item[this.deMajorField] : item["srfmajortext"] });
             }
         }
     }
@@ -641,30 +640,13 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     public handlePublicParams(arg: any): boolean {
-        if (!this.itemParam) {
-            return true;
-        }
         if (!this.data) {
-             this.$notify({ type: 'danger', message: '错误,表单数据异常' });
             return false;
         }
-        // 合并表单参数
-        arg.param = JSON.parse(JSON.stringify(this.viewparams));
-        arg.context = JSON.parse(JSON.stringify(this.context));
-        // 附加参数处理
-        if (this.itemParam.context) {
-           
-          let _context = this.formatData(this.data,this.itemParam.context);
-            Object.assign(arg.context,_context);
-        }
-        if (this.itemParam.param) {
-          let _param = this.formatData(this.data,this.itemParam.param);
-            Object.assign(arg.param,_param);
-        }
-        if (this.itemParam.parentdata) {
-          let _parentdata = this.formatData(this.data,this.itemParam.parentdata);
-            Object.assign(arg.param,_parentdata);
-        }
+        // 导航参数处理
+        const {context, param} = this.$viewTool.formatNavigateParam( this.navigateContext, this.navigateParam, this.context, this.viewparams, this.data );
+        arg.context =  context;
+        arg.param = param;
         return true;
     }
 
@@ -675,7 +657,7 @@ export default class AppSelectDropDown extends Vue {
      * @returns
      * @memberof AppSelectDropDown
      */
-    public newAndEdit($event:any){
+    public newAndEdit($event: any) {
         if (this.disabled) {
             return;
         }
@@ -701,7 +683,7 @@ export default class AppSelectDropDown extends Vue {
         } else {
             this.openPopupModal(view, _context, _param);
         }
-        
+
     }
 
     /**
@@ -722,7 +704,7 @@ export default class AppSelectDropDown extends Vue {
      */
     public openDropdown() {
         const appPicker: any = this.$refs.appPicker;
-        if(appPicker) {
+        if (appPicker) {
             appPicker.focus();
         }
     }
@@ -734,7 +716,7 @@ export default class AppSelectDropDown extends Vue {
      */
     public closeDropdown() {
         const appPicker: any = this.$refs.appPicker;
-        if(appPicker) {
+        if (appPicker) {
             appPicker.blur();
         }
     }
@@ -748,7 +730,7 @@ export default class AppSelectDropDown extends Vue {
      * @returns {any}
      * @memberof AppSelectDropDown
      */
-    public  formatData(arg: any, params: any): any {
+    public formatData(arg: any, params: any): any {
         let _data: any = {};
         Object.keys(params).forEach((name: string) => {
             if (!name) {
@@ -774,7 +756,7 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
-      this.curvalue = value.detail.value;
+        this.curvalue = value.detail.value;
         this.$emit("change", value.detail.value);
     }
 
@@ -782,9 +764,9 @@ export default class AppSelectDropDown extends Vue {
      * 清空值
      * @memberof AppSelect
      */
-    public clear(){
-        this.curvalue="";
-        this.$emit('change','')
+    public clear() {
+        this.curvalue = "";
+        this.$emit('change', '')
     }
 }
 </script>

@@ -25,14 +25,13 @@ export class DataViewServiceBase extends ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.FetchDefault(context, data);
+            response = await this.service.FetchDefault(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 

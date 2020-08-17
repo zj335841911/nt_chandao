@@ -770,15 +770,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@capacitor/android@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-2.0.1.tgz#551c87703b8f798120769e7a6a04d3a0ee5bce5e"
-  integrity sha512-UKjeY34BlLGvRzDdPLk3/u0j9Ufmyy1gtHGKP6uZ3Qh0ciHFFKnL7PVw5Tf+H19HHPfZIal4rGTndvAWQsCMeA==
+"@capacitor/android@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-2.1.0.tgz#09dd063bb90424fb7fda9a86113584ace6072c88"
+  integrity sha512-20t6Ep4cVp6X/7tz3BzvNyqv6WEMfZr4VLA3nQC7WxTLfrYSWWaP8vaKvTFn8u56qCSoCUwYmYlpkib38ptwJg==
 
-"@capacitor/cli@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-2.0.1.tgz#db820e192f94d3bb70a238e98591a6d9f73dfb90"
-  integrity sha512-G6+Wk8Q7V8+rDcIj1Nk3iMnCGgMbl3gSFyL8aMsuvSJ4XSXLex43TJLWSNECuRv4OwyEPqUFH0g5eqEolaTSwQ==
+"@capacitor/cli@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-2.1.0.tgz#de77a4303e2af76fe5438b8851e3c67b7170f979"
+  integrity sha512-j7TPvnQ++xFlZ5hhvdntwK79/Xx+Bns6Y11b5Cco8ydVO4HokQresBRqpU2LaHzABZtWmtrSsFJMF3OqZotguQ==
   dependencies:
     chalk "^2.3.0"
     commander "^2.12.2"
@@ -792,17 +792,17 @@
     which "^1.3.0"
     xml2js "^0.4.19"
 
-"@capacitor/core@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-2.0.1.tgz#d5ad065924602646128102078d55c3d9d633be40"
-  integrity sha512-6GoklVQdHZ6jBAkVgPySaTBw+/zz4P+U1yFZkNTVdYAEGze4Zv5cGlUF6OpvlZRiCk3p7ZWt4kC8baIh/Zxu3A==
+"@capacitor/core@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-2.1.0.tgz#11178b082c9f00bcff7c7f13f5cb68d07a85aad6"
+  integrity sha512-KIDj067PGaNSIODqzDp99vPs7CVpx+SRVrfgcQ9MNvpTUFsnDx/taRixbucizj8lLH2mhK12dH/4TjU7eqXQ4A==
   dependencies:
     tslib "^1.9.0"
 
-"@capacitor/ios@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-2.0.1.tgz#1f1cd3736dcf00373e3303d89a0164f2f168d24e"
-  integrity sha512-KzrWZAfLYe+eyJjvj1IjueIr0goigEREi4GkidKkGQdlP2EM4gHvzpkspD2L+HUP5c6dkReU5qkTzL2857TZ4w==
+"@capacitor/ios@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-2.1.0.tgz#490a9a58896f911f80727fa2e9e86b31e84d9d9e"
+  integrity sha512-KE5hGQiv86Ply/WvT5OvrRBcbM+XdqbGkfp03hK8TG8tYNvJw4mXT3+bH5QsOVOI23o4LVzRWtwPmDyxCw+Pyw==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -845,18 +845,10 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@ionic/core@^5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-5.0.5.tgz#d099b3ccddedb818354a233419671d2ace749a07"
-  integrity sha512-k0O5V/3sFB55E+hKSqio1iDfwibZdlI97PuaI4PcGQDytzUCyGTlGAZn6iLi82NZqBRWWLOpwy+8N/cySiTWKg==
-  dependencies:
-    ionicons "^5.0.1"
-    tslib "^1.10.0"
-
-"@ionic/core@^5.0.7":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-5.0.7.tgz#fbb8877991204a721ebfdd56600e6e3931efda7e"
-  integrity sha512-94Ebr4Uw/2aOqweGr4Xmo5csjTQwLcDuHraMC+VuQWNoCztuJI9cX/yhsAS2Yftor+vXC/uGZkubK+P+RFh1jQ==
+"@ionic/core@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-5.1.1.tgz#8e89e2fb93050a1a77431283e487bf78bf890805"
+  integrity sha512-mmQL7hzwwReqFCJlRyxo3sNoI7r63GYnZD6QBXbYmCp83POvL89fQYegUfURM1Fcw0JiAZ3BsCoMYxuFXa7+cA==
   dependencies:
     ionicons "^5.0.1"
     tslib "^1.10.0"
@@ -2516,7 +2508,7 @@ core-js@^2.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
-core-js@^3.4.4, core-js@^3.6.4:
+core-js@^3.6.4:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
   integrity sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
@@ -4118,14 +4110,14 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
-ibiz-mobile-components@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/ibiz-mobile-components/-/ibiz-mobile-components-0.0.1.tgz#8c10fe44fd4b11968d5cf4b708739b017e0ebf7a"
-  integrity sha512-8W92Vgs+C6had9RPPgJsSRRrpfnWyyfyNDYdedGkTwTLhGChZI9wQ+JvEu2enu34yGtYLruN4+ZMWXKzg6GHnw==
+ibiz-mobile-components@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/ibiz-mobile-components/-/ibiz-mobile-components-0.0.4.tgz#a8eb0af2f2be1d33b7047de24a04fae321a28de7"
+  integrity sha512-FOSIyfcvyrQO7LrA1jsw8ZZsIDg6w3OgiDxRNLiKHZgCRsNtCOqnH9InN/AnvZ1gTlqbfmX4f/+cJ02b/NAjLA==
   dependencies:
-    "@ionic/core" "^5.0.7"
+    "@ionic/core" "^5.1.1"
     ionicons "^5.0.1"
-    moment "^2.24.0"
+    moment "^2.26.0"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -5257,6 +5249,11 @@ moment@^2.24.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
+moment@^2.26.0:
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+  integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -5268,14 +5265,6 @@ move-concurrently@^1.0.1:
     mkdirp "^0.5.1"
     rimraf "^2.5.4"
     run-queue "^1.0.3"
-
-mpvue-calendar@^2.3.1:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/mpvue-calendar/-/mpvue-calendar-2.3.4.tgz#7014846e5e5d988adc82bdcd91cc789c2bbaaffa"
-  integrity sha512-2hLLGBpizqzXrR890O2bFby9SHc9pDqpgr6y0/q1Pejl1EHxgqtJLFXT4PHmH8S8hYwp2HX2Fp+2vuz+sufT+A==
-  dependencies:
-    core-js "^3.4.4"
-    vue "^2.6.10"
 
 ms@2.0.0:
   version "2.0.0"
@@ -8020,7 +8009,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.10, vue@^2.6.11:
+vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==

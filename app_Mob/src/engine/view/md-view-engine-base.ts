@@ -40,7 +40,7 @@ export default class MDViewEngineBase extends ViewEngine {
      * @protected
      * @memberof MDViewEngineBase
      */
-    protected openData?: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => void;
+    protected openData?: (args: any[], contextJO: any, paramJO: any, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => void;
 
     /**
      * 新建数据
@@ -48,7 +48,7 @@ export default class MDViewEngineBase extends ViewEngine {
      * @protected
      * @memberof GridViewEngine
      */
-    protected newData?: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => void;
+    protected newData?: (args: any[], contextJO: any, paramJO: any, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => void;
 
     /**
      * Creates an instance of GridViewEngine.
@@ -97,13 +97,26 @@ export default class MDViewEngineBase extends ViewEngine {
      * @param {string} ctrlName
      * @param {string} eventName
      * @param {*} args
-     * @memberof GridViewEngine
+     * @memberof MDViewEngineBase
      */
     public onCtrlEvent(ctrlName: string, eventName: string, args: any): void {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'searchform')) {
             this.searchFormEvent(eventName, args);
         }
+    }
+
+
+    /**
+     * 视图事件
+     *
+     * @param {string} tag
+     * @param {string} eventName
+     * @param {*} args
+     * @memberof MDViewEngineBase
+     */
+    public onViewEvent(tag:string, eventName: string, args: any): void {
+            this.setViewState2({ tag: tag, action: 'load', viewdata: args });
     }
 
     /**
@@ -275,9 +288,8 @@ export default class MDViewEngineBase extends ViewEngine {
         if (this.keyPSDEField && data[this.keyPSDEField] && !Object.is(data[this.keyPSDEField], '')) {
             Object.assign(loadParam, { [this.keyPSDEField]: data[this.keyPSDEField] });
         }
-
         if (this.openData && this.isFunc(this.openData)) {
-            this.openData([loadParam], [data], null, null, this.getMDCtrl());
+            this.openData([data], {}, {});
         }
     }
 

@@ -1,7 +1,7 @@
 <template>
     <div class="app-list-default">
         <div class="icon_box" :style="getstyle()"><ion-icon :name="geticon()" /></div>
-        <div class="info_box" v-if="dataItemNames.length > 0">
+        <div class="info_box" v-if=" dataItemNames.length > 0">
             <template v-for="(i,index) in dataItemNames" >
                 <div v-if="index == 0" :key="index" class="title">{{item[i]}}</div>
                 <div  v-else :key="index" class="info">{{item[i]}}</div>
@@ -20,10 +20,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 @Component({
     i18n: {
         messages: {
-            'zh-CN': {
+            'ZH-CN': {
                 messages: '[暂无内容]'
             },
-            'en-US': {
+            'EN-US': {
                 messages: '[No data]'
             }
         }
@@ -54,7 +54,7 @@ export default class AppDefaultList extends Vue {
      * @type {Array}
      * @memberof AppDefaultList
      */
-    @Prop() public dataItemNames?: Array<any>;
+    @Prop({default:()=>{ return []}}) public dataItemNames?: Array<any>;
 
     /**
      * 图标数组

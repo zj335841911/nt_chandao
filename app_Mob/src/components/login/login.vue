@@ -38,14 +38,14 @@ import { Environment } from '@/environments/environment';
     components: {},
     i18n: {
         messages: {
-            'zh-CN': {
+            'ZH-CN': {
                 username: '用户名',
                 password: '密码',
                 submit: '提交',
                 usernametipinfo: '用户名为空',
                 passwordtipinfo: '密码为空',
             },
-            'en-US': {
+            'EN-US': {
                 username: 'User name',
                 password: 'Password',
                 submit: 'Submit',
@@ -86,10 +86,8 @@ export default class Login extends Vue {
             this.$notice.error(`${this.$t('passwordtipinfo')}`);
             return;
         }
-        Loading.show();
         const post: Promise<any> = this.$http.post(Environment.RemoteLogin, { loginname: this.username, password: this.password });
         post.then((response: any) => {
-            Loading.hidden();
             if (response && response.status === 200) {
                 const data = response.data;
                 localStorage.setItem("token", data.token);
@@ -100,8 +98,7 @@ export default class Login extends Vue {
                 this.$router.push({ path: url });
             }
         }).catch((error: any) => {
-            Loading.hidden();
-            this.$notify({ type: 'danger', message: error });
+            this.$notice.error(error?error.error.message:"登录异常");
         });
     }
 }

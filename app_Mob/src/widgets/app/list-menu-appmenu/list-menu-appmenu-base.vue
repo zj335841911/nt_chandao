@@ -55,6 +55,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ListMenuService from '@/app-core/ctrl-service/app/list-menu-appmenu-service';
 
 import ListMenuModel from '@/app-core/ctrl-model/app/list-menu-appmenu-model';
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -70,6 +71,15 @@ export default class ListMenuBase extends Vue implements ControlInterface {
      * @memberof ListMenu
      */
     @Prop() protected name?: string;
+
+    /**
+     * 视图名称
+     *
+     * @type {string}
+     * @memberof ListMenu
+     */
+    @Prop() protected viewName!: string;
+
 
     /**
      * 视图通讯对象
@@ -117,11 +127,10 @@ export default class ListMenuBase extends Vue implements ControlInterface {
     /**
      * 全局 ui 服务
      *
-     * @private
      * @type {GlobalUiService}
      * @memberof ListMenu
      */
-    private globaluiservice: GlobalUiService = new GlobalUiService();
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 建构部件服务对象
@@ -129,7 +138,7 @@ export default class ListMenuBase extends Vue implements ControlInterface {
      * @type {ListMenuService}
      * @memberof ListMenu
      */
-    protected service: ListMenuService = new ListMenuService();
+    protected service: ListMenuService = new ListMenuService({$store:this.$store});
     
 
     /**
@@ -341,7 +350,6 @@ export default class ListMenuBase extends Vue implements ControlInterface {
         }
     }
 
-
     /**
      * 获取菜单项数据
      *
@@ -423,6 +431,26 @@ export default class ListMenuBase extends Vue implements ControlInterface {
     protected load(data: any) {
         this.dataProcess(this.menuMode.getAppMenuItems());
         this.menus = this.menuMode.getAppMenuItems();
+        if(Environment.enablePermissionValid){
+            this.computedEffectiveMenus(this.menus);
+        }
+    }
+
+    /**
+     * 计算有效菜单项
+     *
+     * @param {*} data
+     * @memberof Main
+     */
+    public computedEffectiveMenus(inputMenus:Array<any>){
+        inputMenus.forEach((_item:any) =>{
+            if(!this.$store.getters['authresource/getAuthMenu'](_item)){
+                _item.hidden = true;
+                if (_item.items && _item.items.length > 0) {
+                    this.computedEffectiveMenus(_item.items);
+                }
+            }
+        })
     }
 
     /**

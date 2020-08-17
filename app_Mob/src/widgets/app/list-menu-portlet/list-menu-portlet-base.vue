@@ -3,7 +3,8 @@
         <ion-list class='app-mob-portlet '>
             <ion-list-header class='app-mob-portlet__header'>列表 </ion-list-header>
                 <view_db_appmenu3_appmenu 
-    :viewState="viewState"  
+    :viewState="viewState"
+    viewName="AppPortalView"  
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
@@ -40,6 +41,15 @@ export default class ListMenuBase extends Vue implements ControlInterface {
      * @memberof ListMenu
      */
     @Prop() protected name?: string;
+
+    /**
+     * 视图名称
+     *
+     * @type {string}
+     * @memberof ListMenu
+     */
+    @Prop() protected viewName!: string;
+
 
     /**
      * 视图通讯对象
@@ -87,11 +97,10 @@ export default class ListMenuBase extends Vue implements ControlInterface {
     /**
      * 全局 ui 服务
      *
-     * @private
      * @type {GlobalUiService}
      * @memberof ListMenu
      */
-    private globaluiservice: GlobalUiService = new GlobalUiService();
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 建构部件服务对象
@@ -99,7 +108,7 @@ export default class ListMenuBase extends Vue implements ControlInterface {
      * @type {ListMenuService}
      * @memberof ListMenu
      */
-    protected service: ListMenuService = new ListMenuService();
+    protected service: ListMenuService = new ListMenuService({$store:this.$store});
     
 
     /**

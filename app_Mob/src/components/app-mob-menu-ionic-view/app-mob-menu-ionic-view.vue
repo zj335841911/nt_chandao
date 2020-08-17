@@ -1,5 +1,5 @@
 <template>
-    <ion-card class="app-mob-menu-ionic-view">
+    <div class="app-mob-menu-ionic-view">
         <ion-card-content class="app-mob-menu-ionic-view__content">
             <ion-grid>
                 <ion-row>
@@ -29,7 +29,7 @@
                 </ion-row>
             </ion-grid>
         </ion-card-content>
-    </ion-card>
+    </div>
 </template>
 
 <script lang="ts">

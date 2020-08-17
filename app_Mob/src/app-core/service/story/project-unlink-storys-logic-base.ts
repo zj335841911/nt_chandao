@@ -1,104 +1,148 @@
-import { Util, Verify } from '@/ibiz-core/utils';
-import { EntityLogicBase } from '@/ibiz-core';
+import { StoryService } from '@app-core/service/story/story-service';
+import { Verify } from '@/ibiz-core/utils';
 
 
 /**
- * projectUnlinkStorys处理逻辑基类
+ * projectUnlinkStorys
  *
  * @export
- * @class projectUnlinkStorysLogicBase
- * @extends {EntityLogicBase}
+ * @class ProjectUnlinkStorysLogicBase
  */
-export class projectUnlinkStorysLogicBase extends EntityLogicBase {
+export class ProjectUnlinkStorysLogicBase {
 
     /**
      * 名称
      * 
-     * @protected
-     * @memberof projectUnlinkStorysLogicBase
+     * @memberof  ProjectUnlinkStorysLogicBase
      */
-    protected name:string ="projectUnlinkStorys";
+    private name:string ="projectUnlinkStorys";
 
     /**
      * 唯一标识
      * 
-     * @protected
-     * @memberof projectUnlinkStorysLogicBase
+     * @memberof  ProjectUnlinkStorysLogicBase
      */
-    protected id:string = "11AE1744-BF6D-4868-9A71-2DBCFCFC9871";
+    private id:string = "11AE1744-BF6D-4868-9A71-2DBCFCFC9871";
 
     /**
      * 默认参数名称
      * 
-     * @protected
-     * @memberof projectUnlinkStorysLogicBase
+     * @memberof  ProjectUnlinkStorysLogicBase
      */
-    protected defaultParamName:string = "Default";
+    private defaultParamName:string = "Default";
+
+    /**
+     * 参数集合
+     * 
+     * @memberof  ProjectUnlinkStorysLogicBase
+     */
+    private paramsMap:Map<string,any> = new Map();
+
+    /**
+     * Creates an instance of  ProjectUnlinkStorysLogicBase.
+     * 
+     * @param {*} [opts={}]
+     * @memberof  ProjectUnlinkStorysLogicBase
+     */
+    constructor(opts: any = {}) {
+        this.initParams(opts);
+    }
+
+    /**
+     * 初始化参数集合
+     * 
+     * @param {*} [opts={}]
+     * @memberof  ProjectUnlinkStorysLogicBase
+     */
+    public initParams(opts:any){
+        this.paramsMap.set('Default',opts);
+    }
+
+
+    /**
+     * 计算0节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute0Cond(params:any):boolean{
+        return true;
+    }
+
+    /**
+     * 计算1节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute1Cond(params:any):boolean{
+        return true;
+    }
 
     /**
      * 执行逻辑
      * 
      * @param context 应用上下文
      * @param params 传入参数
-     * @returns {Promise<any>}
-     * @memberof projectUnlinkStorysLogicBase
      */
-    public onExecute(context: any, params: any): Promise<any> {
-        return this.executeBegin(context, params);
+    public onExecute(context:any,params:any,isloading:boolean){
+        return this.executeBegin(context,params,isloading);
     }
 
 
     /**
-     * 开始
-     * 
-     * @protected
-     * @param params 传入参数
-     * @returns {Promise<any>}
-     * @memberof projectUnlinkStorysLogicBase
-     */
-    protected async executeBegin(context: any, params: any): Promise<any> {
+    * 开始
+    * 
+    * @param params 传入参数
+    */
+    private async executeBegin(context:any,params:any,isloading:boolean){
         //开始节点
-        return this.executePrepareparam1(context, params);
+        if(this.compute0Cond(params)){
+            return this.executePrepareparam1(context,params,isloading);   
+        }
     }
 
     /**
-     * 处理
-     * 
-     * @protected
-     * @param context 应用上下文
-     * @param params 传入参数
-     * @returns {Promise<any>}
-     * @memberof projectUnlinkStorysLogicBase
-     */
-    protected async executeDeaction1(context: any, params: any): Promise<any> {
+    * 处理
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeDeaction1(context:any,params:any,isloading:boolean){
         // 行为处理节点
         let result: any;
-        // Story服务
-        const targetService: any = await this.getService('Story');
-        if (Util.isFunction(targetService['ProjectUnlinkStory'])) {
-            result = await targetService['ProjectUnlinkStory'](context, params);
+        let actionParam:any = this.paramsMap.get('Default');
+        const targetService:StoryService = new StoryService();
+        if (targetService['ProjectUnlinkStory'] && targetService['ProjectUnlinkStory'] instanceof Function) {
+            result = await targetService['ProjectUnlinkStory'](actionParam.context,actionParam.data, false);
         }
         if(result && result.status == 200){
-            Object.assign(params, result.data);
-        return params;
+            Object.assign(actionParam.data,result.data);
+        return this.paramsMap.get(this.defaultParamName).data;
         }
     }
 
     /**
-     * 准备参数
-     * 
-     * @protected
-     * @param context 应用上下文
-     * @param params 传入参数
-     * @returns {Promise<any>}
-     * @memberof projectUnlinkStorysLogicBase
-     */
-    protected async executePrepareparam1(context: any, params: any): Promise<any> {
+    * 准备参数
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executePrepareparam1(context:any,params:any,isloading:boolean){
         // 准备参数节点
-        Object.assign(params, { story: params.id });
-        Object.assign(context, { story : params.id });
-        Object.assign(params, { id: params.project });
-        return this.executeDeaction1(context, params);
+    let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam0Data,{story:tempSrcParam0Data['id']});
+    this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
+    let tempDstParam1Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    let tempSrcParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam1Context,{story:tempSrcParam1Data['project']});
+    Object.assign(tempDstParam1Data,{id:tempSrcParam1Data['project']});
+    this.paramsMap.set('Default',{data:tempDstParam1Data,context:tempDstParam1Context});
+        if(this.compute1Cond(params)){
+            return this.executeDeaction1(context,params,isloading);   
+        }
     }
+
 
 }

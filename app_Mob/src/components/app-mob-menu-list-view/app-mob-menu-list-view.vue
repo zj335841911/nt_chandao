@@ -1,5 +1,5 @@
 <template>
-    <ion-card class="app-mob-menu-list-view">
+    <div class="app-mob-menu-list-view">
         <ion-card-content class="app-mob-menu-list-view__content">
             <ion-list>
                 <template v-for="item in items">
@@ -37,7 +37,7 @@
                 </template>
             </ion-list>
         </ion-card-content>
-    </ion-card>
+    </div>
 </template>
 
 <script lang="ts">

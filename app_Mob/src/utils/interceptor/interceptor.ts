@@ -1,8 +1,9 @@
 import { Store } from 'vuex';
 import axios from 'axios';
 import Router from 'vue-router';
-
-
+import i18n from '@/locale';
+import ignoreProxyMap from './ignore-proxy';
+import { Loading } from '@/ibiz-core/utils';
 /**
  * 拦截器
  *
@@ -28,6 +29,8 @@ export class Interceptors {
      * @memberof Interceptors
      */
     private store: Store<any> | any;
+
+    
 
     /**
      *  单列对象
@@ -76,20 +79,22 @@ export class Interceptors {
      */
     private intercept(): void {
         axios.interceptors.request.use((config: any) => {
-            let appdata: string | null = null;
-            if (this.router) {
-                appdata = this.store.getters.getAppData();
-            }
-            if (!Object.is(appdata, '')) {
-                config.headers.srfappdata = appdata;
+            let appdata: any = this.store.getters.getAppData();;
+            if (appdata && appdata.context) {
+                config.headers['srforgsectorid'] = appdata.context.srforgsectorid;
             }
             if (window.localStorage.getItem('token')) {
                 const token = window.localStorage.getItem('token');
                 config.headers.Authorization = `Bearer ${token}`;
             }
-            // if (!config.url.startsWith('https://') && !config.url.startsWith('http://')) {
-            //     config.url = Environment.BaseUrl + config.url;
-            // }
+            config.headers['Accept-Language'] =  i18n.locale;
+            
+            // 混合 app 代理处理
+            if (Object.is(process.env.VUE_APP_CURRENTMODE, 'hybridapp') && !config.url.startsWith('https://') && !config.url.startsWith('http://')) {
+                if (!ignoreProxyMap.has(config.url)) {
+                    config.url = process.env.VUE_APP_PROXY + config.url;
+                }
+            }
             return config;
         }, (error: any) => {
             return Promise.reject(error);
@@ -104,11 +109,14 @@ export class Interceptors {
             let { data: _data } = res;
 
             if (res.status === 401) {
+                Loading.hidden();
                 this.doNoLogin(_data.data);
             }
             if (res.status === 404) {
+                Loading.hidden();
                 this.router.push({ path: '/404' });
             } else if (res.status === 500) {
+                Loading.hidden();
                 this.router.push({ path: '/500' });
             }
 

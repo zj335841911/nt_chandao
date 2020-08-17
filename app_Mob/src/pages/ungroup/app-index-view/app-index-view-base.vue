@@ -1,6 +1,7 @@
 <template>
 <view_appmenu 
-    :viewState="viewState"  
+    :viewState="viewState"
+    viewName="AppIndexView"  
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
@@ -32,11 +33,10 @@ export default class AppIndexViewBase extends Vue {
     /**
      * 全局 ui 服务
      *
-     * @private
      * @type {GlobalUiService}
      * @memberof AppIndexViewBase
      */
-    private globaluiservice: GlobalUiService = new GlobalUiService();
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 数据变化
@@ -53,20 +53,18 @@ export default class AppIndexViewBase extends Vue {
     /**
      * 视图上下文
      *
-     * @private
      * @type {string}
      * @memberof AppIndexViewBase
      */
-    @Prop() private _context!: string;
+    @Prop() protected _context!: string;
 
     /**
      * 视图参数
      *
-     * @private
      * @type {string}
      * @memberof AppIndexViewBase
      */
-    @Prop() private _viewparams!: string;
+    @Prop() protected _viewparams!: string;
 
     /**
      * 视图默认使用
@@ -101,12 +99,22 @@ export default class AppIndexViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
-     * 是否显示部件视图头部，默认为false（显示）
+     * 视图导航上下文
      *
-     * @type {boolean}
+     * @protected
+     * @type {*}
      * @memberof AppIndexViewBase
      */
-    @Prop({ default: false }) protected isShowViewHeader!: boolean;
+    protected navContext: any = {};
+
+    /**
+     * 视图导航参数
+     *
+     * @protected
+     * @type {*}
+     * @memberof AppIndexViewBase
+     */
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
@@ -118,7 +126,9 @@ export default class AppIndexViewBase extends Vue {
         srfTitle: '应用首页视图',
         srfCaption: 'app.views.appindexview.caption',
         srfSubCaption: '工作台',
-        dataInfo: ''
+        dataInfo: '',
+        iconcls: '',
+        icon: ''
     }
 
     /**
@@ -131,9 +141,9 @@ export default class AppIndexViewBase extends Vue {
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
         const _this: any = this;
+        this.parseViewParam();
         if (!Object.is(newVal, oldVal) && _this.engine) {
-            _this.parseViewParam();
-            _this.engine.load();
+            this.$nextTick(()=>{_this.engine.load();})
         }
         
     }
@@ -148,12 +158,7 @@ export default class AppIndexViewBase extends Vue {
      */
     @Watch('_viewparams')
     on_viewparams(newVal: string, oldVal: string) {
-        if (!Object.is(newVal, oldVal)) {
-            if (!this.viewDefaultUsage && this._viewparams && !Object.is(this._viewparams, '')) {
-                Object.assign(this.viewparams, JSON.parse(this._viewparams));
-                return;
-            }
-        }
+        this.parseViewParam();
     }
 
     /**
@@ -169,7 +174,6 @@ export default class AppIndexViewBase extends Vue {
     /**
      * 视图状态订阅对象
      *
-     * @private
      * @type {Subject<{action: string, data: any}>}
      * @memberof AppIndexViewBase
      */
@@ -177,33 +181,23 @@ export default class AppIndexViewBase extends Vue {
 
 
     /**
-     * 解析视图参数
+     * 是否显示标题
      *
-     * @private
+     * @type {string}
      * @memberof AppIndexViewBase
      */
-    private parseViewParam(): void {
-        if (!this.viewDefaultUsage && this._context && !Object.is(this._context, '')) {
-            Object.assign(this.context, JSON.parse(this._context));
-            return;
-        }
-        // 参数异常
-        if (!this.viewDefaultUsage) {
-            return;
-        }
+    @Prop({default:true}) protected showTitle?: boolean;
 
-        const path = (this.$route.matched[this.$route.matched.length - 1]).path;
-        const keys: Array<any> = [];
-        const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
-        const matchArray = curReg.exec(this.$route.path);
-        let tempValue: Object = {};
-        keys.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item.name, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-        this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
+
+    /**
+     * 解析视图参数
+     *
+     * @memberof AppIndexViewBase
+     */
+    protected parseViewParam(): void {
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, false);
+        this.context = { ...context };
+        this.viewparams = { ...param }
     }
 
     /**
@@ -215,7 +209,7 @@ export default class AppIndexViewBase extends Vue {
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
-        if (this.$route && !this.viewDefaultUsage) {
+        if (!this.viewDefaultUsage) {
             return false;
         }
         return true;
@@ -227,10 +221,9 @@ export default class AppIndexViewBase extends Vue {
     /**
      * 引擎初始化
      *
-     * @private
      * @memberof AppIndexViewBase
      */
-    private engineInit(): void {
+    protected engineInit(): void {
     }
 
     /**
@@ -240,6 +233,15 @@ export default class AppIndexViewBase extends Vue {
      */
     protected created() {
         this.afterCreated();
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof AppIndexViewBase
+     */
+    public activated() {
+        this.afterMounted();
     }
 
     /**
@@ -315,13 +317,14 @@ export default class AppIndexViewBase extends Vue {
      * @param {any[]} args
      * @memberof AppIndexViewBase
      */
-    protected closeView(args: any[]): void {
+    protected async closeView(args: any[]): Promise<any> {
         if (this.viewDefaultUsage) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
         } else {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
+        
     }
 
     /**

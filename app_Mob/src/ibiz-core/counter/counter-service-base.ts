@@ -2,79 +2,31 @@
  * 计数器服务基类
  *
  * @export
- * @class CounterServiceBase
+ * @class CounterService
  */
-export class CounterServiceBase {
+export  class CounterService {
 
     /**
-     * 当前计数器数据对象
-     *
-     * @memberof  CounterServiceBase
+     * Creates an instance of CounterService.
+     * 
+     * @param {*} [opts={}]
+     * @memberof CounterService
      */
-    public counterData: any = {};
+    constructor(opts: any = {}) {
 
-    /**
-     * 定时器实例
-     *
-     * @type {*}
-     * @memberof CounterServiceBase
-     */
-    public timer: any;
-
-    /**
-     * Creates an instance of CounterServiceBase.
-     * @memberof CounterServiceBase
-     */
-    constructor() {
-        this.initCounterData();
-        this.timer = setInterval(() => {
-            this.fetchCounterData();
-        }, 60000);
     }
 
     /**
-     * 初始化计数器
+     * 获取计数器服务
      *
      * @protected
-     * @memberof CounterServiceBase
-     */
-    protected initCounterData(): void {
-        this.fetchCounterData();
-    }
-
-    /**
-     * 查询数据
-     *
-     * @protected
+     * @param {string} name 实体名称
      * @returns {Promise<any>}
-     * @memberof CounterServiceBase
+     * @memberof CounterService
      */
-    protected async fetchCounterData(): Promise<any> {
-        for (let i: number = 0; i < 10; i++) {
-            this.counterData['item' + i] = Math.floor(Math.random() * 10);
-        }
+    public getService(name: string): Promise<any> {
+        return window.counterServiceConstructor.getService(name);
     }
 
-    /**
-     * 刷新数据
-     *
-     * @protected
-     * @returns {Promise<any>}
-     * @memberof CounterServiceBase
-     */
-    protected refreshData(): Promise<any> {
-        return this.fetchCounterData();
-    }
-
-    /**
-     * 定时器销毁
-     *
-     * @memberof CounterServiceBase
-     */
-    public destroy(): void {
-        if (this.timer) {
-            clearInterval(this.timer);
-        }
-    }
-
+   
 }

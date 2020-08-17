@@ -1,47 +1,55 @@
 <template>
-  <div class="app-mobile-file-upload">
-    <ion-item-group v-if="files.length > 0">
-      <ion-item v-for="file in files" :key="file.id">
-        <ion-label><a class="file">{{file.name}}</a></ion-label>
-        <ion-icon name="close-circle-outline" @click="onDelete(file, null)"></ion-icon>
-      </ion-item>
-    </ion-item-group>
-    <ion-row>
-      <van-uploader :class="singleChoiceBtnState" multiple="false" :disabled="state" :result-type="resultType"
-        :before-read="beforeRead" :after-read="afterRead">
-        <ion-button color="primary">
-          <ion-icon slot="start" name="image-outline"></ion-icon>
-          {{$t('uploadtext')}}
-        </ion-button>
-      </van-uploader>
-    </ion-row>
-
-  </div>
+    <div class="app-mobile-file-upload">
+        <ion-item-group v-if="files.length > 0">
+        <ion-item v-for="file in files" :key="file.id">
+            <ion-label><a class="file" @click="onDownload(file)">{{file.name}}</a></ion-label>
+            <ion-icon name="close-outline" @click="onDelete(file, null)"></ion-icon>
+        </ion-item>
+        </ion-item-group>
+        <ion-row >
+        <van-uploader 
+            accept="*"
+            :class="singleChoiceBtnState" 
+            multiple="false" 
+            :disabled="state" 
+            :result-type="resultType"
+            :before-read="beforeRead" 
+            :after-read="afterRead">
+                <!-- <ion-button color="primary">
+                <ion-icon slot="start" name="image-outline"></ion-icon>
+                {{$t('uploadtext')}}
+            </ion-button> -->
+            <ion-icon  name="add-outline" style="    font-size: 20px;"></ion-icon>
+        </van-uploader>
+        </ion-row>
+    </div>
 </template>
 
 <script lang="ts">
-  import {Vue,Component, Prop,Provide,Emit,Watch} from 'vue-property-decorator';
-  import {Environment} from '@/environments/environment';
-  import { Subject, Unsubscribable} from 'rxjs';
-  import Axios from 'axios';
+import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Environment } from '@/environments/environment';
+import { Subject, Unsubscribable } from 'rxjs';
+import Axios from 'axios';
+import qs from 'qs';
+import { Loading } from '@/ibiz-core/utils';
 
-  import { Uploader} from 'vant';
+import { Uploader } from 'vant';
 
-  Vue.use(Uploader);
-  @Component({
+Vue.use(Uploader);
+@Component({
     i18n: {
         messages: {
-            'zh-CN': {
+            'ZH-CN': {
                 uploadtext: '上传文件'
             },
-            'en-US': {
+            'EN-US': {
                 uploadtext: 'upload files'
             }
         }
     },
     components: {}
-  })
-  export default class AppMobFileUpload extends Vue {
+})
+export default class AppMobFileUpload extends Vue {
     // MOB LOGIC BEGIN
     /**
      * 单选按钮状态
@@ -50,11 +58,11 @@
      * @type {Array<string>}
      * @memberof AppMobFileUpload
      */
-    get singleChoiceBtnState(): Array < string > {
-      return [
-        this.files.length > 0 ? 'file-list' : '',
-        !this.multiple && this.files.length === 1 ? 'hidden-choice-button' : '',
-      ];
+    get singleChoiceBtnState(): Array<string> {
+        return [
+            this.files.length > 0 ? 'file-list' : '',
+            !this.multiple && this.files.length === 1 ? 'hidden-choice-button' : '',
+        ];
     }
 
     /**
@@ -62,18 +70,18 @@
      *
      * @readonly
      * @type {boolean}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     get state(): boolean {
-      // 禁用
-      if (this.disabled) {
-        return true;
-      }
-      // 单选
-      if (!this.multiple && this.files.length === 1) {
-        return true;
-      }
-      return false;
+        // 禁用
+        if (this.disabled) {
+            return true;
+        }
+        // 单选
+        if (!this.multiple && this.files.length === 1) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -81,15 +89,15 @@
      *
      * @private
      * @type {Array<any>}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
-    private devFiles: Array < any > = [];
+    private devFiles: Array<any> = [];
 
     /**
      * 文件上传模式
      *
      * @type {string}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public resultType: string = process.env.NODE_ENV === 'development' ? 'dataUrl' : 'file';
 
@@ -98,13 +106,10 @@
      *
      * @param {*} file 文件信息
      * @param {*} detail 详情
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public onDelete(file: any, detail: any): void {
-      this.onRemove({
-        id: file.id,
-        name: file.name
-      }, this.files);
+        this.onRemove({ id: file.id,name: file.name}, this.files);
     }
 
     /**
@@ -113,17 +118,15 @@
      * @param {*} file
      * @param {*} detail
      * @returns {boolean}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public beforeRead(file: any, detail: any): boolean {
-      if (file && Array.isArray(file)) {
-        this.$notify({
-          type: 'warning',
-          message: '该功能只支持单个文件上传'
-        });
-        return false;
-      }
-      return true;
+        this.dataProcess();
+        if (file && Array.isArray(file)) {
+            this.$notice.warning('该功能只支持单个文件上传');
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -132,56 +135,67 @@
      * @protected
      * @param {*} file 文件信息
      * @param {*} detail 详情
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     protected afterRead(file: any, detail: any): void {
-      const params = new FormData()
-      params.append('file', file.file, file.file.name)
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+        const params = new FormData()
+        params.append('file', file.file, file.file.name)
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         }
-      }
-      Axios.post(this.uploadUrl, params, config).then((response: any) => {
-        if (response && response.data && response.status === 200) {
-          let data: any = response.data;
-          if (process.env.NODE_ENV === 'development') {
-            this.devFiles.push(Object.assign({}, data, {
-              url: file.content
-            }));
-          }
-          this.onSuccess(data, file, this.files);
-        } else {
-          this.onError(response, file, this.files);
-        }
-      }).catch((response: any) => {
-        this.onError(response, file, this.files);
-      });
+        Loading.show('上传中');
+        Axios.post(this.uploadUrl, params, config).then((response: any) => {
+            Loading.hidden();
+            if (response && response.data && response.status === 200) {
+                let data: any = response.data;
+                if (process.env.NODE_ENV === 'development') {
+                    this.devFiles.push(Object.assign({}, data, {
+                        url: file.content
+                    }));
+                }
+                this.onSuccess(data, file, this.files);
+            } else {
+                this.onError(response, file, this.files);
+            }
+        }).catch((response: any) => {
+            Loading.hidden();
+            this.onError(response, file, this.files);
+        });
     }
     // MOB LOGIC END
+
+    /**
+     * 是否支持多个上传
+     *
+     * @type {boolean}
+     * @memberof AppMobFileUpload
+     */
+    @Prop({ default: true }) public multiple?: boolean;
 
     /**
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
-    @Prop() public formState ? : Subject < any >
+    @Prop() public formState?: Subject<any>
 
-      /**
-       * 是否忽略表单项书香值变化
-       *
-       * @type {boolean}
-       * @memberof AppMobPicture
-       */
-      @Prop() public ignorefieldvaluechange ? : boolean;
+    /**
+     * 是否忽略表单项书香值变化
+     *
+     * @type {boolean}
+     * @memberof AppMobFileUpload
+     */
+    @Prop() public ignorefieldvaluechange?: boolean;
 
     /**
      * 表单状态事件
      *
      * @private
      * @type {(Unsubscribable | undefined)}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     private formStateEvent: Unsubscribable | undefined;
 
@@ -189,7 +203,7 @@
      * 表单数据
      *
      * @type {string}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     @Prop() public data!: string;
 
@@ -197,9 +211,9 @@
      * 初始化值
      *
      * @type {*}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
-    @Prop() public value ? : any;
+    @Prop() public value?: any;
 
     /**
      * 数据值变化
@@ -207,26 +221,26 @@
      * @param {*} newval
      * @param {*} val
      * @returns
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     @Watch('value')
     onValueChange(newval: any, val: any) {
-      if (this.ignorefieldvaluechange) {
-        return;
-      }
-      if (newval) {
-        this.files = JSON.parse(newval);
-        this.dataProcess();
-      } else {
-        this.files = [];
-      }
+        if (this.ignorefieldvaluechange) {
+            return;
+        }
+        if (newval) {
+            this.files = JSON.parse(newval);
+            this.dataProcess();
+        } else {
+            this.files = [];
+        }
     }
 
     /**
      * 所属表单项名称
      *
      * @type {string}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     @Prop() public name!: string;
 
@@ -234,84 +248,68 @@
      * 是否禁用
      *
      * @type {boolean}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
-    @Prop() public disabled ? : boolean;
+    @Prop() public disabled?: boolean;
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof AppMobFileUpload
+     */
+    @Prop({ default: {} }) context: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof AppMobFileUpload
+     */
+    @Prop({ default: {} }) viewparams: any;
 
     /**
      * 上传参数
      *
-     * @type {string}
-     * @memberof AppMobPicture
+     * @type {*}
+     * @memberof AppMobFileUpload
      */
-    @Prop() public uploadparams ? : string;
+    @Prop({ default: {} }) uploadParam: any;
 
     /**
      * 下载参数
      *
-     * @type {string}
-     * @memberof AppMobPicture
-     */
-    @Prop() public exportparams ? : string;
-
-    /**
-     * 自定义参数
-     *
      * @type {*}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
-    @Prop() public customparams ? : any;
+    @Prop({ default: {} }) exportParam: any;
 
     /**
      * 上传文件路径
      *
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public uploadUrl = Environment.BaseUrl + Environment.UploadFile;
 
     /**
      * 下载文件路径
      *
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
 
     /**
      * 文件列表
      *
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
-    @Provide() public files: Array < any > = [];
-
-    /**
-     * 上传keys
-     *
-     * @type {Array<any>}
-     * @memberof AppMobPicture
-     */
-    public upload_keys: Array < any > = [];
-
-    /**
-     * 导出keys
-     *
-     * @type {Array<any>}
-     * @memberof AppMobPicture
-     */
-    public export_keys: Array < any > = [];
-
-    /**
-     * 自定义数组
-     *
-     * @type {Array<any>}
-     * @memberof AppMobPicture
-     */
-    public custom_arr: Array < any > = [];
+    @Provide() public files: Array<any> = [];
 
     /**
      * 应用参数
      *
      * @type {*}
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public appData: any = "";
 
@@ -319,148 +317,121 @@
      * 数据处理
      *
      * @private
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     private dataProcess(): void {
-      let upload_arr: Array < string > = [];
-      let export_arr: Array < string > = [];
-      const _data: any = JSON.parse(this.data);
-      this.upload_keys.forEach((key: string) => {
-        upload_arr.push(`${key}=${_data[key]}`);
-      });
-      this.export_keys.forEach((key: string) => {
-        export_arr.push(`${key}=${_data[key]}`);
-      });
+        const { context: uploadContext, param: uploadParam }
+            = this.$viewTool.formatNavigateParam(this.uploadParam, {}, this.context, this.viewparams, JSON.parse(this.data));
+        const { context: exportContext, param: exportParam }
+            = this.$viewTool.formatNavigateParam(this.exportParam, {}, this.context, this.viewparams, JSON.parse(this.data));
 
-      let _url = `${Environment.BaseUrl}${Environment.UploadFile}`;
-      if (upload_arr.length > 0 || this.custom_arr.length > 0) {
-        _url = `${_url}?${upload_arr.join('&')}${upload_arr.length > 0 ? '&' : ''}${this.custom_arr.join('&')}`;
-      }
-      this.uploadUrl = _url;
+        let _uploadUrl = `${Environment.BaseUrl}${Environment.UploadFile}`;
+        const uploadContextStr: string = qs.stringify(uploadContext, { delimiter: '&' });
+        const uploadParamStr: string = qs.stringify(uploadParam, { delimiter: '&' });
+        if (!Object.is(uploadContextStr, '') || !Object.is(uploadParamStr, '')) {
+            _uploadUrl = `${_uploadUrl}?${uploadContextStr}&${uploadParamStr}`;
+        }
+        this.uploadUrl = _uploadUrl;
 
-      this.files.forEach((file: any) => {
-        if (process.env.NODE_ENV === 'development') {
-          let index = this.devFiles.findIndex((devFile: any) => Object.is(devFile.id, file.id));
-          if (index !== -1) {
-            file.url = this.devFiles[index].url;
-            file.isImage = true;
-          }
-          return;
-        }
-        let url = `${this.downloadUrl}/${file.id}`;
-        if (upload_arr.length > 0 || this.custom_arr.length > 0) {
-          url = `${url}?${upload_arr.join('&')}${upload_arr.length > 0 ? '&' : ''}${this.custom_arr.join('&')}`;
-        }
-        file.url = url;
-      });
+        this.files.forEach((file: any) => {
+            if (process.env.NODE_ENV === 'development') {
+                let index = this.devFiles.findIndex((devFile: any) => Object.is(devFile.id, file.id));
+                if (index !== -1) {
+                    file.url = this.devFiles[index].url;
+                    file.isImage = true;
+                }
+                return;
+            }
+            
+            let _downloadUrl = `${this.downloadUrl}/${file.id}`;
+            const exportContextStr: string = qs.stringify(exportContext, { delimiter: '&' });
+            const exportParamStr: string = qs.stringify(exportParam, { delimiter: '&' });
+            if (!Object.is(exportContextStr, '') || !Object.is(exportParamStr, '')) {
+                _downloadUrl = `${_downloadUrl}?${exportContextStr}&${exportParamStr}`;
+            }
+            file.url = _downloadUrl;
+        });
     }
 
     /**
      * vue 生命周期
      *
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public created() {
-      if (this.formState) {
-        this.formStateEvent = this.formState.subscribe(($event: any) => {
-          // 表单加载完成
-          if (Object.is($event.type, 'load')) {
-            if (this.value) {
-              // console.log(this.value);
-              this.files = JSON.parse(this.value);
-            }
-            this.dataProcess();
-          }
-        });
-      }
+        if (this.formState) {
+            this.formStateEvent = this.formState.subscribe(($event: any) => {
+                // 表单加载完成
+                if (Object.is($event.type, 'load')) {
+                    if (this.value) {
+                        this.files = JSON.parse(this.value);
+                    }
+                    this.dataProcess();
+                }
+                // 表单保存完成 和 表单项更新
+                if (Object.is($event.type, "save") || Object.is($event.type, "updateformitem")) {
+                    this.dataProcess();
+                }
+            });
+        }
     }
 
     /**
      * vue 生命周期
      *
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public mounted() {
-      this.appData = this.$store.getters.getAppData();
-
-      let custom_arr: Array < string > = [];
-      let upload_keys: Array < string > = [];
-      let export_keys: Array < string > = [];
-
-      if (this.uploadparams && !Object.is(this.uploadparams, '')) {
-        upload_keys = this.uploadparams.split(';');
-      }
-      if (this.exportparams && !Object.is(this.exportparams, '')) {
-        export_keys = this.exportparams.split(';');
-      }
-      if (this.customparams && !Object.is(this.customparams, '')) {
-        Object.keys(this.customparams).forEach((name: string) => {
-          custom_arr.push(`${name}=${this.customparams[name]}`);
-        });
-      }
-      this.upload_keys = upload_keys;
-      this.export_keys = export_keys;
-      this.custom_arr = custom_arr;
-
-      if (this.value) {
-        this.files = JSON.parse(this.value);
-      }
-      this.dataProcess();
-
-      this.changeLabelStyle();
-
+        this.appData = this.$store.getters.getAppData();
+        if (this.value) {
+            this.files = JSON.parse(this.value);
+        }
+        this.dataProcess();
+        this.changeLabelStyle();
     }
 
     /**
      * 修改label默认样式
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public changeLabelStyle() {
-      document.querySelectorAll(".app-mobile-file-upload").forEach((element: any) => {
-        let prev = this.getNearEle(element, 1);
-        prev.style.transform = 'none';
-      })
+        document.querySelectorAll(".app-mobile-file-upload").forEach((element: any) => {
+            let prev = this.getNearEle(element, 1);
+            if (prev) {
+                prev.style.transform = 'none';
+            }
+        })
     }
 
     /**
      * 查找相邻前一个元素
      * 
-     *  @memberof AppMobPicture
+     *  @memberof AppMobFileUpload
      */
     public getNearEle(ele: any, type: any) {
-      type = type == 1 ? "previousSibling" : "nextSibling";
-      var nearEle = ele[type];
-      while (nearEle) {
-        if (nearEle.nodeType === 1) {
-          return nearEle;
+        type = type == 1 ? "previousSibling" : "nextSibling";
+        var nearEle = ele[type];
+        while (nearEle) {
+            if (nearEle.nodeType === 1) {
+                return nearEle;
+            }
+            nearEle = nearEle[type];
+            if (!nearEle) {
+                break;
+            }
         }
-        nearEle = nearEle[type];
-        if (!nearEle) {
-          break;
-        }
-      }
-      return null;
+        return null;
     }
 
     /**
      * 组件销毁
      *
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public destroyed(): void {
-      if (this.formStateEvent) {
-        this.formStateEvent.unsubscribe();
-      }
-    }
-
-    /**
-     * 上传之前
-     *
-     * @param {*} file
-     * @memberof AppMobPicture
-     */
-    public beforeUpload(file: any) {
-      // console.log('上传之前');
+        if (this.formStateEvent) {
+            this.formStateEvent.unsubscribe();
+        }
     }
 
     /**
@@ -470,30 +441,21 @@
      * @param {*} file
      * @param {*} fileList
      * @returns
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public onSuccess(response: any, file: any, fileList: any) {
-      if (!response) {
-        return;
-      }
-      const data = {
-        name: response.name,
-        id: response.id
-      };
-      let arr: Array < any > = [];
-      this.files.forEach((_file: any) => {
-        arr.push({
-          name: _file.name,
-          id: _file.id
-        })
-      });
-      arr.push(data);
+        if (!response) {
+            return;
+        }
+        const data = { name: response.name, id: response.id };
+        let arr: Array<any> = [];
+        this.files.forEach((_file: any) => {
+            arr.push({ name: _file.name, id: _file.id });
+        });
+        arr.push(data);
 
-      let value: any = arr.length > 0 ? JSON.stringify(arr) : null;
-      this.$emit('formitemvaluechange', {
-        name: this.name,
-        value: value
-      });
+        let value: any = arr.length > 0 ? JSON.stringify(arr) : null;
+        this.$emit('formitemvaluechange', { name: this.name, value: value });
     }
 
     /**
@@ -502,13 +464,10 @@
      * @param {*} error
      * @param {*} file
      * @param {*} fileList
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public onError(error: any, file: any, fileList: any) {
-      this.$notify({
-        type: 'danger',
-        message: '上传失败'
-      });
+        this.$notice.error('上传失败');
     }
 
     /**
@@ -516,72 +475,30 @@
      *
      * @param {*} file
      * @param {*} fileList
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public onRemove(file: any, fileList: any) {
-      let arr: Array < any > = [];
-      fileList.forEach((f: any) => {
-        if (f.id != file.id) {
-          arr.push({
-            name: f.name,
-            id: f.id
-          });
-        }
-      });
-      let value: any = arr.length > 0 ? JSON.stringify(arr) : null;
-      this.$emit('formitemvaluechange', {
-        name: this.name,
-        value: value
-      });
+        let arr: Array<any> = [];
+        fileList.forEach((f: any) => {
+            if (f.id != file.id) {
+                arr.push({ name: f.name, id: f.id });
+            }
+        });
+        let value: any = arr.length > 0 ? JSON.stringify(arr) : null;
+        this.$emit('formitemvaluechange', { name: this.name, value: value });
     }
 
     /**
      * 下载文件
      *
      * @param {*} file
-     * @memberof AppMobPicture
+     * @memberof AppMobFileUpload
      */
     public onDownload(file: any) {
-      window.open(file.url);
+        this.dataProcess();
+        window.open(file.url);
     }
-
-    /**
-     * 预览图片地址
-     *
-     * @type {string}
-     * @memberof AppMobPicture
-     */
-    public dialogImageUrl: string = '';
-
-    /**
-     * 是否显示预览界面
-     *
-     * @type {boolean}
-     * @memberof AppMobPicture
-     */
-    public dialogVisible: boolean = false;
-
-    /**
-     * 是否支持多个上传
-     *
-     * @type {boolean}
-     * @memberof AppMobPicture
-     */
-    @Prop({
-      default: true
-    }) public multiple ? : boolean;
-
-    /**
-     * 预览
-     *
-     * @param {*} file
-     * @memberof AppMobPicture
-     */
-    public onPreview(file: any) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
-    }
-  }
+}
 </script>
 
 <style lang="less">

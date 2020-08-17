@@ -1,28 +1,33 @@
 <template>
-  <ion-item :class="classes">
+  <ion-item :class="[classes,labelPos.toLowerCase()]" :disabled="disabled">
         <template v-if="uiStyle == 'STYLE2'">
-            <ion-label :style="{minWidth:labelWidth+'px'}" position="floating" v-if="isShowCaption && labelWidth > 0"><span v-if="required" class="required">* </span>{{isEmptyCaption ? '' : caption}}</ion-label>
+            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" position="floating" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
             <slot></slot>
         </template>
         <template v-else>
             <template v-if="labelPos == 'LEFT'">
-                <ion-label :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0"><span v-if="required" class="required">* </span>{{isEmptyCaption ? '' : caption}}</ion-label>
-                <div :style="contentStyle">
+                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
+                <div :style="contentStyle" style="display: flex;align-items: center;">
                     <slot></slot>
                 </div>
+                <div class="prompt_text">{{error}}</div>
             </template>
             <template v-if="labelPos == 'TOP'">
                 <ion-label
-                    :style="{minWidth:labelWidth+'px'}"
-                    position="floating"
-                    v-if="isShowCaption && labelWidth > 0"
-                >{{isEmptyCaption ? '' : caption}}</ion-label>
-                <ion-label>*</ion-label>
+                class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated"
+                :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'"
+                :style="{minWidth:labelWidth+'px'}"
+                position="floating"
+                v-if="isShowCaption && labelWidth > 0">
+                    {{isEmptyCaption ? '' : caption}}
+                </ion-label>
                 <slot></slot>
+                <div class="prompt_text">{{error}}</div>
             </template>
             <template v-if="labelPos == 'RIGHT' ">
                 <slot></slot>
-                <ion-label :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0"><span v-if="required" class="required">* </span> {{isEmptyCaption ? '' : caption}}</ion-label>
+                <div class="prompt_text_right">{{error}}</div>
+                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
             </template>
             <template v-if="labelPos == 'NONE'" >
                 <slot></slot>
@@ -33,10 +38,9 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
-
+import {  Util } from '@/ibiz-core/utils';
 @Component({})
 export default class AppFormItem extends Vue {
-
     /**
      * 内容样式
      *
@@ -58,12 +62,47 @@ export default class AppFormItem extends Vue {
     @Prop() public caption!: string;
 
     /**
+     * 是否禁用
+     *
+     * @type {boolean}
+     * @memberof AppFormItem
+     */
+    @Prop() public disabled?: boolean;
+
+    /**
      * 错误信息
      *
      * @type {string}
      * @memberof AppFormItem
      */
     @Prop() public error?: string;
+
+    /**
+     * 表单项值
+     *
+     * @type {string}
+     * @memberof AppFormItem
+     */
+    @Prop() public itemValue?: any;
+
+    /**
+     * 校验值规则
+     *
+     * @type {string}
+     * @memberof AppFormItem
+     */
+    @Watch('itemValue')
+    onItemValueChange() {
+        // this.validateRules();
+    }
+
+    /**
+     * 错误信息
+     *
+     * @type {string}
+     * @memberof AppFormItem
+     */
+    public errorText: string = '';
 
     /**
      * label样式
@@ -152,24 +191,14 @@ export default class AppFormItem extends Vue {
      * @param {*} oldVal
      * @memberof AppFormItem
      */
-    @Watch('itemRules',{deep:true})
+    @Watch('itemRules', { deep: true })
     onItemRulesChange(newVal: any, oldVal: any) {
-        if (newVal) {
-            try {
-                this.rules = [];
-                const _rules: any[] = newVal;
-                this.rules = [..._rules];
-                this.rules.some((rule: any) => {
-                    if (rule.hasOwnProperty('required')) {
-                        this.required = rule.required;
-                        return true;
-                    }
-                    return false;
-                });
-            } catch (error) {
-            }
+        if (!newVal) {
+            return;
         }
+        this.computeRequired(newVal);
     }
+
 
     /**
      * 计算样式
@@ -206,23 +235,63 @@ export default class AppFormItem extends Vue {
      */
     public mounted() {
         if (this.itemRules) {
-            try {
-                const _rules: any[] = this.itemRules;
-                this.rules = [..._rules];
-                this.rules.some((rule: any) => {
-                    if (rule.hasOwnProperty('required')) {
-                        this.required = rule.required;
-                        return true;
-                    }
-                    return false;
-                });
-            } catch (error) {
-            }
+            this.computeRequired(this.itemRules);
         }
+    }
+
+    /**
+     * 计算是否必填
+     *
+     * @private
+     * @param {*} rules
+     * @memberof AppFormItem
+     */
+    private computeRequired(rules: any): void {
+        try {
+            const _rules: any[] = rules;
+            this.rules = [..._rules];
+            this.rules.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    this.required = rule.required;
+                    return true;
+                }
+                return false;
+            });
+        } catch (error) {
+        }
+    }
+
+    /**
+     * 校验值规则
+     *
+     * @returns {boolean}
+     * @memberof AppFormItem
+     */
+    public async validateRules(): Promise<boolean> {
+        return await this.validate(name,this.itemValue);
+    }
+
+    /**
+     * 校验值规则
+     *
+     * @returns {boolean}
+     * @memberof AppFormItem
+     */
+    public validate(property:string, data:any):Promise<any>{
+        return new Promise((resolve, reject) => {
+            Util.validateItem(property,data,this.rules).then(()=>{
+                this.errorText = "";
+                resolve(true);
+            }).catch(({ errors, fields }) => {
+                this.errorText = errors[0].message;
+                resolve(false);
+            });
+        });
     }
 
 }
 </script>
+
 <style lang='less'>
 @import './app-form-item.less';
 </style>

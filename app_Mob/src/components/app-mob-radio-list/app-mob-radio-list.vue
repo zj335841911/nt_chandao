@@ -1,36 +1,24 @@
 <template>
-  <ion-list class="app-mobile-radio-list">
-    <ion-radio-group  :value="value" @ionChange="change">
-      <ion-item  v-for="(item,index) in options" :key="index">
-        <ion-label>{{item.text}}</ion-label>
-        <ion-radio  :disabled="item.disabled" color="success" :value="item.value"></ion-radio>  
-      </ion-item>
-    </ion-radio-group>
-  </ion-list>
+    <van-radio-group class="app-mobile-radio-list" v-model="curValue" direction="horizontal" @change="change">
+        <van-radio v-for="(item,index) in options" :key="index" :name="item.value">{{item.text}}</van-radio>
+    </van-radio-group>
 </template>
 
 <script lang="ts">
-import {
-  Vue,
-  Component,
-  Prop,
-  Provide,
-  Emit,
-  Watch
-} from "vue-property-decorator";
-import CodeListService from "@app-core/service/app/code-list-service";
+import { Vue, Component, Prop } from "vue-property-decorator";
+import { CodeListService } from "@/ibiz-core";
 
 @Component({
-  components: {}
+    components: {}
 })
 export default class AppMobRadio extends Vue {
+
     /**
      * 代码表服务对象
      *
      * @type {CodeListService}
      * @memberof AppMobRadio
      */
-
     public codeListService: CodeListService = new CodeListService();
 
     /**
@@ -39,7 +27,7 @@ export default class AppMobRadio extends Vue {
      * @type {string}
      * @memberof AppMobRadio
      */
-    @Prop() public tag?: string;
+    @Prop() public tag!: string;
 
     /**
      * 代码表类型
@@ -66,72 +54,63 @@ export default class AppMobRadio extends Vue {
     @Prop() public value?: any;
 
     /**
-     * 禁用
+     * 输入值变化后的值
      *
-     * @type {boolean}
+     * @type {any}
      * @memberof AppMobRadio
      */
-    @Prop() public disabled?: boolean;
+    public curValue?: any = this.value;
 
     /**
      * change事件
+     *
+     * @param {*} data
+     * @memberof AppMobRadio
      */
     public change(data: any) {
-      this.$emit("change", data.detail.value);
+        this.$emit("change", this.curValue);
     }
 
+    /**
+     *  vue 生命周期
+     *
+     * @returns
+     * @memberof AppMobRadio
+     */
     public created() {
-      if (this.tag && this.type) {
-        if (Object.is(this.type, "dynamic")) {
-          this.codeListService
-            .getItems(this.tag)
-            .then((res: any) => {
-              this.options = res;
-            })
-            .catch((error: any) => {
-              this.options = [];
-            });
+        if (!this.tag || !this.type) {
+            return;
+        }
+        this.loadItems();
+    }
+
+    /**
+     * 加载 数据
+     *
+     * @private
+     * @returns {Promise<any>}
+     * @memberof AppMobRadio
+     */
+    private async loadItems(): Promise<any> {
+        if (Object.is(this.type, 'dynamic')) {
+            const response: any = await this.codeListService.getItems(this.tag);
+            if (response) {
+                this.options = response;
+            } else {
+                this.options = [];
+            }
         } else {
-          this.options = this.$store.getters.getCodeListItems(this.tag);
+            this.options = this.$store.getters.getCodeListItems(this.tag);
         }
-      }
-    }
-
-    public mounted(){
-        this.changeLabelStyle();
-    }
-
-    /**
-     * 修改label默认样式
-     * @memberof AppMobPicture
-     */
-    public changeLabelStyle() {
-      document.querySelectorAll(".app-mobile-radio-list").forEach((element: any) => {
-        let prev = this.getNearEle(element, 1);
-        prev.style.transform = 'none';
-      })
-    }
-
-    /**
-     * 查找相邻前一个元素
-     * 
-     *  @memberof AppMobPicture
-     */
-    public getNearEle(ele: any, type: any) {
-      type = type == 1 ? "previousSibling" : "nextSibling";
-      var nearEle = ele[type];
-      while (nearEle) {
-        if (nearEle.nodeType === 1) {
-          return nearEle;
-        }
-        nearEle = nearEle[type];
-        if (!nearEle) {
-          break;
-        }
-      }
-      return null;
     }
 }
 </script>
+
 <style lang="less">
+    .van-radio-group--horizontal{
+        justify-content: flex-end;
+    }
+    .van-radio{
+        margin:5px;
+    }
 </style>

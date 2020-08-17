@@ -5,7 +5,6 @@
       v-bind:key="index"
       :name="item.value"
       style="padding-right: 8px;"
-      :disabled="disabled"
     >{{item.text}}</van-radio>
   </van-radio-group>
 </template>
@@ -19,7 +18,7 @@ import {
   Emit,
   Watch
 } from "vue-property-decorator";
-import CodeListService from "@app-core/service/app/code-list-service";
+import { CodeListService } from "@/ibiz-core";
 
 @Component({
   components: {}
@@ -93,15 +92,6 @@ export default class AppRadio extends Vue {
   set curValue(val: any) {
     this.$emit("change", val);
   }
-
-  /**
-   * 禁用
-   *
-   * @type {boolean}
-   * @memberof AppRadio
-   */
-  @Prop() public disabled?: boolean;
-
 
   public created() {
     if (this.tag && this.type) {

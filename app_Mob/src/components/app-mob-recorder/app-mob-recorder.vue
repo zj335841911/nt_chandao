@@ -55,12 +55,12 @@ const Recorder = require('recorder-core/recorder.mp3.min');
     },
     i18n: {
         messages: {
-            'zh-CN': {
+            'ZH-CN': {
                 openrecorder: '打开录音',
                 startrecorder: '开始录音',
                 endrecorder: '结束录音',
             },
-            'en-US': {
+            'EN-US': {
                 openrecorder: 'open recorder',
                 startrecorder: 'start recorder',
                 endrecorder: 'end recorder',
@@ -556,11 +556,13 @@ export default class AppMobRecorder extends Vue {
      * @memberof AppMobRecorder
      */
     public changeLabelStyle() {
-      document.querySelectorAll(".app-mobile-picture").forEach((element: any) => {
-        let prev = this.getNearEle(element, 1);
-        prev.style.transform = 'none';
-        prev.style.marginBottom = "10px";
-      })
+        document.querySelectorAll(".app-mobile-picture").forEach((element: any) => {
+            let prev = this.getNearEle(element, 1);
+            if (prev) {
+                prev.style.transform = 'none';
+                prev.style.marginBottom = "10px";
+            }
+        });
     }
 
     /**

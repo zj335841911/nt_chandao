@@ -90,7 +90,8 @@ export class ViewOpenService {
         if (!Object.is(urlStr, '')) {
             let indexViewContext = { ...ViewTool.getInstance().getIndexViewParam() };
             if (Object.keys(indexViewContext).length > 0) {
-                urlStr = `/viewshell/${qs.stringify(indexViewContext, { delimiter: ';' })}${urlStr}`;
+                let indexUrl = qs.stringify(indexViewContext, { delimiter: ';' })?qs.stringify(indexViewContext, { delimiter: ';' }):null;
+                urlStr = `/viewshell/${indexUrl}${urlStr}`;
             } else {
                 urlStr = `/viewshell/null${urlStr}`;
             }
@@ -135,14 +136,7 @@ export class ViewOpenService {
      * @memberof ViewOpenService
      */
     public async openDrawer(view: any, context: any, param: any): Promise<any> {
-        return new Promise((resolve, reject) => {
-            AppDrawer.getInstance().openDrawer(view, context, param).subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                resolve(result.datas);
-            });
-        });
+        return await AppDrawer.getInstance().openDrawer(view, context, param);
     }
 
     /**

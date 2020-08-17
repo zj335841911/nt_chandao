@@ -9,14 +9,14 @@ import zhCn from './lang/zh-CN';
 import vantZhCnLocale from 'vant/lib/locale/lang/zh-CN';
 
 const messages = {
-    'zh-CN': Object.assign(vantZhCnLocale, zhCn),
+    'ZH-CN': Object.assign(vantZhCnLocale, zhCn),
 };
 
 
 // 自动根据浏览器系统语言设置语言
-const navLang = localStorage.getItem('local') || navigator.language;
-const localLang = (navLang.indexOf('zh') !== -1 || (navLang.indexOf('en') !== -1 && messages.hasOwnProperty('en-US'))) ? navLang : false;
-let lang: string = localLang || 'zh-CN';
+const navLang = localStorage.getItem('local') || navigator.language.toUpperCase();
+const localLang = (navLang.indexOf('ZH') !== -1 || (navLang.indexOf('EN') !== -1 && messages.hasOwnProperty('EN-US'))) ? navLang : false;
+let lang: string = localLang || 'ZH-CN';
 
 vueApp.config.lang = lang
 
@@ -25,7 +25,8 @@ vueApp.locale = () => { };
 
 const i18n = new VueI18n({
     locale: lang,
-    messages
+    messages,
+    silentTranslationWarn: true,
 });
 
 export default i18n;

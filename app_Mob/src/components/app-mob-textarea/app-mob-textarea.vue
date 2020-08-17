@@ -1,6 +1,5 @@
 <template>
     <ion-textarea
-      :disabled="disabled"
       :placeholder="placeholder"
       :auto-grow = "true"
       :value = "value"
@@ -32,14 +31,6 @@ export default class AppTextarea extends Vue {
     public valueChange(event:any){
      	this.$emit('change',event.detail.value);
     }
-
-		/**
-     * 禁用
-     *
-     * @type {boolean}
-     * @memberof AppTextarea
-     */
-		@Prop() public disabled?: boolean;
 
 		/**
      * 占位提示文字

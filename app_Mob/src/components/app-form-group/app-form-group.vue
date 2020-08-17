@@ -1,15 +1,18 @@
 <template>
-    <ion-row class="app-form-group">
-        <ion-item-divider @click="clickCollapse">
+
+        <ion-row  class="app-form-group" >
+        <ion-item-divider v-if="isShowCaption" :style="{minHeight:caption?'':'10px'}"  @click="clickCollapse">
             <ion-label>
-                <span :class="titleClass">{{caption}}</span>
+                <span :class="titleClass" class="group-title"><ion-icon class="group-title-icon" v-if="iconName" :name="iconName"></ion-icon>{{caption}}</span>
             </ion-label>
             <ion-icon v-show="titleBarCloseMode !== 0" class="group-collapse" :name="collapseContant ? 'chevron-back-outline' : 'chevron-down-outline'"></ion-icon>
         </ion-item-divider>
-        <ion-row v-show="!collapseContant" class="form-group-content">
+        <ion-row ref="group" v-show="!collapseContant" class="form-group-content">
             <slot></slot>
         </ion-row>
     </ion-row>
+
+
 </template>
 
 <script lang="ts">
@@ -73,6 +76,14 @@ export default class AppFormGroup extends Vue {
      * @memberof AppFormGroup
      */
     @Prop() public uiActionGroup?: any;
+
+    /**
+     * 图标名称
+     *
+     * @type {string}
+     * @memberof AppFormGroup
+     */
+    @Prop() public iconName?: string;
 
     /**
      * 标题栏关闭模式
@@ -149,6 +160,29 @@ export default class AppFormGroup extends Vue {
      */
     public doUIAction($event: any, item: any): void {
         this.$emit('groupuiactionclick', { event: $event, item: item });
+    }
+
+    /**
+     * 生命周期
+     *
+     * @type {string}
+     * @memberof AppFormGroup
+     */
+    public mounted() {
+        this.removeExtraLines();
+    }
+
+    public removeExtraLines(){
+        // 获取到group节点，其最后一项没有下划线
+        let groupList: any = this.$refs.group;
+        if (groupList && groupList.lastElementChild) {
+            groupList.lastElementChild.lines = "none";
+        }
+        for (let item of groupList.children) {
+            if (item.localName && item.localName === "ion-item" && item.nextElementSibling && item.nextElementSibling.localName === "ion-row") {
+                item.lines = "none";
+            }
+        }
     }
 }
 </script>

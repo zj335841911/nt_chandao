@@ -84,7 +84,7 @@ export default class MobTreeViewEngine extends ViewEngine {
     public onTreeLoad(args: any): void {
         if (this.view) {
             this.view.datainfo = args.srfmajortext;
-            this.view.viewdataschange.emit({action:'load',data:args});
+            // this.view.viewdataschange.emit({action:'load',data:args});
         }
     }
 

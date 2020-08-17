@@ -18,7 +18,7 @@ import {
   Emit,
   Watch
 } from "vue-property-decorator";
-import CodeListService from "@app-core/service/app/code-list-service";
+import { CodeListService } from "@/ibiz-core";
 
 @Component({
   components: {}

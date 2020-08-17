@@ -117,6 +117,16 @@ export declare interface Util {
      * @memberof Util
      */
     srfFilePath2(name: string): string;
+    
+   /**
+     * 深度合并对象
+     * 
+     * @param FirstOBJ 目标对象
+     * @param SecondOBJ 原对象
+     * @returns {Object}
+     * @memberof Util
+     */
+    deepObjectMerge(FirstOBJ:any, SecondOBJ:any) :any;
 }
 
 declare module "vue/types/vue" {

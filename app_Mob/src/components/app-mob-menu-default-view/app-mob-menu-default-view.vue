@@ -1,5 +1,5 @@
 <template>
-    <ion-tabs class="app-mob-menu-default-view" @ionTabsDidChange="selectItem($event)">
+    <ion-tabs ref="ionNav" class="app-mob-menu-default-view" @ionTabsDidChange="selectItem($event)">
         <template v-for="item in items">
                 <template v-if="!item.hidden">
                     <ion-tab :key="item.id" :tab="item.name" >
@@ -11,7 +11,7 @@
         <ion-tab-bar slot="bottom">
             <template v-for="item in items">
                 <template v-if="!item.hidden">
-                    <ion-tab-button :tab="item.name" :key="item.id" :select="item.select" @click="active(item)">
+                    <ion-tab-button :tab="item.name" :key="item.id" :selected="item.id == activeId" @click="active(item)">
                         <ion-icon :name=" item.iconcls ? item.iconcls : 'home' ">
                         </ion-icon>
                         <ion-label>{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
@@ -131,6 +131,24 @@ export default class AppMobMenuDefaultView extends Vue {
         this.loadCounterData();
     }
 
+        /**
+     * 生命周期
+     *
+     * @memberof AppMobMenuDefaultView
+     */
+    public mounted() {
+        let ionNav:any = this.$refs.ionNav;
+        let currPage = sessionStorage.getItem("currId");
+        if(currPage){
+            this.items.forEach((item:any,index:number) => {
+                if(item.id == currPage){
+                    this.activeId =  item.id       
+                    ionNav.select(item.name);
+                }
+            })
+        } 
+    }
+
     /**
      * 点击菜单事件
      *
@@ -139,6 +157,7 @@ export default class AppMobMenuDefaultView extends Vue {
     public active(val:any) {
         const index :number = this.items.findIndex((item: any) => Object.is(item.id, val.id));
         this.activeId = this.items[index].id; 
+        sessionStorage.setItem("currId",this.items[index].id)
     }
 
     /**

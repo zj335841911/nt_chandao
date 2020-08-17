@@ -143,6 +143,22 @@ export default class AppFormDRUIPart extends Vue {
   @Prop() public parameterName!: string;
 
   /**
+   * 导航参数
+   *
+   * @type {*}
+   * @memberof AppSelect
+   */
+  @Prop({ default: {} }) protected navigateParam?: any;
+
+  /**
+   * 导航上下文
+   *
+   * @type {*}
+   * @memberof AppSelect
+   */
+  @Prop({ default: {} }) protected navigateContext?: any;
+
+  /**
    * 关系界面向视图下发指令对象
    *
    * @private
@@ -265,9 +281,10 @@ export default class AppFormDRUIPart extends Vue {
     Object.assign(_context, { [this.paramItem]: _paramitem });
     //设置顶层视图唯一标识
     Object.assign(_context, this.context);
-
-    Object.assign(this.tempContext, _context);
-    Object.assign(this.tempViewParams, this.viewparams);
+    // 导航参数处理
+    const {context, param}= this.$viewTool.formatNavigateParam(this.navigateContext, this.navigateParam, _context, this.viewparams, this.data);    
+    Object.assign(this.tempContext, context);
+    Object.assign(this.tempViewParams, param);
 
     if (this.isRelationalData) {
       if (!_paramitem || _paramitem == null || Object.is(_paramitem, "")) {
@@ -301,7 +318,7 @@ export default class AppFormDRUIPart extends Vue {
       // 表单保存之前
       if (Object.is($event.type, "beforesave")) {
         if (
-          Object.is(this.refviewtype, "DEMEDITVIEW9") ||
+          Object.is(this.refviewtype, "DEMOBMEDITVIEW9") ||
           Object.is(this.refviewtype, "DEGRIDVIEW9")
         ) {
           this.formDruipart.next({ action: "save", data: $event.data });

@@ -23,27 +23,28 @@ export class CalendarServiceBase extends MdServiceBase {
      * 加载实体数据集
      *
      * @protected
-     * @param {string} action
+     * @param {string} action 
      * @param {*} context
-     * @param {*} [data]
+     * @param {*} data
+     * @param {string} calendarItem
      * @param {string} [serviceName]
      * @returns {Promise<any[]>}
      * @memberof CalendarServiceBase
      */
-    protected async loadDEDataSet(action: string, context: any, data?: any, serviceName?: string): Promise<any[]> {
+    protected async loadDEDataSet(action: string, context: any, data: any, calendarItem: string, serviceName?: string): Promise<any[]> {
         if (serviceName) {
             const service: any = await this.getService(serviceName);
             const response: HttpResponse = await service[action](context, data);
-            if (response.isError()) {
+            if (response.isError && response.isError()) {
                 return Promise.reject(response);
             }
-            return this.formatItem(response, `${action}|${serviceName}`);
+            return this.formatItem(response, calendarItem);
         }
         const response: HttpResponse = await this.service[action](context, data);
-        if (response.isError()) {
+        if (response.isError && response.isError()) {
             return Promise.reject(response);
         }
-        return this.formatItem(response, action);
+        return this.formatItem(response, calendarItem);
     }
 
     /**

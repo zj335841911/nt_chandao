@@ -1,6 +1,6 @@
 export const localList: any[] = [
     {
-        type: 'zh-CN',
+        type: 'ZH-CN',
         name: '中文简体',
     },
 ];

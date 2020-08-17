@@ -3,7 +3,6 @@
     <van-checkbox-group v-model="curValue">
       <van-checkbox
         shape="square"
-        :disabled="disabled"
         :name="item.value"
         v-for="item in options"
         :key="item.id"
@@ -21,7 +20,7 @@ import {
   Emit,
   Watch
 } from "vue-property-decorator";
-import CodeListService from "@app-core/service/app/code-list-service";
+import { CodeListService } from "@/ibiz-core";
 
 @Component({
   components: {}
@@ -83,14 +82,6 @@ export default class AppMultipleSelect extends Vue {
    * @memberof AppMultipleSelect
    */
   @Prop({ default: "," }) public valueSeparator?: string;
-
-  /**
-   * 禁用
-   *
-   * @type {boolean}
-   * @memberof AppInput
-   */
-  @Prop() public disabled?: boolean;
 
   /**
    * 数据显示分隔符

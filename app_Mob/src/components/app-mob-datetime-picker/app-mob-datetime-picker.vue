@@ -1,53 +1,73 @@
 <template>
-    <div class="app-mobile-datetime-picker">
-        <ion-icon v-if="curValue"  name="close-circle-outline" @click="clear"></ion-icon>
-        <ion-datetime 
-            display-format="YYYY-MM-DD HH:mm:ss" 
-            :value="value" 
-            :placeholder="placeholder" 
-            :disabled="disabled"
-            @ionChange="valueChange($event)"
-            :cancel-text="$t('cancel_text')"
-            :done-text="$t('done_text')"
-        ></ion-datetime>
-    </div>
+  <div class="app-mobile-datetime-picker">
+    <ion-icon v-if="curValue" name="close-outline" @click="clear"></ion-icon>
+    <ion-datetime
+      :max="max"
+      :min="min"
+      :display-format="displayFormat"
+      :value="value"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      @ionChange="valueChange($event)"
+      :cancel-text="$t('cancel_text')"
+      :done-text="$t('done_text')"
+    ></ion-datetime>
+  </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-const moment = require('moment');
+  import {
+    Vue,
+    Component,
+    Prop,
+    Provide,
+    Emit,
+    Watch,
+  } from 'vue-property-decorator';
+  const moment = require('moment');
 
-
-@Component({
+  @Component({
     i18n: {
-        messages: {
-            'zh-CN': {
-                cancel_text: '取消',
-                done_text: '完成'
-            },
-            'en-US': {
-                cancel_text: 'cancel',
-                done_text: 'submit'
-            }
-        }
+      messages: {
+        'ZH-CN': {
+          cancel_text: '取消',
+          done_text: '完成',
+        },
+        'EN-US': {
+          cancel_text: 'cancel',
+          done_text: 'submit',
+        },
+      },
     },
-    components: {
-      
-    }
-})
-export default class AppDateTimePicker extends Vue {
+    components: {},
+  })
+  export default class AppDateTimePicker extends Vue {
     /**
      * 传入值
      *
      * @type {string}
      * @memberof AppDateTimePicker
      */
-    @Prop() public value?:string;
+    @Prop() public value?: string;
 
     /**
      * 当前选中值
      * @memberof AppDateTimePicker
      */
-    public curValue:any = this.value;
+    public curValue: any = this.value;
+
+    /**
+     * 当前日期
+     * @type {*}
+     * @memberof MOBILEENTITY3Canlen
+     */
+    protected currentDate: any = new Date().getFullYear();
+
+    /**
+     * 当前选中值
+     * @memberof AppDateTimePicker
+     */
+    public min: any = this.currentDate - 100;
+    public max: any = this.currentDate + 100;
 
     /**
      * 是否禁用
@@ -55,7 +75,7 @@ export default class AppDateTimePicker extends Vue {
      * @type {boolean}
      * @memberof AppDateTimePicker
      */
-    @Prop() public disabled?:boolean;
+    @Prop() public disabled?: boolean;
 
     /**
      * placeholder
@@ -63,29 +83,35 @@ export default class AppDateTimePicker extends Vue {
      * @type {boolean}
      * @memberof AppDateTimePicker
      */
-    @Prop() public placeholder?:string;
+    @Prop() public placeholder?: string;
 
     /**
      *时间选择改变
-      *
-      * @param event{*}
-      * @memberof AppDateTimePicker
-      */
-    public valueChange(event:any){
-        this.curValue = event.detail.value;
-        this.$emit('change',event.detail.value);
+     *
+     * @param event{*}
+     * @memberof AppDateTimePicker
+     */
+    public valueChange(event: any) {
+      this.curValue = moment(event.detail.value).format('YYYY-MM-DD hh:mm:ss');
+      this.$emit('change', this.curValue);
     }
 
     /**
      * 清空值
      * @memberof AppDateTimePicker
      */
-    public clear(){
-        this.curValue = null;
-        this.$emit('change','')
-    }        
-}
+    public clear() {
+      this.curValue = null;
+      this.$emit('change', '');
+    }
+
+    /**
+     * 时间精度
+     * @memberof AppDateTimePicker
+     */
+    @Prop({ default: 'YYYY-MM-DD HH:mm' }) public displayFormat?: string;
+  }
 </script>
 <style lang="less">
-@import './app-mob-datetime-picker.less';
+  @import './app-mob-datetime-picker.less';
 </style>

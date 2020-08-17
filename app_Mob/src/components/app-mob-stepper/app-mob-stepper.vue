@@ -1,5 +1,5 @@
 <template>
-   <van-stepper class="app-mobile-stepper" v-model="curValue" :disabled="disabled"/>
+   <van-stepper class="app-mobile-stepper" v-model="curValue"/>
 </template>
 
 <script lang="ts">
@@ -20,20 +20,12 @@ export default class AppStepper extends Vue {
      */
     @Prop() public value?:number;
 
-    /**
-     * 是否禁用
-     *
-     * @type {number}
-     * @memberof AppStepper
-     */
-    @Prop() public disabled?:boolean;
-
     get curValue(){
         return this.value;
     }
 
     set curValue(value:any){
-        this.$emit('change',value);
+        this.$emit('change',value.toString());
     }
 
     public mounted(){
@@ -47,7 +39,9 @@ export default class AppStepper extends Vue {
     public changeLabelStyle() {
       document.querySelectorAll(".app-mobile-stepper").forEach((element: any) => {
         let prev = this.getNearEle(element, 1);
-        prev.style.transform = 'none';
+        if(prev && prev.style){
+          prev.style.transform = 'none';
+        }
       })
     }
 

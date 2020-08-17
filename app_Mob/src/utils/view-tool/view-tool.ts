@@ -1,5 +1,6 @@
 import { Route } from 'vue-router';
 import qs from 'qs';
+import { Util } from '@/ibiz-core/utils';
 
 export class ViewTool {
 
@@ -78,107 +79,6 @@ export class ViewTool {
         // 传入父视图的srfsessionid
         Object.assign(viewdata, { srfsessionid: viewParam['srfsessionid'] });
         return viewdata;
-    }
-
-    /**
-     * 处理路由路径
-     *
-
-     * @param {Route} route 路由
-     * @param {*} [viewParam={}]
-     * @param {any[]} deResParameters 关系实体参数对象
-     * @param {any[]} parameters 当前应用视图参数对象
-     * @param {any[]} args 多项数据
-     * @param {*} data 行为参数
-     * @returns {string}
-     * @memberof ViewTool
-     */
-    public buildUpRoutePath(route: Route, viewParam: any = {}, deResParameters: any[], parameters: any[], args: any[], data: any, isDefaultPage?: boolean): string {
-        const indexRoutePath = this.getIndexRoutePath(route, isDefaultPage);
-        const deResRoutePath = this.getDeResRoutePath(viewParam, deResParameters, args);
-        const deRoutePath = this.getActiveRoutePath(parameters, args, data);
-        return `${indexRoutePath}${deResRoutePath}${deRoutePath}`;
-    }
-
-    /**
-     * 获取首页根路由路径
-     *
-     * @private
-     * @param {Route} route
-     * @param {boolean} [isDefaultPage]
-     * @returns {string}
-     * @memberof ViewTool
-     */
-    private getIndexRoutePath(route: Route, isDefaultPage?: boolean): string {
-        const { parameters: _parameters }: { parameters: any[] } = route.meta;
-        let { pathName: _pathName, parameterName: _parameterName }: { pathName: string, parameterName: string } = _parameters[0];
-        const param = route.params[_parameterName];
-        if (!isDefaultPage) {
-            _pathName = 'viewshell';
-        }
-        if (param && !Object.is(param, '')) {
-            return `/${_pathName}/${param}`;
-        }
-        return `/${_pathName}/null`;
-    }
-
-    /**
-     * 获取关系实体路径
-     *
-     * @private
-     * @param {*} [viewParam={}] 视图参数
-     * @param {any[]} deResParameters 关系实体参数对象
-     * @param {any[]} args 多项数据
-     * @returns {string}
-     * @memberof ViewTool
-     */
-    private getDeResRoutePath(viewParam: any = {}, deResParameters: any[], args: any[]): string {
-        let routePath: string = '';
-        let [arg] = args;
-        arg = arg ? arg : {};
-        deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
-            let value: any = null;
-            if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
-                value = viewParam[parameterName];
-            } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
-                value = arg[parameterName];
-            }
-            routePath = `${routePath}/${pathName}/${value}`;
-        });
-        return routePath;
-    }
-
-    /**
-     * 当前激活路由路径
-     *
-     * @private
-     * @param {any[]} parameters 当前应用视图参数对象
-     * @param {any[]} args 多项数据
-     * @param {*} data 行为参数
-     * @returns {string}
-     * @memberof ViewTool
-     */
-    private getActiveRoutePath(parameters: any[], args: any[], data: any): string {
-        let routePath: string = '';
-        // 不存在应用实体
-        if (parameters.length === 1) {
-            const [{ pathName, parameterName }] = parameters;
-            routePath = `/${pathName}`;
-            if (Object.keys(data).length > 0) {
-                routePath = `${routePath}/${qs.stringify(data, { delimiter: ';' })}`;
-            }
-        } else if (parameters.length === 2) {
-            let [arg] = args;
-            arg = arg ? arg : {};
-            const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
-            const _value: any = arg[_parameterName] && !Object.is(arg[_parameterName], '') ?
-                arg[_parameterName] : null;
-            routePath = `/${_pathName}/${_value}/${_pathName2}`;
-            if (Object.keys(data).length > 0) {
-                routePath = `${routePath}/${qs.stringify(data, { delimiter: ';' })}`;
-            }
-        }
-        return routePath;
     }
 
     /**
@@ -269,5 +169,167 @@ export class ViewTool {
      */
     public getIndexViewParam(): any {
         return this.indexViewParam;
+    }
+
+    /**
+     * 判断是否为 null
+     *
+     * @param {*} o
+     * @returns {boolean}
+     * @memberof ViewTool
+     */
+    public isNull(o: any): boolean {
+        return Object.prototype.toString.call(o).slice(8, -1) === 'Null'
+    }
+
+    /**
+     * 判断是否为 undefined
+     *
+     * @param {*} o
+     * @returns {boolean}
+     * @memberof ViewTool
+     */
+    public isUndefined(o: any): boolean {
+        return Object.prototype.toString.call(o).slice(8, -1) === 'Undefined'
+    }
+
+
+    /**
+     * 是否字符串
+     *
+     * @param {*} o
+     * @returns {boolean}
+     * @memberof ViewTool
+     */
+    public isString(o: any): boolean {
+        return Object.prototype.toString.call(o).slice(8, -1) === 'String'
+    }
+
+    /**
+     * 导航参数处理
+     *
+     * @param {*} [navigateContext={}] 导航上下文
+     * @param {*} [navigateParam={}] 导航参数
+     * @param {*} [context={}] 默认上下文
+     * @param {*} [viewparams={}] 默认参数
+     * @param {*} [formData={}] 表单数据
+     * @returns {{ context: {}, param: {} }} 返回处理后直接可用的上下文和参数对象
+     * @memberof ViewTool
+     */
+    public formatNavigateParam(navigateContext: any = {}, navigateParam: any = {}, context: any = {}, viewparams: any = {}, formData: any = {}): { context: {}, param: {} } {
+        // 填充默认上下文和默认参数
+        let _itemParam = { context: { ...context }, param: { ...viewparams } };
+        // 处理导航上下文
+        this.formatNavigateParamItem(navigateContext, _itemParam, formData, 'context');
+        // 处理导航参数
+        this.formatNavigateParamItem(navigateParam, _itemParam, formData, 'param');
+        return _itemParam;
+    }
+
+    /**
+     * 导航参数项处理
+     *
+     * @param {*} [param] 导航参数项
+     * @param {*} [itemPara] 填充默认上下文和默认参数
+     * @param {*} [formData] 表单数据
+     * @param {*} [tag] 参数类型
+     * @memberof ViewTool
+     */
+    private  formatNavigateParamItem(param: any, itemParam: any, formData: any, tag: string){
+        if (param && Object.keys(param).length > 0) {
+            Object.keys(param).forEach((name: string) => {
+                let value: string | null = param[name];
+                if (!name || !this.isString(value)) {
+                    return;
+                }
+                if (itemParam[tag].hasOwnProperty(name) && (this.isNull(value) || this.isUndefined(value))) {
+                    delete itemParam[tag][name];
+                    return;
+                }
+                if (value && value.startsWith('%') && value.endsWith('%')) {
+                    const key: string = value.slice(1, -1);
+                    let has_value = false;
+                    // 后续补充全局上下文
+                    if (itemParam.context && itemParam.context.hasOwnProperty(key)) {
+                        has_value = true;
+                        value = itemParam.context[key];
+                    }
+                    // 后续补充全局参数
+                    if (itemParam.param && itemParam.param.hasOwnProperty(key)) {
+                        has_value = true;
+                        value = itemParam.param[key];
+                    }
+                    if (formData && formData.hasOwnProperty(key)) {
+                        has_value = true;
+                        value = formData[key];
+                    }
+                    // 不存在值对象
+                    if (!has_value) {
+                        return;
+                    }
+                }
+                Object.assign(itemParam[tag], { [name]: value });
+            });
+        }
+    }
+
+    /**
+     * 视图参数处理
+     *
+     * @param {*} view
+     * @param {boolean} isPSDEView
+     * @returns {{ context: {}, param: {} }} 返回处理后直接可用的上下文和参数对象
+     * @memberof ViewTool
+     */
+    public formatNavigateViewParam(view: any, isPSDEView: boolean): { context: {}, param: {} } {
+        let _context: any = {}, _param: any = {};
+        // 合并全局上下文
+        const { context, param } = view.$store.getters.getAppData();
+        if (context && Object.keys(context).length > 0) {
+            _context = { ...context };
+        }
+        // 合并全局参数
+        if (param && Object.keys(param).length > 0) {
+            _param = { ...param };
+        }
+
+
+        if (!view.viewDefaultUsage) {
+            // 视图模态或者嵌入打开
+            if (view._context && !Object.is(view._context, '')) {
+                _context = { ..._context, ...JSON.parse(view._context) };
+            }
+            if (view._viewparams && !Object.is(view._viewparams, '')) {
+                _param = { ..._param, ...JSON.parse(view._viewparams) };
+            }
+        } else {
+            // 视图路由打开
+            const path = (view.$route.matched[view.$route.matched.length - 1]).path;
+            const keys: Array<any> = [];
+            const curReg = view.$pathToRegExp.pathToRegexp(path, keys);
+            const matchArray = curReg.exec(view.$route.path);
+            keys.forEach((item: any, index: number) => {
+                Object.assign(_context, { [item.name]: matchArray[index + 1] });
+            });
+            if (_context.hasOwnProperty('viewshell')) {
+                let viewshell: string = _context['viewshell'];
+                if (!Object.is(viewshell, 'null')) {
+                    _context = { ..._context, ...qs.parse(viewshell) }
+                }
+                delete _context.viewshell;
+            }
+            if (view.$route && view.$route.fullPath && view.$route.fullPath.indexOf("?") > -1) {
+                const viewParamStr = view.$route.fullPath.slice(view.$route.fullPath.indexOf("?") + 1);
+                _param = { ..._param, ...qs.parse(viewParamStr, { delimiter: '&' }) };
+            }
+        }
+
+        let data = this.formatNavigateParam(view.navContext, view.navParam, _context, _param, {});
+
+        if (isPSDEView) {
+            Object.assign(data.context, { srfsessionid: Util.createUUID() });
+        }
+
+        return data;
     }
 }

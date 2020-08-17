@@ -88,6 +88,24 @@ export default {
         loadding: '加载中',
         fastsearch: '快速搜索',
         pulling_text: '下拉刷新',
+        ctrl:{
+            form:"表单",
+            multieditviewpanel:"多编辑面板",
+            searchform:"搜索表单",
+        },
+        view:"视图",
+        notConfig:"参数未配置",
+        message:{
+            success: "成功",
+            fail: "失败",
+            savedSuccess: "保存成功",
+            deleteSccess: "删除成功",
+            warning: "警告",
+            confirmToDelete: "确认删除 ",
+            unrecoverable: " 删除操作将不可恢复",
+            totle: "共",
+            data: "条数据"
+        },
         statusMessage:{
             200: '服务器成功返回请求的数据。',
             201: '新建或修改数据成功。',

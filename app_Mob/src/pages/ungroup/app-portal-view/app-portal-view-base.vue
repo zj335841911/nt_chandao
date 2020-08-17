@@ -1,6 +1,7 @@
 
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'appportalview': true, 'app-portal-view': true }">
+    
     <ion-header>
         <ion-toolbar class="ionoc-view-header">
             <ion-buttons slot="start">
@@ -9,12 +10,15 @@
                     {{$t('app.button.back')}}
                 </ion-button>
             </ion-buttons>
-            <ion-title>{{$t(model.srfCaption)}}</ion-title>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
     </ion-header>
+
+
     <ion-content>
                 <view_dashboard 
-            :viewState="viewState"  
+            :viewState="viewState"
+            viewName="AppPortalView"  
             :viewparams="viewparams" 
             :context="context" 
             name="dashboard"  
@@ -41,11 +45,10 @@ export default class AppPortalViewBase extends Vue {
     /**
      * 全局 ui 服务
      *
-     * @private
      * @type {GlobalUiService}
      * @memberof AppPortalViewBase
      */
-    private globaluiservice: GlobalUiService = new GlobalUiService();
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 数据变化
@@ -62,20 +65,18 @@ export default class AppPortalViewBase extends Vue {
     /**
      * 视图上下文
      *
-     * @private
      * @type {string}
      * @memberof AppPortalViewBase
      */
-    @Prop() private _context!: string;
+    @Prop() protected _context!: string;
 
     /**
      * 视图参数
      *
-     * @private
      * @type {string}
      * @memberof AppPortalViewBase
      */
-    @Prop() private _viewparams!: string;
+    @Prop() protected _viewparams!: string;
 
     /**
      * 视图默认使用
@@ -110,12 +111,22 @@ export default class AppPortalViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
-     * 是否显示部件视图头部，默认为false（显示）
+     * 视图导航上下文
      *
-     * @type {boolean}
+     * @protected
+     * @type {*}
      * @memberof AppPortalViewBase
      */
-    @Prop({ default: false }) protected isShowViewHeader!: boolean;
+    protected navContext: any = {};
+
+    /**
+     * 视图导航参数
+     *
+     * @protected
+     * @type {*}
+     * @memberof AppPortalViewBase
+     */
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
@@ -127,7 +138,9 @@ export default class AppPortalViewBase extends Vue {
         srfTitle: '应用门户视图',
         srfCaption: 'app.views.appportalview.caption',
         srfSubCaption: '',
-        dataInfo: ''
+        dataInfo: '',
+        iconcls: '',
+        icon: ''
     }
 
     /**
@@ -140,9 +153,9 @@ export default class AppPortalViewBase extends Vue {
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
         const _this: any = this;
+        this.parseViewParam();
         if (!Object.is(newVal, oldVal) && _this.engine) {
-            _this.parseViewParam();
-            _this.engine.load();
+            this.$nextTick(()=>{_this.engine.load();})
         }
         
     }
@@ -157,12 +170,7 @@ export default class AppPortalViewBase extends Vue {
      */
     @Watch('_viewparams')
     on_viewparams(newVal: string, oldVal: string) {
-        if (!Object.is(newVal, oldVal)) {
-            if (!this.viewDefaultUsage && this._viewparams && !Object.is(this._viewparams, '')) {
-                Object.assign(this.viewparams, JSON.parse(this._viewparams));
-                return;
-            }
-        }
+        this.parseViewParam();
     }
 
     /**
@@ -178,11 +186,19 @@ export default class AppPortalViewBase extends Vue {
     /**
      * 视图状态订阅对象
      *
-     * @private
      * @type {Subject<{action: string, data: any}>}
      * @memberof AppPortalViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
+
+
+    /**
+     * 是否显示标题
+     *
+     * @type {string}
+     * @memberof AppPortalViewBase
+     */
+    @Prop({default:true}) protected showTitle?: boolean;
 
 
 
@@ -194,31 +210,12 @@ export default class AppPortalViewBase extends Vue {
     /**
      * 解析视图参数
      *
-     * @private
      * @memberof AppPortalViewBase
      */
-    private parseViewParam(): void {
-        if (!this.viewDefaultUsage && this._context && !Object.is(this._context, '')) {
-            Object.assign(this.context, JSON.parse(this._context));
-            return;
-        }
-        // 参数异常
-        if (!this.viewDefaultUsage) {
-            return;
-        }
-
-        const path = (this.$route.matched[this.$route.matched.length - 1]).path;
-        const keys: Array<any> = [];
-        const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
-        const matchArray = curReg.exec(this.$route.path);
-        let tempValue: Object = {};
-        keys.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item.name, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-        this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
+    protected parseViewParam(): void {
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, false);
+        this.context = { ...context };
+        this.viewparams = { ...param }
     }
 
     /**
@@ -230,7 +227,7 @@ export default class AppPortalViewBase extends Vue {
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
-        if (this.$route && !this.viewDefaultUsage) {
+        if (!this.viewDefaultUsage) {
             return false;
         }
         return true;
@@ -240,10 +237,9 @@ export default class AppPortalViewBase extends Vue {
     /**
      * 引擎初始化
      *
-     * @private
      * @memberof AppPortalViewBase
      */
-    private engineInit(): void {
+    protected engineInit(): void {
     }
 
     /**
@@ -253,6 +249,15 @@ export default class AppPortalViewBase extends Vue {
      */
     protected created() {
         this.afterCreated();
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof AppPortalViewBase
+     */
+    public activated() {
+        this.afterMounted();
     }
 
     /**
@@ -326,13 +331,14 @@ export default class AppPortalViewBase extends Vue {
      * @param {any[]} args
      * @memberof AppPortalViewBase
      */
-    protected closeView(args: any[]): void {
+    protected async closeView(args: any[]): Promise<any> {
         if (this.viewDefaultUsage) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
         } else {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
+        
     }
 
     /**

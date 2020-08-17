@@ -62,30 +62,35 @@ export class AuthGuard {
     }
 
     /**
-     * post请求
+     * 权限认证
      *
      * @param {string} url
      * @param {*} [params={}]
      * @param {Store<any>} store
-     * @returns {Promise<boolean>}
+     * @returns {Promise<any>}
      * @memberof AuthGuard
      */
-    public async authGuard(url: string, params: any = {}, store: Store<any>): Promise<boolean> {
-        // const get: Promise<any> = Http.getInstance().get(url);
-        // get.then((response: any) => {
-        //     if (response && response.status === 200) {
-        //         const { data }: { data: any } = response;
-        //         const { remotetag, localdata }: { remotetag: string, localdata: {} } = data;
-        //         if (remotetag) {
-        //             store.commit('addAppData', remotetag);
+    public async authGuard(url: string, params: any = {}, store: Store<any>): Promise<any> {
+        // const response: any = await Http.getInstance().get(url);
+        // if (response && response.status === 200) {
+        //     let { data }: { data: any } = response;
+        //     if (data) {
+        //         // token认证把用户信息放入应用级数据
+        //         if (localStorage.getItem('user')) {
+        //             let user: any = JSON.parse(localStorage.getItem('user') as string);
+        //             let localAppData: any = {};
+        //             if (user.sessionParams) {
+        //                 localAppData = { context: user.sessionParams };
+        //                 Object.assign(localAppData, data);
+        //             }
+        //             data = JSON.parse(JSON.stringify(localAppData));
         //         }
-        //         if (localdata) {
-        //             store.commit('addLocalData', localdata);
-        //         }
+        //         store.commit('addAppData', data);
+        //         // 提交统一资源数据
+        //         store.dispatch('authresource/commitAuthData', data);
         //     }
-        // }).catch((error: any) => {
-        // });
-        return await this.loadDictionaryDatas(store)
+        // }
+        return await this.loadDictionaryDatas(store);
     }
 
     /**
@@ -105,7 +110,7 @@ export class AuthGuard {
         if (response && response.status === 200 && response.data && Array.isArray(response.data)) {
             const datas: any[] = [...response.data];
             datas.forEach((item: any) => {
-                if (!item.items) {
+                if (item && !item.items) {
                     item.items = [];
                 }
             });

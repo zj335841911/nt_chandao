@@ -1,5 +1,5 @@
 <template>
-    <ion-input  debounce="300" :type="type" :value="value" :placeholder="placeholder" :disabled = "disabled"  @ionChange="change"></ion-input>
+    <ion-input  debounce="300" :type="type" :value="value" :placeholder="placeholder" @ionChange="change" @ionBlur="()=>{this.$emit('blur')}"></ion-input>
 </template>
 
 <script lang="ts">
@@ -25,14 +25,6 @@ export default class AppInput extends Vue {
      * @memberof AppInput
      */
     @Prop() public type?: string;
-
-    /**
-     * 禁用
-     *
-     * @type {boolean}
-     * @memberof AppInput
-     */
-    @Prop() public disabled?: boolean;
 
     /**
      * 占位提示文字

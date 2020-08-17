@@ -1,19 +1,40 @@
 .app-form-item {
     width: 100%;
+    font-size: 15px;
+    --inner-padding-start: 20px;
+    --padding-start: 0;
     .app-form-item-label-required {
-        color: red;
+        color: #ea3424;
+    }
+    .app-form-item-label-notRequired {
+        color: #000;
+    }
+    .prompt_text{
+        position: absolute;
+        right: 25px;
+        opacity: 0.8;
+        font-size: 12px;
+        bottom: 0px;
+        color: #ea3424;
+        z-index: 10;
+    }
+    .prompt_text_right{
+        position: absolute;
+        left: 0px;
+        opacity: 0.8;
+        font-size: 12px;
+        bottom: 0px;
+        color: #ea3424;
+        z-index: 10;
+    }
+    .sc-ion-label-ios-h{
+        font-size: 15px;
     }
 }
 .app-form-item.item-has-value {
     >ion-label {
-        color: #666666;
-        font-size: 1rem;
-    }
-}
-.app-form-item.item-has-focus {
-    >ion-label {
-        color: #108cee;
-        font-size: 1rem;
+        color: #888888;
+        font-size: 15px;
     }
 }
 .app-form-item{
@@ -21,6 +42,22 @@
         min-width: 34px;
     }
 }
-.required{
-    color: red;
+.left{
+    .app-form-item-input{
+      --padding-end: 26px;
+      }
+    .app-form-item-textarea{
+      --padding-end: 26px;
+    }
+}
+.app-form-item.item-last-item {
+    --inner-border-width: 0;
+}
+
+.item-disabled {
+    opacity: 0.6;
+    ion-label{
+        -webkit-opacity: 1 !important;
+        -webkit-text-fill-color: #000;
+    }
 }

@@ -1,7 +1,7 @@
 import { appEntityServiceConstructor } from '@/app-core/service/app-entity-service-constructor';
 import { Util, Http, Loading, HttpResponse } from '../utils';
-import { CodeListService } from '@/app-core/service/app/code-list-service';
-
+import { CodeListService } from '@ibiz-core';
+import { Store } from 'vuex';
 /**
  * 部件服务基类
  *
@@ -19,17 +19,6 @@ export class ControlServiceBase {
      */
     protected model: any = null;
 
-    /**
-     * 是否正在加载状态
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof ControlServiceBase
-     */
-    protected $isLoading: boolean = false;
-    public get isLoading(): boolean {
-        return this.$isLoading;
-    }
 
     /**
      * 应用实体名称
@@ -74,7 +63,7 @@ export class ControlServiceBase {
      * @type {CodeListService}
      * @memberof ControlServiceBase
      */
-    protected codeListService: CodeListService = CodeListService.getInstance();
+    protected codeListService: CodeListService;
 
     /**
      * 请求服务对象
@@ -97,7 +86,7 @@ export class ControlServiceBase {
         return appEntityServiceConstructor.getService(entityName);
     }
 
-    /**
+        /**
      * 行为处理之前
      *
      * @protected
@@ -109,9 +98,6 @@ export class ControlServiceBase {
      * @memberof ControlServiceBase
      */
     protected async onBeforeAction(action?: string, context: any = {}, data: any = {}, isLoading: boolean = true): Promise<any> {
-        if (isLoading) {
-            this.showLoading();
-        }
         if (!this.service) {
             this.service = await this.getService(this.appDEName);
         }
@@ -130,32 +116,6 @@ export class ControlServiceBase {
      */
     protected async beforeAction(action?: string, context: any = {}, data: any = {}): Promise<any> { }
 
-    /**
-     * 行为处理之后
-     *
-     * @protected
-     * @param {string} [action]
-     * @param {*} [context={}]
-     * @param {*} [response]
-     * @returns {Promise<any>}
-     * @memberof ControlServiceBase
-     */
-    protected async onAfterAction(action?: string, context: any = {}, response?: any): Promise<any> {
-        this.hiddenLoading();
-        this.afterAction(action, context, response);
-    }
-
-    /**
-     * 行为处理之后
-     *
-     * @protected
-     * @param {string} [action]
-     * @param {*} [context={}]
-     * @param {*} [response]
-     * @returns {Promise<any>}
-     * @memberof ControlServiceBase
-     */
-    protected async afterAction(action?: string, context: any = {}, response?: any): Promise<any> { }
 
     /**
      * 添加数据
@@ -172,14 +132,13 @@ export class ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.Create(context, data);
+            response = await this.service.Create(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -198,14 +157,13 @@ export class ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.Remove(context, data);
+            response = await this.service.Remove(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -224,14 +182,13 @@ export class ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.Update(context, data);
+            response = await this.service.Update(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -250,14 +207,13 @@ export class ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.Get(context, data);
+            response = await this.service.Get(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -274,20 +230,23 @@ export class ControlServiceBase {
     public async loadDraft(action: string, context: any = {}, data: any = {}, isLoading?: boolean): Promise<HttpResponse> {
         await this.onBeforeAction(action, context, data, isLoading);
         data = this.handleRequestData(action, context, data);
-        //仿真主键数据
-        data[this.appDeKey] = Util.createUUID();
         let response: HttpResponse;
+        let PrimaryKey = Util.createUUID();
+        //仿真主键数据
+        data[this.appDeKey] = PrimaryKey;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
+            console.log(response);
         } else {
-            response = await this.service.GetDraft(context, data);
+            response = await this.service.GetDraft(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response, true);
             this.mergeDefaults(response);
         }
-        await this.onAfterAction(action, context, response);
+        response.data[this.appDeKey] = PrimaryKey;
         return response;
+        
     }
 
     /**
@@ -304,14 +263,13 @@ export class ControlServiceBase {
         data = this.handleRequestData(action, context, data);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
             response = new HttpResponse(200, null, { code: 100, message: `${action}前台逻辑未实现` });
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response, true);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -325,7 +283,7 @@ export class ControlServiceBase {
      * @returns {*}
      * @memberof ControlServiceBase
      */
-    protected handleRequestData(action: string, context: any = {}, data: any = {}): any {
+    protected handleRequestData(action: string, context: any = {}, data: any = {}, isMerge:boolean = false): any {
         if (!this.model || !Util.isFunction(this.model.getDataItems)) {
             return data;
         }
@@ -335,6 +293,9 @@ export class ControlServiceBase {
         }
         const dataItems: any[] = this.model.getDataItems();
         const requestData: any = {};
+        if(isMerge && (data && data.viewparams)){
+            Object.assign(requestData,data.viewparams);
+        }
         dataItems.forEach((item: any) => {
             if (item && item.dataType && Object.is(item.dataType, 'FONTKEY')) {
                 if (item && item.prop) {
@@ -401,31 +362,33 @@ export class ControlServiceBase {
     protected mergeDefaults(response: any = {}): void { }
 
     /**
-     * 开启加载动画
+     * Vue 状态管理器
      *
-     * @protected
-     * @returns {Promise<any>}
-     * @memberof ControlServiceBase
+     * @public
+     * @type {(any | null)}
+     * @memberof AuthService
      */
-    protected async showLoading(): Promise<any> {
-        if (this.$isLoading === false) {
-            this.$isLoading = true;
-            Loading.show();
-        }
+    public $store: Store<any> | null = null;
+
+    /**
+     * Creates an instance of ControlService.
+     * 
+     * @param {*} [opts={}]
+     * @memberof ControlService
+     */
+    constructor(opts: any = {}) {
+        this.$store = opts.$store;
+        this.codeListService = new CodeListService({ $store:opts.$store });
     }
 
     /**
-     * 结束加载动画
+     * 获取状态管理器
      *
-     * @protected
-     * @returns {Promise<any>}
-     * @memberof ControlServiceBase
+     * @returns {(any | null)}
+     * @memberof ControlService
      */
-    protected async hiddenLoading(): Promise<any> {
-        if (this.$isLoading === true) {
-            Loading.hidden();
-            this.$isLoading = false;
-        }
+    public getStore(): Store<any> | null {
+        return this.$store;
     }
 
 }

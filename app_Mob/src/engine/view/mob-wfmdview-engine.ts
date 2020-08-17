@@ -19,7 +19,7 @@ export default class MobWFMDViewEngine extends MobMDViewEngine {
         const loadParam: any = {};
         Object.assign(loadParam, { taskid: arg.data.srfkey, srfkey: arg.data.businesskey });
         if (this.openData && this.isFunc(this.openData)) {
-            this.openData(loadParam);
+            this.openData([loadParam], {}, {});
         }
     }
 

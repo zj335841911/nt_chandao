@@ -1,1147 +1,2225 @@
+import qs from 'qs';
 import { MockAdapter } from '@/mock/mock-adapter';
-import { Util } from '@/ibiz-core/utils';
 const mock = MockAdapter.getInstance();
 
 // 模拟数据
 const mockDatas: Array<any> = [
 ];
 
-/**
- * 解析参数
- * 
- * @param paramArray 参数数组
- * @param regStr 路径正则
- * @param url 访问路径
- */
-const parsingParameters = (paramArray: Array<string>, regStr: RegExp, url: string): any => {
-    let params: any = {};
-    const matchArray: any = new RegExp(regStr).exec(url);
-    if (matchArray && matchArray.length > 1 && paramArray && paramArray.length > 0) {
+
+//getwflink
+mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/bugs\/[a-zA-Z0-9\-\;]+\/usertasks\/[a-zA-Z0-9\-\;]+\/ways$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: getwflink");
+    console.table({url:config.url, method: config.method, data:config.data});
+    console.groupEnd();
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, {}];
+    }
+    return [status,[
+        {"sequenceFlowId":"dfdsfdsfdsfdsfds","sequenceFlowName":"同意",
+         "taskId":"aaaaddddccccddddd","processDefinitionKey":"support-workorders-approve-v1",
+         "processInstanceId":"ddlfldldfldsfds","refViewKey":""},
+        {"sequenceFlowId":"ddssdfdfdfdfsfdf","sequenceFlowName":"不同意",
+         "taskId":"aaaaddddccccddddd","processDefinitionKey":"support-workorders-approve-v1",
+         "processInstanceId":"ddfdsldlfdlldsf","refViewKey":"workorder_ltform_editview"}
+        ]];
+});
+
+// getwfstep
+mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/bugs\/process-definitions-nodes$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: getwfstep");
+    console.table({url:config.url, method: config.method, data:config.data});
+    console.groupEnd();
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, {}];
+    }
+    return [status, [
+        {"userTaskId":"sddfddfd-dfdf-fdfd-fdf-dfdfd",
+        "userTaskName":"待审",
+        "cnt":0,
+        "processDefinitionKey":"support-workorders-approve-v1",
+        "processDefinitionName":"工单审批流程v1"
+        },
+        {"userTaskId":"sddfddfd-dfdf-fdfd-fdf-87927",
+        "userTaskName":"待分配",
+        "cnt":3,
+        "processDefinitionKey":"support-workorders-approve-v1",
+        "processDefinitionName":"工单审批流程v1"}
+        ]];
+});
+
+// createBatch
+mock.onPost(new RegExp(/^\/bugs\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: createBatch");
+    console.table({url:config.url, method: config.method, data:config.data});
+    console.groupEnd();
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, {}];
+    }
+    return [status, {}];
+});
+
+// updateBatch
+mock.onPut(new RegExp(/^\/bugs\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: updateBatch");
+    console.table({url:config.url, method: config.method, data:config.data});
+    console.groupEnd();
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, {}];
+    }
+    return [status, {}];
+});
+
+// removeBatch
+mock.onDelete(new RegExp(/^\/bugs\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: removeBatch");
+    console.table({url:config.url, method: config.method, data:config.data});
+    console.groupEnd();
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, {}];
+    }
+    return [status, {}];
+});
+
+
+
+// Select
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Select");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
-            Object.defineProperty(params, item, {
+            Object.defineProperty(tempValue, item, {
                 enumerable: true,
-                value: matchArray[index + 1],
+                value: matchArray[index + 1]
             });
         });
     }
-    return params;
-};
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items];
+});
 
-/**
- * 排队路径参数是否存在 null、undefined 或者空字符串等异常情况 
- * 
- * @param paramArray 
- * @param params 
- */
-const judgmentParametersException = (paramArray: Array<string>, params: any): boolean => {
-    let isParametersException = false;
-    if (paramArray.length > 0) {
-        let state = paramArray.some((key: string) => {
-            let _value = params[key];
-            if (!_value || Object.is(_value, '')) {
-                return true;
-            }
-            return false;
+// Select
+mock.onGet(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Select");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
         });
-        if (state) {
-            isParametersException = true;;
-        }
     }
-    return isParametersException;
-};
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items];
+});
 
-
-
-//Create
-mock.onPost(new RegExp(/^\/bugs$/)).reply((config: any) => {
+    
+// Create
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Create");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-
-    let data: any = JSON.parse(config.data);
-    mockDatas.push(Object.assign({}, data, { bugid: Util.createUUID() }))
-
-    return [status, mockDatas[mockDatas.length - 1], config.headers, config];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Create
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Create");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas[0]);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas[0]];
 });
 
-//Update
-mock.onPut(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    
+// Update
+mock.onPut(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Update");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-
-    // 遍历键值，获取数据
-    let items: Array<any> = [];
-    items = Util.deepCopy(mockDatas);
-    let state2 = Object.keys(params).some((key: string) => {
-        let _value = params[key];
-        let _items = items.filter((data: any) => Object.is(data[key], _value));
-        if (_items.length === 0) {
-            return true;
-        }
-        items = [];
-        items = Util.deepCopy(_items);
-        return false;
-    });
-    if (state2) {
-        return [403, null, config.headers, config];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Update
+mock.onPut(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Update");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-
-    let et_id = Object.keys(params)[Object.keys(params).length - 1]
-    let et_id_value = params[et_id];
-    let index = mockDatas.findIndex((data: any) => Object.is(data[et_id], et_id_value));
-
-    let data: any = JSON.parse(config.data);
-    Object.keys(mockDatas[index]).forEach((key: string) => {
-        if (data.hasOwnProperty(key)) {
-            Object.assign(mockDatas[index], { [key]: data[key] })
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
         }
-    });
-
-    return [status, mockDatas[index], config.headers, config];
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
 });
 
-//Remove
-mock.onDelete(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+
+
+
+// GetDraft
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    let et_id = Object.keys(params)[Object.keys(params).length - 1]
-    let et_id_value = params[et_id];
-    let index = mockDatas.findIndex((data: any) => Object.is(data[et_id], et_id_value));
-    mockDatas.splice(index, 1);
-
-    return [status, null, config.headers, config];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
 });
 
-//Get
-mock.onGet(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    // 遍历键值，获取数据
-    let items: Array<any> = [];
-    items = Util.deepCopy(mockDatas);
-    let state2 = Object.keys(params).some((key: string) => {
-        let _value = params[key];
-        let _items = items.filter((data: any) => Object.is(data[key], _value));
-        if (_items.length === 0) {
-            return true;
-        }
-        items = [];
-        items = Util.deepCopy(_items);
-        return false;
-    });
-    if (state2) {
-        return [403, null, config.headers, config];
-    }
-    return [status, items[0], config.headers, config];
-});
-
-//GetDraft
+// GetDraft
 mock.onGet(new RegExp(/^\/bugs\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 'bugid'
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/getdraft$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {}, config.headers, config];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
 });
 
-//Activate
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/activate$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/activate$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//AssignTo
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/assignto$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/assignto$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//BatchUnlinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/batchunlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/batchunlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//BuildBatchUnlinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildbatchunlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildbatchunlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//BuildLinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//BuildUnlinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildunlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildunlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//CheckKey
-mock.onPost(new RegExp(/^\/bugs\/checkkey$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/checkkey$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//Close
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/close$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/close$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//Confirm
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/confirm$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/confirm$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//LinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/linkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/linkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//ReleaaseBatchUnlinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaasebatchunlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaasebatchunlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//ReleaseLinkBugbyBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbybug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbybug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//ReleaseLinkBugbyLeftBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbyleftbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbyleftbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//ReleaseUnlinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaseunlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaseunlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//Resolve
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/resolve$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/resolve$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//Save
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/save$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/save$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//ToStory
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/tostory$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/tostory$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onPost(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/unlinkbug$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 'bugid'
-    let paramArray: Array<string> = ['bugid'];
-    let regStr: RegExp = /^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/unlinkbug$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
-
-    return [status, {
-    }];
-});
-
-//fetchBuildBugs
-mock.onGet(new RegExp(/^\/bugs\/fetchbuildbugs(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchbuildbugs(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
-    }
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
-    let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
-    }
-    return [status, records, config.headers, config];
-});
-
-//fetchBuildLinkResolvedBugs
-mock.onGet(new RegExp(/^\/bugs\/fetchbuildlinkresolvedbugs(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
+// Activate
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/activate$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Activate");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchbuildlinkresolvedbugs(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/activate$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Activate
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/activate$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Activate");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/activate$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
-    let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
-    }
-    return [status, records, config.headers, config];
-});
-
-//fetchBuildOpenBugs
-mock.onGet(new RegExp(/^\/bugs\/fetchbuildopenbugs(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
+// AssignTo
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/assignto$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: AssignTo");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchbuildopenbugs(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/assignto$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// AssignTo
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/assignto$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: AssignTo");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/assignto$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
-    let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
-    }
-    return [status, records, config.headers, config];
-});
-
-//fetchDefault
-mock.onGet(new RegExp(/^\/bugs\/fetchdefault(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
+// BatchUnlinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/batchunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BatchUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchdefault(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/batchunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// BatchUnlinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/batchunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BatchUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/batchunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
-    let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
-    }
-    return [status, records, config.headers, config];
-});
-
-//fetchReleaseBugs
-mock.onGet(new RegExp(/^\/bugs\/fetchreleasebugs(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
+// BuildBatchUnlinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildbatchunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BuildBatchUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchreleasebugs(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildbatchunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// BuildBatchUnlinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/buildbatchunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BuildBatchUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildbatchunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
-    let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
-    }
-    return [status, records, config.headers, config];
-});
-
-//fetchReleaseLeftBugs
-mock.onGet(new RegExp(/^\/bugs\/fetchreleaseleftbugs(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
+// BuildLinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BuildLinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchreleaseleftbugs(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// BuildLinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/buildlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BuildLinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
-    let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
-    }
-    return [status, records, config.headers, config];
-});
-
-//fetchReportBugs
-mock.onGet(new RegExp(/^\/bugs\/fetchreportbugs(\?[\w-./?%&=]*)*$/)).reply((config: any) => {
+// BuildUnlinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BuildUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    // 
-    let paramArray: Array<string> = [];
-    let regStr: RegExp = /^\/bugs\/fetchreportbugs(\?[\w-./?%&=]*)*$/;
-    let url = config.url;
-    let params = parsingParameters(paramArray, regStr, url);
-    console.log(params);
-
-    let state = judgmentParametersException(paramArray, params);
-    if (state) {
-        return [403, null, config.headers, config];
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// BuildUnlinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/buildunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: BuildUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/buildunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
     
-    let { headers } = config;
-    let xTotal = mockDatas.length;
+// CheckKey
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: CheckKey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// CheckKey
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: CheckKey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// Close
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/close$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Close");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/close$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Close
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/close$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Close");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/close$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// Confirm
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/confirm$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Confirm");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/confirm$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Confirm
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/confirm$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Confirm");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/confirm$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// LinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/linkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: LinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/linkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// LinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/linkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: LinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/linkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// ReleaaseBatchUnlinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaasebatchunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaaseBatchUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaasebatchunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// ReleaaseBatchUnlinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/releaasebatchunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaaseBatchUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaasebatchunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// ReleaseLinkBugbyBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbybug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaseLinkBugbyBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbybug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// ReleaseLinkBugbyBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/releaselinkbugbybug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaseLinkBugbyBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbybug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// ReleaseLinkBugbyLeftBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbyleftbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaseLinkBugbyLeftBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbyleftbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// ReleaseLinkBugbyLeftBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/releaselinkbugbyleftbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaseLinkBugbyLeftBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaselinkbugbyleftbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// ReleaseUnlinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaseunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaseUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaseunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// ReleaseUnlinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/releaseunlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ReleaseUnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/releaseunlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// Resolve
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/resolve$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Resolve");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/resolve$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Resolve
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/resolve$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Resolve");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/resolve$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// Save
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Save");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// Save
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Save");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// ToStory
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/tostory$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ToStory");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/tostory$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// ToStory
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/tostory$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: ToStory");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/tostory$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+    
+// UnlinkBug
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/unlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: UnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/unlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+        
+// UnlinkBug
+mock.onPost(new RegExp(/^\/bugs\/?([a-zA-Z0-9\-\;]{0,35})\/unlinkbug$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: UnlinkBug");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})\/unlinkbug$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+
+
+// FetchBuildBugs
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchbuildbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchbuildbugs$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+    
+// FetchBuildBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchbuildbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchBuildBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchbuildbugs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
     let records: Array<any> = [];
-    if (config.url.includes('page')) {
-        let url = config.url;
-        let xPage = url.split('page=')[1];
-        let xPerPage = url.split('size=')[1].split('&')[0];
-        Object.assign(headers, { 'x-page': xPage + '', 'x-per-page': xPerPage + '', 'x-total': xTotal + '' });
-        let start = xTotal - (xPage * xPerPage);
-        records = mockDatas.slice(xPage * xPerPage, xPerPage);
-    } else {
-        records = [...mockDatas];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
     }
-    return [status, records, config.headers, config];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
 
-//Create
-mock.onPost('/stories/{storyid}/bugs').reply((config: any) => {
+// FetchBuildLinkResolvedBugs
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchbuildlinkresolvedbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildLinkResolvedBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchbuildlinkresolvedbugs$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
-
-//Update
-mock.onPut('/stories/{storyid}/bugs/{bugid').reply((config: any) => {
+    
+// FetchBuildLinkResolvedBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchbuildlinkresolvedbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildLinkResolvedBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
 });
 
-//Remove
-mock.onDelete('/stories/{storyid}/bugs/{bugid}').reply((config: any) => {
+// FetchBuildLinkResolvedBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchbuildlinkresolvedbugs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildLinkResolvedBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
-//Get
-mock.onGet('/stories/{storyid}/bugs/{bugid').reply((config: any) => {
+
+// FetchBuildOpenBugs
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchbuildopenbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildOpenBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchbuildopenbugs$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
-
-//GetDraft
-mock.onGet('/stories/{storyid}/bugs/getdraft').reply((config: any) => {
+    
+// FetchBuildOpenBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchbuildopenbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildOpenBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
 });
 
-//Activate
-mock.onPost('/stories/{storyid}/bugs/{bugid}/activate').reply((config: any) => {
+// FetchBuildOpenBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchbuildopenbugs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchBuildOpenBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
-//AssignTo
-mock.onPost('/stories/{storyid}/bugs/{bugid}/assignto').reply((config: any) => {
+
+// FetchDefault
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchdefault$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchdefault$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
-
-//BatchUnlinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/batchunlinkbug').reply((config: any) => {
+    
+// FetchDefault
+mock.onGet(new RegExp(/^\/bugs\/fetchdefault$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
 });
 
-//BuildBatchUnlinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/buildbatchunlinkbug').reply((config: any) => {
+// FetchDefault
+mock.onGet(new RegExp(/^\/bugs\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
-//BuildLinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/buildlinkbug').reply((config: any) => {
+
+// FetchReleaseBugs
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchreleasebugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReleaseBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchreleasebugs$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
-
-//BuildUnlinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/buildunlinkbug').reply((config: any) => {
+    
+// FetchReleaseBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchreleasebugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReleaseBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
 });
 
-//CheckKey
-mock.onPost('/stories/{storyid}/bugs/checkkey').reply((config: any) => {
+// FetchReleaseBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchreleasebugs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReleaseBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
-//Close
-mock.onPost('/stories/{storyid}/bugs/{bugid}/close').reply((config: any) => {
+
+// FetchReleaseLeftBugs
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchreleaseleftbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReleaseLeftBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchreleaseleftbugs$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
-
-//Confirm
-mock.onPost('/stories/{storyid}/bugs/{bugid}/confirm').reply((config: any) => {
+    
+// FetchReleaseLeftBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchreleaseleftbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReleaseLeftBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
 });
 
-//LinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/linkbug').reply((config: any) => {
+// FetchReleaseLeftBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchreleaseleftbugs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReleaseLeftBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
-//ReleaaseBatchUnlinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/releaasebatchunlinkbug').reply((config: any) => {
+
+// FetchReportBugs
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchreportbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReportBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/fetchreportbugs$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
-
-//ReleaseLinkBugbyBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/releaselinkbugbybug').reply((config: any) => {
+    
+// FetchReportBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchreportbugs$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReportBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
 });
 
-//ReleaseLinkBugbyLeftBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/releaselinkbugbyleftbug').reply((config: any) => {
+// FetchReportBugs
+mock.onGet(new RegExp(/^\/bugs\/fetchreportbugs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: FetchReportBugs");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
-    return [status, {
-    }];
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
-//ReleaseUnlinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/releaseunlinkbug').reply((config: any) => {
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
+
+// Remove
+mock.onDelete(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Remove");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-    return [status, {
-    }];
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
 });
 
-//Resolve
-mock.onPost('/stories/{storyid}/bugs/{bugid}/resolve').reply((config: any) => {
+// Remove
+mock.onDelete(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Remove");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-    return [status, {
-    }];
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
 });
 
-//Save
-mock.onPost('/stories/{storyid}/bugs/{bugid}/save').reply((config: any) => {
+// Get
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Get");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-    return [status, {
-    }];
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
 });
 
-//ToStory
-mock.onPost('/stories/{storyid}/bugs/{bugid}/tostory').reply((config: any) => {
+// Get
+mock.onGet(new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bug 方法: Get");
+    console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
-    return [status, {
-    }];
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
 });
-
-//UnlinkBug
-mock.onPost('/stories/{storyid}/bugs/{bugid}/unlinkbug').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchbuildbugs').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchbuildlinkresolvedbugs').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchbuildopenbugs').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchdefault').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchreleasebugs').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchreleaseleftbugs').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-//UnlinkBug
-mock.onGet('/stories/{storyid}/bugs/fetchreportbugs').reply((config: any) => {
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    return [status, {
-    }];
-});
-
-

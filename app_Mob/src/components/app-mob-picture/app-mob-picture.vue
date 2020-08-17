@@ -1,8 +1,9 @@
 <template>
     <div class="app-mobile-picture">
         <van-uploader 
+            v-if="platform =='web'"
             :class="singleChoiceBtnState"
-            multiple="false" 
+            :multiple="multiple" 
             :disabled="state" 
             :fileList="files" 
             :result-type="resultType" 
@@ -10,6 +11,15 @@
             :after-read="afterRead"  
             @delete="onDelete"
             />
+            <div class="mob_upload_box" v-if="platform !='web'">
+                <div class="mobupload" v-for="file in files" :key="file.id">
+                    <img   :src="file.name" alt="">
+                    <i class="van-icon van-icon-clear van-uploader__preview-delete" @click="onDelete(file)"><!----></i>
+                </div>
+                <div class="mobupload" @click="takePicture" >
+                    <i class="van-icon van-icon-photograph van-uploader__upload-icon"></i>
+                </div>
+            </div>
     </div>
 </template>
 
@@ -18,15 +28,24 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Environment } from '@/environments/environment';
 import { Subject, Unsubscribable } from 'rxjs';
 import Axios from 'axios';
+import qs from 'qs';
+
+import { Plugins, CameraResultType, Capacitor } from '@capacitor/core';
+const { Camera } = Plugins;
 
 import { Uploader } from 'vant';
-import { Loading } from '@/ibiz-core/utils';
+import { Loading, Util } from '@/ibiz-core/utils';
 Vue.use(Uploader);
 @Component({
     components: {
     }
 })
 export default class AppMobPicture extends Vue {
+
+    /**
+     * 当前设备信息
+     */
+    public platform: any;
 
     // MOB LOGIC BEGIN
     /**
@@ -60,7 +79,7 @@ export default class AppMobPicture extends Vue {
         }
         return false;
     }
-    
+
     /**
      * 开发模式文件数组
      *
@@ -98,6 +117,7 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     public beforeRead(file: any, detail: any): boolean {
+        this.dataProcess();
         if (file && Array.isArray(file)) {
             this.$notify({ type: 'warning', message: '该功能只支持单个文件上传' });
             return false;
@@ -139,6 +159,14 @@ export default class AppMobPicture extends Vue {
         });
     }
     // MOB LOGIC END
+
+    /**
+     * 是否支持多个上传
+     *
+     * @type {boolean}
+     * @memberof AppMobPicture
+     */
+    @Prop({ default: true }) public multiple?: boolean;
 
     /**
      * 表单状态
@@ -219,28 +247,36 @@ export default class AppMobPicture extends Vue {
     @Prop() public disabled?: boolean;
 
     /**
-     * 上传参数
-     *
-     * @type {string}
-     * @memberof AppMobPicture
-     */
-    @Prop() public uploadparams?: string;
-
-    /**
-     * 下载参数
-     *
-     * @type {string}
-     * @memberof AppMobPicture
-     */
-    @Prop() public exportparams?: string;
-
-    /**
-     * 自定义参数
+     * 视图上下文
      *
      * @type {*}
      * @memberof AppMobPicture
      */
-    @Prop() public customparams?: any;
+    @Prop({ default: {} }) context: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof AppMobPicture
+     */
+    @Prop({ default: {} }) viewparams: any;
+
+    /**
+     * 上传参数
+     *
+     * @type {*}
+     * @memberof AppMobPicture
+     */
+    @Prop({ default: {} }) uploadParam: any;
+
+    /**
+     * 下载参数
+     *
+     * @type {*}
+     * @memberof AppMobPicture
+     */
+    @Prop({ default: {} }) exportParam: any;
 
     /**
      * 上传文件路径
@@ -264,30 +300,6 @@ export default class AppMobPicture extends Vue {
     @Provide() public files: Array<any> = [];
 
     /**
-     * 上传keys
-     *
-     * @type {Array<any>}
-     * @memberof AppMobPicture
-     */
-    public upload_keys: Array<any> = [];
-
-    /**
-     * 导出keys
-     *
-     * @type {Array<any>}
-     * @memberof AppMobPicture
-     */
-    public export_keys: Array<any> = [];
-
-    /**
-     * 自定义数组
-     *
-     * @type {Array<any>}
-     * @memberof AppMobPicture
-     */
-    public custom_arr: Array<any> = [];
-
-    /**
      * 应用参数
      *
      * @type {*}
@@ -302,21 +314,18 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     private dataProcess(): void {
-        let upload_arr: Array<string> = [];
-        let export_arr: Array<string> = [];
-        const _data: any = JSON.parse(this.data);
-        this.upload_keys.forEach((key: string) => {
-            upload_arr.push(`${key}=${_data[key]}`);
-        });
-        this.export_keys.forEach((key: string) => {
-            export_arr.push(`${key}=${_data[key]}`);
-        });
+        const { context: uploadContext, param: uploadParam }
+            = this.$viewTool.formatNavigateParam(this.uploadParam, {}, this.context, this.viewparams, JSON.parse(this.data));
+        const { context: exportContext, param: exportParam }
+            = this.$viewTool.formatNavigateParam(this.exportParam, {}, this.context, this.viewparams, JSON.parse(this.data));
 
-        let _url = `${Environment.BaseUrl}${Environment.UploadFile}`;
-        if (upload_arr.length > 0 || this.custom_arr.length > 0) {
-            _url = `${_url}?${upload_arr.join('&')}${upload_arr.length > 0 ? '&' : ''}${this.custom_arr.join('&')}`;
+        let _uploadUrl = `${Environment.BaseUrl}${Environment.UploadFile}`;
+        const uploadContextStr: string = qs.stringify(uploadContext, { delimiter: '&' });
+        const uploadParamStr: string = qs.stringify(uploadParam, { delimiter: '&' });
+        if (!Object.is(uploadContextStr, '') || !Object.is(uploadParamStr, '')) {
+            _uploadUrl = `${_uploadUrl}?${uploadContextStr}&${uploadParamStr}`;
         }
-        this.uploadUrl = _url;
+        this.uploadUrl = _uploadUrl;
 
         this.files.forEach((file: any) => {
             if (process.env.NODE_ENV === 'development') {
@@ -327,12 +336,15 @@ export default class AppMobPicture extends Vue {
                 }
                 return;
             }
-            let url = `${this.downloadUrl}/${file.id}`;
-            if (upload_arr.length > 0 || this.custom_arr.length > 0) {
-                url = `${url}?${upload_arr.join('&')}${upload_arr.length > 0 ? '&' : ''}${this.custom_arr.join('&')}`;
+
+            let _downloadUrl = `${this.downloadUrl}/${file.id}`;
+            const exportContextStr: string = qs.stringify(exportContext, { delimiter: '&' });
+            const exportParamStr: string = qs.stringify(exportParam, { delimiter: '&' });
+            if (!Object.is(exportContextStr, '') || !Object.is(exportParamStr, '')) {
+                _downloadUrl = `${_downloadUrl}?${exportContextStr}&${exportParamStr}`;
             }
             file.isImage = true;
-            file.url = url;
+            file.url = _downloadUrl;
         });
     }
 
@@ -342,14 +354,18 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     public created() {
+        this.platform = Capacitor.getPlatform();
         if (this.formState) {
             this.formStateEvent = this.formState.subscribe(($event: any) => {
                 // 表单加载完成
                 if (Object.is($event.type, 'load')) {
                     if (this.value) {
-                        // console.log(this.value);
                         this.files = JSON.parse(this.value);
                     }
+                    this.dataProcess();
+                }
+                // 表单保存完成 和 表单项更新
+                if (Object.is($event.type, "save") || Object.is($event.type, "updateformitem")) {
                     this.dataProcess();
                 }
             });
@@ -363,26 +379,6 @@ export default class AppMobPicture extends Vue {
      */
     public mounted() {
         this.appData = this.$store.getters.getAppData();
-
-        let custom_arr: Array<string> = [];
-        let upload_keys: Array<string> = [];
-        let export_keys: Array<string> = [];
-
-        if (this.uploadparams && !Object.is(this.uploadparams, '')) {
-            upload_keys = this.uploadparams.split(';');
-        }
-        if (this.exportparams && !Object.is(this.exportparams, '')) {
-            export_keys = this.exportparams.split(';');
-        }
-        if (this.customparams && !Object.is(this.customparams, '')) {
-            Object.keys(this.customparams).forEach((name: string) => {
-                custom_arr.push(`${name}=${this.customparams[name]}`);
-            });
-        }
-        this.upload_keys = upload_keys;
-        this.export_keys = export_keys;
-        this.custom_arr = custom_arr;
-
         if (this.value) {
             this.files = JSON.parse(this.value);
         }
@@ -395,11 +391,13 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     public changeLabelStyle() {
-      document.querySelectorAll(".app-mobile-picture").forEach((element: any) => {
-        let prev = this.getNearEle(element, 1);
-        prev.style.transform = 'none';
-        prev.style.marginBottom = "10px";
-      })
+        document.querySelectorAll(".app-mobile-picture").forEach((element: any) => {
+            let prev = this.getNearEle(element, 1);
+            if (prev) {
+                prev.style.transform = 'none';
+                prev.style.marginBottom = "10px";
+            }
+        });
     }
 
     /**
@@ -408,18 +406,18 @@ export default class AppMobPicture extends Vue {
      *  @memberof AppMobPicture
      */
     public getNearEle(ele: any, type: any) {
-      type = type == 1 ? "previousSibling" : "nextSibling";
-      var nearEle = ele[type];
-      while (nearEle) {
-        if (nearEle.nodeType === 1) {
-          return nearEle;
+        type = type == 1 ? "previousSibling" : "nextSibling";
+        var nearEle = ele[type];
+        while (nearEle) {
+            if (nearEle.nodeType === 1) {
+                return nearEle;
+            }
+            nearEle = nearEle[type];
+            if (!nearEle) {
+                break;
+            }
         }
-        nearEle = nearEle[type];
-        if (!nearEle) {
-          break;
-        }
-      }
-      return null;
+        return null;
     }
 
     /**
@@ -431,16 +429,6 @@ export default class AppMobPicture extends Vue {
         if (this.formStateEvent) {
             this.formStateEvent.unsubscribe();
         }
-    }
-
-    /**
-     * 上传之前
-     *
-     * @param {*} file
-     * @memberof AppMobPicture
-     */
-    public beforeUpload(file: any) {
-        // console.log('上传之前');
     }
 
     /**
@@ -504,42 +492,29 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     public onDownload(file: any) {
+        this.dataProcess();
         window.open(file.url);
     }
 
     /**
-     * 预览图片地址
-     *
-     * @type {string}
+     * 原生相机上传事件
+     * 
      * @memberof AppMobPicture
      */
-    public dialogImageUrl: string = '';
-
-    /**
-     * 是否显示预览界面
-     *
-     * @type {boolean}
-     * @memberof AppMobPicture
-     */
-    public dialogVisible: boolean = false;
-
-    /**
-     * 是否支持多个上传
-     *
-     * @type {boolean}
-     * @memberof AppMobPicture
-     */
-    @Prop({ default: true }) public multiple?: boolean;
-
-    /**
-     * 预览
-     *
-     * @param {*} file
-     * @memberof AppMobPicture
-     */
-    public onPreview(file: any) {
-        this.dialogImageUrl = file.url;
-        this.dialogVisible = true;
+    public async takePicture() {
+        const image = await Camera.getPhoto({
+            quality: 90,
+            allowEditing: true,
+            resultType: CameraResultType.Uri
+        });
+        this.files.push({
+            id: Util.createUUID(),
+            name: image.webPath,
+            url: image.webPath,
+            isImage: true,
+        });
+        let base = image.base64String;
+        this.$emit('formitemvaluechange', { name: this.name, value: this.files });
     }
 }
 </script>

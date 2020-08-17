@@ -22,17 +22,16 @@ export class MdServiceBase extends ControlServiceBase {
      */
     public async search(action: string, context: any = {}, data: any = {}, isLoading?: boolean): Promise<HttpResponse> {
         await this.onBeforeAction(action, context, data, isLoading);
-        data = this.handleRequestData(action, context, data);
+        data = this.handleRequestData(action, context, data, true);
         let response: HttpResponse;
         if (Util.isFunction(this.service[action])) {
-            response = await this.service[action](context, data);
+            response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.FetchDefault(context, data);
+            response = await this.service.FetchDefault(context, data, isLoading);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
         }
-        await this.onAfterAction(action, context, response);
         return response;
     }
 
@@ -64,6 +63,9 @@ export class MdServiceBase extends ControlServiceBase {
      */
     public handleResponse(action: string, response: any): any {
         const result = {};
+        if (response.status) {
+            Object.assign(result, { status: response.status });
+        }
         if (response.headers) {
             if (response.headers['x-page']) {
                 Object.assign(result, { page: Number(response.headers['x-page']) });
@@ -117,7 +119,9 @@ export class MdServiceBase extends ControlServiceBase {
                 if (!val) {
                     val = tempData.hasOwnProperty(dataitem.name) ? tempData[dataitem.name] : null;
                 }
-                tempData[dataitem.name] = val;
+                if(action != 'Remove'){
+                    tempData[dataitem.name] = val;
+                }
             });
             Object.assign(result, { records: tempData });
         }

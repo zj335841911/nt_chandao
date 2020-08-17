@@ -41,7 +41,7 @@ export default class MobEditViewEngine extends ViewEngine {
             const tag = this.getForm().name;
             let action: string = '';
             // 实体主键字段有值时load该记录数据，否则loaddraft加载草稿
-            if ((this.keyPSDEField && this.view.context[this.keyPSDEField] && !Object.is(this.view.context[this.keyPSDEField], ''))) {
+            if ((this.keyPSDEField && this.view.context[this.keyPSDEField] && !Object.is(this.view.context[this.keyPSDEField], '') && !Object.is(this.view.context[this.keyPSDEField], 'null'))) {
                 action = 'load';
             } else {
                 action = 'loaddraft';

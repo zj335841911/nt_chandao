@@ -1,7 +1,7 @@
 import { ViewOpenService } from '../view-open-service/view-open-service';
 import { Notice } from '../notice/notice';
 import GlobalUiServiceConstructor from '@/global-ui-service/global-ui-service-constructor';
-
+import { ViewTool } from '@/utils/index';
 
 /**
  * 界面行为服务基类
@@ -18,6 +18,13 @@ export default class UIActionBase {
      * @memberof UIActionBase
      */
     public openService: ViewOpenService = ViewOpenService.getInstance();
+
+    /**
+     * 工具对象
+     *
+     * @memberof EntityUIActionBase
+     */
+    public viewTool = ViewTool.getInstance();
 
     /**
      * 提示工具类

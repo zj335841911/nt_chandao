@@ -1,29 +1,38 @@
 <template>
     <ion-grid class="app-mob-dashboard ">
+            <ion-card>
             <view_db_appmenu1 
-    :viewState="viewState"  
+    :viewState="viewState"
+    viewName="AppPortalView"  
     :viewparams="viewparams" 
     :context="context" 
     name="db_appmenu1"  
     ref='db_appmenu1' 
     @closeview="closeView($event)">
 </view_db_appmenu1>
+            </ion-card>
+            <ion-card>
             <view_db_appmenu2 
-    :viewState="viewState"  
+    :viewState="viewState"
+    viewName="AppPortalView"  
     :viewparams="viewparams" 
     :context="context" 
     name="db_appmenu2"  
     ref='db_appmenu2' 
     @closeview="closeView($event)">
 </view_db_appmenu2>
+            </ion-card>
+            <ion-card>
             <view_db_appmenu3 
-    :viewState="viewState"  
+    :viewState="viewState"
+    viewName="AppPortalView"  
     :viewparams="viewparams" 
     :context="context" 
     name="db_appmenu3"  
     ref='db_appmenu3' 
     @closeview="closeView($event)">
 </view_db_appmenu3>
+            </ion-card>
     </ion-grid>
 </template>
 
@@ -50,6 +59,15 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
      * @memberof AppPortalView_db
      */
     @Prop() protected name?: string;
+
+    /**
+     * 视图名称
+     *
+     * @type {string}
+     * @memberof AppPortalView_db
+     */
+    @Prop() protected viewName!: string;
+
 
     /**
      * 视图通讯对象
@@ -97,11 +115,10 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     /**
      * 全局 ui 服务
      *
-     * @private
      * @type {GlobalUiService}
      * @memberof AppPortalView_db
      */
-    private globaluiservice: GlobalUiService = new GlobalUiService();
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 建构部件服务对象
@@ -109,7 +126,7 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
      * @type {AppPortalView_dbService}
      * @memberof AppPortalView_db
      */
-    protected service: AppPortalView_dbService = new AppPortalView_dbService();
+    protected service: AppPortalView_dbService = new AppPortalView_dbService({$store:this.$store});
     
 
     /**
