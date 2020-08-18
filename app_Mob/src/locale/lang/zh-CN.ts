@@ -3,6 +3,7 @@ import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
+import todo_zh_CN from '@locale/lanres/todo/todo_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
@@ -148,6 +149,7 @@ export default {
     task: task_zh_CN,
     product: product_zh_CN,
     project: project_zh_CN,
+    todo: todo_zh_CN,
     story: story_zh_CN,
     ibzmyterritory: ibzmyterritory_zh_CN,
     productplan: productplan_zh_CN,

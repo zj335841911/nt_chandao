@@ -4,6 +4,7 @@ import MobTabExpViewtabexppanelBase from './mob-tab-exp-viewtabexppanel-tabexppa
 import view_tabviewpanel from '@widgets/ibz-my-territory/mob-tab-exp-viewtabviewpanel-tabviewpanel/mob-tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/ibz-my-territory/mob-tab-exp-viewtabviewpanel2-tabviewpanel/mob-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/ibz-my-territory/mob-tab-exp-viewtabviewpanel3-tabviewpanel/mob-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
+import view_tabviewpanel4 from '@widgets/ibz-my-territory/mob-tab-exp-viewtabviewpanel4-tabviewpanel/mob-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
 
  
 @Component({
@@ -11,6 +12,7 @@ import view_tabviewpanel3 from '@widgets/ibz-my-territory/mob-tab-exp-viewtabvie
         view_tabviewpanel, 
         view_tabviewpanel2, 
         view_tabviewpanel3, 
+        view_tabviewpanel4, 
          
     }
 })

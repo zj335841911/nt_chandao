@@ -3,6 +3,7 @@ import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import project_en_US from '@locale/lanres/project/project_en_US';
+import todo_en_US from '@locale/lanres/todo/todo_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territory_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
@@ -147,6 +148,7 @@ export default {
     task: task_en_US,
     product: product_en_US,
     project: project_en_US,
+    todo: todo_en_US,
     story: story_en_US,
     ibzmyterritory: ibzmyterritory_en_US,
     productplan: productplan_en_US,

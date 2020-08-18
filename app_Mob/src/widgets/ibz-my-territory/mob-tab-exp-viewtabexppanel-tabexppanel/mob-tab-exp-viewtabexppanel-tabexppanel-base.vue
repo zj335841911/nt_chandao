@@ -33,6 +33,17 @@
                 @closeview="closeView($event)">
             </view_tabviewpanel3>
         </span>
+        <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
+                        <view_tabviewpanel4 
+                :viewState="viewState"
+                viewName="IbzMyTerritoryMobTabExpView"  
+                :viewparams="viewparams" 
+                :context="context" 
+                name="tabviewpanel4"  
+                ref='tabviewpanel4' 
+                @closeview="closeView($event)">
+            </view_tabviewpanel4>
+        </span>
     </span>
 </template>
 

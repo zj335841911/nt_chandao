@@ -16,6 +16,7 @@
                             <ion-segment-button value="tabviewpanel">需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">Bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">待办</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -215,6 +216,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 

@@ -42,6 +42,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a784b546d5d05850930cbaf23f8727a1',
+                '899ab4d4cfc33b089a9c4aa5118acbf3',
                 'a4a6fd9906bc1ecaac85b44ffcc466fe',
                 '8d13feb9b1401f28a033fec23ffd7e90',
             ],
@@ -117,6 +118,16 @@ export const viewstate: any = {
                 'b5a98ab9e5bc86d5b61c77273225f276',
                 '58f89fab47964b5ad5b6b0f2021b188b',
                 '4ad2fc1ff781083ad939783813464b1a',
+            ],
+        },
+        {
+            viewtag: '899ab4d4cfc33b089a9c4aa5118acbf3',
+            viewmodule: 'ibiz',
+            viewname: 'TodoMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e848fcc53d765ca86681f329895f792c',
             ],
         },
         {
@@ -204,6 +215,15 @@ export const viewstate: any = {
             viewtag: 'e66284928a0154c484670a12704af6b0',
             viewmodule: 'ibiz',
             viewname: 'ProjectTeamMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'e848fcc53d765ca86681f329895f792c',
+            viewmodule: 'ibiz',
+            viewname: 'TodoMobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -150,6 +150,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-edit-view/story-mob-edit-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/mobmdview',
+                    meta: {
+                        caption: 'todo.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/todo-mob-mdview/todo-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/mobeditview',
                     meta: {
                         caption: 'product.views.mobeditview.caption',
@@ -451,6 +464,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'todos/:todo?/mobeditview',
+                    meta: {
+                        caption: 'todo.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmobmdview',

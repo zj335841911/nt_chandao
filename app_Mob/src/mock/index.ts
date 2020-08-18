@@ -10,6 +10,7 @@ import './entity/project-teams/project-teams';
 import './entity/tasks/tasks';
 import './entity/products/products';
 import './entity/projects/projects';
+import './entity/todos/todos';
 import './entity/storys/storys';
 import './entity/ibz-my-territorys/ibz-my-territorys';
 import './entity/product-plans/product-plans';
