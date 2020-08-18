@@ -7,7 +7,6 @@
 </template>
 
 
-
 <script lang="ts">
 import { Vue, Component, Prop, Provide, Emit, Watch, } from "vue-property-decorator";
 import { CodeListService } from "@/ibiz-core";
@@ -187,4 +186,7 @@ export default class AppSpan extends Vue {
 }
 </script>
 <style lang="less">
+.app-mob-span{
+    width: 100%;
+}
 </style>
