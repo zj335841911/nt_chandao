@@ -22,7 +22,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.date1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.date1.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
