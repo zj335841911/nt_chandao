@@ -3,10 +3,10 @@ export default {
 // test
 	views: {
 		mobmdview: {
-			caption: '产品统计',
+			caption: '产品',
 		},
 		mobtabexpview: {
-			caption: '产品',
+			caption: '产品详情',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {

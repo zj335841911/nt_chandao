@@ -152,7 +152,7 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
      * @memberof ProductStatsMobTabExpViewBase
      */
     protected model: any = {
-        srfTitle: '产品',
+        srfTitle: '产品详情',
         srfCaption: 'productstats.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
