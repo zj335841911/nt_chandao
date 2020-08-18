@@ -502,7 +502,37 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDView
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        const params: any = { ...paramJO };
+        let context = { ...this.context, ...contextJO };
+        if (args.length > 0) {
+            Object.assign(context, args[0]);
+        }
+        let response: any = null;
+        let panelNavParam = { } ;
+        let panelNavContext = { } ;
+        //导航参数处理
+        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
+        if (response) {
+            if (!response || !Object.is(response.ret, 'OK')) {
+                return;
+            }
+            if (!xData || !(xData.refresh instanceof Function)) {
+                return;
+            }
+            xData.refresh(response.datas);
+        }
     }
 
 
@@ -520,7 +550,37 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDView
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        const params: any = { ...paramJO };
+        let context = { ...this.context, ...contextJO };
+        if (args.length > 0) {
+            Object.assign(context, args[0]);
+        }
+        let response: any = null;
+        let panelNavParam = { } ;
+        let panelNavContext = { } ;
+        //导航参数处理
+        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
+        if (response) {
+            if (!response || !Object.is(response.ret, 'OK')) {
+                return;
+            }
+            if (!xData || !(xData.refresh instanceof Function)) {
+                return;
+            }
+            xData.refresh(response.datas);
+        }
     }
 
 

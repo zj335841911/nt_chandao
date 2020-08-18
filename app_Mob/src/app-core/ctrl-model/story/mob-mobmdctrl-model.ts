@@ -15,6 +15,18 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'title',
+			},
+			{
+				name: 'assignedto',
+			},
+			{
+				name: 'stage',
+			},
+			{
+				name: 'status',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

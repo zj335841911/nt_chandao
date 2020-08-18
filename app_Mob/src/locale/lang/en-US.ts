@@ -1,6 +1,9 @@
 import task_en_US from '@locale/lanres/task/task_en_US';
+import product_en_US from '@locale/lanres/product/product_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
+import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
+import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
 import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
@@ -135,8 +138,11 @@ export default {
         }
     },
     task: task_en_US,
+    product: product_en_US,
     story: story_en_US,
+    productplan: productplan_en_US,
     projectstats: projectstats_en_US,
+    bug: bug_en_US,
     productstats: productstats_en_US,
     codelist: codelist_en_US,
     userCustom: userCustom_en_US,

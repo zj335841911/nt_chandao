@@ -90,6 +90,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("reviewedby", n_reviewedby_eq);
         }
     }
+	private String n_stagedby_eq;//[设置阶段者]
+	public void setN_stagedby_eq(String n_stagedby_eq) {
+        this.n_stagedby_eq = n_stagedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_stagedby_eq)){
+            this.getSearchCond().eq("stagedby", n_stagedby_eq);
+        }
+    }
 	private String n_openedby_eq;//[由谁创建]
 	public void setN_openedby_eq(String n_openedby_eq) {
         this.n_openedby_eq = n_openedby_eq;
@@ -102,6 +109,34 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_id_eq = n_id_eq;
         if(!ObjectUtils.isEmpty(this.n_id_eq)){
             this.getSearchCond().eq("id", n_id_eq);
+        }
+    }
+	private String n_source_eq;//[需求来源]
+	public void setN_source_eq(String n_source_eq) {
+        this.n_source_eq = n_source_eq;
+        if(!ObjectUtils.isEmpty(this.n_source_eq)){
+            this.getSearchCond().eq("source", n_source_eq);
+        }
+    }
+	private String n_closedreason_eq;//[关闭原因]
+	public void setN_closedreason_eq(String n_closedreason_eq) {
+        this.n_closedreason_eq = n_closedreason_eq;
+        if(!ObjectUtils.isEmpty(this.n_closedreason_eq)){
+            this.getSearchCond().eq("closedreason", n_closedreason_eq);
+        }
+    }
+	private String n_color_eq;//[标题颜色]
+	public void setN_color_eq(String n_color_eq) {
+        this.n_color_eq = n_color_eq;
+        if(!ObjectUtils.isEmpty(this.n_color_eq)){
+            this.getSearchCond().eq("color", n_color_eq);
+        }
+    }
+	private String n_lasteditedby_eq;//[最后修改]
+	public void setN_lasteditedby_eq(String n_lasteditedby_eq) {
+        this.n_lasteditedby_eq = n_lasteditedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_lasteditedby_eq)){
+            this.getSearchCond().eq("lasteditedby", n_lasteditedby_eq);
         }
     }
 	private String n_stage_eq;//[所处阶段]
@@ -123,6 +158,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_closedby_eq = n_closedby_eq;
         if(!ObjectUtils.isEmpty(this.n_closedby_eq)){
             this.getSearchCond().eq("closedby", n_closedby_eq);
+        }
+    }
+	private String n_type_eq;//[需求类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
         }
     }
 	private String n_path_like;//[模块路径]
@@ -174,6 +216,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().like("prodoctname", n_prodoctname_like);
         }
     }
+	private BigInteger n_frombug_eq;//[来源Bug]
+	public void setN_frombug_eq(BigInteger n_frombug_eq) {
+        this.n_frombug_eq = n_frombug_eq;
+        if(!ObjectUtils.isEmpty(this.n_frombug_eq)){
+            this.getSearchCond().eq("frombug", n_frombug_eq);
+        }
+    }
 	private BigInteger n_parent_eq;//[父需求]
 	public void setN_parent_eq(BigInteger n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
@@ -207,6 +256,20 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
+        }
+    }
+	private BigInteger n_tobug_eq;//[转Bug]
+	public void setN_tobug_eq(BigInteger n_tobug_eq) {
+        this.n_tobug_eq = n_tobug_eq;
+        if(!ObjectUtils.isEmpty(this.n_tobug_eq)){
+            this.getSearchCond().eq("tobug", n_tobug_eq);
+        }
+    }
+	private String n_result_eq;//[评审结果]
+	public void setN_result_eq(String n_result_eq) {
+        this.n_result_eq = n_result_eq;
+        if(!ObjectUtils.isEmpty(this.n_result_eq)){
+            this.getSearchCond().eq("result", n_result_eq);
         }
     }
 	private String n_branchname_eq;//[平台/分支]

@@ -5,6 +5,9 @@ export default {
 		mobmdview: {
 			caption: '产品统计',
 		},
+		mobtabexpview: {
+			caption: '产品统计',
+		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		tbitem1: {

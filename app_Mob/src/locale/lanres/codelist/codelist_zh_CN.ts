@@ -1,13 +1,56 @@
 export default {
+    BugUserRealName: {
+        empty: '',
+    },
     Product__status: {
         'normal': '正常',
         'closed': '结束',
+        empty: '',
+    },
+    Story__stage: {
+        'wait': '未开始',
+        'planned': '已计划',
+        'projected': '已立项',
+        'developing': '研发中',
+        'developed': '研发完毕',
+        'testing': '测试中',
+        'tested': '测试完毕',
+        'verified': '已验收',
+        'released': '已发布',
+        'closed': '已关闭',
+        empty: '',
+    },
+    Story__status: {
+        'draft': '草稿',
+        'active': '激活',
+        'closed': '已关闭',
+        'changed': '已变更',
+        empty: '',
+    },
+    Bug__status: {
+        'active': '激活',
+        'resolved': '已解决',
+        'closed': '已关闭',
+        empty: '',
+    },
+    UserRealName: {
         empty: '',
     },
     Product__type: {
         'normal': '正常',
         'branch': '多分支',
         'platform': '多平台',
+        empty: '',
+    },
+    Bug__resolution: {
+        'bydesign': '设计如此',
+        'duplicate': '重复Bug',
+        'external': '外部原因',
+        'fixed': '已解决',
+        'notrepro': '无法重现',
+        'postponed': '延期处理',
+        'willnotfix': '不予解决',
+        'tostory': '转为需求',
         empty: '',
     },
 };
