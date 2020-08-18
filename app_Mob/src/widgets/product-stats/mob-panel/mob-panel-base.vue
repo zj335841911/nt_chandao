@@ -59,7 +59,7 @@
                 <ion-col v-show="detailsModel.container4.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.activebugcnt.visible"  :lg="4" :size="4" :sm="4" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.activebugcnt.visible"  :lg="7" :size="7" :sm="7" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             <ion-label class="item-field-label ">未解决</ion-label>
                             <app-mob-span  v-if="data.activebugcnt" :context="context" :value="data.activebugcnt" :itemParam="{}"  ></app-mob-span>
@@ -68,7 +68,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.unconfirmbugcnt.visible"  :lg="4" :size="4" :sm="4" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.unconfirmbugcnt.visible"  :lg="7" :size="7" :sm="7" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             <ion-label class="item-field-label ">未确认</ion-label>
                             <app-mob-span  v-if="data.unconfirmbugcnt" :context="context" :value="data.unconfirmbugcnt" :itemParam="{}"  ></app-mob-span>
@@ -77,7 +77,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.notclosedbugcnt.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.notclosedbugcnt.visible"  :lg="7" :size="7" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             <ion-label class="item-field-label ">未关闭</ion-label>
                             <app-mob-span  v-if="data.notclosedbugcnt" :context="context" :value="data.notclosedbugcnt" :itemParam="{}"  ></app-mob-span>
