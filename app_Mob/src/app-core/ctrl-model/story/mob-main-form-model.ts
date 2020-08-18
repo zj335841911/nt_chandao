@@ -51,6 +51,31 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'type',
+                prop: 'type',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'status',
+                prop: 'status',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'assigneddate',
+                prop: 'assigneddate',
+                dataType: 'DATETIME',
+            },
+            {
+                name: 'closeddate',
+                prop: 'closeddate',
+                dataType: 'DATETIME',
+            },
+            {
+                name: 'closedreason',
+                prop: 'closedreason',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

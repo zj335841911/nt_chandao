@@ -18,6 +18,9 @@ export class MobModel {
 				name: 'resolution',
 			},
 			{
+				name: 'pri',
+			},
+			{
 				name: 'title',
 			},
 			{

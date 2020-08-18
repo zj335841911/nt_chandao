@@ -18,6 +18,9 @@ export class MobModel {
 				name: 'title',
 			},
 			{
+				name: 'pri',
+			},
+			{
 				name: 'assignedto',
 			},
 			{

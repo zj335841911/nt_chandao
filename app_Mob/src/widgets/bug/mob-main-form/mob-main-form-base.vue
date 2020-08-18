@@ -10,9 +10,9 @@
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
     :caption="$t('bug.mobmain_form.details.group1')" 
-    :isShowCaption="true" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -30,33 +30,198 @@
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.title" 
+    :context="context" 
     :value="data.title" 
-    :disabled="detailsModel.title.disabled" 
-    @change="($event)=>this.data.title = $event" />
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='type' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="type_item"  
+    :itemValue="this.data.type" 
+    v-show="detailsModel.type.visible" 
+    :itemRules="this.rules.type" 
+    :caption="$t('bug.mobmain_form.details.type')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.type.disabled"
+    :error="detailsModel.type.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__type"
+    :isCache="false" 
+    v-if="data.type" 
+    :context="context" 
+    :value="data.type" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='os' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="os_item"  
+    :itemValue="this.data.os" 
+    v-show="detailsModel.os.visible" 
+    :itemRules="this.rules.os" 
+    :caption="$t('bug.mobmain_form.details.os')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.os.disabled"
+    :error="detailsModel.os.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__os"
+    :isCache="false" 
+    v-if="data.os" 
+    :context="context" 
+    :value="data.os" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='browser' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="browser_item"  
+    :itemValue="this.data.browser" 
+    v-show="detailsModel.browser.visible" 
+    :itemRules="this.rules.browser" 
+    :caption="$t('bug.mobmain_form.details.browser')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.browser.disabled"
+    :error="detailsModel.browser.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__browser"
+    :isCache="false" 
+    v-if="data.browser" 
+    :context="context" 
+    :value="data.browser" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='deadline' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="deadline_item"  
+    :itemValue="this.data.deadline" 
+    v-show="detailsModel.deadline.visible" 
+    :itemRules="this.rules.deadline" 
+    :caption="$t('bug.mobmain_form.details.deadline')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.deadline.disabled"
+    :error="detailsModel.deadline.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.deadline" 
+    :context="context" 
+    :value="data.deadline" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='repotype' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="repotype_item"  
+    :itemValue="this.data.repotype" 
+    v-show="detailsModel.repotype.visible" 
+    :itemRules="this.rules.repotype" 
+    :caption="$t('bug.mobmain_form.details.repotype')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.repotype.disabled"
+    :error="detailsModel.repotype.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.repotype" 
+    :context="context" 
+    :value="data.repotype" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='resolution' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="resolution_item"  
+    :itemValue="this.data.resolution" 
+    v-show="detailsModel.resolution.visible" 
+    :itemRules="this.rules.resolution" 
+    :caption="$t('bug.mobmain_form.details.resolution')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.resolution.disabled"
+    :error="detailsModel.resolution.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__resolution"
+    :isCache="false" 
+    v-if="data.resolution" 
+    :context="context" 
+    :value="data.resolution" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='resolvedby' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="resolvedby_item"  
+    :itemValue="this.data.resolvedby" 
+    v-show="detailsModel.resolvedby.visible" 
+    :itemRules="this.rules.resolvedby" 
+    :caption="$t('bug.mobmain_form.details.resolvedby')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.resolvedby.disabled"
+    :error="detailsModel.resolvedby.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.resolvedby" 
+    :context="context" 
+    :value="data.resolvedby" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
     
-</app-form-group>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.group2.visible" 
-    :uiActionGroup="detailsModel.group2.uiActionGroup" 
-    :caption="$t('bug.mobmain_form.details.group2')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    @groupuiactionclick="groupUIActionClick($event)">
-        
 </app-form-group>
 
 
@@ -356,6 +521,13 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         title: null,
+        type: null,
+        os: null,
+        browser: null,
+        deadline: null,
+        repotype: null,
+        resolution: null,
+        resolvedby: null,
         id: null,
         bug: null,
     };
@@ -442,8 +614,50 @@ export default class MobMainBase extends Vue implements ControlInterface {
         title: [
             { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+            { type: 'string', message: 'Bug类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'Bug类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'blur' },
+        ],
+        os: [
+            { type: 'string', message: '操作系统 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '操作系统 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '操作系统 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '操作系统 值不能为空', trigger: 'blur' },
+        ],
+        browser: [
+            { type: 'string', message: '浏览器 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '浏览器 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '浏览器 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '浏览器 值不能为空', trigger: 'blur' },
+        ],
+        deadline: [
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
+        ],
+        repotype: [
+            { type: 'string', message: '代码类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '代码类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '代码类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '代码类型 值不能为空', trigger: 'blur' },
+        ],
+        resolution: [
+            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
+        ],
+        resolvedby: [
+            { type: 'string', message: '解决者 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决者 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决者 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决者 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
@@ -535,9 +749,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -558,6 +770,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         title: new FormItemModel({ caption: 'Bug标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        type: new FormItemModel({ caption: 'Bug类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        os: new FormItemModel({ caption: '操作系统', detailType: 'FORMITEM', name: 'os', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        browser: new FormItemModel({ caption: '浏览器', detailType: 'FORMITEM', name: 'browser', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        repotype: new FormItemModel({ caption: '代码类型', detailType: 'FORMITEM', name: 'repotype', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolvedby: new FormItemModel({ caption: '解决者', detailType: 'FORMITEM', name: 'resolvedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -672,6 +898,90 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 type 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.type')
+    onTypeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 os 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.os')
+    onOsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'os', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 browser 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.browser')
+    onBrowserChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'browser', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 deadline 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.deadline')
+    onDeadlineChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'deadline', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 repotype 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.repotype')
+    onRepotypeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'repotype', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolution 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.resolution')
+    onResolutionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolution', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolvedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.resolvedby')
+    onResolvedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolvedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -719,6 +1029,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
+
 
 
 
@@ -898,7 +1214,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', ];
+        const refArr: Array<string> = ['title_item', 'type_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'resolution_item', 'resolvedby_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

@@ -10,9 +10,9 @@
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
     :caption="$t('productplan.mobmain_form.details.group1')" 
-    :isShowCaption="true" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -30,33 +30,63 @@
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.title" 
+    :context="context" 
     :value="data.title" 
-    :disabled="detailsModel.title.disabled" 
-    @change="($event)=>this.data.title = $event" />
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='begin' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="begin_item"  
+    :itemValue="this.data.begin" 
+    v-show="detailsModel.begin.visible" 
+    :itemRules="this.rules.begin" 
+    :caption="$t('productplan.mobmain_form.details.begin')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.begin.disabled"
+    :error="detailsModel.begin.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.begin" 
+    :context="context" 
+    :value="data.begin" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='end' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="end_item"  
+    :itemValue="this.data.end" 
+    v-show="detailsModel.end.visible" 
+    :itemRules="this.rules.end" 
+    :caption="$t('productplan.mobmain_form.details.end')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.end.disabled"
+    :error="detailsModel.end.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.end" 
+    :context="context" 
+    :value="data.end" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
     
-</app-form-group>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.group2.visible" 
-    :uiActionGroup="detailsModel.group2.uiActionGroup" 
-    :caption="$t('productplan.mobmain_form.details.group2')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    @groupuiactionclick="groupUIActionClick($event)">
-        
 </app-form-group>
 
 
@@ -355,6 +385,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         title: null,
+        begin: null,
+        end: null,
         id: null,
         productplan: null,
     };
@@ -435,8 +467,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
         title: [
             { type: 'string', message: '名称 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '名称 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
+            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
@@ -528,9 +572,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -549,6 +591,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -651,6 +697,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 begin 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.begin')
+    onBeginChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 end 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.end')
+    onEndChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -698,6 +768,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -876,7 +947,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', ];
+        const refArr: Array<string> = ['title_item', 'begin_item', 'end_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

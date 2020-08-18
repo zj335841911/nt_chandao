@@ -65,7 +65,7 @@ export class IconStyleMenuModel {
 	iconcls: 'flask',
 	icon: '',
 	textcls: '',
-	appfunctag: '_5',
+	appfunctag: '_6',
 	resourcetag: '',
 },
         {

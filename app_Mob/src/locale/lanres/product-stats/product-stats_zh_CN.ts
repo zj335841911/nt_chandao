@@ -4,7 +4,7 @@ export default {
 			caption: '产品统计',
 		},
 		mobtabexpview: {
-			caption: '产品统计',
+			caption: '产品',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {

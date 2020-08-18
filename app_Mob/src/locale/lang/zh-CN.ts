@@ -1,6 +1,9 @@
+import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
+import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
+import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
@@ -60,6 +63,7 @@ export default {
                 menuitem1: '产品',
                 menuitem2: '项目',
                 menuitem3: '测试',
+                menuitem4: '我的',
             },
             listmenu: {
                 menuitem1: '电脑',
@@ -138,9 +142,12 @@ export default {
             5005: '数据删除失败'
         }
     },
+    projectteam: projectteam_zh_CN,
     task: task_zh_CN,
     product: product_zh_CN,
+    project: project_zh_CN,
     story: story_zh_CN,
+    ibzmyterritory: ibzmyterritory_zh_CN,
     productplan: productplan_zh_CN,
     projectstats: projectstats_zh_CN,
     bug: bug_zh_CN,

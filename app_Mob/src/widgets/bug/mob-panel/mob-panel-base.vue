@@ -3,40 +3,49 @@
     <ion-row class="app-layoutpanel">
         <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container">
             <ion-row style="height:100%;">
-                <ion-col v-show="detailsModel.container2.visible"  :lg="12" :size="4" :sm="8" style="" class="app-layoutpanel-container">
+                <ion-col v-show="detailsModel.container2.visible"  :lg="12" :size="4" :sm="8" style="" class="app-layoutpanel-container mob_list_card">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.field3.visible"  :lg="12" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            <ion-label class="item-field-label ">标题</ion-label>
-                            <app-mob-span  v-if="data.field3" :context="context" :value="data.field3" :itemParam="{}"  ></app-mob-span>
+                            
+                            <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__pri"></app-mob-span>
                         </div>
                         
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.field1.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            <ion-label class="item-field-label ">状态</ion-label>
-                            <app-mob-span  v-if="data.field1" :context="context" :value="data.field1" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__status"></app-mob-span>
+                            
+                            <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.field2.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.status.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            <ion-label class="item-field-label ">指派给</ion-label>
-                            <app-mob-span  v-if="data.field2" :context="context" :value="data.field2" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                            
+                            <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__status"></app-mob-span>
                         </div>
                         
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.field4.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            <ion-label class="item-field-label ">解决方案</ion-label>
-                            <app-mob-span  v-if="data.field4" :context="context" :value="data.field4" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__resolution"></app-mob-span>
+                            
+                            <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                        </div>
+                        
+                        
+                        </ion-col>
+                        
+                        <ion-col v-show="detailsModel.resolution.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                            <div class="item-field ">
+                            
+                            <app-mob-span  v-if="data.resolution" :context="context" :value="data.resolution" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__resolution"></app-mob-span>
                         </div>
                         
                         
@@ -287,6 +296,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -296,13 +306,15 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected detailsModel: any = {
-        field3: new PanelFieldModel({ caption: '标题', itemType: 'FIELD', name: 'field3', panel: this, visible: true  })
+        pri: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'pri', panel: this, visible: true  })
 , 
-        field1: new PanelFieldModel({ caption: '状态', itemType: 'FIELD', name: 'field1', panel: this, visible: true  })
+        title: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'title', panel: this, visible: true  })
 , 
-        field2: new PanelFieldModel({ caption: '指派给', itemType: 'FIELD', name: 'field2', panel: this, visible: true  })
+        status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
-        field4: new PanelFieldModel({ caption: '解决方案', itemType: 'FIELD', name: 'field4', panel: this, visible: true  })
+        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'assignedto', panel: this, visible: true  })
+, 
+        resolution: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'resolution', panel: this, visible: true  })
 , 
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container2', panel: this, visible: true  })
 , 

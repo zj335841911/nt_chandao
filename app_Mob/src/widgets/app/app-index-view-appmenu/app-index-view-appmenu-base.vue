@@ -418,6 +418,12 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case '_7': 
+                    this.click_7(item);
+                    return;
+                case '_5': 
+                    this.click_5(item);
+                    return;
                 case '_3': 
                     this.click_3(item);
                     return;
@@ -427,6 +433,48 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         }
     }
 
+    
+    /**
+     * 我的地盘
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected click_7(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 项目
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected click_5(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
     
     /**
      * 打开看板

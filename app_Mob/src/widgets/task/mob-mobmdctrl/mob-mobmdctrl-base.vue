@@ -9,13 +9,12 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item>
-                            <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                            <!-- 列表视图样式 -->
-                            <app-list-default :dataItemNames = "[]" :item="item"  major="name" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-default>
-                                <!-- 图标视图样式 -->
-                            <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
-                        </ion-item>
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                     </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
@@ -27,13 +26,12 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item>
-                            <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                            <!-- 列表视图样式 -->
-                            <app-list-default :dataItemNames = "[]" :item="item" major="name" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-default>
-                            <!-- 图标视图样式 -->
-                            <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
-                        </ion-item>                      
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                     </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
@@ -70,14 +68,22 @@
                 <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
-                            <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
-                            <ion-label>{{item.name}}</ion-label>
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                         </ion-item>
                     </ion-list>
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                            <ion-label>{{item.name}}</ion-label>
-                            <ion-radio slot="end" :value="item.srfkey"></ion-radio>
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                         </ion-item>
                     </ion-radio-group>
                 </template>

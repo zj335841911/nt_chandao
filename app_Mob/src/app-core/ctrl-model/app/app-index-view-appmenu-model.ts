@@ -47,7 +47,7 @@ export class AppIndexViewModel {
 	iconcls: 'alarm',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: '_5',
 	resourcetag: '',
 },
         {
@@ -68,6 +68,24 @@ export class AppIndexViewModel {
 	appfunctag: '',
 	resourcetag: '',
 },
+        {
+	id: 'ECEF3D08-7FE9-4A0D-9493-9EEEF6BD1CDE',
+	name: 'menuitem4',
+	text: '我的',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '我的',
+	expanded: false,
+	separator: false,
+	hidden: false,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: '_7',
+	resourcetag: '',
+},
     ];
 
 	/**
@@ -78,6 +96,32 @@ export class AppIndexViewModel {
 	 * @memberof AppIndexViewModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: '_7',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'ibz-my-territory-mob-tab-exp-view', 
+            codename: 'ibzmyterritorymobtabexpview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/ibzmyterritories/:ibzmyterritory?/mobtabexpview/:mobtabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            ],
+        },
+        {
+            appfunctag: '_5',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'project-mob-mdview', 
+            codename: 'projectmobmdview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/projects/:project?/mobmdview/:mobmdview?',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
         {
             appfunctag: '_3',
             appfuncyype: 'APPVIEW',

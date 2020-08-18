@@ -56,6 +56,41 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'type',
+                prop: 'type',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'os',
+                prop: 'os',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'browser',
+                prop: 'browser',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'deadline',
+                prop: 'deadline',
+                dataType: 'DATE',
+            },
+            {
+                name: 'repotype',
+                prop: 'repotype',
+                dataType: 'PICKUPDATA',
+            },
+            {
+                name: 'resolution',
+                prop: 'resolution',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'resolvedby',
+                prop: 'resolvedby',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

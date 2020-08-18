@@ -1,6 +1,9 @@
+import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
+import project_en_US from '@locale/lanres/project/project_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
+import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territory_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
@@ -60,6 +63,7 @@ export default {
                 menuitem1: '产品',
                 menuitem2: '项目',
                 menuitem3: '测试',
+                menuitem4: '我的',
             },
             listmenu: {
                 menuitem1: '电脑',
@@ -137,9 +141,12 @@ export default {
             5005: 'Data deletion failed'
         }
     },
+    projectteam: projectteam_en_US,
     task: task_en_US,
     product: product_en_US,
+    project: project_en_US,
     story: story_en_US,
+    ibzmyterritory: ibzmyterritory_en_US,
     productplan: productplan_en_US,
     projectstats: projectstats_en_US,
     bug: bug_en_US,

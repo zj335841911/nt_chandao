@@ -51,6 +51,16 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'begin',
+                prop: 'begin',
+                dataType: 'DATE',
+            },
+            {
+                name: 'end',
+                prop: 'end',
+                dataType: 'DATE',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
