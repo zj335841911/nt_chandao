@@ -22,6 +22,7 @@ export default {
 			srfsourcekey: '', 
 			name: '待办名称', 
 			pri: '优先级', 
+			date1: '日期', 
 			begin: '开始', 
 			end: '结束', 
 			type: '类型', 

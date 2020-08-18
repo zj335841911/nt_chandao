@@ -56,6 +56,11 @@ export class MobMainModel {
                 dataType: 'INT',
             },
             {
+                name: 'date1',
+                prop: 'date1',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'begin',
                 prop: 'begin',
                 dataType: 'NSCODELIST',

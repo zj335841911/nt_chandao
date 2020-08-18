@@ -67,6 +67,30 @@
 
 
 <app-form-item 
+    name='date1' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="date1_item"  
+    :itemValue="this.data.date1" 
+    v-show="detailsModel.date1.visible" 
+    :itemRules="this.rules.date1" 
+    :caption="$t('todo.mobmain_form.details.date1')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.date1.disabled"
+    :error="detailsModel.date1.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.date1" 
+    :context="context" 
+    :value="data.date1" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='begin' 
     class='' 
     uiStyle="DEFAULT"  
@@ -551,6 +575,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         name: null,
         pri: null,
+        date1: null,
         begin: null,
         end: null,
         type: null,
@@ -646,6 +671,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
+        date1: [
+            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'blur' },
         ],
         begin: [
             { type: 'string', message: '开始 值必须为字符串类型', trigger: 'change' },
@@ -801,6 +832,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        date1: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         begin: new FormItemModel({ caption: '开始', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         end: new FormItemModel({ caption: '结束', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -925,6 +958,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.pri')
     onPriChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 date1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.date1')
+    onDate1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'date1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1059,6 +1104,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1244,7 +1290,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'pri_item', 'begin_item', 'end_item', 'type_item', 'status_item', 'assignedby_item', 'assigneddate_item', 'assignedto_item', ];
+        const refArr: Array<string> = ['name_item', 'pri_item', 'date1_item', 'begin_item', 'end_item', 'type_item', 'status_item', 'assignedby_item', 'assigneddate_item', 'assignedto_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
