@@ -144,7 +144,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
     /**
      * 上级模块
      */
-    @TableField(value = "parentname")
+    @TableField(exist = false)
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
     private String parentname;
@@ -252,14 +252,6 @@ public class IbzLibModule extends EntityMP implements Serializable {
     public void setParent(BigInteger parent){
         this.parent = parent ;
         this.modify("parent",parent);
-    }
-
-    /**
-     * 设置 [上级模块]
-     */
-    public void setParentname(String parentname){
-        this.parentname = parentname ;
-        this.modify("parentname",parentname);
     }
 
     /**

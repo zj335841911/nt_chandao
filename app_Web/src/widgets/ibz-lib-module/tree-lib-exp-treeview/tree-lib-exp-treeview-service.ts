@@ -223,7 +223,7 @@ export default class TreeLibExpService extends ControlService {
 
             Object.assign(treeNode, { id: strNodeId });
 
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, {navigateContext: {SRFPARENTKEY:"0"} });
             Object.assign(treeNode, {navigateParams: {n_parent_eq:"0"} });

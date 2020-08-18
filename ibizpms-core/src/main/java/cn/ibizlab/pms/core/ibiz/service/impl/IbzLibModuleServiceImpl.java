@@ -59,6 +59,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Override
     @Transactional
     public boolean create(IbzLibModule et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -67,12 +68,14 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
     @Override
     public void createBatch(List<IbzLibModule> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IbzLibModule et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -81,6 +84,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
     @Override
     public void updateBatch(List<IbzLibModule> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -111,6 +115,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
     @Override
     public IbzLibModule getDraft(IbzLibModule et) {
+        fillParentData(et);
         return et;
     }
 
@@ -138,12 +143,14 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
     @Override
     public boolean saveBatch(Collection<IbzLibModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IbzLibModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -189,6 +196,22 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(IbzLibModule et){
+        //实体关系[DER1N_IBZ_LIBMODULE_IBZ_LIBMODULE_PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.ibiz.domain.IbzLibModule parentmodule=et.getParentmodule();
+            if(ObjectUtils.isEmpty(parentmodule)){
+                cn.ibizlab.pms.core.ibiz.domain.IbzLibModule majorEntity=ibzlibmoduleService.get(et.getParent());
+                et.setParentmodule(majorEntity);
+                parentmodule=majorEntity;
+            }
+            et.setParentname(parentmodule.getName());
+        }
+    }
 
 
 

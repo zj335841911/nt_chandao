@@ -226,14 +226,6 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [PARENTNAME]
-     */
-    public void setParentname(String  parentname){
-        this.parentname = parentname ;
-        this.modify("parentname",parentname);
-    }
-
-    /**
      * 设置 [ROOT]
      */
     public void setRoot(BigInteger  root){
