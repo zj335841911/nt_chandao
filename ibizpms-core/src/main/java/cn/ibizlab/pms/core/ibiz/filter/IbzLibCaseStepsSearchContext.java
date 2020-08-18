@@ -38,7 +38,7 @@ public class IbzLibCaseStepsSearchContext extends QueryWrapperContext<IbzLibCase
 	public void setN_case_eq(BigInteger n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
-            this.getSearchCond().eq("case", n_case_eq);
+            this.getSearchCond().eq("`case`", n_case_eq);
         }
     }
 	private String n_expect_like;//[预期]

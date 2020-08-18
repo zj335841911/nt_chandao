@@ -284,6 +284,7 @@ final public class ZTCaseHelper {
         ACTION_PARAMS_EDIT.put("expects[]", null);
         ACTION_PARAMS_EDIT.put("comment", null);
         ACTION_PARAMS_EDIT.put("linkCase[]", null);
+        ACTION_PARAMS_EDIT.put("lib", null);
 
     }
 
