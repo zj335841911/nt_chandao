@@ -25,7 +25,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" @touchstart="start" @touchend="end">
+                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -571,7 +571,10 @@ export default class MobBase extends Vue implements ControlInterface {
                 infoStr += data.name;
             }
         });
-
+        if(datas.length <= 0 ){
+          this.$notice.error('请选择至少一条删除~')
+          return
+        }
         if (datas.length < 5) {
             infoStr = infoStr + this.$t('app.message.totle') + datas.length + this.$t('app.message.data');
         } else {
@@ -619,6 +622,28 @@ export default class MobBase extends Vue implements ControlInterface {
                 reject(error);
             })
         })
+    }
+
+    /**
+     * 长按
+     *
+     * @memberof Mob
+     */
+    public onPress(){
+        let _this = this;
+        window.addEventListener('contextmenu',(e:any)=>{
+            _this.onCheackChange();
+            e.preventDefault();
+        });
+    }
+
+    /**
+     * 长按状态改变事件
+     *
+     * @memberof Mob
+     */
+    public onCheackChange(){
+        this.$emit('showCheackChange', !this.showCheack);
     }
 
     /**
@@ -796,6 +821,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public created() {
+        this.onPress();
         this.afterCreated();
     }
 
@@ -848,6 +874,7 @@ export default class MobBase extends Vue implements ControlInterface {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+        window.removeEventListener('contextmenu',()=>{});
     }
 
     /**
@@ -909,34 +936,6 @@ export default class MobBase extends Vue implements ControlInterface {
         });
     }
     
-    /**
-     * 长按定时器
-     *
-     * @memberof Mdctrl
-     */
-    public loop :any;
-    
-    /**
-     * 开始长按
-     *
-     * @memberof Mdctrl
-     */
-    public start () {
-      clearTimeout(this.loop); //再次清空定时器，防止重复注册定时器
-      this.loop = setTimeout(() => {
-        this.$emit('showCheackChange', !this.showCheack);
-      }, 1000);
-    }
-
-    /**
-     * 结束长按
-     *
-     * @memberof Mdctrl
-     */
-    public end () {
-      clearTimeout(this.loop); //清空定时器，防止重复注册定时器
-    }
-
     /**
      * 全选事件
      *
