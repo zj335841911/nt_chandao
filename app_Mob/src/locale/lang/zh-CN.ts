@@ -1,3 +1,4 @@
+import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
@@ -142,6 +143,7 @@ export default {
             5005: '数据删除失败'
         }
     },
+    user: user_zh_CN,
     projectteam: projectteam_zh_CN,
     task: task_zh_CN,
     product: product_zh_CN,

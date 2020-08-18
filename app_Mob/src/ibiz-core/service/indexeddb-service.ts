@@ -37,6 +37,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
      * @memberof IndexedDBServiceBase
      */
     protected entityConfigInit(): void {
+        this.entityConfigs.push({ name: 'user', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'task', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });

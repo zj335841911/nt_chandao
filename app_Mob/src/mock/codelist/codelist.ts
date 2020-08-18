@@ -267,8 +267,8 @@ const datas: Array<any> = [
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"User",
+        "appdedataset":"FetchDefault",
         "items": []
     },
     {
@@ -401,8 +401,8 @@ const datas: Array<any> = [
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"User",
+        "appdedataset":"FetchBugUser",
         "items": []
     },
     {

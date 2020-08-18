@@ -1,3 +1,4 @@
+import user_en_US from '@locale/lanres/user/user_en_US';
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
@@ -141,6 +142,7 @@ export default {
             5005: 'Data deletion failed'
         }
     },
+    user: user_en_US,
     projectteam: projectteam_en_US,
     task: task_en_US,
     product: product_en_US,
