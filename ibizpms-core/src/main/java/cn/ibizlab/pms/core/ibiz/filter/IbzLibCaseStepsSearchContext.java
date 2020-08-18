@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzLibCaseSteps;
 @Data
 public class IbzLibCaseStepsSearchContext extends QueryWrapperContext<IbzLibCaseSteps> {
 
+	private Integer n_version_eq;//[版本]
+	public void setN_version_eq(Integer n_version_eq) {
+        this.n_version_eq = n_version_eq;
+        if(!ObjectUtils.isEmpty(this.n_version_eq)){
+            this.getSearchCond().eq("version", n_version_eq);
+        }
+    }
 	private BigInteger n_case_eq;//[用例编号]
 	public void setN_case_eq(BigInteger n_case_eq) {
         this.n_case_eq = n_case_eq;
