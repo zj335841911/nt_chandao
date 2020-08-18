@@ -575,7 +575,6 @@ export default {
 			consumed: "消耗",
 			left: "剩余",
 			deadline: "截止日期",
-			progress: "进度",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
