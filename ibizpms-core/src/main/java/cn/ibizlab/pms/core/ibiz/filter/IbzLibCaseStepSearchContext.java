@@ -34,20 +34,6 @@ public class IbzLibCaseStepSearchContext extends QueryWrapperContext<IbzLibCaseS
             this.getSearchCond().like("expect", n_expect_like);
         }
     }
-	private BigInteger n_case_eq;//[用例编号]
-	public void setN_case_eq(BigInteger n_case_eq) {
-        this.n_case_eq = n_case_eq;
-        if(!ObjectUtils.isEmpty(this.n_case_eq)){
-            this.getSearchCond().eq("case", n_case_eq);
-        }
-    }
-	private BigInteger n_parent_eq;//[编号]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
-        this.n_parent_eq = n_parent_eq;
-        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSearchCond().eq("parent", n_parent_eq);
-        }
-    }
 	private String n_type_eq;//[类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;

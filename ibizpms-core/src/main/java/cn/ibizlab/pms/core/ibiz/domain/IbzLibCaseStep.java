@@ -77,50 +77,12 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     @JsonProperty("files")
     private String files;
     /**
-     * 用例编号
-     */
-    @DEField(name = "case")
-    @TableField(value = "case")
-    @JSONField(name = "ibizcase")
-    @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
-    /**
-     * 编号
-     */
-    @TableField(value = "parent")
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    private BigInteger parent;
-    /**
      * 类型
      */
     @TableField(value = "type")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
-    /**
-     * 版本
-     */
-    @TableField(exist = false)
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibiz.domain.IbzLibCaseStep ibzcasesteps;
-
-    /**
-     * 用例
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibiz.domain.IbzCase ibzcase;
 
 
 
@@ -138,22 +100,6 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     public void setDesc(String desc){
         this.desc = desc ;
         this.modify("desc",desc);
-    }
-
-    /**
-     * 设置 [用例编号]
-     */
-    public void setIbizcase(BigInteger ibizcase){
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
-    }
-
-    /**
-     * 设置 [编号]
-     */
-    public void setParent(BigInteger parent){
-        this.parent = parent ;
-        this.modify("parent",parent);
     }
 
     /**

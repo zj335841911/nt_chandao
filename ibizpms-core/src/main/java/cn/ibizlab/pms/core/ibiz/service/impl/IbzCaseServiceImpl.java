@@ -47,9 +47,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibCaseStepService ibzlibcasestepService;
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzLibCaseStepsService ibzlibcasestepsService;
     @Autowired
     @Lazy
@@ -66,7 +63,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        ibzlibcasestepService.saveByIbizcase(et.getId(),et.getIbzlibcasestep());
         ibzlibcasestepsService.saveByIbizcase(et.getId(),et.getIbzlibcasesteps());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
@@ -84,7 +80,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        ibzlibcasestepService.saveByIbizcase(et.getId(),et.getIbzlibcasestep());
         ibzlibcasestepsService.saveByIbizcase(et.getId(),et.getIbzlibcasesteps());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
@@ -99,7 +94,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        ibzlibcasestepService.removeByIbizcase(key) ;
         ibzlibcasestepsService.removeByIbizcase(key) ;
         boolean result=removeById(key);
         return result ;
@@ -119,7 +113,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
             et.setId(key);
         }
         else{
-            et.setIbzlibcasestep(ibzlibcasestepService.selectByIbizcase(key));
             et.setIbzlibcasesteps(ibzlibcasestepsService.selectByIbizcase(key));
         }
         return et;

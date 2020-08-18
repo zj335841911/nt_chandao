@@ -37,11 +37,6 @@ public interface IIbzLibCaseStepService extends IService<IbzLibCaseStep>{
     boolean save(IbzLibCaseStep et) ;
     void saveBatch(List<IbzLibCaseStep> list) ;
     Page<IbzLibCaseStep> searchDefault(IbzLibCaseStepSearchContext context) ;
-    List<IbzLibCaseStep> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
-    List<IbzLibCaseStep> selectByIbizcase(BigInteger id) ;
-    void removeByIbizcase(BigInteger id) ;
-    void saveByIbizcase(BigInteger id,List<IbzLibCaseStep> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

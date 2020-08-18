@@ -262,14 +262,6 @@ public class IbzCase extends EntityMP implements Serializable {
     @JsonIgnore
     @JSONField(serialize = false)
     @TableField(exist = false)
-    private List<cn.ibizlab.pms.core.ibiz.domain.IbzLibCaseStep> ibzlibcasestep;
-
-    /**
-     * 用例库用例步骤
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
     private List<cn.ibizlab.pms.core.ibiz.domain.IbzLibCaseSteps> ibzlibcasesteps;
 
 

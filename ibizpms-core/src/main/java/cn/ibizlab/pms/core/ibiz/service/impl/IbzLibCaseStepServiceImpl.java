@@ -46,17 +46,11 @@ import org.springframework.util.StringUtils;
 public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper, IbzLibCaseStep> implements IIbzLibCaseStepService {
 
 
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzLibCaseStepService ibzlibcasestepService = this;
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseService ibzcaseService;
-
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(IbzLibCaseStep et) {
-        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -65,14 +59,12 @@ public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper,
 
     @Override
     public void createBatch(List<IbzLibCaseStep> list) {
-        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IbzLibCaseStep et) {
-        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -81,7 +73,6 @@ public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper,
 
     @Override
     public void updateBatch(List<IbzLibCaseStep> list) {
-        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -112,7 +103,6 @@ public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper,
 
     @Override
     public IbzLibCaseStep getDraft(IbzLibCaseStep et) {
-        fillParentData(et);
         return et;
     }
 
@@ -140,69 +130,15 @@ public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper,
 
     @Override
     public boolean saveBatch(Collection<IbzLibCaseStep> list) {
-        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IbzLibCaseStep> list) {
-        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
-
-	@Override
-    public List<IbzLibCaseStep> selectByParent(BigInteger id) {
-        return baseMapper.selectByParent(id);
-    }
-
-    @Override
-    public void removeByParent(BigInteger id) {
-        this.remove(new QueryWrapper<IbzLibCaseStep>().eq("parent",id));
-    }
-
-	@Override
-    public List<IbzLibCaseStep> selectByIbizcase(BigInteger id) {
-        return baseMapper.selectByIbizcase(id);
-    }
-
-    @Override
-    public void removeByIbizcase(BigInteger id) {
-        this.remove(new QueryWrapper<IbzLibCaseStep>().eq("case",id));
-    }
-
-    @Autowired
-    @Lazy
-    IIbzLibCaseStepService proxyService;
-	@Override
-    public void saveByIbizcase(BigInteger id,List<IbzLibCaseStep> list) {
-        if(list==null)
-            return;
-        Set<BigInteger> delIds=new HashSet<BigInteger>();
-        List<IbzLibCaseStep> _update=new ArrayList<IbzLibCaseStep>();
-        List<IbzLibCaseStep> _create=new ArrayList<IbzLibCaseStep>();
-        for(IbzLibCaseStep before:selectByIbizcase(id)){
-            delIds.add(before.getId());
-        }
-        for(IbzLibCaseStep sub:list) {
-            sub.setIbizcase(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((BigInteger)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
-                delIds.remove(sub.getId());
-                _update.add(sub);
-            }
-            else
-                _create.add(sub);
-        }
-        if(_update.size()>0)
-            proxyService.updateBatch(_update);
-        if(_create.size()>0)
-            proxyService.createBatch(_create);
-        if(delIds.size()>0)
-            proxyService.removeBatch(delIds);
-	}
 
 
     /**
@@ -216,22 +152,6 @@ public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper,
 
 
 
-    /**
-     * 为当前实体填充父数据（外键值文本、外键值附加数据）
-     * @param et
-     */
-    private void fillParentData(IbzLibCaseStep et){
-        //实体关系[DER1N_IBZ_CASESTEP_IBZ_CASE_CASE]
-        if(!ObjectUtils.isEmpty(et.getIbizcase())){
-            cn.ibizlab.pms.core.ibiz.domain.IbzCase ibzcase=et.getIbzcase();
-            if(ObjectUtils.isEmpty(ibzcase)){
-                cn.ibizlab.pms.core.ibiz.domain.IbzCase majorEntity=ibzcaseService.get(et.getIbizcase());
-                et.setIbzcase(majorEntity);
-                ibzcase=majorEntity;
-            }
-            et.setVersion(ibzcase.getVersion());
-        }
-    }
 
 
 

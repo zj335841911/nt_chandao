@@ -62,8 +62,4 @@ public interface IbzLibCaseStepMapper extends BaseMapper<IbzLibCaseStep>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<IbzLibCaseStep> selectByParent(@Param("id") Serializable id) ;
-
-    List<IbzLibCaseStep> selectByIbizcase(@Param("id") Serializable id) ;
-
 }
