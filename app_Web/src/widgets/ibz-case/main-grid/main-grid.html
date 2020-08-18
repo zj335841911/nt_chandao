@@ -57,7 +57,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='ibzcase' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'ibz-case-dashboard-view', height: 0,width: 0,title: $t('entities.ibzcase.views.dashboardview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField='ibzcase' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'ibz-case-dashboard-view', height: 0,width: 0,title: $t('entities.ibzcase.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'ibzlibs', parameterName: 'ibzlib' },
             ]
             ,parameters: [

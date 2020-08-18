@@ -66,12 +66,8 @@ export default {
       		title: "用例库用例编辑视图（新建）",
 		},
 	},
-	maininfo_form: {
+	newedit_form: {
 		details: {
-			druipart2: "", 
-			druipart1: "", 
-			grouppanel1: "附件", 
-			group1: "用例库用例基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "用例编号", 
@@ -80,9 +76,11 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			id: "", 
-			title: "", 
-			precondition: "前置条件", 
+			openedby: "由谁创建", 
+			openeddate: "于", 
+			lasteditedby: "由谁编辑", 
+			lastediteddate: "于", 
+			id: "用例编号", 
 		},
 		uiactions: {
 		},
@@ -123,6 +121,27 @@ export default {
 		uiactions: {
 		},
 	},
+	maininfo_form: {
+		details: {
+			druipart2: "", 
+			druipart1: "", 
+			grouppanel1: "附件", 
+			group1: "用例库用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "", 
+			title: "", 
+			precondition: "前置条件", 
+		},
+		uiactions: {
+		},
+	},
 	jbinfo_form: {
 		details: {
 			group1: "基本信息", 
@@ -143,25 +162,6 @@ export default {
 			keywords: "关键词", 
 			id: "用例编号", 
 			lib: "编号", 
-		},
-		uiactions: {
-		},
-	},
-	newedit_form: {
-		details: {
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "用例编号", 
-			srfmajortext: "用例标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			openedby: "由谁创建", 
-			openeddate: "于", 
-			lasteditedby: "由谁编辑", 
-			lastediteddate: "于", 
-			id: "用例编号", 
 		},
 		uiactions: {
 		},

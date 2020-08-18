@@ -30,6 +30,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto5(item); break;
                 case 'Auto8': 
                     this.clickAuto8(item); break;
+                case '_2': 
+                    this.click_2(item); break;
                 case 'Auto2': 
                     this.clickAuto2(item); break;
                 case 'Auto6': 
@@ -109,6 +111,29 @@ export class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'htmlview', parameterName: 'htmlview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * 用例库
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_2(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+            { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

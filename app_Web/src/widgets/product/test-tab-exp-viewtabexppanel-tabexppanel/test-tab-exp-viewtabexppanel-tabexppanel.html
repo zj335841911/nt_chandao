@@ -174,29 +174,5 @@
     @closeview="closeView($event)">
 </view_tabviewpanel7>
         </tab-pane>
-        <tab-pane :index="6" name='tabviewpanel8' tab='testtabexpviewtabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '用例库'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel8 
-    :viewState="viewState"  
-    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
-    :context="JSON.parse(JSON.stringify(context))" 
-    v-if="isInit.tabviewpanel8"
-    name="tabviewpanel8"  
-    ref='tabviewpanel8'
-    :expActive="activatedTabViewPanel === 'tabviewpanel8'"
-    @viewpanelDatasChange = "tabViewPanelDatasChange"
-    @closeview="closeView($event)">
-</view_tabviewpanel8>
-        </tab-pane>
     </tabs>
 </div>

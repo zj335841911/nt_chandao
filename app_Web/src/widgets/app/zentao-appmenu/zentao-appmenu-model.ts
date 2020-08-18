@@ -119,6 +119,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: '1064218E-C42A-4534-9402-5ECFD4697951',
+                	name: 'menuitem10',
+                	text: '用例库',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '用例库',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: '_2',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-lib-grid-view',
+                	resourcetag: 'IBZ_LIB_M',
+                }
+                ,
+                		        {
                 	id: 'AAADCE5D-2685-4C0A-9251-8731E49443A0',
                 	name: 'menuitem7',
                 	text: 'iBiz软件生产管理',
@@ -308,6 +329,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'htmlview', parameterName: 'htmlview' },
+            ],
+        },
+        {
+            appfunctag: '_2',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzlibgridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzlibs/:ibzlib?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
         {
