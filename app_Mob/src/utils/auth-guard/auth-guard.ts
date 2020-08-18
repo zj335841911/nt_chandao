@@ -71,25 +71,25 @@ export class AuthGuard {
      * @memberof AuthGuard
      */
     public async authGuard(url: string, params: any = {}, store: Store<any>): Promise<any> {
-        // const response: any = await Http.getInstance().get(url);
-        // if (response && response.status === 200) {
-        //     let { data }: { data: any } = response;
-        //     if (data) {
-        //         // token认证把用户信息放入应用级数据
-        //         if (localStorage.getItem('user')) {
-        //             let user: any = JSON.parse(localStorage.getItem('user') as string);
-        //             let localAppData: any = {};
-        //             if (user.sessionParams) {
-        //                 localAppData = { context: user.sessionParams };
-        //                 Object.assign(localAppData, data);
-        //             }
-        //             data = JSON.parse(JSON.stringify(localAppData));
-        //         }
-        //         store.commit('addAppData', data);
-        //         // 提交统一资源数据
-        //         store.dispatch('authresource/commitAuthData', data);
-        //     }
-        // }
+        const response: any = await Http.getInstance().get(url);
+        if (response && response.status === 200) {
+            let { data }: { data: any } = response;
+            if (data) {
+                // token认证把用户信息放入应用级数据
+                if (localStorage.getItem('user')) {
+                    let user: any = JSON.parse(localStorage.getItem('user') as string);
+                    let localAppData: any = {};
+                    if (user.sessionParams) {
+                        localAppData = { context: user.sessionParams };
+                        Object.assign(localAppData, data);
+                    }
+                    data = JSON.parse(JSON.stringify(localAppData));
+                }
+                store.commit('addAppData', data);
+                // 提交统一资源数据
+                store.dispatch('authresource/commitAuthData', data);
+            }
+        }
         return await this.loadDictionaryDatas(store);
     }
 
