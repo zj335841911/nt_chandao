@@ -229,4 +229,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     code?: any;
+
+    /**
+     * 产品类型
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    type?: any;
 }

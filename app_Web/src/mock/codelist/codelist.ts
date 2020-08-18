@@ -3397,7 +3397,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "normal",
                 label: "正常",
                 text: "正常",
-                "data":{"n_status_eq":'normal'},
+                "data":{"n_status_eq":"normal"},
                 "codename":"Normal",
                 "color": "rgba(13, 255, 0, 1)",
                 value: "normal",
@@ -3408,7 +3408,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "terminate",
                 label: "停止维护",
                 text: "停止维护",
-                "data":{"n_status_eq":'terminate'},
+                "data":{"n_status_eq":"terminate"},
                 "codename":"Terminate",
                 value: "terminate",
                 
@@ -5895,7 +5895,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "normal",
                 label: "未关闭",
                 text: "未关闭",
-                "data":{"n_status_eq":'normal'},
+                "data":{"n_status_eq":"normal"},
                 "codename":"Normal",
                 value: "normal",
                 
@@ -5905,7 +5905,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "closed",
                 label: "已关闭",
                 text: "已关闭",
-                "data":{"n_status_eq":'closed'},
+                "data":{"n_status_eq":"closed"},
                 "codename":"Closed",
                 value: "closed",
                 
@@ -6744,7 +6744,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "nowait",
                 label: "未完成",
                 text: "未完成",
-                "data":{"n_status_noteq":'closed'},
+                "data":{"n_status_noteq":"closed"},
                 "codename":"Nowait",
                 value: "nowait",
                 
@@ -6754,7 +6754,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "wait",
                 label: "未开始",
                 text: "未开始",
-                "data":{"n_status_eq":'wait'},
+                "data":{"n_status_eq":"wait"},
                 "codename":"Wait",
                 value: "wait",
                 
@@ -6764,7 +6764,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "doing",
                 label: "进行中",
                 text: "进行中",
-                "data":{"n_status_eq":'doing'},
+                "data":{"n_status_eq":"doing"},
                 "codename":"Doing",
                 value: "doing",
                 
@@ -6774,7 +6774,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "suspended",
                 label: "已挂起",
                 text: "已挂起",
-                "data":{"n_status_eq":'suspended'},
+                "data":{"n_status_eq":"suspended"},
                 "codename":"Suspended",
                 value: "suspended",
                 
@@ -6784,7 +6784,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "closed",
                 label: "已关闭",
                 text: "已关闭",
-                "data":{"n_status_eq":'closed'},
+                "data":{"n_status_eq":"closed"},
                 "codename":"Closed",
                 value: "closed",
                 

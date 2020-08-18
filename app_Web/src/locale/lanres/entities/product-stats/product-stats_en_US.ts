@@ -29,6 +29,7 @@ export default {
     currproject: "当前项目",
     status: "状态",
     code: "产品代号",
+    type: "产品类型",
   },
 	views: {
 		allgridview: {
