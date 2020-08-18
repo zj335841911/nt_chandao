@@ -288,7 +288,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "1bd39348fb4dc22c08e997bd771a2419"
         },
         "ibzlibmoduletreeexpview": {
-            "title": "用例库模块树导航视图（模块维护）",
+            "title": "模块维护",
             "caption": "模块维护",
             "viewtype": "DETREEEXPVIEW",
             "viewmodule": "ibiz",
@@ -1648,7 +1648,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "985c8eb7591e5e00de8e3cda638d5727"
         },
         "ibzlibmodulecasetreeexpview": {
-            "title": "用例库模块树导航视图（用例）",
+            "title": "用例",
             "caption": "用例",
             "viewtype": "DETREEEXPVIEW",
             "viewmodule": "ibiz",

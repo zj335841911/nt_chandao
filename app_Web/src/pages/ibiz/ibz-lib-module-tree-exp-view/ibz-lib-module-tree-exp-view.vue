@@ -6,7 +6,7 @@ import { IbzLibModuleTreeExpViewBase } from './ibz-lib-module-tree-exp-view-base
 import view_treeexpbar from '@widgets/ibz-lib-module/tree-exp-viewtreeexpbar-treeexpbar/tree-exp-viewtreeexpbar-treeexpbar.vue';
 
 /**
- * 用例库模块树导航视图（模块维护）视图
+ * 模块维护视图
  *
  * @export
  * @class IbzLibModuleTreeExpView

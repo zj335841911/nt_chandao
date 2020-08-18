@@ -111,6 +111,7 @@ export default {
 			totalconsumed: "消耗",
 			totalleft: "剩余",
 			totalwh: "总工时",
+			progress: "进度",
 		},
 		uiactions: {
 		},

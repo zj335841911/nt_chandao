@@ -180,6 +180,14 @@ export class NotCloseProjectGridBase extends GridControlBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'progress',
+            label: '进度',
+            langtag: 'entities.projectstats.notcloseproject_grid.columns.progress',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -221,6 +229,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
         'totalconsumed':false,
         'totalleft':false,
         'totalwh':false,
+        'progress':false,
     };
 
     /**

@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='ibzlib_desc' style="">
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='ibzlib_desc' style="">
     <input style="display:none;" />
     <row >
             
@@ -14,14 +14,10 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 22, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.ibzlib.desc_form.details.name')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="true" labelPos="LEFT">
-    <input-box 
-    v-model="data.name"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.name.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
 
 </app-form-item>
 

@@ -1,30 +1,6 @@
 <div class='tabviewpanel'>
     <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='tabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '模块'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel3 
-    :viewState="viewState"  
-    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
-    :context="JSON.parse(JSON.stringify(context))" 
-    v-if="isInit.tabviewpanel3"
-    name="tabviewpanel3"  
-    ref='tabviewpanel3'
-    :expActive="activatedTabViewPanel === 'tabviewpanel3'"
-    @viewpanelDatasChange = "tabViewPanelDatasChange"
-    @closeview="closeView($event)">
-</view_tabviewpanel3>
-        </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '概况'),
@@ -48,7 +24,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '用例'),
@@ -71,6 +47,30 @@
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
+        </tab-pane>
+        <tab-pane :index="2" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '模块'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel3 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel3"
+    name="tabviewpanel3"  
+    ref='tabviewpanel3'
+    :expActive="activatedTabViewPanel === 'tabviewpanel3'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel3>
         </tab-pane>
     </tabs>
 </div>

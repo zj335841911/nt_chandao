@@ -6,7 +6,7 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
 import IbzLibModuleUIService from '@/uiservice/ibz-lib-module/ibz-lib-module-ui-service';
 
 /**
- * 用例库模块树导航视图（模块维护）视图基类
+ * 模块维护视图基类
  *
  * @export
  * @class IbzLibModuleTreeExpViewBase

@@ -6,7 +6,7 @@ import { IbzLibModuleCaseTreeExpViewBase } from './ibz-lib-module-case-tree-exp-
 import view_treeexpbar from '@widgets/ibz-lib-module/case-tree-exp-viewtreeexpbar-treeexpbar/case-tree-exp-viewtreeexpbar-treeexpbar.vue';
 
 /**
- * 用例库模块树导航视图（用例）视图
+ * 用例视图
  *
  * @export
  * @class IbzLibModuleCaseTreeExpView

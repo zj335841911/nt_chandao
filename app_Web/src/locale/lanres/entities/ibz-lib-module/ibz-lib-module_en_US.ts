@@ -20,11 +20,11 @@ export default {
 	views: {
 		treeexpview: {
 			caption: "模块维护",
-      		title: "用例库模块树导航视图（模块维护）",
+      		title: "模块维护",
 		},
 		casetreeexpview: {
 			caption: "用例",
-      		title: "用例库模块树导航视图（用例）",
+      		title: "用例",
 		},
 		editview: {
 			caption: "用例库模块",
@@ -146,18 +146,18 @@ export default {
 			tip: "Help",
 		},
 	},
-	treelibmodule_treeview: {
-		nodes: {
-			root: "默认根节点",
-			all: "所有模板",
-		},
-		uiactions: {
-		},
-	},
 	treelibexp_treeview: {
 		nodes: {
 			all: "所有模板",
 			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	treelibmodule_treeview: {
+		nodes: {
+			root: "默认根节点",
+			all: "所有模板",
 		},
 		uiactions: {
 		},

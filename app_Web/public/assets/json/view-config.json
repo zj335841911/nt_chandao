@@ -350,7 +350,7 @@
         "memo": ""
     },
     "ibzlibmoduletreeexpview": {
-        "title": "用例库模块树导航视图（模块维护）",
+        "title": "模块维护",
         "caption": "模块维护",
         "viewtype": "DETREEEXPVIEW",
         "viewmodule": "ibiz",
@@ -2050,7 +2050,7 @@
         "memo": "视图参数转换"
     },
     "ibzlibmodulecasetreeexpview": {
-        "title": "用例库模块树导航视图（用例）",
+        "title": "用例",
         "caption": "用例",
         "viewtype": "DETREEEXPVIEW",
         "viewmodule": "ibiz",

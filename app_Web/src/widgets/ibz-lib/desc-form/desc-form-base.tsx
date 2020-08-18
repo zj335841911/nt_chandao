@@ -103,10 +103,6 @@ export class DescEditFormBase extends EditFormControlBase {
      * @memberof DescEditFormBase
      */
     public rules: any = {
-        name: [
-            { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**

@@ -116,6 +116,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('progress')">
+                <el-table-column show-overflow-tooltip :prop="'progress'" :label="$t('entities.projectstats.notcloseproject_grid.columns.progress')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.notcloseproject_grid.columns.progress')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+                                <span><over-progress :data="row.totalconsumed && row.totalwh && row.totalconsumed != 0 ? row.totalconsumed/row.totalwh : ''"></over-progress></span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
