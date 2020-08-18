@@ -92,7 +92,6 @@ export class StoryServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/stories`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs?res.data.bugs:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
         
         return res;

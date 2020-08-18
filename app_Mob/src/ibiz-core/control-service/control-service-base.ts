@@ -236,7 +236,7 @@ export class ControlServiceBase {
         data[this.appDeKey] = PrimaryKey;
         if (Util.isFunction(this.service[action])) {
             response = await this.service[action](context, data, isLoading);
-            console.log(response);
+            //console.log(response);
         } else {
             response = await this.service.GetDraft(context, data, isLoading);
         }

@@ -72,12 +72,32 @@ export default class Login extends Vue {
      */
     public password: string = "";
 
+       /**
+     * 是否加载中
+     *
+     * @type {string}
+     * @memberof Login
+     */
+    public isLoadding:boolean = false;
+
     /**
      * 登录
      *
      * @memberof Login
      */
     public login() {
+        if(this.isLoadding){
+            return;
+        }
+        this.isLoadding = true;
+        let token = localStorage.getItem('token');
+        let user = localStorage.getItem('user');
+        if(token){
+            localStorage.removeItem("token");
+        }
+        if(user){
+            localStorage.removeItem("user");
+        }
         if (Object.is(this.username, '')) {
             this.$notice.error(`${this.$t('usernametipinfo')}`);
             return;
@@ -89,15 +109,18 @@ export default class Login extends Vue {
         const post: Promise<any> = this.$http.post(Environment.RemoteLogin, { loginname: this.username, password: this.password });
         post.then((response: any) => {
             if (response && response.status === 200) {
+                this.isLoadding = false;
                 const data = response.data;
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user", JSON.stringify(data.user));
                 const url: any = this.$route.query.redirect
                     ? this.$route.query.redirect
                     : "*";
-                this.$router.push({ path: url });
+                this.$router.replace({ path: url });
+                this.$router.go(-1)
             }
         }).catch((error: any) => {
+            this.isLoadding = false;
             this.$notice.error(error?error.error.message:"登录异常");
         });
     }

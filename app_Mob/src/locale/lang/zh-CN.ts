@@ -1,6 +1,7 @@
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
-import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
+import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
+import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
 
@@ -136,7 +137,8 @@ export default {
     },
     task: task_zh_CN,
     story: story_zh_CN,
-    bug: bug_zh_CN,
+    projectstats: projectstats_zh_CN,
+    productstats: productstats_zh_CN,
     codelist: codelist_zh_CN,
     userCustom: userCustom_zh_CN
 };

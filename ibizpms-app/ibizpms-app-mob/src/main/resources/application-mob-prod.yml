@@ -15,8 +15,12 @@ zuul:
       path: /stories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    zt_bug:
-      path: /bugs/**
+    ibz_projectstats:
+      path: /projectstats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_productstats:
+      path: /productstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     loginv7:

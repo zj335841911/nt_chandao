@@ -55,6 +55,14 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IReleaseUpdate__MSDenyLogic update__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IReleaseRemove__MSDenyLogic remove__msdenyLogic;
+
     protected int batchSize = 500;
 
         @Override
