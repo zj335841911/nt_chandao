@@ -1,0 +1,416 @@
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
+import { Subject, Subscription } from 'rxjs';
+import { Watch, MainControlBase } from '@/studio-core';
+import TestTaskService from '@/service/test-task/test-task-service';
+import ActionBarService from './action-bar-portlet-service';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
+import { Environment } from '@/environments/environment';
+
+
+/**
+ * dashboard_sysportlet4部件基类
+ *
+ * @export
+ * @class MainControlBase
+ * @extends {ActionBarPortletBase}
+ */
+export class ActionBarPortletBase extends MainControlBase {
+
+    /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionBarPortletBase
+     */
+    protected controlType: string = 'PORTLET';
+
+    /**
+     * 建构部件服务对象
+     *
+     * @type {ActionBarService}
+     * @memberof ActionBarPortletBase
+     */
+    public service: ActionBarService = new ActionBarService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {TestTaskService}
+     * @memberof ActionBarPortletBase
+     */
+    public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionBarPortletBase
+     */
+    protected appDeName: string = 'testtask';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionBarPortletBase
+     */
+    protected appDeLogicName: string = '测试版本';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof ActionBarBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_uff3ac3f_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_uc98202b_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_ActiviteDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u2824624_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_StartDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u71470a2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_CloseDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u134abc0_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_BlockDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 返回
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TestTaskMainDashboardViewBase
+     */
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
+        }
+    }
+
+
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ActionBar
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ActionBar
+     */
+    @Prop() public width?: number;
+
+    /**
+     * 操作栏模型数据
+     *
+     * @returns {any[]}
+     * @memberof ActionBarBase
+     */
+    public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet4_uff3ac3f_click",
+        text: "返回",
+        iconcls: "fa fa-sign-out",
+        icon: "",
+        noprivdisplaymode: 2,
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_uc98202b_click",
+        text: "激活",
+        iconcls: "fa fa-magic",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_ACTIVITE_BUT',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u2824624_click",
+        text: "开始",
+        iconcls: "fa fa-play",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_START_BUT',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u71470a2_click",
+        text: "关闭",
+        iconcls: "fa fa-close",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_CLOSED_BUT',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u134abc0_click",
+        text: "阻塞",
+        iconcls: "fa fa-pause",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_BLOCK_BUT',
+        visabled:true,
+        disabled:false
+        }
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @memberof ActionBarBase
+     */
+    public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet4_uff3ac3f_click')){
+            this.dashboard_sysportlet4_uff3ac3f_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_uc98202b_click')){
+            this.dashboard_sysportlet4_uc98202b_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u2824624_click')){
+            this.dashboard_sysportlet4_u2824624_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u71470a2_click')){
+            this.dashboard_sysportlet4_u71470a2_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u134abc0_click')){
+            this.dashboard_sysportlet4_u134abc0_click(null);
+        }
+    }
+
+
+    /**
+     * 是否自适应大小
+     *
+     * @returns {boolean}
+     * @memberof ActionBarBase
+     */
+    @Prop({default: false})public isAdaptiveSize!: boolean;
+
+    /**
+     * 获取多项数据
+     *
+     * @returns {any[]}
+     * @memberof ActionBarBase
+     */
+    public getDatas(): any[] {
+        return [];
+    }
+
+    /**
+     * 获取单项树
+     *
+     * @returns {*}
+     * @memberof ActionBarBase
+     */
+    public getData(): any {
+        return {};
+    }
+
+    /**
+     * 获取高度
+     *
+     * @returns {any[]}
+     * @memberof ActionBarBase
+     */
+    get getHeight(): any{
+        if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
+            if(this.height == 0){
+                return 'auto';
+            } else {
+                return this.height+'px';
+            }
+        } else {
+            return 'auto';
+        }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof ActionBarBase
+     */
+    public created() {
+        this.afterCreated();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     *  @memberof ActionBarBase
+     */    
+    public afterCreated(){
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+                const refs: any = this.$refs;
+                Object.keys(refs).forEach((_name: string) => {
+                    this.viewState.next({ tag: _name, action: action, data: data });
+                });
+            });
+        }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof ActionBarBase
+     */
+    public destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof ActionBarBase
+     */
+    public afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+
+
+}

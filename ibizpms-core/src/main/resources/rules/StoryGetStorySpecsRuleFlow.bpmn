@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.storygetstoryspecs" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.storygetstoryspecs">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="storygetstoryspecsstory" type="cn.ibizlab.pms.core.zentao.domain.StorySpec" />
+        <tns:global identifier="storygetstoryspecsdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storygetstoryspecsprepareparam1" id="8FA6BF0C-58E1-44A9-A7BC-586B3E470DE5" implementation="http://www.jboss.org/drools/rule" name="参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storygetstoryspecsdeaction1" id="DB47EB8B-34D6-452B-B768-55FADEE5CCEB" implementation="http://www.jboss.org/drools/rule" name="处理"/>
+     <endEvent id="DB47EB8B-34D6-452B-B768-55FADEE5CCEB_End" name="End"/>
+     <sequenceFlow id="DB47EB8B-34D6-452B-B768-55FADEE5CCEB_End_Line" sourceRef="DB47EB8B-34D6-452B-B768-55FADEE5CCEB" targetRef="DB47EB8B-34D6-452B-B768-55FADEE5CCEB_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storygetstoryspecsrawsqlcall1" id="BFF37F74-8347-4AA7-A259-E39E8A41694D" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <startEvent id="394EE8CD-1AFE-4EA6-8B4A-68A82CFE71D9" isInterrupting="true"/>
+     <sequenceFlow id="D1B9C28E-18A4-49E5-9EE7-92A5C0598F95" sourceRef="394EE8CD-1AFE-4EA6-8B4A-68A82CFE71D9" targetRef="BFF37F74-8347-4AA7-A259-E39E8A41694D">
+     </sequenceFlow>
+     <sequenceFlow id="CC3A47F9-C5B2-4002-A396-2E2F1856A2F8" sourceRef="8FA6BF0C-58E1-44A9-A7BC-586B3E470DE5" targetRef="DB47EB8B-34D6-452B-B768-55FADEE5CCEB">
+     </sequenceFlow>
+     <sequenceFlow id="76AF5896-5A2A-4A5D-85B3-5B675AE7EAE3" sourceRef="BFF37F74-8347-4AA7-A259-E39E8A41694D" targetRef="8FA6BF0C-58E1-44A9-A7BC-586B3E470DE5">
+     </sequenceFlow>
+    </process>
+</definitions>
+
