@@ -53,7 +53,7 @@ export default class ReleaseUIServiceBase extends UIService {
      * 
      * @memberof  ReleaseUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -102,6 +102,8 @@ export default class ReleaseUIServiceBase extends UIService {
      * @memberof  ReleaseUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('terminate','terminate');
     }
 
     /**
@@ -110,6 +112,8 @@ export default class ReleaseUIServiceBase extends UIService {
      * @memberof  ReleaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__RELEASE_ACTIVE':0,}));
+        this.allDeMainStateOPPrivsMap.set('terminate',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__RELEASE_TERMINATE':0,}));
     }
 
     /**

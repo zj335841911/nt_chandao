@@ -3387,7 +3387,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "all",
                 label: "所有",
                 text: "所有",
-                "data":"",
+                "data":{},
                 "codename":"All",
                 value: "all",
                 
@@ -3397,7 +3397,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "normal",
                 label: "正常",
                 text: "正常",
-                "data":"",
+                "data":{"n_status_eq":'normal'},
                 "codename":"Normal",
                 "color": "rgba(13, 255, 0, 1)",
                 value: "normal",
@@ -3408,7 +3408,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "terminate",
                 label: "停止维护",
                 text: "停止维护",
-                "data":"",
+                "data":{"n_status_eq":'terminate'},
                 "codename":"Terminate",
                 value: "terminate",
                 
