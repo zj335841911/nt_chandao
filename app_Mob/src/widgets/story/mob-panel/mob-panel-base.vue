@@ -4,7 +4,7 @@
         <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container">
             <ion-row style="height:100%;">
                 
-                <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__pri"></app-mob-span>
@@ -13,7 +13,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="11" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>

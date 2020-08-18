@@ -70,6 +70,33 @@ const router = new Router({
                     component: () => import('@pages/ungroup/app-portal-view/app-portal-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
+                    meta: {
+                        caption: 'projectteam.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'),
+                },
+                {
+                    path: 'projectteams/:projectteam?/mobmdview',
+                    meta: {
+                        caption: 'projectteam.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/mobmdview',
                     meta: {
                         caption: 'project.views.mobmdview.caption',
@@ -81,6 +108,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-mob-mdview/project-mob-mdview.vue'),
+                },
+                {
+                    path: 'projects/:project?/mobtabexpview',
+                    meta: {
+                        caption: 'project.views.mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobeditview',

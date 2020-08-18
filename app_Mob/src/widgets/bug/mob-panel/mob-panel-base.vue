@@ -6,7 +6,7 @@
                 <ion-col v-show="detailsModel.container2.visible"  :lg="12" :size="4" :sm="8" style="" class="app-layoutpanel-container mob_list_card">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__pri"></app-mob-span>
@@ -15,7 +15,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="11" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
@@ -24,7 +24,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.status.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.status.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__status"></app-mob-span>
@@ -33,7 +33,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
@@ -42,7 +42,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.resolution.visible"  :lg="4" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.resolution.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.resolution" :context="context" :value="data.resolution" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__resolution"></app-mob-span>

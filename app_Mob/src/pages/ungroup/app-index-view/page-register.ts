@@ -1,7 +1,9 @@
 export const PageComponents = {
     install(Vue: any, opt: any) {
                 Vue.component('app-portal-view', () => import('@pages/ungroup/app-portal-view/app-portal-view.vue'));
+        Vue.component('project-team-mob-mdview', () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'));
         Vue.component('project-mob-mdview', () => import('@pages/ibiz/project-mob-mdview/project-mob-mdview.vue'));
+        Vue.component('project-mob-tab-exp-view', () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'));
         Vue.component('story-mob-edit-view', () => import('@pages/ibiz/story-mob-edit-view/story-mob-edit-view.vue'));
         Vue.component('product-mob-edit-view', () => import('@pages/ibiz/product-mob-edit-view/product-mob-edit-view.vue'));
         Vue.component('story-ass-mob-mdview', () => import('@pages/ibiz/story-ass-mob-mdview/story-ass-mob-mdview.vue'));
