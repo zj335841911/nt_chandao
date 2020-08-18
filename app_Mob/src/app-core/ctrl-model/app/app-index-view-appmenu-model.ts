@@ -29,7 +29,7 @@ export class AppIndexViewModel {
 	iconcls: 'home',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: '_3',
 	resourcetag: '',
 },
         {
@@ -79,7 +79,7 @@ export class AppIndexViewModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_2',
+            appfunctag: '_3',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'app-portal-view', 

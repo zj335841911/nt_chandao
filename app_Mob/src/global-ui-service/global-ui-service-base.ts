@@ -21,6 +21,29 @@ export default class GlobalUiServiceBase extends UIActionBase {
 
 
     /**
+     * 新建
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async New(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+         const _this: any = this;
+        if (container.newdata && container.newdata instanceof Function) {
+            const data: any = {};
+            container.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
+        } else {
+            this.notice.error('newdata 视图处理逻辑不存在，请添加!');
+        }
+    }
+
+    /**
      * 刷新
      *
      * @param {any[]} args 数据

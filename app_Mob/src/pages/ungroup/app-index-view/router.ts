@@ -69,6 +69,46 @@ const router = new Router({
                     },
                     component: () => import('@pages/ungroup/app-portal-view/app-portal-view.vue'),
                 },
+                {
+                    path: 'stories/:story?/tasks/:task?/mobmdview',
+                    meta: {
+                        caption: 'task.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
+                },
+                {
+                    path: 'tasks/:task?/mobmdview',
+                    meta: {
+                        caption: 'task.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/mobmdview',
+                    meta: {
+                        caption: 'story.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mob-mdview/story-mob-mdview.vue'),
+                },
             ]
         },
         {

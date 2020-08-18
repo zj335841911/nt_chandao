@@ -415,12 +415,60 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case '_2': 
+                    this.click_2(item);
+                    return;
+                case '_4': 
+                    this.click_4(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
         }
     }
 
+    
+    /**
+     * 我的任务
+     *
+     * @param {*} [item={}]
+     * @memberof IconStyleMenu
+     */
+    protected click_2(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 我的需求
+     *
+     * @param {*} [item={}]
+     * @memberof IconStyleMenu
+     */
+    protected click_4(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
 
     /**
      * 数据加载

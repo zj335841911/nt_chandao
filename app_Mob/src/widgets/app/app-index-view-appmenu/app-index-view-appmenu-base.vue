@@ -418,8 +418,8 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case '_2': 
-                    this.click_2(item);
+                case '_3': 
+                    this.click_3(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -434,7 +434,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_2(item: any = {}) {
+    protected click_3(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});

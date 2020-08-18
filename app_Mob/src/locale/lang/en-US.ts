@@ -40,8 +40,8 @@ export default {
         },
         menus: {
             iconstylemenu: {
-                menuitem1: '客户资料',
-                menuitem2: '报价记录',
+                menuitem1: '我的需求',
+                menuitem2: '我的任务',
                 menuitem3: '任务/跟进',
                 menuitem4: '销售机会',
                 menuitem5: '合同/订单',
