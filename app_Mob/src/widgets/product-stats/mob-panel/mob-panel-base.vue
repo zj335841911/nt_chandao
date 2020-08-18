@@ -36,7 +36,7 @@
                         <ion-col v-show="detailsModel.status.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Product__status"></app-mob-span>
                         </div>
                         
                         
