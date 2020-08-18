@@ -38,6 +38,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '03840483160859a4e36e33e9f9471ed3',
+            viewmodule: 'ibiz',
+            viewname: 'IbzCaseNewEditEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0568d197dda832ceb89ad0442ab9f230',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleQuickCfgView',
@@ -115,6 +124,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0a43b5a8be540dcb1227223ae1c9adc9',
+            viewmodule: 'ibiz',
+            viewname: 'IbzCaseEditEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cc94f92626c795b12a5598ae3bf3da39',
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '0b1b51910ca13751bfd6d356dcadbbce',
             viewmodule: 'zentao',
             viewname: 'ProductProjectGridView9',
@@ -131,6 +151,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '0da13bc2f5883c69742cac5e4e866e2a',
+            viewmodule: 'zentao',
+            viewname: 'IbzCaseGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0a43b5a8be540dcb1227223ae1c9adc9',
+                'd211890c5a2b8d62649bc26c32ef40ec',
+                'ab45ff5d2250ad8a5d88f39cc26b7646',
             ],
         },
         {
@@ -270,6 +302,16 @@ export const viewstate: any = {
                 '72614f86125fa2a1421156c17116a4e3',
                 '8104f8c4c275f6ba17fb969edf52eb37',
                 'a6a2a7565323deeebec407a8ce726b03',
+            ],
+        },
+        {
+            viewtag: '1be20d21085195e17a87ad447b4cddb2',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibModuleTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c5bf2f708034d7488fbb4aa848d15d1d',
             ],
         },
         {
@@ -1518,6 +1560,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '80a70857025f1c997cddb437e76ff6e1',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibCaseStepsInfoGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '8104f8c4c275f6ba17fb969edf52eb37',
             viewmodule: 'zentao',
             viewname: 'BuildMainGridView',
@@ -1864,6 +1915,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '99b83386d61eab84cd7d65a445def4ed',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibModuleCaseTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0da13bc2f5883c69742cac5e4e866e2a',
+            ],
+        },
+        {
             viewtag: '9a8c28c2365d7dc8bb5619f39576b558',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Close',
@@ -1903,6 +1964,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a0a25524d16a413d7e020c0af2cc9c9b',
+            viewmodule: 'ibiz',
+            viewname: 'IbzCaseInfoEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ebf8f4c62f92ff24ff740558f12f7303',
             ],
         },
         {
@@ -2111,6 +2182,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ab45ff5d2250ad8a5d88f39cc26b7646',
+            viewmodule: 'zentao',
+            viewname: 'IbzCaseEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cc94f92626c795b12a5598ae3bf3da39',
+            ],
+        },
+        {
             viewtag: 'abca63015fc84466991c6479f955f6d0',
             viewmodule: 'zentao',
             viewname: 'TaskOpenTaskView',
@@ -2200,6 +2281,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'b613f8c14c436a5c95be4e1b9e730e6d',
+            viewmodule: 'ibiz',
+            viewname: 'IbzCaseMainEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '80a70857025f1c997cddb437e76ff6e1',
             ],
         },
         {
@@ -2337,6 +2429,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c5630df2f9e4729be1d7ba4048064774',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibModuleEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'c5b7fb7289325c348ca867eb86185986',
             viewmodule: 'zentao',
             viewname: 'CaseGridView9_MeCretae',
@@ -2345,6 +2446,16 @@ export const viewstate: any = {
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: 'c5bf2f708034d7488fbb4aa848d15d1d',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibModuleGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c5630df2f9e4729be1d7ba4048064774',
             ],
         },
         {
@@ -2425,6 +2536,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'cc94f92626c795b12a5598ae3bf3da39',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibCaseStepsGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'cd3d221ec6771bb755a0e482b8bcd171',
             viewmodule: 'zentao',
             viewname: 'CaseMainMyGridView',
@@ -2489,6 +2609,20 @@ export const viewstate: any = {
                 '81893d14e76cac341d4218a9c5ef185d',
                 'c539f1585371e9943b90177eaef08b6b',
                 'c5b7fb7289325c348ca867eb86185986',
+            ],
+        },
+        {
+            viewtag: 'd211890c5a2b8d62649bc26c32ef40ec',
+            viewmodule: 'ibiz',
+            viewname: 'IbzCaseDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a0a25524d16a413d7e020c0af2cc9c9b',
+                '0a43b5a8be540dcb1227223ae1c9adc9',
+                'b613f8c14c436a5c95be4e1b9e730e6d',
+                '03840483160859a4e36e33e9f9471ed3',
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -2778,6 +2912,18 @@ export const viewstate: any = {
                 'b5709ef6b436135e1738304e61b5f200',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'ebf8f4c62f92ff24ff740558f12f7303',
+            viewmodule: 'ibiz',
+            viewname: 'IbzLibTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4a9b92e583e055d7081125b3e19079a6',
+                '1be20d21085195e17a87ad447b4cddb2',
+                '99b83386d61eab84cd7d65a445def4ed',
             ],
         },
         {

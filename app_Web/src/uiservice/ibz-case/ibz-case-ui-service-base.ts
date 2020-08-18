@@ -96,6 +96,7 @@ export default class IbzCaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'infoeditview9',srfappde:'ibzcases'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzcases'});
         this.allViewMap.set(':',{viewname:'maineditview9',srfappde:'ibzcases'});
+        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzcases'});
         this.allViewMap.set(':',{viewname:'neweditview',srfappde:'ibzcases'});
     }
 

@@ -576,6 +576,7 @@ export default {
 			left: "剩余",
 			deadline: "截止日期",
 			uagridcolumn1: "操作",
+			progress: "进度",
 		},
 		uiactions: {
         task_assigntask: "指派",

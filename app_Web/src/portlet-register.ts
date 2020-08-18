@@ -53,6 +53,10 @@ import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/acti
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
 import BugBugDashboardActions from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
 import BugStepsInfo from '@/widgets/bug/steps-info-portlet/steps-info-portlet.vue';
+import IbzCaseCaseMain from '@/widgets/ibz-case/case-main-portlet/case-main-portlet.vue';
+import IbzCaseCaseNewEdit from '@/widgets/ibz-case/case-new-edit-portlet/case-new-edit-portlet.vue';
+import IbzCaseCaseInfo from '@/widgets/ibz-case/case-info-portlet/case-info-portlet.vue';
+import IbzCaseIbzCases from '@/widgets/ibz-case/ibz-cases-portlet/ibz-cases-portlet.vue';
 
 export const  PortletComponent = {
     install(v: any, opt: any) {
@@ -106,6 +110,10 @@ export const  PortletComponent = {
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
+        v.component('app-ibz-case-case-main-portlet', IbzCaseCaseMain);
+        v.component('app-ibz-case-ibz-cases-portlet', IbzCaseIbzCases);
+        v.component('app-ibz-case-case-info-portlet', IbzCaseCaseInfo);
+        v.component('app-ibz-case-case-new-edit-portlet', IbzCaseCaseNewEdit);
         v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
         v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
         v.component('app-todo-todoaction-portlet', TodoTodoaction);
@@ -156,5 +164,9 @@ export const  PortletComponent = {
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('bug-bug-dashboard-actions-portlet', BugBugDashboardActions);
         v.component('bug-steps-info-portlet', BugStepsInfo);
+        v.component('ibz-case-case-main-portlet', IbzCaseCaseMain);
+        v.component('ibz-case-case-new-edit-portlet', IbzCaseCaseNewEdit);
+        v.component('ibz-case-case-info-portlet', IbzCaseCaseInfo);
+        v.component('ibz-case-ibz-cases-portlet', IbzCaseIbzCases);
     }
 };

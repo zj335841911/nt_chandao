@@ -2247,6 +2247,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestPortalView",
             "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463"
         },
+        "ibzcasedashboardview": {
+            "title": "用例库用例数据看板视图",
+            "caption": "用例库用例",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzCaseDashboardView",
+            "viewtag": "d211890c5a2b8d62649bc26c32ef40ec"
+        },
         "productmytesttabexpview": {
             "title": "测试",
             "caption": "测试",

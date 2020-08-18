@@ -2799,6 +2799,16 @@
         "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463",
         "memo": ""
     },
+    "ibzcasedashboardview": {
+        "title": "用例库用例数据看板视图",
+        "caption": "用例库用例",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzCaseDashboardView",
+        "viewfilename": "ibz-case-dashboard-view",
+        "viewtag": "d211890c5a2b8d62649bc26c32ef40ec",
+        "memo": ""
+    },
     "productmytesttabexpview": {
         "title": "测试",
         "caption": "测试",

@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet3部件基类
+ * dashboard_sysportlet5部件基类
  *
  * @export
  * @class MainControlBase
@@ -127,7 +127,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '300px';
         }
     }
 

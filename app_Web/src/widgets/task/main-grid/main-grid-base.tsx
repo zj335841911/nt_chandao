@@ -370,6 +370,14 @@ export class MainGridBase extends GridControlBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'progress',
+            label: '进度',
+            langtag: 'entities.task.main_grid.columns.progress',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -415,6 +423,7 @@ export class MainGridBase extends GridControlBase {
         'left':false,
         'deadline':false,
         'uagridcolumn1':false,
+        'progress':false,
     };
 
     /**
