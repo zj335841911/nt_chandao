@@ -45,11 +45,15 @@
                 </ion-col>
                 <ion-col v-show="detailsModel.container3.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
-                        !!!!模版产生代码错误:----
-                        FTL stack trace ("~" means nesting-related):
-                        	- Failed at: ${P.getEditorCode(item, "PANELEDITOR...  [in template "TEMPLCODE_en_US" at line 4, column 5]
-                        ----
-                        无法获取指定编辑器[MOBSPAN]发布代码[PANELFIELD][PANELEDITOR.vue]模板
+                        
+                        <ion-col v-show="detailsModel.name.visible"  :size="12" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field panelitem-20px">
+                            <div class="item-field ">
+                            
+                            <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                        </div>
+                        
+                        
+                        </ion-col>
                     </ion-row>
                 </ion-col>
                 <ion-col v-show="detailsModel.container4.visible"  :size="12" style="" class="app-layoutpanel-container">
