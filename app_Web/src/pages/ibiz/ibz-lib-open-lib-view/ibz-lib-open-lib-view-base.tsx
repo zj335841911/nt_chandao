@@ -66,6 +66,18 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzLibOpenLibViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'caselib' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'ibzlib' }
+    };
+
     /**
      * 视图模型数据
      *

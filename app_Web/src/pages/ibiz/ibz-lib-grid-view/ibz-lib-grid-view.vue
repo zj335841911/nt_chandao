@@ -7,7 +7,7 @@ import view_grid from '@widgets/ibz-lib/main-grid/main-grid.vue';
 import view_searchform from '@widgets/ibz-lib/default-searchform/default-searchform.vue';
 
 /**
- * 用例库表格视图视图
+ * 用例库视图
  *
  * @export
  * @class IbzLibGridView

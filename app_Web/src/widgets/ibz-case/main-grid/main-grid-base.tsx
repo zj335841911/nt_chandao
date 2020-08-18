@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Editcase: { name: 'Editcase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__LICASE_EDIT_BUT', target: 'SINGLEKEY'},
+        Editcase: { name: 'Editcase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
     };
 

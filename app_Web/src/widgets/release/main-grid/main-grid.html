@@ -101,6 +101,48 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.release.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.linkstory.visabled" :disabled="scope.row.linkstory.disabled" @click="uiAction(scope.row, 'linkstory', $event)" :title="$t('entities.release.main_grid.uiactions.release_linkstory')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.linkbug.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.linkbug.visabled" :disabled="scope.row.linkbug.disabled" @click="uiAction(scope.row, 'linkbug', $event)" :title="$t('entities.release.main_grid.uiactions.release_linkbug')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.active.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.active.visabled" :disabled="scope.row.active.disabled" @click="uiAction(scope.row, 'active', $event)" :title="$t('entities.release.main_grid.uiactions.release_active')">
+                            <i class='fa fa-play'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.terminal.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.terminal.visabled" :disabled="scope.row.terminal.disabled" @click="uiAction(scope.row, 'terminal', $event)" :title="$t('entities.release.main_grid.uiactions.release_terminal')">
+                            <i class='fa fa-pause'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.quickEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.quickEdit.visabled" :disabled="scope.row.quickEdit.disabled" @click="uiAction(scope.row, 'quickEdit', $event)" :title="$t('entities.release.main_grid.uiactions.release_quickedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.release.main_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

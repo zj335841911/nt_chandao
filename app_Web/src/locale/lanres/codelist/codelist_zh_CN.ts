@@ -443,6 +443,12 @@ export default {
     RelatedStory: {
         "empty": "",
     },
+    Realease_sort: {
+        "all": "所有",
+        "normal": "正常",
+        "terminate": "停止维护",
+        "empty": "",
+    },
     Testcase__stage: {
         "unittest": "单元测试阶段",
         "feature": "功能测试阶段",

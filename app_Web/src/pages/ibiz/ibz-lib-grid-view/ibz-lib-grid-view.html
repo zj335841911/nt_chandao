@@ -1,7 +1,4 @@
-<studio-view viewName="ibzlibgridview" viewTitle="用例库表格视图" class='degridview ibz-lib-grid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{viewCaption}}</span>
-    </template>
+<studio-view viewName="ibzlibgridview" viewTitle="用例库" class='degridview ibz-lib-grid-view'>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>

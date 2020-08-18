@@ -26,7 +26,7 @@ export default {
 		},
 		gridview: {
 			caption: "用例库",
-      		title: "用例库表格视图",
+      		title: "用例库",
 		},
 		tabexpview: {
 			caption: "用例库",

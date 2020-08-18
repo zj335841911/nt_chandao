@@ -2464,7 +2464,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e67fe0ec86d17b74944c16e187da482d"
         },
         "ibzlibgridview": {
-            "title": "用例库表格视图",
+            "title": "用例库",
             "caption": "用例库",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",

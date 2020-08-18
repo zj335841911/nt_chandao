@@ -204,8 +204,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: null,
         icon: null,
-        noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__LICASE_EDIT_BUT',
+        noprivdisplaymode: 2,
         visabled:true,
         disabled:false
         },

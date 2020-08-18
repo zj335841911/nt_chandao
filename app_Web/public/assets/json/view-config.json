@@ -3070,7 +3070,7 @@
         "memo": ""
     },
     "ibzlibgridview": {
-        "title": "用例库表格视图",
+        "title": "用例库",
         "caption": "用例库",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",

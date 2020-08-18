@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 用例库表格视图视图基类
+ * 用例库视图基类
  *
  * @export
  * @class IbzLibGridViewBase

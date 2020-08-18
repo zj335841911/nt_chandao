@@ -3379,6 +3379,44 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "Realease_sort",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "all",
+                label: "所有",
+                text: "所有",
+                "data":"",
+                "codename":"All",
+                value: "all",
+                
+                disabled: false,
+            },
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "rgba(13, 255, 0, 1)",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "terminate",
+                label: "停止维护",
+                text: "停止维护",
+                "data":"",
+                "codename":"Terminate",
+                value: "terminate",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testcase__stage",
         emptytext: "未定义",
         "codelisttype":"static",
