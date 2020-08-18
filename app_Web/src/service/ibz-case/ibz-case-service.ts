@@ -3,7 +3,7 @@ import IbzCaseServiceBase from './ibz-case-service-base';
 
 
 /**
- * 用例库用例服务对象
+ * 测试用例服务对象
  *
  * @export
  * @class IbzCaseService

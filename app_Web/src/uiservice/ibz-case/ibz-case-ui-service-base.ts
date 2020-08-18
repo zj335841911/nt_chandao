@@ -6,7 +6,7 @@ import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCaseAuthService from '@/authservice/ibz-case/ibz-case-auth-service';
 
 /**
- * 用例库用例UI服务对象基类
+ * 测试用例UI服务对象基类
  *
  * @export
  * @class IbzCaseUIServiceBase
@@ -175,7 +175,7 @@ export default class IbzCaseUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.ibzcase.views.editeditview.title'),
-                placement: 'DRAWER_LEFT',
+                placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
     }

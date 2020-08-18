@@ -15,7 +15,7 @@ import IbzLibModuleService from '@/service/ibz-lib-module/ibz-lib-module-service
 export default class InfoEditService extends ControlService {
 
     /**
-     * 用例库用例服务对象
+     * 测试用例服务对象
      *
      * @type {IbzCaseService}
      * @memberof InfoEditService

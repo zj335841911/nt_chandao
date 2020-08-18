@@ -2,7 +2,7 @@ import IbzCaseAuthServiceBase from './ibz-case-auth-service-base';
 
 
 /**
- * 用例库用例权限服务对象
+ * 测试用例权限服务对象
  *
  * @export
  * @class IbzCaseAuthService

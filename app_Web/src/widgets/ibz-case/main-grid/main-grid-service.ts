@@ -13,7 +13,7 @@ import MainModel from './main-grid-model';
 export default class MainService extends ControlService {
 
     /**
-     * 用例库用例服务对象
+     * 测试用例服务对象
      *
      * @type {IbzCaseService}
      * @memberof MainService

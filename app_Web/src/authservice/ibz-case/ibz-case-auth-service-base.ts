@@ -1,7 +1,7 @@
 import AuthService from '../auth-service';
 
 /**
- * 用例库用例权限服务对象基类
+ * 测试用例权限服务对象基类
  *
  * @export
  * @class IbzCaseAuthServiceBase

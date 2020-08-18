@@ -129,7 +129,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzcaseediteditview": {
             "title": "用例库用例编辑视图（编辑）",
-            "caption": "用例库用例",
+            "caption": "测试用例",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "ibiz",
             "viewname": "IbzCaseEditEditView",
@@ -161,7 +161,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzcasegridview": {
             "title": "用例库用例表格视图",
-            "caption": "用例库用例",
+            "caption": "测试用例",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "IbzCaseGridView",
@@ -417,7 +417,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzcaseopencaseview": {
             "title": "用例库用例数据看板视图",
-            "caption": "用例库用例",
+            "caption": "测试用例",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "ibiz",
             "viewname": "IbzCaseOpenCaseView",
@@ -1857,7 +1857,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzcaseeditview": {
             "title": "用例库用例编辑视图",
-            "caption": "用例库用例",
+            "caption": "测试用例",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "IbzCaseEditView",
@@ -2249,7 +2249,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzcasedashboardview": {
             "title": "用例库用例数据看板视图",
-            "caption": "用例库用例",
+            "caption": "测试用例",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "ibiz",
             "viewname": "IbzCaseDashboardView",

@@ -249,26 +249,19 @@
         <i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.ibzcase.infoedit_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.openedby"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.openedby.disabled"
-    valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='openedby' :value="data.openedby" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.openeddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='openeddate' :itemRules="this.rules.openeddate" class='' :caption="$t('entities.ibzcase.infoedit_form.details.openeddate')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.openeddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.openeddate" :disabled="detailsModel.openeddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.openeddate = val1 }"></date-picker>
+    
+<app-span name='openeddate' :value="data.openeddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
 
 </app-form-item>
 
@@ -276,26 +269,19 @@
 <i-col class="form-layout-container" v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.ibzcase.infoedit_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.lasteditedby"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.lasteditedby.disabled"
-    valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='lasteditedby' :value="data.lasteditedby" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.lastediteddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='lastediteddate' :itemRules="this.rules.lastediteddate" class='' :caption="$t('entities.ibzcase.infoedit_form.details.lastediteddate')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.lastediteddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.lastediteddate" :disabled="detailsModel.lastediteddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.lastediteddate = val1 }"></date-picker>
+    
+<app-span name='lastediteddate' :value="data.lastediteddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
 
 </app-form-item>
 

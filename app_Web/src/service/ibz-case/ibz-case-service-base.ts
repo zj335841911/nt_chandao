@@ -4,7 +4,7 @@ import EntityService from '../entity-service';
 
 
 /**
- * 用例库用例服务对象基类
+ * 测试用例服务对象基类
  *
  * @export
  * @class IbzCaseServiceBase

@@ -13,7 +13,7 @@ import NewEditModel from './new-edit-form-model';
 export default class NewEditService extends ControlService {
 
     /**
-     * 用例库用例服务对象
+     * 测试用例服务对象
      *
      * @type {IbzCaseService}
      * @memberof NewEditService

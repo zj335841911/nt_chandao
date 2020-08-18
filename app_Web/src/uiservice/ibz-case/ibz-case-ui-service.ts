@@ -1,7 +1,7 @@
 import IbzCaseUIServiceBase from './ibz-case-ui-service-base';
 
 /**
- * 用例库用例UI服务对象
+ * 测试用例UI服务对象
  *
  * @export
  * @class IbzCaseUIService

@@ -29,7 +29,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
 
 /**
- * 实体[用例库用例]
+ * 实体[测试用例]
  */
 @Getter
 @Setter

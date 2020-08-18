@@ -14,7 +14,7 @@ import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 export default class JBInfoService extends ControlService {
 
     /**
-     * 用例库用例服务对象
+     * 测试用例服务对象
      *
      * @type {IbzCaseService}
      * @memberof JBInfoService

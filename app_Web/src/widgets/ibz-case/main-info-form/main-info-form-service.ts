@@ -13,7 +13,7 @@ import MainInfoModel from './main-info-form-model';
 export default class MainInfoService extends ControlService {
 
     /**
-     * 用例库用例服务对象
+     * 测试用例服务对象
      *
      * @type {IbzCaseService}
      * @memberof MainInfoService
