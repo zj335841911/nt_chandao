@@ -141,4 +141,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     bugcnt?: any;
+
+    /**
+     * 是否过期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    isexpired?: any;
 }

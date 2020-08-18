@@ -66,6 +66,9 @@ export default class MainTabExptabviewpanel4Model {
       {
         name: 'bugcnt',
       },
+      {
+        name: 'isexpired',
+      },
     ]
   }
 

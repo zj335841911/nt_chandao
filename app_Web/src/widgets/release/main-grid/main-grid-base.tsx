@@ -215,7 +215,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ufd20fb3_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u04119fb_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -231,7 +231,8 @@ export class MainGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Release");
+        const curUIService:ReleaseUIService  = new ReleaseUIService();
+        curUIService.Release_remove(datas,contextJO, paramJO,  $event, xData,this,"Release");
     }
 
     /**
@@ -255,39 +256,19 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ReleaseGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
-
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkstory: { name: 'linkstory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
+        linkstory: { name: 'linkstory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEDATA'},
         Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: ''},
-        linkbug: { name: 'linkbug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
+        linkbug: { name: 'linkbug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEDATA'},
         active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', target: 'SINGLEDATA'},
         terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', target: 'SINGLEDATA'},
-        quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEDATA'},
+        remove: { name: 'remove',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEDATA'}
     };
 
     /**
@@ -472,8 +453,8 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('quickEdit', tag)) {
             this.grid_uagridcolumn1_u6847e62_click(row, tag, $event);
         }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_ufd20fb3_click(row, tag, $event);
+        if(Object.is('remove', tag)) {
+            this.grid_uagridcolumn1_u04119fb_click(row, tag, $event);
         }
     }
 }

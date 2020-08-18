@@ -162,6 +162,14 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("bugcnt")
     private Integer bugcnt;
 
+    /**
+     * 属性 [ISEXPIRED]
+     *
+     */
+    @JSONField(name = "isexpired")
+    @JsonProperty("isexpired")
+    private String isexpired;
+
 
     /**
      * 设置 [TITLE]

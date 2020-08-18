@@ -141,4 +141,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     bugcnt?: any;
+
+    /**
+     * 是否过期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    isexpired?: any;
 }

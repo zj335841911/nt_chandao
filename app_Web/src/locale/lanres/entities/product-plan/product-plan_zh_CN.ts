@@ -17,6 +17,7 @@ export default {
     oldtitle: "上一次计划名称",
     storycnt: "需求数",
     bugcnt: "bug数",
+    isexpired: "是否过期",
   },
 	views: {
 		maintabexp: {
