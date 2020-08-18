@@ -391,7 +391,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof Mob
     */
-    public pageSize: number = 1000;
+    public pageSize: number = 25;
 
     /**
     * 总页数

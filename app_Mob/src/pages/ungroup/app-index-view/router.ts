@@ -97,6 +97,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
                 },
                 {
+                    path: 'productstats/:productstats?/mobmdview',
+                    meta: {
+                        caption: 'productstats.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productstats', parameterName: 'productstats' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-stats-mob-mdview/product-stats-mob-mdview.vue'),
+                },
+                {
                     path: 'stories/:story?/mobmdview',
                     meta: {
                         caption: 'story.views.mobmdview.caption',

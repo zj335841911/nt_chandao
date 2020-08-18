@@ -421,6 +421,9 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
                 case '_4': 
                     this.click_4(item);
                     return;
+                case '_5': 
+                    this.click_5(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
@@ -464,6 +467,27 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 产品统计
+     *
+     * @param {*} [item={}]
+     * @memberof IconStyleMenu
+     */
+    protected click_5(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'productstats', parameterName: 'productstats' },
             { pathName: 'mobmdview', parameterName: 'mobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);

@@ -42,7 +42,7 @@ export default {
             iconstylemenu: {
                 menuitem1: '我的需求',
                 menuitem2: '我的任务',
-                menuitem3: '任务/跟进',
+                menuitem3: '产品统计',
                 menuitem4: '销售机会',
                 menuitem5: '合同/订单',
                 menuitem6: '汇款记录',

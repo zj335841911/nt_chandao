@@ -53,10 +53,10 @@ export class IconStyleMenuModel {
         {
 	id: '8CA00FFD-EF5C-471F-80EB-DAAAA755D48F',
 	name: 'menuitem3',
-	text: '任务/跟进',
+	text: '产品统计',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '任务/跟进',
+	tooltip: '产品统计',
 	expanded: false,
 	separator: false,
 	hidden: false,
@@ -65,7 +65,7 @@ export class IconStyleMenuModel {
 	iconcls: 'flask',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: '_5',
 	resourcetag: '',
 },
         {

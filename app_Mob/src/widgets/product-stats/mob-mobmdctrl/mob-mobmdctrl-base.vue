@@ -9,13 +9,12 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item>
-                            <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                            <!-- 列表视图样式 -->
-                            <app-list-default :dataItemNames = "[]" :item="item"  major="title" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-default>
-                                <!-- 图标视图样式 -->
-                            <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
-                        </ion-item>
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                     </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
@@ -27,13 +26,12 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" @touchstart="start" @touchend="end">
-                        <ion-item>
-                            <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                            <!-- 列表视图样式 -->
-                            <app-list-default :dataItemNames = "[]" :item="item" major="title" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-default>
-                            <!-- 图标视图样式 -->
-                            <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
-                        </ion-item>                      
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                     </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
@@ -70,14 +68,22 @@
                 <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
-                            <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
-                            <ion-label>{{item.title}}</ion-label>
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                         </ion-item>
                     </ion-list>
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                            <ion-label>{{item.title}}</ion-label>
-                            <ion-radio slot="end" :value="item.srfkey"></ion-radio>
+                        <div style="width:100%;">
+                            <ion-item class="ibz-ionic-item">
+                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
+                            </ion-item>
+                        </div>
                         </ion-item>
                     </ion-radio-group>
                 </template>
@@ -99,8 +105,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
-import MobService from '@/app-core/ctrl-service/story/mob-mobmdctrl-service';
+import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
+import MobService from '@/app-core/ctrl-service/product-stats/mob-mobmdctrl-service';
 
 
 
@@ -189,10 +195,10 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
+     * @type {ProductStatsService}
      * @memberof Mob
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: ProductStatsService = new ProductStatsService();
     
 
     /**
@@ -391,7 +397,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof Mob
     */
-    public pageSize: number = 25;
+    public pageSize: number = 1000;
 
     /**
     * 总页数
@@ -562,7 +568,7 @@ export default class MobBase extends Vue implements ControlInterface {
                 if (!Object.is(infoStr, '')) {
                     infoStr += '、';
                 }
-                infoStr += data.title;
+                infoStr += data.name;
             }
         });
 
@@ -573,7 +579,7 @@ export default class MobBase extends Vue implements ControlInterface {
         }
         return new Promise((resolve, reject) => {
             const _remove = async () => {
-                let _context: any = { story: keys.join(';') }
+                let _context: any = { productstats: keys.join(';') }
                 const response: any = await this.service.delete(this.removeAction, Object.assign({}, this.context, _context), arg, this.showBusyIndicator);
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
@@ -709,7 +715,7 @@ export default class MobBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.storyid, value)) {
+            if (Object.is(item.productstatsid, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {

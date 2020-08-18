@@ -23,6 +23,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5040c252f88202ad31af8159bc03524a',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b5a98ab9e5bc86d5b61c77273225f276',
             viewmodule: 'zentao',
             viewname: 'StoryMobMDView',
@@ -39,6 +48,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '0741315806513b247c661851d7746f51',
+                '5040c252f88202ad31af8159bc03524a',
                 'b5a98ab9e5bc86d5b61c77273225f276',
             ],
         },

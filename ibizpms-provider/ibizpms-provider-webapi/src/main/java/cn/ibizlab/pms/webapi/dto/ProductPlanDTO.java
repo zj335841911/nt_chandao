@@ -170,6 +170,14 @@ public class ProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("isexpired")
     private String isexpired;
 
+    /**
+     * 属性 [ESTIMATECNT]
+     *
+     */
+    @JSONField(name = "estimatecnt")
+    @JsonProperty("estimatecnt")
+    private Integer estimatecnt;
+
 
     /**
      * 设置 [TITLE]
