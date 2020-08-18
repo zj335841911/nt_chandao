@@ -248,6 +248,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("code")
     private String code;
 
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+
 
     /**
      * 设置 [NAME]
@@ -271,6 +279,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     public void setCode(String  code){
         this.code = code ;
         this.modify("code",code);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
 

@@ -96,6 +96,12 @@ export class MobModel {
       {
         name: 'status',
       },
+      {
+        name: 'code',
+      },
+      {
+        name: 'type',
+      },
     ]
   }
 

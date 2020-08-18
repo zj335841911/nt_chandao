@@ -15,6 +15,27 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'notclosedbugcnt',
+			},
+			{
+				name: 'unconfirmbugcnt',
+			},
+			{
+				name: 'code',
+			},
+			{
+				name: 'status',
+			},
+			{
+				name: 'activebugcnt',
+			},
+			{
+				name: 'name',
+			},
+			{
+				name: 'type',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

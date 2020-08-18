@@ -59,37 +59,28 @@
                 <ion-col v-show="detailsModel.container4.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.counter1.visible"  :lg="3" :size="3" :sm="3" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.activebugcnt.visible"  :lg="3" :size="3" :sm="3" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            
-                            <app-mob-span  v-if="data.counter1" :context="context" :value="data.counter1" :itemParam="{}"  ></app-mob-span>
+                            <ion-label class="item-field-label ">未解决</ion-label>
+                            <app-mob-span  v-if="data.activebugcnt" :context="context" :value="data.activebugcnt" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.counter2.visible"  :lg="3" :size="3" :sm="3" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.unconfirmbugcnt.visible"  :lg="3" :size="3" :sm="3" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            
-                            <app-mob-span  v-if="data.counter2" :context="context" :value="data.counter2" :itemParam="{}"  ></app-mob-span>
+                            <ion-label class="item-field-label ">未确认</ion-label>
+                            <app-mob-span  v-if="data.unconfirmbugcnt" :context="context" :value="data.unconfirmbugcnt" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.counter3.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.notclosedbugcnt.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
-                            
-                            <app-mob-span  v-if="data.counter3" :context="context" :value="data.counter3" :itemParam="{}"  ></app-mob-span>
-                        </div>
-                        
-                        
-                        </ion-col>
-                        
-                        <ion-col v-show="detailsModel.counter4.visible"  :lg="3" :size="3" :sm="3" style="" class="app-layoutpanel-field">
-                            <div class="item-field ">
-                            
-                            <app-mob-span  v-if="data.counter4" :context="context" :value="data.counter4" :itemParam="{}"  ></app-mob-span>
+                            <ion-label class="item-field-label ">未关闭</ion-label>
+                            <app-mob-span  v-if="data.notclosedbugcnt" :context="context" :value="data.notclosedbugcnt" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -346,7 +337,6 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
-
     }
 
    /**
@@ -370,13 +360,11 @@ export default class MobBase extends Vue implements ControlInterface {
 , 
         container3: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container3', panel: this, visible: true  })
 , 
-        counter1: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'counter1', panel: this, visible: true  })
+        activebugcnt: new PanelFieldModel({ caption: '未解决', itemType: 'FIELD', name: 'activebugcnt', panel: this, visible: true  })
 , 
-        counter2: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'counter2', panel: this, visible: true  })
+        unconfirmbugcnt: new PanelFieldModel({ caption: '未确认', itemType: 'FIELD', name: 'unconfirmbugcnt', panel: this, visible: true  })
 , 
-        counter3: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'counter3', panel: this, visible: true  })
-, 
-        counter4: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'counter4', panel: this, visible: true  })
+        notclosedbugcnt: new PanelFieldModel({ caption: '未关闭', itemType: 'FIELD', name: 'notclosedbugcnt', panel: this, visible: true  })
 , 
         container4: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container4', panel: this, visible: true  })
 , 

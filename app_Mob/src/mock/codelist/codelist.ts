@@ -5,6 +5,27 @@ import Mock from 'mockjs'
 
 const datas: Array<any> = [
         {
+        srfkey: 'Product__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'normal',
+                label: '正常',
+                text: '正常',
+                value: 'normal',
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: '结束',
+                text: '结束',
+                value: 'closed',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Product__type',
         emptytext: '未定义',
         "codelisttype":"static",
