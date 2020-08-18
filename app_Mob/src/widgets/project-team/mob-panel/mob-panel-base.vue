@@ -4,16 +4,16 @@
         <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
-                <ion-col v-show="detailsModel.username.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.account.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.username" :context="context" :value="data.username" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.role.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.role.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.role" :context="context" :value="data.role" :itemParam="{}"  ></app-mob-span>
@@ -271,7 +271,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected detailsModel: any = {
-        username: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'username', panel: this, visible: true  })
+        account: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
 , 
         role: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'role', panel: this, visible: true  })
 , 

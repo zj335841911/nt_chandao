@@ -15,6 +15,9 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'account',
+			},
+			{
 				name: 'role',
 			},
 			{
