@@ -79,7 +79,7 @@ export default class AppActionBar extends Vue {
             }
             if(Object.is(action,'loadmodel')){
               this.data = data;
-              this.calcActionItemAuthState(data,this.items,this.uiService);
+              // this.calcActionItemAuthState(data,this.items,this.uiService);
             }
         });
     }
