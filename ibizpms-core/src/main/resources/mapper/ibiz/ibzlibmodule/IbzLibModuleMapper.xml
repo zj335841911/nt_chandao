@@ -58,6 +58,7 @@
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t11.`NAME` AS `PARENTNAME`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID  
+					 WHERE 	( t1.`TYPE` = 'caselib' )
 			]]>
     </sql>
     <!--数据查询[Root_NoBranch]-->

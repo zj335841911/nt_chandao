@@ -82,6 +82,16 @@ public class ReleaseExService extends ReleaseServiceImpl {
         return super.linkBugbyLeftBug(et);
     }
     /**
+     * 自定义行为[LinkStory]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release linkStory(Release et) {
+        return super.linkStory(et);
+    }
+    /**
      * 自定义行为[Terminate]用户扩展
      * @param et
      * @return

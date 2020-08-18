@@ -40,6 +40,7 @@ public interface IReleaseService extends IService<Release>{
     Release linkBug(Release et) ;
     Release linkBugbyBug(Release et) ;
     Release linkBugbyLeftBug(Release et) ;
+    Release linkStory(Release et) ;
     boolean save(Release et) ;
     void saveBatch(List<Release> list) ;
     Release terminate(Release et) ;
