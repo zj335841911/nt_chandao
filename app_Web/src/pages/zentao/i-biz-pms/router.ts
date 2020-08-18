@@ -8324,6 +8324,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-grid-view9-assigned-to-me/task-grid-view9-assigned-to-me.vue'),
                 },
                 {
+                    path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/neweditview/:neweditview?',
+                    meta: {
+                        caption: 'entities.ibzcase.views.neweditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
+                            { pathName: 'neweditview', parameterName: 'neweditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-case-new-edit-view/ibz-case-new-edit-view.vue'),
+                },
+                {
+                    path: 'ibzcases/:ibzcase?/neweditview/:neweditview?',
+                    meta: {
+                        caption: 'entities.ibzcase.views.neweditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
+                            { pathName: 'neweditview', parameterName: 'neweditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-case-new-edit-view/ibz-case-new-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.projectmodule.views.maingridview.title',
@@ -8563,35 +8592,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-main-my-grid-view/case-main-my-grid-view.vue'),
-                },
-                {
-                    path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.ibzcase.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
-                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/ibz-case-edit-view/ibz-case-edit-view.vue'),
-                },
-                {
-                    path: 'ibzcases/:ibzcase?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.ibzcase.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/ibz-case-edit-view/ibz-case-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/editview_activate/:editview_activate?',

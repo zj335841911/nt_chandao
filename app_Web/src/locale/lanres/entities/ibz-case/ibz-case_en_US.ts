@@ -279,6 +279,12 @@ export default {
 			tip: "Help",
 		},
 	},
+	neweditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -343,12 +349,6 @@ export default {
 		tbitem22: {
 			caption: "Help",
 			tip: "Help",
-		},
-	},
-	neweditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };

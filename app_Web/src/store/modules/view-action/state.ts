@@ -159,9 +159,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e049cdde7095f179bf786984cb497fe5',
                 '0a43b5a8be540dcb1227223ae1c9adc9',
                 'd211890c5a2b8d62649bc26c32ef40ec',
-                'ab45ff5d2250ad8a5d88f39cc26b7646',
             ],
         },
         {
@@ -2182,16 +2182,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'ab45ff5d2250ad8a5d88f39cc26b7646',
-            viewmodule: 'zentao',
-            viewname: 'IbzCaseEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'cc94f92626c795b12a5598ae3bf3da39',
-            ],
-        },
-        {
             viewtag: 'abca63015fc84466991c6479f955f6d0',
             viewmodule: 'zentao',
             viewname: 'TaskOpenTaskView',
@@ -2737,6 +2727,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '8eb13e4fe49406265e2ed5fb1e0a6b53',
+            ],
+        },
+        {
+            viewtag: 'e049cdde7095f179bf786984cb497fe5',
+            viewmodule: 'ibiz',
+            viewname: 'IbzCaseNewEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cc94f92626c795b12a5598ae3bf3da39',
             ],
         },
         {
