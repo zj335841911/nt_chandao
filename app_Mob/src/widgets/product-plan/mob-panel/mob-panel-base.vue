@@ -1,49 +1,49 @@
 <template>
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
-        <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container">
+        <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
-                <ion-col v-show="detailsModel.field1.visible"  :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.title.visible"  :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
-                    <ion-label class="item-field-label ">标题</ion-label>
-                    <app-mob-span  v-if="data.field1" :context="context" :value="data.field1" :itemParam="{}"  ></app-mob-span>
+                    
+                    <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.field2.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.begin.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
-                    <ion-label class="item-field-label ">开始时间</ion-label>
-                    <app-mob-span  v-if="data.field2" :context="context" :value="data.field2" :itemParam="{}"  ></app-mob-span>
+                    
+                    <app-mob-span  v-if="data.begin" :context="context" :value="data.begin" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.field3.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.end.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
-                    <ion-label class="item-field-label ">结束日期</ion-label>
-                    <app-mob-span  v-if="data.field3" :context="context" :value="data.field3" :itemParam="{}"  ></app-mob-span>
+                    
+                    <app-mob-span  v-if="data.end" :context="context" :value="data.end" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.field5.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.storycnt.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
-                    <ion-label class="item-field-label ">需求数</ion-label>
-                    <app-mob-span  v-if="data.field5" :context="context" :value="data.field5" :itemParam="{}"  ></app-mob-span>
+                    
+                    <app-mob-span  v-if="data.storycnt" :context="context" :value="data.storycnt" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.field4.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.bugcnt.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
-                    <ion-label class="item-field-label ">bug数</ion-label>
-                    <app-mob-span  v-if="data.field4" :context="context" :value="data.field4" :itemParam="{}"  ></app-mob-span>
+                    
+                    <app-mob-span  v-if="data.bugcnt" :context="context" :value="data.bugcnt" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -301,15 +301,15 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected detailsModel: any = {
-        field1: new PanelFieldModel({ caption: '标题', itemType: 'FIELD', name: 'field1', panel: this, visible: true  })
+        title: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'title', panel: this, visible: true  })
 , 
-        field2: new PanelFieldModel({ caption: '开始时间', itemType: 'FIELD', name: 'field2', panel: this, visible: true  })
+        begin: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'begin', panel: this, visible: true  })
 , 
-        field3: new PanelFieldModel({ caption: '结束日期', itemType: 'FIELD', name: 'field3', panel: this, visible: true  })
+        end: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'end', panel: this, visible: true  })
 , 
-        field5: new PanelFieldModel({ caption: '需求数', itemType: 'FIELD', name: 'field5', panel: this, visible: true  })
+        storycnt: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'storycnt', panel: this, visible: true  })
 , 
-        field4: new PanelFieldModel({ caption: 'bug数', itemType: 'FIELD', name: 'field4', panel: this, visible: true  })
+        bugcnt: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'bugcnt', panel: this, visible: true  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 
