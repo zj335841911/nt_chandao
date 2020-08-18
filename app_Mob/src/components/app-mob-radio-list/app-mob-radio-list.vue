@@ -1,5 +1,5 @@
 <template>
-    <van-radio-group class="app-mobile-radio-list" v-model="curValue" direction="horizontal" @change="change">
+    <van-radio-group class="app-mobile-radio-list" v-model="curValue" direction="horizontal">
         <van-radio v-for="(item,index) in options" :key="index" :name="item.value">{{item.text}}</van-radio>
     </van-radio-group>
 </template>
@@ -59,16 +59,12 @@ export default class AppMobRadio extends Vue {
      * @type {any}
      * @memberof AppMobRadio
      */
-    public curValue?: any = this.value;
+    get curValue() {
+        return this.value;
+    }
 
-    /**
-     * change事件
-     *
-     * @param {*} data
-     * @memberof AppMobRadio
-     */
-    public change(data: any) {
-        this.$emit("change", this.curValue);
+    set curValue(item:any){
+      this.$emit("change", item);
     }
 
     /**

@@ -837,6 +837,8 @@ export default class MobBase extends Vue implements ControlInterface {
                 this.items[index].checked = re;
             }
         });
+        let flag = this.items.every((currVal: any)=>{return currVal.checked === true})
+        if(flag){ this.selectAllIschecked = true}
     }
     
     /**

@@ -102,5 +102,6 @@ export const AppComponents = {
         v.component('app-wf-approval',() => import('@/components/app-wf-approval/app-wf-approval.vue'));
         // 主题切换组件
         v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
+        v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
     },
 };

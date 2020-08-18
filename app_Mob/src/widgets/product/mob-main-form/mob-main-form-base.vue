@@ -12,7 +12,7 @@
     :caption="$t('product.mobmain_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -30,12 +30,11 @@
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.name" 
+    :context="context" 
     :value="data.name" 
-    :disabled="detailsModel.name.disabled" 
-    @change="($event)=>this.data.name = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -55,18 +54,14 @@
     :disabled="detailsModel.status.disabled"
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Product__status"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.status.disabled" 
-    :data="data" 
+    v-if="data.status" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.status"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.status = $event" />
+    :value="data.status" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -86,18 +81,14 @@
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Product__type"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.type.disabled" 
-    :data="data" 
+    v-if="data.type" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.type"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.type = $event" />
+    :value="data.type" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -117,12 +108,14 @@
     :disabled="detailsModel.po.disabled"
     :error="detailsModel.po.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.po" 
+    :context="context" 
     :value="data.po" 
-    :disabled="detailsModel.po.disabled" 
-    @change="($event)=>this.data.po = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -142,12 +135,14 @@
     :disabled="detailsModel.qd.disabled"
     :error="detailsModel.qd.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.qd" 
+    :context="context" 
     :value="data.qd" 
-    :disabled="detailsModel.qd.disabled" 
-    @change="($event)=>this.data.qd = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -167,12 +162,14 @@
     :disabled="detailsModel.rd.disabled"
     :error="detailsModel.rd.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.rd" 
+    :context="context" 
     :value="data.rd" 
-    :disabled="detailsModel.rd.disabled" 
-    @change="($event)=>this.data.rd = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -760,8 +757,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         name: [
             { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: '状态 值必须为字符串类型', trigger: 'change' },
