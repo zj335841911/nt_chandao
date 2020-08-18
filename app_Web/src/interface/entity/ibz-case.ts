@@ -221,12 +221,4 @@ export interface IbzCase {
      * @memberof IbzCase
      */
     version?: any;
-
-    /**
-     * 用例步骤集合
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    casesteps?: any;
 }

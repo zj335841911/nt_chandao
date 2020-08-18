@@ -27,7 +27,6 @@ export default {
     modulename: "所属模块",
     libname: "用例库",
     version: "用例版本",
-    casesteps: "用例步骤集合",
   },
 	views: {
 		newediteditview9: {

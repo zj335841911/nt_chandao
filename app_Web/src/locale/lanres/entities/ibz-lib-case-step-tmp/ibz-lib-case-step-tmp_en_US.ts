@@ -19,7 +19,6 @@ export default {
 	},
 	main_grid: {
 		columns: {
-			case: "用例编号",
 			desc: "步骤",
 			expect: "预期",
 			type: "类型",
