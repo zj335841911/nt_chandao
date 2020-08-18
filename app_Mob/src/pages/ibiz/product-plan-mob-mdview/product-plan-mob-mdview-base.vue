@@ -2,21 +2,6 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'product-plan-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>

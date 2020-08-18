@@ -2,6 +2,15 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'ibz-my-territory-mob-tab-exp-view': true }">
     
     <ion-header>
+        <ion-toolbar class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">需求</ion-segment-button>
