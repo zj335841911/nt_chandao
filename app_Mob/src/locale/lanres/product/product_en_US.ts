@@ -37,9 +37,5 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'Save And Close',
-			tip: 'tbitem1',
-		},
 	},
 };

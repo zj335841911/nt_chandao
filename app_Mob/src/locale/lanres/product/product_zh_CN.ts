@@ -35,9 +35,5 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
-		},
 	},
 };
