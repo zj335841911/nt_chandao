@@ -1,0 +1,87 @@
+
+export default {
+  fields: {
+    lastrunner: "最后执行人",
+    stepresults: "步骤结果",
+    caseresult: "测试结果",
+    xml: "结果文件",
+    duration: "持续时间",
+    date: "测试时间",
+    id: "编号",
+    version: "用例版本",
+    job: "构建任务",
+    ibizcase: "用例",
+    run: "测试执行",
+    compile: "代码编译",
+    task: "属性",
+    title: "用例名称",
+    story: "相关需求",
+    module: "所属模块",
+    product: "所属产品",
+    precondition: "前置条件",
+  },
+	views: {
+		editview: {
+			caption: "测试结果",
+      		title: "testresult编辑视图",
+		},
+		meditview9: {
+			caption: "测试结果",
+      		title: "测试结果多表单编辑视图",
+		},
+		gridview9: {
+			caption: "测试结果",
+      		title: "测试结果表格视图",
+		},
+		testtaskmeditview9: {
+			caption: "测试结果",
+      		title: "测试结果多表单编辑视图",
+		},
+		editview9: {
+			caption: "测试结果",
+      		title: "测试结果编辑视图",
+		},
+	},
+	main_form: {
+		details: {
+			rawitem1: "", 
+			druipart1: "", 
+			button1: "转Bug", 
+			grouppanel2: "分组面板", 
+			grouppanel1: "用例步骤", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "用例名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "", 
+			date: "", 
+			lastrunner: "", 
+			caseresult: "", 
+			formitem: "", 
+			title: "用例名称", 
+			module: "所属模块", 
+			job: "构建任务", 
+			precondition: "前置条件", 
+			story: "相关需求", 
+			product: "所属产品", 
+			case: "用例", 
+		},
+		uiactions: {
+        testresult_tobug: "转Bug",
+		},
+	},
+	main_grid: {
+		columns: {
+			caseresult: "测试结果",
+			date: "测试时间",
+			lastrunner: "最后执行人",
+			run: "测试执行",
+		},
+		uiactions: {
+		},
+	},
+};
