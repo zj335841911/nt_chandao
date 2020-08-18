@@ -149,4 +149,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     isexpired?: any;
+
+    /**
+     * 工时数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    estimatecnt?: any;
 }

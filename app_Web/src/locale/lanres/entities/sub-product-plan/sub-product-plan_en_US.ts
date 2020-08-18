@@ -19,6 +19,7 @@ export default {
     storycnt: "需求数",
     bugcnt: "bug数",
     isexpired: "是否过期",
+    estimatecnt: "工时数",
   },
 	views: {
 		subplancreateview: {

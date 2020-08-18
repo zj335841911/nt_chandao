@@ -69,6 +69,9 @@ export default class MainTabExptabviewpanel3Model {
       {
         name: 'isexpired',
       },
+      {
+        name: 'estimatecnt',
+      },
     ]
   }
 

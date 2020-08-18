@@ -221,4 +221,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     status?: any;
+
+    /**
+     * 产品代号
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    code?: any;
 }

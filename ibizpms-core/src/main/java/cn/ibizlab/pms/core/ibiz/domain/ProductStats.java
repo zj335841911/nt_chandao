@@ -232,6 +232,13 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
+    /**
+     * 产品代号
+     */
+    @TableField(value = "code")
+    @JSONField(name = "code")
+    @JsonProperty("code")
+    private String code;
 
 
 
@@ -249,6 +256,14 @@ public class ProductStats extends EntityMP implements Serializable {
     public void setStatus(String status){
         this.status = status ;
         this.modify("status",status);
+    }
+
+    /**
+     * 设置 [产品代号]
+     */
+    public void setCode(String code){
+        this.code = code ;
+        this.modify("code",code);
     }
 
 

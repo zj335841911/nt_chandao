@@ -28,6 +28,7 @@ export default {
     postponedprojectcnt: "已延期",
     currproject: "当前项目",
     status: "状态",
+    code: "产品代号",
   },
 	views: {
 		allgridview: {
