@@ -22,7 +22,7 @@
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <ion-checkbox :class="item.checked?'checkbox-checked':''" class="ios in-item interactive hydrated" :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
@@ -934,8 +934,6 @@ export default class MobBase extends Vue implements ControlInterface {
                 this.items[index].checked = re;
             }
         });
-        let flag = this.items.every((currVal: any)=>{return currVal.checked === true})
-        if(flag){ this.selectAllIschecked = true}
     }
     
     /**
