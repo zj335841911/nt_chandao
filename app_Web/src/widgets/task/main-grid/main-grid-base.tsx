@@ -363,17 +363,17 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.task.main_grid.columns.uagridcolumn1',
+            name: 'progress',
+            label: '进度',
+            langtag: 'entities.task.main_grid.columns.progress',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'progress',
-            label: '进度',
-            langtag: 'entities.task.main_grid.columns.progress',
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.task.main_grid.columns.uagridcolumn1',
             show: true,
             util: 'PX',
             isEnableRowEdit: false,
@@ -422,8 +422,8 @@ export class MainGridBase extends GridControlBase {
         'consumed':false,
         'left':false,
         'deadline':false,
-        'uagridcolumn1':false,
         'progress':false,
+        'uagridcolumn1':false,
     };
 
     /**
