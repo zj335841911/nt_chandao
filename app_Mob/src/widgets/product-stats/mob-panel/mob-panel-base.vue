@@ -6,7 +6,7 @@
                 <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.id.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.id.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.id" :context="context" :value="data.id" :itemParam="{}"  ></app-mob-span>
@@ -15,7 +15,7 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.code.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.code.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.code" :context="context" :value="data.code" :itemParam="{}"  ></app-mob-span>
