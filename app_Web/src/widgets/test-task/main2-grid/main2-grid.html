@@ -23,112 +23,209 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.testtask.main2_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.id')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.testtask.main2_grid.columns.productname')" :min-width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.productname')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="product">
-                            <span>{{row.productname}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main2_grid.columns.name')" :width="200"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.name')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='testtask' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'test-task-main-tab-exp-view', height: 0,width: 0,title: $t('entities.testtask.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-            ,parameters: [
-            { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.name}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('projecttname')">
-                <el-table-column show-overflow-tooltip :prop="'projecttname'" :label="$t('entities.testtask.main2_grid.columns.projecttname')" :width="200"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.projecttname')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='project' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="project">
-                            <span>{{row.projecttname}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('build')">
-                <el-table-column show-overflow-tooltip :prop="'build'" :label="$t('entities.testtask.main2_grid.columns.build')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.build')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.build}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('begin')">
-                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main2_grid.columns.begin')" :width="140"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.begin')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('end')">
-                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main2_grid.columns.end')" :width="140"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.end')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

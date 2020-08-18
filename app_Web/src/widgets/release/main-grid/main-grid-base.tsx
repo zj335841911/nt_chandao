@@ -284,8 +284,8 @@ export class MainGridBase extends GridControlBase {
         linkstory: { name: 'linkstory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
         Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: ''},
         linkbug: { name: 'linkbug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
-        active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
-        terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
+        active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', target: 'SINGLEDATA'},
+        terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', target: 'SINGLEDATA'},
         quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEDATA'},
         Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
