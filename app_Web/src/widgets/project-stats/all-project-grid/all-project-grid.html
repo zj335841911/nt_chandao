@@ -23,209 +23,99 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.allproject_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.name')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='project' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.name}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('end')">
+                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.projectstats.allproject_grid.columns.end')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.end')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('status')">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.projectstats.allproject_grid.columns.status')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.status" tag='Project__status' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('totalestimate')">
+                <el-table-column show-overflow-tooltip :prop="'totalestimate'" :label="$t('entities.projectstats.allproject_grid.columns.totalestimate')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.totalestimate')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.totalestimate"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('totalconsumed')">
+                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.projectstats.allproject_grid.columns.totalconsumed')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.totalconsumed')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data dataType="FLOAT" precision="0" :data="row.totalconsumed"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('totalleft')">
+                <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.projectstats.allproject_grid.columns.totalleft')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.totalleft')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data dataType="FLOAT" precision="0" :data="row.totalleft"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('totalwh')">
+                <el-table-column show-overflow-tooltip :prop="'totalwh'" :label="$t('entities.projectstats.allproject_grid.columns.totalwh')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectstats.allproject_grid.columns.totalwh')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.totalwh}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

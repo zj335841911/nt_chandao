@@ -23,151 +23,66 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 45:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.module.main_grid.columns.name')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.module.main_grid.columns.name')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.name}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('parentname')">
+                <el-table-column show-overflow-tooltip :prop="'parentname'" :label="$t('entities.module.main_grid.columns.parentname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.module.main_grid.columns.parentname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.parentname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('grade')">
+                <el-table-column show-overflow-tooltip :prop="'grade'" :label="$t('entities.module.main_grid.columns.grade')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.module.main_grid.columns.grade')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.grade}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('order')">
+                <el-table-column show-overflow-tooltip :prop="'order'" :label="$t('entities.module.main_grid.columns.order')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.module.main_grid.columns.order')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.order}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('owner')">
+                <el-table-column show-overflow-tooltip :prop="'owner'" :label="$t('entities.module.main_grid.columns.owner')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.module.main_grid.columns.owner')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.owner}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
