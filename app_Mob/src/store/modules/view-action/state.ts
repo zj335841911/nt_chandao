@@ -226,6 +226,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '86fe20f86bf10c309e08f52cf7259b9d',
+            viewmodule: 'zentao',
+            viewname: 'ProductTestMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '52913a5dcfd665154092ec7aedf84049',
+                '984a4d5ce6ca2ede5539d44590ef20a6',
+            ],
+        },
+        {
             viewtag: '899ab4d4cfc33b089a9c4aa5118acbf3',
             viewmodule: 'ibiz',
             viewname: 'TodoMobMDView',
@@ -311,6 +322,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '984a4d5ce6ca2ede5539d44590ef20a6',
+                '82f9b0fd0fdc90237c7aa1a1e543920e',
             ],
         },
         {

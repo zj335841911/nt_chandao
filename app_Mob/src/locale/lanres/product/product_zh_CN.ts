@@ -3,6 +3,9 @@ export default {
 		mobtabexpview: {
 			caption: '测试',
 		},
+		testmobmdview: {
+			caption: '测试',
+		},
 		mobeditview: {
 			caption: '产品',
 		},
@@ -43,9 +46,5 @@ export default {
 	mobeditviewrighttoolbar_toolbar: {
 	},
 	mobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '新建',
-			tip: '新建',
-		},
 	},
 };

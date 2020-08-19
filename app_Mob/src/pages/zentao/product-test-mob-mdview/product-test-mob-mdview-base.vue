@@ -1,7 +1,16 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'release-mob-mdview': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'product-test-mob-mdview': true }">
     
     <ion-header>
+        <ion-toolbar class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -11,7 +20,7 @@
     <ion-content>
                 <view_mdctrl 
             :viewState="viewState"
-            viewName="ReleaseMobMDView"  
+            viewName="ProductTestMobMDView"  
             :viewparams="viewparams" 
             :context="context" 
             :showBusyIndicator="true" 
@@ -46,7 +55,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ReleaseService from '@/app-core/service/release/release-service';
+import ProductService from '@/app-core/service/product/product-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 
@@ -55,30 +64,30 @@ import MobMDViewEngine from '@engine/view/mob-mdview-engine';
     components: {
     },
 })
-export default class ReleaseMobMDViewBase extends Vue {
+export default class ProductTestMobMDViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {ReleaseService}
-     * @memberof ReleaseMobMDViewBase
+     * @type {ProductService}
+     * @memberof ProductTestMobMDViewBase
      */
-    protected appEntityService: ReleaseService = new ReleaseService();
+    protected appEntityService: ProductService = new ProductService();
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -89,7 +98,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Prop() protected _context!: string;
 
@@ -97,7 +106,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -105,7 +114,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Prop({ default: true }) protected viewDefaultUsage!: boolean;
 
@@ -113,15 +122,15 @@ export default class ReleaseMobMDViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof ReleaseMobMDViewBase
+	 * @memberof ProductTestMobMDViewBase
 	 */
-	protected viewtag: string = '7862eff0b9a271764fccf722121c6b66';
+	protected viewtag: string = '86fe20f86bf10c309e08f52cf7259b9d';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected context: any = {};
 
@@ -129,7 +138,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected viewparams: any = {};
 
@@ -138,7 +147,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected navContext: any = {};
 
@@ -147,7 +156,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected navParam: any = {};
 
@@ -155,11 +164,11 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected model: any = {
-        srfTitle: '发布移动端多数据视图',
-        srfCaption: 'release.views.mobmdview.caption',
+        srfTitle: '测试',
+        srfCaption: 'product.views.testmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -171,7 +180,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  ReleaseMobMDViewBase
+     * @memberof  ProductTestMobMDViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -200,18 +209,17 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -220,26 +228,15 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
-
-
-   /**
-    * 工具栏 ReleaseMobMDView 模型
-    *
-    * @type {*}
-    * @memberof ReleaseMobMDView
-    */
-    public righttoolbarModels: any = {
-    };
 
 
     /**
      * 解析视图参数
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -252,7 +249,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -266,14 +263,14 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected engine: MobMDViewEngine = new MobMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -285,7 +282,7 @@ export default class ReleaseMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            keyPSDEField: 'release',
+            keyPSDEField: 'product',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
@@ -294,7 +291,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected created() {
         this.afterCreated();
@@ -303,7 +300,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public activated() {
         this.afterMounted();
@@ -312,7 +309,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -325,7 +322,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -334,7 +331,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -343,7 +340,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -357,7 +354,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -366,7 +363,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage && Object.keys(localStorage).length > 0) {
@@ -384,7 +381,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected mdctrl_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
@@ -395,7 +392,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected mdctrl_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
@@ -406,7 +403,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected mdctrl_rowclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
@@ -417,7 +414,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
@@ -435,7 +432,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof ReleaseMobMDView
+     * @memberof ProductTestMobMDView
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -448,14 +445,9 @@ export default class ReleaseMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'releases', parameterName: 'release' },
+            { pathName: 'products', parameterName: 'product' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -483,7 +475,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof ReleaseMobMDView
+     * @memberof ProductTestMobMDView
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -496,15 +488,10 @@ export default class ReleaseMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'releases', parameterName: 'release' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
@@ -524,7 +511,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if (this.viewDefaultUsage) {
@@ -541,7 +528,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -553,7 +540,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -574,7 +561,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 搜索值
      *
      * @type {string}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public query: string = '';
 
@@ -583,7 +570,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @param {*} event
      * @returns
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public async quickValueChange(event: any) {
         let { detail } = event;
@@ -605,7 +592,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
@@ -613,7 +600,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 分类值
      *
      * @type {boolean}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public categoryValue :any = {};
 
@@ -621,14 +608,14 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 排序值
      *
      * @type {boolean}
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public sortValue :any = {};
 
     /**
      * 刷新视图
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public onRefreshView() {
         let mdctrl: any = this.$refs.mdctrl;
@@ -640,10 +627,10 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 打开搜索表单
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public openSearchform() {
-      let search :any = this.$refs.searchformreleasemobmdview;
+      let search :any = this.$refs.searchformproducttestmobmdview;
       if(search){
           search.open();
       }
@@ -652,10 +639,10 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 关闭搜索表单
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public closeSearchform(){
-      let search :any = this.$refs.searchformreleasemobmdview;
+      let search :any = this.$refs.searchformproducttestmobmdview;
       if(search){
           search.close();
       }
@@ -664,7 +651,7 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 多选状态改变事件
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public showCheackChange(value:any){
         this.showCheack = value;
@@ -673,13 +660,13 @@ export default class ReleaseMobMDViewBase extends Vue {
     /**
      * 多选状态
      *
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public showCheack = false;
 
     /**
      * 取消选择状态
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public cancelSelect() {
         this.showCheackChange(false);
@@ -687,7 +674,7 @@ export default class ReleaseMobMDViewBase extends Vue {
 
     /**
      * 视图加载（排序|分类）
-     * @memberof ReleaseMobMDViewBase
+     * @memberof ProductTestMobMDViewBase
      */
     public onViewLoad() {
         let value = Object.assign(this.categoryValue,this.sortValue);
@@ -710,5 +697,5 @@ export default class ReleaseMobMDViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './release-mob-mdview.less';
+@import './product-test-mob-mdview.less';
 </style>
