@@ -23,7 +23,7 @@ export const viewstate: any = {
                 'e643a925b1d0dab04ef917b973354baa',
                 '1afb3df498f4daa660709cca53ece0b2',
                 'd282fcd0f9244a596bf945d529bcf075',
-                '82f9b0fd0fdc90237c7aa1a1e543920e',
+                '5040c252f88202ad31af8159bc03524a',
             ],
         },
         {
@@ -78,6 +78,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '46c4b323d60fd1658313b26c6b3ac34d',
+            viewmodule: 'ibiz',
+            viewname: 'TestSuiteMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '4ad2fc1ff781083ad939783813464b1a',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanMobMDView',
@@ -104,7 +113,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e108e519b282ce8c3a588d9692b0863f',
                 '3019f338b834faf1931f62e00d4ef414',
+                '984a4d5ce6ca2ede5539d44590ef20a6',
+                'a35eef7478f4f4a30f95c6919a45227f',
                 '58f89fab47964b5ad5b6b0f2021b188b',
             ],
         },
@@ -214,6 +226,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '86fe20f86bf10c309e08f52cf7259b9d',
+            viewmodule: 'zentao',
+            viewname: 'ProductTestMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '52913a5dcfd665154092ec7aedf84049',
+                '984a4d5ce6ca2ede5539d44590ef20a6',
+            ],
+        },
+        {
             viewtag: '899ab4d4cfc33b089a9c4aa5118acbf3',
             viewmodule: 'ibiz',
             viewname: 'TodoMobMDView',
@@ -234,12 +257,31 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '9576fe405a243332b6f648c8d0632e88',
+            viewmodule: 'ibiz',
+            viewname: 'TestTaskMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '984a4d5ce6ca2ede5539d44590ef20a6',
             viewmodule: 'ibiz',
             viewname: 'ProductMobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a35eef7478f4f4a30f95c6919a45227f',
+            viewmodule: 'ibiz',
+            viewname: 'TestSuiteMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '46c4b323d60fd1658313b26c6b3ac34d',
             ],
         },
         {
@@ -273,6 +315,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'af40519acfe1bc985738eb3f0ff91a24',
+            viewmodule: 'ibiz',
+            viewname: 'ProductMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '984a4d5ce6ca2ede5539d44590ef20a6',
+                '82f9b0fd0fdc90237c7aa1a1e543920e',
+            ],
+        },
+        {
             viewtag: 'b5a98ab9e5bc86d5b61c77273225f276',
             viewmodule: 'zentao',
             viewname: 'StoryMobMDView',
@@ -299,6 +352,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '52913a5dcfd665154092ec7aedf84049',
+            ],
+        },
+        {
+            viewtag: 'e108e519b282ce8c3a588d9692b0863f',
+            viewmodule: 'ibiz',
+            viewname: 'TestTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9576fe405a243332b6f648c8d0632e88',
             ],
         },
         {

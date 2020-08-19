@@ -134,7 +134,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductMobEditViewBase
      */
-    protected navContext: any = { 'id': '%productstats%', 'product': '%productstats%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -143,7 +143,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductMobEditViewBase
      */
-    protected navParam: any = { 'product': '%productstats%', 'id': '%productstats%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

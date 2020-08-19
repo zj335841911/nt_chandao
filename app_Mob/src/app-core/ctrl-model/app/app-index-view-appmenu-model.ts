@@ -113,13 +113,13 @@ export class AppIndexViewModel {
             appfunctag: '_3',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'product-stats-mob-tab-exp-view', 
-            codename: 'productstatsmobtabexpview',
+            componentname: 'product-stats-mob-mdview', 
+            codename: 'productstatsmobmdview',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/productstats/:productstats?/mobtabexpview/:mobtabexpview?',
+            routepath: '/appindexview/:appindexview?/productstats/:productstats?/mobmdview/:mobmdview?',
             parameters: [
                 { pathName: 'productstats', parameterName: 'productstats' },
-                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                { pathName: 'mobmdview', parameterName: 'mobmdview' },
             ],
         },
         {

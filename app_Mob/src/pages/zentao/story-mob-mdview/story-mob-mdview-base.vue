@@ -140,7 +140,7 @@ export default class StoryMobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryMobMDViewBase
      */
-    protected navContext: any = { 'product': '%productstats%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -149,7 +149,7 @@ export default class StoryMobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryMobMDViewBase
      */
-    protected navParam: any = { 'product': '%productstats%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
