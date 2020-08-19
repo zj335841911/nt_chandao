@@ -43,6 +43,18 @@
     @Prop() public value ? : string;
 
     /**
+     * 回填值
+     * @memberof AppCheckList
+     */
+    @Watch('value')
+    valueChange(newValue: string, oldValue: string) {
+      this.value = newValue
+      const select:any = this.$refs.checkList;
+      let arr = this.value.split(',')
+      select.value = arr;
+    }
+
+    /**
      * 当前选中值
      * @memberof AppCheckList
      */
@@ -155,15 +167,6 @@
     public change(value: any) {
       this.curValue = value.detail.value.toString();
       this.$emit('change', this.curValue);
-    }
-
-    /**
-     * 回填值
-     * @memberof AppCheckList
-     */
-    public mounted(){
-      const select:any = this.$refs.checkList;
-      select.value = this.curValue;
     }
 
     /**
