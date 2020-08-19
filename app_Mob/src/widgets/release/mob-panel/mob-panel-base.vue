@@ -325,7 +325,7 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
             const _status = this.data.status;
-            if (this.$verify.testCond(this.data.status, 'EQ', 'terminate')) {
+            if (this.$verify.testCond(this.data.status, 'EQ', 'normal')) {
                 ret = true;
             }
             this.detailsModel.rawitem2.setVisible(ret);
@@ -334,7 +334,7 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
             const _status = this.data.status;
-            if (this.$verify.testCond(this.data.status, 'EQ', 'normal')) {
+            if (this.$verify.testCond(this.data.status, 'EQ', 'terminate')) {
                 ret = true;
             }
             this.detailsModel.rawitem3.setVisible(ret);
