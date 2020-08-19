@@ -23,9 +23,9 @@ services:
     deploy:
       resources:
            limits:
-               memory: 800M
+               memory: 1024M
            reservations:
-               memory: 400M    
+               memory: 512M    
       mode: replicated
       replicas: 1
     volumes:
