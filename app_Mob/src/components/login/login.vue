@@ -21,7 +21,7 @@
                         </ion-item>
                     </ion-list>
                     <div class="ion-padding button">
-                        <ion-button expand="block" class="ion-no-margin" @click="login">{{$t('submit')}}</ion-button>
+                        <ion-button expand="block" :disabled="isLoadding" class="ion-no-margin" @click="login">{{$t('submit')}}</ion-button>
                     </div>
                 </form>
             </div>
@@ -86,10 +86,6 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public login() {
-        if(this.isLoadding){
-            return;
-        }
-        this.isLoadding = true;
         let token = localStorage.getItem('token');
         let user = localStorage.getItem('user');
         if(token){
@@ -107,6 +103,7 @@ export default class Login extends Vue {
             return;
         }
         const post: Promise<any> = this.$http.post(Environment.RemoteLogin, { loginname: this.username, password: this.password });
+        this.isLoadding = true;
         post.then((response: any) => {
             if (response && response.status === 200) {
                 this.isLoadding = false;

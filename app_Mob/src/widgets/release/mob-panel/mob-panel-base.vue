@@ -13,10 +13,16 @@
                 
                 </ion-col>
                 
+                <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    <ion-icon name="ionic-flag"></ion-icon>
+                
+                
+                </ion-col>
+                
                 <ion-col v-show="detailsModel.marker.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.marker" :context="context" :value="data.marker" :itemParam="{}"  ></app-mob-span>
+                    <span class="app-form-hidden" style="display: none;">{{data.marker}}</span>
                 </div>
                 
                 
@@ -291,6 +297,15 @@ export default class MobBase extends Vue implements ControlInterface {
     private panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
 
+        if (Object.is(name, '') || Object.is(name, 'marker')) {
+            let ret = false;
+            const _marker = this.data.marker;
+            if (this.$verify.testCond(this.data.marker, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem1.setVisible(ret);
+        }
+
 
 
 
@@ -308,7 +323,9 @@ export default class MobBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         name: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'name', panel: this, visible: true  })
 , 
-        marker: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'marker', panel: this, visible: true  })
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
+, 
+        marker: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'marker', panel: this, visible: false  })
 , 
         buildname: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'buildname', panel: this, visible: true  })
 , 

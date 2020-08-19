@@ -195,6 +195,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+   /**
+    *checkbox 数组
+    *@type {Array}
+    *@memberof Mob
+    */
+    public checkedResult:Array<any> = [];
+
 
     /**
     * 新建打开视图
@@ -672,26 +679,6 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
-    * 点击回调事件
-    *
-    * @memberof Mob
-    */
-    public item_click(item:any){
-        if(this.showCheack){
-            let count = this.selectedArray.findIndex((i) => {
-            return i.mobentityid == item.mobentityid;
-        });
-            if (count === -1) {
-                this.selectedArray.push(item);
-            } else {
-                this.selectedArray.splice(count, 1);
-            }
-        } else {
-            this.goPage(item)
-        }
-    }
-
-    /**
     * 点击列表数据跳转
     *
     * @memberof Mob
@@ -817,23 +804,49 @@ export default class MobBase extends Vue implements ControlInterface {
     @Prop({default:false}) showCheack?: boolean;
 
     /**
+     * 全选按钮选中状态
+     *
+     * @memberof Mdctrl
+     */
+    public selectAllIschecked = false;
+
+   /**
+    * 列表项点击回调事件
+    *
+    * @memberof Mob
+    */
+    public item_click(item:any,index:number){
+        if(this.showCheack){
+            let count = this.selectedArray.findIndex((i) => {
+            return i.mobentityid == item.mobentityid;
+        });
+            if (count === -1) {
+                this.selectedArray.push(item);
+            } else {
+                this.selectedArray.splice(count, 1);
+            }
+            this.$refs.checkboxes[index].toggle();
+            this.checkboxSelect(item)
+        } else {
+            this.goPage(item)
+        }
+    }
+
+    /**
      * 选中或取消事件
      *
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
         let count = this.selectedArray.findIndex((i) => {
-            return i.id == item.id;
+            return i.mobentityid == item.mobentityid;
         });
-        let re = false;
+        let re = true;
         if(count == -1){
-            re = true;
-            this.selectedArray.push(item);
-        }else{
-            this.selectedArray.splice(count,1);
+            re = false;
         }
         this.items.forEach((_item:any,index:number)=>{
-            if(_item.id == item.id){
+            if(_item.mobentityid == item.mobentityid){
                 this.items[index].checked = re;
             }
         });
@@ -844,8 +857,8 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    public checkboxAll(item:any) {
-        this.selectAllIschecked = item.detail.checked;
+    public checkboxAll() {
+        this.$refs.checkboxGroup.toggleAll();
         if(this.selectAllIschecked){
             this.selectedArray = JSON.parse(JSON.stringify(this.items));
         }else{
@@ -854,17 +867,27 @@ export default class MobBase extends Vue implements ControlInterface {
         this.items.forEach((item:any,index:number)=>{
             this.items[index].checked = this.selectAllIschecked
         });
-        this.$forceUpdate();
     }
 
-
     /**
-     * 全选按钮选中状态
+     * 监听选中数组（全选，反选）
      *
      * @memberof Mdctrl
      */
-    public selectAllIschecked = false;
-
+    @Watch('selectedArray')
+    onItemSelectChange(newVal: any, oldVal: any) {
+        if (!newVal) {
+            return;
+        }
+        let flag = this.items.every((currVal: any)=>{
+            return currVal.checked === true
+        })
+        if(flag){
+            this.selectAllIschecked = true
+        } else {
+            this.selectAllIschecked = false
+        }
+    }
 
     /**
      * 关闭滑动项
