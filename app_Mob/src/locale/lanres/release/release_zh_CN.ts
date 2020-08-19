@@ -25,7 +25,6 @@ export default {
 			marker: '里程碑', 
 			status: '状态', 
 			id: 'ID', 
-			build: '版本', 
 		},
 		uiactions: {
 		},

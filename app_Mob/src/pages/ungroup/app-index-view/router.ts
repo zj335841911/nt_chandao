@@ -568,47 +568,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
                 },
                 {
-                    path: 'projects/:project?/builds/:build?/mobpickupmdview',
-                    meta: {
-                        caption: 'build.views.mobpickupmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-mob-pickup-mdview/build-mob-pickup-mdview.vue'),
-                },
-                {
-                    path: 'products/:product?/builds/:build?/mobpickupmdview',
-                    meta: {
-                        caption: 'build.views.mobpickupmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-mob-pickup-mdview/build-mob-pickup-mdview.vue'),
-                },
-                {
-                    path: 'builds/:build?/mobpickupmdview',
-                    meta: {
-                        caption: 'build.views.mobpickupmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-mob-pickup-mdview/build-mob-pickup-mdview.vue'),
-                },
-                {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobtabexpview',
                     meta: {
                         caption: 'ibzmyterritory.views.mobtabexpview.caption',
@@ -1283,47 +1242,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/builds/:build?/mobpickupview',
-                    meta: {
-                        caption: 'build.views.mobpickupview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'),
-                },
-                {
-                    path: 'products/:product?/builds/:build?/mobpickupview',
-                    meta: {
-                        caption: 'build.views.mobpickupview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'),
-                },
-                {
-                    path: 'builds/:build?/mobpickupview',
-                    meta: {
-                        caption: 'build.views.mobpickupview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'),
                 },
             ]
         },

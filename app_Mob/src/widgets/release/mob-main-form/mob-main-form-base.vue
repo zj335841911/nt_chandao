@@ -12,7 +12,7 @@
     :caption="$t('release.mobmain_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -30,12 +30,11 @@
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.name" 
+    :context="context" 
     :value="data.name" 
-    :disabled="detailsModel.name.disabled" 
-    @change="($event)=>this.data.name = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -55,11 +54,11 @@
     :disabled="detailsModel.date.disabled"
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
+        <app-mob-span  
+        v-if="data.date" 
+    :context="context" 
     :value="data.date" 
-    :disabled="detailsModel.date.disabled"
-    @change="($event)=>this.data.date = $event"/>
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -79,28 +78,11 @@
     :disabled="detailsModel.buildname.disabled"
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='buildname'
-    deMajorField='buildname'
-    deKeyField='buildid'
-    valueitem='build' 
-    editortype="" 
-    style=""  
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :itemParam='{ }' 
-    :disabled="detailsModel.buildname.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'build', interfaceName: 'FetchDefault'}"
+        <app-mob-span  
+        v-if="data.buildname" 
+    :context="context" 
     :value="data.buildname" 
-    :pickupView="{ viewname: 'build-mob-pickup-view', title: '版本移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -120,11 +102,14 @@
     :disabled="detailsModel.marker.disabled"
     :error="detailsModel.marker.error" 
     :isEmptyCaption="false">
-        <app-mob-switch 
-    class="app-form-item-switch" 
-    :value="data.marker"  
-    :disabled="detailsModel.marker.disabled"
-    @change="($event)=>this.data.marker = $event" />
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="YesNo2"
+    :isCache="false" 
+    v-if="data.marker" 
+    :context="context" 
+    :value="data.marker" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -144,18 +129,14 @@
     :disabled="detailsModel.status.disabled"
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Release__status"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.status.disabled" 
-    :data="data" 
+    v-if="data.status" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.status"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.status = $event" />
+    :value="data.status" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -174,7 +155,7 @@
     :caption="$t('release.mobmain_form.details.group2')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
         
 </app-form-group>
@@ -480,7 +461,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         marker: null,
         status: null,
         id: null,
-        build: null,
         release: null,
     };
 
@@ -560,8 +540,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         name: [
             { type: 'string', message: '发布名称 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '发布名称 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
+            { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
         ],
         date: [
             { type: 'string', message: '发布日期 值必须为字符串类型', trigger: 'change' },
@@ -576,10 +556,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
         ],
         marker: [
-            { type: 'number', message: '里程碑 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '里程碑 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '里程碑 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '里程碑 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '里程碑 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '里程碑 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '里程碑 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '里程碑 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: '状态 值必须为字符串类型', trigger: 'change' },
@@ -592,12 +572,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'number', message: 'ID 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'blur' },
-        ],
-        build: [
-            { type: 'number', message: '版本 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '版本 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -714,8 +688,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -875,18 +847,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 build 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.build')
-    onBuildChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -923,7 +883,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
