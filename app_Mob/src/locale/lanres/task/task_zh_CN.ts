@@ -13,6 +13,7 @@ export default {
 	mobmain_form: {
 		details: {
 			druipart1: '任务团队', 
+			grouppanel1: '分组面板', 
 			group1: '任务基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '最后修改日期', 

@@ -93,6 +93,19 @@
 
 
 
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('task.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
 <app-form-druipart
     class='' 
     parameterName='task' 
@@ -113,6 +126,10 @@
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
 
@@ -869,7 +886,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '任务团队', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
+        druipart1: new FormDRUIPartModel({ caption: '任务团队', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1207,13 +1226,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
-            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+            if (this.$verify.testCond(_multiple, 'GT', '0')) {
                 ret = true;
             }
-            this.detailsModel.druipart1.setVisible(ret);
+            this.detailsModel.grouppanel1.setVisible(ret);
         }
 
 
