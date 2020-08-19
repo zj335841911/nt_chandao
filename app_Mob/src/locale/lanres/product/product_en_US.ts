@@ -2,8 +2,11 @@
 export default {
 // test
 	views: {
+		prodmobtabexpview: {
+			caption: '产品详情',
+		},
 		mobtabexpview: {
-			caption: '测试',
+			caption: '测试详情',
 		},
 		testmobmdview: {
 			caption: '测试',
@@ -45,8 +48,8 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };

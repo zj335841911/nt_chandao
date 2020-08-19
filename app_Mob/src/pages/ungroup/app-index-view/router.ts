@@ -402,6 +402,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-plan-mob-edit-view/product-plan-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/prodmobtabexpview',
+                    meta: {
+                        caption: 'product.views.prodmobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'prodmobtabexpview', parameterName: 'prodmobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmobmdview',
                     meta: {
                         caption: 'task.views.assmobmdview.caption',
@@ -676,19 +689,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-mob-edit-view/project-mob-edit-view.vue'),
-                },
-                {
-                    path: 'productstats/:productstats?/mobtabexpview',
-                    meta: {
-                        caption: 'productstats.views.mobtabexpview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'productstats', parameterName: 'productstats' },
-                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-stats-mob-tab-exp-view/product-stats-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobeditview',

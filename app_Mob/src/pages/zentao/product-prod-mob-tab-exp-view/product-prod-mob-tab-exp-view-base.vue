@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-mob-tab-exp-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-prod-mob-tab-exp-view': true }">
     
     <ion-header>
         <ion-toolbar class="ionoc-view-header">
@@ -13,11 +13,11 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel">Bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">功能测试</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">测试单</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">套件</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">详情</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">计划</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">发布</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">Bug</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -26,7 +26,7 @@
     <ion-content>
                 <view_tabexppanel 
             :viewState="viewState"
-            viewName="ProductMobTabExpView"  
+            viewName="ProductProdMobTabExpView"  
             :viewparams="viewparams" 
             :context="context" 
             name="tabexppanel"  
@@ -50,13 +50,13 @@ import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
     components: {
     },
 })
-export default class ProductMobTabExpViewBase extends Vue {
+export default class ProductProdMobTabExpViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -64,7 +64,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected appEntityService: ProductService = new ProductService();
 
@@ -73,7 +73,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -84,7 +84,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     @Prop() protected _context!: string;
 
@@ -92,7 +92,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -100,7 +100,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     @Prop({ default: true }) protected viewDefaultUsage!: boolean;
 
@@ -108,15 +108,15 @@ export default class ProductMobTabExpViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof ProductMobTabExpViewBase
+	 * @memberof ProductProdMobTabExpViewBase
 	 */
-	protected viewtag: string = '52913a5dcfd665154092ec7aedf84049';
+	protected viewtag: string = '0d3c069c216a16c6d57a9464e959a805';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected context: any = {};
 
@@ -124,7 +124,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected viewparams: any = {};
 
@@ -133,7 +133,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected navContext: any = {};
 
@@ -142,7 +142,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected navParam: any = {};
 
@@ -150,11 +150,11 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected model: any = {
-        srfTitle: '测试详情',
-        srfCaption: 'product.views.mobtabexpview.caption',
+        srfTitle: '产品详情',
+        srfCaption: 'product.views.prodmobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -166,7 +166,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  ProductMobTabExpViewBase
+     * @memberof  ProductProdMobTabExpViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -195,7 +195,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected containerModel: any = {
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
@@ -205,7 +205,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -214,7 +214,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -227,7 +227,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * 解析视图参数
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -240,7 +240,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -254,16 +254,16 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 被激活的分页面板
      *
      * @type {string}
-     * @memberof  ProductMobTabExpViewBase
+     * @memberof  ProductProdMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel3';
+    protected activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页导航栏激活
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     public tabExpPanelChange($event: any): void {
         let { detail } = $event;
@@ -281,14 +281,14 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected engine: MobTabExpViewEngine = new MobTabExpViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -302,7 +302,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected created() {
         this.afterCreated();
@@ -311,7 +311,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     public activated() {
         this.afterMounted();
@@ -320,7 +320,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -333,7 +333,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -342,7 +342,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -351,7 +351,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -365,7 +365,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -374,7 +374,7 @@ export default class ProductMobTabExpViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage && Object.keys(localStorage).length > 0) {
@@ -392,7 +392,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if (this.viewDefaultUsage) {
@@ -409,7 +409,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -421,7 +421,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof ProductMobTabExpViewBase
+     * @memberof ProductProdMobTabExpViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -442,5 +442,5 @@ export default class ProductMobTabExpViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './product-mob-tab-exp-view.less';
+@import './product-prod-mob-tab-exp-view.less';
 </style>

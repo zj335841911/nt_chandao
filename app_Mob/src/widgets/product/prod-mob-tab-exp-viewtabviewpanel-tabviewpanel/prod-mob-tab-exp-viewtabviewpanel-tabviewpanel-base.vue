@@ -1,0 +1,258 @@
+<template>
+    <div class='app-tab-view-panel ' v-if='isActivied' >
+        <product-mob-edit-view 
+            :_context="JSON.stringify(_context)" 
+            :_viewparams="JSON.stringify(_viewparams)" 
+            :panelNavParam="panelNavParam"
+            :panelNavContext="panelNavContext"
+            :viewDefaultUsage="false" >
+        </product-mob-edit-view>
+    </div>
+</template>
+
+<script lang='ts'>
+import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { CreateElement } from 'vue';
+import { Subject, Subscription } from 'rxjs';
+import { ControlInterface } from '@/interface/control';
+import GlobalUiService from '@/global-ui-service/global-ui-service';
+import ProductService from '@/app-core/service/product/product-service';
+import ProdMobTabExpViewtabviewpanelService from '@/app-core/ctrl-service/product/prod-mob-tab-exp-viewtabviewpanel-tabviewpanel-service';
+
+
+
+@Component({
+    components: {
+    }
+})
+export default class ProdMobTabExpViewtabviewpanelBase extends Vue implements ControlInterface {
+
+    /**
+     * 名称
+     *
+     * @type {string}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    @Prop() protected name?: string;
+
+    /**
+     * 视图名称
+     *
+     * @type {string}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    @Prop() protected viewName!: string;
+
+
+    /**
+     * 视图通讯对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    @Prop() protected viewState!: Subject<ViewState>;
+
+    /**
+     * 应用上下文
+     *
+     * @type {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    @Prop({ default: {} }) protected context?: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    @Prop({ default: {} }) protected viewparams?: any;
+
+    /**
+     * 视图状态事件
+     *
+     * @protected
+     * @type {(Subscription | undefined)}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected viewStateEvent: Subscription | undefined;
+
+    /**
+     * 获取部件类型
+     *
+     * @returns {string}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected getControlType(): string {
+        return 'TABVIEWPANEL'
+    }
+
+    /**
+     * 全局 ui 服务
+     *
+     * @type {GlobalUiService}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
+
+    /**
+     * 建构部件服务对象
+     *
+     * @type {ProdMobTabExpViewtabviewpanelService}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected service: ProdMobTabExpViewtabviewpanelService = new ProdMobTabExpViewtabviewpanelService({$store:this.$store});
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductService}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected appEntityService: ProductService = new ProductService();
+    
+
+    /**
+     * 关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected closeView(args: any[]): void {
+        let _this: any = this;
+        _this.$emit('closeview', args);
+    }
+
+
+    /**
+     * 面板导航参数
+     *
+     * @type {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    public panelNavParam= { } ;
+
+    /**
+     * 面板导航上下文
+     *
+     * @type {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    public panelNavContext= { } ;
+
+
+    /**
+     * 应用上下文
+     *
+     * @type {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    public _context: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    public _viewparams: any;
+
+    /**
+     * 获取多项数据
+     *
+     * @returns {any[]}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    public getDatas(): any[] {
+        return [];
+    }
+
+    /**
+     * 获取单项树
+     *
+     * @returns {*}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    public getData(): any {
+        return null;
+    }
+
+    /**
+     * 是否被激活
+     *
+     * @type {boolean}
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected isActivied: boolean = false;
+             
+    /**
+     * vue 生命周期
+     *
+     * @returns
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected created() {
+        this.afterCreated();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     *  @memberof ProdMobTabExpViewtabviewpanel
+     */    
+    protected afterCreated(){
+        this.parsePanelParam();
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+                if (!this.isActivied) {
+                    this.$nextTick(() => {
+                        this.isActivied = true;
+                    });
+                }
+            });
+        }
+    }
+
+    /**
+     * 解析面板导航参数
+     *
+     *  @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected parsePanelParam(){
+        const { context: context, param: param } = this.$viewTool.formatNavigateParam( this.panelNavContext, this.panelNavParam, this.context, this.viewparams, {});
+        this._context = { ...context };
+        this._viewparams = { ...param };
+    }
+
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof ProdMobTabExpViewtabviewpanel
+     */
+    protected afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+
+
+
+}
+</script>
+
+<style lang='less'>
+@import './prod-mob-tab-exp-viewtabviewpanel-tabviewpanel.less';
+</style>
