@@ -26,7 +26,7 @@ const router = new Router({
             },
             meta: {  
                 keepAlive:true,
-                caption: '首页',
+                caption: 'iBiz软件生产管理',
                 viewType: 'APPINDEX',
                 parameters: [
                     { pathName: 'appindexview', parameterName: 'appindexview' },
