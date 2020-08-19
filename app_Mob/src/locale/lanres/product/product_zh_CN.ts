@@ -43,8 +43,8 @@ export default {
 		uiactions: {
 		},
 	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	mobeditviewrighttoolbar_toolbar: {
 	},
 };
