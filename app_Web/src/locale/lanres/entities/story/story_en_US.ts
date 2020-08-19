@@ -1036,15 +1036,15 @@ export default {
 		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		deuiaction1: {
+			caption: "关联需求",
+			tip: "关联需求",
 		},
-		seperator2: {
+		seperator1: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction1: {
+		deuiaction2: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

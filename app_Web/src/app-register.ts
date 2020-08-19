@@ -76,6 +76,8 @@ import AppOrgSelect from './components/app-org-select/app-org-select.vue'
 import AppDepartmentSelect from './components/app-department-select/app-department-select.vue'
 import AppGroupSelect from './components/app-group-select/app-group-select.vue'
 import UpdatePwd from './components/app-update-password/app-update-password.vue'
+import ActionTimeline from './components/action-timeline/action-timeline.vue'
+
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
 // 全局挂载实体权限服务注册中心
@@ -167,5 +169,6 @@ export const AppComponents = {
         v.component('app-update-password',UpdatePwd);
         v.component('app-department-select', () => import('./components/app-department-select/app-department-select.vue'));
         v.component('app-org-select', () => import('./components/app-org-select/app-org-select.vue'));
+        v.component('action-timeline', ActionTimeline);
     },
 };

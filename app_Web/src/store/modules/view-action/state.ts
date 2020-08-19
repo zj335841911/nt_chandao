@@ -55,6 +55,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0681bc3d1ffa8e147640ab0dd005d3b5',
+            viewmodule: 'zentao',
+            viewname: 'StoryPickupGridView4',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '06ac640ed0240503d1d42ecd9a090787',
             viewmodule: 'ibiz',
             viewname: 'ProjectStatsALLGridView',
@@ -141,6 +150,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '0bfc1d5ae45c2a74d3b58739784ec7f7',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0681bc3d1ffa8e147640ab0dd005d3b5',
             ],
         },
         {
@@ -1677,6 +1696,7 @@ export const viewstate: any = {
             refviews: [
                 '928e6614bcfbd67af3b596cf5dc5a46b',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
+                '0bfc1d5ae45c2a74d3b58739784ec7f7',
             ],
         },
         {

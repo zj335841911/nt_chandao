@@ -5324,6 +5324,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/pickupgridview4/:pickupgridview4?',
+                    meta: {
+                        caption: 'entities.story.views.pickupgridview4.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'pickupgridview4', parameterName: 'pickupgridview4' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-pickup-grid-view4/story-pickup-grid-view4.vue'),
+                },
+                {
+                    path: 'stories/:story?/pickupgridview4/:pickupgridview4?',
+                    meta: {
+                        caption: 'entities.story.views.pickupgridview4.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'pickupgridview4', parameterName: 'pickupgridview4' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-pickup-grid-view4/story-pickup-grid-view4.vue'),
+                },
+                {
                     path: 'projectstats/:projectstats?/allgridview/:allgridview?',
                     meta: {
                         caption: 'entities.projectstats.views.allgridview.title',
@@ -10325,6 +10354,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-edit-view/product-plan-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr2mpickupview/:usr2mpickupview?',
+                    meta: {
+                        caption: 'entities.story.views.usr2mpickupview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mpickupview', parameterName: 'usr2mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mpickup-view/story-usr2-mpickup-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr2mpickupview/:usr2mpickupview?',
+                    meta: {
+                        caption: 'entities.story.views.usr2mpickupview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mpickupview', parameterName: 'usr2mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mpickup-view/story-usr2-mpickup-view.vue'),
+                },
+                {
                     path: 'actions/:action?/historylistview/:historylistview?',
                     meta: {
                         caption: 'entities.action.views.historylistview.title',
@@ -10859,5 +10917,12 @@ router.beforeEach((to: any, from: any, next: any) => {
     }
     next();
 });
+
+// 解决路由跳转时报 => 路由重复
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location: any) {
+    let result: any = originalPush.call(this, location);
+    return result.catch((err: any) => err);
+}
 
 export default router;
