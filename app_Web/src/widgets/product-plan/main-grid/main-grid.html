@@ -23,209 +23,118 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.productplan.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.id')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.id}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('title')">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.productplan.main_grid.columns.title')" :min-width="0"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.title')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='productplan' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-tab-exp', height: 0,width: 0,title: $t('entities.productplan.views.maintabexp.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+            ,parameters: [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'maintabexp', parameterName: 'maintabexp' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.title}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('begin')">
+                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.productplan.main_grid.columns.begin')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.begin')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('end')">
+                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.productplan.main_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.end')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('storycnt')">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productplan.main_grid.columns.storycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.storycnt')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.storycnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('bugcnt')">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productplan.main_grid.columns.bugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.bugcnt')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.bugcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('actions')">
+                <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="160"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.actions')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.RelationStory.visabled" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationstory')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.RelationBug.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.RelationBug.visabled" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationbug')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_mainedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
+                            <i class='fa fa-sitemap'></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

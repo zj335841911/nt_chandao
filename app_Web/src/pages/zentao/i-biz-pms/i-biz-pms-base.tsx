@@ -312,9 +312,9 @@ export class IBizPMSBase extends Vue {
               </div>
             </template>
             <template slot="header_right">
-              <app-header-menus ref="headerMenus" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
+              <app-header-menus ref="headerMenus" ctrlName="zentao" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
               <app-lang style='font-size: 15px;padding: 0 10px;'></app-lang>
-              <user-info ref="userInfo" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
+              <user-info ref="userInfo" ctrlName="zentao" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
             </template>
           </app-header>
           <view_appmenu ref='appmenu'/>
@@ -330,7 +330,7 @@ export class IBizPMSBase extends Vue {
             </app-keep-alive>
           </div>
           {this.bottom_exp.items ? <template slot="content_bottom">
-            <app-content-bottom-exp ref="bootomExp" menus={this.bottom_exp.items} />
+            <app-content-bottom-exp ref="bootomExp" ctrlName="zentao" menus={this.bottom_exp.items} />
           </template> : null}
         </app-content>
         <template slot="footer">

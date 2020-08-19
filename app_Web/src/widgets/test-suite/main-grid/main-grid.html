@@ -23,180 +23,102 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.testsuite.main_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.id')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.id}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testsuite.main_grid.columns.name')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.name')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='testsuite' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'test-suite-main-dashboard-view', height: 0,width: 0,title: $t('entities.testsuite.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'testsuites', parameterName: 'testsuite' },
+            { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.name}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('desc')">
+                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.testsuite.main_grid.columns.desc')" :min-width="1"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.desc')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.desc}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('addedby')">
+                <el-table-column show-overflow-tooltip :prop="'addedby'" :label="$t('entities.testsuite.main_grid.columns.addedby')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.addedby')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.addedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('addeddate')">
+                <el-table-column show-overflow-tooltip :prop="'addeddate'" :label="$t('entities.testsuite.main_grid.columns.addeddate')" :width="160"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.addeddate')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.addeddate"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testsuite.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.linkCaseDash.visabled" :disabled="scope.row.linkCaseDash.disabled" @click="uiAction(scope.row, 'linkCaseDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_linkcasedash')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.EditsuiteDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.EditsuiteDash.visabled" :disabled="scope.row.EditsuiteDash.disabled" @click="uiAction(scope.row, 'EditsuiteDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_editsuitedash')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.DeleteDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.DeleteDash.visabled" :disabled="scope.row.DeleteDash.disabled" @click="uiAction(scope.row, 'DeleteDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_deletedash')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

@@ -23,180 +23,126 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
-            Encountered "item", but was expecting one of:
-                ".."
-                <DOT_DOT_LESS>
-                "..*"
-                ">"
-                "."
-                "["
-                "("
-                "?"
-                "!"
-                <TERMINATING_EXCLAM>
-                "??"
-                "+"
-                "-"
-                "*"
-                "/"
-                "%"
-                "!="
-                "="
-                "=="
-                ">="
-                <ESCAPED_GTE>
-                ">"
-                <ESCAPED_GT>
-                <LESS_THAN_EQUALS>
-                <LESS_THAN>
-                <AND>
-                <OR>
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.release.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.id')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.id}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.release.main_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.name')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='release' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'release-main-tab-exp-view', height: 0,width: 0,title: $t('entities.release.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+            ,parameters: [
+            { pathName: 'releases', parameterName: 'release' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.name}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('buildname')">
+                <el-table-column show-overflow-tooltip :prop="'buildname'" :label="$t('entities.release.main_grid.columns.buildname')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.buildname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='build' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+            ,parameters: [
+            { pathName: 'builds', parameterName: 'build' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="build">
+                            <span>{{row.buildname}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('status')">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.release.main_grid.columns.status')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.status" tag='Release__status' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('date')">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.release.main_grid.columns.date')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.date')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.release.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.release.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.linkstory.visabled" :disabled="scope.row.linkstory.disabled" @click="uiAction(scope.row, 'linkstory', $event)" :title="$t('entities.release.main_grid.uiactions.release_linkstory')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.linkbug.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.linkbug.visabled" :disabled="scope.row.linkbug.disabled" @click="uiAction(scope.row, 'linkbug', $event)" :title="$t('entities.release.main_grid.uiactions.release_linkbug')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.active.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.active.visabled" :disabled="scope.row.active.disabled" @click="uiAction(scope.row, 'active', $event)" :title="$t('entities.release.main_grid.uiactions.release_active')">
+                            <i class='fa fa-play'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.terminal.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.terminal.visabled" :disabled="scope.row.terminal.disabled" @click="uiAction(scope.row, 'terminal', $event)" :title="$t('entities.release.main_grid.uiactions.release_terminal')">
+                            <i class='fa fa-pause'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.quickEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.quickEdit.visabled" :disabled="scope.row.quickEdit.disabled" @click="uiAction(scope.row, 'quickEdit', $event)" :title="$t('entities.release.main_grid.uiactions.release_quickedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.remove.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.remove.visabled" :disabled="scope.row.remove.disabled" @click="uiAction(scope.row, 'remove', $event)" :title="$t('entities.release.main_grid.uiactions.release_remove')">
+                            <i class=''></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
