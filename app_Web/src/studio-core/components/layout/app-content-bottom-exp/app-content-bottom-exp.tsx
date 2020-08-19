@@ -22,6 +22,15 @@ export class AppContentBottomExp extends Vue {
     protected uiState: UIStateService = new UIStateService();
 
     /**
+     * 部件名称
+     *
+     * @type {string}
+     * @memberof AppContentBottomExp
+     */
+    @Prop() 
+    public ctrlName!: string;
+
+    /**
      * 所有菜单项
      *
      * @type {any[]}
@@ -106,7 +115,7 @@ export class AppContentBottomExp extends Vue {
     protected renderTitle(h: any, item: any): any {
         return <div title={item.tooltip} class="tab-exp-title">
             <menu-icon item={item} />
-            {item.text}
+            {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
         </div>;
     }
 

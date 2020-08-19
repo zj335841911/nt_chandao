@@ -23,6 +23,15 @@ export class AppContentLeftExp extends Vue {
     protected uiState: UIStateService = new UIStateService();
 
     /**
+     * 部件名称
+     *
+     * @type {string}
+     * @memberof AppContentLeftExp
+     */
+    @Prop() 
+    public ctrlName!: string;
+
+    /**
      * 菜单数据
      *
      * @protected
