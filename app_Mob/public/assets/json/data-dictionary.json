@@ -168,6 +168,69 @@
         ]
     }, 
     {
+        "srfkey": "Testtask__pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "value": 1,
+                "disabled": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "value": 2,
+                "disabled": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "value": 3,
+                "disabled": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "value": 4,
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testsuite__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "library",
+                "label": "用例库",
+                "text": "用例库",
+                "value": "library",
+                "disabled": false
+            }
+            , {
+                "id": "private",
+                "label": "私有",
+                "text": "私有",
+                "value": "private",
+                "disabled": false
+            }
+            , {
+                "id": "public",
+                "label": "公开",
+                "text": "公开",
+                "value": "public",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Story__pri",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -2189,6 +2252,41 @@
                 "label": "转为需求",
                 "text": "转为需求",
                 "value": "tostory",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testtask__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "未开始",
+                "text": "未开始",
+                "value": "wait",
+                "disabled": false
+            }
+            , {
+                "id": "doing",
+                "label": "进行中",
+                "text": "进行中",
+                "value": "doing",
+                "disabled": false
+            }
+            , {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "value": "done",
+                "disabled": false
+            }
+            , {
+                "id": "blocked",
+                "label": "被阻塞",
+                "text": "被阻塞",
+                "value": "blocked",
                 "disabled": false
             }
         ]

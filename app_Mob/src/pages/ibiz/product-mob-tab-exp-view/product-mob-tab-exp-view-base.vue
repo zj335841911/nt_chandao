@@ -13,8 +13,11 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel3">详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">功能测试</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">测试单</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">套件</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -218,6 +221,9 @@ export default class ProductMobTabExpViewBase extends Vue {
 
 
 
+
+
+
     /**
      * 解析视图参数
      *
@@ -250,7 +256,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  ProductMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    protected activiedTabViewPanel: string = 'tabviewpanel3';
 
     /**
      * 分页导航栏激活
