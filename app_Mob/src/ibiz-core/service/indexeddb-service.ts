@@ -39,17 +39,23 @@ export class IndexedDBService extends IndexedDBServiceBase {
     protected entityConfigInit(): void {
         this.entityConfigs.push({ name: 'user', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectteam', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'build', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'task', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzcasestep', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'release', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'taskteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'project', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'todo', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'story', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibzmyterritory', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'case', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productplan', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectstats', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'bug', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productstats', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'testtask', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'testsuite', keyPath: 'srfsessionkey' });
     }
 
     /**

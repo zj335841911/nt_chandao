@@ -1,16 +1,22 @@
 import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
+import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
+import ibzcasestep_zh_CN from '@locale/lanres/ibzcase-step/ibzcase-step_zh_CN';
+import release_zh_CN from '@locale/lanres/release/release_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import todo_zh_CN from '@locale/lanres/todo/todo_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
+import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
+import testtask_zh_CN from '@locale/lanres/test-task/test-task_zh_CN';
+import testsuite_zh_CN from '@locale/lanres/test-suite/test-suite_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
 
@@ -147,17 +153,23 @@ export default {
     },
     user: user_zh_CN,
     projectteam: projectteam_zh_CN,
+    build: build_zh_CN,
     task: task_zh_CN,
     product: product_zh_CN,
+    ibzcasestep: ibzcasestep_zh_CN,
+    release: release_zh_CN,
     taskteam: taskteam_zh_CN,
     project: project_zh_CN,
     todo: todo_zh_CN,
     story: story_zh_CN,
     ibzmyterritory: ibzmyterritory_zh_CN,
+    case: case_zh_CN,
     productplan: productplan_zh_CN,
     projectstats: projectstats_zh_CN,
     bug: bug_zh_CN,
     productstats: productstats_zh_CN,
+    testtask: testtask_zh_CN,
+    testsuite: testsuite_zh_CN,
     codelist: codelist_zh_CN,
     userCustom: userCustom_zh_CN
 };

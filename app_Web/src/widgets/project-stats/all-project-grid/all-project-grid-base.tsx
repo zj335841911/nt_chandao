@@ -164,6 +164,14 @@ export class AllProjectGridBase extends GridControlBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'progress',
+            label: '进度',
+            langtag: 'entities.projectstats.allproject_grid.columns.progress',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -205,6 +213,7 @@ export class AllProjectGridBase extends GridControlBase {
         'totalconsumed':false,
         'totalleft':false,
         'totalwh':false,
+        'progress':false,
     };
 
     /**

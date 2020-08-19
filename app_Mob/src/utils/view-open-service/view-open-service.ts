@@ -88,7 +88,7 @@ export class ViewOpenService {
             }
         }
         if (!Object.is(urlStr, '')) {
-            let indexViewContext = { ...ViewTool.getInstance().getIndexViewParam() };
+            let indexViewContext = {};
             if (Object.keys(indexViewContext).length > 0) {
                 let indexUrl = qs.stringify(indexViewContext, { delimiter: ';' })?qs.stringify(indexViewContext, { delimiter: ';' }):null;
                 urlStr = `/viewshell/${indexUrl}${urlStr}`;

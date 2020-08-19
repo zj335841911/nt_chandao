@@ -1,16 +1,22 @@
 import user_en_US from '@locale/lanres/user/user_en_US';
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
+import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
+import ibzcasestep_en_US from '@locale/lanres/ibzcase-step/ibzcase-step_en_US';
+import release_en_US from '@locale/lanres/release/release_en_US';
 import taskteam_en_US from '@locale/lanres/task-team/task-team_en_US';
 import project_en_US from '@locale/lanres/project/project_en_US';
 import todo_en_US from '@locale/lanres/todo/todo_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territory_en_US';
+import case_en_US from '@locale/lanres/case/case_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
+import testtask_en_US from '@locale/lanres/test-task/test-task_en_US';
+import testsuite_en_US from '@locale/lanres/test-suite/test-suite_en_US';
 import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
 
@@ -146,17 +152,23 @@ export default {
     },
     user: user_en_US,
     projectteam: projectteam_en_US,
+    build: build_en_US,
     task: task_en_US,
     product: product_en_US,
+    ibzcasestep: ibzcasestep_en_US,
+    release: release_en_US,
     taskteam: taskteam_en_US,
     project: project_en_US,
     todo: todo_en_US,
     story: story_en_US,
     ibzmyterritory: ibzmyterritory_en_US,
+    case: case_en_US,
     productplan: productplan_en_US,
     projectstats: projectstats_en_US,
     bug: bug_en_US,
     productstats: productstats_en_US,
+    testtask: testtask_en_US,
+    testsuite: testsuite_en_US,
     codelist: codelist_en_US,
     userCustom: userCustom_en_US,
 };

@@ -1,7 +1,7 @@
 import { HttpResponse } from '@/ibiz-core/utils';
+import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
-import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 
 /**
  * 动态代码表服务类
@@ -39,12 +39,12 @@ export class CodeListService {
      * @memberof CodeListService
      */
     protected allCodeList: any = {
+        // 用户真实名称（动态）（Bug）
+        BugUserRealName: new BugUserRealName(),
         // 用户真实名称（项目团队成员）
         UserRealNameProject: new UserRealNameProject(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
-        // 用户真实名称（动态）（Bug）
-        BugUserRealName: new BugUserRealName(),
     };
 
     /**
