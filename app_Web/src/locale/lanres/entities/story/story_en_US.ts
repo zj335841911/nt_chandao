@@ -55,6 +55,14 @@ export default {
     preversion: "之前的版本",
   },
 	views: {
+		pickupgridview4: {
+			caption: "需求",
+      		title: "需求",
+		},
+		usr2mpickupview: {
+			caption: "需求",
+      		title: "发布下属需求数据多项选择视图",
+		},
 		mainview9_related: {
 			caption: "需求",
       		title: "需求编辑视图",

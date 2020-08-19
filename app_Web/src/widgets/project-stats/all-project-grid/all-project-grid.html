@@ -124,7 +124,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.progress"></app-format-data>
+                        <template >
+                                <span><over-progress :data="row.totalconsumed && row.totalwh && row.totalconsumed != 0 ? row.totalconsumed/row.totalwh : ''"></over-progress></span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

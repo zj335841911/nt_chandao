@@ -71,6 +71,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleQuickCfgView",
             "viewtag": "0568d197dda832ceb89ad0442ab9f230"
         },
+        "storypickupgridview4": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPickupGridView4",
+            "viewtag": "0681bc3d1ffa8e147640ab0dd005d3b5"
+        },
         "projectstatsallgridview": {
             "title": "所有项目",
             "caption": "所有项目",
@@ -142,6 +150,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductProjectGridView9",
             "viewtag": "0b1b51910ca13751bfd6d356dcadbbce"
+        },
+        "storyusr2mpickupview": {
+            "title": "发布下属需求数据多项选择视图",
+            "caption": "需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryUsr2MPickupView",
+            "viewtag": "0bfc1d5ae45c2a74d3b58739784ec7f7"
         },
         "testmoduleeditview": {
             "title": "测试模块编辑视图",
