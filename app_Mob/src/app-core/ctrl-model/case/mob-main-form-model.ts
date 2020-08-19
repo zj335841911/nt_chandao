@@ -66,6 +66,11 @@ export class MobMainModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'id',
+                prop: 'id',
+                dataType: 'ACID',
+            },
+            {
                 name: 'version',
                 prop: 'version',
                 dataType: 'INT',
@@ -74,11 +79,6 @@ export class MobMainModel {
                 name: 'keywords',
                 prop: 'keywords',
                 dataType: 'TEXT',
-            },
-            {
-                name: 'id',
-                prop: 'id',
-                dataType: 'ACID',
             },
             {
                 name: 'case',

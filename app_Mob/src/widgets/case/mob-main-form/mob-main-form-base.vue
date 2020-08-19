@@ -141,8 +141,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.version"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "CASE": "%id%" } '
+    :navigateParam ='{ "case": "%id%" } '
     @change="($event)=>this.data.version = $event" />
 </app-form-item>
 
@@ -496,9 +496,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         type: null,
         stage: null,
         precondition: null,
+        id: null,
         version: null,
         keywords: null,
-        id: null,
         case: null,
     };
 
@@ -599,6 +599,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
         ],
+        id: [
+            { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'blur' },
+        ],
         version: [
             { type: 'number', message: '用例版本 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '用例版本 值必须为数值类型', trigger: 'blur' },
@@ -610,12 +616,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -729,11 +729,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
         version: new FormItemModel({ caption: '用例版本', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -870,6 +870,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 id 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.id')
+    onIdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 version 值
      *
      * @param {*} newVal
@@ -891,18 +903,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.keywords')
     onKeywordsChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 id 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
 

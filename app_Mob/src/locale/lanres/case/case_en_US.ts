@@ -25,9 +25,9 @@ export default {
 			type: '用例类型', 
 			stage: '适用阶段', 
 			precondition: '前置条件', 
+			id: '用例编号', 
 			version: '用例版本', 
 			keywords: '关键词', 
-			id: '用例编号', 
 		},
 		uiactions: {
 		},
