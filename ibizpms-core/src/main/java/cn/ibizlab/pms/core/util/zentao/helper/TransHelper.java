@@ -122,6 +122,24 @@ public class TransHelper {
                     jo.put("id", et.get("project"));
                 }
             }
+
+            if ("releaseLinkStory".equals(method)){
+                jo = new JSONObject();
+                if(et.get("srfactionparam") != null) {
+                    ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+                    JSONArray jsonArray = new JSONArray();
+                    for(Map map : list) {
+                        if (map.get("id") != null) {
+                            jsonArray.add(map.get("id"));
+                        }
+                    }
+
+                    jo.put("id", et.getExtensionparams().get("release"));
+                    jo.put("stories",jsonArray);
+                }
+
+                return jo;
+            }
         }
         if (o instanceof Case){
             Case et = (Case)o;
