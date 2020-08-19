@@ -297,10 +297,10 @@ export class IBizPMSBase extends Vue {
     let leftContent: any;
     switch (styleMode) {
       case 'DEFAULT':
-        leftContent = <app-content-left-exp ref="leftExp" menus={this.left_exp.items} />;
+        leftContent = <app-content-left-exp ref="leftExp" ctrlName="zentao" menus={this.left_exp.items} />;
         break;
       case 'STYLE2':
-        leftContent = <app-content-left-nav-menu ref="leftNavMenu" menus={this.left_exp.items} on-menu-click={(item: any) => this.click(item)}/>;
+        leftContent = <app-content-left-nav-menu ref="leftNavMenu" ctrlName="zentao" menus={this.left_exp.items} on-menu-click={(item: any) => this.click(item)}/>;
     }
     return (
       <app-layout ref="appLayout">
@@ -313,6 +313,7 @@ export class IBizPMSBase extends Vue {
             </template>
             <template slot="header_right">
               <app-header-menus ref="headerMenus" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
+              <app-lang style='font-size: 15px;padding: 0 10px;'></app-lang>
               <user-info ref="userInfo" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
             </template>
           </app-header>

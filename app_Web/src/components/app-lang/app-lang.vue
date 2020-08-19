@@ -1,5 +1,5 @@
 <template>
-  <dropdown v-if="localList.length > 1" trigger='click' @on-click="selectLang">
+  <dropdown class="app-lang" v-if="localList.length > 1" trigger='click' @on-click="selectLang">
     <span>
         {{title}}
         <icon size='18' type='md-arrow-dropdown'></icon>

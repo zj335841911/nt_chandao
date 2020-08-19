@@ -23,37 +23,64 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.product.mainproject_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.product.mainproject_grid.columns.name')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.name}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('code')">
-                <el-table-column show-overflow-tooltip :prop="'code'" :label="$t('entities.product.mainproject_grid.columns.code')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.product.mainproject_grid.columns.code')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.code}}</span>
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

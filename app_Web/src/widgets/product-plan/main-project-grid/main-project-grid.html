@@ -21,26 +21,35 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.productplan.mainproject_grid.columns.title')" :min-width="0"  :align="'left'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.productplan.mainproject_grid.columns.title')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='productplan' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-tab-exp', height: 0,width: 0,title: $t('entities.productplan.views.maintabexp.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-            ,parameters: [
-            { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'maintabexp', parameterName: 'maintabexp' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.title}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

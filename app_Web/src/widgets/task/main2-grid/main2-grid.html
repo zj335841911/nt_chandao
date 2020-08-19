@@ -23,66 +23,122 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main2_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main2_grid.columns.id')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main2_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main2_grid.columns.pri')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main2_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main2_grid.columns.name')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-            ,parameters: [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.name}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.task.main2_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main2_grid.columns.status')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.status" tag='Task__status' codelistType='STATIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 190, column 69:
+            Encountered "item", but was expecting one of:
+                ".."
+                <DOT_DOT_LESS>
+                "..*"
+                ">"
+                "."
+                "["
+                "("
+                "?"
+                "!"
+                <TERMINATING_EXCLAM>
+                "??"
+                "+"
+                "-"
+                "*"
+                "/"
+                "%"
+                "!="
+                "="
+                "=="
+                ">="
+                <ESCAPED_GTE>
+                ">"
+                <ESCAPED_GT>
+                <LESS_THAN_EQUALS>
+                <LESS_THAN>
+                <AND>
+                <OR>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
