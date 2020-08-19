@@ -207,6 +207,9 @@ export default {
         'casechange': '原用例更新',
         empty: '',
     },
+    CurCaseVersion: {
+        empty: '',
+    },
     Task__pri: {
         1: '1',
         2: '2',

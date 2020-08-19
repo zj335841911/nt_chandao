@@ -1266,6 +1266,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersions",
+        "items": []
+    },
+    {
         srfkey: 'Task__pri',
         emptytext: '未定义',
         "codelisttype":"static",

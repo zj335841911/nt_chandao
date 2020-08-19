@@ -66,6 +66,11 @@ export class MobMainModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'version',
+                prop: 'version',
+                dataType: 'INT',
+            },
+            {
                 name: 'keywords',
                 prop: 'keywords',
                 dataType: 'TEXT',

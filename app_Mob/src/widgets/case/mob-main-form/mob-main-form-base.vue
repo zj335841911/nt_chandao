@@ -117,6 +117,37 @@
 
 
 
+<app-form-item 
+    name='version' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="version_item"  
+    :itemValue="this.data.version" 
+    v-show="detailsModel.version.visible" 
+    :itemRules="this.rules.version" 
+    :caption="$t('case.mobmain_form.details.version')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.version.disabled"
+    :error="detailsModel.version.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="CurCaseVersion"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.version.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.version"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.version = $event" />
+</app-form-item>
+
+
+
 <app-form-druipart
     class='' 
     parameterName='case' 
@@ -132,8 +163,8 @@
     ]" 
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "N_VERSION_EQ": "%version%" } ' 
+    :navigateParam ='{ "n_version_eq": "%version%" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -465,6 +496,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         type: null,
         stage: null,
         precondition: null,
+        version: null,
         keywords: null,
         id: null,
         case: null,
@@ -566,6 +598,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '前置条件 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
+        ],
+        version: [
+            { type: 'number', message: '用例版本 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '用例版本 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '用例版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '用例版本 值不能为空', trigger: 'blur' },
         ],
         keywords: [
             { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'change' },
@@ -690,6 +728,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         stage: new FormItemModel({ caption: '适用阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        version: new FormItemModel({ caption: '用例版本', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -830,6 +870,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 version 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.version')
+    onVersionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'version', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 keywords 值
      *
      * @param {*} newVal
@@ -889,6 +941,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1071,7 +1124,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'type_item', 'stage_item', 'precondition_item', 'keywords_item', ];
+        const refArr: Array<string> = ['title_item', 'type_item', 'stage_item', 'precondition_item', 'version_item', 'keywords_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
