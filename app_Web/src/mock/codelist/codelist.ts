@@ -2788,9 +2788,10 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "1",
                 label: "1",
                 text: "1",
+                "iconcls":"fa fa-bomb",
                 "data":"",
                 "codename":"Item_1",
-                "color": "rgba(197, 26, 26, 1)",
+                "color": "rgba(183, 35, 35, 1)",
                 value: 1,
                 
                 disabled: false,
@@ -2810,9 +2811,10 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "3",
                 label: "3",
                 text: "3",
+                "iconcls":"fa fa-sort-amount-asc",
                 "data":"",
                 "codename":"Item_3",
-                "color": "rgba(197, 26, 26, 1)",
+                "color": "rgba(64, 78, 227, 1)",
                 value: 3,
                 
                 disabled: false,

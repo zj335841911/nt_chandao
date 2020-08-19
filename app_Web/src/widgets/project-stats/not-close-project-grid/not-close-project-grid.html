@@ -117,7 +117,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('progress')">
-                <el-table-column show-overflow-tooltip :prop="'progress'" :label="$t('entities.projectstats.notcloseproject_grid.columns.progress')" :width="200"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'progress'" :label="$t('entities.projectstats.notcloseproject_grid.columns.progress')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.projectstats.notcloseproject_grid.columns.progress')}}
