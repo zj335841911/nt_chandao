@@ -1,8 +1,9 @@
 <template>
 	<ion-app id="app" :class="themeClass" class="ios ion-page hydrated">
-				<keep-alive>
-			<router-view/>
-		</keep-alive>
+		        <keep-alive>
+            <router-view v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
 	</ion-app>
 </template>
 

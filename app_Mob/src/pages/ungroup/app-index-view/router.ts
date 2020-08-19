@@ -25,6 +25,7 @@ const router = new Router({
                 });
             },
             meta: {  
+                keepAlive:true,
                 caption: '首页',
                 viewType: 'APPINDEX',
                 parameters: [
