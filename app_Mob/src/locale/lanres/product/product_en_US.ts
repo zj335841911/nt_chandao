@@ -8,6 +8,9 @@ export default {
 		mobeditview: {
 			caption: '产品',
 		},
+		mobmdview: {
+			caption: '产品',
+		},
 	},
 	mobmain_form: {
 		details: {
@@ -40,5 +43,11 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'New',
+			tip: 'tbitem1',
+		},
 	},
 };

@@ -304,6 +304,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'af40519acfe1bc985738eb3f0ff91a24',
+            viewmodule: 'ibiz',
+            viewname: 'ProductMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '984a4d5ce6ca2ede5539d44590ef20a6',
+            ],
+        },
+        {
             viewtag: 'b5a98ab9e5bc86d5b61c77273225f276',
             viewmodule: 'zentao',
             viewname: 'StoryMobMDView',
