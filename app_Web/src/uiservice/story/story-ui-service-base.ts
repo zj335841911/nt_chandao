@@ -1432,7 +1432,7 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{STORY:"0",RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
+        Object.assign(context,{RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
         Object.assign(params,{product:"%product%",release:"%srfparentkey%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
@@ -1478,14 +1478,15 @@ export default class StoryUIServiceBase extends UIService {
                 return response;
             });
         };
-        const view = { 
-            viewname: 'story-usr2-mpickup-view', 
+        const view: any = {
+            viewname: 'story-usr2-mpickup-view',
             title: actionContext.$t('entities.story.views.usr2mpickupview.title'),
-            height: 0, 
-            width: 0, 
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
         };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
             if (result && Object.is(result.ret, 'OK')) {
                 Object.assign(data, { srfactionparam: result.datas });
                 backend();
