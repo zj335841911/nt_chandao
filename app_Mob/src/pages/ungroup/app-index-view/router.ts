@@ -1077,7 +1077,7 @@ const router = new Router({
                     component: () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/mobmdview9',
+                    path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
@@ -1085,7 +1085,7 @@ const router = new Router({
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
                         ],
                         requireAuth: true,
@@ -1093,14 +1093,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-mob-mdview9/case-step-mob-mdview9.vue'),
                 },
                 {
-                    path: 'stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/mobmdview9',
+                    path: 'stories/:story?/cases/:case?/casesteps/:casestep?/mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
                         ],
                         requireAuth: true,
@@ -1108,14 +1108,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-mob-mdview9/case-step-mob-mdview9.vue'),
                 },
                 {
-                    path: 'products/:product?/cases/:case?/ibzcasesteps/:ibzcasestep?/mobmdview9',
+                    path: 'products/:product?/cases/:case?/casesteps/:casestep?/mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
                         ],
                         requireAuth: true,
@@ -1123,13 +1123,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-mob-mdview9/case-step-mob-mdview9.vue'),
                 },
                 {
-                    path: 'cases/:case?/ibzcasesteps/:ibzcasestep?/mobmdview9',
+                    path: 'cases/:case?/casesteps/:casestep?/mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
                         ],
                         requireAuth: true,
@@ -1137,12 +1137,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-mob-mdview9/case-step-mob-mdview9.vue'),
                 },
                 {
-                    path: 'ibzcasesteps/:ibzcasestep?/mobmdview9',
+                    path: 'casesteps/:casestep?/mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
                         ],
                         requireAuth: true,

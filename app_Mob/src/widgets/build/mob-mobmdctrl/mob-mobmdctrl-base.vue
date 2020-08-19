@@ -925,6 +925,8 @@ export default class MobBase extends Vue implements ControlInterface {
             } else {
                 this.selectedArray.splice(count, 1);
             }
+            let checkbox:any = this.$refs.checkboxes[index];
+            checkbox.toggle();
             this.checkboxSelect(item)
         } else {
             this.goPage(item)
@@ -957,6 +959,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public checkboxAll() {
+        let checkGroup:any = this.$refs.checkboxGroup
+        checkGroup.toggleAll();
         if(this.selectAllIschecked){
             this.selectedArray = JSON.parse(JSON.stringify(this.items));
         }else{

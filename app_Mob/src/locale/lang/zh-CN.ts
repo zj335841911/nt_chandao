@@ -3,7 +3,7 @@ import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
-import ibzcasestep_zh_CN from '@locale/lanres/ibzcase-step/ibzcase-step_zh_CN';
+import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import release_zh_CN from '@locale/lanres/release/release_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
@@ -156,7 +156,7 @@ export default {
     build: build_zh_CN,
     task: task_zh_CN,
     product: product_zh_CN,
-    ibzcasestep: ibzcasestep_zh_CN,
+    casestep: casestep_zh_CN,
     release: release_zh_CN,
     taskteam: taskteam_zh_CN,
     project: project_zh_CN,

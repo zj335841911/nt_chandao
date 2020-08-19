@@ -40,7 +40,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IBZCaseStepService from '@/app-core/service/ibzcase-step/ibzcase-step-service';
+import CaseStepService from '@/app-core/service/case-step/case-step-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 
@@ -62,10 +62,10 @@ export default class CaseStepMobMDView9Base extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {IBZCaseStepService}
+     * @type {CaseStepService}
      * @memberof CaseStepMobMDView9Base
      */
-    protected appEntityService: IBZCaseStepService = new IBZCaseStepService();
+    protected appEntityService: CaseStepService = new CaseStepService();
 
     /**
      * 数据变化
@@ -153,7 +153,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      */
     protected model: any = {
         srfTitle: '用例步骤移动端多数据视图',
-        srfCaption: 'ibzcasestep.views.mobmdview9.caption',
+        srfCaption: 'casestep.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -267,7 +267,7 @@ export default class CaseStepMobMDView9Base extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            keyPSDEField: 'ibzcasestep',
+            keyPSDEField: 'casestep',
             majorPSDEField: 'expect',
             isLoadDefault: true,
         });

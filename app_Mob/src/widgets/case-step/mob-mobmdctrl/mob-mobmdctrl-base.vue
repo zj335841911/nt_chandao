@@ -108,8 +108,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
-import MobService from '@/app-core/ctrl-service/task/mob-mobmdctrl-service';
+import CaseStepService from '@/app-core/service/case-step/case-step-service';
+import MobService from '@/app-core/ctrl-service/case-step/mob-mobmdctrl-service';
 
 
 
@@ -198,10 +198,10 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
+     * @type {CaseStepService}
      * @memberof Mob
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: CaseStepService = new CaseStepService();
     
 
     /**
@@ -407,7 +407,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof Mob
     */
-    public pageSize: number = 25;
+    public pageSize: number = 1000;
 
     /**
     * 总页数
@@ -578,7 +578,7 @@ export default class MobBase extends Vue implements ControlInterface {
                 if (!Object.is(infoStr, '')) {
                     infoStr += '、';
                 }
-                infoStr += data.name;
+                infoStr += data.expect;
             }
         });
         if(datas.length <= 0 ){
@@ -592,7 +592,7 @@ export default class MobBase extends Vue implements ControlInterface {
         }
         return new Promise((resolve, reject) => {
             const _remove = async () => {
-                let _context: any = { task: keys.join(';') }
+                let _context: any = { casestep: keys.join(';') }
                 const response: any = await this.service.delete(this.removeAction, Object.assign({}, this.context, _context), arg, this.showBusyIndicator);
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
@@ -750,7 +750,7 @@ export default class MobBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.taskid, value)) {
+            if (Object.is(item.casestepid, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
