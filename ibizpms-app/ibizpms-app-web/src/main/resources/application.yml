@@ -2,4 +2,4 @@ spring:
   profiles:
     include: sys, web-zentao, nacos, web-prod
   application:
-    name: pms-webhh
+    name: pms-web
