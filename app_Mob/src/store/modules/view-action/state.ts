@@ -49,6 +49,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2771dfa8ed94c48f35d293293bfbf6ac',
+            viewmodule: 'ibiz',
+            viewname: 'BuildMobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '4ad2fc1ff781083ad939783813464b1a',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanMobMDView',
@@ -88,6 +97,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5cfddd273247bd1dc4c940fae4671f14',
+            viewmodule: 'ibiz',
+            viewname: 'ReleaseMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '85742d38f356f400b16652a3f7ae714b',
+            ],
+        },
+        {
             viewtag: '69a540ab88c1edd1da7f89cebe5f4588',
             viewmodule: 'ibiz',
             viewname: 'BugMobEditView',
@@ -97,15 +116,46 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6a5ac6590255906c36e1cdd50bd0bcab',
+            viewmodule: 'ibiz',
+            viewname: 'BuildMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '72d73b7f458439bc2355414e5a810ad5',
+            ],
+        },
+        {
             viewtag: '6adf02d82097636627af57103a3a49fd',
             viewmodule: 'zentao',
             viewname: 'ProjectMobTabExpView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6a5ac6590255906c36e1cdd50bd0bcab',
                 'e66284928a0154c484670a12704af6b0',
                 '0741315806513b247c661851d7746f51',
                 '5a5215f43247569540ff912edf51eb09',
+                '58f89fab47964b5ad5b6b0f2021b188b',
+            ],
+        },
+        {
+            viewtag: '72d73b7f458439bc2355414e5a810ad5',
+            viewmodule: 'ibiz',
+            viewname: 'BuildMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '7862eff0b9a271764fccf722121c6b66',
+            viewmodule: 'ibiz',
+            viewname: 'ReleaseMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5cfddd273247bd1dc4c940fae4671f14',
             ],
         },
         {
@@ -115,10 +165,21 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '7862eff0b9a271764fccf722121c6b66',
                 '984a4d5ce6ca2ede5539d44590ef20a6',
                 'b5a98ab9e5bc86d5b61c77273225f276',
                 '58f89fab47964b5ad5b6b0f2021b188b',
                 '4ad2fc1ff781083ad939783813464b1a',
+            ],
+        },
+        {
+            viewtag: '85742d38f356f400b16652a3f7ae714b',
+            viewmodule: 'ibiz',
+            viewname: 'BuildMobPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2771dfa8ed94c48f35d293293bfbf6ac',
             ],
         },
         {
@@ -237,6 +298,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'f38d9a9c6a87f0fdc4c94663ce13327b',
+            viewmodule: 'ibiz',
+            viewname: 'BuildMobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2771dfa8ed94c48f35d293293bfbf6ac',
             ],
         },
         {

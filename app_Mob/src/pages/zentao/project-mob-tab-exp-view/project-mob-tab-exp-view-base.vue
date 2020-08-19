@@ -15,6 +15,8 @@
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">任务</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">版本</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">团队</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
@@ -215,6 +217,8 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof ProjectMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
+
 
 
 

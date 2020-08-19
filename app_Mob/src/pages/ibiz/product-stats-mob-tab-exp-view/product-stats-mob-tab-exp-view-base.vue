@@ -16,6 +16,7 @@
                             <ion-segment-button value="tabviewpanel">详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">计划</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">BUG</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
@@ -216,6 +217,7 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
      * @memberof ProductStatsMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 

@@ -49,14 +49,6 @@
         ]
     }, 
     {
-        "srfkey": "UserRealNameProject",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser",
-        "items": []
-    }, 
-    {
         "srfkey": "Story__closed_reason",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -111,168 +103,6 @@
                 "disabled": false
             }
         ]
-    }, 
-    {
-        "srfkey": "Bug__os",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "all",
-                "label": "全部",
-                "text": "全部",
-                "value": "all",
-                "disabled": false
-            }
-            , {
-                "id": "windows",
-                "label": "Windows",
-                "text": "Windows",
-                "value": "windows",
-                "disabled": false
-            }
-            , {
-                "id": "win10",
-                "label": "Windows 10",
-                "text": "Windows 10",
-                "value": "win10",
-                "disabled": false
-            }
-            , {
-                "id": "win8",
-                "label": "Windows 8",
-                "text": "Windows 8",
-                "value": "win8",
-                "disabled": false
-            }
-            , {
-                "id": "win7",
-                "label": "Windows 7",
-                "text": "Windows 7",
-                "value": "win7",
-                "disabled": false
-            }
-            , {
-                "id": "vista",
-                "label": "Windows Vista",
-                "text": "Windows Vista",
-                "value": "vista",
-                "disabled": false
-            }
-            , {
-                "id": "winxp",
-                "label": "Windows XP",
-                "text": "Windows XP",
-                "value": "winxp",
-                "disabled": false
-            }
-            , {
-                "id": "win2012",
-                "label": "Windows 2012",
-                "text": "Windows 2012",
-                "value": "win2012",
-                "disabled": false
-            }
-            , {
-                "id": "win2008",
-                "label": "Windows 2008",
-                "text": "Windows 2008",
-                "value": "win2008",
-                "disabled": false
-            }
-            , {
-                "id": "win2003",
-                "label": "Windows 2003",
-                "text": "Windows 2003",
-                "value": "win2003",
-                "disabled": false
-            }
-            , {
-                "id": "win2000",
-                "label": "Windows 2000",
-                "text": "Windows 2000",
-                "value": "win2000",
-                "disabled": false
-            }
-            , {
-                "id": "android",
-                "label": "Android",
-                "text": "Android",
-                "value": "android",
-                "disabled": false
-            }
-            , {
-                "id": "ios",
-                "label": "IOS",
-                "text": "IOS",
-                "value": "ios",
-                "disabled": false
-            }
-            , {
-                "id": "wp8",
-                "label": "WP8",
-                "text": "WP8",
-                "value": "wp8",
-                "disabled": false
-            }
-            , {
-                "id": "wp7",
-                "label": "WP7",
-                "text": "WP7",
-                "value": "wp7",
-                "disabled": false
-            }
-            , {
-                "id": "symbian",
-                "label": "Symbian",
-                "text": "Symbian",
-                "value": "symbian",
-                "disabled": false
-            }
-            , {
-                "id": "linux",
-                "label": "Linux",
-                "text": "Linux",
-                "value": "linux",
-                "disabled": false
-            }
-            , {
-                "id": "freebsd",
-                "label": "FreeBSD",
-                "text": "FreeBSD",
-                "value": "freebsd",
-                "disabled": false
-            }
-            , {
-                "id": "osx",
-                "label": "OS X",
-                "text": "OS X",
-                "value": "osx",
-                "disabled": false
-            }
-            , {
-                "id": "unix",
-                "label": "Unix",
-                "text": "Unix",
-                "value": "unix",
-                "disabled": false
-            }
-            , {
-                "id": "others",
-                "label": "其他",
-                "text": "其他",
-                "value": "others",
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "UserRealName",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchDefault",
-        "items": []
     }, 
     {
         "srfkey": "Task__type",
@@ -368,34 +198,6 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Product__type",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "normal",
-                "label": "正常",
-                "text": "正常",
-                "value": "normal",
-                "disabled": false
-            }
-            , {
-                "id": "branch",
-                "label": "多分支",
-                "text": "多分支",
-                "value": "branch",
-                "disabled": false
-            }
-            , {
-                "id": "platform",
-                "label": "多平台",
-                "text": "多平台",
-                "value": "platform",
                 "disabled": false
             }
         ]
@@ -1263,6 +1065,365 @@
         ]
     }, 
     {
+        "srfkey": "Task__pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "value": 1,
+                "disabled": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "value": 2,
+                "disabled": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "value": 3,
+                "disabled": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "value": 4,
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Project__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "未开始",
+                "text": "未开始",
+                "value": "wait",
+                "disabled": false
+            }
+            , {
+                "id": "doing",
+                "label": "进行中",
+                "text": "进行中",
+                "value": "doing",
+                "disabled": false
+            }
+            , {
+                "id": "suspended",
+                "label": "已挂起",
+                "text": "已挂起",
+                "value": "suspended",
+                "disabled": false
+            }
+            , {
+                "id": "closed",
+                "label": "已关闭",
+                "text": "已关闭",
+                "value": "closed",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Release__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "normal",
+                "label": "正常",
+                "text": "正常",
+                "value": "normal",
+                "disabled": false
+            }
+            , {
+                "id": "terminate",
+                "label": "停止维护",
+                "text": "停止维护",
+                "value": "terminate",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "custom",
+                "label": "自定义",
+                "text": "自定义",
+                "value": "custom",
+                "disabled": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "value": "bug",
+                "disabled": false
+            }
+            , {
+                "id": "task",
+                "label": "项目任务",
+                "text": "项目任务",
+                "value": "task",
+                "disabled": false
+            }
+            , {
+                "id": "story",
+                "label": "项目需求",
+                "text": "项目需求",
+                "value": "story",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "一般",
+                "text": "一般",
+                "value": "1",
+                "disabled": false
+            }
+            , {
+                "id": "2",
+                "label": "最高",
+                "text": "最高",
+                "value": "2",
+                "disabled": false
+            }
+            , {
+                "id": "3",
+                "label": "较高",
+                "text": "较高",
+                "value": "3",
+                "disabled": false
+            }
+            , {
+                "id": "4",
+                "label": "最低",
+                "text": "最低",
+                "value": "4",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser",
+        "items": []
+    }, 
+    {
+        "srfkey": "Bug__os",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "all",
+                "label": "全部",
+                "text": "全部",
+                "value": "all",
+                "disabled": false
+            }
+            , {
+                "id": "windows",
+                "label": "Windows",
+                "text": "Windows",
+                "value": "windows",
+                "disabled": false
+            }
+            , {
+                "id": "win10",
+                "label": "Windows 10",
+                "text": "Windows 10",
+                "value": "win10",
+                "disabled": false
+            }
+            , {
+                "id": "win8",
+                "label": "Windows 8",
+                "text": "Windows 8",
+                "value": "win8",
+                "disabled": false
+            }
+            , {
+                "id": "win7",
+                "label": "Windows 7",
+                "text": "Windows 7",
+                "value": "win7",
+                "disabled": false
+            }
+            , {
+                "id": "vista",
+                "label": "Windows Vista",
+                "text": "Windows Vista",
+                "value": "vista",
+                "disabled": false
+            }
+            , {
+                "id": "winxp",
+                "label": "Windows XP",
+                "text": "Windows XP",
+                "value": "winxp",
+                "disabled": false
+            }
+            , {
+                "id": "win2012",
+                "label": "Windows 2012",
+                "text": "Windows 2012",
+                "value": "win2012",
+                "disabled": false
+            }
+            , {
+                "id": "win2008",
+                "label": "Windows 2008",
+                "text": "Windows 2008",
+                "value": "win2008",
+                "disabled": false
+            }
+            , {
+                "id": "win2003",
+                "label": "Windows 2003",
+                "text": "Windows 2003",
+                "value": "win2003",
+                "disabled": false
+            }
+            , {
+                "id": "win2000",
+                "label": "Windows 2000",
+                "text": "Windows 2000",
+                "value": "win2000",
+                "disabled": false
+            }
+            , {
+                "id": "android",
+                "label": "Android",
+                "text": "Android",
+                "value": "android",
+                "disabled": false
+            }
+            , {
+                "id": "ios",
+                "label": "IOS",
+                "text": "IOS",
+                "value": "ios",
+                "disabled": false
+            }
+            , {
+                "id": "wp8",
+                "label": "WP8",
+                "text": "WP8",
+                "value": "wp8",
+                "disabled": false
+            }
+            , {
+                "id": "wp7",
+                "label": "WP7",
+                "text": "WP7",
+                "value": "wp7",
+                "disabled": false
+            }
+            , {
+                "id": "symbian",
+                "label": "Symbian",
+                "text": "Symbian",
+                "value": "symbian",
+                "disabled": false
+            }
+            , {
+                "id": "linux",
+                "label": "Linux",
+                "text": "Linux",
+                "value": "linux",
+                "disabled": false
+            }
+            , {
+                "id": "freebsd",
+                "label": "FreeBSD",
+                "text": "FreeBSD",
+                "value": "freebsd",
+                "disabled": false
+            }
+            , {
+                "id": "osx",
+                "label": "OS X",
+                "text": "OS X",
+                "value": "osx",
+                "disabled": false
+            }
+            , {
+                "id": "unix",
+                "label": "Unix",
+                "text": "Unix",
+                "value": "unix",
+                "disabled": false
+            }
+            , {
+                "id": "others",
+                "label": "其他",
+                "text": "其他",
+                "value": "others",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserRealName",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchDefault",
+        "items": []
+    }, 
+    {
+        "srfkey": "Product__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "normal",
+                "label": "正常",
+                "text": "正常",
+                "value": "normal",
+                "disabled": false
+            }
+            , {
+                "id": "branch",
+                "label": "多分支",
+                "text": "多分支",
+                "value": "branch",
+                "disabled": false
+            }
+            , {
+                "id": "platform",
+                "label": "多平台",
+                "text": "多平台",
+                "value": "platform",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Bug__browser",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -1613,106 +1774,22 @@
         ]
     }, 
     {
-        "srfkey": "Task__pri",
+        "srfkey": "YesNo2",
         "emptytext": "未定义",
         "codelisttype":"static",
         "items": [
              {
                 "id": "1",
-                "label": "1",
-                "text": "1",
+                "label": "是",
+                "text": "是",
                 "value": 1,
                 "disabled": false
             }
             , {
-                "id": "2",
-                "label": "2",
-                "text": "2",
-                "value": 2,
-                "disabled": false
-            }
-            , {
-                "id": "3",
-                "label": "3",
-                "text": "3",
-                "value": 3,
-                "disabled": false
-            }
-            , {
-                "id": "4",
-                "label": "4",
-                "text": "4",
-                "value": 4,
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Project__status",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "wait",
-                "label": "未开始",
-                "text": "未开始",
-                "value": "wait",
-                "disabled": false
-            }
-            , {
-                "id": "doing",
-                "label": "进行中",
-                "text": "进行中",
-                "value": "doing",
-                "disabled": false
-            }
-            , {
-                "id": "suspended",
-                "label": "已挂起",
-                "text": "已挂起",
-                "value": "suspended",
-                "disabled": false
-            }
-            , {
-                "id": "closed",
-                "label": "已关闭",
-                "text": "已关闭",
-                "value": "closed",
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Type",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "custom",
-                "label": "自定义",
-                "text": "自定义",
-                "value": "custom",
-                "disabled": false
-            }
-            , {
-                "id": "bug",
-                "label": "Bug",
-                "text": "Bug",
-                "value": "bug",
-                "disabled": false
-            }
-            , {
-                "id": "task",
-                "label": "项目任务",
-                "text": "项目任务",
-                "value": "task",
-                "disabled": false
-            }
-            , {
-                "id": "story",
-                "label": "项目需求",
-                "text": "项目需求",
-                "value": "story",
+                "id": "0",
+                "label": "否",
+                "text": "否",
+                "value": 0,
                 "disabled": false
             }
         ]
@@ -1811,41 +1888,6 @@
                 "label": "转为需求",
                 "text": "转为需求",
                 "value": "tostory",
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Pri",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "1",
-                "label": "一般",
-                "text": "一般",
-                "value": "1",
-                "disabled": false
-            }
-            , {
-                "id": "2",
-                "label": "最高",
-                "text": "最高",
-                "value": "2",
-                "disabled": false
-            }
-            , {
-                "id": "3",
-                "label": "较高",
-                "text": "较高",
-                "value": "3",
-                "disabled": false
-            }
-            , {
-                "id": "4",
-                "label": "最低",
-                "text": "最低",
-                "value": "4",
                 "disabled": false
             }
         ]
