@@ -353,10 +353,10 @@ export default class ProductStatsUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'release-edit-view', 
+                viewname: 'release-quick-create-view', 
                 height: 0, 
                 width: 750,  
-                title: actionContext.$t('entities.release.views.editview.title'),
+                title: actionContext.$t('entities.release.views.quickcreateview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

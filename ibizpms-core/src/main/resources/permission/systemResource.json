@@ -33,6 +33,11 @@
        }
         ,
        {
+            "unirescode":"PRODSTA_ADDPROD_BUT",
+            "uniresname":"产品统计添加产品"
+       }
+        ,
+       {
             "unirescode":"LIBM_OPEN_BUT",
             "uniresname":"用例库模块概况"
        }
@@ -113,6 +118,11 @@
        }
         ,
        {
+            "unirescode":"PRODSTA_PROJCRT_BUT",
+            "uniresname":"产品统计创建项目"
+       }
+        ,
+       {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
        }
@@ -183,6 +193,11 @@
        }
         ,
        {
+            "unirescode":"PRODSTA_STOREOP_BUT",
+            "uniresname":"产品统计打开需求"
+       }
+        ,
+       {
             "unirescode":"PROJ_SUSPEND_BUT",
             "uniresname":"项目挂起"
        }
@@ -225,6 +240,11 @@
        {
             "unirescode":"TESTT_CLOSED_BUT",
             "uniresname":"测试版本关闭"
+       }
+        ,
+       {
+            "unirescode":"PRODSTA_PLANCRT_BUT",
+            "uniresname":"产品统计创建计划"
        }
         ,
        {
@@ -333,6 +353,11 @@
        }
         ,
        {
+            "unirescode":"PRODSTA_RELCRT_BUT",
+            "uniresname":"产品统计创建发布"
+       }
+        ,
+       {
             "unirescode":"TESTT_OPEN_BUT",
             "uniresname":"测试版本打开概况"
        }
@@ -340,6 +365,11 @@
        {
             "unirescode":"BUG_CREATE_BUT",
             "uniresname":"bug新建"
+       }
+        ,
+       {
+            "unirescode":"PRODSTA_STORYCRT_BUT",
+            "uniresname":"产品统计提需求"
        }
         ,
        {
