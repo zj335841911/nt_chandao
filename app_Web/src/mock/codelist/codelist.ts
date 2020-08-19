@@ -1222,6 +1222,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "1",
                 label: "1",
                 text: "1",
+                "iconcls":"fa fa-square-o",
                 "data":"",
                 "codename":"Item_1",
                 value: 1,
