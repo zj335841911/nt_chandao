@@ -14,7 +14,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    <ion-icon name="flag"></ion-icon>
+                    <ion-icon name="flag" style="color: brown;font-size: 18px;"></ion-icon>
                 
                 
                 </ion-col>
@@ -51,8 +51,20 @@
                         <ion-col v-show="detailsModel.status.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Release__status"></app-mob-span>
+                            <span class="app-form-hidden" style="display: none;">{{data.status}}</span>
                         </div>
+                        
+                        
+                        </ion-col>
+                        
+                        <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                            <ion-icon name="pause" style="color: blue;font-size: 18px;"></ion-icon>
+                        
+                        
+                        </ion-col>
+                        
+                        <ion-col v-show="detailsModel.rawitem3.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                            <ion-icon name="play" style="color: brown;font-size: 18px;"></ion-icon>
                         
                         
                         </ion-col>
@@ -310,6 +322,24 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(this.data.status, 'EQ', 'terminate')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(this.data.status, 'EQ', 'normal')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem3.setVisible(ret);
+        }
+
 
 
     }
@@ -331,7 +361,11 @@ export default class MobBase extends Vue implements ControlInterface {
 , 
         date: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'date', panel: this, visible: true  })
 , 
-        status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
+        status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: false  })
+, 
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem2', panel: this, visible: true  })
+, 
+        rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem3', panel: this, visible: true  })
 , 
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container2', panel: this, visible: true  })
 , 
