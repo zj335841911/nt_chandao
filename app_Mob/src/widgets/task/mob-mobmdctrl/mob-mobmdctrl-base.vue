@@ -5,40 +5,34 @@
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <van-checkbox class="checkAllBtn" v-model="selectAllIschecked" v-show="showCheack" @click="checkboxAll">全选</van-checkbox>
+                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <van-checkbox-group v-model="checkedResult" ref="checkboxGroup">
-                        <van-cell-group>
-                            <van-swipe-cell v-for="(item, index) in items" :key="index" class="app-mob-mdctrl-item">
+                    <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
-                            </van-swipe-cell>
-                        </van-cell-group>
-                    </van-checkbox-group>
+                    </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <van-checkbox class="checkAllBtn" v-model="selectAllIschecked" v-show="showCheack" @click="checkboxAll">全选</van-checkbox>
+                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <van-checkbox-group v-model="checkedResult" ref="checkboxGroup">
-                        <van-cell-group>
-                            <van-swipe-cell v-for="(item, index) in items" :key="index" class="app-mob-mdctrl-item">
+                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
-                            </van-swipe-cell>
-                        </van-cell-group>
-                    </van-checkbox-group>
+                    </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
@@ -297,13 +291,6 @@ export default class MobBase extends Vue implements ControlInterface {
     *@memberof Mob
     */
      @Prop() public selectedData?:Array<any>;
-
-   /**
-    *checkbox 数组
-    *@type {Array}
-    *@memberof Mob
-    */
-    public checkedResult:Array<any> = [];
 
 
     /**
@@ -782,6 +769,26 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
+    * 点击回调事件
+    *
+    * @memberof Mob
+    */
+    public item_click(item:any){
+        if(this.showCheack){
+            let count = this.selectedArray.findIndex((i) => {
+            return i.mobentityid == item.mobentityid;
+        });
+            if (count === -1) {
+                this.selectedArray.push(item);
+            } else {
+                this.selectedArray.splice(count, 1);
+            }
+        } else {
+            this.goPage(item)
+        }
+    }
+
+    /**
     * 点击列表数据跳转
     *
     * @memberof Mob
@@ -907,52 +914,25 @@ export default class MobBase extends Vue implements ControlInterface {
     @Prop({default:false}) showCheack?: boolean;
 
     /**
-     * 全选按钮选中状态
-     *
-     * @memberof Mdctrl
-     */
-    public selectAllIschecked = false;
-
-   /**
-    * 列表项点击回调事件
-    *
-    * @memberof Mob
-    */
-    public item_click(item:any,index:number){
-        if(this.showCheack){
-            let count = this.selectedArray.findIndex((i) => {
-            return i.mobentityid == item.mobentityid;
-        });
-            if (count === -1) {
-                this.selectedArray.push(item);
-            } else {
-                this.selectedArray.splice(count, 1);
-            }
-            let checkbox:any = this.$refs.checkboxes;
-            checkbox[index].toggle();
-            this.checkboxSelect(item)
-        } else {
-            this.goPage(item)
-        }
-    }
-
-    /**
      * 选中或取消事件
      *
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
         let count = this.selectedArray.findIndex((i) => {
-            return i.mobentityid == item.mobentityid;
+            return i.id == item.id;
         });
-        let re = true;
+        let re = false;
         if(count == -1){
-            re = false;
+            re = true;
+            this.selectedArray.push(item);
+        }else{
+            this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.id == item.id){
                 this.items[index].checked = re;
-            }    
+            }
         });
     }
     
@@ -961,9 +941,8 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    public checkboxAll() {
-        let checkGroup:any = this.$refs.checkboxGroup
-        checkGroup.toggleAll();
+    public checkboxAll(item:any) {
+        this.selectAllIschecked = item.detail.checked;
         if(this.selectAllIschecked){
             this.selectedArray = JSON.parse(JSON.stringify(this.items));
         }else{
@@ -972,27 +951,17 @@ export default class MobBase extends Vue implements ControlInterface {
         this.items.forEach((item:any,index:number)=>{
             this.items[index].checked = this.selectAllIschecked
         });
+        this.$forceUpdate();
     }
 
+
     /**
-     * 监听选中数组（全选，反选）
+     * 全选按钮选中状态
      *
      * @memberof Mdctrl
      */
-    @Watch('selectedArray')
-    onItemSelectChange(newVal: any, oldVal: any) {
-        if (!newVal) {
-            return;
-        }
-        let flag = this.items.every((currVal: any)=>{
-            return currVal.checked === true
-        })
-        if(flag){
-            this.selectAllIschecked = true
-        } else {
-            this.selectAllIschecked = false
-        }
-    }
+    public selectAllIschecked = false;
+
 
     /**
      * 关闭滑动项
