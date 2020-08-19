@@ -20,9 +20,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '52913a5dcfd665154092ec7aedf84049',
                 'e643a925b1d0dab04ef917b973354baa',
                 '1afb3df498f4daa660709cca53ece0b2',
+                'd282fcd0f9244a596bf945d529bcf075',
                 '82f9b0fd0fdc90237c7aa1a1e543920e',
             ],
         },
@@ -289,6 +289,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'd282fcd0f9244a596bf945d529bcf075',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsTestMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '52913a5dcfd665154092ec7aedf84049',
             ],
         },
         {
