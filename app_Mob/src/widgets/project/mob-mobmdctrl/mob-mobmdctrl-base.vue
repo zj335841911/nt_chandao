@@ -847,9 +847,9 @@ export default class MobBase extends Vue implements ControlInterface {
             re = false;
         }
         this.items.forEach((_item:any,index:number)=>{
-            if(_item.mobentityid == item.mobentityid){
+            if(_item.id == item.id){
                 this.items[index].checked = re;
-            }
+            }    
         });
     }
     
