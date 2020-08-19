@@ -132,18 +132,14 @@
     :disabled="detailsModel.version.disabled"
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="DYNAMIC" 
     tag="CurCaseVersion"
-    codeListType="DYNAMIC" 
     :isCache="false" 
-    :disabled="detailsModel.version.disabled" 
-    :data="data" 
+    v-if="data.version" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.version"  
-    :navigateContext ='{ "CASE": "%id%" } '
-    :navigateParam ='{ "case": "%id%" } '
-    @change="($event)=>this.data.version = $event" />
+    :value="data.version" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -606,10 +602,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'blur' },
         ],
         version: [
-            { type: 'number', message: '用例版本 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '用例版本 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '用例版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '用例版本 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '用例版本 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '用例版本 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '用例版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '用例版本 值不能为空', trigger: 'blur' },
         ],
         keywords: [
             { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'change' },
