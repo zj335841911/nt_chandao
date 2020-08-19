@@ -47,7 +47,7 @@ export class AppIndexViewModel {
 	iconcls: 'alarm',
 	icon: '',
 	textcls: '',
-	appfunctag: '_5',
+	appfunctag: '_6',
 	resourcetag: '',
 },
         {
@@ -65,7 +65,7 @@ export class AppIndexViewModel {
 	iconcls: 'snow',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: '_7',
 	resourcetag: '',
 },
         {
@@ -83,7 +83,7 @@ export class AppIndexViewModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_7',
+	appfunctag: '_9',
 	resourcetag: '',
 },
     ];
@@ -97,7 +97,7 @@ export class AppIndexViewModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_7',
+            appfunctag: '_9',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'ibz-my-territory-mob-tab-exp-view', 
@@ -110,7 +110,20 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_5',
+            appfunctag: '_3',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'product-stats-mob-tab-exp-view', 
+            codename: 'productstatsmobtabexpview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/productstats/:productstats?/mobtabexpview/:mobtabexpview?',
+            parameters: [
+                { pathName: 'productstats', parameterName: 'productstats' },
+                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            ],
+        },
+        {
+            appfunctag: '_6',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'project-mob-mdview', 
@@ -123,15 +136,16 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_3',
+            appfunctag: '_7',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'app-portal-view', 
-            codename: 'appportalview',
+            componentname: 'product-mob-tab-exp-view', 
+            codename: 'productmobtabexpview',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/appportalview/:appportalview?',
+            routepath: '/appindexview/:appindexview?/products/:product?/mobtabexpview/:mobtabexpview?',
             parameters: [
-                { pathName: 'appportalview', parameterName: 'appportalview' },
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
             ],
         },
 	];

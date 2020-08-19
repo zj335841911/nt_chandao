@@ -14,7 +14,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    <ion-icon name="ionic-flag"></ion-icon>
+                    <ion-icon name="flag"></ion-icon>
                 
                 
                 </ion-col>

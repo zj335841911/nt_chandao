@@ -43,7 +43,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'alarm',
 	icon: '',
 	textcls: '',
-	appfunctag: '_5',
+	appfunctag: '_6',
 	resourcetag: '',
 },
             {
@@ -61,7 +61,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'snow',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: '_7',
 	resourcetag: '',
 },
             {
@@ -79,7 +79,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_7',
+	appfunctag: '_9',
 	resourcetag: '',
 },
         ],

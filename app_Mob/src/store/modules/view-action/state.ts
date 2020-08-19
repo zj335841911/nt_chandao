@@ -20,9 +20,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'E34EC471-1197-49DF-8C6C-79E175C2FC0E',
+                '52913a5dcfd665154092ec7aedf84049',
                 'e643a925b1d0dab04ef917b973354baa',
                 '1afb3df498f4daa660709cca53ece0b2',
+                '82f9b0fd0fdc90237c7aa1a1e543920e',
             ],
         },
         {
