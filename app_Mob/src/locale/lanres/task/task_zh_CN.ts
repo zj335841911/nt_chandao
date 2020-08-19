@@ -12,6 +12,7 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '任务团队', 
 			group1: '任务基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '最后修改日期', 
@@ -24,6 +25,8 @@ export default {
 			srfsourcekey: '', 
 			name: '任务名称', 
 			type: '任务类型', 
+			assignedto: '指派给', 
+			multiple: '多人任务', 
 			status: '任务状态', 
 			pri: '优先级', 
 			estimate: '最初预计', 

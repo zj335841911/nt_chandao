@@ -123,6 +123,79 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
+                    path: 'tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
+                    path: 'taskteams/:taskteam?/mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mobeditview',
                     meta: {
                         caption: 'story.views.mobeditview.caption',

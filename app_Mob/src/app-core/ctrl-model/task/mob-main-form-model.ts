@@ -61,6 +61,16 @@ export class MobMainModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'multiple',
+                prop: 'multiple',
+                dataType: 'INT',
+            },
+            {
                 name: 'status',
                 prop: 'status',
                 dataType: 'SSCODELIST',

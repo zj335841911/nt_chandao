@@ -32,6 +32,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e7bc340642f7bc0346a1f220d1523954',
             ],
         },
         {
@@ -215,6 +216,15 @@ export const viewstate: any = {
             viewtag: 'e66284928a0154c484670a12704af6b0',
             viewmodule: 'ibiz',
             viewname: 'ProjectTeamMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'e7bc340642f7bc0346a1f220d1523954',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamMobMDView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

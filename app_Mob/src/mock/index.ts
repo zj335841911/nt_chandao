@@ -9,6 +9,7 @@ import './entity/users/users';
 import './entity/project-teams/project-teams';
 import './entity/tasks/tasks';
 import './entity/products/products';
+import './entity/task-teams/task-teams';
 import './entity/projects/projects';
 import './entity/todos/todos';
 import './entity/storys/storys';

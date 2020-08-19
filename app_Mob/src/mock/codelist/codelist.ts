@@ -54,6 +54,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser",
+        "items": []
+    },
+    {
         srfkey: 'Story__closed_reason',
         emptytext: '未定义',
         "codelisttype":"static",

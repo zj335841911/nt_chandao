@@ -2,6 +2,7 @@ import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
+import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import todo_zh_CN from '@locale/lanres/todo/todo_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
@@ -148,6 +149,7 @@ export default {
     projectteam: projectteam_zh_CN,
     task: task_zh_CN,
     product: product_zh_CN,
+    taskteam: taskteam_zh_CN,
     project: project_zh_CN,
     todo: todo_zh_CN,
     story: story_zh_CN,

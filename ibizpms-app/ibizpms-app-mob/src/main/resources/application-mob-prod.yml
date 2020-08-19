@@ -23,6 +23,10 @@ zuul:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_taskteam:
+      path: /taskteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_project:
       path: /projects/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

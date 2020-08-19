@@ -4,6 +4,7 @@ export const PageComponents = {
         Vue.component('project-team-mob-mdview', () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'));
         Vue.component('project-mob-mdview', () => import('@pages/ibiz/project-mob-mdview/project-mob-mdview.vue'));
         Vue.component('project-mob-tab-exp-view', () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'));
+        Vue.component('task-team-mob-mdview9', () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'));
         Vue.component('story-mob-edit-view', () => import('@pages/ibiz/story-mob-edit-view/story-mob-edit-view.vue'));
         Vue.component('todo-mob-mdview', () => import('@pages/ibiz/todo-mob-mdview/todo-mob-mdview.vue'));
         Vue.component('product-mob-edit-view', () => import('@pages/ibiz/product-mob-edit-view/product-mob-edit-view.vue'));

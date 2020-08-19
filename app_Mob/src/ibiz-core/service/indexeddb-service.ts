@@ -27,7 +27,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         if (IndexedDBService.instance) {
             return IndexedDBService.instance;
         }
-        super('Aug 18, 2020');
+        super('Aug 19, 2020');
     }
 
     /**
@@ -41,6 +41,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'projectteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'task', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'taskteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'project', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'todo', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'story', keyPath: 'srfsessionkey' });

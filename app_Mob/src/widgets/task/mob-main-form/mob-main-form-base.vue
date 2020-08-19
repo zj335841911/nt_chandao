@@ -67,6 +67,56 @@
 
 
 <app-form-item 
+    name='assignedto' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedto_item"  
+    :itemValue="this.data.assignedto" 
+    v-show="detailsModel.assignedto.visible" 
+    :itemRules="this.rules.assignedto" 
+    :caption="$t('task.mobmain_form.details.assignedto')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedto.disabled"
+    :error="detailsModel.assignedto.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.assignedto" 
+    :context="context" 
+    :value="data.assignedto" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-druipart
+    class='' 
+    parameterName='task' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='task-team-mob-mdview9' 
+    paramItem='task' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdefname":"ROOT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT","SRFDER1NID":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT"}' 
+    :parameters="[
+        { pathName: 'tasks', parameterName: 'task' },
+    ]" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+
+<app-form-item 
     name='status' 
     class='' 
     uiStyle="DEFAULT"  
@@ -564,6 +614,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         name: null,
         type: null,
+        assignedto: null,
+        multiple: null,
         status: null,
         pri: null,
         estimate: null,
@@ -666,6 +718,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+        ],
+        assignedto: [
+            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        multiple: [
+            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'change' },
@@ -805,6 +869,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '任务团队', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
+, 
         group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -828,6 +894,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -967,6 +1037,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.type')
     onTypeChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1113,6 +1207,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart1.setVisible(ret);
+        }
 
 
 
@@ -1123,6 +1225,17 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setVisible(ret);
+        }
 
 
 
@@ -1300,7 +1413,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'type_item', 'status_item', 'pri_item', 'estimate_item', 'consumed_item', 'left_item', 'eststarted_item', 'realstarted_item', 'deadline_item', ];
+        const refArr: Array<string> = ['name_item', 'type_item', 'assignedto_item', 'status_item', 'pri_item', 'estimate_item', 'consumed_item', 'left_item', 'eststarted_item', 'realstarted_item', 'deadline_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1634,7 +1747,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const data = this.getValues();
         Object.assign(arg, data);
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

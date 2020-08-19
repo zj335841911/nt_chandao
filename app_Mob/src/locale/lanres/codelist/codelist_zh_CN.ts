@@ -10,6 +10,9 @@ export default {
         'closed': '已关闭',
         empty: '',
     },
+    UserRealNameProject: {
+        empty: '',
+    },
     Story__closed_reason: {
         'done': '已完成',
         'subdivided': '已细分',
