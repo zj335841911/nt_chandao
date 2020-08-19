@@ -67,6 +67,33 @@
 
 
 <app-form-item 
+    name='pri' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="pri_item"  
+    :itemValue="this.data.pri" 
+    v-show="detailsModel.pri.visible" 
+    :itemRules="this.rules.pri" 
+    :caption="$t('story.mobmain_form.details.pri')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.pri.disabled"
+    :error="detailsModel.pri.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Story__pri"
+    :isCache="false" 
+    v-if="data.pri" 
+    :context="context" 
+    :value="data.pri" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='status' 
     class='' 
     uiStyle="DEFAULT"  
@@ -94,6 +121,33 @@
 
 
 <app-form-item 
+    name='assignedto' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedto_item"  
+    :itemValue="this.data.assignedto" 
+    v-show="detailsModel.assignedto.visible" 
+    :itemRules="this.rules.assignedto" 
+    :caption="$t('story.mobmain_form.details.assignedto')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedto.disabled"
+    :error="detailsModel.assignedto.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.assignedto" 
+    :context="context" 
+    :value="data.assignedto" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='assigneddate' 
     class='' 
     uiStyle="DEFAULT"  
@@ -112,6 +166,33 @@
         v-if="data.assigneddate" 
     :context="context" 
     :value="data.assigneddate" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='closedby' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="closedby_item"  
+    :itemValue="this.data.closedby" 
+    v-show="detailsModel.closedby.visible" 
+    :itemRules="this.rules.closedby" 
+    :caption="$t('story.mobmain_form.details.closedby')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.closedby.disabled"
+    :error="detailsModel.closedby.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.closedby" 
+    :context="context" 
+    :value="data.closedby" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -467,8 +548,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         title: null,
         type: null,
+        pri: null,
         status: null,
+        assignedto: null,
         assigneddate: null,
+        closedby: null,
         closeddate: null,
         closedreason: null,
         id: null,
@@ -560,17 +644,35 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '需求类型 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '需求类型 值不能为空', trigger: 'blur' },
         ],
+        pri: [
+            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
         status: [
             { type: 'string', message: '当前状态 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '当前状态 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'blur' },
         ],
+        assignedto: [
+            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
         assigneddate: [
             { type: 'string', message: '指派日期 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '指派日期 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'blur' },
+        ],
+        closedby: [
+            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'blur' },
         ],
         closeddate: [
             { type: 'string', message: '关闭日期	 值必须为字符串类型', trigger: 'change' },
@@ -696,9 +798,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         type: new FormItemModel({ caption: '需求类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         closeddate: new FormItemModel({ caption: '关闭日期	', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -817,6 +925,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 status 值
      *
      * @param {*} newVal
@@ -829,6 +949,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 assigneddate 值
      *
      * @param {*} newVal
@@ -838,6 +970,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.assigneddate')
     onAssigneddateChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'assigneddate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 closedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.closedby')
+    onClosedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'closedby', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -912,6 +1056,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
 
 
 
@@ -1094,7 +1241,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'type_item', 'status_item', 'assigneddate_item', 'closeddate_item', 'closedreason_item', ];
+        const refArr: Array<string> = ['title_item', 'type_item', 'pri_item', 'status_item', 'assignedto_item', 'assigneddate_item', 'closedby_item', 'closeddate_item', 'closedreason_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

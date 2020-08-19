@@ -61,6 +61,16 @@ export class MobMainModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'severity',
+                prop: 'severity',
+                dataType: 'NSCODELIST',
+            },
+            {
+                name: 'pri',
+                prop: 'pri',
+                dataType: 'NSCODELIST',
+            },
+            {
                 name: 'os',
                 prop: 'os',
                 dataType: 'SSCODELIST',
@@ -79,6 +89,11 @@ export class MobMainModel {
                 name: 'repotype',
                 prop: 'repotype',
                 dataType: 'PICKUPDATA',
+            },
+            {
+                name: 'status',
+                prop: 'status',
+                dataType: 'SSCODELIST',
             },
             {
                 name: 'resolution',

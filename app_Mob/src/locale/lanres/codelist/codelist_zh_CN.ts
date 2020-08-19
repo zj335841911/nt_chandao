@@ -279,6 +279,13 @@ export default {
         'platform': '多平台',
         empty: '',
     },
+    Bug__severity_mob: {
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        empty: '',
+    },
     Testcase__type: {
         'feature': '功能测试',
         'performance': '性能测试',

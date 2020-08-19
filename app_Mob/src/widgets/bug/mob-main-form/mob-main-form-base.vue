@@ -67,6 +67,60 @@
 
 
 <app-form-item 
+    name='severity' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="severity_item"  
+    :itemValue="this.data.severity" 
+    v-show="detailsModel.severity.visible" 
+    :itemRules="this.rules.severity" 
+    :caption="$t('bug.mobmain_form.details.severity')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.severity.disabled"
+    :error="detailsModel.severity.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__severity_mob"
+    :isCache="false" 
+    v-if="data.severity" 
+    :context="context" 
+    :value="data.severity" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='pri' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="pri_item"  
+    :itemValue="this.data.pri" 
+    v-show="detailsModel.pri.visible" 
+    :itemRules="this.rules.pri" 
+    :caption="$t('bug.mobmain_form.details.pri')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.pri.disabled"
+    :error="detailsModel.pri.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__pri"
+    :isCache="false" 
+    v-if="data.pri" 
+    :context="context" 
+    :value="data.pri" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='os' 
     class='' 
     uiStyle="DEFAULT"  
@@ -163,6 +217,33 @@
         v-if="data.repotype" 
     :context="context" 
     :value="data.repotype" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='status' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="status_item"  
+    :itemValue="this.data.status" 
+    v-show="detailsModel.status.visible" 
+    :itemRules="this.rules.status" 
+    :caption="$t('bug.mobmain_form.details.status')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.status.disabled"
+    :error="detailsModel.status.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Bug__status"
+    :isCache="false" 
+    v-if="data.status" 
+    :context="context" 
+    :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -522,10 +603,13 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         title: null,
         type: null,
+        severity: null,
+        pri: null,
         os: null,
         browser: null,
         deadline: null,
         repotype: null,
+        status: null,
         resolution: null,
         resolvedby: null,
         id: null,
@@ -623,6 +707,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'blur' },
         ],
+        severity: [
+            { type: 'string', message: '严重程度 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '严重程度 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '严重程度 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '严重程度 值不能为空', trigger: 'blur' },
+        ],
+        pri: [
+            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
         os: [
             { type: 'string', message: '操作系统 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '操作系统 值必须为字符串类型', trigger: 'blur' },
@@ -646,6 +742,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '代码类型 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '代码类型 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '代码类型 值不能为空', trigger: 'blur' },
+        ],
+        status: [
+            { type: 'string', message: 'Bug状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'Bug状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug状态 值不能为空', trigger: 'blur' },
         ],
         resolution: [
             { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
@@ -773,6 +875,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         type: new FormItemModel({ caption: 'Bug类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        severity: new FormItemModel({ caption: '严重程度', detailType: 'FORMITEM', name: 'severity', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         os: new FormItemModel({ caption: '操作系统', detailType: 'FORMITEM', name: 'os', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         browser: new FormItemModel({ caption: '浏览器', detailType: 'FORMITEM', name: 'browser', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -780,6 +886,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         repotype: new FormItemModel({ caption: '代码类型', detailType: 'FORMITEM', name: 'repotype', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        status: new FormItemModel({ caption: 'Bug状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -910,6 +1018,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 severity 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.severity')
+    onSeverityChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'severity', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 os 值
      *
      * @param {*} newVal
@@ -955,6 +1087,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.repotype')
     onRepotypeChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'repotype', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1029,6 +1173,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
 
 
 
@@ -1214,7 +1361,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'type_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'resolution_item', 'resolvedby_item', ];
+        const refArr: Array<string> = ['title_item', 'type_item', 'severity_item', 'pri_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'status_item', 'resolution_item', 'resolvedby_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
