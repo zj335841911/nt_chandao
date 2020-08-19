@@ -1,5 +1,8 @@
 export default {
 	views: {
+		mobtabexpview: {
+			caption: '测试',
+		},
 		mobeditview: {
 			caption: '产品',
 		},

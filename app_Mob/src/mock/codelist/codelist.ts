@@ -208,6 +208,83 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Testcase__stage',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'unittest',
+                label: '单元测试阶段',
+                text: '单元测试阶段',
+                value: 'unittest',
+                disabled: false,
+            },
+            {
+                id: 'feature',
+                label: '功能测试阶段',
+                text: '功能测试阶段',
+                value: 'feature',
+                disabled: false,
+            },
+            {
+                id: 'intergrate',
+                label: '集成测试阶段',
+                text: '集成测试阶段',
+                value: 'intergrate',
+                disabled: false,
+            },
+            {
+                id: 'system',
+                label: '系统测试阶段',
+                text: '系统测试阶段',
+                value: 'system',
+                disabled: false,
+            },
+            {
+                id: 'smoke',
+                label: '冒烟测试阶段',
+                text: '冒烟测试阶段',
+                value: 'smoke',
+                disabled: false,
+            },
+            {
+                id: 'bvt',
+                label: '版本验证阶段',
+                text: '版本验证阶段',
+                value: 'bvt',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Casestep__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'step',
+                label: '步骤',
+                text: '步骤',
+                value: 'step',
+                disabled: false,
+            },
+            {
+                id: 'group',
+                label: '分组',
+                text: '分组',
+                value: 'group',
+                disabled: false,
+            },
+            {
+                id: 'item',
+                label: '分组步骤',
+                text: '分组步骤',
+                value: 'item',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1070,6 +1147,62 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'TestCaseStatusGrid',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: '未开始',
+                text: '未开始',
+                value: 'wait',
+                disabled: false,
+            },
+            {
+                id: 'normal',
+                label: '正常',
+                text: '正常',
+                value: 'normal',
+                disabled: false,
+            },
+            {
+                id: 'blocked',
+                label: '被阻塞',
+                text: '被阻塞',
+                value: 'blocked',
+                disabled: false,
+            },
+            {
+                id: 'investigate',
+                label: '研究中',
+                text: '研究中',
+                value: 'investigate',
+                disabled: false,
+            },
+            {
+                id: 'done',
+                label: '已完成',
+                text: '已完成',
+                value: 'done',
+                disabled: false,
+            },
+            {
+                id: 'storychange',
+                label: '需求变更',
+                text: '需求变更',
+                value: 'storychange',
+                disabled: false,
+            },
+            {
+                id: 'casechange',
+                label: '原用例更新',
+                text: '原用例更新',
+                value: 'casechange',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1429,6 +1562,69 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Testcase__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'feature',
+                label: '功能测试',
+                text: '功能测试',
+                value: 'feature',
+                disabled: false,
+            },
+            {
+                id: 'performance',
+                label: '性能测试',
+                text: '性能测试',
+                value: 'performance',
+                disabled: false,
+            },
+            {
+                id: 'config',
+                label: '配置相关',
+                text: '配置相关',
+                value: 'config',
+                disabled: false,
+            },
+            {
+                id: 'install',
+                label: '安装部署',
+                text: '安装部署',
+                value: 'install',
+                disabled: false,
+            },
+            {
+                id: 'security',
+                label: '安全相关',
+                text: '安全相关',
+                value: 'security',
+                disabled: false,
+            },
+            {
+                id: 'interface',
+                label: '接口测试',
+                text: '接口测试',
+                value: 'interface',
+                disabled: false,
+            },
+            {
+                id: 'unit',
+                label: '单元测试',
+                text: '单元测试',
+                value: 'unit',
+                disabled: false,
+            },
+            {
+                id: 'other',
+                label: '其他',
+                text: '其他',
+                value: 'other',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__browser',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1730,6 +1926,41 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Testrun__result',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'n/a',
+                label: '忽略',
+                text: '忽略',
+                value: 'n/a',
+                disabled: false,
+            },
+            {
+                id: 'pass',
+                label: '通过',
+                text: '通过',
+                value: 'pass',
+                disabled: false,
+            },
+            {
+                id: 'fail',
+                label: '失败',
+                text: '失败',
+                value: 'fail',
+                disabled: false,
+            },
+            {
+                id: 'blocked',
+                label: '阻塞',
+                text: '阻塞',
+                value: 'blocked',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1779,6 +2010,41 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Testcase__pri',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '1',
+                text: '1',
+                value: 1,
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: '2',
+                text: '2',
+                value: 2,
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: '3',
+                text: '3',
+                value: 3,
+                disabled: false,
+            },
+            {
+                id: '4',
+                label: '4',
+                text: '4',
+                value: 4,
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'YesNo2',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1795,6 +2061,41 @@ const datas: Array<any> = [
                 label: '否',
                 text: '否',
                 value: 0,
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Testcase__result',
+        emptytext: '未执行',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'n/a',
+                label: '忽略',
+                text: '忽略',
+                value: 'n/a',
+                disabled: false,
+            },
+            {
+                id: 'pass',
+                label: '通过',
+                text: '通过',
+                value: 'pass',
+                disabled: false,
+            },
+            {
+                id: 'fail',
+                label: '失败',
+                text: '失败',
+                value: 'fail',
+                disabled: false,
+            },
+            {
+                id: 'blocked',
+                label: '阻塞',
+                text: '阻塞',
+                value: 'blocked',
                 disabled: false,
             },
         ]

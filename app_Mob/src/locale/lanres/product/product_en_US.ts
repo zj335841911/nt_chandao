@@ -2,6 +2,9 @@
 export default {
 // test
 	views: {
+		mobtabexpview: {
+			caption: '测试',
+		},
 		mobeditview: {
 			caption: '产品',
 		},
