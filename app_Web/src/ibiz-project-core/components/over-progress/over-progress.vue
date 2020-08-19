@@ -51,8 +51,9 @@ export default class OverProgress extends Vue {
      */
     public handleData() {
         if(this.data) {
-            this.value = this.data + "%";
-            this.percentage = this.data;
+            const jd = parseFloat(this.data) * 100;
+            this.value = jd.toFixed(2) + "%";
+            this.percentage = jd;
         }
     }
 }
@@ -67,9 +68,8 @@ export default class OverProgress extends Vue {
             margin-left: 7px;  
         }
         .el-progress.el-progress--line {
-            margin-left: 27px;
+            margin-left: 46px;
         }
     }
 }
-
 </style>
