@@ -250,6 +250,7 @@
                 "text": "1",
                 "value": 1,
                 "color": "rgba(230, 43, 43, 1)",
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -258,6 +259,7 @@
                 "text": "2",
                 "value": 2,
                 "color": "rgba(225, 228, 33, 1)",
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -265,7 +267,8 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
-                "color": "rgba(49, 27, 146, 1)",
+                "color": "rgba(52, 8, 248, 1)",
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -274,6 +277,7 @@
                 "text": "4",
                 "value": 4,
                 "color": "rgba(80, 133, 63, 1)",
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -1243,7 +1247,6 @@
                 "text": "被阻塞",
                 "value": "blocked",
                 "color": "rgba(230, 242, 3, 0.97)",
-                "className":"codeitemback",
                 "disabled": false
             }
             , {
