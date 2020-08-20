@@ -22,7 +22,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.end.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.end.visible"  :lg="4" :size="4" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.end" :context="context" :value="data.end" :itemParam="{}"  ></app-mob-span>
@@ -40,7 +40,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.bugcnt.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.bugcnt.visible"  :lg="2" :size="2" :offset="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.bugcnt" :context="context" :value="data.bugcnt" :itemParam="{}"  ></app-mob-span>

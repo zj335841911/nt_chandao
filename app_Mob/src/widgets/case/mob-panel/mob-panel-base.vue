@@ -40,7 +40,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.lastrunresult.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.lastrunresult.visible"  :lg="3" :size="3" :offset="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.lastrunresult" :context="context" :value="data.lastrunresult" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Testrun__result"></app-mob-span>

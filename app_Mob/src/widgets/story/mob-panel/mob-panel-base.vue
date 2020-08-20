@@ -28,6 +28,18 @@
                 
                 </ion-col>
                 
+                <ion-col v-show="detailsModel.rawitem3.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
+                    
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem2.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
+                    
+                
+                
+                </ion-col>
+                
                 <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" :sm="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
@@ -46,7 +58,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.stage.visible"  :lg="3" :size="3" :sm="4" :offset="1" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.stage.visible"  :lg="2" :size="2" :sm="4" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.stage" :context="context" :value="data.stage" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__stage"></app-mob-span>
@@ -317,6 +329,24 @@ export default class MobBase extends Vue implements ControlInterface {
             this.detailsModel.rawitem1.setVisible(ret);
         }
 
+        if (Object.is(name, '') || Object.is(name, 'assignedto')) {
+            let ret = false;
+            const _assignedto = this.data.assignedto;
+            if (this.$verify.testCond(this.data.assignedto, 'EQ', 'closed')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem3.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'assignedto')) {
+            let ret = false;
+            const _assignedto = this.data.assignedto;
+            if (this.$verify.testCond(this.data.assignedto, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
 
 
 
@@ -335,6 +365,10 @@ export default class MobBase extends Vue implements ControlInterface {
         title: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'title', panel: this, visible: true  })
 , 
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
+, 
+        rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem3', panel: this, visible: true  })
+, 
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem2', panel: this, visible: true  })
 , 
         assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'assignedto', panel: this, visible: true  })
 , 
