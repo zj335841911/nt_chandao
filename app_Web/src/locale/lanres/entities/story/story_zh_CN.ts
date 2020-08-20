@@ -781,8 +781,10 @@ export default {
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			story_releaseunlinkbug: "移除关联",
 		},
 	},
 	main_reportsub_grid: {
@@ -1040,6 +1042,14 @@ export default {
 			tip: "关联需求",
 		},
 		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "批量移除",
+			tip: "批量移除",
+		},
+		seperator2: {
 			caption: "",
 			tip: "",
 		},

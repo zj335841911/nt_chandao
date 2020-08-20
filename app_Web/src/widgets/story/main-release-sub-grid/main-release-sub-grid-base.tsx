@@ -68,12 +68,41 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ue198e4c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_releaseUnlinkBug(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof Main_ReleaseSubBase
      */  
     public ActionModel: any = {
+        releaseUnlinkBug: { name: 'releaseUnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
 
     /**
@@ -140,6 +169,14 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.story.main_releasesub_grid.columns.uagridcolumn1',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -178,6 +215,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
         'pri':false,
         'title':false,
         'modulename':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -214,4 +252,19 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_ReleaseSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('releaseUnlinkBug', tag)) {
+            this.grid_uagridcolumn1_ue198e4c_click(row, tag, $event);
+        }
+    }
 }
