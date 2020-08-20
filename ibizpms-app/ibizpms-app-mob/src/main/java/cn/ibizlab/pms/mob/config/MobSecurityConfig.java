@@ -48,8 +48,14 @@ public class MobSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.uploadpath:ibizutil/upload}")
     private String uploadpath;
 
+    @Value("${zentao.file.uploadpath:ibizutil/ztupload}")
+    private String ztuploadpath;
+
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
+
+    @Value("${zentao.file.downloadpath:ibizutil/ztdownload}")
+    private String ztdownloadpath;
 
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
     private String previewpath;
@@ -114,9 +120,11 @@ public class MobSecurityConfig extends WebSecurityConfigurerAdapter {
                 //放行注销请求
                 .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
                 // 文件操作
-                .antMatchers("/"+downloadpath+"/**").permitAll()
-                .antMatchers("/"+uploadpath).permitAll()
-                .antMatchers("/"+previewpath+"/**").permitAll()
+                .antMatchers("/" + downloadpath + "/**").permitAll()
+                .antMatchers("/" + ztdownloadpath + "/**").permitAll()
+                .antMatchers("/" + uploadpath).permitAll()
+                .antMatchers("/" + ztuploadpath).permitAll()
+                .antMatchers("/" + previewpath + "/**").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域
