@@ -58,7 +58,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.stage.visible"  :lg="2" :size="2" :sm="4" :offset="2" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.stage.visible"  :lg="3" :size="3" :sm="4" :offset="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.stage" :context="context" :value="data.stage" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__stage"></app-mob-span>

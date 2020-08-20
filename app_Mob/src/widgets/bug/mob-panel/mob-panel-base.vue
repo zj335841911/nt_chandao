@@ -40,6 +40,18 @@
                 
                 </ion-col>
                 
+                <ion-col v-show="detailsModel.rawitem2.visible"  :lg="1" :size="1" :offset="1" style="" class="app-layoutpanel-rowitem">
+                    
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem3.visible"  :lg="1" :size="1" :offset="1" style="" class="app-layoutpanel-rowitem">
+                    
+                
+                
+                </ion-col>
+                
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" :offset="1" style="" class="app-layoutpanel-rowitem">
                     <i class="fa fa-hand-o-right"></i>
                 
@@ -313,6 +325,24 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'assignedto')) {
             let ret = false;
             const _assignedto = this.data.assignedto;
+            if (this.$verify.testCond(this.data.assignedto, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'assignedto')) {
+            let ret = false;
+            const _assignedto = this.data.assignedto;
+            if (this.$verify.testCond(this.data.assignedto, 'EQ', 'closed')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem3.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'assignedto')) {
+            let ret = false;
+            const _assignedto = this.data.assignedto;
             if (this.$verify.testCond(this.data.assignedto, 'NOTEQ', 'closed') && this.$verify.testCond(this.data.assignedto, 'ISNOTNULL', '')) {
                 ret = true;
             }
@@ -337,6 +367,10 @@ export default class MobBase extends Vue implements ControlInterface {
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
         resolution: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'resolution', panel: this, visible: true  })
+, 
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem2', panel: this, visible: true  })
+, 
+        rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem3', panel: this, visible: true  })
 , 
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
 , 
