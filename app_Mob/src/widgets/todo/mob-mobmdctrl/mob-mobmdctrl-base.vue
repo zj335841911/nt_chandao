@@ -9,6 +9,14 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'ud12d34f', item)">完成</ion-item-option>
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u7775b8e', item)">关闭</ion-item-option>
+                        </ion-item-options>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'ua766381', item)">删除</ion-item-option>
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u7787913', item)">激活</ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -26,6 +34,14 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'ud12d34f', item)">完成</ion-item-option>
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u7775b8e', item)">关闭</ion-item-option>
+                        </ion-item-options>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'ua766381', item)">删除</ion-item-option>
+                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u7787913', item)">激活</ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -200,6 +216,130 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     protected appEntityService: TodoService = new TodoService();
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ud12d34f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_finish(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u7775b8e_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_close(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ua766381_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_delete(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u7787913_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_activate(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -889,6 +1029,18 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'ud12d34f')) {
+            this.mdctrl_ud12d34f_click();
+        }
+        if (Object.is(tag, 'u7775b8e')) {
+            this.mdctrl_u7775b8e_click();
+        }
+        if (Object.is(tag, 'ua766381')) {
+            this.mdctrl_ua766381_click();
+        }
+        if (Object.is(tag, 'u7787913')) {
+            this.mdctrl_u7787913_click();
+        }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }

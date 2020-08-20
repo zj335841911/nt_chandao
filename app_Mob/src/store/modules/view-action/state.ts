@@ -28,6 +28,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '14e4dca3deb3c35a8ccd12baf10c3d9c',
+            viewmodule: 'ibiz',
+            viewname: 'TodoNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D',
             viewmodule: 'Ungroup',
             viewname: 'AppIndexView',
@@ -256,6 +265,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '14e4dca3deb3c35a8ccd12baf10c3d9c',
                 'e848fcc53d765ca86681f329895f792c',
             ],
         },

@@ -2,6 +2,26 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'todo-mob-mdview': true }">
     
     <ion-header>
+        <ion-toolbar class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <ion-buttons slot="end">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
+                        <ion-icon class="ibiz-button-icon" name="fa fa-file-text-o"> </ion-icon>
+                    {{$t('todo.mobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
+                    </ion-button>
+                
+                    </div>
+                </div>
+            </ion-buttons>
+        </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -233,6 +253,8 @@ export default class TodoMobMDViewBase extends Vue {
     * @memberof TodoMobMDView
     */
     public righttoolbarModels: any = {
+            tbitem1: {  name: 'tbitem1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+
     };
 
 
@@ -423,6 +445,48 @@ export default class TodoMobMDViewBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TodoMobMDViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.righttoolbar_tbitem1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TodoMobMDViewBase
+     */
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.New(datas, contextJO, paramJO, $event, xData, this);
+    }
 
     /**
      * 打开新建数据视图
@@ -448,13 +512,14 @@ export default class TodoMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'todos', parameterName: 'todo' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
-        response = await this.globaluiservice.openService.openView(routeParam);
+        const view: any = { 
+            viewname: 'todo-new-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '快速新建', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.globaluiservice.openService.openModal(view, _context, _params);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;

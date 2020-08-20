@@ -7,7 +7,7 @@ export default {
 			caption: '项目',
 		},
 		mobmdview: {
-			caption: '项目',
+			caption: '项目详情',
 		},
 	},
 	mobmain_form: {

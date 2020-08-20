@@ -568,6 +568,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
                 },
                 {
+                    path: 'todos/:todo?/newmobeditview',
+                    meta: {
+                        caption: 'todo.views.newmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/todo-new-mob-edit-view/todo-new-mob-edit-view.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobtabexpview',
                     meta: {
                         caption: 'ibzmyterritory.views.mobtabexpview.caption',
