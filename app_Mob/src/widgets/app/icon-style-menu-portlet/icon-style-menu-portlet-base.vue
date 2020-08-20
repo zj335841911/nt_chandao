@@ -2,7 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet '>
             <ion-list-header class='app-mob-portlet__header'>图标 </ion-list-header>
-                <view_db_appmenu2_appmenu
+                <view_db_appmenu2_appmenu 
     :viewState="viewState"
     viewName="AppPortalView"  
     :viewparams="viewparams" 

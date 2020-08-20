@@ -24,13 +24,11 @@
 
 
     <ion-content>
-                <view_tabexppanel
+                <view_tabexppanel 
             :viewState="viewState"
             viewName="ProductProdMobTabExpView"  
             :viewparams="viewparams" 
             :context="context" 
-        :activiedTabViewPanel="activiedTabViewPanel"     
-        @changepanel="changePanel"
             name="tabexppanel"  
             ref='tabexppanel' 
             @closeview="closeView($event)">
@@ -251,6 +249,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
     /**
      * 被激活的分页面板
      *
@@ -276,53 +275,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
             return;
         }
         this.viewState.next({ tag: 'tabexppanel', action: 'active', data: { activeItem: value } });
-        this.setLocalStorage(value);     
     }
-
-    /**
-     * 子传父修改激活的Panel
-     *
-     * @param {*} $event
-     * @returns {void}
-     * @memberof MOBORDERMobTabExpViewBase
-     */
-    protected changePanel(res:any) : void {
-      this.activiedTabViewPanel = res;
-    }
-    /**
-     * localStorage存值
-     *
-     * @param {*} $event
-     * @returns {void}
-     * @memberof MOBORDERMobTabExpViewBase
-     */    
-    public setLocalStorage(value:any) {
-        let name:string = 'zt_product';
-        let id:any = this.context.zt_product;
-        let obj:any = {"name":name,"id":id,"value":value};
-        localStorage.setItem('tabKey',JSON.stringify(obj));    
-    }
-    /**
-     * localStorage取值
-     *
-     * @param {*} $event
-     * @returns {void}
-     * @memberof MOBORDERMobTabExpViewBase
-     */
-    public getLocalStorage() {
-        let key:any = localStorage.getItem('tabKey')
-        if(key){
-        let info:any = JSON.parse(key);
-        if (info.name == 'zt_product') {
-          if (info.id == this.context.zt_product) {
-            this.activiedTabViewPanel = info.value;
-          }
-        } else { 
-          this.activiedTabViewPanel = 'tabviewpanel';
-        }
-        }
-    }
-
 
     /**
      * 视图引擎
@@ -374,7 +327,6 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
-this.getLocalStorage();
 
     }
 

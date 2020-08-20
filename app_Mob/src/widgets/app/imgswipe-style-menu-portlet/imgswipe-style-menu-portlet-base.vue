@@ -2,7 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet '>
             <ion-list-header class='app-mob-portlet__header'>图片滑动 </ion-list-header>
-                <view_db_appmenu1_appmenu
+                <view_db_appmenu1_appmenu 
     :viewState="viewState"
     viewName="AppPortalView"  
     :viewparams="viewparams" 

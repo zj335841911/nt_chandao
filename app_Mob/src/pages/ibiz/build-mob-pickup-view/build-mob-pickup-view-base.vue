@@ -12,7 +12,7 @@
 
 
     <ion-content>
-                <view_pickupviewpanel
+                <view_pickupviewpanel 
             :viewState="viewState"
             viewName="BuildMobPickupView"  
             :viewparams="viewparams" 

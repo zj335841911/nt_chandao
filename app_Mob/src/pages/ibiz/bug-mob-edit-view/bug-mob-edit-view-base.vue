@@ -22,7 +22,7 @@
 
 
     <ion-content>
-                <view_form
+                <view_form 
             :viewState="viewState"
             viewName="BugMobEditView"  
             :viewparams="viewparams" 

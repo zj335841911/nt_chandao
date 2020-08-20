@@ -16,7 +16,7 @@
 
 
     <ion-content>
-                <view_form
+                <view_form 
             :viewState="viewState"
             viewName="TodoNewMobEditView"  
             :viewparams="viewparams" 

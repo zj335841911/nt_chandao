@@ -1,5 +1,5 @@
 <template>
-<view_appmenu
+<view_appmenu 
     :viewState="viewState"
     viewName="AppIndexView"  
     :viewparams="viewparams" 

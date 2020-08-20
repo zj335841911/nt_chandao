@@ -16,7 +16,7 @@
 
 
     <ion-content>
-                <view_dashboard
+                <view_dashboard 
             :viewState="viewState"
             viewName="AppPortalView"  
             :viewparams="viewparams" 

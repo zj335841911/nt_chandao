@@ -1,7 +1,7 @@
 <template>
     <span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
+                        <view_tabviewpanel 
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -12,7 +12,7 @@
             </view_tabviewpanel>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
-                        <view_tabviewpanel2
+                        <view_tabviewpanel2 
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -23,7 +23,7 @@
             </view_tabviewpanel2>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3
+                        <view_tabviewpanel3 
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -34,7 +34,7 @@
             </view_tabviewpanel3>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
-                        <view_tabviewpanel4
+                        <view_tabviewpanel4 
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -220,7 +220,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {string}
      * @memberof MobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
+    protected activiedTabViewPanel: string = 'tabviewpanel';
              
     /**
      * vue 生命周期
@@ -248,10 +248,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
                     this.tabPanelClick(data.activeItem);
                 } else {
                     this.$nextTick(() => {
-                     let panel:any = this.activiedTabViewPanel
-                     if(panel){
-                     this.viewState.next({ tag: panel, action: this.action, data: {}});
-                    }
+                        this.viewState.next({ tag: this.activiedTabViewPanel, action: action, data: data });
                     });
                 }
             });
@@ -292,12 +289,9 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         if (!this.viewState) {
             return;
         }
-        this.$emit("changepanel",$event);
+        this.activiedTabViewPanel = $event;
         this.$nextTick(() => {
-            let panel:any = this.activiedTabViewPanel
-            if(panel){
-              this.viewState.next({ tag: panel, action: this.action, data: {}});
-            }
+            this.viewState.next({ tag: this.activiedTabViewPanel, action: this.action, data: {}});
         });
     }
 

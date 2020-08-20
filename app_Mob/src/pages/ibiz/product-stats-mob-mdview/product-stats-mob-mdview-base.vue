@@ -29,7 +29,7 @@
 
 
     <ion-content>
-                <view_mdctrl
+                <view_mdctrl 
             :viewState="viewState"
             viewName="ProductStatsMobMDView"  
             :viewparams="viewparams" 
