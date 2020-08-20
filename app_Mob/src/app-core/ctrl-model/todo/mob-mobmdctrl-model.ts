@@ -33,6 +33,9 @@ export class MobModel {
 				name: 'date1',
 			},
 			{
+				name: 'status',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

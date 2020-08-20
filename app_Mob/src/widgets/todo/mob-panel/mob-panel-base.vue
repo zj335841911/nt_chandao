@@ -39,6 +39,15 @@
                 
                 
                 </ion-col>
+                
+                <ion-col v-show="detailsModel.status.visible"  :lg="2" :size="12" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Todo__status"></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
             </ion-row>
         </ion-col>
     </ion-row>
@@ -282,6 +291,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -298,6 +308,8 @@ export default class MobBase extends Vue implements ControlInterface {
         date1: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'date1', panel: this, visible: true  })
 , 
         begin: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'begin', panel: this, visible: true  })
+, 
+        status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 

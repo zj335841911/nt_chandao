@@ -55,11 +55,17 @@
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.pri" 
+        <app-mob-select 
+    tag="Pri"
+    codeListType="STATIC" 
+    :isCache="false" 
     :disabled="detailsModel.pri.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.pri"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
 </app-form-item>
 
@@ -565,10 +571,10 @@ export default class MobNewBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
         ],
         pri: [
-            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
         ],
         date: [
             { type: 'string', message: '日期 值必须为字符串类型', trigger: 'change' },
