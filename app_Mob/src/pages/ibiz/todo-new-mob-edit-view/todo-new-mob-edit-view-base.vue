@@ -44,6 +44,11 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "bottom_menu">
+                            <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-icon name="sx-tb-saveandclose"></ion-icon>
+                {{$t('todo.newmobeditviewrighttoolbar_toolbar.tbitem1.caption')}}
+            </ion-button>
+        
         </div>
     </ion-footer>
 </ion-page>
@@ -240,6 +245,8 @@ export default class TodoNewMobEditViewBase extends Vue {
     * @memberof TodoNewMobEditView
     */
     public righttoolbarModels: any = {
+            tbitem1: {  name: 'tbitem1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
+
     };
 
     /**
@@ -447,6 +454,48 @@ export default class TodoNewMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TodoNewMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.righttoolbar_tbitem1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TodoNewMobEditViewBase
+     */
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
+    }
 
     /**
      * 关闭视图

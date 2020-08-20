@@ -60,6 +60,16 @@ export default {
 		},
 	},
 	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '新建',
+			tip: '新建',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

@@ -16,6 +16,7 @@ export const PageComponents = {
         Vue.component('task-ass-mob-mdview', () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'));
         Vue.component('product-plan-mob-mdview', () => import('@pages/ibiz/product-plan-mob-mdview/product-plan-mob-mdview.vue'));
         Vue.component('bug-ass-mob-mdview', () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'));
+        Vue.component('todo-new-mob-edit-view', () => import('@pages/ibiz/todo-new-mob-edit-view/todo-new-mob-edit-view.vue'));
         Vue.component('ibz-my-territory-mob-tab-exp-view', () => import('@pages/ibiz/ibz-my-territory-mob-tab-exp-view/ibz-my-territory-mob-tab-exp-view.vue'));
         Vue.component('task-mob-mdview', () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'));
         Vue.component('project-mob-edit-view', () => import('@pages/ibiz/project-mob-edit-view/project-mob-edit-view.vue'));
