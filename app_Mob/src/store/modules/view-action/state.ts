@@ -14,16 +14,39 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0d3c069c216a16c6d57a9464e959a805',
+            viewmodule: 'zentao',
+            viewname: 'ProductProdMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7862eff0b9a271764fccf722121c6b66',
+                '984a4d5ce6ca2ede5539d44590ef20a6',
+                'b5a98ab9e5bc86d5b61c77273225f276',
+                '58f89fab47964b5ad5b6b0f2021b188b',
+                '4ad2fc1ff781083ad939783813464b1a',
+            ],
+        },
+        {
+            viewtag: '14e4dca3deb3c35a8ccd12baf10c3d9c',
+            viewmodule: 'ibiz',
+            viewname: 'TodoNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D',
             viewmodule: 'Ungroup',
             viewname: 'AppIndexView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '86fe20f86bf10c309e08f52cf7259b9d',
                 'e643a925b1d0dab04ef917b973354baa',
+                'af40519acfe1bc985738eb3f0ff91a24',
                 '1afb3df498f4daa660709cca53ece0b2',
-                'd282fcd0f9244a596bf945d529bcf075',
-                '5040c252f88202ad31af8159bc03524a',
             ],
         },
         {
@@ -146,7 +169,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '85742d38f356f400b16652a3f7ae714b',
             ],
         },
         {
@@ -322,7 +344,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '984a4d5ce6ca2ede5539d44590ef20a6',
-                '82f9b0fd0fdc90237c7aa1a1e543920e',
+                '0d3c069c216a16c6d57a9464e959a805',
             ],
         },
         {

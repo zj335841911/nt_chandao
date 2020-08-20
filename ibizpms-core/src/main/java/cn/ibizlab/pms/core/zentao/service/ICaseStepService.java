@@ -39,6 +39,7 @@ public interface ICaseStepService extends IService<CaseStep>{
     Page<CaseStep> searchCurTest(CaseStepSearchContext context) ;
     Page<CaseStep> searchDefault(CaseStepSearchContext context) ;
     Page<CaseStep> searchDefault1(CaseStepSearchContext context) ;
+    Page<CaseStep> searchMob(CaseStepSearchContext context) ;
     Page<CaseStep> searchVersion(CaseStepSearchContext context) ;
     Page<CaseStep> searchVersions(CaseStepSearchContext context) ;
     List<CaseStep> selectByIbizcase(BigInteger id) ;

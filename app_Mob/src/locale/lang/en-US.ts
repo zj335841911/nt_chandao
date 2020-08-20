@@ -47,7 +47,7 @@ export default {
         // 非实体视图
         views: {
             appindexview: {
-                caption: '首页',
+                caption: 'iBiz软件生产管理',
             },
             appportalview: {
                 caption: '工作台',

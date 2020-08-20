@@ -1,8 +1,9 @@
 <template>
     <div class="app-mob-span">
-        <ion-input  v-if="!codeListType" readonly :value="text" ></ion-input>
-        <ion-input  v-if="codeListType == 'DYNAMIC'" readonly :value="($t('userCustom.'+tag+'.'+value)!== ('userCustom.'+tag+'.'+value))?$t('userCustom.'+tag+'.'+value) : text" ></ion-input>
-        <ion-input  v-if="codeListType == 'STATIC'" readonly :value="($t('codelist.'+tag+'.'+value)!== ('codelist.'+tag+'.'+value))?$t('codelist.'+tag+'.'+value) : text" ></ion-input>
+        <ion-icon v-if="currentItem && currentItem.iconcls" :name="currentItem.iconcls"></ion-icon>
+        <ion-input v-if="!codeListType" readonly :value="text" ></ion-input>
+        <ion-input v-if="codeListType == 'DYNAMIC'" readonly :value="($t('userCustom.'+tag+'.'+value)!== ('userCustom.'+tag+'.'+value))?$t('userCustom.'+tag+'.'+value) : text" ></ion-input>
+        <ion-input :style="{color:currentItem && currentItem.color?currentItem.color:''}" :class="currentItem && currentItem.className?currentItem.className:''" v-if="codeListType == 'STATIC'" readonly :value="($t('codelist.'+tag+'.'+value)!== ('codelist.'+tag+'.'+value))?$t('codelist.'+tag+'.'+value) : text" ></ion-input>
     </div>
 </template>
 
@@ -119,6 +120,14 @@ export default class AppSpan extends Vue {
      */
     @Prop({ default: {} }) protected context?: any;
 
+   /**
+     * 当前值项
+     *
+     * @type {*}
+     * @memberof AppSpan
+     */
+    public currentItem :any = {};
+
 
     /**
      * 监控值
@@ -167,11 +176,11 @@ export default class AppSpan extends Vue {
      */
     public setText(){
       if(this.items.length>0){
-          let currentItem:any = this.items.find((item:any)=>{
+          this.currentItem= this.items.find((item:any)=>{
               return item.value == this.value;
           });
-          if(currentItem){
-              this.text = currentItem.text;
+          if(this.currentItem){
+              this.text = this.currentItem.text;
           }else{
               // 不匹配显示原值，不存在显示空值
               if(this.value){
@@ -188,5 +197,6 @@ export default class AppSpan extends Vue {
 <style lang="less">
 .app-mob-span{
     width: 100%;
+    display: flex;
 }
 </style>

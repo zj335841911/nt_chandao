@@ -1,5 +1,6 @@
 import { HttpResponse } from '@/ibiz-core/utils';
 import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
+import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 
@@ -41,6 +42,8 @@ export class CodeListService {
     protected allCodeList: any = {
         // 用户真实名称（动态）（Bug）
         BugUserRealName: new BugUserRealName(),
+        // 当前用例版本（动态）
+        CurCaseVersion: new CurCaseVersion(),
         // 用户真实名称（项目团队成员）
         UserRealNameProject: new UserRealNameProject(),
         // 用户真实名称（动态）

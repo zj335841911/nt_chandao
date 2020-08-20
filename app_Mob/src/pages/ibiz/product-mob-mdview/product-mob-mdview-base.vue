@@ -508,8 +508,8 @@ export default class ProductMobMDViewBase extends Vue {
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'productstats', parameterName: 'productstats' },
-            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'prodmobtabexpview', parameterName: 'prodmobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);

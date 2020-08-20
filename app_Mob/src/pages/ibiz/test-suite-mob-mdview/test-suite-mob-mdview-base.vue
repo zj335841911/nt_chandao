@@ -140,7 +140,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'n_product_eq': '%product%' };
 
     /**
      * 视图导航参数
@@ -149,7 +149,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_product_eq': '%product%' };
 
     /**
      * 视图模型数据

@@ -22,6 +22,7 @@ public interface CaseStepMapper extends BaseMapper<CaseStep>{
     Page<CaseStep> searchCurTest(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
     Page<CaseStep> searchDefault(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
     Page<CaseStep> searchDefault1(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
+    Page<CaseStep> searchMob(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
     Page<CaseStep> searchVersion(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
     Page<CaseStep> searchVersions(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
     @Override

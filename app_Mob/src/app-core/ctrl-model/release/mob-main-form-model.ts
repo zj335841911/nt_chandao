@@ -76,11 +76,6 @@ export class MobMainModel {
                 dataType: 'ACID',
             },
             {
-                name: 'build',
-                prop: 'build',
-                dataType: 'PICKUP',
-            },
-            {
                 name: 'release',
                 prop: 'id',
                 dataType: 'FONTKEY',

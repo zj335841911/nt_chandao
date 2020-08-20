@@ -1266,6 +1266,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersions",
+        "items": []
+    },
+    {
         srfkey: 'Task__pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1620,6 +1628,41 @@ const datas: Array<any> = [
                 label: '多平台',
                 text: '多平台',
                 value: 'platform',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__severity_mob',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '1',
+                text: '1',
+                value: 1,
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: '2',
+                text: '2',
+                value: 2,
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: '3',
+                text: '3',
+                value: 3,
+                disabled: false,
+            },
+            {
+                id: '4',
+                label: '4',
+                text: '4',
+                value: 4,
                 disabled: false,
             },
         ]

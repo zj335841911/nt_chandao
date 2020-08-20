@@ -9,6 +9,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "color": "rgba(13, 255, 0, 1)",
                 "disabled": false
             }
             , {
@@ -30,6 +31,7 @@
                 "label": "激活",
                 "text": "激活",
                 "value": "active",
+                "color": "rgba(0, 157, 255, 1)",
                 "disabled": false
             }
             , {
@@ -37,6 +39,7 @@
                 "label": "已解决",
                 "text": "已解决",
                 "value": "resolved",
+                "color": "rgba(1, 217, 19, 1)",
                 "disabled": false
             }
             , {
@@ -44,6 +47,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "color": "rgba(151, 152, 141, 1)",
                 "disabled": false
             }
         ]
@@ -177,6 +181,8 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "iconcls":"fa fa-square-o",
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -184,6 +190,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -191,6 +198,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -198,6 +206,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -240,6 +249,8 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "color": "rgba(230, 43, 43, 1)",
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -247,6 +258,8 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "color": "rgba(225, 228, 33, 1)",
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -254,6 +267,8 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "color": "rgba(52, 8, 248, 1)",
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -261,6 +276,8 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "color": "rgba(80, 133, 63, 1)",
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -1221,6 +1238,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "color": "rgba(84, 238, 19, 1)",
                 "disabled": false
             }
             , {
@@ -1228,6 +1246,7 @@
                 "label": "被阻塞",
                 "text": "被阻塞",
                 "value": "blocked",
+                "color": "rgba(230, 242, 3, 0.97)",
                 "disabled": false
             }
             , {
@@ -1235,6 +1254,7 @@
                 "label": "研究中",
                 "text": "研究中",
                 "value": "investigate",
+                "color": "rgba(245, 12, 12, 1)",
                 "disabled": false
             }
             , {
@@ -1249,6 +1269,7 @@
                 "label": "需求变更",
                 "text": "需求变更",
                 "value": "storychange",
+                "color": "rgba(254, 8, 8, 1)",
                 "disabled": false
             }
             , {
@@ -1256,9 +1277,18 @@
                 "label": "原用例更新",
                 "text": "原用例更新",
                 "value": "casechange",
+                "color": "rgba(247, 31, 7, 1)",
                 "disabled": false
             }
         ]
+    }, 
+    {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersions",
+        "items": []
     }, 
     {
         "srfkey": "Task__pri",
@@ -1270,6 +1300,9 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "iconcls":"fa fa-bomb",
+                "color": "rgba(183, 35, 35, 1)",
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -1277,6 +1310,8 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "color": "rgba(197, 26, 26, 1)",
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -1284,6 +1319,9 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "iconcls":"fa fa-sort-amount-asc",
+                "color": "rgba(64, 78, 227, 1)",
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -1291,6 +1329,8 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "color": "rgba(94, 231, 3, 1)",
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -1340,6 +1380,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "color": "rgba(13, 255, 0, 1)",
                 "disabled": false
             }
             , {
@@ -1396,6 +1437,7 @@
                 "label": "一般",
                 "text": "一般",
                 "value": "1",
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -1403,6 +1445,7 @@
                 "label": "最高",
                 "text": "最高",
                 "value": "2",
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -1410,6 +1453,7 @@
                 "label": "较高",
                 "text": "较高",
                 "value": "3",
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -1417,6 +1461,7 @@
                 "label": "最低",
                 "text": "最低",
                 "value": "4",
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -1601,6 +1646,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "color": "blue",
                 "disabled": false
             }
             , {
@@ -1615,6 +1661,49 @@
                 "label": "多平台",
                 "text": "多平台",
                 "value": "platform",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Bug__severity_mob",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "value": 1,
+                "iconcls":"radio-button-on",
+                "color": "rgba(227, 6, 6, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "value": 2,
+                "iconcls":"radio-button-on",
+                "color": "rgba(255, 191, 0, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "value": 3,
+                "iconcls":"radio-button-on",
+                "color": "rgba(16, 174, 231, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "value": 4,
+                "iconcls":"radio-button-on",
+                "color": "rgba(49, 234, 12, 1)",
                 "disabled": false
             }
         ]
@@ -1853,6 +1942,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "color": "rgba(245, 18, 18, 1)",
                 "disabled": false
             }
             , {
@@ -1860,6 +1950,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "color": "rgba(4, 251, 17, 1)",
                 "disabled": false
             }
             , {
@@ -1958,6 +2049,7 @@
                 "label": "草稿",
                 "text": "草稿",
                 "value": "draft",
+                "color": "rgba(185, 111, 241, 1)",
                 "disabled": false
             }
             , {
@@ -1972,6 +2064,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "color": "rgba(203, 198, 198, 0.84)",
                 "disabled": false
             }
             , {
@@ -1979,6 +2072,7 @@
                 "label": "已变更",
                 "text": "已变更",
                 "value": "changed",
+                "color": "rgba(217, 68, 68, 1)",
                 "disabled": false
             }
         ]
@@ -2000,6 +2094,7 @@
                 "label": "通过",
                 "text": "通过",
                 "value": "pass",
+                "color": "rgba(126, 222, 16, 1)",
                 "disabled": false
             }
             , {
@@ -2007,6 +2102,7 @@
                 "label": "失败",
                 "text": "失败",
                 "value": "fail",
+                "color": "rgba(238, 18, 18, 1)",
                 "disabled": false
             }
             , {
@@ -2014,6 +2110,7 @@
                 "label": "阻塞",
                 "text": "阻塞",
                 "value": "blocked",
+                "color": "rgba(220, 224, 12, 1)",
                 "disabled": false
             }
         ]
@@ -2028,6 +2125,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "color": "rgba(131, 138, 157, 1)",
                 "disabled": false
             }
             , {
@@ -2035,6 +2133,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "color": "rgba(255, 93, 93, 1)",
                 "disabled": false
             }
             , {
@@ -2042,6 +2141,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "color": "rgba(67, 160, 71, 1)",
                 "disabled": false
             }
             , {
@@ -2049,6 +2149,7 @@
                 "label": "已暂停",
                 "text": "已暂停",
                 "value": "pause",
+                "color": "rgba(255, 152, 0, 1)",
                 "disabled": false
             }
             , {
@@ -2056,6 +2157,7 @@
                 "label": "已取消",
                 "text": "已取消",
                 "value": "cancel",
+                "color": "rgba(131, 138, 157, 1)",
                 "disabled": false
             }
             , {
@@ -2063,6 +2165,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "color": "rgba(131, 138, 157, 1)",
                 "disabled": false
             }
         ]
@@ -2077,6 +2180,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -2084,6 +2188,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -2091,6 +2196,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -2098,6 +2204,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -2133,6 +2240,7 @@
                 "label": "忽略",
                 "text": "忽略",
                 "value": "n/a",
+                "color": "rgba(190, 184, 184, 1)",
                 "disabled": false
             }
             , {
@@ -2140,6 +2248,7 @@
                 "label": "通过",
                 "text": "通过",
                 "value": "pass",
+                "color": "rgba(93, 238, 9, 1)",
                 "disabled": false
             }
             , {
@@ -2147,6 +2256,7 @@
                 "label": "失败",
                 "text": "失败",
                 "value": "fail",
+                "color": "rgba(251, 12, 12, 1)",
                 "disabled": false
             }
             , {
@@ -2154,6 +2264,7 @@
                 "label": "阻塞",
                 "text": "阻塞",
                 "value": "blocked",
+                "color": "rgba(228, 15, 15, 1)",
                 "disabled": false
             }
         ]
@@ -2168,6 +2279,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -2175,6 +2287,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "className":"text-pink-border-color",
                 "disabled": false
             }
             , {
@@ -2182,6 +2295,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "className":"text-blue-border-color",
                 "disabled": false
             }
             , {
@@ -2189,6 +2303,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "className":"text-green-border-color",
                 "disabled": false
             }
         ]
@@ -2266,6 +2381,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "color": "rgba(220, 214, 214, 1)",
                 "disabled": false
             }
             , {
@@ -2273,6 +2389,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "color": "rgba(208, 20, 20, 1)",
                 "disabled": false
             }
             , {
@@ -2280,6 +2397,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "color": "rgba(30, 234, 12, 1)",
                 "disabled": false
             }
             , {
@@ -2287,6 +2405,7 @@
                 "label": "被阻塞",
                 "text": "被阻塞",
                 "value": "blocked",
+                "color": "rgba(221, 217, 10, 1)",
                 "disabled": false
             }
         ]

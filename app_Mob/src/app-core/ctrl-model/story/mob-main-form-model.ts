@@ -56,14 +56,29 @@ export class MobMainModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'pri',
+                prop: 'pri',
+                dataType: 'NSCODELIST',
+            },
+            {
                 name: 'status',
                 prop: 'status',
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'assigneddate',
                 prop: 'assigneddate',
                 dataType: 'DATETIME',
+            },
+            {
+                name: 'closedby',
+                prop: 'closedby',
+                dataType: 'SSCODELIST',
             },
             {
                 name: 'closeddate',

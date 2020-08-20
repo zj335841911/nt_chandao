@@ -1,0 +1,446 @@
+<template>
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-prod-mob-tab-exp-view': true }">
+    
+    <ion-header>
+        <ion-toolbar class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
+                    <ion-toolbar>
+                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel">详情</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">计划</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">发布</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">Bug</ion-segment-button>
+                        </ion-segment>
+                    </ion-toolbar>
+    </ion-header>
+
+
+    <ion-content>
+                <view_tabexppanel 
+            :viewState="viewState"
+            viewName="ProductProdMobTabExpView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            name="tabexppanel"  
+            ref='tabexppanel' 
+            @closeview="closeView($event)">
+        </view_tabexppanel>
+    </ion-content>
+</ion-page>
+</template>
+
+<script lang='ts'>
+import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Subject } from 'rxjs';
+import GlobalUiService from '@/global-ui-service/global-ui-service';
+import ProductService from '@/app-core/service/product/product-service';
+
+import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
+
+
+@Component({
+    components: {
+    },
+})
+export default class ProductProdMobTabExpViewBase extends Vue {
+
+    /**
+     * 全局 ui 服务
+     *
+     * @type {GlobalUiService}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductService}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 数据变化
+     *
+     * @param {*} val
+     * @returns {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    @Emit() 
+    protected viewDatasChange(val: any):any {
+        return val;
+    }
+
+    /**
+     * 视图上下文
+     *
+     * @type {string}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    @Prop() protected _context!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {string}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    @Prop() protected _viewparams!: string;
+
+    /**
+     * 视图默认使用
+     *
+     * @type {boolean}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    @Prop({ default: true }) protected viewDefaultUsage!: boolean;
+
+	/**
+	 * 视图标识
+	 *
+	 * @type {string}
+	 * @memberof ProductProdMobTabExpViewBase
+	 */
+	protected viewtag: string = '0d3c069c216a16c6d57a9464e959a805';
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected context: any = {};
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected viewparams: any = {};
+
+    /**
+     * 视图导航上下文
+     *
+     * @protected
+     * @type {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected navContext: any = {};
+
+    /**
+     * 视图导航参数
+     *
+     * @protected
+     * @type {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected navParam: any = {};
+
+    /**
+     * 视图模型数据
+     *
+     * @type {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected model: any = {
+        srfTitle: '产品详情',
+        srfCaption: 'product.views.prodmobtabexpview.caption',
+        srfSubCaption: '',
+        dataInfo: '',
+        iconcls: '',
+        icon: ''
+    }
+
+    /**
+     * 视图上下文变化
+     *
+     * @param {string} newVal
+     * @param {string} oldVal
+     * @memberof  ProductProdMobTabExpViewBase
+     */
+    @Watch('_context')
+    on_context(newVal: string, oldVal: string) {
+        const _this: any = this;
+        this.parseViewParam();
+        if (!Object.is(newVal, oldVal) && _this.engine) {
+            this.$nextTick(()=>{_this.engine.load();})
+        }
+        
+    }
+
+    /**
+     * 视图参数变化
+     *
+     * @param {string} newVal
+     * @param {string} oldVal
+     * @returns
+     * @memberof IBizChart
+     */
+    @Watch('_viewparams')
+    on_viewparams(newVal: string, oldVal: string) {
+        this.parseViewParam();
+    }
+
+    /**
+     * 容器模型
+     *
+     * @type {*}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected containerModel: any = {
+        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+    };
+
+    /**
+     * 视图状态订阅对象
+     *
+     * @type {Subject<{action: string, data: any}>}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected viewState: Subject<ViewState> = new Subject();
+
+
+    /**
+     * 是否显示标题
+     *
+     * @type {string}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    @Prop({default:true}) protected showTitle?: boolean;
+
+
+
+
+
+
+
+    /**
+     * 解析视图参数
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected parseViewParam(): void {
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
+        this.context = { ...context };
+        this.viewparams = { ...param }
+    }
+
+    /**
+     * 是否显示返回按钮
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    get isShowBackButton(): boolean {
+        // 存在路由，非路由使用，嵌入
+        if (!this.viewDefaultUsage) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 被激活的分页面板
+     *
+     * @type {string}
+     * @memberof  ProductProdMobTabExpViewBase
+     */
+    protected activiedTabViewPanel: string = 'tabviewpanel';
+
+    /**
+     * 分页导航栏激活
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    public tabExpPanelChange($event: any): void {
+        let { detail } = $event;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        if (!value) {
+            return;
+        }
+        this.viewState.next({ tag: 'tabexppanel', action: 'active', data: { activeItem: value } });
+    }
+
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected engine: MobTabExpViewEngine = new MobTabExpViewEngine();
+
+    /**
+     * 引擎初始化
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            keyPSDEField: 'product',
+            majorPSDEField: 'name',
+            isLoadDefault: true,
+        });
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected created() {
+        this.afterCreated();
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    public activated() {
+        this.afterMounted();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */    
+    protected afterCreated(){
+        const secondtag = this.$util.createUUID();
+        this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
+        this.viewtag = secondtag;
+        this.parseViewParam();
+
+    }
+
+    /**
+     * 销毁之前
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected beforeDestroy() {
+        this.$store.commit('viewaction/removeView', this.viewtag);
+    }
+
+    /**
+     * Vue声明周期(组件初始化完毕)
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected mounted() {
+        this.afterMounted();
+    }
+
+    /**
+     * 执行mounted后的逻辑
+     * 
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected afterMounted(){
+        const _this: any = this;
+        _this.engineInit();
+        if (_this.loadModel && _this.loadModel instanceof Function) {
+            _this.loadModel();
+        }
+
+    }
+
+    /**
+     * 销毁视图回调
+     *
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected destroyed(){
+        this.afterDestroyed();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     * 
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected afterDestroyed(){
+        if (this.viewDefaultUsage && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
+
+    }
+
+
+    /**
+     * 关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    protected async closeView(args: any[]): Promise<any> {
+        if (this.viewDefaultUsage) {
+            this.$store.commit("deletePage", this.$route.fullPath);
+            this.$router.go(-1);
+        } else {
+            this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
+        }
+        
+    }
+
+    /**
+     * 刷新数据
+     *
+     * @readonly
+     * @type {(number | null)}
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    get refreshdata(): number | null {
+        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
+    }
+
+    /**
+     * 监控数据变化
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @returns
+     * @memberof ProductProdMobTabExpViewBase
+     */
+    @Watch('refreshdata')
+    onRefreshData(newVal: any, oldVal: any) {
+        if (newVal === null || newVal === undefined) {
+            return;
+        }
+        if (newVal === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.onRefreshView && _this.onRefreshView instanceof Function) {
+            _this.onRefreshView();
+        }
+    }
+
+
+}
+</script>
+
+<style lang='less'>
+@import './product-prod-mob-tab-exp-view.less';
+</style>

@@ -173,7 +173,7 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     protected model: any = {
-        srfTitle: '项目移动端多数据视图',
+        srfTitle: '项目详情',
         srfCaption: 'project.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
