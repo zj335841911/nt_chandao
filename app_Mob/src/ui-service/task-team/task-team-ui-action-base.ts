@@ -1,3 +1,5 @@
+import TaskTeamService from '@/app-core/service/task-team/task-team-service';
+import TaskTeamAuthService from '@/app-core/auth-service/task-team/task-team-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
      * @memberof  TaskTeamUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TaskTeamAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

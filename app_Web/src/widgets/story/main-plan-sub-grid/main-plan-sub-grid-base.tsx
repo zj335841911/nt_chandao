@@ -102,7 +102,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
      * @memberof Main_PlanSubBase
      */  
     public ActionModel: any = {
-        UnlinkStory: { name: 'UnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        UnlinkStory: { name: 'UnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
     };
 
     /**

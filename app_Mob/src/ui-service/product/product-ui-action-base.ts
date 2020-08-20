@@ -1,3 +1,5 @@
+import ProductService from '@/app-core/service/product/product-service';
+import ProductAuthService from '@/app-core/auth-service/product/product-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof  ProductUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ProductAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

@@ -1,3 +1,5 @@
+import TodoService from '@/app-core/service/todo/todo-service';
+import TodoAuthService from '@/app-core/auth-service/todo/todo-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
      * @memberof  TodoUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TodoAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

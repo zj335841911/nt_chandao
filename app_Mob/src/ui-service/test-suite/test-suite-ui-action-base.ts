@@ -1,3 +1,5 @@
+import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
+import TestSuiteAuthService from '@/app-core/auth-service/test-suite/test-suite-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class TestSuiteUIActionBase extends EntityUIActionBase {
      * @memberof  TestSuiteUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TestSuiteAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

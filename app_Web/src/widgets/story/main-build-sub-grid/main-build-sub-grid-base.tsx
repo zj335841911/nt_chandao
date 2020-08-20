@@ -102,7 +102,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @memberof Main_BuildSubBase
      */  
     public ActionModel: any = {
-        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
     };
 
     /**

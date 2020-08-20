@@ -902,31 +902,31 @@ export default {
 		},
 	},
 	releasesubgridview_donetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
 		},
-		seperator2: {
+		seperator1: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction1: {
-			caption: "导出",
-			tip: "导出",
+		deuiaction2: {
+			caption: "批量移除",
+			tip: "批量移除",
 		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
 		},
-		seperator2: {
+		seperator1: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction1: {
-			caption: "导出",
-			tip: "导出",
+		deuiaction2: {
+			caption: "批量移除",
+			tip: "批量移除",
 		},
 	},
 	gridviewtoolbar_toolbar: {

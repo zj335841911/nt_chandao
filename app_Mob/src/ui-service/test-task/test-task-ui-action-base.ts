@@ -1,3 +1,5 @@
+import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import TestTaskAuthService from '@/app-core/auth-service/test-task/test-task-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @memberof  TestTaskUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TestTaskAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

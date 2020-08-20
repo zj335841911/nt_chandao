@@ -1,3 +1,5 @@
+import ProjectStatsService from '@/app-core/service/project-stats/project-stats-service';
+import ProjectStatsAuthService from '@/app-core/auth-service/project-stats/project-stats-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class ProjectStatsUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectStatsUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ProjectStatsAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

@@ -1,3 +1,5 @@
+import BuildService from '@/app-core/service/build/build-service';
+import BuildAuthService from '@/app-core/auth-service/build/build-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class BuildUIActionBase extends EntityUIActionBase {
      * @memberof  BuildUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new BuildAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

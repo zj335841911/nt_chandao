@@ -1,3 +1,5 @@
+import BugService from '@/app-core/service/bug/bug-service';
+import BugAuthService from '@/app-core/auth-service/bug/bug-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof  BugUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new BugAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

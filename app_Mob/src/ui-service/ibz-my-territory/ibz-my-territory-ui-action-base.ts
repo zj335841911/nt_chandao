@@ -1,3 +1,5 @@
+import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import IbzMyTerritoryAuthService from '@/app-core/auth-service/ibz-my-territory/ibz-my-territory-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class IbzMyTerritoryUIActionBase extends EntityUIActionBase {
      * @memberof  IbzMyTerritoryUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new IbzMyTerritoryAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

@@ -1,3 +1,5 @@
+import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
+import ProductStatsAuthService from '@/app-core/auth-service/product-stats/product-stats-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class ProductStatsUIActionBase extends EntityUIActionBase {
      * @memberof  ProductStatsUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ProductStatsAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

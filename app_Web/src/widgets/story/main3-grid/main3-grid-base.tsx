@@ -217,8 +217,8 @@ export class Main3GridBase extends GridControlBase {
         ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
         ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
         CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', target: 'SINGLEKEY'},
-        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'}
     };
 
     /**

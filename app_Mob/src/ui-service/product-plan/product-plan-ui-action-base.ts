@@ -1,3 +1,5 @@
+import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
+import ProductPlanAuthService from '@/app-core/auth-service/product-plan/product-plan-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
      * @memberof  ProductPlanUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ProductPlanAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

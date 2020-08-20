@@ -1,3 +1,5 @@
+import ReleaseService from '@/app-core/service/release/release-service';
+import ReleaseAuthService from '@/app-core/auth-service/release/release-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -74,7 +76,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
      * @memberof  ReleaseUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ReleaseAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

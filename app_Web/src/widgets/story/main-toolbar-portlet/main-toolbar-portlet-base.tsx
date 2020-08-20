@@ -242,7 +242,7 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet3_u80095ee_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet3_u2eccee8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -259,7 +259,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_OpenBaseInfoEditView(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_OpenBaseInfoC(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -372,6 +372,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-hand-o-right",
         icon: "",
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__STORY_ASS_BUT',
         visabled:true,
         disabled:false
         },
@@ -384,12 +385,12 @@ export class MainToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet3_u80095ee_click",
+        { viewlogicname:"dashboard_sysportlet3_u2eccee8_click",
         text: "编辑",
-        iconcls: "fa fa-edit",
-        icon: "",
-        noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__TASK_EDIT_BUT',
+        iconcls: null,
+        icon: null,
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__STORY_EDIT_BUT',
         visabled:true,
         disabled:false
         },
@@ -398,6 +399,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__STORY_DELETE_BUT',
         visabled:true,
         disabled:false
         }
@@ -427,8 +429,8 @@ export class MainToolbarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet3_uf8a8e0c_click')){
             this.dashboard_sysportlet3_uf8a8e0c_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet3_u80095ee_click')){
-            this.dashboard_sysportlet3_u80095ee_click(null);
+        if(Object.is($event,'dashboard_sysportlet3_u2eccee8_click')){
+            this.dashboard_sysportlet3_u2eccee8_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_uab5fac9_click')){
             this.dashboard_sysportlet3_uab5fac9_click(null);
