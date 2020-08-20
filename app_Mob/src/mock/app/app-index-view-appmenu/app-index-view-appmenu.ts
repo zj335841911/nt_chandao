@@ -58,7 +58,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
-	iconcls: 'paper',
+	iconcls: 'clipboard',
 	icon: '',
 	textcls: '',
 	appfunctag: '_7',

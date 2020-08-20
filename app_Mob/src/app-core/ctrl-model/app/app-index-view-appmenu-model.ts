@@ -62,7 +62,7 @@ export class AppIndexViewModel {
 	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
-	iconcls: 'paper',
+	iconcls: 'clipboard',
 	icon: '',
 	textcls: '',
 	appfunctag: '_7',
