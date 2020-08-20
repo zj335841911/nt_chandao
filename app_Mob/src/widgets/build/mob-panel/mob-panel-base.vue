@@ -31,7 +31,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.builder.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.builder.visible"  :lg="3" :size="3" :offset="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.builder" :context="context" :value="data.builder" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>

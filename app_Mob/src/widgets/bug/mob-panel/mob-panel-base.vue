@@ -31,19 +31,19 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.resolution.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  v-if="data.resolution" :context="context" :value="data.resolution" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__resolution"></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.resolution.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.assignedto.visible"  :lg="3" :size="3" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.resolution" :context="context" :value="data.resolution" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Bug__resolution"></app-mob-span>
+                    <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -321,9 +321,9 @@ export default class MobBase extends Vue implements ControlInterface {
 , 
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
-        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'assignedto', panel: this, visible: true  })
-, 
         resolution: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'resolution', panel: this, visible: true  })
+, 
+        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'assignedto', panel: this, visible: true  })
 , 
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container2', panel: this, visible: true  })
 , 
