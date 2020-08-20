@@ -143,7 +143,7 @@ export default class ActionMobMDView9Base extends Vue {
      * @type {*}
      * @memberof ActionMobMDView9Base
      */
-    protected navParam: any = { 'objecttype': '%OBJECTTYPE%' };
+    protected navParam: any = { 'srfparentkey': '%srfparentkey%', 'objecttype': '%OBJECTTYPE%' };
 
     /**
      * 视图模型数据
