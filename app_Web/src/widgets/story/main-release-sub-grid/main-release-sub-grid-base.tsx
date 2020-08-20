@@ -102,7 +102,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
      * @memberof Main_ReleaseSubBase
      */  
     public ActionModel: any = {
-        releaseUnlinkBug: { name: 'releaseUnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'MULTIKEY'}
+        releaseUnlinkBug: { name: 'releaseUnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'MULTIKEY'}
     };
 
     /**

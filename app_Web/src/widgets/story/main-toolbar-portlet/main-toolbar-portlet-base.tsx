@@ -337,6 +337,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -346,6 +347,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_ACTIVE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -355,6 +357,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_CHANGED_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -364,6 +367,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_REVIEW_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -373,6 +377,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_ASS_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -382,6 +387,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_CLOSED_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -391,6 +397,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -400,6 +407,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

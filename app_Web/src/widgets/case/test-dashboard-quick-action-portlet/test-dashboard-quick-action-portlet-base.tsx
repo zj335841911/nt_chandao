@@ -273,6 +273,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -282,6 +283,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_CASERUN_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -291,6 +293,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_CASERESULT_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -300,6 +303,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -309,6 +313,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

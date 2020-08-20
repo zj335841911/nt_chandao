@@ -262,13 +262,13 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkstory: { name: 'linkstory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEKEY'},
-        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: ''},
-        linkbug: { name: 'linkbug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEKEY'},
-        active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', target: 'SINGLEKEY'},
-        terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', target: 'SINGLEKEY'},
-        quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEKEY'},
-        remove: { name: 'remove',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', target: 'SINGLEKEY'}
+        linkstory: { name: 'linkstory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
+        linkbug: { name: 'linkbug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
+        terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', actiontarget: 'SINGLEKEY'},
+        quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        remove: { name: 'remove',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'}
     };
 
     /**

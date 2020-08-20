@@ -253,6 +253,7 @@ export class ActionBarPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -262,6 +263,7 @@ export class ActionBarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_ACTIVITE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -271,6 +273,7 @@ export class ActionBarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_START_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -280,6 +283,7 @@ export class ActionBarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_CLOSED_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -289,6 +293,7 @@ export class ActionBarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_BLOCK_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

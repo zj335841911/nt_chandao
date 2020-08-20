@@ -477,6 +477,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -486,6 +487,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -495,6 +497,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_ASSIGN_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -503,6 +506,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -512,6 +516,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_START_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -520,6 +525,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -529,6 +535,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_PAUSE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -538,6 +545,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_ACTIVATION_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -547,6 +555,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_COMPLETE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -556,6 +565,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_CANCEL_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -565,6 +575,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -574,6 +585,7 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_CLOSE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -582,6 +594,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

@@ -186,10 +186,10 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        LinkCase: { name: 'LinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_LCASE_BUT', target: 'SINGLEKEY'},
-        OpenInfoView: { name: 'OpenInfoView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_OPEN_BUT', target: 'SINGLEKEY'},
-        EditEdit: { name: 'EditEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', target: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', target: 'SINGLEKEY'}
+        LinkCase: { name: 'LinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_LCASE_BUT', actiontarget: 'SINGLEKEY'},
+        OpenInfoView: { name: 'OpenInfoView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_OPEN_BUT', actiontarget: 'SINGLEKEY'},
+        EditEdit: { name: 'EditEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**

@@ -365,6 +365,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -374,6 +375,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 1,
         dataaccaction:'UPDATE',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -383,6 +385,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 1,
         dataaccaction:'DELETE',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -392,6 +395,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 1,
         dataaccaction:'ASSIGNTO',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -401,6 +405,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 1,
         dataaccaction:'FINISH',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -410,6 +415,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 1,
         dataaccaction:'ACTIVATE',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -419,6 +425,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 1,
         dataaccaction:'CLOSE',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -428,6 +435,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 1,
         dataaccaction:'TOBUG',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -437,6 +445,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 1,
         dataaccaction:'TOTASK',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

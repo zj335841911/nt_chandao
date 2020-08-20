@@ -197,6 +197,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -205,6 +206,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -213,6 +215,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         iconcls: "fa fa-remove",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

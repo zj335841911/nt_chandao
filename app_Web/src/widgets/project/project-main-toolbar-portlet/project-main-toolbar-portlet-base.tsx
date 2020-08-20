@@ -283,6 +283,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_DELAY_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -292,6 +293,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_SUSPEND_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -301,6 +303,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_ACTIVATION_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -310,6 +313,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_CLOSED_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -319,6 +323,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -328,6 +333,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

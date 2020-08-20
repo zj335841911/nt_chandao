@@ -130,8 +130,8 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @memberof ProjectStoryBase
      */  
     public ActionModel: any = {
-        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', target: 'SINGLEKEY'},
-        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
+        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', actiontarget: 'SINGLEKEY'},
+        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**

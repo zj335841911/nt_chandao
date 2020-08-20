@@ -393,6 +393,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -401,6 +402,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -410,6 +412,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CLOSE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -419,6 +422,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_RESOLVE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -428,6 +432,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 1,
         dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -437,6 +442,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CONFIRM_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -446,6 +452,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -455,6 +462,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_TOSTORY_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -464,6 +472,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CREATECASE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -473,6 +482,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

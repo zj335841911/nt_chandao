@@ -225,6 +225,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -234,6 +235,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_LINKCASE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -243,6 +245,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_EDITSUITE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
@@ -252,6 +255,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }

@@ -158,9 +158,9 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkCaseDash: { name: 'linkCaseDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', target: 'SINGLEKEY'},
-        EditsuiteDash: { name: 'EditsuiteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', target: 'SINGLEKEY'},
-        DeleteDash: { name: 'DeleteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', target: 'SINGLEKEY'}
+        linkCaseDash: { name: 'linkCaseDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', actiontarget: 'SINGLEKEY'},
+        EditsuiteDash: { name: 'EditsuiteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', actiontarget: 'SINGLEKEY'},
+        DeleteDash: { name: 'DeleteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**

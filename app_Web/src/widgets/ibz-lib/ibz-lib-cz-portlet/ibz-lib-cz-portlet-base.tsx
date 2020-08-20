@@ -197,6 +197,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         iconcls: "fa fa-sign-out",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'',
         visabled:true,
         disabled:false
         },
@@ -206,6 +207,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         icon: null,
         noprivdisplaymode: 1,
         dataaccaction:'SRFUR__LIBM_EDIT_BUT',
+        actiontarget:'SINGLEDATA',
         visabled:true,
         disabled:false
         },
@@ -214,6 +216,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         iconcls: "fa fa-remove",
         icon: "",
         noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         }
