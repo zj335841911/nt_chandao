@@ -26,6 +26,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BuildService from '@/app-core/service/build/build-service';
 import MobPickupViewpickupviewpanelService from '@/app-core/ctrl-service/build/mob-pickup-viewpickupviewpanel-pickupviewpanel-service';
 
+import BuildUIService from '@/ui-service/build/build-ui-action';
+
 
 
 @Component({
@@ -131,6 +133,14 @@ export default class MobPickupViewpickupviewpanelBase extends Vue implements Con
      * @memberof MobPickupViewpickupviewpanel
      */
     protected appEntityService: BuildService = new BuildService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BuildUIService}
+     * @memberof MobPickupViewpickupviewpanelBase
+     */  
+    public deUIService:BuildUIService = new BuildUIService(this.$store);
     
 
     /**

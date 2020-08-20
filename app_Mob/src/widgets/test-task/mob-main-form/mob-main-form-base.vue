@@ -209,6 +209,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestTaskService from '@/app-core/service/test-task/test-task-service';
 import MobMainService from '@/app-core/ctrl-service/test-task/mob-main-form-service';
 
+import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -317,6 +319,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected appEntityService: TestTaskService = new TestTaskService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof MobMainBase
+     */  
+    public deUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     
 
     /**

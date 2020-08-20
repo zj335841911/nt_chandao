@@ -28,6 +28,7 @@ import ImgswipeStyleMenuService from '@/app-core/ctrl-service/app/imgswipe-style
 
 
 
+
 @Component({
     components: {
     }

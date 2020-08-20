@@ -18,6 +18,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
 import MobService from '@/app-core/ctrl-service/product-stats/mob-mobmdctrl-service';
 
+import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
+
 
 
 @Component({
@@ -123,6 +125,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: ProductStatsService = new ProductStatsService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductStatsUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:ProductStatsUIService = new ProductStatsUIService(this.$store);
     
 
     /**
@@ -641,6 +651,9 @@ export default class MobBase extends Vue implements ControlInterface {
             this.items = [];
             this.items = response.data.records;
         }
+        this.items.forEach((item:any)=>{
+            Object.assign(item,this.getActionState(item));    
+        });
         return response;
     }
 
@@ -913,6 +926,26 @@ export default class MobBase extends Vue implements ControlInterface {
         }
     }
 
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MobBase
+     */  
+    public ActionModel:any ={
+    };
+
+    /**
+     * 获取界面行为权限状态
+     *
+     * @memberof MobBase
+     */
+    public getActionState(data:any){
+        //let targetData:any = this.transformData(data);
+        let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
+        this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
+        return tempActionModel;
+    }
 }
 </script>
 

@@ -175,6 +175,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
 import MobMainService from '@/app-core/ctrl-service/release/mob-main-form-service';
 
+import ReleaseUIService from '@/ui-service/release/release-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -283,6 +285,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected appEntityService: ReleaseService = new ReleaseService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ReleaseUIService}
+     * @memberof MobMainBase
+     */  
+    public deUIService:ReleaseUIService = new ReleaseUIService(this.$store);
     
 
     /**

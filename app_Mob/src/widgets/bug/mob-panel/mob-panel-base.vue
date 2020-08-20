@@ -80,6 +80,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 import MobService from '@/app-core/ctrl-service/bug/mob-panel-service';
 
+import BugUIService from '@/ui-service/bug/bug-ui-action';
+
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
 
@@ -186,6 +188,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: BugService = new BugService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:BugUIService = new BugUIService(this.$store);
     
 
     /**

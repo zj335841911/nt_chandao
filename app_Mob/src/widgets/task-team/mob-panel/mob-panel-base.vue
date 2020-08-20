@@ -5,7 +5,7 @@
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
-                    <ion-icon name="person-add-sharp" style="font-size: 20px;"></ion-icon>
+                    <ion-icon name="person-add-sharp" style="font-size: 18px;"></ion-icon>
                 
                 
                 </ion-col>
@@ -67,6 +67,8 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskTeamService from '@/app-core/service/task-team/task-team-service';
 import MobService from '@/app-core/ctrl-service/task-team/mob-panel-service';
+
+import TaskTeamUIService from '@/ui-service/task-team/task-team-ui-action';
 
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
@@ -174,6 +176,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: TaskTeamService = new TaskTeamService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskTeamUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:TaskTeamUIService = new TaskTeamUIService(this.$store);
     
 
     /**

@@ -80,6 +80,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 import MobService from '@/app-core/ctrl-service/task/mob-panel-service';
 
+import TaskUIService from '@/ui-service/task/task-ui-action';
+
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
 
@@ -186,6 +188,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: TaskService = new TaskService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:TaskUIService = new TaskUIService(this.$store);
     
 
     /**

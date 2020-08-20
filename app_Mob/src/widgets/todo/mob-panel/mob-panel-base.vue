@@ -62,6 +62,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 import MobService from '@/app-core/ctrl-service/todo/mob-panel-service';
 
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
+
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
 
@@ -168,6 +170,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:TodoUIService = new TodoUIService(this.$store);
     
 
     /**

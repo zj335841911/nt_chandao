@@ -56,6 +56,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-my-territory/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 
+import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+
 
 
 @Component({
@@ -161,6 +163,14 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @memberof MobTabExpViewtabexppanel
      */
     protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof MobTabExpViewtabexppanelBase
+     */  
+    public deUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
     
 
     /**

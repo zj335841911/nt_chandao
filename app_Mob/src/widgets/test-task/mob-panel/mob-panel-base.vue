@@ -62,6 +62,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestTaskService from '@/app-core/service/test-task/test-task-service';
 import MobService from '@/app-core/ctrl-service/test-task/mob-panel-service';
 
+import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
+
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
 
@@ -168,6 +170,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: TestTaskService = new TestTaskService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     
 
     /**

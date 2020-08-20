@@ -19,6 +19,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 import MobTabExpViewtabviewpanelService from '@/app-core/ctrl-service/product/mob-tab-exp-viewtabviewpanel-tabviewpanel-service';
 
+import ProductUIService from '@/ui-service/product/product-ui-action';
+
 
 
 @Component({
@@ -124,6 +126,14 @@ export default class MobTabExpViewtabviewpanelBase extends Vue implements Contro
      * @memberof MobTabExpViewtabviewpanel
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MobTabExpViewtabviewpanelBase
+     */  
+    public deUIService:ProductUIService = new ProductUIService(this.$store);
     
 
     /**

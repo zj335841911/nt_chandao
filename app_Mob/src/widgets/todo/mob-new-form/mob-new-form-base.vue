@@ -200,6 +200,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 import MobNewService from '@/app-core/ctrl-service/todo/mob-new-form-service';
 
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -308,6 +310,14 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MobNewBase
+     */  
+    public deUIService:TodoUIService = new TodoUIService(this.$store);
     
 
     /**

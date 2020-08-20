@@ -149,6 +149,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 import AssMobService from '@/app-core/ctrl-service/todo/ass-mob-form-service';
 
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -257,6 +259,14 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof AssMobBase
+     */  
+    public deUIService:TodoUIService = new TodoUIService(this.$store);
     
 
     /**

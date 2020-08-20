@@ -239,6 +239,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 import MobMainService from '@/app-core/ctrl-service/project/mob-main-form-service';
 
+import ProjectUIService from '@/ui-service/project/project-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -347,6 +349,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected appEntityService: ProjectService = new ProjectService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MobMainBase
+     */  
+    public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
 
     /**

@@ -348,6 +348,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 import MobMainService from '@/app-core/ctrl-service/task/mob-main-form-service';
 
+import TaskUIService from '@/ui-service/task/task-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -456,6 +458,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected appEntityService: TaskService = new TaskService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof MobMainBase
+     */  
+    public deUIService:TaskUIService = new TaskUIService(this.$store);
     
 
     /**

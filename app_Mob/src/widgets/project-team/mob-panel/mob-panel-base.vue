@@ -41,6 +41,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectTeamService from '@/app-core/service/project-team/project-team-service';
 import MobService from '@/app-core/ctrl-service/project-team/mob-panel-service';
 
+import ProjectTeamUIService from '@/ui-service/project-team/project-team-ui-action';
+
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
 
@@ -147,6 +149,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: ProjectTeamService = new ProjectTeamService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectTeamUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
     
 
     /**

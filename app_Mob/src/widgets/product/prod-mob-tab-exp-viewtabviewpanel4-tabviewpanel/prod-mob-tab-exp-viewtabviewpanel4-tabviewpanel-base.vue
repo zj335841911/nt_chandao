@@ -19,6 +19,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 import ProdMobTabExpViewtabviewpanel4Service from '@/app-core/ctrl-service/product/prod-mob-tab-exp-viewtabviewpanel4-tabviewpanel-service';
 
+import ProductUIService from '@/ui-service/product/product-ui-action';
+
 
 
 @Component({
@@ -124,6 +126,14 @@ export default class ProdMobTabExpViewtabviewpanel4Base extends Vue implements C
      * @memberof ProdMobTabExpViewtabviewpanel4
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof ProdMobTabExpViewtabviewpanel4Base
+     */  
+    public deUIService:ProductUIService = new ProductUIService(this.$store);
     
 
     /**

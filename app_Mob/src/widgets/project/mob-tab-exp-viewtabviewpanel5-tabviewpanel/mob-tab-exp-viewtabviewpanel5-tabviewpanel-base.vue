@@ -19,6 +19,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 import MobTabExpViewtabviewpanel5Service from '@/app-core/ctrl-service/project/mob-tab-exp-viewtabviewpanel5-tabviewpanel-service';
 
+import ProjectUIService from '@/ui-service/project/project-ui-action';
+
 
 
 @Component({
@@ -124,6 +126,14 @@ export default class MobTabExpViewtabviewpanel5Base extends Vue implements Contr
      * @memberof MobTabExpViewtabviewpanel5
      */
     protected appEntityService: ProjectService = new ProjectService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MobTabExpViewtabviewpanel5Base
+     */  
+    public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
 
     /**

@@ -10,13 +10,13 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u86afc37', item)">指派</ion-item-option>
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'ud4e0bec', item)">完成</ion-item-option>
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'udf94362', item)">关闭</ion-item-option>
+                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled"  color="primary" @click="mdctrl_click($event, 'u86afc37', item)">指派</ion-item-option>
+                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled"  color="primary" @click="mdctrl_click($event, 'ud4e0bec', item)">完成</ion-item-option>
+                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled"  color="primary" @click="mdctrl_click($event, 'udf94362', item)">关闭</ion-item-option>
                         </ion-item-options>
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
+                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -36,13 +36,13 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u86afc37', item)">指派</ion-item-option>
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'ud4e0bec', item)">完成</ion-item-option>
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'udf94362', item)">关闭</ion-item-option>
+                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled"  color="primary" @click="mdctrl_click($event, 'u86afc37', item)">指派</ion-item-option>
+                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled"  color="primary" @click="mdctrl_click($event, 'ud4e0bec', item)">完成</ion-item-option>
+                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled"  color="primary" @click="mdctrl_click($event, 'udf94362', item)">关闭</ion-item-option>
                         </ion-item-options>
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
-                            <ion-item-option color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
+                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -125,6 +125,8 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 import MobService from '@/app-core/ctrl-service/todo/mob-mobmdctrl-service';
+
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 
 
@@ -231,6 +233,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:TodoUIService = new TodoUIService(this.$store);
     
 
     /**
@@ -904,6 +914,9 @@ export default class MobBase extends Vue implements ControlInterface {
             this.items = [];
             this.items = response.data.records;
         }
+        this.items.forEach((item:any)=>{
+            Object.assign(item,this.getActionState(item));    
+        });
         return response;
     }
 
@@ -1191,6 +1204,31 @@ export default class MobBase extends Vue implements ControlInterface {
         }
     }
 
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MobBase
+     */  
+    public ActionModel:any ={
+        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY'},
+        finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY'},
+        closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
+        activateMob: { name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY'}
+    };
+
+    /**
+     * 获取界面行为权限状态
+     *
+     * @memberof MobBase
+     */
+    public getActionState(data:any){
+        //let targetData:any = this.transformData(data);
+        let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
+        this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
+        return tempActionModel;
+    }
 }
 </script>
 

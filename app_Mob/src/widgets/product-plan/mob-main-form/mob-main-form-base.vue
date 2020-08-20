@@ -104,6 +104,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
 import MobMainService from '@/app-core/ctrl-service/product-plan/mob-main-form-service';
 
+import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -212,6 +214,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected appEntityService: ProductPlanService = new ProductPlanService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductPlanUIService}
+     * @memberof MobMainBase
+     */  
+    public deUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
     
 
     /**

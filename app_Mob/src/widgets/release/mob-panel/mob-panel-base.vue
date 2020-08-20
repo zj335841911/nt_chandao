@@ -84,6 +84,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
 import MobService from '@/app-core/ctrl-service/release/mob-panel-service';
 
+import ReleaseUIService from '@/ui-service/release/release-ui-action';
+
 import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldModel, PanelRawitemModel, PanelContainerModel } from '@/model/panel-detail';
 
 
@@ -190,6 +192,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected appEntityService: ReleaseService = new ReleaseService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ReleaseUIService}
+     * @memberof MobBase
+     */  
+    public deUIService:ReleaseUIService = new ReleaseUIService(this.$store);
     
 
     /**

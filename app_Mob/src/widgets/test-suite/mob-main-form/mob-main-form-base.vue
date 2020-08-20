@@ -185,6 +185,8 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
 import MobMainService from '@/app-core/ctrl-service/test-suite/mob-main-form-service';
 
+import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
+
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {  Util } from '@/ibiz-core/utils';
@@ -293,6 +295,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected appEntityService: TestSuiteService = new TestSuiteService();
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestSuiteUIService}
+     * @memberof MobMainBase
+     */  
+    public deUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
     
 
     /**

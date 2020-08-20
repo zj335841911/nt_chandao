@@ -28,6 +28,7 @@ import ListMenuService from '@/app-core/ctrl-service/app/list-menu-portlet-servi
 
 
 
+
 @Component({
     components: {
     }
