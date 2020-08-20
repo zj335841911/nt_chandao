@@ -76,7 +76,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof  CaseUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new CaseAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

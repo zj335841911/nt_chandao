@@ -76,7 +76,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof  BugUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new BugAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

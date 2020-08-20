@@ -76,7 +76,7 @@ export default class UserUIActionBase extends EntityUIActionBase {
      * @memberof  UserUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new UserAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

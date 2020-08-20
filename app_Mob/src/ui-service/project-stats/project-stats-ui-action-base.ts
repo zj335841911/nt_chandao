@@ -76,7 +76,7 @@ export default class ProjectStatsUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectStatsUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ProjectStatsAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

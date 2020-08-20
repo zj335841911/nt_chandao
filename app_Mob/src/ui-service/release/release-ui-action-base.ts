@@ -76,7 +76,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
      * @memberof  ReleaseUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ReleaseAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

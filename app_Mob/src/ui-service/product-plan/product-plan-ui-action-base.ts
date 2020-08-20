@@ -76,7 +76,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
      * @memberof  ProductPlanUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new ProductPlanAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

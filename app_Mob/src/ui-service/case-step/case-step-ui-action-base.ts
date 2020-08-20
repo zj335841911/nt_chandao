@@ -76,7 +76,7 @@ export default class CaseStepUIActionBase extends EntityUIActionBase {
      * @memberof  CaseStepUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new CaseStepAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

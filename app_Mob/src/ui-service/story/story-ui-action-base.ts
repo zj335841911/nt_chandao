@@ -76,7 +76,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof  StoryUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new StoryAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

@@ -76,7 +76,7 @@ export default class IbzMyTerritoryUIActionBase extends EntityUIActionBase {
      * @memberof  IbzMyTerritoryUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new IbzMyTerritoryAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

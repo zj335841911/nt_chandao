@@ -76,7 +76,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof  TaskUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TaskAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

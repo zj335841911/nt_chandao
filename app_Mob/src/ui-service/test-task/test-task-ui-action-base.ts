@@ -76,7 +76,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @memberof  TestTaskUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TestTaskAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();

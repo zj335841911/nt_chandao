@@ -76,7 +76,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
      * @memberof  TodoUIServiceBase
      */
     constructor(opts: any = {}) {
-        super(opts);
+        super();
         this.authService = new TodoAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
