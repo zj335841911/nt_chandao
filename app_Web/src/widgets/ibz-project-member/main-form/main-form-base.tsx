@@ -148,7 +148,8 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        button1: new FormButtonModel({ caption: '团队管理', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'TeamManagement', actiontarget: 'SINGLEKEY' } }),
+        button1: new FormButtonModel({ caption: '团队管理', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'TeamManagement',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PROJT_TM_BUT',visabled: true,disabled: false} })
 
         group1: new FormGroupPanelModel({ caption: '项目相关成员基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzprojectmember.main_form', extractMode: 'ITEM', details: [] } }),
 

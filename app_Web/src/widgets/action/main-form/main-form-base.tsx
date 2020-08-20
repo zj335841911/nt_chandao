@@ -218,9 +218,11 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        button1: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'Exit' } }),
+        button1: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'Exit',noprivdisplaymode:2,visabled: true,disabled: false} })
 
-        button2: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
+        button2: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'SaveAndExit',noprivdisplaymode:2,visabled: true,disabled: false} })
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.action.main_form', extractMode: 'ITEM', details: [] } }),
 
