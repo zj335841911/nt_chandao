@@ -57,13 +57,13 @@
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                        <ion-col v-show="detailsModel.rawitem2.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-rowitem">
                             <ion-icon name="pause" style="color: blue;font-size: 18px;"></ion-icon>
                         
                         
                         </ion-col>
                         
-                        <ion-col v-show="detailsModel.rawitem3.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                        <ion-col v-show="detailsModel.rawitem3.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-rowitem">
                             <ion-icon name="play" style="color: brown;font-size: 18px;"></ion-icon>
                         
                         
