@@ -40,7 +40,13 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.assignedto.visible"  :lg="3" :size="3" :offset="2" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" :offset="1" style="" class="app-layoutpanel-rowitem">
+                    <i class="fa fa-hand-o-right"></i>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.assignedto.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
@@ -304,6 +310,15 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'assignedto')) {
+            let ret = false;
+            const _assignedto = this.data.assignedto;
+            if (this.$verify.testCond(this.data.assignedto, 'NOTEQ', 'closed') && this.$verify.testCond(this.data.assignedto, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem1.setVisible(ret);
+        }
+
 
 
     }
@@ -322,6 +337,8 @@ export default class MobBase extends Vue implements ControlInterface {
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
         resolution: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'resolution', panel: this, visible: true  })
+, 
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
 , 
         assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'assignedto', panel: this, visible: true  })
 , 

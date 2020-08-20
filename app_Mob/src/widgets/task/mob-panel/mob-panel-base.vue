@@ -309,6 +309,14 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'assignedto')) {
+            let ret = false;
+            const _assignedto = this.data.assignedto;
+            if (this.$verify.testCond(this.data.assignedto, 'ISNOTNULL', '') && this.$verify.testCond(this.data.assignedto, 'NOTEQ', 'closed')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem1.setVisible(ret);
+        }
 
 
 
