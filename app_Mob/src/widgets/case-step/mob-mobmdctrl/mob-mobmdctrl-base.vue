@@ -184,6 +184,20 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
+
+    /**
+     * 转化数据
+     *
+     * @param {any} args
+     * @memberof  MobBase
+     */
+    public transformData(args: any) {
+        let _this: any = this;
+        if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
+            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+        }
+    }
+
     /**
      * 建构部件服务对象
      *
@@ -512,6 +526,14 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public selectedValue:string = ""; 
+
+    /**
+    * 部件排序对象
+    *
+    * @param {object} 
+    * @memberof Mob
+    */
+    public sort: any = { sort:'id,asc'};
     
     /**
     * 底部改变状态
@@ -676,7 +698,11 @@ export default class MobBase extends Vue implements ControlInterface {
         if (!data.size) {
             Object.assign(data, { size: this.pageSize });
         }
-        //排序
+        //部件排序
+        if(this.sort){
+​           Object.assign(data,this.sort);
+        }
+        //视图排序
         if(data.data && data.data.sort){
             Object.assign(data, { sort:data.data.sort });
         }

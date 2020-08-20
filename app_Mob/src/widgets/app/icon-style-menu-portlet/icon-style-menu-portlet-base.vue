@@ -2,7 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet '>
             <ion-list-header class='app-mob-portlet__header'>图标 </ion-list-header>
-                <view_db_appmenu2_appmenu 
+                <view_db_appmenu2_appmenu
     :viewState="viewState"
     viewName="AppPortalView"  
     :viewparams="viewparams" 
@@ -101,6 +101,8 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
      * @memberof IconStyleMenu
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
+
+
 
     /**
      * 建构部件服务对象

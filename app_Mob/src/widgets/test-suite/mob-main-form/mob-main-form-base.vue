@@ -264,6 +264,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
+
+    /**
+     * 转化数据
+     *
+     * @param {any} args
+     * @memberof  MobMainBase
+     */
+    public transformData(args: any) {
+        let _this: any = this;
+        if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
+            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+        }
+    }
+
     /**
      * 建构部件服务对象
      *
@@ -1697,7 +1711,26 @@ export default class MobMainBase extends Vue implements ControlInterface {
     public updateDefault(){                    
     }
 
-    
+
+    /**
+     * 计算表单按钮权限状态
+     *
+     * @param {*} [data] 传入数据
+     * @memberof EditorsBase
+     */
+    public computeButtonState(data:any){
+        let targetData:any = this.transformData(data);
+        if(this.detailsModel && Object.keys(this.detailsModel).length >0){
+            Object.keys(this.detailsModel).forEach((name:any) =>{
+                if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
+                    let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
+                    this.$viewTool.calcActionItemAuthState(targetData,[tempUIAction],this.globaluiservice);
+                    this.detailsModel[name].visible = tempUIAction.visabled;
+                    this.detailsModel[name].disabled = tempUIAction.disabled;
+                }
+            })
+        }
+    }
 }
 </script>
 

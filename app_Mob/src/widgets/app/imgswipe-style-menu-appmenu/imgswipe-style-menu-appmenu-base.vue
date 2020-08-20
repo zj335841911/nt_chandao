@@ -132,6 +132,8 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
+
+
     /**
      * 建构部件服务对象
      *

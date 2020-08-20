@@ -93,6 +93,7 @@ export default class MobEditViewEngine extends ViewEngine {
     public onFormLoad(arg: any): void {
         this.view.$emit('load', arg);
         this.view.$emit('viewdataschange', JSON.stringify({ action: 'load', status: 'success', data: arg }));
+        this.calcToolbarItemAuthState(this.transformData(arg));
     }
 
     /**
@@ -104,6 +105,7 @@ export default class MobEditViewEngine extends ViewEngine {
     public onFormSave(arg: any): void {
         this.view.$emit('save', arg);
         this.view.$emit('viewdataschange', JSON.stringify({ action: 'save', status: 'success', data: arg }));
+        this.calcToolbarItemAuthState(this.transformData(arg));
     }
 
     /**
@@ -125,6 +127,18 @@ export default class MobEditViewEngine extends ViewEngine {
      */
     public getForm(): any {
         return this.form;
+    }
+
+    /**
+     * 转化数据
+     *
+     * @memberof EditViewEngine
+     */
+    public transformData(arg:any){
+        if(!this.getForm() || !(this.getForm().transformData instanceof Function)){
+            return null;
+        }
+        return this.getForm().transformData(arg);
     }
 
 }

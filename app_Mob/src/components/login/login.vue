@@ -1,29 +1,26 @@
 <template>
     <ion-page :className="{ 'app-login': true }">
-        <ion-header>
-            <ion-toolbar>
-                <ion-buttons slot="end">
-                    <img src="assets/images/logo.png" />
-                </ion-buttons>
-            </ion-toolbar>
-        </ion-header>
         <ion-content fullscreen>
             <div class="app-login-contant">
+                <img src="assets/images/logo.png" class="ibizLogo"/>
                 <form class="app-login-form">
-                    <ion-list lines="full" class=" ion-no-padding">
-                        <ion-item>
-                            <ion-label position="floating">{{$t('username')}}<ion-text color="danger">*</ion-text></ion-label>
-                            <ion-input required type="text" debounce="100" :value="username" @ionChange="($event) => username = $event.detail.value"></ion-input>
-                        </ion-item>
-                        <ion-item>
-                            <ion-label position="floating">{{$t('password')}}<ion-text color="danger">*</ion-text></ion-label>
-                            <ion-input required type="password" debounce="100" :value="password" @ionChange="($event) => password = $event.detail.value"></ion-input>
-                        </ion-item>
-                    </ion-list>
+                    <ion-item lines="none">
+                        <ion-label position="stacked">{{$t('username')}}：</ion-label>
+                        <ion-input clear-input required type="text" debounce="100" :value="username" @ionChange="($event) => username = $event.detail.value"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label position="stacked">{{$t('password')}}：</ion-label>
+                        <ion-input clear-input required type="password" debounce="100" :value="password" @ionChange="($event) => password = $event.detail.value"></ion-input>
+                    </ion-item>
                     <div class="ion-padding button">
                         <ion-button expand="block" :disabled="isLoadding" class="ion-no-margin" @click="login">{{$t('submit')}}</ion-button>
                     </div>
                 </form>
+                <!-- <div class="thirdParty">
+                    <img src="assets/aliiconfont/dingding.svg">
+                    <img src="assets/aliiconfont/QQ.svg">
+                    <img src="assets/aliiconfont/weixin.svg">
+                </div> -->
             </div>
         </ion-content>
     </ion-page>

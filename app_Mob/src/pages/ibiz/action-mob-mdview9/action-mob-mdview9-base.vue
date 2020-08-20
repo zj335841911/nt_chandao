@@ -3,7 +3,7 @@
     <template slot="header">
     </template>
     <template slot="content">
-                <view_mdctrl 
+                <view_mdctrl
             :viewState="viewState"
             viewName="ActionMobMDView9"  
             :viewparams="viewparams" 

@@ -95,6 +95,20 @@ export default class MobTabExpViewtabviewpanel3Base extends Vue implements Contr
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
+
+    /**
+     * 转化数据
+     *
+     * @param {any} args
+     * @memberof  MobTabExpViewtabviewpanel3Base
+     */
+    public transformData(args: any) {
+        let _this: any = this;
+        if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
+            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+        }
+    }
+
     /**
      * 建构部件服务对象
      *

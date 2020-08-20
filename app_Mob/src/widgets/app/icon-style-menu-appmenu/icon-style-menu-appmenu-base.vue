@@ -132,6 +132,8 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
+
+
     /**
      * 建构部件服务对象
      *

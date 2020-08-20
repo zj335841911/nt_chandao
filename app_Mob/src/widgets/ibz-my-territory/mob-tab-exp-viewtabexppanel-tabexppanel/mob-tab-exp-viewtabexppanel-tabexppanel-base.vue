@@ -1,7 +1,7 @@
 <template>
     <span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel 
+                        <view_tabviewpanel
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -12,7 +12,7 @@
             </view_tabviewpanel>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
-                        <view_tabviewpanel2 
+                        <view_tabviewpanel2
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -23,7 +23,7 @@
             </view_tabviewpanel2>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3 
+                        <view_tabviewpanel3
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -34,7 +34,7 @@
             </view_tabviewpanel3>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
-                        <view_tabviewpanel4 
+                        <view_tabviewpanel4
                 :viewState="viewState"
                 viewName="IbzMyTerritoryMobTabExpView"  
                 :viewparams="viewparams" 
@@ -132,6 +132,20 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
+
+    /**
+     * 转化数据
+     *
+     * @param {any} args
+     * @memberof  MobTabExpViewtabexppanelBase
+     */
+    public transformData(args: any) {
+        let _this: any = this;
+        if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
+            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+        }
+    }
+
     /**
      * 建构部件服务对象
      *
@@ -196,7 +210,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {string}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
              
     /**
      * vue 生命周期
@@ -224,7 +238,10 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
                     this.tabPanelClick(data.activeItem);
                 } else {
                     this.$nextTick(() => {
-                        this.viewState.next({ tag: this.activiedTabViewPanel, action: action, data: data });
+                     let panel:any = this.activiedTabViewPanel
+                     if(panel){
+                     this.viewState.next({ tag: panel, action: this.action, data: {}});
+                    }
                     });
                 }
             });
@@ -265,9 +282,12 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         if (!this.viewState) {
             return;
         }
-        this.activiedTabViewPanel = $event;
+        this.$emit("changepanel",$event);
         this.$nextTick(() => {
-            this.viewState.next({ tag: this.activiedTabViewPanel, action: this.action, data: {}});
+            let panel:any = this.activiedTabViewPanel
+            if(panel){
+              this.viewState.next({ tag: panel, action: this.action, data: {}});
+            }
         });
     }
 
