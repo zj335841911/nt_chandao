@@ -71,10 +71,10 @@ export class AppIndexViewModel {
         {
 	id: 'ECEF3D08-7FE9-4A0D-9493-9EEEF6BD1CDE',
 	name: 'menuitem4',
-	text: '我的',
+	text: '我',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '我的',
+	tooltip: '我',
 	expanded: false,
 	separator: false,
 	hidden: false,
