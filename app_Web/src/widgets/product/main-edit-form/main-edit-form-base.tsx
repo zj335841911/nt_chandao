@@ -160,7 +160,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.main_edit_form', extractMode: 'ITEM', details: [] } }),
 
         button1: new FormButtonModel({ caption: '维护产品线', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'SeLine',actiontarget: 'NONE',noprivdisplaymode:2,visabled: true,disabled: false} })
+ tag: 'SeLine',actiontarget: 'NONE',noprivdisplaymode:2,visabled: true,disabled: false} }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.main_edit_form', extractMode: 'ITEM', details: [] } }),
 

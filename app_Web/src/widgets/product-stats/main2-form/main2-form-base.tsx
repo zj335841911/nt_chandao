@@ -278,10 +278,10 @@ export class Main2EditFormBase extends EditFormControlBase {
         rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         button4: new FormButtonModel({ caption: '查看全部', detailType: 'BUTTON', name: 'button4', visible: false, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenProductStoryView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_STOREOP_BUT',visabled: true,disabled: false} })
+ tag: 'OpenProductStoryView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_STOREOP_BUT',visabled: true,disabled: false} }),
 
         button5: new FormButtonModel({ caption: '提需求', detailType: 'BUTTON', name: 'button5', visible: false, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenStoryCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_STORYCRT_BUT',visabled: true,disabled: false} })
+ tag: 'OpenStoryCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_STORYCRT_BUT',visabled: true,disabled: false} }),
 
         grouppanel6: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
@@ -292,7 +292,7 @@ export class Main2EditFormBase extends EditFormControlBase {
         grouppanel1: new FormGroupPanelModel({ caption: '产品需求统计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         button1: new FormButtonModel({ caption: '创建计划', detailType: 'BUTTON', name: 'button1', visible: false, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenProductPlanCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_PLANCRT_BUT',visabled: true,disabled: false} })
+ tag: 'OpenProductPlanCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_PLANCRT_BUT',visabled: true,disabled: false} }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
@@ -301,14 +301,14 @@ export class Main2EditFormBase extends EditFormControlBase {
         rawitem4: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         button2: new FormButtonModel({ caption: '创建项目', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenProjectCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_PROJCRT_BUT',visabled: true,disabled: false} })
+ tag: 'OpenProjectCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_PROJCRT_BUT',visabled: true,disabled: false} }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel9: new FormGroupPanelModel({ caption: '项目', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         button3: new FormButtonModel({ caption: '创建发布', detailType: 'BUTTON', name: 'button3', visible: false, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenReleasedCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_RELCRT_BUT',visabled: true,disabled: false} })
+ tag: 'OpenReleasedCreateView',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PRODSTA_RELCRT_BUT',visabled: true,disabled: false} }),
 
         grouppanel5: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 

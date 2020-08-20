@@ -278,10 +278,10 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         grouppanel3: new FormGroupPanelModel({ caption: '其他相关', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
         button1: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'SaveAndExit',noprivdisplaymode:2,visabled: true,disabled: false} })
+ tag: 'SaveAndExit',noprivdisplaymode:2,visabled: true,disabled: false} }),
 
         button2: new FormButtonModel({ caption: '返回', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'Exit',noprivdisplaymode:2,visabled: true,disabled: false} })
+ tag: 'Exit',noprivdisplaymode:2,visabled: true,disabled: false} }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '按钮', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
