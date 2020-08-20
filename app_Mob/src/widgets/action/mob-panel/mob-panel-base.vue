@@ -4,7 +4,7 @@
         <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container">
             <ion-row style="height:100%;">
                 
-                <ion-col v-show="detailsModel.date.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.date.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
