@@ -27,6 +27,10 @@ zuul:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_action:
+      path: /actions/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_casestep:
       path: /casesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

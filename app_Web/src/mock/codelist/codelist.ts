@@ -376,7 +376,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "一般",
                 "data":"",
                 "codename":"Item_1",
-                value: "1",
+                value: 1,
                 
                 disabled: false,
             },
@@ -386,7 +386,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "最高",
                 "data":"",
                 "codename":"Item_2",
-                value: "2",
+                value: 2,
                 
                 disabled: false,
             },
@@ -396,7 +396,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "较高",
                 "data":"",
                 "codename":"Item_3",
-                value: "3",
+                value: 3,
                 
                 disabled: false,
             },
@@ -406,7 +406,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "最低",
                 "data":"",
                 "codename":"Item_4",
-                value: "4",
+                value: 4,
                 
                 disabled: false,
             },

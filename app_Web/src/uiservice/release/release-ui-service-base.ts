@@ -243,6 +243,9 @@ export default class ReleaseUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '停止维护成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -306,6 +309,9 @@ export default class ReleaseUIServiceBase extends UIService {
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
             actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
             return null;
         }
         openIndexViewTab(data);
@@ -427,6 +433,9 @@ export default class ReleaseUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '激活成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
