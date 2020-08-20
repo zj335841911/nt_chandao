@@ -63,8 +63,6 @@ export default {
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
 };
