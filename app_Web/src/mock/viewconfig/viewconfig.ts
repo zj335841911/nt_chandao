@@ -183,6 +183,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzCaseGridView",
             "viewtag": "0da13bc2f5883c69742cac5e4e866e2a"
         },
+        "bugmpickupview4": {
+            "title": "关联Bug",
+            "caption": "关联Bug",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMPickupView4",
+            "viewtag": "0dc54afa855dec1037987a074b6bc8a3"
+        },
         "ibzmyterritorytabexpview": {
             "title": "我的地盘",
             "caption": "我的地盘",
@@ -310,6 +318,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzLibModuleTreeExpView",
             "viewtag": "1be20d21085195e17a87ad447b4cddb2"
+        },
+        "bugpickupgridview4": {
+            "title": "bug选择表格视图",
+            "caption": "Bug",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugPickupGridView4",
+            "viewtag": "1c4104beb7e8515d20d03262732ba4f8"
         },
         "producttestgridview": {
             "title": "所有产品",
@@ -2047,6 +2063,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
         },
+        "bugpickupgridview5": {
+            "title": "bug选择表格视图",
+            "caption": "Bug",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugPickupGridView5",
+            "viewtag": "becbcfda999bc9082dd51a7629f00dd7"
+        },
         "todogridview": {
             "title": "待办事宜表格视图",
             "caption": "待办事宜表",
@@ -2606,6 +2630,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
+        },
+        "bugmpickupview5": {
+            "title": "关联Bug",
+            "caption": "关联Bug",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMPickupView5",
+            "viewtag": "f1e935bce2146c2c75597dcee9ee4412"
         },
         "taskforwardview": {
             "title": "转交任务",

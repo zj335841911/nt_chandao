@@ -1675,7 +1675,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
-                "iconcls":"radio-button-on",
+                "iconcls":"radio-button-off",
                 "color": "rgba(227, 6, 6, 1)",
                 "disabled": false
             }
@@ -1684,7 +1684,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
-                "iconcls":"radio-button-on",
+                "iconcls":"radio-button-off",
                 "color": "rgba(255, 191, 0, 1)",
                 "disabled": false
             }
@@ -1693,7 +1693,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
-                "iconcls":"radio-button-on",
+                "iconcls":"radio-button-off",
                 "color": "rgba(16, 174, 231, 1)",
                 "disabled": false
             }
@@ -1702,7 +1702,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
-                "iconcls":"radio-button-on",
+                "iconcls":"radio-button-off",
                 "color": "rgba(49, 234, 12, 1)",
                 "disabled": false
             }

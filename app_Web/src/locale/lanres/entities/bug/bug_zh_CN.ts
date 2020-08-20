@@ -74,6 +74,10 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		mpickupview4: {
+			caption: "关联Bug",
+      		title: "关联Bug",
+		},
 		maineditview: {
 			caption: "Bug编辑",
       		title: "Bug编辑",
@@ -81,6 +85,10 @@ export default {
 		maindashboardview: {
 			caption: "Bug",
       		title: "Bug数据看板视图",
+		},
+		pickupgridview4: {
+			caption: "Bug",
+      		title: "bug选择表格视图",
 		},
 		pickupgridview: {
 			caption: "Bug",
@@ -158,6 +166,10 @@ export default {
 			caption: "待办提交",
       		title: "待办提交",
 		},
+		pickupgridview5: {
+			caption: "Bug",
+      		title: "bug选择表格视图",
+		},
 		resolveview: {
 			caption: "解决Bug",
       		title: "解决Bug",
@@ -193,6 +205,10 @@ export default {
 		dashboardmaineditview9: {
 			caption: "Bug",
       		title: "主信息",
+		},
+		mpickupview5: {
+			caption: "关联Bug",
+      		title: "关联Bug",
 		},
 		buildsubgridview_done: {
 			caption: "Bug",

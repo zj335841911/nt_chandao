@@ -1294,7 +1294,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "3",
                 "data":"",
                 "codename":"Item_3",
-                "color": "rgba(49, 27, 146, 1)",
+                "color": "rgba(52, 8, 248, 1)",
                 value: 3,
                 
                 disabled: false,
@@ -2825,7 +2825,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "4",
                 "data":"",
                 "codename":"Item_4",
-                "color": "rgba(197, 26, 26, 1)",
+                "color": "rgba(94, 231, 3, 1)",
                 value: 4,
                 
                 disabled: false,
@@ -6477,6 +6477,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "通过",
                 "data":"",
                 "codename":"Pass",
+                "color": "rgba(126, 222, 16, 1)",
                 value: "pass",
                 
                 disabled: false,
@@ -6487,6 +6488,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "失败",
                 "data":"",
                 "codename":"Fail",
+                "color": "rgba(238, 18, 18, 1)",
                 value: "fail",
                 
                 disabled: false,
@@ -6497,6 +6499,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(220, 224, 12, 1)",
                 value: "blocked",
                 
                 disabled: false,
