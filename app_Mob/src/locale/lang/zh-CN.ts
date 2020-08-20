@@ -72,7 +72,7 @@ export default {
                 menuitem1: '产品',
                 menuitem2: '项目',
                 menuitem3: '测试',
-                menuitem4: '我',
+                menuitem4: '我的',
             },
             listmenu: {
                 menuitem1: '电脑',
