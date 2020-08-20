@@ -318,7 +318,7 @@ final public class ZTReleaseHelper {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
-        String actionName = ACTION_EDIT;
+        String actionName = ACTION_CHANGESTATUS;
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CHANGESTATUS;
         Map<String, Object> actionParams = ACTION_PARAMS_CHANGESTATUS;
         List<String> actionUrlParams = ACTION_URL_PARAMS_CHANGESTATUS;

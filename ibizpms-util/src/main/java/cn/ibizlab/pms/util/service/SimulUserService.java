@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnExpression("(!${ibiz.enablePermissionValid:false})&&'${ibiz.auth.service:IBZUAAUserService}'.equals('SimulUserService')")
+@ConditionalOnExpression("(${ibiz.enablePermissionValid:false})&&'${ibiz.auth.service:SimpleUserService}'.equals('SimulUserService')")
 public class SimulUserService implements AuthenticationUserService {
 
 	@Autowired
