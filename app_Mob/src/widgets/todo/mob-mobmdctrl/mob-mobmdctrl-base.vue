@@ -109,7 +109,7 @@
                     loadingSpinner="bubbles"
                     loadingText="正在加载数据">
                 </ion-infinite-scroll-content>
-            </ion-infinite-scroll>
+            </ion-infinite-scroll>    
           </van-pull-refresh>
         </div>
     </div>

@@ -1,5 +1,12 @@
 <template>
-    <app-list-index :items="items" @clickItem="item_click"></app-list-index>
+    <div  class="app-mob-mdctrl ">
+        <div class="app-mob-mdctrl-mdctrl">
+          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh">
+                    <app-list-index :items="items" @clickItem="item_click"></app-list-index>
+
+          </van-pull-refresh>
+        </div>
+    </div>
 </template>
 
 <script lang='ts'>
