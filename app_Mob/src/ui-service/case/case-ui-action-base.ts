@@ -1,3 +1,5 @@
+import CaseService from '@/app-core/service/case/case-service';
+import CaseAuthService from '@/app-core/auth-service/case/case-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';

@@ -123,6 +123,16 @@
        }
         ,
        {
+            "unirescode":"STORY_CCASE_BUT",
+            "uniresname":"需求建用例"
+       }
+        ,
+       {
+            "unirescode":"STORY_ASS_BUT",
+            "uniresname":"需求指派给"
+       }
+        ,
+       {
             "unirescode":"PRODUCTLEFT",
             "uniresname":"产品左侧资源"
        }
@@ -140,6 +150,11 @@
        {
             "unirescode":"TASK_CREATE_BUT",
             "uniresname":"任务新建"
+       }
+        ,
+       {
+            "unirescode":"STORY_DELETE_BUT",
+            "uniresname":"需求删除"
        }
         ,
        {
