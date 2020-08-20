@@ -101,6 +101,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3c4e9f0d609bc0f1cf08431649cc8e67',
+            viewmodule: 'ibiz',
+            viewname: 'ActionMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '46c4b323d60fd1658313b26c6b3ac34d',
             viewmodule: 'ibiz',
             viewname: 'TestSuiteMobEditView',
@@ -436,6 +445,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {

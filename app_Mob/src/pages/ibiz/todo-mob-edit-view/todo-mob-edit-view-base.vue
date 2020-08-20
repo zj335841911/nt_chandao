@@ -149,7 +149,7 @@ export default class TodoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TodoMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'todo' };
 
     /**
      * 视图导航参数
@@ -158,7 +158,7 @@ export default class TodoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TodoMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'objecttype': 'todo' };
 
     /**
      * 视图模型数据

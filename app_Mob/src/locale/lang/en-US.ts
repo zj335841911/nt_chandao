@@ -3,6 +3,7 @@ import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
+import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
 import release_en_US from '@locale/lanres/release/release_en_US';
 import taskteam_en_US from '@locale/lanres/task-team/task-team_en_US';
@@ -155,6 +156,7 @@ export default {
     build: build_en_US,
     task: task_en_US,
     product: product_en_US,
+    action: action_en_US,
     casestep: casestep_en_US,
     release: release_en_US,
     taskteam: taskteam_en_US,

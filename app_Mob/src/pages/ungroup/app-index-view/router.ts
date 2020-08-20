@@ -663,6 +663,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
                 },
                 {
+                    path: 'actions/:action?/mobmdview9',
+                    meta: {
+                        caption: 'action.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/action-mob-mdview9/action-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/mobeditview',
                     meta: {
                         caption: 'project.views.mobeditview.caption',

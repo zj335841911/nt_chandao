@@ -60,6 +60,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			group1: '待办事宜表基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
