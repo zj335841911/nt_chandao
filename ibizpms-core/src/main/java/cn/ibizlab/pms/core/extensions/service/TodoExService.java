@@ -140,7 +140,7 @@ public class TodoExService extends TodoServiceImpl {
             et.setId(key);
         }
         else{
-            if(et.getType() != null && "cycle".equals(et.getType()) && et.getConfig() != null) {
+            if(et.getType() != null && "cycle".equals(et.getType()) && et.getConfig() != null && !"".equals(et.getConfig())) {
                 JSONObject jsonObject = JSONObject.parseObject(et.getConfig());
                 et.setConfigType(jsonObject.getString("type"));
                 et.setConfigBeforedays(jsonObject.getInteger("beforeDays"));
