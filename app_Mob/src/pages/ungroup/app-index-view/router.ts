@@ -305,6 +305,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-edit-view/product-mob-edit-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/moboptionview',
+                    meta: {
+                        caption: 'todo.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',

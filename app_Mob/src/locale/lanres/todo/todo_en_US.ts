@@ -11,6 +11,9 @@ export default {
 		mobeditview: {
 			caption: '待办事宜表',
 		},
+		moboptionview: {
+			caption: '待办事宜表',
+		},
 	},
 	mobnew_form: {
 		details: {
@@ -30,6 +33,26 @@ export default {
 			end: '结束', 
 			type: '类型', 
 			private: '私人事务', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	assmob_form: {
+		details: {
+			group1: '指派给', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '待办名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignto: '指派给', 
+			date: '日期', 
+			begin: '开始时间', 
+			end: '结束时间', 
 			id: '编号', 
 		},
 		uiactions: {

@@ -1436,7 +1436,7 @@
                 "id": "1",
                 "label": "一般",
                 "text": "一般",
-                "value": "1",
+                "value": 1,
                 "className":"text-blue-border-color",
                 "disabled": false
             }
@@ -1444,7 +1444,7 @@
                 "id": "2",
                 "label": "最高",
                 "text": "最高",
-                "value": "2",
+                "value": 2,
                 "className":"text-red-border-color",
                 "disabled": false
             }
@@ -1452,7 +1452,7 @@
                 "id": "3",
                 "label": "较高",
                 "text": "较高",
-                "value": "3",
+                "value": 3,
                 "className":"text-pink-border-color",
                 "disabled": false
             }
@@ -1460,7 +1460,7 @@
                 "id": "4",
                 "label": "最低",
                 "text": "最低",
-                "value": "4",
+                "value": 4,
                 "className":"text-green-border-color",
                 "disabled": false
             }

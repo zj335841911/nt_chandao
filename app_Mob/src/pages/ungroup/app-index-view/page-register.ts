@@ -10,6 +10,7 @@ export const PageComponents = {
         Vue.component('release-mob-mdview', () => import('@pages/ibiz/release-mob-mdview/release-mob-mdview.vue'));
         Vue.component('story-ass-mob-mdview', () => import('@pages/ibiz/story-ass-mob-mdview/story-ass-mob-mdview.vue'));
         Vue.component('product-mob-edit-view', () => import('@pages/ibiz/product-mob-edit-view/product-mob-edit-view.vue'));
+        Vue.component('todo-mob-option-view', () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'));
         Vue.component('bug-mob-mdview', () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'));
         Vue.component('product-plan-mob-edit-view', () => import('@pages/ibiz/product-plan-mob-edit-view/product-plan-mob-edit-view.vue'));
         Vue.component('product-prod-mob-tab-exp-view', () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'));
