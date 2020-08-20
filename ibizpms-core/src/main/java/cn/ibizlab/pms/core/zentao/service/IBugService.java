@@ -58,6 +58,8 @@ public interface IBugService extends IService<Bug>{
     Page<Bug> searchDefault(BugSearchContext context) ;
     Page<Bug> searchReleaseBugs(BugSearchContext context) ;
     Page<Bug> searchReleaseLeftBugs(BugSearchContext context) ;
+    Page<Bug> searchReleaseLinkableLeftBug(BugSearchContext context) ;
+    Page<Bug> searchReleaseLinkableResolvedBug(BugSearchContext context) ;
     Page<Bug> searchReportBugs(BugSearchContext context) ;
     List<Bug> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;

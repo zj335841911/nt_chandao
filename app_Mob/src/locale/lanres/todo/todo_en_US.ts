@@ -62,10 +62,6 @@ export default {
 		},
 	},
 	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'Save And Close',
-			tip: 'tbitem1',
-		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		tbitem1: {

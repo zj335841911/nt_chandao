@@ -21,36 +21,6 @@ export default class GlobalUiServiceBase extends UIActionBase {
 
 
     /**
-     * 保存并关闭
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName]
-     * @returns {Promise<any>}
-     * @memberof 
-     */
-    public async SaveAndExit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let response: any;
-        if (xData && xData.saveAndExit instanceof Function) {
-            const _data = {};
-            response = await xData.saveAndExit(_data);
-            if (response || response.status === 200) {
-                container.$emit('viewdataschange', [{ ...response.data }]);
-            }
-        } else if (container.saveAndExit && container.saveAndExit instanceof Function) {
-            response = await xData.saveAndExit();
-            if (response || response.status === 200) {
-                container.$emit('closeview', [{ ...response.data }]);
-            }
-        }
-        return response;
-    }
-
-    /**
      * 新建
      *
      * @param {any[]} args 数据
