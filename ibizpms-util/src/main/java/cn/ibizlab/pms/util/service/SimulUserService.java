@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnExpression("'${spring.application.name}'.startsWith('pms-web')")
+@ConditionalOnExpression("(!${ibiz.enablePermissionValid:false})&&'${ibiz.auth.service:IBZUAAUserService}'.equals('SimulUserService')")
 public class SimulUserService implements AuthenticationUserService {
 
 	@Autowired
