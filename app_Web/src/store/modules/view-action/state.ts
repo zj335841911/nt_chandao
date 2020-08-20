@@ -184,6 +184,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0dc54afa855dec1037987a074b6bc8a3',
+            viewmodule: 'zentao',
+            viewname: 'BugMPickupView4',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1c4104beb7e8515d20d03262732ba4f8',
+            ],
+        },
+        {
             viewtag: '0f3dff62ef8bcb1662cc82e57a34c56b',
             viewmodule: 'ibiz',
             viewname: 'IbzMyTerritoryTabExpView',
@@ -330,6 +340,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5bf2f708034d7488fbb4aa848d15d1d',
+            ],
+        },
+        {
+            viewtag: '1c4104beb7e8515d20d03262732ba4f8',
+            viewmodule: 'zentao',
+            viewname: 'BugPickupGridView4',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1092,6 +1111,7 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
+                '0dc54afa855dec1037987a074b6bc8a3',
             ],
         },
         {
@@ -2252,6 +2272,7 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
+                'f1e935bce2146c2c75597dcee9ee4412',
             ],
         },
         {
@@ -2355,6 +2376,15 @@ export const viewstate: any = {
             viewtag: 'bda78773fabbeee54079951afb35f954',
             viewmodule: 'zentao',
             viewname: 'ModulePickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'becbcfda999bc9082dd51a7629f00dd7',
+            viewmodule: 'zentao',
+            viewname: 'BugPickupGridView5',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2996,6 +3026,16 @@ export const viewstate: any = {
                 '9ed41cee96088630f3d4b0a91e705930',
                 'a9d151a6bb5fb2481836a7e0ed5afb7e',
                 '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
+            ],
+        },
+        {
+            viewtag: 'f1e935bce2146c2c75597dcee9ee4412',
+            viewmodule: 'zentao',
+            viewname: 'BugMPickupView5',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'becbcfda999bc9082dd51a7629f00dd7',
             ],
         },
         {

@@ -102,10 +102,10 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      * @memberof StoryReleaseSubGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'releaseLinkStories', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'releaseLinkStories', target: 'NONE', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction3: { name: 'deuiaction3', caption: '批量移除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '批量移除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'releaseBatchUnlinkBug', target: 'MULTIKEY', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: '批量移除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '批量移除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'releaseBatchUnlinkBug', target: 'MULTIKEY', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },

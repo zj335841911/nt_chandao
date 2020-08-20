@@ -372,6 +372,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-hand-o-right",
         icon: "",
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__STORY_ASS_BUT',
         visabled:true,
         disabled:false
         },
@@ -389,7 +390,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__TASK_EDIT_BUT',
+        dataaccaction:'SRFUR__STORY_EDIT_BUT',
         visabled:true,
         disabled:false
         },
@@ -398,6 +399,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__STORY_DELETE_BUT',
         visabled:true,
         disabled:false
         }

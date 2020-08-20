@@ -126,7 +126,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
 
     };
 
