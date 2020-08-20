@@ -4,7 +4,13 @@
         <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
-                <ion-col v-show="detailsModel.account.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
+                    <ion-icon name="person-add-sharp" style="font-size: 20px;"></ion-icon>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.account.visible"  :lg="5" :size="5" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
@@ -13,7 +19,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.role.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.role.visible"  :lg="3" :size="3" :offset="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.role" :context="context" :value="data.role" :itemParam="{}"  ></app-mob-span>
@@ -40,7 +46,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.left.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.left" :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
@@ -306,6 +312,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -315,6 +322,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected detailsModel: any = {
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
+, 
         account: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
 , 
         role: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'role', panel: this, visible: true  })

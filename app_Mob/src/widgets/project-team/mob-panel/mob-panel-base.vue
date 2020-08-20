@@ -5,7 +5,7 @@
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
-                    <ion-icon name="person-circle-sharp" style="color: brown;font-size: 18px;"></ion-icon>
+                    <ion-icon name="person-add-sharp" style="font-size: 18px;"></ion-icon>
                 
                 
                 </ion-col>
