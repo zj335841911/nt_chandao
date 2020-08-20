@@ -31,6 +31,12 @@
                 
                 </ion-col>
                 
+                <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
+                    <i class="fa fa-hand-o-right"></i>
+                
+                
+                </ion-col>
+                
                 <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
@@ -40,7 +46,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" :offset="3" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.left" :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
@@ -306,6 +312,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -320,6 +327,8 @@ export default class MobBase extends Vue implements ControlInterface {
         name: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'name', panel: this, visible: true  })
 , 
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
+, 
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
 , 
         assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'assignedto', panel: this, visible: true  })
 , 
