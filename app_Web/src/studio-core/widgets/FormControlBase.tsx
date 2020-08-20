@@ -642,7 +642,7 @@ export class FormControlBase extends MainControlBase {
                 if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
                     let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
                     ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService);
-                    this.detailsModel[name].visible = tempUIAction.visabled;
+                    this.detailsModel[name].setVisible(tempUIAction.visabled);
                     this.detailsModel[name].disabled = tempUIAction.disabled;
                 }
             })
