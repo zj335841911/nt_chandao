@@ -287,7 +287,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.todo.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -295,7 +295,7 @@ export class MainGridBase extends GridControlBase {
             label: '日期',
             langtag: 'entities.todo.main_grid.columns.date1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -303,7 +303,7 @@ export class MainGridBase extends GridControlBase {
             label: '类型',
             langtag: 'entities.todo.main_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -311,7 +311,7 @@ export class MainGridBase extends GridControlBase {
             label: '优先级',
             langtag: 'entities.todo.main_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -319,7 +319,7 @@ export class MainGridBase extends GridControlBase {
             label: '待办名称',
             langtag: 'entities.todo.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -327,7 +327,7 @@ export class MainGridBase extends GridControlBase {
             label: '开始',
             langtag: 'entities.todo.main_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -335,7 +335,7 @@ export class MainGridBase extends GridControlBase {
             label: '结束',
             langtag: 'entities.todo.main_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -343,7 +343,7 @@ export class MainGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.todo.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -351,7 +351,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.todo.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

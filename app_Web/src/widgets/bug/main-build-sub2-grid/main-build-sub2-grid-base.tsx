@@ -142,7 +142,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main_buildsub2_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -150,7 +150,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.bug.main_buildsub2_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -158,7 +158,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_buildsub2_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -166,7 +166,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.bug.main_buildsub2_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -174,7 +174,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.bug.main_buildsub2_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -182,7 +182,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: '创建日期',
             langtag: 'entities.bug.main_buildsub2_grid.columns.openeddate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -190,7 +190,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: '解决',
             langtag: 'entities.bug.main_buildsub2_grid.columns.resolvedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -198,7 +198,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.bug.main_buildsub2_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

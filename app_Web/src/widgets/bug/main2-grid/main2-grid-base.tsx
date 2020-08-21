@@ -121,7 +121,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main2_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class Main2GridBase extends GridControlBase {
             label: '级别',
             langtag: 'entities.bug.main2_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main2_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class Main2GridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.bug.main2_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

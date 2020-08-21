@@ -137,7 +137,7 @@ export class MainProjectGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.productplan.mainproject_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

@@ -229,7 +229,7 @@ export class MainGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.testtask.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -237,7 +237,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -245,7 +245,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品',
             langtag: 'entities.testtask.main_grid.columns.productname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -253,7 +253,7 @@ export class MainGridBase extends GridControlBase {
             label: '项目',
             langtag: 'entities.testtask.main_grid.columns.projecttname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -261,7 +261,7 @@ export class MainGridBase extends GridControlBase {
             label: '版本',
             langtag: 'entities.testtask.main_grid.columns.build',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -269,7 +269,7 @@ export class MainGridBase extends GridControlBase {
             label: '负责人',
             langtag: 'entities.testtask.main_grid.columns.owner',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -277,7 +277,7 @@ export class MainGridBase extends GridControlBase {
             label: '开始日期',
             langtag: 'entities.testtask.main_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -285,7 +285,7 @@ export class MainGridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.testtask.main_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -293,7 +293,7 @@ export class MainGridBase extends GridControlBase {
             label: '当前状态',
             langtag: 'entities.testtask.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -301,7 +301,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.testtask.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

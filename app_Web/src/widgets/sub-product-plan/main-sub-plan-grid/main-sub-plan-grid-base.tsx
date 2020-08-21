@@ -113,7 +113,7 @@ export class MainSubPlanGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class MainSubPlanGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class MainSubPlanGridBase extends GridControlBase {
             label: '开始日期',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class MainSubPlanGridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

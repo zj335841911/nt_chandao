@@ -12,6 +12,7 @@
     </template>
     <template slot="consumed" slot-scope="{row, $index, column}">
     <input-box 
+  
   :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
   v-model="row[column.property]" 
   style=""
@@ -24,6 +25,7 @@
     </template>
     <template slot="left" slot-scope="{row, $index, column}">
     <input-box 
+  
   :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
   v-model="row[column.property]" 
   style=""
@@ -36,6 +38,7 @@
     </template>
     <template slot="work" slot-scope="{row, $index, column}">
     <input-box 
+  
   :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
   v-model="row[column.property]" 
   style=""

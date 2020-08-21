@@ -113,7 +113,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.productstats.allproduct_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '当前项目',
             langtag: 'entities.productstats.allproduct_grid.columns.currproject',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '计划数',
             langtag: 'entities.productstats.allproduct_grid.columns.productplancnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '发布数',
             langtag: 'entities.productstats.allproduct_grid.columns.releasecnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '激活需求',
             langtag: 'entities.productstats.allproduct_grid.columns.activestorycnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -153,7 +153,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '未解决Bug',
             langtag: 'entities.productstats.allproduct_grid.columns.activebugcnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

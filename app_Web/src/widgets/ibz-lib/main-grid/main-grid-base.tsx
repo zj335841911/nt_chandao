@@ -97,7 +97,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.ibzlib.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -105,7 +105,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.ibzlib.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

@@ -129,7 +129,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.testtask.main2_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class Main2GridBase extends GridControlBase {
             label: '产品',
             langtag: 'entities.testtask.main2_grid.columns.productname',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class Main2GridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.testtask.main2_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -153,7 +153,7 @@ export class Main2GridBase extends GridControlBase {
             label: '项目',
             langtag: 'entities.testtask.main2_grid.columns.projecttname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -161,7 +161,7 @@ export class Main2GridBase extends GridControlBase {
             label: '版本',
             langtag: 'entities.testtask.main2_grid.columns.build',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -169,7 +169,7 @@ export class Main2GridBase extends GridControlBase {
             label: '开始日期',
             langtag: 'entities.testtask.main2_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -177,7 +177,7 @@ export class Main2GridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.testtask.main2_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

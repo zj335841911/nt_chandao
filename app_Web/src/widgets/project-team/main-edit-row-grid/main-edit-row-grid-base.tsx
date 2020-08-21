@@ -129,7 +129,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             label: '用户',
             langtag: 'entities.projectteam.main_editrow_grid.columns.account',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -137,7 +137,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             label: '角色',
             langtag: 'entities.projectteam.main_editrow_grid.columns.role',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -145,7 +145,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             label: '可用工日',
             langtag: 'entities.projectteam.main_editrow_grid.columns.days',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -153,7 +153,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             label: '可用工时/天',
             langtag: 'entities.projectteam.main_editrow_grid.columns.hours',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -161,7 +161,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             label: '受限用户',
             langtag: 'entities.projectteam.main_editrow_grid.columns.limited',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
     ]

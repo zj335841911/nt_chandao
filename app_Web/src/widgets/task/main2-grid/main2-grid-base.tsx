@@ -121,7 +121,7 @@ export class Main2GridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.task.main2_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.task.main2_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class Main2GridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.task.main2_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class Main2GridBase extends GridControlBase {
             label: '任务状态',
             langtag: 'entities.task.main2_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

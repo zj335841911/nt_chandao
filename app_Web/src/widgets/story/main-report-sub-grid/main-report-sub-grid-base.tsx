@@ -129,7 +129,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.story.main_reportsub_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.story.main_reportsub_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.main_reportsub_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -153,7 +153,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.story.main_reportsub_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -161,7 +161,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: '指派',
             langtag: 'entities.story.main_reportsub_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -169,7 +169,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: '预计',
             langtag: 'entities.story.main_reportsub_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -177,7 +177,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.story.main_reportsub_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -185,7 +185,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             label: '阶段',
             langtag: 'entities.story.main_reportsub_grid.columns.stage',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

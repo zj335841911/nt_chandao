@@ -97,7 +97,7 @@ export class LineGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.module.line_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -105,7 +105,7 @@ export class LineGridBase extends GridControlBase {
             label: '简称',
             langtag: 'entities.module.line_grid.columns.short',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
     ]

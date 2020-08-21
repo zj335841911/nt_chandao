@@ -113,7 +113,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main_buildsub3_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.bug.main_buildsub3_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_buildsub3_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: 'Bug状态',
             langtag: 'entities.bug.main_buildsub3_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.bug.main_buildsub3_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -153,7 +153,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: '指派',
             langtag: 'entities.bug.main_buildsub3_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -161,7 +161,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: '解决者',
             langtag: 'entities.bug.main_buildsub3_grid.columns.resolvedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -169,7 +169,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: '方案',
             langtag: 'entities.bug.main_buildsub3_grid.columns.resolution',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -177,7 +177,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             label: '所属项目',
             langtag: 'entities.bug.main_buildsub3_grid.columns.project',
             show: false,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

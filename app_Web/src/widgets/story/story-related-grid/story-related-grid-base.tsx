@@ -137,7 +137,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.story.storyrelated_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.storyrelated_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

@@ -155,7 +155,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.ibzcase.main_grid.columns.lib',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -163,7 +163,7 @@ export class MainGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.ibzcase.main_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -171,7 +171,7 @@ export class MainGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.ibzcase.main_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -179,7 +179,7 @@ export class MainGridBase extends GridControlBase {
             label: '用例类型',
             langtag: 'entities.ibzcase.main_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -187,7 +187,7 @@ export class MainGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.ibzcase.main_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -195,7 +195,7 @@ export class MainGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.ibzcase.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -203,7 +203,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.ibzcase.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

@@ -145,7 +145,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             label: '日期',
             langtag: 'entities.todo.myupcoming_grid.columns.date1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -153,7 +153,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             label: '开始',
             langtag: 'entities.todo.myupcoming_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -161,7 +161,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             label: '优先级',
             langtag: 'entities.todo.myupcoming_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -169,7 +169,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             label: '待办名称',
             langtag: 'entities.todo.myupcoming_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

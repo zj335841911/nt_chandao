@@ -198,7 +198,7 @@ export class MainEditGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.taskestimate.mainedit_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -206,7 +206,7 @@ export class MainEditGridBase extends GridControlBase {
             label: '日期',
             langtag: 'entities.taskestimate.mainedit_grid.columns.dates',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -214,7 +214,7 @@ export class MainEditGridBase extends GridControlBase {
             label: '总计消耗',
             langtag: 'entities.taskestimate.mainedit_grid.columns.consumed',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -222,7 +222,7 @@ export class MainEditGridBase extends GridControlBase {
             label: '预计剩余',
             langtag: 'entities.taskestimate.mainedit_grid.columns.left',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -230,7 +230,7 @@ export class MainEditGridBase extends GridControlBase {
             label: '备注',
             langtag: 'entities.taskestimate.mainedit_grid.columns.work',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -238,7 +238,7 @@ export class MainEditGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.taskestimate.mainedit_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

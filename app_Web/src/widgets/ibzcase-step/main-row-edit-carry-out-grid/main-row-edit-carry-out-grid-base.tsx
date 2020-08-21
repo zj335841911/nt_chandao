@@ -129,7 +129,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             label: '步骤',
             langtag: 'entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             label: '预期',
             langtag: 'entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             label: '测试结果',
             langtag: 'entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -153,7 +153,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             label: '实际情况',
             langtag: 'entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
     ]

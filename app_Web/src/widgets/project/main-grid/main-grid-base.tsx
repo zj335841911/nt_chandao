@@ -113,7 +113,7 @@ export class MainGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.project.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class MainGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.project.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class MainGridBase extends GridControlBase {
             label: '项目代号',
             langtag: 'entities.project.main_grid.columns.code',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class MainGridBase extends GridControlBase {
             label: '项目状态',
             langtag: 'entities.project.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class MainGridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.project.main_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

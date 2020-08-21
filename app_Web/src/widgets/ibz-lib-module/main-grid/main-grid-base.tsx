@@ -145,7 +145,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.ibzlibmodule.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -153,7 +153,7 @@ export class MainGridBase extends GridControlBase {
             label: '简称',
             langtag: 'entities.ibzlibmodule.main_grid.columns.short',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -161,7 +161,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.ibzlibmodule.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

@@ -113,7 +113,7 @@ export class MainGridBase extends GridControlBase {
             label: '团队',
             langtag: 'entities.taskteam.main_grid.columns.account',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class MainGridBase extends GridControlBase {
             label: '最初预计',
             langtag: 'entities.taskteam.main_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class MainGridBase extends GridControlBase {
             label: '总计消耗',
             langtag: 'entities.taskteam.main_grid.columns.consumed',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class MainGridBase extends GridControlBase {
             label: '预计剩余',
             langtag: 'entities.taskteam.main_grid.columns.left',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

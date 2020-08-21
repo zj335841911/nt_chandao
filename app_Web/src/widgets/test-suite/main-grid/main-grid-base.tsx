@@ -200,7 +200,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.testsuite.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -208,7 +208,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.testsuite.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -216,7 +216,7 @@ export class MainGridBase extends GridControlBase {
             label: '描述',
             langtag: 'entities.testsuite.main_grid.columns.desc',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -224,7 +224,7 @@ export class MainGridBase extends GridControlBase {
             label: '由谁创建',
             langtag: 'entities.testsuite.main_grid.columns.addedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -232,7 +232,7 @@ export class MainGridBase extends GridControlBase {
             label: '创建时间',
             langtag: 'entities.testsuite.main_grid.columns.addeddate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -240,7 +240,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.testsuite.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

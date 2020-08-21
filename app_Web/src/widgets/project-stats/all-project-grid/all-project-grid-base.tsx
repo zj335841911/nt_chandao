@@ -113,7 +113,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.projectstats.allproject_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '截至日期',
             langtag: 'entities.projectstats.allproject_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.projectstats.allproject_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -137,7 +137,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '预计',
             langtag: 'entities.projectstats.allproject_grid.columns.totalestimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -145,7 +145,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '消耗',
             langtag: 'entities.projectstats.allproject_grid.columns.totalconsumed',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -153,7 +153,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '剩余',
             langtag: 'entities.projectstats.allproject_grid.columns.totalleft',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -161,7 +161,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '总工时',
             langtag: 'entities.projectstats.allproject_grid.columns.totalwh',
             show: false,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -169,7 +169,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '进度',
             langtag: 'entities.projectstats.allproject_grid.columns.progress',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

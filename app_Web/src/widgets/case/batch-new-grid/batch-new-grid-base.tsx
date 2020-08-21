@@ -129,7 +129,7 @@ export class BatchNewGridBase extends GridControlBase {
             label: '所属模块',
             langtag: 'entities.case.batchnew_grid.columns.modulename',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -137,7 +137,7 @@ export class BatchNewGridBase extends GridControlBase {
             label: '相关需求',
             langtag: 'entities.case.batchnew_grid.columns.storyname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -145,7 +145,7 @@ export class BatchNewGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.batchnew_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -153,7 +153,7 @@ export class BatchNewGridBase extends GridControlBase {
             label: '用例类型',
             langtag: 'entities.case.batchnew_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
     ]

@@ -113,7 +113,7 @@ export class PlatformManagementGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.branch.platformmanagement_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +121,7 @@ export class PlatformManagementGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.branch.platformmanagement_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +129,7 @@ export class PlatformManagementGridBase extends GridControlBase {
             label: '排序',
             langtag: 'entities.branch.platformmanagement_grid.columns.order',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
