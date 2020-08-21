@@ -15,6 +15,9 @@ export default {
 		mobmdview: {
 			caption: '产品',
 		},
+		closemobeditview: {
+			caption: '关闭产品',
+		},
 	},
 	mobmain_form: {
 		details: {
@@ -46,7 +49,30 @@ export default {
 		uiactions: {
 		},
 	},
+	mobclose_form: {
+		details: {
+			group1: '产品基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '产品名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	closemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},

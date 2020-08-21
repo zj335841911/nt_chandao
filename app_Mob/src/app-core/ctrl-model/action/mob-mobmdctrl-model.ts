@@ -18,7 +18,9 @@ export class MobModel {
 				name: 'date',
 			},
 			{
-				name: 'action',
+				name: 'actions',
+				prop: 'action',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'actionmanner',

@@ -9,209 +9,33 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('productplan.mobmain_form.details.group1')" 
+    :caption="$t('product.mobclose_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="true" 
+    :isInfoGroupMode="false" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='title' 
+    name='comment' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="title_item"  
-    :itemValue="this.data.title" 
-    v-show="detailsModel.title.visible" 
-    :itemRules="this.rules.title" 
-    :caption="$t('productplan.mobmain_form.details.title')"  
+    labelPos="TOP" 
+    ref="comment_item"  
+    :itemValue="this.data.comment" 
+    v-show="detailsModel.comment.visible" 
+    :itemRules="this.rules.comment" 
+    :caption="$t('product.mobclose_form.details.comment')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.title.disabled"
-    :error="detailsModel.title.error" 
+    :disabled="detailsModel.comment.disabled"
+    :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.title" 
-    :context="context" 
-    :value="data.title" 
-    :itemParam="{}"/>
+        <app-mob-textarea  
+    class="app-form-item-textarea" 
+        :value="data.comment" 
+    :disabled="detailsModel.comment.disabled" 
+    @change="($event)=>this.data.comment = $event" />
 </app-form-item>
-
-
-
-<app-form-item 
-    name='begin' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="begin_item"  
-    :itemValue="this.data.begin" 
-    v-show="detailsModel.begin.visible" 
-    :itemRules="this.rules.begin" 
-    :caption="$t('productplan.mobmain_form.details.begin')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.begin.disabled"
-    :error="detailsModel.begin.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.begin" 
-    :context="context" 
-    :value="data.begin" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='end' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="end_item"  
-    :itemValue="this.data.end" 
-    v-show="detailsModel.end.visible" 
-    :itemRules="this.rules.end" 
-    :caption="$t('productplan.mobmain_form.details.end')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.end.disabled"
-    :error="detailsModel.end.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.end" 
-    :context="context" 
-    :value="data.end" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='storycnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="storycnt_item"  
-    :itemValue="this.data.storycnt" 
-    v-show="detailsModel.storycnt.visible" 
-    :itemRules="this.rules.storycnt" 
-    :caption="$t('productplan.mobmain_form.details.storycnt')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.storycnt.disabled"
-    :error="detailsModel.storycnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.storycnt" 
-    :context="context" 
-    :value="data.storycnt" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('productplan.mobmain_form.details.grouppanel1')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="1" 
-    :isInfoGroupMode="true" 
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='productplan' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='story-mob-mdview9' 
-    paramItem='productplan' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-        { pathName: 'products', parameterName: 'product' },
-    ]" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
-
-
-
-<app-form-item 
-    name='bugcnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="bugcnt_item"  
-    :itemValue="this.data.bugcnt" 
-    v-show="detailsModel.bugcnt.visible" 
-    :itemRules="this.rules.bugcnt" 
-    :caption="$t('productplan.mobmain_form.details.bugcnt')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.bugcnt.disabled"
-    :error="detailsModel.bugcnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.bugcnt" 
-    :context="context" 
-    :value="data.bugcnt" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('productplan.mobmain_form.details.grouppanel2')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="1" 
-    :isInfoGroupMode="true" 
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='productplan' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='bug-plan-mob-mdview9' 
-    paramItem='productplan' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdefname":"PLAN","srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN","SRFDER1NID":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN"}' 
-    :parameters="[
-        { pathName: 'products', parameterName: 'product' },
-    ]" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
 
 
     
@@ -229,10 +53,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
-import MobMainService from '@/app-core/ctrl-service/product-plan/mob-main-form-service';
+import ProductService from '@/app-core/service/product/product-service';
+import MobCloseService from '@/app-core/ctrl-service/product/mob-close-form-service';
 
-import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
+import ProductUIService from '@/ui-service/product/product-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -243,13 +67,13 @@ import {  Util } from '@/ibiz-core/utils';
     components: {
     }
 })
-export default class MobMainBase extends Vue implements ControlInterface {
+export default class MobCloseBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected name?: string;
 
@@ -257,7 +81,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected viewName!: string;
 
@@ -266,7 +90,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -274,7 +98,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -282,7 +106,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -291,7 +115,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -299,7 +123,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected getControlType(): string {
         return 'FORM'
@@ -309,7 +133,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -318,7 +142,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MobMainBase
+     * @memberof  MobCloseBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -330,33 +154,33 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MobMainService}
-     * @memberof MobMain
+     * @type {MobCloseService}
+     * @memberof MobClose
      */
-    protected service: MobMainService = new MobMainService({$store:this.$store});
+    protected service: MobCloseService = new MobCloseService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
-     * @memberof MobMain
+     * @type {ProductService}
+     * @memberof MobClose
      */
-    protected appEntityService: ProductPlanService = new ProductPlanService();
+    protected appEntityService: ProductService = new ProductService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProductPlanUIService}
-     * @memberof MobMainBase
+     * @type {ProductUIService}
+     * @memberof MobCloseBase
      */  
-    public deUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
+    public deUIService:ProductUIService = new ProductUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -367,7 +191,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() srfwfmemo?: string;
 
@@ -375,7 +199,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     public getDatas(): any[] {
         return [this.data];
@@ -385,7 +209,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     public getData(): any {
         return this.data;
@@ -395,7 +219,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -403,7 +227,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -411,7 +235,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -419,7 +243,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected WFStartAction!: string;
     
@@ -427,7 +251,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected updateAction!: string;
     
@@ -435,7 +259,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected removeAction!: string;
     
@@ -443,7 +267,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -451,7 +275,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected loadAction!: string;
     
@@ -459,7 +283,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected createAction!: string;
 
@@ -467,7 +291,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected searchAction!: string;
 
@@ -475,7 +299,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Prop() protected viewtag!: string;
 
@@ -483,7 +307,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected formState: Subject<any> = new Subject();
 
@@ -491,7 +315,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -500,7 +324,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -509,7 +333,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -518,7 +342,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private oldData: any = {};
 
@@ -526,7 +350,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected data: any = {
         srforikey: null,
@@ -536,20 +360,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        title: null,
-        begin: null,
-        end: null,
-        storycnt: null,
-        bugcnt: null,
+        comment: null,
         id: null,
-        productplan: null,
+        product: null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof MobMain
+      * @memberof MobClose
       */
     protected currentAction: string = "";
 
@@ -557,7 +377,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof MobMain
+      * @memberof MobClose
       */
     protected drcounter: number = 0;
 
@@ -565,7 +385,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof MobMain
+      * @memberof MobClose
       */
     protected saveState:any ;
 
@@ -573,7 +393,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected rules: any = {
         srforikey: [
@@ -589,10 +409,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
         srfmajortext: [
-            { type: 'string', message: '名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
         ],
         srftempmode: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
@@ -618,35 +438,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        title: [
-            { type: 'string', message: '名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        begin: [
-            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
-        ],
-        end: [
-            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
-        ],
-        storycnt: [
-            { type: 'number', message: '需求数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '需求数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '需求数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '需求数 值不能为空', trigger: 'blur' },
-        ],
-        bugcnt: [
-            { type: 'number', message: 'bug数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'bug数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'bug数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'bug数 值不能为空', trigger: 'blur' },
+        comment: [
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
@@ -660,7 +456,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobMainBase
+     * @memberof MobCloseBase
      */
     public deRules:any = {
     };
@@ -670,7 +466,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof MobMainBase
+     * @memberof MobCloseBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -735,18 +531,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this })
-, 
-        grouppanel1: new FormGroupPanelModel({ caption: '关联需求详情', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
-, 
-        grouppanel2: new FormGroupPanelModel({ caption: '关联Bug详情', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '产品基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'product.mobclose_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -754,7 +542,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        srfmajortext: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -764,15 +552,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        bugcnt: new FormItemModel({ caption: 'bug数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -783,7 +563,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -795,7 +575,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -807,7 +587,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -819,7 +599,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -831,7 +611,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -843,7 +623,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -855,7 +635,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -863,63 +643,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 title 值
+     * 监控表单属性 comment 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
-    @Watch('data.title')
-    onTitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 begin 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.begin')
-    onBeginChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 end 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.end')
-    onEndChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 storycnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.storycnt')
-    onStorycntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'storycnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 bugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.bugcnt')
-    onBugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'bugcnt', newVal: newVal, oldVal: oldVal });
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -927,7 +659,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobClose
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -940,7 +672,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -966,50 +698,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
-            let ret = false;
-            const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.druipart2.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
-            let ret = false;
-            const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.grouppanel1.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
-            let ret = false;
-            const _bugcnt = this.data.bugcnt;
-            if (this.$verify.testCond(_bugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.druipart1.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
-            let ret = false;
-            const _bugcnt = this.data.bugcnt;
-            if (this.$verify.testCond(_bugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.grouppanel2.setVisible(ret);
-        }
-
-
-
-
-
 
 
 
@@ -1063,7 +755,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1081,7 +773,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -1097,7 +789,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1122,7 +814,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1138,7 +830,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1150,7 +842,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1166,7 +858,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1184,10 +876,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'begin_item', 'end_item', 'storycnt_item', 'bugcnt_item', ];
+        const refArr: Array<string> = ['comment_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1202,7 +894,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected getValues(): any {
         return this.data;
@@ -1213,7 +905,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1231,7 +923,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1249,7 +941,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1261,7 +953,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected created(): void {
         this.afterCreated();
@@ -1270,7 +962,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MobMain
+     *  @memberof MobClose
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1323,7 +1015,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1332,7 +1024,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1347,7 +1039,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof MobMain
+     * @memberof @memberof MobClose
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1357,7 +1049,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1380,7 +1072,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1402,7 +1094,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1430,7 +1122,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1442,8 +1134,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.productplan){
-                Object.assign(this.context, { productplan: data.productplan });
+            if(data.product){
+                Object.assign(this.context, { product: data.product });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -1464,7 +1156,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -1508,7 +1200,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -1521,7 +1213,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const data = this.getValues();
         Object.assign(arg, data);
         if (isStateNext) {
-            this.drcounter = 2;
+            this.drcounter = 0;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1602,7 +1294,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -1625,7 +1317,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -1652,7 +1344,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1692,7 +1384,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected onEnter($event: any): void {
     }
@@ -1703,7 +1395,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -1721,7 +1413,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1740,7 +1432,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobClose
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1755,7 +1447,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof MobMain
+    * @memberof MobClose
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -1778,14 +1470,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof MobMain
+     * @memberof MobClose
      */
     public createDefault(){                    
     }
 
         /**
      * 更新默认值
-     * @memberof MobMainBase
+     * @memberof MobCloseBase
      */
     public updateDefault(){                    
     }
@@ -1814,5 +1506,5 @@ export default class MobMainBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mob-main-form.less';
+@import './mob-close-form.less';
 </style>

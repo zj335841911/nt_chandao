@@ -22,10 +22,10 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.action.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.actions.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.action" :context="context" :value="data.action" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
+                    <app-mob-span  v-if="data.actions" :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
                 </div>
                 
                 
@@ -309,7 +309,7 @@ export default class MobBase extends Vue implements ControlInterface {
 , 
         actor: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'actor', panel: this, visible: true  })
 , 
-        action: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'action', panel: this, visible: true  })
+        actions: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'actions', panel: this, visible: true  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 

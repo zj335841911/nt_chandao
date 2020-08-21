@@ -375,6 +375,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '984a4d5ce6ca2ede5539d44590ef20a6',
+                'c7a80e4f493974e2e06f5ae3ff9dc72c',
                 '0d3c069c216a16c6d57a9464e959a805',
             ],
         },
@@ -386,6 +387,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
+            viewtag: 'c7a80e4f493974e2e06f5ae3ff9dc72c',
+            viewmodule: 'zentao',
+            viewname: 'ProductCloseMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
