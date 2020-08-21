@@ -61,22 +61,10 @@
                     <template v-slot="{row,column,$index}">
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                
-             <dropdown-list 
-              v-model="row[column.property]" 
-              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
-              :data="row" 
-              :context="context"
-              :viewparams="viewparams" 
-              :localContext ='{ }' 
-              :localParam ='{ }' 
-              tag='ProductBranch_Cache' 
-              codelistType='DYNAMIC'
-              placeholder='请选择...' 
-              style="" 
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-             </dropdown-list>
-            
+                                !!!!模版产生代码错误:----
+            FTL stack trace ("~" means nesting-related):
+            	- Failed at: #if item.getEditorParams("showLogic",...  [in template "TEMPLCODE_en_US" at line 158, column 3]
+            ----
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
