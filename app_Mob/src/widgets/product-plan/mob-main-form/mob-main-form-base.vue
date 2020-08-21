@@ -111,6 +111,19 @@
 
 
 
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('productplan.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
 <app-form-druipart
     class='' 
     parameterName='productplan' 
@@ -131,6 +144,10 @@
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
 
@@ -158,6 +175,19 @@
 
 
 
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('productplan.mobmain_form.details.grouppanel2')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
 <app-form-druipart
     class='' 
     parameterName='productplan' 
@@ -178,6 +208,10 @@
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
     
@@ -706,7 +740,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this })
 , 
+        grouppanel1: new FormGroupPanelModel({ caption: '关联需求详情', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '关联Bug详情', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -941,6 +979,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.detailsModel.druipart2.setVisible(ret);
         }
 
+        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
+            let ret = false;
+            const _storycnt = this.data.storycnt;
+            if (this.$verify.testCond(_storycnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel1.setVisible(ret);
+        }
+
         if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
             let ret = false;
             const _bugcnt = this.data.bugcnt;
@@ -948,6 +995,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 ret = true;
             }
             this.detailsModel.druipart1.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
+            let ret = false;
+            const _bugcnt = this.data.bugcnt;
+            if (this.$verify.testCond(_bugcnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel2.setVisible(ret);
         }
 
 

@@ -10,7 +10,9 @@ export default {
 	mobmain_form: {
 		details: {
 			druipart2: '', 
+			grouppanel1: '关联需求详情', 
 			druipart1: '', 
+			grouppanel2: '关联Bug详情', 
 			group1: '产品计划基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
