@@ -189,7 +189,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6ad6f55033b261e9bd02720faf229274',
+                '908ae7b1662bbb3715e3adbc6836353b',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'c59d172c10262a98d4ec06d5e90157e4',
             ],
         },
         {
@@ -218,6 +221,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '72d73b7f458439bc2355414e5a810ad5',
+            ],
+        },
+        {
+            viewtag: '6ad6f55033b261e9bd02720faf229274',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectSupMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
@@ -311,6 +324,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '908ae7b1662bbb3715e3adbc6836353b',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectActiviteMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '9576fe405a243332b6f648c8d0632e88',
             viewmodule: 'ibiz',
             viewname: 'TestTaskMobEditView',
@@ -390,6 +413,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
+            viewtag: 'c59d172c10262a98d4ec06d5e90157e4',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectCloseMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {

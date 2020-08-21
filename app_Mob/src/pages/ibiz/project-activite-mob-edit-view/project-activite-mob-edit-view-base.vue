@@ -1,21 +1,30 @@
 
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'project-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'project-activite-mob-edit-view': true }">
     
     <ion-header>
+        <ion-toolbar class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
     </ion-header>
 
 
     <ion-content>
                 <view_form
             :viewState="viewState"
-            viewName="ProjectMobEditView"  
+            viewName="ProjectActiviteMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
             :viewtag="viewtag"
             :showBusyIndicator="true"
-            updateAction="Update"
+            updateAction="Activate"
             removeAction="Remove"
             loaddraftAction="GetDraft"
             loadAction="Get"
@@ -35,30 +44,13 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "bottom_menu">
-                        <ion-button class="app-view-toolbar-button" @click="righttoolbarModels.items1.isshow=!righttoolbarModels.items1.isshow">
-            <ion-icon name="add"  ></ion-icon>
-        
-        </ion-button>
-        
-        
-        
-        
-        
-        
-        
+                            <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-icon name="sx-tb-saveandclose"></ion-icon>
+                {{$t('project.activitemobeditviewrighttoolbar_toolbar.tbitem1.caption')}}
+            </ion-button>
         
         </div>
     </ion-footer>
-    <ion-backdrop tappable="false" style="height :100vh;z-index: 99;" v-show="righttoolbarModels.items1.isshow" @ionBackdropTap="righttoolbarModels.items1.isshow=false" visible="true"></ion-backdrop>
-    <div v-show="righttoolbarModels.items1.isshow" class="footer_group">
-      <ion-list class="ionlist">
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="color-wand" class="group_ion-icon"></ion-icon> {{'激活'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="pause" class="group_ion-icon"></ion-icon> {{'挂起'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction3' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{'关闭'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction4' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{'删除'}} </ion-item>
-        <ion-item  @click="righttoolbarModels.items1.isshow=false"> <ion-icon name="close" class="group_ion-icon"></ion-icon> 关闭 </ion-item>
-      </ion-list>
-    </div>
 </ion-page>
 </template>
 
@@ -75,13 +67,13 @@ import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
     components: {
     },
 })
-export default class ProjectMobEditViewBase extends Vue {
+export default class ProjectActiviteMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -89,7 +81,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected appEntityService: ProjectService = new ProjectService();
 
@@ -98,7 +90,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -109,7 +101,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -117,7 +109,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -125,7 +117,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     @Prop({ default: true }) protected viewDefaultUsage!: boolean;
 
@@ -133,15 +125,15 @@ export default class ProjectMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof ProjectMobEditViewBase
+	 * @memberof ProjectActiviteMobEditViewBase
 	 */
-	protected viewtag: string = '5a5215f43247569540ff912edf51eb09';
+	protected viewtag: string = '908ae7b1662bbb3715e3adbc6836353b';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected context: any = {};
 
@@ -149,7 +141,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -158,7 +150,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected navContext: any = { 'objecttype': 'project', 'srfparentkey': '%project%' };
 
@@ -167,7 +159,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected navParam: any = { 'srfparentkey': '%project%', 'objecttype': 'project' };
 
@@ -175,11 +167,11 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected model: any = {
-        srfTitle: '项目移动端编辑视图',
-        srfCaption: 'project.views.mobeditview.caption',
+        srfTitle: '项目移动端编辑视图激活）',
+        srfCaption: 'project.views.activitemobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -191,7 +183,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  ProjectMobEditViewBase
+     * @memberof  ProjectActiviteMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -220,7 +212,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -231,7 +223,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -240,24 +232,20 @@ export default class ProjectMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 ProjectMobEditView 模型
+    * 工具栏 ProjectActiviteMobEditView 模型
     *
     * @type {*}
-    * @memberof ProjectMobEditView
+    * @memberof ProjectActiviteMobEditView
     */
     public righttoolbarModels: any = {
-        items1: { isshow:false, name: 'items1', caption: '更多', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
-          deuiaction1: {  name: 'deuiaction1', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_ACTIVATION_BUT', uiaction: { tag: 'ProjectActivateMob', target: 'SINGLEKEY' } },
-          deuiaction2: {  name: 'deuiaction2', caption: '挂起', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspendMob', target: 'SINGLEKEY' } },
-          deuiaction3: {  name: 'deuiaction3', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectCloseMob', target: 'SINGLEKEY' } },
-          deuiaction4: {  name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+            tbitem1: {  name: 'tbitem1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
 
@@ -265,7 +253,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 工具栏显示状态
      *
      * @type {boolean}
-     * @memberof ProjectMobEditView 
+     * @memberof ProjectActiviteMobEditView 
      */
     public righttoolbarShowState: boolean = false;
 
@@ -273,7 +261,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * 解析视图参数
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -286,7 +274,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -300,14 +288,14 @@ export default class ProjectMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -322,7 +310,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -331,7 +319,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     public activated() {
         this.afterMounted();
@@ -340,7 +328,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -357,7 +345,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -366,7 +354,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -375,7 +363,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -389,7 +377,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -398,7 +386,7 @@ export default class ProjectMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage && Object.keys(localStorage).length > 0) {
@@ -416,7 +404,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -427,7 +415,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -438,7 +426,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -449,7 +437,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -460,7 +448,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -471,20 +459,11 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.righttoolbar_deuiaction1_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.righttoolbar_deuiaction2_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3')) {
-            this.righttoolbar_deuiaction3_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction4')) {
-            this.righttoolbar_deuiaction4_click($event, '', $event2);
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.righttoolbar_tbitem1_click($event, '', $event2);
         }
     }
 
@@ -497,9 +476,9 @@ export default class ProjectMobEditViewBase extends Vue {
      * @param {*} [tag]
      * @param {*} [$event]
      * @returns {Promise<any>}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -515,113 +494,14 @@ export default class ProjectMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
-        if (curUIService) {
-            curUIService.Project_ProjectActivateMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof ProjectMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
-        if (curUIService) {
-            curUIService.Project_ProjectSuspendMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof ProjectMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction3_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
-        if (curUIService) {
-            curUIService.Project_ProjectCloseMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof ProjectMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
-        if (curUIService) {
-            curUIService.Project_deleteMob(datas, contextJO, paramJO, $event, xData, this);
-        }
+        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
                 let result = await this.cheackChange();
@@ -642,7 +522,7 @@ export default class ProjectMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -654,7 +534,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -675,7 +555,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof ProjectMobEditViewBase
+     * @memberof ProjectActiviteMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -719,5 +599,5 @@ export default class ProjectMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './project-mob-edit-view.less';
+@import './project-activite-mob-edit-view.less';
 </style>
