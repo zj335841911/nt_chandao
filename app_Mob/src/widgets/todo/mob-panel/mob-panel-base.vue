@@ -22,7 +22,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.date1.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.date1.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
@@ -40,7 +40,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :offset="5" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :offset="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Todo__status"></app-mob-span>
