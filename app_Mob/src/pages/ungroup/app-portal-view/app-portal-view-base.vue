@@ -84,7 +84,7 @@ export default class AppPortalViewBase extends Vue {
      * @type {boolean}
      * @memberof AppPortalViewBase
      */
-    @Prop({ default: true }) protected viewDefaultUsage!: boolean;
+    @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
 	/**
 	 * 视图标识
@@ -227,7 +227,7 @@ export default class AppPortalViewBase extends Vue {
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
-        if (!this.viewDefaultUsage) {
+        if (this.viewDefaultUsage === "indexView") {
             return false;
         }
         return true;
@@ -332,7 +332,7 @@ export default class AppPortalViewBase extends Vue {
      * @memberof AppPortalViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        if (this.viewDefaultUsage) {
+        if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
         } else {

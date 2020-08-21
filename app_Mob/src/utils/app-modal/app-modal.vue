@@ -3,7 +3,7 @@
         <component
             :is="viewname"
             class="viewcontainer2"
-            :viewDefaultUsage="false"
+            viewDefaultUsage="actionView"
             :_context="JSON.stringify(context)" 
             :_viewparams="JSON.stringify(viewparams)" 
             @viewdataschange="dataChange($event)"

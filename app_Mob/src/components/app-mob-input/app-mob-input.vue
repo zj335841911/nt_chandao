@@ -45,5 +45,5 @@ export default class AppInput extends Vue {
 }
 </script>
 <style lang="less">
-
+  @import './app-mob-input.less';
 </style>

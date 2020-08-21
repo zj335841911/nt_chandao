@@ -3,7 +3,7 @@
         <template v-for="item in items">
                 <template v-if="!item.hidden">
                     <ion-tab :key="item.id" :tab="item.name" >
-                        <component  v-if="item.id == activeId" :is="item.componentname" :viewDefaultUsage="false"></component>
+                        <component  v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
                     </ion-tab>
                 </template>
         </template>

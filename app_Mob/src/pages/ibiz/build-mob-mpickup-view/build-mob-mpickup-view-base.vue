@@ -101,7 +101,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @type {boolean}
      * @memberof BuildMobMPickupViewBase
      */
-    @Prop({ default: true }) protected viewDefaultUsage!: boolean;
+    @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
 	/**
 	 * 视图标识
@@ -244,7 +244,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
-        if (!this.viewDefaultUsage) {
+        if (this.viewDefaultUsage === "indexView") {
             return false;
         }
         return true;
@@ -351,7 +351,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @memberof BuildMobMPickupViewBase
      */
     protected afterDestroyed(){
-        if (this.viewDefaultUsage && Object.keys(localStorage).length > 0) {
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
             Object.keys(localStorage).forEach((item: string) => {
                 if (item.startsWith(this.context.srfsessionid)) {
                     localStorage.removeItem(item);
@@ -391,7 +391,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @memberof BuildMobMPickupViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        if (this.viewDefaultUsage) {
+        if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
         } else {

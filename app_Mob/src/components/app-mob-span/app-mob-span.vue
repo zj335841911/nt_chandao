@@ -175,13 +175,22 @@ export default class AppSpan extends Vue {
      * @memberof AppSpan
      */
     public setText(){
-      if(this.items.length>0){
+      if(this.items.length > 0){ // 判断代码表存在
           this.currentItem= this.items.find((item:any)=>{
               return item.value == this.value;
           });
-          if(this.currentItem){
+          let valueArr = this.value.split(",");
+          if (this.currentItem) {
               this.text = this.currentItem.text;
-          }else{
+          } else if (valueArr.length > 1){  // 如果是多数据回显
+              valueArr.forEach((val: string) => {
+                this.items.forEach((item: any) => {
+                    if (val === item.id) {
+                        this.text = this.text + `${item.text},`;
+                    }
+                });
+            });
+          } else {
               // 不匹配显示原值，不存在显示空值
               if(this.value){
                   this.text = this.value;

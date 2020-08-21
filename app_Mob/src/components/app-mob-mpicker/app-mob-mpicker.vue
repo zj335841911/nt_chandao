@@ -3,10 +3,8 @@
     <ion-input :disabled="disabled" :value="(curValue.length > 0 ? 'hasValue' : '')" readonly>
       <div>
         <template v-for="(item,index) in curValue">
-          <ion-chip :key="index">
             {{item.text}}
-            <ion-icon name="close-circle" @click="remove(index)"></ion-icon>
-          </ion-chip>
+            <span v-if="index < curValue.length-1">,</span>
         </template>
       </div>
     </ion-input>
