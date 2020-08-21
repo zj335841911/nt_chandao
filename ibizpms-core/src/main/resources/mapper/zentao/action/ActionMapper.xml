@@ -38,7 +38,7 @@
     <!--数据集合[MobType]-->
 	 <select id="searchMobType"  parameterType="cn.ibizlab.pms.core.zentao.filter.ActionSearchContext"  resultMap="ActionResultMap">
          select t1.* from (
-                <include refid="Type" />
+                <include refid="MobType" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
