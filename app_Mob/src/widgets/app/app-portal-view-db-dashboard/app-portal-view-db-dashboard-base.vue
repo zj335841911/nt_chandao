@@ -1,7 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard ">
             <ion-card>
-            <view_db_appmenu1 
+            <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
     :viewparams="viewparams" 
@@ -12,7 +12,7 @@
 </view_db_appmenu1>
             </ion-card>
             <ion-card>
-            <view_db_appmenu2 
+            <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
     :viewparams="viewparams" 
@@ -23,7 +23,7 @@
 </view_db_appmenu2>
             </ion-card>
             <ion-card>
-            <view_db_appmenu3 
+            <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
     :viewparams="viewparams" 

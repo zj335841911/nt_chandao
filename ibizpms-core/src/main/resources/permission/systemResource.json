@@ -308,6 +308,11 @@
        }
         ,
        {
+            "unirescode":"BUG_UNLINK_BUT",
+            "uniresname":"Bug移除"
+       }
+        ,
+       {
             "unirescode":"IBZ_LIB_M",
             "uniresname":"用例库管理"
        }

@@ -9,7 +9,7 @@
 
 
     <ion-content>
-                <view_mdctrl 
+                <view_mdctrl
             :viewState="viewState"
             viewName="TaskAssMobMDView"  
             :viewparams="viewparams" 

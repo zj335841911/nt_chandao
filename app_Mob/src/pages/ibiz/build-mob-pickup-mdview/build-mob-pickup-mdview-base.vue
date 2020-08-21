@@ -1,7 +1,7 @@
 <template>
 <div class="view-container app-mob-pickup-mdview build-mob-pickup-mdview">
     <div class="view-content">
-        <view_mdctrl 
+        <view_mdctrl
     :viewState="viewState"
     viewName="BuildMobPickupMDView"  
     :viewparams="viewparams" 
