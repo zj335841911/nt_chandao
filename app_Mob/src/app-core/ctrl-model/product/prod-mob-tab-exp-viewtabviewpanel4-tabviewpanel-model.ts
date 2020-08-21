@@ -117,6 +117,9 @@ export class ProdMobTabExpViewtabviewpanel4Model {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

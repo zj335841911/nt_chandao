@@ -20,7 +20,7 @@
             viewName="ProductMobChartView"  
             :viewparams="viewparams" 
             :context="context" 
-            fetchAction="FetchDefault"
+            fetchAction="FetchProductPM"
             :showBusyIndicator="true" 
             name="chart"  
             ref='chart' 

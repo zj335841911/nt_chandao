@@ -297,6 +297,14 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("casecnt")
     private Integer casecnt;
 
+    /**
+     * 属性 [SRFCOUNT]
+     *
+     */
+    @JSONField(name = "srfcount")
+    @JsonProperty("srfcount")
+    private Integer srfcount;
+
 
     /**
      * 设置 [QD]

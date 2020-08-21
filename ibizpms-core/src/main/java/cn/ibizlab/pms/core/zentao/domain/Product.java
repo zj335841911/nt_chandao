@@ -286,6 +286,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "casecnt")
     @JsonProperty("casecnt")
     private Integer casecnt;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "srfcount")
+    @JsonProperty("srfcount")
+    private Integer srfcount;
 
     /**
      * 产品线
