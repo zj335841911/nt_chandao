@@ -294,7 +294,7 @@ export class ViewTool {
         }
 
 
-        if (view.viewDefaultUsage === "actionView") {
+        if (view.viewDefaultUsage != "routerView") {
             // 视图模态或者嵌入打开
             if (view._context && !Object.is(view._context, '')) {
                 _context = { ..._context, ...JSON.parse(view._context) };
