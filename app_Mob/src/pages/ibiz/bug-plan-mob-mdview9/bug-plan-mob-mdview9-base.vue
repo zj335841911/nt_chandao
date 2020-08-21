@@ -143,7 +143,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @type {*}
      * @memberof BugPlanMobMDView9Base
      */
-    protected navParam: any = { 'n_plan_eq': 'productplan', 'plan': '%productplan%' };
+    protected navParam: any = { 'n_plan_eq': '%productplan%', 'plan': '%productplan%' };
 
     /**
      * 视图模型数据
