@@ -134,7 +134,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'project', 'srfparentkey': '%project%' };
 
     /**
      * 视图导航参数
@@ -143,7 +143,7 @@ export default class ProjectMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%project%', 'objecttype': 'project' };
 
     /**
      * 视图模型数据

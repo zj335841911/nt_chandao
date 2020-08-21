@@ -33,6 +33,20 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+                <div  class = "bottom_menu">
+                            <ion-button @click="righttoolbar_click({ tag: 'deuiaction1_closeproductmob' }, $event)" v-show="righttoolbarModels.deuiaction1_closeproductmob.visabled">
+                <ion-icon name="trash"></ion-icon>
+                {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1_closeproductmob.caption')}}
+            </ion-button>
+        
+                            <ion-button @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
+                <ion-icon name="remove"></ion-icon>
+                {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}
+            </ion-button>
+        
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -134,7 +148,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'product', 'srfparentkey': '%product%' };
 
     /**
      * 视图导航参数
@@ -143,7 +157,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%product%', 'objecttype': 'product' };
 
     /**
      * 视图模型数据
@@ -227,7 +241,19 @@ export default class ProductMobEditViewBase extends Vue {
     * @memberof ProductMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_closeproductmob: {  name: 'deuiaction1_closeproductmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_deletemob: {  name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
 
 
     /**
@@ -426,6 +452,86 @@ export default class ProductMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_closeproductmob')) {
+            this.righttoolbar_deuiaction1_closeproductmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_deletemob')) {
+            this.righttoolbar_deuiaction1_deletemob_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_closeproductmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_CloseProductMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_deletemob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图

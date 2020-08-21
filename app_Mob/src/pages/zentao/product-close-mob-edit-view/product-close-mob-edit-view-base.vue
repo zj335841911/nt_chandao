@@ -152,7 +152,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductCloseMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'product', 'srfparentkey': '%product%' };
 
     /**
      * 视图导航参数
@@ -161,7 +161,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductCloseMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%product%', 'objecttype': 'product' };
 
     /**
      * 视图模型数据

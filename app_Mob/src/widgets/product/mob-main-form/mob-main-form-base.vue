@@ -365,6 +365,45 @@
 </app-form-item>
 
 
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('product.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='product' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    paramItem='product' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_PRODUCT","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
     
 </app-form-group>
 
@@ -952,6 +991,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'product.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '产品基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'product.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -1302,6 +1345,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
@@ -1826,7 +1871,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const data = this.getValues();
         Object.assign(arg, data);
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

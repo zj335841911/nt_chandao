@@ -21,6 +21,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			group1: '产品基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
@@ -52,6 +54,8 @@ export default {
 	mobclose_form: {
 		details: {
 			group1: '产品基本信息', 
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			formpage1: '基本信息', 
 			srforikey: '', 
 			srfkey: '编号', 
@@ -66,12 +70,20 @@ export default {
 		uiactions: {
 		},
 	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
 	closemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
 			tip: '保存',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_closeproductmob: {
+			caption: '关闭',
+			tip: '关闭',
+		},
+		deuiaction1_deletemob: {
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
