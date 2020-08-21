@@ -57,6 +57,7 @@ export const viewstate: any = {
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
                 '1afb3df498f4daa660709cca53ece0b2',
+                '5040c252f88202ad31af8159bc03524a',
             ],
         },
         {
@@ -351,6 +352,15 @@ export const viewstate: any = {
             refviews: [
                 'c7a80e4f493974e2e06f5ae3ff9dc72c',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'a0f3c3a13896b2c49bd8573316f0a654',
+            viewmodule: 'ibiz',
+            viewname: 'ProductMobChartView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

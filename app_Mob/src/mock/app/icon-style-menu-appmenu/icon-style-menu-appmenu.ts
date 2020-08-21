@@ -25,7 +25,7 @@ mock.onGet('v7/icon-style-menuappmenu').reply((config: any) => {
 	iconcls: 'attach',
 	icon: '',
 	textcls: '',
-	appfunctag: '_5',
+	appfunctag: '_6',
 	resourcetag: '',
 },
             {
@@ -61,7 +61,7 @@ mock.onGet('v7/icon-style-menuappmenu').reply((config: any) => {
 	iconcls: 'flask',
 	icon: '',
 	textcls: '',
-	appfunctag: '_8',
+	appfunctag: '_9',
 	resourcetag: '',
 },
             {

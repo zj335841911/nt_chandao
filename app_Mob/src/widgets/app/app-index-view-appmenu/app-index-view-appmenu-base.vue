@@ -421,17 +421,20 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case '_9': 
-                    this.click_9(item);
+                case '_10': 
+                    this.click_10(item);
                     return;
                 case '_3': 
                     this.click_3(item);
                     return;
-                case '_6': 
-                    this.click_6(item);
+                case '_9': 
+                    this.click_9(item);
                     return;
                 case '_7': 
                     this.click_7(item);
+                    return;
+                case '_8': 
+                    this.click_8(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -446,7 +449,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_9(item: any = {}) {
+    protected click_10(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -483,12 +486,33 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     }
     
     /**
+     * 产品统计
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected click_9(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'productstats', parameterName: 'productstats' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
      * 项目
      *
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_6(item: any = {}) {
+    protected click_7(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -509,7 +533,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_7(item: any = {}) {
+    protected click_8(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});

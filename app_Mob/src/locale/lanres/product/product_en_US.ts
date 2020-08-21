@@ -14,6 +14,9 @@ export default {
 		mobeditview: {
 			caption: '产品',
 		},
+		mobchartview: {
+			caption: '产品',
+		},
 		mobmdview: {
 			caption: '产品',
 		},

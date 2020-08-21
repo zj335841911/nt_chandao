@@ -421,11 +421,11 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
                 case '_2': 
                     this.click_2(item);
                     return;
-                case '_5': 
-                    this.click_5(item);
+                case '_6': 
+                    this.click_6(item);
                     return;
-                case '_8': 
-                    this.click_8(item);
+                case '_9': 
+                    this.click_9(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -461,7 +461,7 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof IconStyleMenu
      */
-    protected click_5(item: any = {}) {
+    protected click_6(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -482,7 +482,7 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof IconStyleMenu
      */
-    protected click_8(item: any = {}) {
+    protected click_9(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});

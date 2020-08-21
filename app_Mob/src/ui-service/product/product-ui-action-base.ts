@@ -93,6 +93,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'products'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'products'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'closemobeditview',srfappde:'products'});
     }

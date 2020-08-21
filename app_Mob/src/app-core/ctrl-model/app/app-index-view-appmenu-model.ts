@@ -47,7 +47,7 @@ export class AppIndexViewModel {
 	iconcls: 'cube',
 	icon: '',
 	textcls: '',
-	appfunctag: '_6',
+	appfunctag: '_7',
 	resourcetag: '',
 },
         {
@@ -65,7 +65,7 @@ export class AppIndexViewModel {
 	iconcls: 'clipboard',
 	icon: '',
 	textcls: '',
-	appfunctag: '_7',
+	appfunctag: '_8',
 	resourcetag: '',
 },
         {
@@ -83,6 +83,24 @@ export class AppIndexViewModel {
 	iconcls: 'person',
 	icon: '',
 	textcls: '',
+	appfunctag: '_10',
+	resourcetag: '',
+},
+        {
+	id: '3D972B22-B650-436A-8D70-7AAD8FE7E0D1',
+	name: 'menuitem5',
+	text: '产品统计',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '产品统计',
+	expanded: false,
+	separator: false,
+	hidden: false,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
 	appfunctag: '_9',
 	resourcetag: '',
 },
@@ -97,7 +115,7 @@ export class AppIndexViewModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_9',
+            appfunctag: '_10',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'ibz-my-territory-mob-tab-exp-view', 
@@ -123,7 +141,20 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_6',
+            appfunctag: '_9',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'product-stats-mob-mdview', 
+            codename: 'productstatsmobmdview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/productstats/:productstats?/mobmdview/:mobmdview?',
+            parameters: [
+                { pathName: 'productstats', parameterName: 'productstats' },
+                { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
+        {
+            appfunctag: '_7',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'project-mob-mdview', 
@@ -136,7 +167,7 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_7',
+            appfunctag: '_8',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'product-test-mob-mdview', 
