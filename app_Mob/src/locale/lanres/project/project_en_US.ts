@@ -82,6 +82,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
+			formitem: '', 
 			id: '项目编号', 
 		},
 		uiactions: {

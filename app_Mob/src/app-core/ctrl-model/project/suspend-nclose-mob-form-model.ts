@@ -51,6 +51,9 @@ export class SuspendNCloseMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
+                name: 'formitem',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

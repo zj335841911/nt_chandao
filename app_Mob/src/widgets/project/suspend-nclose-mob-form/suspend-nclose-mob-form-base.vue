@@ -30,7 +30,44 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <div>暂不支持</div>
+        <app-mob-textarea  
+    class="app-form-item-textarea" 
+        :value="data.comment" 
+    :disabled="detailsModel.comment.disabled" 
+    @change="($event)=>this.data.comment = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="TOP" 
+    ref="formitem_item"  
+    :itemValue="this.data.formitem" 
+    v-show="detailsModel.formitem.visible" 
+    :itemRules="this.rules.formitem" 
+    :caption="$t('project.suspendnclosemob_form.details.formitem')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem.disabled"
+    :error="detailsModel.formitem.error" 
+    :isEmptyCaption="true">
+        <app-mob-picture 
+    name='formitem' 
+    style="overflow: auto;"  
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.formitem" 
+    :disabled="detailsModel.formitem.disabled" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}'
+    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
@@ -396,6 +433,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
         srfdeid: null,
         srfsourcekey: null,
         comment: null,
+        formitem: null,
         id: null,
         project: null,
     };
@@ -478,6 +516,12 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        ],
+        formitem: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '项目编号 值必须为数值类型', trigger: 'change' },
@@ -593,6 +637,8 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        formitem: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
@@ -694,6 +740,18 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
     }
 
     /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof SuspendNCloseMob
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -741,6 +799,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -920,7 +979,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
      * @memberof SuspendNCloseMob
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['comment_item', ];
+        const refArr: Array<string> = ['comment_item', 'formitem_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
