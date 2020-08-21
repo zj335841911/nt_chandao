@@ -61,6 +61,16 @@ export class MobMainModel {
                 dataType: 'DATE',
             },
             {
+                name: 'storycnt',
+                prop: 'storycnt',
+                dataType: 'INT',
+            },
+            {
+                name: 'bugcnt',
+                prop: 'bugcnt',
+                dataType: 'INT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

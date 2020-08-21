@@ -148,7 +148,7 @@
     class='' 
     parameterName='case' 
     refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
+    refreshitems='version' 
     viewname='case-step-mob-mdview9' 
     paramItem='case' 
     style="" 

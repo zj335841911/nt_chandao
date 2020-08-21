@@ -149,7 +149,7 @@ export default class CaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof CaseMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'version': '%version%' };
 
     /**
      * 视图导航参数
@@ -158,7 +158,7 @@ export default class CaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof CaseMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'version': '%version%' };
 
     /**
      * 视图模型数据

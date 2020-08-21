@@ -41,12 +41,12 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
+	planmobmdview9righttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
-	assmobmdviewrighttoolbar_toolbar: {
+	mobmdviewrighttoolbar_toolbar: {
 	},
-	planmobmdview9righttoolbar_toolbar: {
+	assmobmdviewrighttoolbar_toolbar: {
 	},
 };

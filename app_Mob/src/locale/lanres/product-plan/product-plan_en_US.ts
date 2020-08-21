@@ -11,6 +11,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart2: '', 
+			druipart1: '', 
 			group1: '产品计划基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
@@ -23,6 +25,8 @@ export default {
 			title: '名称', 
 			begin: '开始日期', 
 			end: '结束日期', 
+			storycnt: '需求数', 
+			bugcnt: 'bug数', 
 			id: '编号', 
 		},
 		uiactions: {

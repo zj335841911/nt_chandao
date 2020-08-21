@@ -1,11 +1,11 @@
 <template>
-<embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'bug-plan-mob-mdview9': true }">
+<embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'story-mob-mdview9': true }">
     <template slot="header">
     </template>
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="BugPlanMobMDView9"  
+            viewName="StoryMobMDView9"  
             :viewparams="viewparams" 
             :context="context" 
             :showBusyIndicator="true" 
@@ -40,7 +40,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
+import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 
@@ -49,30 +49,30 @@ import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
     components: {
     },
 })
-export default class BugPlanMobMDView9Base extends Vue {
+export default class StoryMobMDView9Base extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {BugService}
-     * @memberof BugPlanMobMDView9Base
+     * @type {StoryService}
+     * @memberof StoryMobMDView9Base
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: StoryService = new StoryService();
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -83,7 +83,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Prop() protected _context!: string;
 
@@ -91,7 +91,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Prop() protected _viewparams!: string;
 
@@ -99,7 +99,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Prop({ default: true }) protected viewDefaultUsage!: boolean;
 
@@ -107,15 +107,15 @@ export default class BugPlanMobMDView9Base extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof BugPlanMobMDView9Base
+	 * @memberof StoryMobMDView9Base
 	 */
-	protected viewtag: string = '1820afe6869fbb5e9b01ce076933efca';
+	protected viewtag: string = '15c27e8cd95482a59fd899c6841e3ec4';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected context: any = {};
 
@@ -123,7 +123,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected viewparams: any = {};
 
@@ -132,28 +132,28 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
-    protected navContext: any = { 'plan': '%productplan%', 'n_plan_eq': '%productplan%' };
+    protected navContext: any = { 'plan': '%productplan%' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
-    protected navParam: any = { 'n_plan_eq': 'productplan', 'plan': '%productplan%' };
+    protected navParam: any = { 'n_plan_eq': '%productplan%' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected model: any = {
-        srfTitle: 'Bug移动端多数据视图（计划下属）',
-        srfCaption: 'bug.views.planmobmdview9.caption',
+        srfTitle: '需求移动端多数据视图',
+        srfCaption: 'story.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -165,7 +165,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  BugPlanMobMDView9Base
+     * @memberof  StoryMobMDView9Base
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -194,18 +194,17 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -214,26 +213,15 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
-
-
-   /**
-    * 工具栏 BugPlanMobMDView9 模型
-    *
-    * @type {*}
-    * @memberof BugPlanMobMDView9
-    */
-    public righttoolbarModels: any = {
-    };
 
 
     /**
      * 解析视图参数
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -246,7 +234,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -260,14 +248,14 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected engine: MobMDView9Engine = new MobMDView9Engine();
 
     /**
      * 引擎初始化
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected engineInit(): void {
         this.engine.init({
@@ -279,7 +267,7 @@ export default class BugPlanMobMDView9Base extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            keyPSDEField: 'bug',
+            keyPSDEField: 'story',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -288,7 +276,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected created() {
         this.afterCreated();
@@ -297,7 +285,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public activated() {
         this.afterMounted();
@@ -306,7 +294,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -328,7 +316,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -337,7 +325,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected mounted() {
         this.afterMounted();
@@ -346,7 +334,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected afterMounted(){
         const _this: any = this;
@@ -360,7 +348,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -369,7 +357,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage && Object.keys(localStorage).length > 0) {
@@ -390,7 +378,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected mdctrl_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
@@ -401,7 +389,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected mdctrl_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
@@ -412,7 +400,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected mdctrl_rowclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
@@ -423,7 +411,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
@@ -441,7 +429,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof BugPlanMobMDView9
+     * @memberof StoryMobMDView9
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -461,7 +449,7 @@ export default class BugPlanMobMDView9Base extends Vue {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -489,7 +477,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof BugPlanMobMDView9
+     * @memberof StoryMobMDView9
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -509,7 +497,7 @@ export default class BugPlanMobMDView9Base extends Vue {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -530,7 +518,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
         if (this.viewDefaultUsage) {
@@ -547,7 +535,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -559,7 +547,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -580,7 +568,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *  app-form-druipart 组件订阅对象
      *
      * @type {Subject}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Prop() public formDruipart !: Subject<ViewState>;
 
@@ -589,7 +577,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 搜索值
      *
      * @type {string}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public query: string = '';
 
@@ -598,7 +586,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      *
      * @param {*} event
      * @returns
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public async quickValueChange(event: any) {
         let { detail } = event;
@@ -620,7 +608,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
@@ -628,7 +616,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 分类值
      *
      * @type {boolean}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public categoryValue :any = {};
 
@@ -636,14 +624,14 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 排序值
      *
      * @type {boolean}
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public sortValue :any = {};
 
     /**
      * 刷新视图
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public onRefreshView() {
         let mdctrl: any = this.$refs.mdctrl;
@@ -655,10 +643,10 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 打开搜索表单
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public openSearchform() {
-      let search :any = this.$refs.searchformbugplanmobmdview9;
+      let search :any = this.$refs.searchformstorymobmdview9;
       if(search){
           search.open();
       }
@@ -667,10 +655,10 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 关闭搜索表单
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public closeSearchform(){
-      let search :any = this.$refs.searchformbugplanmobmdview9;
+      let search :any = this.$refs.searchformstorymobmdview9;
       if(search){
           search.close();
       }
@@ -679,7 +667,7 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 多选状态改变事件
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public showCheackChange(value:any){
         this.showCheack = value;
@@ -688,13 +676,13 @@ export default class BugPlanMobMDView9Base extends Vue {
     /**
      * 多选状态
      *
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public showCheack = false;
 
     /**
      * 取消选择状态
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public cancelSelect() {
         this.showCheackChange(false);
@@ -702,7 +690,7 @@ export default class BugPlanMobMDView9Base extends Vue {
 
     /**
      * 视图加载（排序|分类）
-     * @memberof BugPlanMobMDView9Base
+     * @memberof StoryMobMDView9Base
      */
     public onViewLoad() {
         let value = Object.assign(this.categoryValue,this.sortValue);
@@ -725,5 +713,5 @@ export default class BugPlanMobMDView9Base extends Vue {
 </script>
 
 <style lang='less'>
-@import './bug-plan-mob-mdview9.less';
+@import './story-mob-mdview9.less';
 </style>

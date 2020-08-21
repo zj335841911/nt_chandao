@@ -1,5 +1,8 @@
 export default {
 	views: {
+		mobmdview9: {
+			caption: '需求',
+		},
 		assmobmdview: {
 			caption: '需求',
 		},

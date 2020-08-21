@@ -37,6 +37,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '15c27e8cd95482a59fd899c6841e3ec4',
+            viewmodule: 'ibiz',
+            viewname: 'StoryMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
             viewtag: '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D',
             viewmodule: 'Ungroup',
             viewname: 'AppIndexView',
@@ -484,6 +494,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1820afe6869fbb5e9b01ce076933efca',
+                '15c27e8cd95482a59fd899c6841e3ec4',
             ],
         },
     ],

@@ -86,6 +86,100 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='storycnt' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="storycnt_item"  
+    :itemValue="this.data.storycnt" 
+    v-show="detailsModel.storycnt.visible" 
+    :itemRules="this.rules.storycnt" 
+    :caption="$t('productplan.mobmain_form.details.storycnt')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.storycnt.disabled"
+    :error="detailsModel.storycnt.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.storycnt" 
+    :context="context" 
+    :value="data.storycnt" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-druipart
+    class='' 
+    parameterName='productplan' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='story-mob-mdview9' 
+    paramItem='productplan' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+
+<app-form-item 
+    name='bugcnt' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="bugcnt_item"  
+    :itemValue="this.data.bugcnt" 
+    v-show="detailsModel.bugcnt.visible" 
+    :itemRules="this.rules.bugcnt" 
+    :caption="$t('productplan.mobmain_form.details.bugcnt')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.bugcnt.disabled"
+    :error="detailsModel.bugcnt.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.bugcnt" 
+    :context="context" 
+    :value="data.bugcnt" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-druipart
+    class='' 
+    parameterName='productplan' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='bug-plan-mob-mdview9' 
+    paramItem='productplan' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdefname":"PLAN","srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN","SRFDER1NID":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN"}' 
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
     
 </app-form-group>
 
@@ -411,6 +505,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         title: null,
         begin: null,
         end: null,
+        storycnt: null,
+        bugcnt: null,
         id: null,
         productplan: null,
     };
@@ -506,6 +602,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
         ],
+        storycnt: [
+            { type: 'number', message: '需求数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '需求数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '需求数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '需求数 值不能为空', trigger: 'blur' },
+        ],
+        bugcnt: [
+            { type: 'number', message: 'bug数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: 'bug数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: 'bug数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: 'bug数 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
@@ -596,6 +704,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
         group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -619,6 +731,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        bugcnt: new FormItemModel({ caption: 'bug数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -745,6 +861,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 storycnt 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.storycnt')
+    onStorycntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storycnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 bugcnt 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.bugcnt')
+    onBugcntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'bugcnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -792,6 +932,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
 
 
 
@@ -971,7 +1115,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'begin_item', 'end_item', ];
+        const refArr: Array<string> = ['title_item', 'begin_item', 'end_item', 'storycnt_item', 'bugcnt_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1305,7 +1449,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const data = this.getValues();
         Object.assign(arg, data);
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 2;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

@@ -16,7 +16,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMob" 
+            fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
@@ -134,7 +134,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @type {*}
      * @memberof CaseStepMobMDView9Base
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'version': '%version%' };
 
     /**
      * 视图导航参数
@@ -143,7 +143,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @type {*}
      * @memberof CaseStepMobMDView9Base
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'version': '%version%' };
 
     /**
      * 视图模型数据
