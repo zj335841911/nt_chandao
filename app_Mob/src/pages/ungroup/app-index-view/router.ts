@@ -798,32 +798,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'),
                 },
                 {
-                    path: 'productstats/:productstats?/mobtabexpview',
-                    meta: {
-                        caption: 'productstats.views.mobtabexpview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'productstats', parameterName: 'productstats' },
-                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-stats-mob-tab-exp-view/product-stats-mob-tab-exp-view.vue'),
-                },
-                {
-                    path: 'productstats/:productstats?/mobmdview',
-                    meta: {
-                        caption: 'productstats.views.mobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'productstats', parameterName: 'productstats' },
-                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-stats-mob-mdview/product-stats-mob-mdview.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
@@ -1015,6 +989,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-mob-mdview/product-mob-mdview.vue'),
+                },
+                {
+                    path: 'products/:product?/mobchartview',
+                    meta: {
+                        caption: 'product.views.mobchartview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'mobchartview', parameterName: 'mobchartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-mob-chart-view/product-mob-chart-view.vue'),
                 },
                 {
                     path: 'products/:product?/closemobeditview',

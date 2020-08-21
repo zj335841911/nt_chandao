@@ -74,7 +74,7 @@ export default {
                 menuitem2: '项目',
                 menuitem3: '测试',
                 menuitem4: '我的',
-                menuitem5: '产品统计',
+                menuitem5: '产品总览',
             },
             listmenu: {
                 menuitem1: '电脑',

@@ -89,10 +89,10 @@ export class AppIndexViewModel {
         {
 	id: '3D972B22-B650-436A-8D70-7AAD8FE7E0D1',
 	name: 'menuitem5',
-	text: '产品统计',
+	text: '产品总览',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '产品统计',
+	tooltip: '产品总览',
 	expanded: false,
 	separator: false,
 	hidden: false,
@@ -101,7 +101,7 @@ export class AppIndexViewModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_9',
+	appfunctag: '_4',
 	resourcetag: '',
 },
     ];
@@ -141,19 +141,6 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_9',
-            appfuncyype: 'APPVIEW',
-            openmode: '', 
-            componentname: 'product-stats-mob-mdview', 
-            codename: 'productstatsmobmdview',
-            deResParameters: [],
-            routepath: '/appindexview/:appindexview?/productstats/:productstats?/mobmdview/:mobmdview?',
-            parameters: [
-                { pathName: 'productstats', parameterName: 'productstats' },
-                { pathName: 'mobmdview', parameterName: 'mobmdview' },
-            ],
-        },
-        {
             appfunctag: '_7',
             appfuncyype: 'APPVIEW',
             openmode: '', 
@@ -177,6 +164,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
+            ],
+        },
+        {
+            appfunctag: '_4',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'product-mob-chart-view', 
+            codename: 'productmobchartview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/products/:product?/mobchartview/:mobchartview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'mobchartview', parameterName: 'mobchartview' },
             ],
         },
 	];
