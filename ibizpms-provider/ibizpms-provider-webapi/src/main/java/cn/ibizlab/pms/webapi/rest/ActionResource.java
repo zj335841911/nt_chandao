@@ -171,6 +171,27 @@ domain.setId(action_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchMobType-all')")
+	@ApiOperation(value = "获取MobType", tags = {"系统日志" } ,notes = "获取MobType")
+    @RequestMapping(method= RequestMethod.GET , value="/actions/fetchmobtype")
+	public ResponseEntity<List<ActionDTO>> fetchMobType(ActionSearchContext context) {
+        Page<Action> domains = actionService.searchMobType(context) ;
+        List<ActionDTO> list = actionMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchMobType-all')")
+	@ApiOperation(value = "查询MobType", tags = {"系统日志" } ,notes = "查询MobType")
+    @RequestMapping(method= RequestMethod.POST , value="/actions/searchmobtype")
+	public ResponseEntity<Page<ActionDTO>> searchMobType(@RequestBody ActionSearchContext context) {
+        Page<Action> domains = actionService.searchMobType(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchProductTrends-all')")
 	@ApiOperation(value = "获取ProductTrends", tags = {"系统日志" } ,notes = "获取ProductTrends")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchproducttrends")

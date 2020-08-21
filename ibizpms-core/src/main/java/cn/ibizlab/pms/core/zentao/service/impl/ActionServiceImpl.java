@@ -180,6 +180,15 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     }
 
     /**
+     * 查询集合 MobType
+     */
+    @Override
+    public Page<Action> searchMobType(ActionSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Action> pages=baseMapper.searchMobType(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Action>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 ProductTrends
      */
     @Override

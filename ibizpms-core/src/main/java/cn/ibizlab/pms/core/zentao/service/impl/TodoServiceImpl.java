@@ -46,6 +46,10 @@ import org.springframework.util.StringUtils;
 public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements ITodoService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoGetTODOTitleLogic gettodotitleLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -104,6 +108,8 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public Todo get(BigInteger key) {
+        Todo tempET=new Todo();
+        tempET.set("id",key);
         Todo et = getById(key);
         if(et==null){
             et=new Todo();
@@ -111,6 +117,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         }
         else{
         }
+        gettodotitleLogic.execute(et);
         return et;
     }
 

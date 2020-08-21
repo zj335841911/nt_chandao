@@ -1,5 +1,6 @@
 import { Http,Util } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { GetTODOTitleLogic } from './get-todotitle-logic';
 
 
 
@@ -119,7 +120,10 @@ export class TodoServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/todos/${context.todo}`,isloading);
-            
+                let gettodotitle:GetTODOTitleLogic = new GetTODOTitleLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res)).data});
+            let gettodotitleData:any = await gettodotitle.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:gettodotitleData};
+
             return res;
     }
 
