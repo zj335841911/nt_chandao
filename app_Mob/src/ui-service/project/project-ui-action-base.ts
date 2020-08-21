@@ -222,9 +222,9 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                 }
                 const { data: result } = response;
                 let _args: any[] = [];
-                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                if (Object.is(container.$util.typeOf(result), 'array')) {
                     _args = [...result];
-                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                } else if (Object.is(container.$util.typeOf(result), 'object')) {
                     _args = [{...result}];
                 } else {
                     _args = [...args];
