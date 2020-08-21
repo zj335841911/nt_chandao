@@ -704,9 +704,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this })
 , 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
 , 
         group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -932,7 +932,23 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
+            let ret = false;
+            const _storycnt = this.data.storycnt;
+            if (this.$verify.testCond(_storycnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.druipart2.setVisible(ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
+            let ret = false;
+            const _bugcnt = this.data.bugcnt;
+            if (this.$verify.testCond(_bugcnt, 'GT', '0')) {
+                ret = true;
+            }
+            this.detailsModel.druipart1.setVisible(ret);
+        }
 
 
 
