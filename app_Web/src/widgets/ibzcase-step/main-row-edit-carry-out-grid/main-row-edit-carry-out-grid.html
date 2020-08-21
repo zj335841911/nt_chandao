@@ -59,7 +59,7 @@
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 !!!!模版产生代码错误:----
             FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getEditorParams("showLogic",...  [in template "TEMPLCODE_en_US" at line 158, column 3]
+            	- Failed at: ${item.getEditorParams("showLogic", "")}  [in template "TEMPLCODE_en_US" at line 158, column 59]
             ----
                             </app-form-item>
                         </template>
