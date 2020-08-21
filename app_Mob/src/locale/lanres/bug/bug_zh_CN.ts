@@ -1,5 +1,8 @@
 export default {
 	views: {
+		planmobmdview9: {
+			caption: '计划下属',
+		},
 		mobmdview: {
 			caption: 'Bug',
 		},
@@ -43,5 +46,7 @@ export default {
 	mobeditviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewrighttoolbar_toolbar: {
+	},
+	planmobmdview9righttoolbar_toolbar: {
 	},
 };

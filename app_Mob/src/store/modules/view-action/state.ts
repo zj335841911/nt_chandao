@@ -60,6 +60,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1820afe6869fbb5e9b01ce076933efca',
+            viewmodule: 'ibiz',
+            viewname: 'BugPlanMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
             viewtag: '1afb3df498f4daa660709cca53ece0b2',
             viewmodule: 'ibiz',
             viewname: 'IbzMyTerritoryMobTabExpView',
