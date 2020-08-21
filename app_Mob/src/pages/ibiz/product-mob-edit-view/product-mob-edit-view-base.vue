@@ -35,18 +35,26 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "bottom_menu">
-                            <ion-button @click="righttoolbar_click({ tag: 'deuiaction1_closeproductmob' }, $event)" v-show="righttoolbarModels.deuiaction1_closeproductmob.visabled">
-                <ion-icon name="trash"></ion-icon>
-                {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1_closeproductmob.caption')}}
-            </ion-button>
+                        <ion-button class="app-view-toolbar-button" @click="righttoolbarModels.items1.isshow=!righttoolbarModels.items1.isshow">
+            <ion-icon name="add"  ></ion-icon>
+        {{$t('product.mobeditviewrighttoolbar_toolbar.items1.caption')}}
+        </ion-button>
         
-                            <ion-button @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
-                <ion-icon name="remove"></ion-icon>
-                {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}
-            </ion-button>
+        
+        
+        
+        
         
         </div>
     </ion-footer>
+    <ion-backdrop tappable="false" style="height :100vh;z-index: 99;" v-show="righttoolbarModels.items1.isshow" @ionBackdropTap="righttoolbarModels.items1.isshow=false" visible="true"></ion-backdrop>
+    <div v-show="righttoolbarModels.items1.isshow" class="footer_group">
+      <ion-list class="ionlist">
+        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{'关闭'}} </ion-item>
+        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{'删除'}} </ion-item>
+        <ion-item  @click="righttoolbarModels.items1.isshow=false"> <ion-icon name="close" class="group_ion-icon"></ion-icon> 关闭 </ion-item>
+      </ion-list>
+    </div>
 </ion-page>
 </template>
 
@@ -241,9 +249,9 @@ export default class ProductMobEditViewBase extends Vue {
     * @memberof ProductMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_closeproductmob: {  name: 'deuiaction1_closeproductmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
-
-            deuiaction1_deletemob: {  name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+        items1: { isshow:false, name: 'items1', caption: '更多', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
+          deuiaction1: {  name: 'deuiaction1', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
+          deuiaction2: {  name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
 
@@ -460,11 +468,11 @@ export default class ProductMobEditViewBase extends Vue {
      * @memberof ProductMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_closeproductmob')) {
-            this.righttoolbar_deuiaction1_closeproductmob_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction1_deletemob')) {
-            this.righttoolbar_deuiaction1_deletemob_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.righttoolbar_deuiaction2_click($event, '', $event2);
         }
     }
 
@@ -479,7 +487,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof ProductMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_closeproductmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -511,7 +519,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof ProductMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_deletemob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数

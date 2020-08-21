@@ -79,13 +79,17 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
-		deuiaction1_closeproductmob: {
-			caption: '关闭',
-			tip: 'deuiaction1_closeproductmob',
+		items1: {
+			caption: '更多',
+			tip: 'items1',
 		},
-		deuiaction1_deletemob: {
+		deuiaction1: {
+			caption: '关闭',
+			tip: 'deuiaction1',
+		},
+		deuiaction2: {
 			caption: '删除',
-			tip: 'deuiaction1_deletemob',
+			tip: 'deuiaction2',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
