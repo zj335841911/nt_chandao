@@ -102,15 +102,20 @@
     :disabled="detailsModel.mobimage.disabled"
     :error="detailsModel.mobimage.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
+        <app-mob-picture 
+    name='mobimage' 
+    style="overflow: auto;"  
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.mobimage" 
     :disabled="detailsModel.mobimage.disabled" 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mobimage"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.mobimage = $event"/>
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}'
+    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 

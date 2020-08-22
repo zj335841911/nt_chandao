@@ -39,15 +39,11 @@
                 
                 
                 </ion-col>
-                
-                <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" :sm="4" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
+                !!!!模版产生代码错误:----
+                FTL stack trace ("~" means nesting-related):
+                	- Failed at: ${P.getEditorCode(item, "PANELEDITOR...  [in template "TEMPLCODE_en_US" at line 4, column 5]
+                ----
+                无法获取指定编辑器[MOBSPAN]发布代码[PANELFIELD][PANELEDITOR.vue]模板
                 
                 <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :sm="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
