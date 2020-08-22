@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.testreport.main_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.testreport.main_grid.columns.title')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testreport.main_grid.columns.title')}}
@@ -114,14 +114,6 @@
                     </template>
                 </el-table-column>
             </template>
-            !!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_en_US" at line 156, column 3]
-            ----
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

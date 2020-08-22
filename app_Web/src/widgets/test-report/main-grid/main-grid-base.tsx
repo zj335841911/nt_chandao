@@ -156,14 +156,6 @@ export class MainGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
-        {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.testreport.main_grid.columns.uagridcolumn1',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
     ]
 
     /**
@@ -204,7 +196,6 @@ export class MainGridBase extends GridControlBase {
         'createddate':false,
         'projectname':false,
         'tasks':false,
-        'uagridcolumn1':false,
     };
 
     /**

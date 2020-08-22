@@ -43,7 +43,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('currproject')">
-                <el-table-column show-overflow-tooltip :prop="'currproject'" :label="$t('entities.productstats.allproduct_grid.columns.currproject')" :width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'currproject'" :label="$t('entities.productstats.allproduct_grid.columns.currproject')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.currproject')}}
@@ -91,7 +91,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('activebugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'activebugcnt'" :label="$t('entities.productstats.allproduct_grid.columns.activebugcnt')" :width="115"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'activebugcnt'" :label="$t('entities.productstats.allproduct_grid.columns.activebugcnt')" :min-width="115"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.activebugcnt')}}

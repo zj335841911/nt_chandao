@@ -169,7 +169,7 @@ export class AllProjectGridBase extends GridControlBase {
             label: '进度',
             langtag: 'entities.projectstats.allproject_grid.columns.progress',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]
