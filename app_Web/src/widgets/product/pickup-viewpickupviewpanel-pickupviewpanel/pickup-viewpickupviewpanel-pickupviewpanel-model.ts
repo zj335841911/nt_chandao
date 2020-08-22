@@ -117,6 +117,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

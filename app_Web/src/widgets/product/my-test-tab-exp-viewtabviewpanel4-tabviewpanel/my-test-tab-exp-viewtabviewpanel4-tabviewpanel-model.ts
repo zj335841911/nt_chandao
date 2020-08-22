@@ -117,6 +117,9 @@ export default class MyTestTabExpViewtabviewpanel4Model {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

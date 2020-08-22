@@ -117,6 +117,9 @@ export default class ProductExpViewModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

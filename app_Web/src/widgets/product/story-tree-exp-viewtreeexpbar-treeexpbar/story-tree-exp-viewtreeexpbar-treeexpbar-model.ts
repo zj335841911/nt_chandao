@@ -117,6 +117,9 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

@@ -277,4 +277,12 @@ export interface Product {
      * @memberof Product
      */
     casecnt?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    srfcount?: any;
 }

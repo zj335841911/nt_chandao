@@ -117,6 +117,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

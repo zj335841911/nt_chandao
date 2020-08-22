@@ -117,6 +117,9 @@ export default class ProductInfoModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

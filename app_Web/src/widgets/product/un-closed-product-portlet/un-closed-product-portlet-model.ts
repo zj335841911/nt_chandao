@@ -117,6 +117,9 @@ export default class UnClosedProductModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

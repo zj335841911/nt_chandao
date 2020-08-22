@@ -34,6 +34,7 @@ export default {
     doccnt: "文档数",
     buildcnt: "BUILD数",
     casecnt: "用例数",
+    srfcount: "属性",
   },
 	views: {
 		testtabexpview: {

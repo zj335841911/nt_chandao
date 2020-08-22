@@ -117,6 +117,9 @@ export default class MainModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 

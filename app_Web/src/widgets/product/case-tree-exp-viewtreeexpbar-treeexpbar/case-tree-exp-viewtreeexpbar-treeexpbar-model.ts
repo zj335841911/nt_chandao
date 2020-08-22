@@ -117,6 +117,9 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
     ]
   }
 
