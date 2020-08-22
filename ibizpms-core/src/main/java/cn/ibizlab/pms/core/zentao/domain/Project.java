@@ -405,6 +405,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
     private Double totalhours;
+    /**
+     * 移动端图片
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
 
     /**
      * 

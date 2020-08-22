@@ -61,6 +61,11 @@ export class ActiviteMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
+                name: 'mobimage',
+                prop: 'mobimage',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

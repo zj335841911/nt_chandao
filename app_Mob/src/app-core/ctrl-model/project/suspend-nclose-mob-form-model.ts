@@ -51,7 +51,9 @@ export class SuspendNCloseMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
-                name: 'formitem',
+                name: 'mobimage',
+                prop: 'mobimage',
+                dataType: 'TEXT',
             },
             {
                 name: 'id',

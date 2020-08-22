@@ -305,6 +305,14 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("srfcount")
     private Integer srfcount;
 
+    /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
+
 
     /**
      * 设置 [QD]

@@ -120,6 +120,9 @@ export class ProdMobTabExpViewtabviewpanel3Model {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

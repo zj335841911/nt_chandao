@@ -260,7 +260,7 @@ export default class ProductStatusPieMobBase extends Vue implements ControlInter
      */
     public defaultConfig: any = {
         title: { 
-          show: false,
+          show: true,
           text: '产品总览',
         },
         legend: {top: 20},

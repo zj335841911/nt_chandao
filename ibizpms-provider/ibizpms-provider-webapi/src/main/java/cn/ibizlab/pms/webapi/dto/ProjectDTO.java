@@ -430,6 +430,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("totalhours")
     private Double totalhours;
 
+    /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
+
 
     /**
      * 设置 [OPENEDVERSION]

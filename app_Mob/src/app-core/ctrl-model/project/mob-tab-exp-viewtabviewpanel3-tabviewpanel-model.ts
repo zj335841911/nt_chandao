@@ -165,6 +165,9 @@ export class MobTabExpViewtabviewpanel3Model {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 
