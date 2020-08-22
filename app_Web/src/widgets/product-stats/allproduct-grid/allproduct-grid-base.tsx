@@ -153,7 +153,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '未解决Bug',
             langtag: 'entities.productstats.allproduct_grid.columns.activebugcnt',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

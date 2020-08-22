@@ -145,7 +145,7 @@ export class MainGridBase extends GridControlBase {
             label: '所属项目',
             langtag: 'entities.testreport.main_grid.columns.projectname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
