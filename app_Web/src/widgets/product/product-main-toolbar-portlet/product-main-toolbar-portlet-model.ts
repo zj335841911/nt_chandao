@@ -120,6 +120,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

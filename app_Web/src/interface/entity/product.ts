@@ -285,4 +285,12 @@ export interface Product {
      * @memberof Product
      */
     srfcount?: any;
+
+    /**
+     * 移动端图片
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    mobimage?: any;
 }

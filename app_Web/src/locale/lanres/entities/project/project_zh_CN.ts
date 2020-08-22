@@ -50,6 +50,7 @@ export default {
     totalleft: "任务预计剩余总工时",
     totalestimate: "任务最初预计总工时",
     totalhours: "可用工时",
+    mobimage: "移动端图片",
   },
 	views: {
 		tasktreeexpview: {

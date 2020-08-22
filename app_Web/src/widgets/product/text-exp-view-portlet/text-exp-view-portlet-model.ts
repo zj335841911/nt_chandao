@@ -120,6 +120,9 @@ export default class TextExpViewModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

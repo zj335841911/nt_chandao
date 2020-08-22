@@ -120,6 +120,9 @@ export default class ProductInfoModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

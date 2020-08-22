@@ -120,6 +120,9 @@ export default class UnClosedProductModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

@@ -165,6 +165,9 @@ export default class TestTabExpViewtabviewpanel3Model {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

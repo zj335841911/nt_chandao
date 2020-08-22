@@ -165,6 +165,9 @@ export default class UnClosedProjectModel {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

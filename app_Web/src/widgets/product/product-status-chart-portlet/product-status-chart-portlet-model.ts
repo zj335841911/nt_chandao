@@ -120,6 +120,9 @@ export default class ProductStatusChartModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

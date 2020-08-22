@@ -120,6 +120,9 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

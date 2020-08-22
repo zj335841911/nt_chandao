@@ -405,4 +405,12 @@ export interface Project {
      * @memberof Project
      */
     totalhours?: any;
+
+    /**
+     * 移动端图片
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    mobimage?: any;
 }

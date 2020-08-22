@@ -120,6 +120,9 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

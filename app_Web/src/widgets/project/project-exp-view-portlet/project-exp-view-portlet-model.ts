@@ -165,6 +165,9 @@ export default class ProjectExpViewModel {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 
