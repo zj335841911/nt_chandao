@@ -96,7 +96,6 @@ export default {
 			createddate: "创建时间",
 			projectname: "所属项目",
 			tasks: "测试版本",
-			uagridcolumn1: "操作",
 		},
 		uiactions: {
 		},

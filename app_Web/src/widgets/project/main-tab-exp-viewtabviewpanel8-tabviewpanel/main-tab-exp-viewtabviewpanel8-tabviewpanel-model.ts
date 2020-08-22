@@ -165,6 +165,9 @@ export default class MainTabExpViewtabviewpanel8Model {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

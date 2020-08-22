@@ -63,6 +63,7 @@ export default {
 			begin: '开始时间', 
 			end: '结束日期', 
 			comment: '备注', 
+			mobimage: '移动端图片', 
 			id: '项目编号', 
 		},
 		uiactions: {
@@ -82,7 +83,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
-			formitem: '', 
+			mobimage: '', 
 			id: '项目编号', 
 		},
 		uiactions: {

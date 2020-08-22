@@ -145,21 +145,13 @@ export class MainGridBase extends GridControlBase {
             label: '所属项目',
             langtag: 'entities.testreport.main_grid.columns.projectname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
             name: 'tasks',
             label: '测试版本',
             langtag: 'entities.testreport.main_grid.columns.tasks',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.testreport.main_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -204,7 +196,6 @@ export class MainGridBase extends GridControlBase {
         'createddate':false,
         'projectname':false,
         'tasks':false,
-        'uagridcolumn1':false,
     };
 
     /**

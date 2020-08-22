@@ -120,6 +120,9 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

@@ -68,6 +68,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
+			mobimage: '', 
 			id: '编号', 
 		},
 		uiactions: {

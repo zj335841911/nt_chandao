@@ -165,6 +165,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

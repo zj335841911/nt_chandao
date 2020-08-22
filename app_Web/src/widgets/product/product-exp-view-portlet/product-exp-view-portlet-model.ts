@@ -120,6 +120,9 @@ export default class ProductExpViewModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

@@ -120,6 +120,9 @@ export default class MainModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

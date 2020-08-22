@@ -6404,7 +6404,7 @@
                 "value": "All",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "normal",
@@ -7330,7 +7330,7 @@
                 "value": "All",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "nowait",

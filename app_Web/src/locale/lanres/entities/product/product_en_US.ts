@@ -36,6 +36,7 @@ export default {
     buildcnt: "BUILD数",
     casecnt: "用例数",
     srfcount: "属性",
+    mobimage: "移动端图片",
   },
 	views: {
 		testtabexpview: {

@@ -120,6 +120,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

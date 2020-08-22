@@ -293,6 +293,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "srfcount")
     @JsonProperty("srfcount")
     private Integer srfcount;
+    /**
+     * 移动端图片
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
 
     /**
      * 产品线

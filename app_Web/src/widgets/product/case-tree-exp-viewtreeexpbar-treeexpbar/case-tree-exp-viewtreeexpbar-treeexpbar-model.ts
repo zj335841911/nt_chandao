@@ -120,6 +120,9 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'srfcount',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

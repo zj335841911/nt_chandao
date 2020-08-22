@@ -40,29 +40,29 @@
 
 
 <app-form-item 
-    name='formitem' 
+    name='mobimage' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="TOP" 
-    ref="formitem_item"  
-    :itemValue="this.data.formitem" 
-    v-show="detailsModel.formitem.visible" 
-    :itemRules="this.rules.formitem" 
-    :caption="$t('project.suspendnclosemob_form.details.formitem')"  
+    ref="mobimage_item"  
+    :itemValue="this.data.mobimage" 
+    v-show="detailsModel.mobimage.visible" 
+    :itemRules="this.rules.mobimage" 
+    :caption="$t('project.suspendnclosemob_form.details.mobimage')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.formitem.disabled"
-    :error="detailsModel.formitem.error" 
+    :disabled="detailsModel.mobimage.disabled"
+    :error="detailsModel.mobimage.error" 
     :isEmptyCaption="true">
         <app-mob-picture 
-    name='formitem' 
+    name='mobimage' 
     style="overflow: auto;"  
     :multiple="true" 
     :formState="formState" 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)" 
-    :value="data.formitem" 
-    :disabled="detailsModel.formitem.disabled" 
+    :value="data.mobimage" 
+    :disabled="detailsModel.mobimage.disabled" 
     :context="context" 
     :viewparams="viewparams" 
     :uploadParam='{}' 
@@ -433,7 +433,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
         srfdeid: null,
         srfsourcekey: null,
         comment: null,
-        formitem: null,
+        mobimage: null,
         id: null,
         project: null,
     };
@@ -517,7 +517,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
+        mobimage: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
@@ -637,7 +637,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        mobimage: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'mobimage', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -740,15 +740,15 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 mobimage 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof SuspendNCloseMob
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.mobimage')
+    onMobimageChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mobimage', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -979,7 +979,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
      * @memberof SuspendNCloseMob
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['comment_item', 'formitem_item', ];
+        const refArr: Array<string> = ['comment_item', 'mobimage_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

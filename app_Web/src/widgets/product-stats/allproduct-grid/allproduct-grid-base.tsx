@@ -121,7 +121,7 @@ export class ALLProductGridBase extends GridControlBase {
             label: '当前项目',
             langtag: 'entities.productstats.allproduct_grid.columns.currproject',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
