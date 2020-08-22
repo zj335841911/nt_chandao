@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatsGridView9Base } from './product-stats-grid-view9-base';
-import view_grid from '@widgets/product-stats/open-items-grid/open-items-grid.vue';
+import view_grid from '@widgets/product-stats/allproduct-grid/allproduct-grid.vue';
 
 /**
  * 产品统计表格视图视图
