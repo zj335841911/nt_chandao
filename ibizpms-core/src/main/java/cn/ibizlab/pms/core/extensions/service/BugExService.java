@@ -71,35 +71,7 @@ public class BugExService extends BugServiceImpl {
     @Override
     @Transactional
     public Bug buildLinkBug(Bug et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo = new JSONObject();
-
-        //版本（build）、多bug（ids,resolvedby）关联
-        if (jo.get("build") == null) {
-            jo.put("id", String.valueOf(et.get("builds")).split(",")[0]);
-        }
-
-        if (et.get("ids") != null && et.get("resolvedby")!=null) {
-            String[] resolvedBy = String.valueOf(et.get("resolvedby")).split(",");
-            String[] ids = String.valueOf(et.get("ids")).split(",");
-            JSONArray jsonArray = new JSONArray();
-            for(int i=0;i<ids.length;i++){
-                JSONObject jo2 = new JSONObject();
-                jo2.put("bugs",ids[i]);
-                jo2.put("resolvedBy",resolvedBy[i]);
-                jsonArray.add(jo2);
-            }
-            jo.put("srfarray", jsonArray);
-        }
-
-
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBugHelper.buildLinkBug(zentaoSid, jo, rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return et;
+        return super.buildLinkBug(et);
     }
     /**
      * 自定义行为[BuildUnlinkBug]用户扩展

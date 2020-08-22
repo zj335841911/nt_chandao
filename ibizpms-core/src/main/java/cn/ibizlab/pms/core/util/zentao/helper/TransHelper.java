@@ -48,23 +48,22 @@ public class TransHelper {
                 return jo;
             }
             if ("buildLinkBug".equals(method)){
-                String loginname = AuthenticationUser.getAuthenticationUser().getLoginname();
 
+                //版本（build）、多bug（ids,resolvedby）关联
                 if (jo.get("build") == null) {
-                    jo.put("id", et.get("build"));
+                    jo.put("id", String.valueOf(et.get("builds")).split(",")[0]);
                 }
 
-                if (et.get("srfactionparam") != null) {
-                    ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+                if (et.get("ids") != null ) {
+                    String[] resolvedBy = String.valueOf(et.get("resolvedby")).split(",");
+                    String[] ids = String.valueOf(et.get("ids")).split(",");
+                    String[] statuses = String.valueOf(et.get("statuses")).split(",");
                     JSONArray jsonArray = new JSONArray();
-                    for (Map map : list) {
+                    for(int i=0;i<ids.length;i++){
                         JSONObject jo2 = new JSONObject();
-                        jo2.put("bugs", map.get("id"));
-                        //当Bug状态不为已解决时，设置Bug解决人为当前操作人。
-                        if ("resolved".equals(String.valueOf(map.get("status")))) {
-                            jo2.put("resolvedBy", map.get("resolvedBy"));
-                        } else {
-                            jo2.put("resolvedBy", loginname);
+                        jo2.put("bugs",ids[i]);
+                        if (!"resolved".equals(statuses[i])) {
+                            jo2.put("resolvedBy", resolvedBy[i]);
                         }
                         jsonArray.add(jo2);
                     }
@@ -137,8 +136,25 @@ public class TransHelper {
                     jo.put("id", et.getExtensionparams().get("release"));
                     jo.put("stories",jsonArray);
                 }
-
-                return jo;
+            }
+            if("releaseUnlinkStory".equals(method)){
+                jo = new JSONObject();
+                jo.put("release",et.get("release"));
+                jo.put("id",et.get("id"));
+            }
+            if("releaseBatchUnlinkStory".equals(method)){
+                if(et.get("srfactionparam") != null) {
+                    ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+                    JSONArray jsonArray = new JSONArray();
+                    for(Map map : list) {
+                        if (map.get("id") != null) {
+                            jsonArray.add(map.get("id"));
+                        }
+                    }
+                    jo = new JSONObject();
+                    jo.put("release",et.get("release"));
+                    jo.put("id",jsonArray);
+                }
             }
         }
         if (o instanceof Case){
