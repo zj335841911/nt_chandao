@@ -4,7 +4,7 @@ iBizPMS（iBiz Production Management System 软件生产管理）是iBiz对于�
 
 iBizPMS集成了 **[禅道]( https://www.zentao.net/ )**（开源版 ）的特性与功能，在提供传统的项目管理软件的管理能力（产品、项目、质量、文档等等）的同时，通过结合各自企业或个人的生产体系，将实际生产过程以及落地的内容（软件设计，软件研发，软件测试，文档制作，生产部署，生产发布等等）管理起来，补足了传统项目管理中缺失的那一块，做到真正意义上的一体化管理。
 
-iBizPMS采取微服务架构，将核心能力服务化，打造出软件生产管理软件中台。
+iBizPMS采取微服务架构，将核心能力服务化，打造出软件生产管理软件中台，并与生产运行系统群（统一用户、统一认证、统一工作流等成熟软件）、商业套件系统群（OA、CRM、EAM、EHR等成熟商业软件）进行连通，实现一体化软件生态系统。
 
 ## 介绍
 
@@ -42,13 +42,17 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 >
 > **[iBiz开源社区](https://www.ibizlab.cn/)** 
 
-## 整体流程
+## PMS系统工作流程
 
 ![flow](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow.png)
 
 ## 与禅道关系
 
-![flow2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow2.png)
+![flow2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow2_v2.png)
+
+## 与系统群关系
+
+![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3.png)
 
 ## 增强特性
 
@@ -58,7 +62,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 - 丰富的工具集。
 
-- 移动端支持。
+- 移动端支持（独立应用、钉钉集成、企业微信集成等）。
 
 - 采用中台模式，微服务架构，核心能力服务化，快速响应和迭代。
 
@@ -68,8 +72,11 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 - 支持接入生产体系（系统）数据，自动完成日常管理数据填充。
 
-  ![ywt](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/ywt.png)
+- 支持接入其它生产运行系统，例如统一认证、统一用户、统一权限、统一工作流等。
 
+- 在保留原有禅道功能基础上，iBizPMS Plus（增强服务）提供了更强的定制化功能，使得PMS更为符合自身（企业）的需求。
+
+  ![ywt](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/ywt_v2.png)
 
 ## 开源参与
 
@@ -79,7 +86,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 - 欢迎加入iBizPMS交流QQ群：1067434627
 
-  ![QQ](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/QQ.jpg)
+  <img src="https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/QQ.jpg" alt="QQ" style="zoom: 50%;" />
 
 ## 技术框架
 
@@ -91,7 +98,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 - 日志管理：Logback
 - 项目管理框架: Maven
 
-**前端技术架构**： [iBiz-Vue-R7](https://gitee.com/ibizr7pfstdtempl/iBiz-Vue-Studio)
+**前端（PC端）技术架构**： [iBiz-Vue-R7](https://gitee.com/ibizr7pfstdtempl/iBiz-Vue-Studio)
 
 - 前端框架：vue.js
 - 路由：vue-router
@@ -115,6 +122,19 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
   4. ibiz-vue-lib
   5. ibiz-gantt-elastic
 
+**前端（移动端）技术架构**： [Vue_Mobile_R7](https://gitee.com/kk_ah/ibiz-vue-mobr7)
+
+- 前端MVVM框架：`vue.js ^2.6.11`
+- 路由：`vue-router ^3.1.5`
+- 状态管理：`vuex ^3.1.2`
+- 国际化：`vue-i18n ^8.15.5`
+- 数据交互：`axios ^0.19.2`
+- UI框架：`@ionic/core ^5.0.5`, `vant ^2.5.4`
+- 工具库：`qs ^6.9.1`, `path-to-regexp ^6.1.0`, `rxjs ^6.5.4`,`moment ^2.24.0`,`async-validator^3.3.0`
+- 图标库：`font-awesome 4.7.0`, `ionicons ^5.0.1`
+- 引入组件： `echarts ^4.6.0`，`ibiz-mobile-components`
+- 代码风格检测：`tslint`
+
 ## 开发环境
 
 - [禅道 12.3.1]( https://www.zentao.net/download/zentaopms12.3.1-80220.html ) （开源版）：版本尽量保持一致，避免数据结构以及功能上存在差异
@@ -137,67 +157,77 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ## 系统展示
 
-### 产品
+### PC端
+
+#### 产品
 
 - 产品--主页
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show1.png)
+  ![show15](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show15.png)
 
 - 产品--概况
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show2.png)
-
-- 产品--需求
-
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show3.png)
+  ![show16](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show16.png)
 
 - 产品--路线图
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show4.png)
+  ![show17](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show17.png)
 
-- 产品--动态
-
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show5.png)
-
-### 项目
+#### 项目
 
 - 项目--主页
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show6.png)
+  ![show18](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show18.png)
 
 - 项目--概况
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show7.png)
-
-- 项目--任务
-
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show8.png)
+  ![show19](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show19.png)
 
 - 项目--看板
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show9.png)
+  ![show20](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show20.png)
 
 - 项目--燃尽图
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show10.png)
+  ![show21](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show21.png)
 
 - 项目--甘特图
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show11.png)
+  ![show22](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show22.png)
 
-### 测试
+#### 测试
 
 - 测试--主页
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show12.png)
+  ![show23](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show23.png)
 
-- 测试-Bug
+- 测试--测试结果
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show13.png)
+  ![show24](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show24.png)
 
-- 测试-功能测试
+#### 我的地盘
 
-![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show14.png)
+- 我的地盘--主页
+
+  ![show25](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show25.png)
+
+### 移动端
+
+#### 产品
+
+![show26](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show26.png)
+
+#### 项目
+
+![show27](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show27.png)
+
+#### 测试
+
+![show28](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show28.png)
+
+#### 我的地盘
+
+![show29](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show29.png)
 
 ### 接口
 
@@ -217,19 +247,22 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ### 里程碑
 
-| 序号 | 时间       | 事件                   | 备注                                         |
-| ---- | ---------- | ---------------------- | -------------------------------------------- |
-| 1    | 2020-05-06 | 选型预研               | 国内外项目管理软件整理和对比                 |
-| 2    | 2020-05-11 | 禅道业务分析、技术预研 |                                              |
-| 3    | 2020-05-18 | 项目启动               |                                              |
-| 4    | 2020-05-18 | 禅道模型整理           | 梳理禅道的业务数据模型以及模型关系           |
-| 5    | 2020-05-18 | 禅道界面、组件整理     | 梳理禅道界面表现和组件模型                   |
-| 6    | 2020-05-25 | 禅道API整理            | 梳理禅道API，抽象共通性                      |
-| 7    | 2020-06-01 | 联通iBizPMS与禅道      | iBizPMS与禅道API和数据库联通                 |
-| 8    | 2020-07-07 | 项目管理主功能完成     | 产品、项目、测试功能完成                     |
-| 9    | 2020-08-03 | 我的地盘功能完成       | 用户与ldap打通，我的地盘功能完成，首页可定制 |
+| 序号 | 时间       | 事件                   | 备注                                                         |
+| ---- | ---------- | ---------------------- | ------------------------------------------------------------ |
+| 1    | 2020-05-06 | 选型预研               | 国内外项目管理软件整理和对比                                 |
+| 2    | 2020-05-11 | 禅道业务分析、技术预研 |                                                              |
+| 3    | 2020-05-18 | 项目启动               |                                                              |
+| 4    | 2020-05-18 | 禅道模型整理           | 梳理禅道的业务数据模型以及模型关系                           |
+| 5    | 2020-05-18 | 禅道界面、组件整理     | 梳理禅道界面表现和组件模型                                   |
+| 6    | 2020-05-25 | 禅道API整理            | 梳理禅道API，抽象共通性                                      |
+| 7    | 2020-06-01 | 联通iBizPMS与禅道      | iBizPMS与禅道API和数据库联通                                 |
+| 8    | 2020-07-07 | 项目管理主功能         | 产品、项目、测试功能                                         |
+| 9    | 2020-08-03 | 我的地盘功能           | 用户与ldap打通（微服务），我的地盘功能完成，首页可定制.      |
+| 10   | 2020-08-22 | 统一用户认证（微服务） | 统一认证。                                                   |
+| 10   | 2020-08-22 | 统一用户权限（微服务） | 支持操作、展示权限，支持数据状态控制操作。（微服务）         |
+| 11   | 2020-08-22 | 移动端H5第一版         | 上线移动端H5（我的地盘、产品、项目、测试、待办处理操作）；继承进钉钉应用 |
 
-> 8月会陆续开放权限控制（操作权限、展示权限等）、统计等功能，完善操作的引导性。
+> **9月会增强PC端、移动端功能，完善操作的引导性，与更多的生产运行系统功能进行连通。**
 
 ### 快速建立issue
 
