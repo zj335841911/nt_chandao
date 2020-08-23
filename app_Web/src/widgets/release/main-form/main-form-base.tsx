@@ -109,6 +109,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        name: [
+            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
+        ],
+        date: [
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**

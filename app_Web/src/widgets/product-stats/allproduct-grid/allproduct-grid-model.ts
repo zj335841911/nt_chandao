@@ -76,6 +76,7 @@ export default class ALLProductModel {
           name: 'productstats',
           prop: 'id',
         },
+
         {
           name:'size',
           prop:'size'

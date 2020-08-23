@@ -163,6 +163,18 @@ export default {
 		uiactions: {
 		},
 	},
+	openitems_grid: {
+		columns: {
+			name: "产品名称",
+			currproject: "当前项目",
+			productplancnt: "计划数",
+			releasecnt: "发布数",
+			activestorycnt: "激活需求",
+			activebugcnt: "未解决Bug",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
