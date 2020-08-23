@@ -658,6 +658,21 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[
+                {name:'u5a26748',title:'todo指派（移动端）'},
+                {name:'u1586fdf',title:'todo激活（移动端）'},
+                {name:'u400bc93',title:'todo完成（移动端）'},
+                {name:'u44450a6',title:'todo删除（移动端）'},
+                {name:'u775882c',title:'todo关闭（移动端）'},
+        ],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -754,6 +769,9 @@ export default class TodoMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

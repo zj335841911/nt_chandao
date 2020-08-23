@@ -24,7 +24,7 @@ export class ThirdPartyService {
      * @type {('WeChat' | 'DingTalk' | null)}
      * @memberof ThirdPartyService
      */
-    protected platform: 'WeChat' | 'DingTalk' | null = null;
+    public platform: 'WeChat' | 'DingTalk' | null = null;
     /**
      * 钉钉服务
      *
@@ -135,6 +135,21 @@ export class ThirdPartyService {
      */
     public static getInstance(): ThirdPartyService {
         return ThirdPartyService.instance;
+    }
+
+    /**
+     * 关闭
+     *
+     * @static
+     * @returns {ThirdPartyService}
+     * @memberof ThirdPartyService
+     */
+    public close(){
+        if (this.isDingTalk()) {
+            this.dd.close();
+        } else if (this.isWeChat()) {
+            this.weChat.close();
+        }
     }
 
 }

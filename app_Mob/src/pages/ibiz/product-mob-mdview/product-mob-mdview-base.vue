@@ -613,6 +613,18 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[
+                {name:'ubbd2867',title:'关闭产品（移动端）'},
+                {name:'u4089ced',title:'删除（移动端）'},
+        ],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -709,6 +721,9 @@ export default class ProductMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

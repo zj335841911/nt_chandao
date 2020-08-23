@@ -991,19 +991,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-mdview/product-mob-mdview.vue'),
                 },
                 {
-                    path: 'products/:product?/mobchartview',
-                    meta: {
-                        caption: 'product.views.mobchartview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'mobchartview', parameterName: 'mobchartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-mob-chart-view/product-mob-chart-view.vue'),
-                },
-                {
                     path: 'products/:product?/closemobeditview',
                     meta: {
                         caption: 'product.views.closemobeditview.caption',

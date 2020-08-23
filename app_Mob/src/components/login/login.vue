@@ -1,6 +1,6 @@
 <template>
     <ion-page :className="{ 'app-login': true }">
-        <ion-content fullscreen>
+        <ion-content fullscreen v-if="!platform">
             <div class="app-login-contant">
                 <img src="assets/images/logo.png" class="ibizLogo"/>
                 <form class="app-login-form">
@@ -30,7 +30,8 @@
 import { Vue, Component } from "vue-property-decorator";
 import { Loading } from '@/ibiz-core/utils';
 import { Environment } from '@/environments/environment';
-
+import { ThirdPartyService } from '@ibiz-core'
+import { DingTalkService } from '../../ibiz-core/third-party-service/DingTalkService';
 @Component({
     components: {},
     i18n: {
@@ -53,6 +54,18 @@ import { Environment } from '@/environments/environment';
     }
 })
 export default class Login extends Vue {
+
+    /**
+     * 第三方服务
+     *
+     * @type {string}
+     * @memberof Login
+     */
+    public thirdPartyService:ThirdPartyService = ThirdPartyService.getInstance();
+
+
+    public platform:any = "";
+
     /**
      * 用户名
      *
@@ -60,6 +73,39 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public username: string = "";
+
+
+    /**
+     * 生命周期
+     * 
+     * @memberof Login
+     */
+    public created(){
+        this.platform = this.thirdPartyService.platform;
+        if(this.platform){
+            this.thirdLogin();
+        }
+    }
+
+    /**
+     * 第三方登录
+     *
+     * @type {string}
+     * @memberof Login
+     */
+    public async thirdLogin(){
+        let loginStatus :any = await this.thirdPartyService.login();
+        if(!loginStatus.issuccess){
+            this.$notice.error(loginStatus.message?loginStatus.message:"钉钉认证失败，请联系管理员");
+            setTimeout(()=>{
+                this.thirdPartyService.close();
+            },1500);
+        }else if(loginStatus.issuccess){
+            const url: any = this.$route.query.redirect? this.$route.query.redirect: "*";
+            this.$router.replace({ path: url });
+            this.$router.go(-1);
+        }
+    }
 
     /**
      * 密码

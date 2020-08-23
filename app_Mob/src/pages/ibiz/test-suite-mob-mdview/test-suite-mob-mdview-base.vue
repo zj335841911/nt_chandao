@@ -598,6 +598,15 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @memberof TestSuiteMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -694,6 +703,9 @@ export default class TestSuiteMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

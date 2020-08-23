@@ -31,7 +31,7 @@ export class DingTalkService {
      * @type {string}
      * @memberof WeChatService
      */
-    private readonly appId: string = "dingf89eefecd565b89cbc961a6cb783455b";
+    private readonly appId: string = "ding0466097cd833d9f9a1320dcb25e91351";
     /**
      * 钉钉sdk
      *
@@ -82,17 +82,26 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        const data = await this.getUserInfo();
-        if (!data || !data.value || Object.is(data.value, '')) {
-            // 获取临时登录授权码
-            const res: { code: string } = await dd.runtime.permission.requestAuthCode({ corpId: this.appId });
-            if (res && res.code) {
-                const userInfo = await this.get(`./dingtalk/login?code=${res.code}`);
-                dd.util.domainStorage.setItem({ name: this.infoName, value: userInfo });
-                data.value = userInfo;
+            const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
+            if(access_token.status == 200 && access_token.data && access_token.data.regionid){
+                const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.regionid });
+                if (res && res.code) {
+                    const userInfo:any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
+                    if(userInfo.status == 200 && userInfo.data.token && userInfo.data.user){
+                        localStorage.setItem("token", userInfo.data.token);
+                        localStorage.setItem("user", JSON.stringify(userInfo.data.user));
+                        return {issuccess:true,message:""};
+                    }else if(userInfo.status == 400){
+                        return {issuccess:false,message:userInfo.data.message};
+                    }else{
+                        return {issuccess:false,message:userInfo.data.message};
+                    }
+                }else{
+                    return {issuccess:false,message:"钉钉用户信息获取失败"};
+                }
+            }else{
+                return {issuccess:false,message:"获取企业id失败"};
             }
-        }
-        return data.value;
     }
 
     /**
@@ -125,8 +134,9 @@ export class DingTalkService {
     private async get(url: string): Promise<any> {
         return new Promise((resolve) => {
             axios.get(url).then((response: any) => {
-                resolve(response.data);
+                resolve(response);
             }).catch((error: any) => {
+                resolve(error);
                 console.log('请求异常');
             });
         })
@@ -143,4 +153,14 @@ export class DingTalkService {
         return DingTalkService.instance;
     }
 
+    /**
+     * 关闭钉钉应用
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public close(){
+        this.dd.biz.navigation.close({});
+    }
 }

@@ -608,6 +608,15 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -704,6 +713,9 @@ export default class ReleaseMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

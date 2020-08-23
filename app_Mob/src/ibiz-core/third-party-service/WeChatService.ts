@@ -190,4 +190,14 @@ export class WeChatService {
         return WeChatService.instance;
     }
 
+    /**
+     * 关闭微信应用
+     *
+     * @static
+     * @returns {WeChatService}
+     * @memberof WeChatService
+     */
+    public close(){
+        // 关闭
+    }
 }

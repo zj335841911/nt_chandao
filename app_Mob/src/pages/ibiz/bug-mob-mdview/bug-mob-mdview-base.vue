@@ -608,6 +608,17 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[
+                {name:'u3571afd',title:'删除（移动端）'},
+        ],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -704,6 +715,9 @@ export default class BugMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

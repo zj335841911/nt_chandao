@@ -613,6 +613,15 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -709,6 +718,9 @@ export default class ProjectMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

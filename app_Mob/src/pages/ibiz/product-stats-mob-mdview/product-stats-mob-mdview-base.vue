@@ -637,6 +637,15 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -733,6 +742,9 @@ export default class ProductStatsMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }

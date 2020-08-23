@@ -608,6 +608,17 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+public UIActions = {
+    left:[
+                {name:'ud61cd4c',title:'删除（移动端）'},
+        ],
+    right:[    ]
+}
+
+
+
+
+
 
     /**
      * 分类值
@@ -704,6 +715,9 @@ export default class StoryMobMDViewBase extends Vue {
         this.categoryValue = value;
         this.onViewLoad();
     }
+
+
+
 
 
 }
