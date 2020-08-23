@@ -56,8 +56,18 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'title',
         prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'oldtitle',
+        prop: 'oldtitle',
         dataType: 'TEXT',
       },
       {
@@ -66,9 +76,19 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
+        name: 'future',
+        prop: 'future',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'end',
         prop: 'end',
         dataType: 'DATE',
+      },
+      {
+        name: 'delta',
+        prop: 'delta',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'desc',

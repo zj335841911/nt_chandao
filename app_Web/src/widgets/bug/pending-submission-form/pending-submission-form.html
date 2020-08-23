@@ -25,7 +25,7 @@
   deMajorField='name'
   deKeyField='product'
   :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
   valueitem='product' 
   :value="data.productname" 
   editortype="dropdown"
@@ -75,25 +75,6 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
-    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.pendingsubmission_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<dropdown-list-mpicker 
-  v-model="data.openedbuild"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.openedbuild.disabled"
-  tag='CurProductBuild' 
-  codelistType='DYNAMIC' 
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
-
-</app-form-item>
-
-</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.pendingsubmission_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     
@@ -116,6 +97,25 @@
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.pendingsubmission_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list-mpicker 
+  v-model="data.openedbuild"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ BUGPRODUCT:"%product%", BUGPROJECT:"%project%" }' 
+  :localParam ='{ bugproject:"%project%", bugproduct:"%product%" }' 
+  :disabled="detailsModel.openedbuild.disabled"
+  tag='CurProductBuild' 
+  codelistType='DYNAMIC' 
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>
@@ -167,7 +167,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.pendingsubmission_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.pendingsubmission_form.details.os')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.os"
@@ -246,7 +246,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.pendingsubmission_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.pendingsubmission_form.details.pri')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.pri"

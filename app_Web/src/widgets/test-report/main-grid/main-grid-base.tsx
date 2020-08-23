@@ -51,6 +51,15 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'testreport';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '测试报告';
+
+    /**
      * 界面UI服务对象
      *
      * @type {TestReportUIService}
@@ -104,7 +113,7 @@ export class MainGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.testreport.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class MainGridBase extends GridControlBase {
             label: '标题',
             langtag: 'entities.testreport.main_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class MainGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.testreport.main_grid.columns.createdby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class MainGridBase extends GridControlBase {
             label: '创建时间',
             langtag: 'entities.testreport.main_grid.columns.createddate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class MainGridBase extends GridControlBase {
             label: '所属项目',
             langtag: 'entities.testreport.main_grid.columns.projectname',
             show: true,
-            util: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -144,15 +153,7 @@ export class MainGridBase extends GridControlBase {
             label: '测试版本',
             langtag: 'entities.testreport.main_grid.columns.tasks',
             show: true,
-            util: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.testreport.main_grid.columns.uagridcolumn1',
-            show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -195,7 +196,6 @@ export class MainGridBase extends GridControlBase {
         'createddate':false,
         'projectname':false,
         'tasks':false,
-        'uagridcolumn1':false,
     };
 
     /**

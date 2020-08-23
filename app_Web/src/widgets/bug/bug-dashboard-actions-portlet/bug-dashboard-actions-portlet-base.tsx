@@ -51,6 +51,23 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugDashboardActionsPortletBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof BugDashboardActionsBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -85,7 +102,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u1d352f4_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u7bbaff3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +119,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_MainEditDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -113,7 +130,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u09d7603_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u46c6b98_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +147,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_CloseBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_CloseBugDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -141,7 +158,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u84080b5_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u9666cf2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +175,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_ResolveBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_ResolveBugDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -197,7 +214,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u279d3f0_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u18c7ab6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +231,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_ConfirmBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_ConfirmBugDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -302,6 +319,34 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u5cd6c83_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_delete(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 当前数据
@@ -347,46 +392,99 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'',
+        visabled:true,
+        disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u1d352f4_click",
+        { viewlogicname:"dashboard_sysportlet5_u7bbaff3_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u09d7603_click",
+        { viewlogicname:"dashboard_sysportlet5_u46c6b98_click",
         text: "关闭",
-        iconcls: "fa fa-power-off",
+        iconcls: "fa fa-close",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_CLOSE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u84080b5_click",
+        { viewlogicname:"dashboard_sysportlet5_u9666cf2_click",
         text: "解决",
         iconcls: "fa fa-check-square-o",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_RESOLVE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_ubef0a95_click",
         text: "指派",
         iconcls: null,
         icon: null,
+        noprivdisplaymode: 1,
+        dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u279d3f0_click",
+        { viewlogicname:"dashboard_sysportlet5_u18c7ab6_click",
         text: "确认",
         iconcls: "fa fa-eye",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_CONFIRM_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u1b279b1_click",
         text: "激活",
         iconcls: null,
         icon: null,
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_uf577fc4_click",
         text: "提需求",
         iconcls: null,
         icon: null,
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_TOSTORY_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_ucf86385_click",
         text: "建用例",
         iconcls: null,
         icon: null,
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_CREATECASE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet5_u5cd6c83_click",
+        text: "删除",
+        iconcls: null,
+        icon: null,
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         }
     ];
 
@@ -399,20 +497,20 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet5_u3f6a0e7_click')){
             this.dashboard_sysportlet5_u3f6a0e7_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u1d352f4_click')){
-            this.dashboard_sysportlet5_u1d352f4_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u7bbaff3_click')){
+            this.dashboard_sysportlet5_u7bbaff3_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u09d7603_click')){
-            this.dashboard_sysportlet5_u09d7603_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u46c6b98_click')){
+            this.dashboard_sysportlet5_u46c6b98_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u84080b5_click')){
-            this.dashboard_sysportlet5_u84080b5_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u9666cf2_click')){
+            this.dashboard_sysportlet5_u9666cf2_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet5_ubef0a95_click')){
             this.dashboard_sysportlet5_ubef0a95_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u279d3f0_click')){
-            this.dashboard_sysportlet5_u279d3f0_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u18c7ab6_click')){
+            this.dashboard_sysportlet5_u18c7ab6_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet5_u1b279b1_click')){
             this.dashboard_sysportlet5_u1b279b1_click(null);
@@ -422,6 +520,9 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet5_ucf86385_click')){
             this.dashboard_sysportlet5_ucf86385_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_u5cd6c83_click')){
+            this.dashboard_sysportlet5_u5cd6c83_click(null);
         }
     }
 

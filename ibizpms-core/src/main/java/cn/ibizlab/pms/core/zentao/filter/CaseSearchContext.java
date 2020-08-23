@@ -188,6 +188,34 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().like("productname", n_productname_like);
         }
     }
+	private String n_status1_eq;//[用例状态]
+	public void setN_status1_eq(String n_status1_eq) {
+        this.n_status1_eq = n_status1_eq;
+        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
+            this.getSearchCond().eq("status1", n_status1_eq);
+        }
+    }
+	private String n_assignedto_eq;//[指派给]
+	public void setN_assignedto_eq(String n_assignedto_eq) {
+        this.n_assignedto_eq = n_assignedto_eq;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
+            this.getSearchCond().eq("assignedto", n_assignedto_eq);
+        }
+    }
+	private String n_libname_eq;//[用例库]
+	public void setN_libname_eq(String n_libname_eq) {
+        this.n_libname_eq = n_libname_eq;
+        if(!ObjectUtils.isEmpty(this.n_libname_eq)){
+            this.getSearchCond().eq("libname", n_libname_eq);
+        }
+    }
+	private String n_libname_like;//[用例库]
+	public void setN_libname_like(String n_libname_like) {
+        this.n_libname_like = n_libname_like;
+        if(!ObjectUtils.isEmpty(this.n_libname_like)){
+            this.getSearchCond().like("libname", n_libname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

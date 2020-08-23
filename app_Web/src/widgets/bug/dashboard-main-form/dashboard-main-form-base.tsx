@@ -49,14 +49,23 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardMainEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
     /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof DashboardMainEditFormBase
+     * @memberof DashboardMainBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 表单数据对象

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.casetestruncases" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.casetestruncases">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="casetestruncasestestrun" type="cn.ibizlab.pms.core.zentao.domain.TestRun" />
+        <tns:global identifier="casetestruncasesdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="casetestruncasesprepareparam1" id="81F63CFA-92AA-4330-AA4D-37329E05239C" implementation="http://www.jboss.org/drools/rule" name="重置ID"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="casetestruncasesrawsqlcall1" id="3A872568-CC85-42F1-8646-3B935B3129F9" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <startEvent id="589422AB-B708-4249-A3C9-990DFF28AAC5" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="casetestruncasesdeaction1" id="59AAD85E-B716-4466-8C1D-0F2E27E62067" implementation="http://www.jboss.org/drools/rule" name="执行测试"/>
+     <endEvent id="59AAD85E-B716-4466-8C1D-0F2E27E62067_End" name="End"/>
+     <sequenceFlow id="59AAD85E-B716-4466-8C1D-0F2E27E62067_End_Line" sourceRef="59AAD85E-B716-4466-8C1D-0F2E27E62067" targetRef="59AAD85E-B716-4466-8C1D-0F2E27E62067_End"/>
+     <sequenceFlow id="84B0CD11-A7A9-4368-B3EF-CF54AE054F0F" sourceRef="3A872568-CC85-42F1-8646-3B935B3129F9" targetRef="81F63CFA-92AA-4330-AA4D-37329E05239C">
+     </sequenceFlow>
+     <sequenceFlow id="F85DF345-EC53-4C61-B17C-45ADCE772BCC" sourceRef="589422AB-B708-4249-A3C9-990DFF28AAC5" targetRef="3A872568-CC85-42F1-8646-3B935B3129F9">
+     </sequenceFlow>
+     <sequenceFlow id="F8F1CD09-8018-433C-A4E3-3B95FBA0A395" sourceRef="81F63CFA-92AA-4330-AA4D-37329E05239C" targetRef="59AAD85E-B716-4466-8C1D-0F2E27E62067">
+     </sequenceFlow>
+    </process>
+</definitions>
+

@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet3部件基类
+ * dashboard_sysportlet5部件基类
  *
  * @export
  * @class MainControlBase
@@ -49,6 +49,23 @@ export class ActionHistoryPortletBase extends MainControlBase {
      * @memberof ActionHistoryPortletBase
      */
     protected appDeName: string = 'action';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionHistoryPortletBase
+     */
+    protected appDeLogicName: string = '系统日志';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ActionUIService}
+     * @memberof ActionHistoryBase
+     */  
+    public appUIService:ActionUIService = new ActionUIService(this.$store);
 
     /**
      * 长度

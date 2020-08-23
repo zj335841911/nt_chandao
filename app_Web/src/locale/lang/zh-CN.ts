@@ -5,6 +5,8 @@ import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
+import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
+import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
@@ -22,7 +24,9 @@ import ibzcasestep_zh_CN from '@locale/lanres/entities/ibzcase-step/ibzcase-step
 import taskestimate_zh_CN from '@locale/lanres/entities/task-estimate/task-estimate_zh_CN';
 import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
 import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
+import ibzlibmodule_zh_CN from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
+import ibzlibcasesteptmp_zh_CN from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_zh_CN';
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
 import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
 import user_zh_CN from '@locale/lanres/entities/user/user_zh_CN';
@@ -46,6 +50,7 @@ import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
+import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
@@ -186,6 +191,7 @@ export default {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem10: "用例库",
                 menuitem7: "iBiz软件生产管理",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
@@ -263,6 +269,7 @@ export default {
             back: "上一步",
             next: "下一步",
             complete: "完成",
+            preactionmessage:"未配置计算上一步行为"
         },
         viewLayoutPanel: {
             appLogoutView: {
@@ -297,6 +304,8 @@ export default {
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
+        ibzlibcasesteps: ibzlibcasesteps_zh_CN,
+        ibzlib: ibzlib_zh_CN,
         suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
         subproductplan: subproductplan_zh_CN,
@@ -314,7 +323,9 @@ export default {
         taskestimate: taskestimate_zh_CN,
         story: story_zh_CN,
         todo: todo_zh_CN,
+        ibzlibmodule: ibzlibmodule_zh_CN,
         subtask: subtask_zh_CN,
+        ibzlibcasesteptmp: ibzlibcasesteptmp_zh_CN,
         project: project_zh_CN,
         history: history_zh_CN,
         user: user_zh_CN,
@@ -338,6 +349,7 @@ export default {
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
+        ibzcase: ibzcase_zh_CN,
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
     },

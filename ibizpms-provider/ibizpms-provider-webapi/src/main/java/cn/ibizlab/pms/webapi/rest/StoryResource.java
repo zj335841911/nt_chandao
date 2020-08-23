@@ -285,6 +285,18 @@ domain.setId(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStorys-all')")
+    @ApiOperation(value = "版本解除关联需求", tags = {"需求" },  notes = "版本解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/buildunlinkstorys")
+    @Transactional
+    public ResponseEntity<StoryDTO> buildUnlinkStorys(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+domain.setId(story_id);
+        domain = storyService.buildUnlinkStorys(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Change-all')")
     @ApiOperation(value = "变更", tags = {"需求" },  notes = "变更")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/change")
@@ -323,6 +335,18 @@ domain.setId(story_id);
         Story domain = storyMapping.toDomain(storydto);
 domain.setId(story_id);
         domain = storyService.getStorySpec(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
+    @ApiOperation(value = "获取需求描述", tags = {"需求" },  notes = "获取需求描述")
+	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/getstoryspecs")
+    @Transactional
+    public ResponseEntity<StoryDTO> getStorySpecs(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+domain.setId(story_id);
+        domain = storyService.getStorySpecs(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
@@ -383,6 +407,18 @@ domain.setId(story_id);
         Story domain = storyMapping.toDomain(storydto);
 domain.setId(story_id);
         domain = storyService.projectUnlinkStory(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStorys-all')")
+    @ApiOperation(value = "项目解除关联需求", tags = {"需求" },  notes = "项目解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectunlinkstorys")
+    @Transactional
+    public ResponseEntity<StoryDTO> projectUnlinkStorys(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+domain.setId(story_id);
+        domain = storyService.projectUnlinkStorys(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
@@ -639,6 +675,27 @@ domain.setId(story_id);
     @RequestMapping(method= RequestMethod.POST , value="/stories/searchprojectstories")
 	public ResponseEntity<Page<StoryDTO>> searchProjectStories(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchProjectStories(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+	@ApiOperation(value = "获取版本可关联的完成的需求", tags = {"需求" } ,notes = "获取版本可关联的完成的需求")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchreleaselinkablestories")
+	public ResponseEntity<List<StoryDTO>> fetchReleaseLinkableStories(StorySearchContext context) {
+        Page<Story> domains = storyService.searchReleaseLinkableStories(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+	@ApiOperation(value = "查询版本可关联的完成的需求", tags = {"需求" } ,notes = "查询版本可关联的完成的需求")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/searchreleaselinkablestories")
+	public ResponseEntity<Page<StoryDTO>> searchReleaseLinkableStories(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchReleaseLinkableStories(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -997,6 +1054,18 @@ domain.setId(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStorys-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/buildunlinkstorys")
+    @Transactional
+    public ResponseEntity<StoryDTO> buildUnlinkStorysByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.buildUnlinkStorys(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Change-all')")
     @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/change")
@@ -1035,6 +1104,18 @@ domain.setId(story_id);
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.getStorySpec(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/getstoryspecs")
+    @Transactional
+    public ResponseEntity<StoryDTO> getStorySpecsByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.getStorySpecs(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
@@ -1095,6 +1176,18 @@ domain.setId(story_id);
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.projectUnlinkStory(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStorys-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/projectunlinkstorys")
+    @Transactional
+    public ResponseEntity<StoryDTO> projectUnlinkStorysByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.projectUnlinkStorys(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
@@ -1373,6 +1466,29 @@ domain.setId(story_id);
 	public ResponseEntity<Page<StoryDTO>> searchStoryProjectStoriesByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchProjectStories(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+	@ApiOperation(value = "根据产品获取版本可关联的完成的需求", tags = {"需求" } ,notes = "根据产品获取版本可关联的完成的需求")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchreleaselinkablestories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryReleaseLinkableStoriesByProduct(@PathVariable("product_id") BigInteger product_id,StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchReleaseLinkableStories(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+	@ApiOperation(value = "根据产品查询版本可关联的完成的需求", tags = {"需求" } ,notes = "根据产品查询版本可关联的完成的需求")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchreleaselinkablestories")
+	public ResponseEntity<Page<StoryDTO>> searchStoryReleaseLinkableStoriesByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchReleaseLinkableStories(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

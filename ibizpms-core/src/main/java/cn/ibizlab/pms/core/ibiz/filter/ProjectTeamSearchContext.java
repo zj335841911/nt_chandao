@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibiz.domain.ProjectTeam;
 @Data
 public class ProjectTeamSearchContext extends QueryWrapperContext<ProjectTeam> {
 
+	private String n_account_like;//[用户]
+	public void setN_account_like(String n_account_like) {
+        this.n_account_like = n_account_like;
+        if(!ObjectUtils.isEmpty(this.n_account_like)){
+            this.getSearchCond().like("account", n_account_like);
+        }
+    }
 	private String n_limited_eq;//[受限用户]
 	public void setN_limited_eq(String n_limited_eq) {
         this.n_limited_eq = n_limited_eq;

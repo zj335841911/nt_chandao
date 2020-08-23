@@ -51,6 +51,15 @@ export class PickupGirdGridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupGirdGridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
@@ -104,7 +113,7 @@ export class PickupGirdGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.pickupgird_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class PickupGirdGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.bug.pickupgird_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class PickupGirdGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.pickupgird_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class PickupGirdGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.bug.pickupgird_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class PickupGirdGridBase extends GridControlBase {
             label: '解决者',
             langtag: 'entities.bug.pickupgird_grid.columns.resolvedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -144,7 +153,7 @@ export class PickupGirdGridBase extends GridControlBase {
             label: 'Bug状态',
             langtag: 'entities.bug.pickupgird_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

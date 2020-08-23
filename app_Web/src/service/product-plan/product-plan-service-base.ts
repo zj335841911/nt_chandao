@@ -412,4 +412,16 @@ export default class ProductPlanServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
         return res;
     }
+
+    /**
+     * GetPlanEnd接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async GetPlanEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }

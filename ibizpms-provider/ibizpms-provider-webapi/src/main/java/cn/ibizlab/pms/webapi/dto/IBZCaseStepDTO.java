@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -78,6 +79,30 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private BigInteger parent;
+
+    /**
+     * 属性 [REALS]
+     *
+     */
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    private String reals;
+
+    /**
+     * 属性 [STEPS]
+     *
+     */
+    @JSONField(name = "steps")
+    @JsonProperty("steps")
+    private String steps;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
 
     /**

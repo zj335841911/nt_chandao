@@ -277,45 +277,30 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         if(context.story && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
-                let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+            
             return res;
         }
         let res:any = await  Http.getInstance().get(`/bugs/getdraft`,isloading);
         res.data.bug = data.bug;
-            let getmodulebranch:GetModuleBranchLogic = new GetModuleBranchLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
-            let returndata:any = await getmodulebranch.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:returndata};
-
+        
         return res;
     }
 
@@ -1285,6 +1270,76 @@ export default class BugServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchReleaseLinkableLeftBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchReleaseLinkableLeftBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaselinkableleftbug`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaselinkableleftbug`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleaselinkableleftbug`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchreleaselinkableleftbug`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchreleaselinkableleftbug`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchReleaseLinkableResolvedBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchReleaseLinkableResolvedBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaselinkableresolvedbug`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaselinkableresolvedbug`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleaselinkableresolvedbug`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchreleaselinkableresolvedbug`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchreleaselinkableresolvedbug`,tempData,isloading);
         return res;
     }
 

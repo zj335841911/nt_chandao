@@ -51,6 +51,15 @@ export class Main9GridBase extends GridControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main9GridBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
      * 界面UI服务对象
      *
      * @type {StoryUIService}
@@ -120,7 +129,7 @@ export class Main9GridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.story.main9_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class Main9GridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.main9_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class Main9GridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.story.main9_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

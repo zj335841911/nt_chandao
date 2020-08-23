@@ -51,6 +51,15 @@ export class PlatformManagementGridBase extends GridControlBase {
     protected appDeName: string = 'branch';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PlatformManagementGridBase
+     */
+    protected appDeLogicName: string = '产品的分支和平台信息';
+
+    /**
      * 界面UI服务对象
      *
      * @type {BranchUIService}
@@ -104,7 +113,7 @@ export class PlatformManagementGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.branch.platformmanagement_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class PlatformManagementGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.branch.platformmanagement_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class PlatformManagementGridBase extends GridControlBase {
             label: '排序',
             langtag: 'entities.branch.platformmanagement_grid.columns.order',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

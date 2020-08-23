@@ -126,7 +126,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'buildLinkStories', target: 'NONE', class: '' } },
 
     };
 
@@ -286,6 +286,9 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
         const data: any = {};
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
+        }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
         }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.story;

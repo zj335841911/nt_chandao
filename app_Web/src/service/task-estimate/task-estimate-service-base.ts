@@ -387,6 +387,38 @@ export default class TaskEstimateServiceBase extends EntityService {
     }
 
     /**
+     * FetchDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            return res;
+        }
+    }
+
+    /**
      * FetchTempDefault接口方法
      *
      * @param {*} [context={}]
@@ -396,5 +428,39 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefaults ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
     }
 }

@@ -50,6 +50,23 @@ export class ModuleExpTreeBase extends MainControlBase {
     protected appDeName: string = 'testmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModuleExpTreeBase
+     */
+    protected appDeLogicName: string = '测试模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestModuleUIService}
+     * @memberof ModuleExpBase
+     */  
+    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
+
+    /**
      * branchs_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -609,7 +626,7 @@ export class ModuleExpTreeBase extends MainControlBase {
      * @type {boolean}
      * @memberof ModuleExpBase
      */
-    public isOutputIconDefault: boolean = true;
+    public isOutputIconDefault: boolean = false;
 
 
     /**

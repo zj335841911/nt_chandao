@@ -1,7 +1,7 @@
 <studio-view viewName="testreportgridview" viewTitle="测试报告表格视图" class='degridview test-report-grid-view'>
     <i-input slot="quickSearch" v-model="query" placeholder="标题" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

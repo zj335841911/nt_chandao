@@ -65,32 +65,42 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         this.saveBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public boolean update(TaskEstimate et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskEstimateHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
     public void updateBatch(List<TaskEstimate> list) {
-        updateBatchById(list,batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        TaskEstimate et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskEstimateHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public TaskEstimate get(BigInteger key) {
@@ -192,6 +202,15 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     public Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 DEFAULT1
+     */
+    @Override
+    public Page<TaskEstimate> searchDefaults(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefaults(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

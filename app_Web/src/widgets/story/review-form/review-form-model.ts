@@ -76,6 +76,11 @@ export default class ReviewModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'preversion',
+        prop: 'preversion',
+        dataType: 'INT',
+      },
+      {
         name: 'closedreason',
         prop: 'closedreason',
         dataType: 'SSCODELIST',
@@ -84,6 +89,11 @@ export default class ReviewModel {
         name: 'assignedto',
         prop: 'assignedto',
         dataType: 'TEXT',
+      },
+      {
+        name: 'version',
+        prop: 'version',
+        dataType: 'INT',
       },
       {
         name: 'reviewedby',

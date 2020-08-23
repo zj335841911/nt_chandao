@@ -238,6 +238,15 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
 
     /**
+     * 查询集合 当前测试步骤
+     */
+    @Override
+    public Page<CaseStep> searchCurTest(CaseStepSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStep> pages=baseMapper.searchCurTest(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<CaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
@@ -247,11 +256,38 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     }
 
     /**
+     * 查询集合 DEFAULT1
+     */
+    @Override
+    public Page<CaseStep> searchDefault1(CaseStepSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStep> pages=baseMapper.searchDefault1(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<CaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Mob
+     */
+    @Override
+    public Page<CaseStep> searchMob(CaseStepSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStep> pages=baseMapper.searchMob(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<CaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 版本
      */
     @Override
     public Page<CaseStep> searchVersion(CaseStepSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStep> pages=baseMapper.searchVersion(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<CaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 版本1
+     */
+    @Override
+    public Page<CaseStep> searchVersions(CaseStepSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStep> pages=baseMapper.searchVersions(context.getPages(),context,context.getSelectCond());
         return new PageImpl<CaseStep>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

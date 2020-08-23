@@ -48,6 +48,20 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
             this.getSearchCond().ne("type", n_type_noteq);
         }
     }
+	private Integer n_end_eq;//[结束]
+	public void setN_end_eq(Integer n_end_eq) {
+        this.n_end_eq = n_end_eq;
+        if(!ObjectUtils.isEmpty(this.n_end_eq)){
+            this.getSearchCond().eq("end", n_end_eq);
+        }
+    }
+	private Integer n_begin_eq;//[开始]
+	public void setN_begin_eq(Integer n_begin_eq) {
+        this.n_begin_eq = n_begin_eq;
+        if(!ObjectUtils.isEmpty(this.n_begin_eq)){
+            this.getSearchCond().eq("begin", n_begin_eq);
+        }
+    }
 	private Integer n_cycle_eq;//[周期]
 	public void setN_cycle_eq(Integer n_cycle_eq) {
         this.n_cycle_eq = n_cycle_eq;
@@ -92,6 +106,20 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
         this.n_date_noteq = n_date_noteq;
         if(!ObjectUtils.isEmpty(this.n_date_noteq)){
             this.getSearchCond().ne("date", n_date_noteq);
+        }
+    }
+	private Integer n_private_eq;//[私人事务]
+	public void setN_private_eq(Integer n_private_eq) {
+        this.n_private_eq = n_private_eq;
+        if(!ObjectUtils.isEmpty(this.n_private_eq)){
+            this.getSearchCond().eq("private", n_private_eq);
+        }
+    }
+	private String n_config_type_eq;//[周期类型]
+	public void setN_config_type_eq(String n_config_type_eq) {
+        this.n_config_type_eq = n_config_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_config_type_eq)){
+            this.getSearchCond().eq("config_type", n_config_type_eq);
         }
     }
 

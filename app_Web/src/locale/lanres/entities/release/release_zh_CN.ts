@@ -99,8 +99,16 @@ export default {
 			buildname: "版本",
 			status: "状态",
 			date: "发布日期",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			release_linkstory: "关联需求",
+			refresh: "刷新",
+			release_linkbug: "关联bug",
+			release_active: "激活",
+			release_terminal: "停止维护",
+			release_quickedit: "编辑",
+			release_remove: "删除",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -119,6 +127,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	quickcreateviewtoolbar_toolbar: {

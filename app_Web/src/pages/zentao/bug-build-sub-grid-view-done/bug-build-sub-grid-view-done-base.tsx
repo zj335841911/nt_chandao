@@ -78,7 +78,8 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
 	 */
     protected customViewNavContexts: any = {
         'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PRODUCT': { isRawValue: false, value: 'product' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
     };
 
 	/**
@@ -90,6 +91,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
         'project': { isRawValue: false, value: 'project' }
     };
 
@@ -126,7 +128,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @memberof BugBuildSubGridView_Done
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-bug', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildlinkbugs', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'openBugGridView', target: 'NONE', class: '' } },
 
     };
 
@@ -267,7 +269,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_buildlinkbugs(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_openBugGridView(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -286,6 +288,9 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
         const data: any = {};
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
+        }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
         }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.bug;

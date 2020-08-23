@@ -2,6 +2,8 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import CaseService from '@/service/case/case-service';
 import BatchNewModel from './batch-new-grid-model';
+import ModuleService from '@/service/module/module-service';
+import StoryService from '@/service/story/story-service';
 
 
 /**
@@ -41,6 +43,22 @@ export default class BatchNewService extends ControlService {
         this.model = new BatchNewModel();
     }
 
+
+    /**
+     * 模块服务对象
+     *
+     * @type {ModuleService}
+     * @memberof BatchNewService
+     */
+    public moduleService: ModuleService = new ModuleService();
+
+    /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof BatchNewService
+     */
+    public storyService: StoryService = new StoryService();
 
     /**
      * 处理数据
@@ -83,6 +101,12 @@ export default class BatchNewService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchBugModule')) {
+            return this.doItems(this.moduleService.FetchBugModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
+        }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        }
 
         return Promise.reject([])
     }

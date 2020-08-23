@@ -75,6 +75,24 @@
     <!--输出实体[ZT_HISTORY]数据结构 -->
 
 
+    <!--输出实体[IBZ_LOGIN]数据结构 -->
+
+
+
+
+    <!--输出实体[IBZ_CASE]数据结构 -->
+
+
+    <!--输出实体[IBZ_LIB]数据结构 -->
+
+
+    <!--输出实体[IBZ_CASESTEP]数据结构 -->
+
+
+    <!--输出实体[IBZ_LIBCASESTEPS]数据结构 -->
+
+
+    <!--输出实体[IBZ_LIBMODULE]数据结构 -->
 
 
     <!--输出实体[IBZ_MYTERRITORY]数据结构 -->
@@ -270,6 +288,12 @@
         <!--输出实体[ZT_GROUP]外键关系 -->
         <!--输出实体[ZT_GROUPPRIV]外键关系 -->
         <!--输出实体[ZT_HISTORY]外键关系 -->
+        <!--输出实体[IBZ_LOGIN]外键关系 -->
+        <!--输出实体[IBZ_CASE]外键关系 -->
+        <!--输出实体[IBZ_LIB]外键关系 -->
+        <!--输出实体[IBZ_CASESTEP]外键关系 -->
+        <!--输出实体[IBZ_LIBCASESTEPS]外键关系 -->
+        <!--输出实体[IBZ_LIBMODULE]外键关系 -->
         <!--输出实体[IBZ_MYTERRITORY]外键关系 -->
         <!--输出实体[IBZ_PROJECTMEMBER]外键关系 -->
         <!--输出实体[ZT_IM_CHAT]外键关系 -->

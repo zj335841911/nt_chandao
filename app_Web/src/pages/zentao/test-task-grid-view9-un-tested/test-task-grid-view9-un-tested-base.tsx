@@ -219,6 +219,9 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
         }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
+        }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.testtask;
         if(args.length >0){
@@ -251,7 +254,7 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
             height: 0, 
             width: 0,  
             title: this.$t('entities.testtask.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }
@@ -302,7 +305,7 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
             height: 0, 
             width: 0,  
             title: this.$t('entities.testtask.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

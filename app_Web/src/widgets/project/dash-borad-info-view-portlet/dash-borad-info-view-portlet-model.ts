@@ -165,6 +165,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

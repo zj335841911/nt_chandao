@@ -117,4 +117,12 @@ export interface Build {
      * @memberof Build
      */
     productname?: any;
+
+    /**
+     * Bug版本健值
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    ids?: any;
 }

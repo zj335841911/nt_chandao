@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: sys, zentao, nacos, web-dev, webapi-dev,  dev
+    include: sys, zentao, nacos, web-dev, webapi-dev, dev
   application:
     name: pms
   main:

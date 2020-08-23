@@ -51,6 +51,15 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'testsuite';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '测试套件';
+
+    /**
      * 界面UI服务对象
      *
      * @type {TestSuiteUIService}
@@ -59,12 +68,99 @@ export class MainGridBase extends GridControlBase {
     public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ud4ae5d7_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestSuiteUIService  = new TestSuiteUIService();
+        curUIService.TestSuite_linkCaseDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u4c7125d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestSuiteUIService  = new TestSuiteUIService();
+        curUIService.TestSuite_EditsuiteDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uc4a3f1b_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestSuiteUIService  = new TestSuiteUIService();
+        curUIService.TestSuite_DeleteDash(datas,contextJO, paramJO,  $event, xData,this,"TestSuite");
+    }
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        linkCaseDash: { name: 'linkCaseDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', actiontarget: 'SINGLEKEY'},
+        EditsuiteDash: { name: 'EditsuiteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', actiontarget: 'SINGLEKEY'},
+        DeleteDash: { name: 'DeleteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -104,7 +200,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.testsuite.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +208,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.testsuite.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +216,7 @@ export class MainGridBase extends GridControlBase {
             label: '描述',
             langtag: 'entities.testsuite.main_grid.columns.desc',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +224,7 @@ export class MainGridBase extends GridControlBase {
             label: '由谁创建',
             langtag: 'entities.testsuite.main_grid.columns.addedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +232,7 @@ export class MainGridBase extends GridControlBase {
             label: '创建时间',
             langtag: 'entities.testsuite.main_grid.columns.addeddate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -144,7 +240,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.testsuite.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -223,4 +319,25 @@ export class MainGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('linkCaseDash', tag)) {
+            this.grid_uagridcolumn1_ud4ae5d7_click(row, tag, $event);
+        }
+        if(Object.is('EditsuiteDash', tag)) {
+            this.grid_uagridcolumn1_u4c7125d_click(row, tag, $event);
+        }
+        if(Object.is('DeleteDash', tag)) {
+            this.grid_uagridcolumn1_uc4a3f1b_click(row, tag, $event);
+        }
+    }
 }

@@ -51,6 +51,23 @@ export class Main_BuildSubGridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_BuildSubGridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof Main_BuildSubBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -205,26 +222,18 @@ export class Main_BuildSubGridBase extends GridControlBase {
             return;
         }
         const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
+        if (_this.newdata && _this.newdata instanceof Function) {
             const data: any = { };
             if (args.length > 0) {
                 Object.assign(data, { bug: args[0].bug });
             }
             if(!params) params = {};
             Object.assign(params,{copymode:true});
-            _this.opendata([{ ...data }], params, $event, xData);
+            _this.newdata([{ ...data }], params, $event, xData);
         } else {
             Object.assign(this.viewparams,{copymode:true});
         }
     }
-
-    /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof Main_BuildSubBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
 
     /**
      * 界面行为模型
@@ -233,11 +242,11 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @memberof Main_BuildSubBase
      */  
     public ActionModel: any = {
-        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CONFIRM', target: 'SINGLEKEY'},
-        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'RESOLVE', target: 'SINGLEKEY'},
-        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
+        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
+        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -277,7 +286,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main_buildsub_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -285,7 +294,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.bug.main_buildsub_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -293,7 +302,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_buildsub_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -301,7 +310,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: 'Bug状态',
             langtag: 'entities.bug.main_buildsub_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -309,7 +318,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.bug.main_buildsub_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -317,7 +326,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '指派',
             langtag: 'entities.bug.main_buildsub_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -325,7 +334,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '解决者',
             langtag: 'entities.bug.main_buildsub_grid.columns.resolvedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -333,7 +342,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '方案',
             langtag: 'entities.bug.main_buildsub_grid.columns.resolution',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -341,7 +350,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '操作列',
             langtag: 'entities.bug.main_buildsub_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

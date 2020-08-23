@@ -21,7 +21,15 @@ export default class Role {
      * @type any
      * @memberof Role
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof Role
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class Role {
     public codelistModel:any = {
         codelistid:"Role"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof Role
+     */
+    public getExpirationTime(){
+        return Role.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof Role
+     */
+    public setExpirationTime(value:any){
+        Role.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class Role {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
             
             _items.push(itemdata);
         });

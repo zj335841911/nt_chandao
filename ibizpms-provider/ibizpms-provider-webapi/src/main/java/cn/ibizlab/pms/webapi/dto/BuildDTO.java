@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -135,6 +136,14 @@ public class BuildDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     private String productname;
+
+    /**
+     * 属性 [IDS]
+     *
+     */
+    @JSONField(name = "ids")
+    @JsonProperty("ids")
+    private String ids;
 
 
     /**

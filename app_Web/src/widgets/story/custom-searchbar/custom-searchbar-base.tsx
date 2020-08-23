@@ -51,6 +51,23 @@ export class CustomSearchbarBase extends MainControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CustomSearchbarBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof CustomBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 过滤属性集合
      *
      * @type {*}

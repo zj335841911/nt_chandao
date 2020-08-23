@@ -168,6 +168,9 @@ export default class TabExpViewtabviewpanelModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

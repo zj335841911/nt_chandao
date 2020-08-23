@@ -50,6 +50,23 @@ export class MainTabExpViewtabviewpanel7TabviewpanelBase extends MainControlBase
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel7TabviewpanelBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MainTabExpViewtabviewpanel7Base
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

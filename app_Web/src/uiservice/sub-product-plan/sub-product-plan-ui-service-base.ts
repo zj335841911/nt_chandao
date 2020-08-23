@@ -53,7 +53,7 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * 
      * @memberof  SubProductPlanUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['statuss'];
 
     /**
      * 主状态集合Map
@@ -100,6 +100,9 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * @memberof  SubProductPlanUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('chlid','chlid');
+        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('parent','parent');
     }
 
     /**
@@ -108,6 +111,9 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * @memberof  SubProductPlanUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_CHILD_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_DELETE_BUT':0,}));
     }
 
 
@@ -168,15 +174,14 @@ export default class SubProductPlanUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

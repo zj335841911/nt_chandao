@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -112,6 +113,70 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private BigInteger product;
+
+    /**
+     * 属性 [STATUSS]
+     *
+     */
+    @JSONField(name = "statuss")
+    @JsonProperty("statuss")
+    private String statuss;
+
+    /**
+     * 属性 [FUTURE]
+     *
+     */
+    @JSONField(name = "future")
+    @JsonProperty("future")
+    private String future;
+
+    /**
+     * 属性 [DELTA]
+     *
+     */
+    @JSONField(name = "delta")
+    @JsonProperty("delta")
+    private String delta;
+
+    /**
+     * 属性 [OLDTITLE]
+     *
+     */
+    @JSONField(name = "oldtitle")
+    @JsonProperty("oldtitle")
+    private String oldtitle;
+
+    /**
+     * 属性 [STORYCNT]
+     *
+     */
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+
+    /**
+     * 属性 [BUGCNT]
+     *
+     */
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+
+    /**
+     * 属性 [ISEXPIRED]
+     *
+     */
+    @JSONField(name = "isexpired")
+    @JsonProperty("isexpired")
+    private String isexpired;
+
+    /**
+     * 属性 [ESTIMATECNT]
+     *
+     */
+    @JSONField(name = "estimatecnt")
+    @JsonProperty("estimatecnt")
+    private Integer estimatecnt;
 
 
     /**

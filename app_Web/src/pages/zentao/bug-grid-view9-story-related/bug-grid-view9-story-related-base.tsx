@@ -208,6 +208,9 @@ export class BugGridView9_StoryRelatedBase extends GridView9Base {
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
         }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
+        }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.bug;
         if(args.length >0){
@@ -240,7 +243,7 @@ export class BugGridView9_StoryRelatedBase extends GridView9Base {
             height: 0, 
             width: 0,  
             title: this.$t('entities.bug.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

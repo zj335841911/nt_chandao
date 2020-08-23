@@ -21,7 +21,15 @@ export default class UserRealNameTaskTeam {
      * @type any
      * @memberof UserRealNameTaskTeam
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof UserRealNameTaskTeam
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class UserRealNameTaskTeam {
     public codelistModel:any = {
         codelistid:"UserRealNameTaskTeam"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof UserRealNameTaskTeam
+     */
+    public getExpirationTime(){
+        return UserRealNameTaskTeam.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof UserRealNameTaskTeam
+     */
+    public setExpirationTime(value:any){
+        UserRealNameTaskTeam.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class UserRealNameTaskTeam {
             Object.assign(itemdata,{id:item.account});
             Object.assign(itemdata,{value:item.account});
             Object.assign(itemdata,{text:item.realname});
+            Object.assign(itemdata,{label:item.realname});
             
             _items.push(itemdata);
         });

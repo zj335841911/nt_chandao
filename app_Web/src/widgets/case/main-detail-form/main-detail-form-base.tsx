@@ -49,14 +49,23 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      * @memberof MainDetailEditFormBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDetailEditFormBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
     /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof MainDetailEditFormBase
+     * @memberof MainDetailBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
-
 
     /**
      * 表单数据对象

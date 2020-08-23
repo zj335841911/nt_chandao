@@ -465,4 +465,22 @@ export default class SubProductPlanServiceBase extends EntityService {
             return res;
         }
     }
+
+    /**
+     * GetPlanEnd接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async GetPlanEnd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan &&  true){
+            return Http.getInstance().post(`products/${context.product}/productplans/${context.productplan}/subproductplans/getplanend`,data,isloading);
+        }
+        if(context.productplan &&  true){
+            return Http.getInstance().post(`productplans/${context.productplan}/subproductplans/getplanend`,data,isloading);
+        }
+    }
 }

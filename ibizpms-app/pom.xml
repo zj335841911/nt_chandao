@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>ibizpms-app-mob</module>
         <module>ibizpms-app-web</module>
     </modules>
 

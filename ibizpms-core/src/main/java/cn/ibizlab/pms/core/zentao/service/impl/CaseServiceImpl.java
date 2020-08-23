@@ -78,14 +78,30 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaserunCasesLogic runcasesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICasetestRunCasesLogic testruncasesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkCasesLogic unlinkcasesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkSuiteCasesLogic unlinksuitecasesLogic;
+
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Case et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes()); 
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.create(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -97,12 +113,12 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public void createBatch(List<Case> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Case et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.edit(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -114,10 +130,10 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public void updateBatch(List<Case> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Case et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
@@ -157,17 +173,70 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public boolean checkKey(Case et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
-    public Case runCase(Case et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+    public Case confirmChange(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.runCase(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.confirmChange(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "confirmChange"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+        @Override
+    @Transactional
+    public Case confirmstorychange(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.confirmstorychange(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "confirmstorychange"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Case getByTestTask(Case et) {
+        //自定义代码
+        return et;
+    }
+
+        @Override
+    @Transactional
+    public Case linkCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.linkCase(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "linkCase"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+        @Override
+    @Transactional
+    public Case runCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.runCase(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "runCase"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Case runCases(Case et) {
+        runcasesLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -199,6 +268,79 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public void saveBatch(List<Case> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
+    }
+
+        @Override
+    @Transactional
+    public Case testRunCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.testRunCase(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "testRunCase"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Case testRunCases(Case et) {
+        testruncasesLogic.execute(et);
+         return et ;
+    }
+
+        @Override
+    @Transactional
+    public Case testsuitelinkCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.testsuitelinkCase(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "testsuitelinkCase"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+        @Override
+    @Transactional
+    public Case unlinkCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.unlinkCase(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "unlinkCase"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Case unlinkCases(Case et) {
+        unlinkcasesLogic.execute(et);
+         return et ;
+    }
+
+        @Override
+    @Transactional
+    public Case unlinkSuiteCase(Case et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.unlinkSuiteCase(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "unlinkSuiteCase"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Case unlinkSuiteCases(Case et) {
+        unlinksuitecasesLogic.execute(et);
+         return et ;
     }
 
 
@@ -274,6 +416,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
     /**
+     * 查询集合 批量新建用例
+     */
+    @Override
+    public Page<Case> searchBatchNew(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchBatchNew(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 套件关联用例
      */
     @Override
@@ -297,6 +448,24 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     public Page<Case> searchDefault(CaseSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 套件关联用例
+     */
+    @Override
+    public Page<Case> searchNotCurTestSuite(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchNotCurTestSuite(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试单关联用例
+     */
+    @Override
+    public Page<Case> searchNotCurTestTask(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchNotCurTestTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -347,6 +516,16 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
             }
             et.setStoryversion(ztstory.getVersion());
             et.setStoryname(ztstory.getTitle());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_TESTSUITE_LIB]
+        if(!ObjectUtils.isEmpty(et.getLib())){
+            cn.ibizlab.pms.core.zentao.domain.TestSuite zttestsuite=et.getZttestsuite();
+            if(ObjectUtils.isEmpty(zttestsuite)){
+                cn.ibizlab.pms.core.zentao.domain.TestSuite majorEntity=testsuiteService.get(et.getLib());
+                et.setZttestsuite(majorEntity);
+                zttestsuite=majorEntity;
+            }
+            et.setLibname(zttestsuite.getName());
         }
     }
 

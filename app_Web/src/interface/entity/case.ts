@@ -397,4 +397,44 @@ export interface Case {
      * @memberof Case
      */
     comment?: any;
+
+    /**
+     * 测试失败数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    resultfalicnt?: any;
+
+    /**
+     * 用例状态
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    status1?: any;
+
+    /**
+     * 指派给
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    assignedto?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    task?: any;
+
+    /**
+     * 用例库
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    libname?: any;
 }

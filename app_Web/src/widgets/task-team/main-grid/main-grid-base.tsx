@@ -51,6 +51,15 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'taskteam';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '任务团队';
+
+    /**
      * 界面UI服务对象
      *
      * @type {TaskTeamUIService}
@@ -104,7 +113,7 @@ export class MainGridBase extends GridControlBase {
             label: '团队',
             langtag: 'entities.taskteam.main_grid.columns.account',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class MainGridBase extends GridControlBase {
             label: '最初预计',
             langtag: 'entities.taskteam.main_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class MainGridBase extends GridControlBase {
             label: '总计消耗',
             langtag: 'entities.taskteam.main_grid.columns.consumed',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class MainGridBase extends GridControlBase {
             label: '预计剩余',
             langtag: 'entities.taskteam.main_grid.columns.left',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

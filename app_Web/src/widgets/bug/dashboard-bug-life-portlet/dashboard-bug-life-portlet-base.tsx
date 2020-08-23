@@ -51,6 +51,23 @@ export class DashboardBugLifePortletBase extends MainControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardBugLifePortletBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof DashboardBugLifeBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

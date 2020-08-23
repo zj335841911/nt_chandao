@@ -51,6 +51,23 @@ export class UnClosedProductPortletBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UnClosedProductPortletBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof UnClosedProductBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}
@@ -110,7 +127,7 @@ export class UnClosedProductPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '450px';
         }
     }
 

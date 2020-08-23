@@ -49,14 +49,23 @@ export class EditFormEditFormBase extends EditFormControlBase {
      * @memberof EditFormEditFormBase
      */
     protected appDeName: string = 'todo';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof EditFormEditFormBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
     /**
      * 界面UI服务对象
      *
      * @type {TodoUIService}
-     * @memberof EditFormEditFormBase
+     * @memberof EditFormBase
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
-
 
     /**
      * 表单数据对象

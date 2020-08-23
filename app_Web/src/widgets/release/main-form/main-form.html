@@ -1,9 +1,9 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='release_main' style="">
+<i-form :model="this.data" class='app-form' ref='form'  id='release_main' style="">
     <input style="display:none;" />
     <row >
             
 <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -20,12 +20,13 @@
   name='productname'
   deMajorField='name'
   deKeyField='product'
+  :service="service"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='product' 
-  :value="data.productname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
+  :value="data.productname"
+  :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 
 </app-form-item>
@@ -33,10 +34,14 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.release.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
 
 </app-form-item>
 
@@ -44,7 +49,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.release.main_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
@@ -55,33 +60,40 @@
   name='buildname'
   deMajorField='name'
   deKeyField='build'
+  :service="service"
+  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchDefault'}"
   valueitem='build' 
-  :value="data.buildname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'BuildMainTabExpView', title: $t('entities.build.views.maintabexpview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
+  :value="data.buildname" 
+  editortype="dropdown"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
-
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.release.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
-tag='Release__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
+<dropdown-list 
+    v-model="data.status"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.status.disabled"
+    valueType="string"
+    tag='Release__status'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.release.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
 
 </app-form-item>
 
@@ -98,7 +110,7 @@ tag='Release__status' codelistType='STATIC' :data="data" :context="context" :vie
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.main_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.main_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
             
@@ -107,7 +119,7 @@ tag='Release__status' codelistType='STATIC' :data="data" :context="context" :vie
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">

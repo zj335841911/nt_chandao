@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
+
     /**
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 关系界面数量
@@ -219,6 +228,10 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'multiple')) {
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
+        if (Object.is(name, 'modulename')) {
+            this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
     }
 
     /**
@@ -313,6 +326,9 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('multiple')) {
             this.data['multiple'] = 0;
+        }
+        if (this.data.hasOwnProperty('story')) {
+            this.data['story'] = this.viewparams['story'];
         }
     }
 }

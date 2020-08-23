@@ -1,15 +1,17 @@
 <template>
-    <i-select
-        class='dropdown-list-dynamic'
-        :transfer="true"
-        v-model="currentVal"
-        :disabled="disabled === true ? true : false"
-        :clearable="true"
-        :filterable="filterable === true ? true : false"
-        @on-open-change="onClick"
-        :placeholder="$t('components.dropDownListDynamic.placeholder')">
-        <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('userCustom.'+tag+'.'+item.value)!== ('userCustom.'+tag+'.'+item.value))?$t('userCustom.'+tag+'.'+item.value) : item.text}}</i-option>
-    </i-select>
+    <div class="dropdown-list-dynamic-container">
+        <i-select
+            class='dropdown-list-dynamic'
+            :transfer="true"
+            v-model="currentVal"
+            :disabled="disabled"
+            :filterable="filterable"
+            @on-open-change="onClick"
+            :placeholder="$t('components.dropDownListDynamic.placeholder')">
+            <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('userCustom.'+tag+'.'+item.value)!== ('userCustom.'+tag+'.'+item.value))?$t('userCustom.'+tag+'.'+item.value) : item.text}}</i-option>
+        </i-select>
+    <i v-if="currentVal || currentVal == 0" @click="clear" type="md-close" class="el-icon-circle-close" />
+    </div>
 </template>
 
 <script lang="ts">
@@ -114,7 +116,7 @@ export default class DropDownListDynamic extends Vue {
      * @type {boolean}
      * @memberof DropDownListDynamic
      */
-    @Prop() public filterable?: boolean;
+    public filterable: boolean = true;
 
     /**
      * 下拉选提示内容
@@ -285,6 +287,18 @@ export default class DropDownListDynamic extends Vue {
             }
         }catch(error){
             console.warn('代码表值类型和属性类型不匹配，自动强制转换异常，请修正代码表值类型和属性类型匹配');
+        }
+    }
+
+    /**
+     * 清除事件
+     *
+     * @param {*} $event
+     * @memberof DropDownListDynamic
+     */
+    public clear($event: any){
+        if(this.currentVal) {
+            this.currentVal = null;
         }
     }
 }

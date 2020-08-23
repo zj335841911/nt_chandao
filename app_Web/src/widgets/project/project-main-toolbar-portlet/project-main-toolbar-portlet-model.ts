@@ -165,6 +165,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

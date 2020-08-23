@@ -50,6 +50,23 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof TaskTreeExpViewtreeexpbarBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

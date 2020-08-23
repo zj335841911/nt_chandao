@@ -51,6 +51,15 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ProductUIService}
@@ -104,7 +113,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.product.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品代号',
             langtag: 'entities.product.main_grid.columns.code',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class MainGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.product.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品类型',
             langtag: 'entities.product.main_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品线',
             langtag: 'entities.product.main_grid.columns.linename',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

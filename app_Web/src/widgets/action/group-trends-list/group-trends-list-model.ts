@@ -18,6 +18,10 @@ export default class GroupTrendsModel {
 				name: 'project',
 			},
 			{
+				name: 'actionmanner',
+        codelist:{tag:'ActionManner',codelistType:'STATIC'},
+			},
+			{
 				name: 'date',
 			},
 			{

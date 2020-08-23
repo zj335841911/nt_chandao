@@ -46,14 +46,18 @@ import org.springframework.util.StringUtils;
 public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements ITodoService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoGetTODOTitleLogic gettodotitleLogic;
+
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Todo et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes()); 
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.create(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -65,12 +69,12 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public void createBatch(List<Todo> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Todo et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.edit(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -82,10 +86,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public void updateBatch(List<Todo> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Todo et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
@@ -104,6 +108,8 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public Todo get(BigInteger key) {
+        Todo tempET=new Todo();
+        tempET.set("id",key);
         Todo et = getById(key);
         if(et==null){
             et=new Todo();
@@ -111,6 +117,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         }
         else{
         }
+        gettodotitleLogic.execute(et);
         return et;
     }
 
@@ -119,12 +126,12 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Todo activate(Todo et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.activate(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.activate(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "activate"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -132,12 +139,12 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Todo assignTo(Todo et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.assignTo(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.assignTo(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "assignTo"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -149,12 +156,12 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public boolean checkKey(Todo et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Todo close(Todo et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.close(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.close(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "close"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -162,12 +169,12 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-    @Override
+        @Override
     @Transactional
     public Todo finish(Todo et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.finish(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper.finish(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "finish"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }

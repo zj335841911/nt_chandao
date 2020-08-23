@@ -51,6 +51,23 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '测试版本';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -142,7 +159,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u4d10156_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5afde9e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,36 +175,9 @@ export class MainGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_Delete(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof TestTaskGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
-
-
-    /**
-     * 界面UI服务对象
-     *
-     * @type {TestTaskUIService}
-     * @memberof MainBase
-     */  
-    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
 
     /**
      * 界面行为模型
@@ -196,10 +186,10 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        LinkCase: { name: 'LinkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        OpenInfoView: { name: 'OpenInfoView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        EditEdit: { name: 'EditEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        LinkCase: { name: 'LinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_LCASE_BUT', actiontarget: 'SINGLEKEY'},
+        OpenInfoView: { name: 'OpenInfoView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_OPEN_BUT', actiontarget: 'SINGLEKEY'},
+        EditEdit: { name: 'EditEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -239,7 +229,7 @@ export class MainGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.testtask.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -247,7 +237,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -255,7 +245,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品',
             langtag: 'entities.testtask.main_grid.columns.productname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -263,7 +253,7 @@ export class MainGridBase extends GridControlBase {
             label: '项目',
             langtag: 'entities.testtask.main_grid.columns.projecttname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -271,7 +261,7 @@ export class MainGridBase extends GridControlBase {
             label: '版本',
             langtag: 'entities.testtask.main_grid.columns.build',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -279,7 +269,7 @@ export class MainGridBase extends GridControlBase {
             label: '负责人',
             langtag: 'entities.testtask.main_grid.columns.owner',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -287,7 +277,7 @@ export class MainGridBase extends GridControlBase {
             label: '开始日期',
             langtag: 'entities.testtask.main_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -295,7 +285,7 @@ export class MainGridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.testtask.main_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -303,7 +293,7 @@ export class MainGridBase extends GridControlBase {
             label: '当前状态',
             langtag: 'entities.testtask.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -311,7 +301,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.testtask.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -422,8 +412,8 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('EditEdit', tag)) {
             this.grid_uagridcolumn1_editedit_click(row, tag, $event);
         }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u4d10156_click(row, tag, $event);
+        if(Object.is('Delete', tag)) {
+            this.grid_uagridcolumn1_u5afde9e_click(row, tag, $event);
         }
     }
 }

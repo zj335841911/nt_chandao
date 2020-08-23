@@ -36,8 +36,12 @@ public interface ICaseStepService extends IService<CaseStep>{
     boolean checkKey(CaseStep et) ;
     boolean save(CaseStep et) ;
     void saveBatch(List<CaseStep> list) ;
+    Page<CaseStep> searchCurTest(CaseStepSearchContext context) ;
     Page<CaseStep> searchDefault(CaseStepSearchContext context) ;
+    Page<CaseStep> searchDefault1(CaseStepSearchContext context) ;
+    Page<CaseStep> searchMob(CaseStepSearchContext context) ;
     Page<CaseStep> searchVersion(CaseStepSearchContext context) ;
+    Page<CaseStep> searchVersions(CaseStepSearchContext context) ;
     List<CaseStep> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;
     void saveByIbizcase(BigInteger id,List<CaseStep> list) ;

@@ -49,14 +49,23 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * @memberof ConfirmEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ConfirmEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
     /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof ConfirmEditFormBase
+     * @memberof ConfirmBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量

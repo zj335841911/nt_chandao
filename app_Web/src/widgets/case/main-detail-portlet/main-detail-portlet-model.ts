@@ -162,6 +162,21 @@ export default class MainDetailModel {
       {
         name: 'comment',
       },
+      {
+        name: 'resultfalicnt',
+      },
+      {
+        name: 'status1',
+      },
+      {
+        name: 'assignedto',
+      },
+      {
+        name: 'task',
+      },
+      {
+        name: 'libname',
+      },
     ]
   }
 

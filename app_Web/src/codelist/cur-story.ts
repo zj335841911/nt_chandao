@@ -21,7 +21,15 @@ export default class CurStory {
      * @type any
      * @memberof CurStory
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof CurStory
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class CurStory {
     public codelistModel:any = {
         codelistid:"CurStory"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof CurStory
+     */
+    public getExpirationTime(){
+        return CurStory.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof CurStory
+     */
+    public setExpirationTime(value:any){
+        CurStory.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -84,6 +112,7 @@ export default class CurStory {
             Object.assign(itemdata,{id:item.version});
             Object.assign(itemdata,{value:item.version});
             Object.assign(itemdata,{text:item.title});
+            Object.assign(itemdata,{label:item.title});
             
             _items.push(itemdata);
         });

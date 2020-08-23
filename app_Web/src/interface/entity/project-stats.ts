@@ -189,4 +189,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     yesterdayrbugcnt?: any;
+
+    /**
+     * 截止日期
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    end?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    status?: any;
 }

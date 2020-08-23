@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.TestTask;
 @Data
 public class TestTaskSearchContext extends QueryWrapperContext<TestTask> {
 
+	private Integer n_pri_eq;//[优先级]
+	public void setN_pri_eq(Integer n_pri_eq) {
+        this.n_pri_eq = n_pri_eq;
+        if(!ObjectUtils.isEmpty(this.n_pri_eq)){
+            this.getSearchCond().eq("pri", n_pri_eq);
+        }
+    }
 	private String n_status_eq;//[当前状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;

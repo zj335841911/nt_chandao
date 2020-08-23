@@ -21,7 +21,15 @@ export default class Product {
      * @type any
      * @memberof Product
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof Product
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class Product {
     public codelistModel:any = {
         codelistid:"Product"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof Product
+     */
+    public getExpirationTime(){
+        return Product.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof Product
+     */
+    public setExpirationTime(value:any){
+        Product.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class Product {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
             
             _items.push(itemdata);
         });

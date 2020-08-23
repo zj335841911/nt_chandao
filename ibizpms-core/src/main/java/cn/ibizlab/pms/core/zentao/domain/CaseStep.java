@@ -94,6 +94,27 @@ public class CaseStep extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private BigInteger parent;
+    /**
+     * 实际情况
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    private String reals;
+    /**
+     * 测试结果
+     */
+    @TableField(exist = false)
+    @JSONField(name = "steps")
+    @JsonProperty("steps")
+    private String steps;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 

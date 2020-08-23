@@ -51,6 +51,23 @@ export class UnClosedProjectPortletBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UnClosedProjectPortletBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof UnClosedProjectBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}
@@ -110,7 +127,7 @@ export class UnClosedProjectPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '450px';
         }
     }
 

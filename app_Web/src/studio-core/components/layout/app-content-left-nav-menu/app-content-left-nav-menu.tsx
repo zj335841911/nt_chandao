@@ -40,6 +40,15 @@ export class AppContentLeftNavMenu extends Vue {
     protected menuMap: Map<string, any> = new Map();
 
     /**
+     * 部件名称
+     *
+     * @type {string}
+     * @memberof AppContentLeftNavMenu
+     */
+    @Prop() 
+    public ctrlName!: string;
+
+    /**
      * 菜单数据
      *
      * @type {any[]}
@@ -202,7 +211,7 @@ export class AppContentLeftNavMenu extends Vue {
         return <el-submenu index={item.name}>
             <template slot="title">
                 <menu-icon item={item} />
-                <span slot="title">{item.text}</span>
+                <span slot="title">{this.$t(`app.menus.${this.ctrlName}.${item.name}`)}</span>
             </template>
             {this.renderItems(item.items)}
         </el-submenu>;
@@ -219,7 +228,7 @@ export class AppContentLeftNavMenu extends Vue {
     protected renderItem(item: any): any {
         return <el-menu-item index={item.name}>
             <menu-icon item={item} />
-            <span slot="title">{item.text}</span>
+            <span slot="title">{this.$t(`app.menus.${this.ctrlName}.${item.name}`)}</span>
         </el-menu-item>
     }
 

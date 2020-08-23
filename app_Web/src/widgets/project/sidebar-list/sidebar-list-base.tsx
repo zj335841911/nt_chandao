@@ -50,6 +50,23 @@ export class SidebarListBase extends ListControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof SidebarListBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof SidebarBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

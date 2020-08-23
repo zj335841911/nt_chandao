@@ -51,6 +51,23 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof AssignedToMeBugPortletBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof AssignedToMeBugBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}
@@ -110,7 +127,7 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return '370px';
         }
     }
 

@@ -12,6 +12,15 @@ import './user-info.less';
 export class UserInfo extends Vue {
 
     /**
+     * 部件名称
+     *
+     * @type {string}
+     * @memberof UserInfo
+     */
+    @Prop() 
+    public ctrlName!: string;
+    
+    /**
      * 菜单项
      *
      * @type {any[]}
@@ -140,9 +149,12 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     protected renderMenuItem(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <dropdownItem name={item.name} title={item.tooltip}>
             <menu-icon item={item} />
-            {item.text}
+            {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
         </dropdownItem>;
     }
 
@@ -155,10 +167,13 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     protected renderMenuGroup(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <dropdown class="user-menu-child" placement="left-start">
             <dropdownItem name={item.name} title={item.tooltip}>
                 <icon type="ios-arrow-back"></icon>
-                {item.text}
+                {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
             </dropdownItem>
             <dropdownMenu slot="list">
                 {this.renderMenuItems(item.items)}

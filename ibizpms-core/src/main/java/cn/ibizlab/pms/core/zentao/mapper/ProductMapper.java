@@ -20,7 +20,9 @@ import com.alibaba.fastjson.JSONObject;
 public interface ProductMapper extends BaseMapper<Product>{
 
     Page<Product> searchCurProject(IPage page, @Param("srf") ProductSearchContext context, @Param("ew") Wrapper<Product> wrapper) ;
+    Page<Product> searchCurUer(IPage page, @Param("srf") ProductSearchContext context, @Param("ew") Wrapper<Product> wrapper) ;
     Page<Product> searchDefault(IPage page, @Param("srf") ProductSearchContext context, @Param("ew") Wrapper<Product> wrapper) ;
+    Page<Product> searchProductPM(IPage page, @Param("srf") ProductSearchContext context, @Param("ew") Wrapper<Product> wrapper) ;
     Page<Product> searchStoryCurProject(IPage page, @Param("srf") ProductSearchContext context, @Param("ew") Wrapper<Product> wrapper) ;
     @Override
     Product selectById(Serializable id);

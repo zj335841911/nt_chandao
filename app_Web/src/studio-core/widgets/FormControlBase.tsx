@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { FormItemModel } from '@/model/form-detail';
 import { MainControlBase } from './MainControlBase';
 import { events } from '../global';
+import { ViewTool } from '@/utils';
 import schema from 'async-validator';
 
 /**
@@ -135,6 +136,14 @@ export class FormControlBase extends MainControlBase {
      * @memberof FormControlBase
      */
     public rules: any = {};
+
+    /**
+     * 界面服务
+     *
+     * @type {*}
+     * @memberof FormControlBase
+     */
+    public appUIService: any;
 
     /**
      * 回车事件
@@ -482,6 +491,7 @@ export class FormControlBase extends MainControlBase {
                 const data = response.data;
                 this.onFormLoad(data, 'load');
                 this.$emit(events.ctrl.LOAD, data);
+                this.computeButtonState(data);
                 this.$nextTick(() => {
                     this.formState.next({ type: 'load', data: data });
                 });
@@ -525,6 +535,7 @@ export class FormControlBase extends MainControlBase {
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
             this.$emit('load', data);
+            this.computeButtonState(data);
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
@@ -618,4 +629,23 @@ export class FormControlBase extends MainControlBase {
         return falg;
     }
 
+    /**
+     * 计算表单按钮权限状态
+     *
+     * @param {*} [data] 传入数据
+     * @memberof ${srfclassname('${ctrl.codeName}')}Base
+     */
+    public computeButtonState(data:any){
+        let targetData:any = this.transformData(data);
+        if(this.detailsModel && Object.keys(this.detailsModel).length >0){
+            Object.keys(this.detailsModel).forEach((name:any) =>{
+                if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
+                    let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
+                    ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService);
+                    this.detailsModel[name].setVisible(tempUIAction.visabled);
+                    this.detailsModel[name].disabled = tempUIAction.disabled;
+                }
+            })
+        }
+    }
 }

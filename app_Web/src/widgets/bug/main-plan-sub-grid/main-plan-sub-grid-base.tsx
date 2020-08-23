@@ -51,6 +51,23 @@ export class Main_PlanSubGridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_PlanSubGridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof Main_PlanSubBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -79,21 +96,13 @@ export class Main_PlanSubGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {BugUIService}
-     * @memberof Main_PlanSubBase
-     */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof Main_PlanSubBase
      */  
     public ActionModel: any = {
-        UnlinkBug: { name: 'UnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        UnlinkBug: { name: 'UnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -133,7 +142,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main_plansub_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -141,7 +150,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.bug.main_plansub_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -149,7 +158,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_plansub_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -157,7 +166,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: 'Bug状态',
             langtag: 'entities.bug.main_plansub_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -165,7 +174,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: '由谁创建',
             langtag: 'entities.bug.main_plansub_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -173,7 +182,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: '创建日期',
             langtag: 'entities.bug.main_plansub_grid.columns.openeddate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -181,7 +190,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: '指派给',
             langtag: 'entities.bug.main_plansub_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -189,7 +198,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.bug.main_plansub_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

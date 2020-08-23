@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -207,6 +208,23 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("yesterdayrbugcnt")
     private Integer yesterdayrbugcnt;
 
+    /**
+     * 属性 [END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+
+    /**
+     * 属性 [STATUS]
+     *
+     */
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+
 
     /**
      * 设置 [NAME]
@@ -214,6 +232,22 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     public void setName(String  name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [END]
+     */
+    public void setEnd(Timestamp  end){
+        this.end = end ;
+        this.modify("end",end);
+    }
+
+    /**
+     * 设置 [STATUS]
+     */
+    public void setStatus(String  status){
+        this.status = status ;
+        this.modify("status",status);
     }
 
 

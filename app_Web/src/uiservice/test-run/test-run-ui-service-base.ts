@@ -89,6 +89,8 @@ export default class TestRunUIServiceBase extends UIService {
      * @memberof  TestRunUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'meditview9',srfappde:'testruns'});
+        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testruns'});
     }
 
     /**
@@ -165,15 +167,14 @@ export default class TestRunUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

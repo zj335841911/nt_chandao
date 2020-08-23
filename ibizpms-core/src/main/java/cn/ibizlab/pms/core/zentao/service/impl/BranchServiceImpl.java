@@ -106,10 +106,10 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         updateBatchById(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Branch et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
@@ -176,12 +176,12 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public Branch sort(Branch et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.sort(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.sort(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "sort"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }

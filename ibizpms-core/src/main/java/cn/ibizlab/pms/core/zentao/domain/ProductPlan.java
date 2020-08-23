@@ -123,6 +123,62 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private BigInteger product;
+    /**
+     * 状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "statuss")
+    @JsonProperty("statuss")
+    private String statuss;
+    /**
+     * 待定
+     */
+    @TableField(exist = false)
+    @JSONField(name = "future")
+    @JsonProperty("future")
+    private String future;
+    /**
+     * 周期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delta")
+    @JsonProperty("delta")
+    private String delta;
+    /**
+     * 上一次计划名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "oldtitle")
+    @JsonProperty("oldtitle")
+    private String oldtitle;
+    /**
+     * 需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+    /**
+     * bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+    /**
+     * 是否过期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isexpired")
+    @JsonProperty("isexpired")
+    private String isexpired;
+    /**
+     * 工时数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "estimatecnt")
+    @JsonProperty("estimatecnt")
+    private Integer estimatecnt;
 
     /**
      * 

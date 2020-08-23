@@ -12,6 +12,14 @@ export default {
     branch: "平台/分支",
     parent: "父计划",
     product: "产品",
+    statuss: "状态",
+    future: "待定",
+    delta: "周期",
+    oldtitle: "上一次计划名称",
+    storycnt: "需求数",
+    bugcnt: "bug数",
+    isexpired: "是否过期",
+    estimatecnt: "工时数",
   },
 	views: {
 		subplancreateview: {
@@ -77,6 +85,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	subplancreateviewtoolbar_toolbar: {

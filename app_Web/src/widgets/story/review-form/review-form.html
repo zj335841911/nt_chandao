@@ -91,6 +91,26 @@
 </app-form-group>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.preversion.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='preversion' :itemRules="this.rules.preversion" class='' :caption="$t('entities.story.review_form.details.preversion')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.preversion.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-radio-group 
+  v-model="data.preversion"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams"   
+  :disabled="detailsModel.preversion.disabled"  
+  name="preversion" 
+  :localContext ='{ N_VERSION_NOTEQ:"%version%" }' 
+  :localParam ='{ n_version_noteq:"%version%" }' 
+  tag='CurStory' 
+  codelistType='DYNAMIC' 
+  style="">
+</app-radio-group>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.review_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>

@@ -91,8 +91,10 @@ export default class BugUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'buildsubgridview_new',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'mpickupview4',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'pickupgridview4',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'bugs'});
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'activationview',srfappde:'bugs'});
@@ -106,18 +108,23 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'editview_4791',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'pickupgridview5',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolveview',srfappde:'bugs'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'casetobugeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'closeview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assingtoview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'dashboardmaineditview9',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'mpickupview5',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'buildsubgridview_done',srfappde:'bugs'});
     }
 
@@ -138,9 +145,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',{'ACTIVATE':0,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':1,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':0,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('resolved',{'ACTIVATE':1,'ASSIGNTO':1,'CLOSE':1,'CONFIRM':0,'CREATE':0,'CREATECASE':1,'DELETE':1,'READ':0,'RESOLVE':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('active',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
     }
 
     /**
@@ -160,10 +167,13 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUG:"0",BUILD:"%srfparentkey%",PROJECT:"%project%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",project:"%project%",build:"%srfparentkey%"});
+        Object.assign(context,{BUG:"0",PRODUCTS:"%product%",PROJECTS:"%project%",BUILDS:"%build%"});
+        Object.assign(params,{product:"0",projects:"%project%",project:"0",builds:"%build%",ids:"%id%",resolvedby:"%resolvedby%",bug:"0",statuses:"%status%",build:"0",products:"%product%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
+        const actionTarget: string | null = 'MULTIKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
         if(_this.context){
             parentContext = _this.context;
         }
@@ -181,6 +191,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+              actionContext.closeView(null);
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.BuildLinkBug(context,data, true).then((response: any) => {
@@ -194,6 +205,18 @@ export default class BugUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                if (_this.Refresh && _this.Refresh instanceof Function) {
+                    _this.Refresh(_args,context, params, $event, xData,actionContext);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -206,20 +229,7 @@ export default class BugUIServiceBase extends UIService {
                 return response;
             });
         };
-        const view: any = {
-            viewname: 'bug-mpickup-view2',
-            title: actionContext.$t('entities.bug.views.mpickupview2.title'),
-            height: 0,
-            width: 0,
-            placement: 'DRAWER_TOP'
-        };
-        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
-        appdrawer.subscribe((result: any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
+        backend();
     }
 
     /**
@@ -377,6 +387,69 @@ export default class BugUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
+    public async Bug_CloseBugDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-close-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.bug.views.closeview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
     public async Bug_CloseBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
@@ -426,6 +499,75 @@ export default class BugUIServiceBase extends UIService {
                 title: actionContext.$t('entities.bug.views.closeview.title'),
             };
             openPopupModal(view, data);
+    }
+
+    /**
+     * 批量移除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_releaseBatchUnlinkBug(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{RELEASE:"%srfparentkey%"});
+        Object.assign(params,{release:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'MULTIKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.ReleaaseBatchUnlinkBug(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '批量移除成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -505,6 +647,69 @@ export default class BugUIServiceBase extends UIService {
                 backend();
             }
         });
+    }
+
+    /**
+     * 确认
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_ConfirmBugDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-confirm-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.bug.views.confirmview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**
@@ -622,6 +827,9 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }
@@ -795,6 +1003,143 @@ export default class BugUIServiceBase extends UIService {
     }
 
     /**
+     * 解决
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_ResolveBugDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-resolve-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.bug.views.resolveview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_releaseLinkResolvedBug(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.ReleaseLinkBugbyBug(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
+
+                const _this: any = actionContext;
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'bug-mpickup-view4',
+            title: actionContext.$t('entities.bug.views.mpickupview4.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
      * 建用例
      *
      * @param {any[]} args 当前数据
@@ -845,6 +1190,9 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }
@@ -1047,6 +1395,352 @@ export default class BugUIServiceBase extends UIService {
             openPopupModal(view, data);
     }
 
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_MainEditDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-main-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.bug.views.maineditview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_releaseLinkLeftBug(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PRODUCT:"%srfparentkey%"});
+        Object.assign(params,{product:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.ReleaseLinkBugbyLeftBug(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
+
+                const _this: any = actionContext;
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'bug-mpickup-view5',
+            title: actionContext.$t('entities.bug.views.mpickupview5.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '确认要删除，删除操作将不可恢复？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+              actionContext.closeView(null);
+        const backend = () => {
+            const curService:BugService =  new BugService();
+            curService.Remove(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.bug.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_openBugGridView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{BUG:"0",BUILD:"%srfparentkey%",SRFLOGINNAME:"%srfloginname%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",srfloginname:"%srfloginname%",build:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-usr2-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.bug.views.usr2gridview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
 
     /**
      * 获取指定数据的重定向页面
@@ -1105,15 +1799,14 @@ export default class BugUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

@@ -55,6 +55,20 @@ public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
             this.getSearchCond().eq("compile", n_compile_eq);
         }
     }
+	private BigInteger n_product_eq;//[所属产品]
+	public void setN_product_eq(BigInteger n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("product", n_product_eq);
+        }
+    }
+	private BigInteger n_product_like;//[所属产品]
+	public void setN_product_like(BigInteger n_product_like) {
+        this.n_product_like = n_product_like;
+        if(!ObjectUtils.isEmpty(this.n_product_like)){
+            this.getSearchCond().like("product", n_product_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索
@@ -63,6 +77,9 @@ public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
+            this.getSearchCond().and( wrapper ->
+                     wrapper.like("title", query)   
+            );
 		 }
 	}
 }

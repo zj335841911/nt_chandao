@@ -34,6 +34,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("acl", n_acl_eq);
         }
     }
+	private String n_pm_eq;//[项目负责人]
+	public void setN_pm_eq(String n_pm_eq) {
+        this.n_pm_eq = n_pm_eq;
+        if(!ObjectUtils.isEmpty(this.n_pm_eq)){
+            this.getSearchCond().eq("pm", n_pm_eq);
+        }
+    }
 	private BigInteger n_id_eq;//[项目编号]
 	public void setN_id_eq(BigInteger n_id_eq) {
         this.n_id_eq = n_id_eq;
@@ -46,6 +53,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
             this.getSearchCond().like("name", n_name_like);
+        }
+    }
+	private String n_rd_eq;//[发布负责人]
+	public void setN_rd_eq(String n_rd_eq) {
+        this.n_rd_eq = n_rd_eq;
+        if(!ObjectUtils.isEmpty(this.n_rd_eq)){
+            this.getSearchCond().eq("rd", n_rd_eq);
         }
     }
 	private String n_pri_eq;//[优先级]
@@ -69,6 +83,20 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("iscat", n_iscat_eq);
         }
     }
+	private String n_type_eq;//[项目类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_po_eq;//[产品负责人]
+	public void setN_po_eq(String n_po_eq) {
+        this.n_po_eq = n_po_eq;
+        if(!ObjectUtils.isEmpty(this.n_po_eq)){
+            this.getSearchCond().eq("po", n_po_eq);
+        }
+    }
 	private String n_status_eq;//[项目状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
@@ -81,6 +109,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
         this.n_status_noteq = n_status_noteq;
         if(!ObjectUtils.isEmpty(this.n_status_noteq)){
             this.getSearchCond().ne("status", n_status_noteq);
+        }
+    }
+	private String n_qd_eq;//[测试负责人]
+	public void setN_qd_eq(String n_qd_eq) {
+        this.n_qd_eq = n_qd_eq;
+        if(!ObjectUtils.isEmpty(this.n_qd_eq)){
+            this.getSearchCond().eq("qd", n_qd_eq);
         }
     }
 	private String n_parentname_eq;//[parent]

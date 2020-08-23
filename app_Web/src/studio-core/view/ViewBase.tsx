@@ -19,6 +19,20 @@ export class ViewBase extends Vue {
     public viewState: Subject<ViewState> = new Subject();
 
     /**
+     * 视图标题
+     *
+     * @readonly
+     * @type {string}
+     * @memberof ViewBase
+     */
+    get viewCaption(): string {
+        if (isExistAndNotEmpty(this.model.dataInfo)) {
+            return `${this.model.srfCaption} - ${this.model.dataInfo}`;
+        }
+        return this.model.srfCaption;
+    }
+
+    /**
      * 视图对应应用实体名称
      *
      * @protected
@@ -52,7 +66,12 @@ export class ViewBase extends Vue {
      * @type {*}
      * @memberof ViewBase
      */
-    protected model: any = {};
+    protected model: any = {
+        srfTitle: null,
+        srfCaption: null,
+        srfSubTitle: null,
+        dataInfo: null
+    };
 
     /**
      * 在消息中心订阅的本地消息实例标识
@@ -347,6 +366,17 @@ export class ViewBase extends Vue {
         if (this.viewUsage === 1) {
             this.$appService.navHistory.setViewContext(this.context, this.viewtag);
         }
+        if (this.model) {
+            if (isExistAndNotEmpty(this.model.srfTitle)) {
+                this.model.srfTitle = this.$t(this.model.srfTitle);
+            }
+            if (isExistAndNotEmpty(this.model.srfCaption)) {
+                this.model.srfCaption = this.$t(this.model.srfCaption);
+            }
+            if (isExistAndNotEmpty(this.model.srfSubTitle)) {
+                this.model.srfSubTitle = this.$t(this.model.srfSubTitle);
+            }
+        }
         this.viewCreated();
     }
 
@@ -560,7 +590,8 @@ export class ViewBase extends Vue {
             this.$emit('viewdataschange', [args]);
             this.$emit('close', [args]);
         } else if (this.$tabPageExp) {
-            this.$tabPageExp.onClose(this.$route.fullPath);
+            const item = this.$appService.navHistory.findHistoryByTag(this.viewtag);
+            this.$tabPageExp.onClose(item);
         } else {
             this.$router.back();
             this.$appService.navHistory.pop();

@@ -49,6 +49,23 @@ export class MainDashboardDashboardBase extends MainControlBase {
      * @memberof MainDashboardDashboardBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardDashboardBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainDashboardBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
     /**
      * 是否支持看板定制
      *

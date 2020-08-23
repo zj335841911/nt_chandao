@@ -51,6 +51,181 @@ export class ActionBarPortletBase extends MainControlBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionBarPortletBase
+     */
+    protected appDeLogicName: string = '测试版本';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof ActionBarBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_uff3ac3f_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_uc98202b_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_ActiviteDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u2824624_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_StartDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u71470a2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_CloseDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u134abc0_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_BlockDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 返回
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TestTaskMainDashboardViewBase
+     */
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
+        }
+    }
+
+
+    /**
      * 长度
      *
      * @type {number}
@@ -73,6 +248,55 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet4_uff3ac3f_click",
+        text: "返回",
+        iconcls: "fa fa-sign-out",
+        icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_uc98202b_click",
+        text: "激活",
+        iconcls: "fa fa-magic",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_ACTIVITE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u2824624_click",
+        text: "开始",
+        iconcls: "fa fa-play",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_START_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u71470a2_click",
+        text: "关闭",
+        iconcls: "fa fa-close",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_CLOSED_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u134abc0_click",
+        text: "阻塞",
+        iconcls: "fa fa-pause",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TESTT_BLOCK_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        }
     ];
 
     /**
@@ -81,6 +305,21 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet4_uff3ac3f_click')){
+            this.dashboard_sysportlet4_uff3ac3f_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_uc98202b_click')){
+            this.dashboard_sysportlet4_uc98202b_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u2824624_click')){
+            this.dashboard_sysportlet4_u2824624_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u71470a2_click')){
+            this.dashboard_sysportlet4_u71470a2_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u134abc0_click')){
+            this.dashboard_sysportlet4_u134abc0_click(null);
+        }
     }
 
 

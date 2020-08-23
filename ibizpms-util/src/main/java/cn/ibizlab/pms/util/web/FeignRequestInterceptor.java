@@ -25,6 +25,9 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if(requestAttributes!=null){
             HttpServletRequest request = requestAttributes.getRequest();
+            if("/uaa/publickey".equals(request.getRequestURI())){
+                return;
+            }
             Enumeration<String> headerNames = request.getHeaderNames();
             if (headerNames != null) {
                 while (headerNames.hasMoreElements()) {

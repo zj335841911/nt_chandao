@@ -66,6 +66,30 @@ export class CaseMainNewViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseMainNewViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PRODUCTMODULE': { isRawValue: false, value: 'productmodule' },
+        'PRODUCT': { isRawValue: false, value: 'product' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseMainNewViewBase
+	 */
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
+        'productmodule': { isRawValue: false, value: 'productmodule' }
+    };
+
     /**
      * 视图模型数据
      *

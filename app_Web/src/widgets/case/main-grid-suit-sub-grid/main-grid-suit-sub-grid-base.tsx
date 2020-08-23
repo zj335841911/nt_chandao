@@ -51,6 +51,51 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainGrid_SuitSubBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u57d1959_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_unlinkSuiteCase(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -107,22 +152,15 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {CaseUIService}
-     * @memberof MainGrid_SuitSubBase
-     */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainGrid_SuitSubBase
      */  
     public ActionModel: any = {
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        unlinkSuiteCase: { name: 'unlinkSuiteCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -162,7 +200,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: 'id',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -170,7 +208,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -178,7 +216,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -186,7 +224,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: '用例类型',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -194,15 +232,15 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: '结果',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.lastrunresult',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '状态',
-            langtag: 'entities.case.maingrid_suitsub_grid.columns.status',
+            langtag: 'entities.case.maingrid_suitsub_grid.columns.status1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -210,7 +248,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: 'B',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.tobugcnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -218,7 +256,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: 'R',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.resultcnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -226,7 +264,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: 'S',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.casesteps',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -234,7 +272,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -276,7 +314,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
         'title':false,
         'type':false,
         'lastrunresult':false,
-        'status':false,
+        'status1':false,
         'tobugcnt':false,
         'resultcnt':false,
         'casesteps':false,
@@ -331,8 +369,8 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Testcase__status',
+                name: 'status1',
+                srfkey: 'TestCaseStatusGrid',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
@@ -352,6 +390,9 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('unlinkSuiteCase', tag)) {
+            this.grid_uagridcolumn1_u57d1959_click(row, tag, $event);
+        }
         if(Object.is('OpenTestRunResultView', tag)) {
             this.grid_uagridcolumn1_uc27cc64_click(row, tag, $event);
         }

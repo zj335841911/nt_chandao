@@ -49,14 +49,23 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActivationEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
     /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof ActivationEditFormBase
+     * @memberof ActivationBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 关系界面数量
@@ -85,6 +94,7 @@ export class ActivationEditFormBase extends EditFormControlBase {
         id: null,
         resolvedbuild: null,
         assignedto: null,
+        product: null,
         files: null,
         project: null,
         comment: null,
@@ -147,6 +157,8 @@ export class ActivationEditFormBase extends EditFormControlBase {
         resolvedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

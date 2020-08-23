@@ -48,6 +48,17 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
      * @memberof IBZTaskEstimateServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchDefault ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
     }
 
     /**
@@ -60,5 +71,62 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
      * @memberof IBZTaskEstimateServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchDefaults ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefaults ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
     }
 }

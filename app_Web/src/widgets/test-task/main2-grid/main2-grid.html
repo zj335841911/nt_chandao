@@ -55,7 +55,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main2_grid.columns.name')" :width="250"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main2_grid.columns.name')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main2_grid.columns.name')}}
@@ -106,7 +106,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('begin')">
-                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main2_grid.columns.begin')" :width="160"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main2_grid.columns.begin')" :width="140"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main2_grid.columns.begin')}}
@@ -118,7 +118,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('end')">
-                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main2_grid.columns.end')" :width="160"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main2_grid.columns.end')" :width="140"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main2_grid.columns.end')}}

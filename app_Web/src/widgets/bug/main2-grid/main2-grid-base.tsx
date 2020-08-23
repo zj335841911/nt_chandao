@@ -51,6 +51,15 @@ export class Main2GridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
@@ -112,7 +121,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main2_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class Main2GridBase extends GridControlBase {
             label: '级别',
             langtag: 'entities.bug.main2_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main2_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class Main2GridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.bug.main2_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

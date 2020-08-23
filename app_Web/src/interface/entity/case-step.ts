@@ -61,4 +61,28 @@ export interface CaseStep {
      * @memberof CaseStep
      */
     parent?: any;
+
+    /**
+     * 实际情况
+     *
+     * @returns {*}
+     * @memberof CaseStep
+     */
+    reals?: any;
+
+    /**
+     * 测试结果
+     *
+     * @returns {*}
+     * @memberof CaseStep
+     */
+    steps?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof CaseStep
+     */
+    files?: any;
 }

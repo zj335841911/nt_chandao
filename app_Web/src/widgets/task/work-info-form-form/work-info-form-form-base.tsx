@@ -49,14 +49,23 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * @memberof WorkInfoFormEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof WorkInfoFormEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
+
     /**
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof WorkInfoFormEditFormBase
+     * @memberof WorkInfoFormBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 表单数据对象

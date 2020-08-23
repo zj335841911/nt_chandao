@@ -51,6 +51,15 @@ export class StoryRelatedGridBase extends GridControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    protected appDeLogicName: string = '任务';
+
+    /**
      * 界面UI服务对象
      *
      * @type {TaskUIService}
@@ -128,7 +137,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.task.storyrelated_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.task.storyrelated_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -144,7 +153,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '所属项目',
             langtag: 'entities.task.storyrelated_grid.columns.projectname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

@@ -51,6 +51,23 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardQuickActionPortletBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof DashboardQuickActionBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -85,6 +102,90 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet4_u5e0cd96_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_ue17919a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u365135c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_NewBugByCaseResult(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet4_u4c22fea_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -103,6 +204,34 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
         curUIService.Case_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_ud9f9776_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_delete(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -171,11 +300,60 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u5e0cd96_click",
+        text: "执行",
+        iconcls: "fa fa-play-circle-o",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_CASERUN_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_ue17919a_click",
+        text: "结果",
+        iconcls: "fa fa-stack-overflow",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_RESULT_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_u365135c_click",
+        text: "转Bug",
+        iconcls: "fa fa-bug",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_TOBUG_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u4c22fea_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet4_ud9f9776_click",
+        text: "删除",
+        iconcls: null,
+        icon: null,
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__CASE_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         }
     ];
 
@@ -188,8 +366,20 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet4_u947bac5_click')){
             this.dashboard_sysportlet4_u947bac5_click(null);
         }
+        if(Object.is($event,'dashboard_sysportlet4_u5e0cd96_click')){
+            this.dashboard_sysportlet4_u5e0cd96_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_ue17919a_click')){
+            this.dashboard_sysportlet4_ue17919a_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u365135c_click')){
+            this.dashboard_sysportlet4_u365135c_click(null);
+        }
         if(Object.is($event,'dashboard_sysportlet4_u4c22fea_click')){
             this.dashboard_sysportlet4_u4c22fea_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_ud9f9776_click')){
+            this.dashboard_sysportlet4_ud9f9776_click(null);
         }
     }
 

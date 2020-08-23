@@ -57,12 +57,12 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(TestSuite et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes()); 
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.create(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -74,12 +74,12 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     public void createBatch(List<TestSuite> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(TestSuite et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.edit(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -91,10 +91,10 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     public void updateBatch(List<TestSuite> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         TestSuite et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
@@ -179,6 +179,15 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     public Page<TestSuite> searchDefault(TestSuiteSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 公开套件
+     */
+    @Override
+    public Page<TestSuite> searchPublicTestSuite(TestSuiteSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchPublicTestSuite(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

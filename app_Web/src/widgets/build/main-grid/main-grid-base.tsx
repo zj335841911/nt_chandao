@@ -51,6 +51,23 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'build';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = 'build';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BuildUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:BuildUIService = new BuildUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -210,25 +227,17 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {BuildUIService}
-     * @memberof MainBase
-     */  
-    public appUIService:BuildUIService = new BuildUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -268,7 +277,7 @@ export class MainGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.build.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -276,7 +285,7 @@ export class MainGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.build.main_grid.columns.productname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -284,7 +293,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称编号',
             langtag: 'entities.build.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -292,7 +301,7 @@ export class MainGridBase extends GridControlBase {
             label: '源代码地址',
             langtag: 'entities.build.main_grid.columns.scmpath',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -300,7 +309,7 @@ export class MainGridBase extends GridControlBase {
             label: '下载地址',
             langtag: 'entities.build.main_grid.columns.filepath',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -308,7 +317,7 @@ export class MainGridBase extends GridControlBase {
             label: '打包日期',
             langtag: 'entities.build.main_grid.columns.date',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -316,7 +325,7 @@ export class MainGridBase extends GridControlBase {
             label: '构建者',
             langtag: 'entities.build.main_grid.columns.builder',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -324,7 +333,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.build.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

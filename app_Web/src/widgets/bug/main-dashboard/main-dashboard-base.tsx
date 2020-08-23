@@ -49,6 +49,23 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
     /**
      * 是否支持看板定制
      *

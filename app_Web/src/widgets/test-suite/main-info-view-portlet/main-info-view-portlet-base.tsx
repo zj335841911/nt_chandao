@@ -51,6 +51,23 @@ export class MainInfoViewPortletBase extends MainControlBase {
     protected appDeName: string = 'testsuite';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainInfoViewPortletBase
+     */
+    protected appDeLogicName: string = '测试套件';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestSuiteUIService}
+     * @memberof MainInfoViewBase
+     */  
+    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

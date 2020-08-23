@@ -102,12 +102,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Product et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes()); 
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -119,12 +119,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public void createBatch(List<Product> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Product et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.edit(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -136,10 +136,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public void updateBatch(List<Product> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Product et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
@@ -178,12 +178,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public boolean checkKey(Product et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Product close(Product et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.close(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.close(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "close"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -244,11 +244,29 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     /**
+     * 查询集合 当前用户
+     */
+    @Override
+    public Page<Product> searchCurUer(ProductSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Product> pages=baseMapper.searchCurUer(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Product>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<Product> searchDefault(ProductSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Product> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Product>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品总览
+     */
+    @Override
+    public Page<Product> searchProductPM(ProductSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Product> pages=baseMapper.searchProductPM(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Product>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

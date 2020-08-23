@@ -5,6 +5,8 @@ import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
+import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
+import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
@@ -22,7 +24,9 @@ import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
+import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
+import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
 import user_en_US from '@locale/lanres/entities/user/user_en_US';
@@ -46,6 +50,7 @@ import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
+import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
@@ -186,6 +191,7 @@ export default {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem10: "用例库",
                 menuitem7: "iBiz软件生产管理",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
@@ -264,6 +270,7 @@ export default {
             back: "Back",
             next: "Next",
             complete: "Complete",
+            preactionmessage:"The calculation of the previous behavior is not configured"
         },
         viewLayoutPanel: {
             appLogoutView: {
@@ -298,6 +305,8 @@ export default {
         product: product_en_US,
         taskteam: taskteam_en_US,
         file: file_en_US,
+        ibzlibcasesteps: ibzlibcasesteps_en_US,
+        ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
         subproductplan: subproductplan_en_US,
@@ -315,7 +324,9 @@ export default {
         taskestimate: taskestimate_en_US,
         story: story_en_US,
         todo: todo_en_US,
+        ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,
+        ibzlibcasesteptmp: ibzlibcasesteptmp_en_US,
         project: project_en_US,
         history: history_en_US,
         user: user_en_US,
@@ -339,6 +350,7 @@ export default {
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
+        ibzcase: ibzcase_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
     },

@@ -49,14 +49,23 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @memberof TaskEstimateEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
+
     /**
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof TaskEstimateEditFormBase
+     * @memberof TaskEstimateBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 关系界面数量
@@ -65,7 +74,7 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof TaskEstimateEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 2;
 
     /**
      * 表单数据对象
@@ -112,6 +121,8 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @memberof TaskEstimateEditFormBase
      */
     public detailsModel: any = {
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),

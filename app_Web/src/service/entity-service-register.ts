@@ -46,6 +46,8 @@ export class EntityServiceRegister {
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
         this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
         this.allEntityService.set('file', () => import('@/service/file/file-service'));
+        this.allEntityService.set('ibzlibcasesteps', () => import('@/service/ibz-lib-casesteps/ibz-lib-casesteps-service'));
+        this.allEntityService.set('ibzlib', () => import('@/service/ibz-lib/ibz-lib-service'));
         this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
@@ -63,7 +65,9 @@ export class EntityServiceRegister {
         this.allEntityService.set('taskestimate', () => import('@/service/task-estimate/task-estimate-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
         this.allEntityService.set('todo', () => import('@/service/todo/todo-service'));
+        this.allEntityService.set('ibzlibmodule', () => import('@/service/ibz-lib-module/ibz-lib-module-service'));
         this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
+        this.allEntityService.set('ibzlibcasesteptmp', () => import('@/service/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-service'));
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
         this.allEntityService.set('history', () => import('@/service/history/history-service'));
         this.allEntityService.set('user', () => import('@/service/user/user-service'));
@@ -87,6 +91,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('bug', () => import('@/service/bug/bug-service'));
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));
+        this.allEntityService.set('ibzcase', () => import('@/service/ibz-case/ibz-case-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
         this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
     }

@@ -51,6 +51,15 @@ export class MainProjectGridBase extends GridControlBase {
     protected appDeName: string = 'productplan';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainProjectGridBase
+     */
+    protected appDeLogicName: string = '产品计划';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ProductPlanUIService}
@@ -77,6 +86,22 @@ export class MainProjectGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_productplan_mainproject_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MainProjectGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof MainProjectGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -93,6 +118,14 @@ export class MainProjectGridBase extends GridControlBase {
     public minorSortPSDEF: string = 'id';
 
     /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainProjectGridBase
+     */
+    public limit: number = 100;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -104,7 +137,7 @@ export class MainProjectGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.productplan.mainproject_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

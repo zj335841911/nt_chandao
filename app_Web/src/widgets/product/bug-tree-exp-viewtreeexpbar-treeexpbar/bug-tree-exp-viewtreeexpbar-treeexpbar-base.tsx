@@ -50,6 +50,23 @@ export class BugTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof BugTreeExpViewtreeexpbarBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

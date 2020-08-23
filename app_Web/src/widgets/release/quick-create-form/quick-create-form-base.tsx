@@ -49,14 +49,23 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     protected appDeName: string = 'release';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof QuickCreateEditFormBase
+     */
+    protected appDeLogicName: string = '发布';
+
     /**
      * 界面UI服务对象
      *
      * @type {ReleaseUIService}
-     * @memberof QuickCreateEditFormBase
+     * @memberof QuickCreateBase
      */  
     public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
-
 
     /**
      * 表单数据对象

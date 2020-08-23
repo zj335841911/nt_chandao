@@ -51,6 +51,23 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
     protected appDeName: string = 'todo';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoDashboardActionsPortletBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof TodoDashboardActionsBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -347,46 +364,90 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u54e15b4_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode: 1,
+        dataaccaction:'UPDATE',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ue607227_click",
         text: "删除",
         iconcls: "fa fa-trash",
         icon: "",
+        noprivdisplaymode: 1,
+        dataaccaction:'DELETE',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u0459568_click",
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
+        noprivdisplaymode: 1,
+        dataaccaction:'ASSIGNTO',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u4d009c6_click",
         text: "完成",
         iconcls: "fa fa-check-square-o",
         icon: "",
+        noprivdisplaymode: 1,
+        dataaccaction:'FINISH',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ua103298_click",
         text: "激活",
         iconcls: "fa fa-plane",
         icon: "",
+        noprivdisplaymode: 1,
+        dataaccaction:'ACTIVATE',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_uad9b866_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
+        noprivdisplaymode: 1,
+        dataaccaction:'CLOSE',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u1e6202a_click",
         text: "转Bug",
         iconcls: null,
         icon: null,
+        noprivdisplaymode: 1,
+        dataaccaction:'TOBUG',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u5b0a56a_click",
         text: "转任务",
         iconcls: null,
         icon: null,
+        noprivdisplaymode: 1,
+        dataaccaction:'TOTASK',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         }
     ];
 

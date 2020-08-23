@@ -96,6 +96,7 @@ export default class ProjectServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts?res.data.projectproducts:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_projectteams',JSON.stringify(res.data.projectteams?res.data.projectteams:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_testtasks',JSON.stringify(res.data.testtasks?res.data.testtasks:[]));
         
         return res;
     }
@@ -414,6 +415,21 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchCurUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchCurUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchcuruser`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -444,6 +460,18 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * UpdateCycle接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async UpdateCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * UpdateProjectCycle接口方法
      *
      * @param {*} [context={}]
@@ -453,6 +481,5 @@ export default class ProjectServiceBase extends EntityService {
      * @memberof ProjectServiceBase
      */
     public async UpdateProjectCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // URI参数传递情况未实现
     }
 }

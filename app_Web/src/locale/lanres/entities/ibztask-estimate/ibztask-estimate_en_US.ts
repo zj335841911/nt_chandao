@@ -26,10 +26,4 @@ export default {
 		uiactions: {
 		},
 	},
-	gridview9toolbar_toolbar: {
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-	},
 };

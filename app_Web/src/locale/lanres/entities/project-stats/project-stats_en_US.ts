@@ -24,11 +24,21 @@ export default {
     releasedstorycnt: "已发布需求数",
     yesterdayctaskcnt: "昨日完成任务数",
     yesterdayrbugcnt: "昨天解决Bug数",
+    end: "截止日期",
+    status: "状态",
   },
 	views: {
+		allgridview: {
+			caption: "所有项目",
+      		title: "所有项目",
+		},
 		editview9: {
 			caption: "项目统计",
       		title: "项目统计编辑视图",
+		},
+		gridview9: {
+			caption: "项目统计",
+      		title: "项目统计表格视图",
 		},
 	},
 	main_form: {
@@ -78,6 +88,63 @@ export default {
 			id: "项目编号", 
 		},
 		uiactions: {
+		},
+	},
+	allproject_grid: {
+		columns: {
+			name: "项目名称",
+			end: "截至日期",
+			status: "状态",
+			totalestimate: "预计",
+			totalconsumed: "消耗",
+			totalleft: "剩余",
+			totalwh: "总工时",
+			progress: "进度",
+		},
+		uiactions: {
+		},
+	},
+	notcloseproject_grid: {
+		columns: {
+			name: "项目名称",
+			end: "截至日期",
+			status: "状态",
+			totalestimate: "预计",
+			totalconsumed: "消耗",
+			totalleft: "剩余",
+			totalwh: "总工时",
+			progress: "进度",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	allgridviewtoolbar_toolbar: {
+		deuiaction3_addproject: {
+			caption: "添加项目",
+			tip: "添加项目",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

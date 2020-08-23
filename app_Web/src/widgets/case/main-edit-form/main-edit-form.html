@@ -44,7 +44,7 @@
     :context="context"
     :viewparams="viewparams"
     :localContext ='{}'
-    :localParam ='{}'
+    :localParam ='{n_version_eq:"%version%"}'
     parameterName='case'
     parentName="Case"  
     refviewtype='DEGRIDVIEW9' 
@@ -137,7 +137,7 @@
   deMajorField='name'
   deKeyField='product'
   :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
   valueitem='product' 
   :value="data.productname" 
   editortype="dropdown"
@@ -155,14 +155,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%" }' 
+  :localContext ='{ N_ROOT_EQ:"%product%" }' 
+  :localParam ='{ n_root_eq:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename'
   deMajorField='name'
   deKeyField='module'
   :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchStoryModule'}"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
   valueitem='module' 
   :value="data.modulename" 
   editortype="dropdown"
@@ -180,8 +180,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ N_PRODUCT_EQ:"%product%", N_MODULE_EQ:"%module%" }' 
+  :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'

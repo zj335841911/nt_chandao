@@ -21,7 +21,15 @@ export default class ProductBranch {
      * @type any
      * @memberof ProductBranch
      */
-    public expirationTime:any;
+    public static expirationTime:any;
+
+    /**
+     * 预定义类型
+     *
+     * @type string
+     * @memberof ProductBranch
+     */
+    public predefinedType:string ='';
 
     /**
      * 缓存超长时长
@@ -40,6 +48,26 @@ export default class ProductBranch {
     public codelistModel:any = {
         codelistid:"ProductBranch"
     };
+
+    /**
+     * 获取过期时间
+     *
+     * @type any
+     * @memberof ProductBranch
+     */
+    public getExpirationTime(){
+        return ProductBranch.expirationTime;
+    }
+
+    /**
+     * 设置过期时间
+     *
+     * @type any
+     * @memberof ProductBranch
+     */
+    public setExpirationTime(value:any){
+        ProductBranch.expirationTime = value; 
+    }
 
     /**
      * 自定义参数集合
@@ -83,6 +111,7 @@ export default class ProductBranch {
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
             
             _items.push(itemdata);
         });

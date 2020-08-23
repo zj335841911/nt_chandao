@@ -204,6 +204,21 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "yesterdayrbugcnt")
     @JsonProperty("yesterdayrbugcnt")
     private Integer yesterdayrbugcnt;
+    /**
+     * 截止日期
+     */
+    @TableField(value = "end")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
 
 
 
@@ -213,6 +228,32 @@ public class ProjectStats extends EntityMP implements Serializable {
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [截止日期]
+     */
+    public void setEnd(Timestamp end){
+        this.end = end ;
+        this.modify("end",end);
+    }
+
+    /**
+     * 格式化日期 [截止日期]
+     */
+    public String formatEnd(){
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
+    }
+    /**
+     * 设置 [状态]
+     */
+    public void setStatus(String status){
+        this.status = status ;
+        this.modify("status",status);
     }
 
 

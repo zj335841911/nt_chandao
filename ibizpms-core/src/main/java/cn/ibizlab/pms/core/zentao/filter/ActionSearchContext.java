@@ -34,6 +34,13 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
             this.getSearchCond().eq("objecttype", n_objecttype_eq);
         }
     }
+	private String n_comment_like;//[备注]
+	public void setN_comment_like(String n_comment_like) {
+        this.n_comment_like = n_comment_like;
+        if(!ObjectUtils.isEmpty(this.n_comment_like)){
+            this.getSearchCond().like("comment", n_comment_like);
+        }
+    }
 	private String n_read_eq;//[已读]
 	public void setN_read_eq(String n_read_eq) {
         this.n_read_eq = n_read_eq;
@@ -60,6 +67,13 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);
+        }
+    }
+	private String n_actionmanner_eq;//[操作方式]
+	public void setN_actionmanner_eq(String n_actionmanner_eq) {
+        this.n_actionmanner_eq = n_actionmanner_eq;
+        if(!ObjectUtils.isEmpty(this.n_actionmanner_eq)){
+            this.getSearchCond().eq("actionmanner", n_actionmanner_eq);
         }
     }
 

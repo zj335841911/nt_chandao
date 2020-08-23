@@ -117,6 +117,12 @@ export default class TextExpViewModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

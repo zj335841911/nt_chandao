@@ -49,14 +49,23 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditFormBase
      */
     protected appDeName: string = 'todo';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardMainEditFormBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
     /**
      * 界面UI服务对象
      *
      * @type {TodoUIService}
-     * @memberof DashboardMainEditFormBase
+     * @memberof DashboardMainBase
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
-
 
     /**
      * 表单数据对象

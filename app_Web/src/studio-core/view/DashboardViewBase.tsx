@@ -45,6 +45,7 @@ export class DashboardViewBase extends ViewBase {
                     return;
                 }
                 const { data } = response;
+                this.viewState.next({ tag: 'app-actionbar', action: 'loadmodel', data: data});
                 if (data && data[this.appDeMajor]) {
                     data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
@@ -52,7 +53,6 @@ export class DashboardViewBase extends ViewBase {
                     if (this.$route) {
                         this.$route.meta.info = this.model.dataInfo;
                     }
-                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfCaption)} - ${this.model.dataInfo}` });
                     this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                     this.$emit(events.view.MODEL_LOADED, data);
                 }

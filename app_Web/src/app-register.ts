@@ -12,7 +12,9 @@ import { authServiceRegister } from '@/authservice/auth-service-register';
 import { utilServiceRegister } from '@/utilservice/util-service-register';
 import { entityServiceRegister } from '@/service/entity-service-register';
 import { counterServiceRegister } from '@/counter/counter-service-register';
+import { codeListRegister } from '@codelist/codelist-register';
 
+import iBizVueLib from 'ibiz-vue-lib';
 import InputBox from './components/input-box/input-box.vue'
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue'
 import TabPageExp from './components/tab-page-exp/tab-page-exp.vue'
@@ -74,6 +76,8 @@ import AppOrgSelect from './components/app-org-select/app-org-select.vue'
 import AppDepartmentSelect from './components/app-department-select/app-department-select.vue'
 import AppGroupSelect from './components/app-group-select/app-group-select.vue'
 import UpdatePwd from './components/app-update-password/app-update-password.vue'
+import ActionTimeline from './components/action-timeline/action-timeline.vue'
+
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
 // 全局挂载实体权限服务注册中心
@@ -84,6 +88,8 @@ window['utilServiceRegister'] = utilServiceRegister;
 window['entityServiceRegister'] = entityServiceRegister;
 // 全局挂载计数器服务注册中心
 window['counterServiceRegister'] = counterServiceRegister;
+// 全局挂载代码表服务注册中心
+window['codeListRegister'] = codeListRegister;
 
 export const AppComponents = {
     install(v: any, opt: any) {
@@ -96,6 +102,7 @@ export const AppComponents = {
         v.prototype.$verify = Verify;
         v.prototype.$viewTool = ViewTool;
         v.prototype.$uiActionTool = UIActionTool;
+        v.use(iBizVueLib);
         v.component('input-box', InputBox);
         v.component('app-keep-alive',AppKeepAlive);
         v.component('tab-page-exp',TabPageExp);
@@ -160,5 +167,8 @@ export const AppComponents = {
         v.component('app-transfer',AppTransfer);
         v.component('context-menu-drag',ContextMenuDrag);
         v.component('app-update-password',UpdatePwd);
+        v.component('app-department-select', () => import('./components/app-department-select/app-department-select.vue'));
+        v.component('app-org-select', () => import('./components/app-org-select/app-org-select.vue'));
+        v.component('action-timeline', ActionTimeline);
     },
 };

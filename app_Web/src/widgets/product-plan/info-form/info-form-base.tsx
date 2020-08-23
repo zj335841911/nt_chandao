@@ -49,14 +49,23 @@ export class InfoEditFormBase extends EditFormControlBase {
      * @memberof InfoEditFormBase
      */
     protected appDeName: string = 'productplan';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof InfoEditFormBase
+     */
+    protected appDeLogicName: string = '产品计划';
+
     /**
      * 界面UI服务对象
      *
      * @type {ProductPlanUIService}
-     * @memberof InfoEditFormBase
+     * @memberof InfoBase
      */  
     public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
-
 
     /**
      * 关系界面数量

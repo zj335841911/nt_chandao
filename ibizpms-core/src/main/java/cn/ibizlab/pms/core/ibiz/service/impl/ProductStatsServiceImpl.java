@@ -46,6 +46,10 @@ import org.springframework.util.StringUtils;
 public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, ProductStats> implements IProductStatsService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProductStatsGetCurUserBugCntLogic getcuruserbugcntLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -91,6 +95,8 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Override
     @Transactional
     public ProductStats get(BigInteger key) {
+        ProductStats tempET=new ProductStats();
+        tempET.set("id",key);
         ProductStats et = getById(key);
         if(et==null){
             et=new ProductStats();
@@ -98,6 +104,7 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         }
         else{
         }
+        getcuruserbugcntLogic.execute(et);
         return et;
     }
 
@@ -154,6 +161,15 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Override
     public Page<ProductStats> searchDefault(ProductStatsSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 未关闭产品
+     */
+    @Override
+    public Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchNoOpenProduct(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

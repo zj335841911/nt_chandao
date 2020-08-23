@@ -51,6 +51,15 @@ export class BatchNewGridBase extends GridControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BatchNewGridBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
@@ -120,23 +129,23 @@ export class BatchNewGridBase extends GridControlBase {
             label: '所属模块',
             langtag: 'entities.case.batchnew_grid.columns.modulename',
             show: true,
-            util: 'PX',
-            isEnableRowEdit: false,
+            unit: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'storyname',
             label: '相关需求',
             langtag: 'entities.case.batchnew_grid.columns.storyname',
             show: true,
-            util: 'PX',
-            isEnableRowEdit: false,
+            unit: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'title',
             label: '用例标题',
             langtag: 'entities.case.batchnew_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -144,8 +153,8 @@ export class BatchNewGridBase extends GridControlBase {
             label: '用例类型',
             langtag: 'entities.case.batchnew_grid.columns.type',
             show: true,
-            util: 'PX',
-            isEnableRowEdit: false,
+            unit: 'PX',
+            isEnableRowEdit: true,
         },
     ]
 
@@ -157,7 +166,13 @@ export class BatchNewGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
+          product: new FormItemModel(),
+          story: new FormItemModel(),
+          modulename: new FormItemModel(),
+          module: new FormItemModel(),
           title: new FormItemModel(),
+          storyname: new FormItemModel(),
+          type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -169,9 +184,33 @@ export class BatchNewGridBase extends GridControlBase {
      * @memberof BatchNewGridBase
      */
     public rules: any = {
+        product: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        modulename: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
+        module: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例标题 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例标题 值不能为空', trigger: 'blur' },
+        ],
+        storyname: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例类型 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例类型 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
@@ -186,10 +225,10 @@ export class BatchNewGridBase extends GridControlBase {
      * @memberof BatchNewBase
      */
     public hasRowEdit: any = {
-        'modulename':false,
-        'storyname':false,
+        'modulename':true,
+        'storyname':true,
         'title':true,
-        'type':false,
+        'type':true,
     };
 
     /**
@@ -226,4 +265,15 @@ export class BatchNewGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof BatchNewGridBase
+     */
+    public createDefault(row: any): void {
+        if (row.hasOwnProperty('product')) {
+            row['product'] = this.viewparams['product'];
+        }
+    }
 }

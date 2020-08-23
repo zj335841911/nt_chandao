@@ -89,10 +89,10 @@ export default class ProductModuleUIServiceBase extends UIService {
      * @memberof  ProductModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules'});
         this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'productmodules'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules'});
         this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules'});
         this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'productmodules'});
     }
 
@@ -311,15 +311,14 @@ export default class ProductModuleUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

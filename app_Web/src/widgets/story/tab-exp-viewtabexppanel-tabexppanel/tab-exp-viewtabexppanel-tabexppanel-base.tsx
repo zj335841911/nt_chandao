@@ -48,6 +48,23 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof TabExpViewtabexppanelTabexppanelBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TabExpViewtabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof TabExpViewtabexppanelBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
     /**
      * 是否初始化
      *

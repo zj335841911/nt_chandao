@@ -51,6 +51,51 @@ export class MainGridGridBase extends GridControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridGridBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainGridBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u82280f9_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_confirmstorychange(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -230,26 +275,19 @@ export class MainGridGridBase extends GridControlBase {
 
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {CaseUIService}
-     * @memberof MainGridBase
-     */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainGridBase
      */  
     public ActionModel: any = {
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: ''},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
+        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -289,7 +327,7 @@ export class MainGridGridBase extends GridControlBase {
             label: 'id',
             langtag: 'entities.case.maingrid_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -297,7 +335,7 @@ export class MainGridGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.case.maingrid_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -305,7 +343,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.maingrid_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -313,7 +351,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '用例类型',
             langtag: 'entities.case.maingrid_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -321,7 +359,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.case.maingrid_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -329,7 +367,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '执行人',
             langtag: 'entities.case.maingrid_grid.columns.lastrunner',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -337,7 +375,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '执行时间',
             langtag: 'entities.case.maingrid_grid.columns.lastrundate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -345,15 +383,15 @@ export class MainGridGridBase extends GridControlBase {
             label: '结果',
             langtag: 'entities.case.maingrid_grid.columns.lastrunresult',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '状态',
-            langtag: 'entities.case.maingrid_grid.columns.status',
+            langtag: 'entities.case.maingrid_grid.columns.status1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -361,7 +399,7 @@ export class MainGridGridBase extends GridControlBase {
             label: 'B',
             langtag: 'entities.case.maingrid_grid.columns.tobugcnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -369,7 +407,7 @@ export class MainGridGridBase extends GridControlBase {
             label: 'R',
             langtag: 'entities.case.maingrid_grid.columns.resultcnt',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -377,7 +415,7 @@ export class MainGridGridBase extends GridControlBase {
             label: 'S',
             langtag: 'entities.case.maingrid_grid.columns.casesteps',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -385,7 +423,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.case.maingrid_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -430,7 +468,7 @@ export class MainGridGridBase extends GridControlBase {
         'lastrunner':false,
         'lastrundate':false,
         'lastrunresult':false,
-        'status':false,
+        'status1':false,
         'tobugcnt':false,
         'resultcnt':false,
         'casesteps':false,
@@ -501,8 +539,8 @@ export class MainGridGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Testcase__status',
+                name: 'status1',
+                srfkey: 'TestCaseStatusGrid',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
@@ -522,6 +560,9 @@ export class MainGridGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('confirmstorychange', tag)) {
+            this.grid_uagridcolumn1_u82280f9_click(row, tag, $event);
+        }
         if(Object.is('OpenTestRunResultView', tag)) {
             this.grid_uagridcolumn1_u333b640_click(row, tag, $event);
         }

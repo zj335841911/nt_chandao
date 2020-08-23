@@ -17,15 +17,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
-import javax.validation.executable.ValidateOnExecution;
-
 @RestController
 @RequestMapping("/")
 @ConditionalOnProperty( name = "ibiz.enablePermissionValid", havingValue = "false")
 public class AuthenticationController
 {
-    @Value("${ibiz.uaa:true}")
-    boolean useUAA;
 
     @Value("${ibiz.jwt.header:Authorization}")
     private String tokenHeader;
@@ -40,13 +36,8 @@ public class AuthenticationController
     public ResponseEntity<AuthenticationInfo> login(@Validated @RequestBody AuthorizationLogin authorizationLogin){
         userDetailsService.resetByUsername(authorizationLogin.getUsername());
         final AuthenticationUser authuserdetail = userDetailsService.loadUserByLogin(authorizationLogin.getUsername(),authorizationLogin.getPassword());
-        // 获取Token
-        String token = "";
-        if(useUAA) {
-            token = (String) authuserdetail.getSessionParams().get("token");
-        }else{
-            token = jwtTokenUtil.generateToken(authuserdetail);
-        }
+        // 生成令牌
+        final String token = jwtTokenUtil.generateToken(authuserdetail);
         // 返回 token
         return ResponseEntity.ok().body(new AuthenticationInfo(token,authuserdetail));
     }

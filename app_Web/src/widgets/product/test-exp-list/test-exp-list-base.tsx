@@ -50,6 +50,23 @@ export class TestExpListBase extends ListControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestExpListBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof TestExpBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * listexpbar_list_quicktoolbar 部件 click 事件
      *
      * @param {*} [args={}]

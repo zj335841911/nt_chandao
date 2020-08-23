@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface TestResultMapper extends BaseMapper<TestResult>{
 
+    Page<TestResult> searchCurTestRun(IPage page, @Param("srf") TestResultSearchContext context, @Param("ew") Wrapper<TestResult> wrapper) ;
     Page<TestResult> searchDefault(IPage page, @Param("srf") TestResultSearchContext context, @Param("ew") Wrapper<TestResult> wrapper) ;
     @Override
     TestResult selectById(Serializable id);

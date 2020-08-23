@@ -352,7 +352,7 @@ div::-webkit-scrollbar-thumb {
                 border: 1px solid var(--view-button-background-color);
 
                 >a {
-                    color: var(--view-font-color-tint);
+                    color: var(--grid-page-font-color);
                 }
             }
 
@@ -502,6 +502,37 @@ div::-webkit-scrollbar-thumb {
     color: var(--view-button-color-disabled);
 }
 
+//快速搜索表单
+.studio-view.view-container {
+
+    .quick-search-form {
+    
+        .app-search-form.ivu-form {
+            height: 100%;
+            padding: 0;
+    
+            .form-content {
+                height: 100%;
+            }
+    
+            .form-layout-container {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+    
+            .app-form-item {
+                margin-bottom: 0;
+    
+                .ivu-form-item-content {
+                    min-height: 26px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}
+
 // 编辑表单和搜索表单样式
 .app-search-form.ivu-form,
 .app-form.ivu-form {
@@ -538,7 +569,17 @@ div::-webkit-scrollbar-thumb {
 
         >.ivu-card-body {
             padding: 6px;
+
+            .ivu-row {
+                width: 100%;
+            }
         }
+    }
+
+    iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
     }
 
     // 表单项
@@ -1206,10 +1247,15 @@ div::-webkit-scrollbar-thumb {
             margin-bottom: 10px;
         }
 
+        .single-card-data.selected, .single-card-data:hover {
+            transform: scale(1.1);
+        }
+
         .single-card-data {
             height: 100%;
             width: 100%;
             cursor: pointer;
+            transition: transform 0.3s ease-in-out;
 
             .single-card-img {
 
@@ -1217,6 +1263,11 @@ div::-webkit-scrollbar-thumb {
                     width: 100%;
                     height: 100%;
                 }
+            }
+
+            .single-card-default {
+                line-height: normal;
+                padding: 1px 5px;
             }
         }
     }
@@ -1267,4 +1318,79 @@ div::-webkit-scrollbar-thumb {
     }
 }
 
+// 数据选择样式
+.app-picker {
+    .el-select {
+        .el-select__caret {
+            color: var(--form-editor-font-color);
+        }
+    }
+    .el-icon-arrow-up,.el-icon-arrow-down {
+        color: var(--form-editor-font-color);
+    }
+}
+
+// 工作流动态导航表格视图
+.dewfdynaexpgridview{
+    .el-tree {
+        padding-right: 10px;
+    }
+    .el-tree-node__content {
+        height: 40px;
+        border-left: solid transparent;
+
+    }
+    .el-tree-node:nth-child(1) {
+        margin-top: 0px;
+    }
+    .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+        background-color: #e4ecf5;
+        border-color:  #1890ff6e;
+    }
+    .custom-tree-node{
+        .tree-node-label{
+            font-size: 15px;
+            font-family: "Microsoft YaHei";
+        }
+        .tree-node-count{
+            margin-left: 4px;
+        }
+    }
+    .ivu-split-horizontal {
+        .ivu-split-pane >div {
+            height: 100%;
+            overflow-y: auto;
+            .content-container {
+                height: 100%;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                margin: 0;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+// 语言资源
+.app-lang {
+    .ivu-select-dropdown {
+        background-color: var(--view-button-background-color);
+        color: var(--view-button-color);
+        .ivu-dropdown-item {
+            padding: 5px 8px;
+            background-color: var(--view-button-background-color-active);
+            color: var(--view-button-color-active);
+        }
+    }
+}
+
+// 日历部件
+.calendar {
+    height: 100%;
+    width: 100%;
+}
 @import './user.less';

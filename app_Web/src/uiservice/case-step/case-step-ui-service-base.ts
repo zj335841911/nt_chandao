@@ -89,6 +89,7 @@ export default class CaseStepUIServiceBase extends UIService {
      * @memberof  CaseStepUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'casesteps'});
         this.allViewMap.set(':',{viewname:'maingridview9',srfappde:'casesteps'});
     }
 
@@ -166,15 +167,14 @@ export default class CaseStepUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

@@ -50,6 +50,23 @@ export class ListListBase extends ListControlBase {
     protected appDeName: string = 'file';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ListListBase
+     */
+    protected appDeLogicName: string = '附件';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {FileUIService}
+     * @memberof ListBase
+     */  
+    public appUIService:FileUIService = new FileUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

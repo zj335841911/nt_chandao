@@ -50,6 +50,23 @@ export class PickupViewpickupviewpanelPickupviewpanelBase extends MainControlBas
      */
     protected appDeName: string = 'module';
 
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected appDeLogicName: string = '模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ModuleUIService}
+     * @memberof PickupViewpickupviewpanelBase
+     */  
+    public appUIService:ModuleUIService = new ModuleUIService(this.$store);
+
 
     /**
      * 选中数据字符串

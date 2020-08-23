@@ -96,7 +96,6 @@ export default {
 			createddate: "创建时间",
 			projectname: "所属项目",
 			tasks: "测试版本",
-			uagridcolumn1: "操作",
 		},
 		uiactions: {
 		},
@@ -105,6 +104,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	editviewtoolbar_toolbar: {

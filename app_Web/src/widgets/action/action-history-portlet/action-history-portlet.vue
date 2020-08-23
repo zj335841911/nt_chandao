@@ -6,7 +6,7 @@ import { ActionHistoryPortletBase } from './action-history-portlet-base';
  
 
 /**
- * dashboard_sysportlet3部件
+ * dashboard_sysportlet5部件
  *
  * @export
  * @class ActionHistoryPortlet

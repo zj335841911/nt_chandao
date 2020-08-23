@@ -205,4 +205,36 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     postponedprojectcnt?: any;
+
+    /**
+     * 当前项目
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    currproject?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    status?: any;
+
+    /**
+     * 产品代号
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    code?: any;
+
+    /**
+     * 产品类型
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    type?: any;
 }

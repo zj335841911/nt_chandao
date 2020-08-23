@@ -51,6 +51,15 @@ export class StoryRelatedGridBase extends GridControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
@@ -128,7 +137,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.case.storyrelated_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.storyrelated_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

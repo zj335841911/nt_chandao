@@ -50,6 +50,23 @@ export class GetRoadmapSListBase extends ListControlBase {
     protected appDeName: string = 'productlife';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapSListBase
+     */
+    protected appDeLogicName: string = '产品生命周期';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductLifeUIService}
+     * @memberof GetRoadmapSBase
+     */  
+    public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

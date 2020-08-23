@@ -168,6 +168,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'project',
       },
+      {
+        name: 'preversion',
+      },
     ]
   }
 

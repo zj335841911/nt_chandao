@@ -1,20 +1,25 @@
 <template>
-    <i-select
-        class='dropdown-list'
-        :transfer="true"
-        v-model="currentVal"
-        :disabled="disabled === true ? true : false"
-        :clearable="true"
-        :filterable="filterable === true ? true : false"
-        @on-open-change="onClick"
-        :placeholder="$t('components.dropDownList.placeholder')">
-        <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
-    </i-select>
+    <div class='dropdown-list-container'>
+        <i-select
+            v-if="!hasChildren"
+            :transfer="true"
+            class='dropdown-list'
+            v-model="currentVal"
+            :disabled="disabled"
+            :filterable="filterable"
+            @on-open-change="onClick"
+            :placeholder="$t('components.dropDownList.placeholder')">
+            <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
+        </i-select>
+        <i v-if="currentVal == null || currentVal == '' ? false :true" @click="clear" type="md-close" class="el-icon-circle-close" />
+        <ibiz-select-tree v-if="hasChildren" class="tree-dropdown-list" :disabled="disabled" :NodesData="items" v-model="currentVal" :multiple="false"></ibiz-select-tree>
+    </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Watch, Prop, Model } from 'vue-property-decorator';
 import CodeListService from "@service/app/codelist-service";
+import { Util } from '@/utils';
 
 @Component({
 })
@@ -41,6 +46,13 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     public queryParam:any;
+
+    /**
+     * 是否有子集
+     * @type {boolean}
+     * @memberof DropDownList
+     */
+    public hasChildren:boolean = false;
 
     /**
      * 当前选中值
@@ -154,7 +166,7 @@ export default class DropDownList extends Vue {
      * @type {boolean}
      * @memberof DropDownList
      */
-    @Prop() public filterable?: boolean;
+    public filterable: boolean = true;
 
     /**
      * 下拉选提示内容
@@ -170,6 +182,10 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     set currentVal(val: any) {
+        if(this.hasChildren && val){
+            let tempVal:any = JSON.parse(val);
+            val = tempVal.length > 0 ? tempVal[0].value : null;
+        }
         if (isExistAndNotEmpty(val)) {
             this.$emit('change', val);
         } else {
@@ -186,6 +202,14 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     get currentVal() {
+        if(this.hasChildren && this.itemValue){
+            let list:Array<any> = [];
+            this.getItemList(list,this.items);
+            let result:any = list.find((item:any) =>{
+                return item.value == this.itemValue;
+            })
+            return JSON.stringify([result]);
+        }
         return this.value;
     }
 
@@ -196,6 +220,22 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     public items: any[] = [];
+
+    /**
+     * 获取代码表列表
+     *
+     * @memberof DropDownList
+     */
+    public getItemList(list:Array<any>,items:Array<any>){
+        if(items && items.length >0){
+            items.forEach((item:any) =>{
+                if(item.children){
+                    this.getItemList(list,item.children);
+                }
+                list.push(item);
+            })
+        }
+    }
 
     /**
      * 公共参数处理
@@ -253,6 +293,7 @@ export default class DropDownList extends Vue {
         } catch (error) {
             console.warn('代码表值类型和属性类型不符，目前采用强制转换模式。转换过程异常，请修正代码表值类型和属性类型匹配。');
         }
+        this.handleLevelCodeList(Util.deepCopy(this.items));
     }
 
     /**
@@ -338,6 +379,61 @@ export default class DropDownList extends Vue {
                 });
             }
         }
+    }
+
+    /**
+     * 清除事件
+     *
+     * @param {*} $event
+     * @memberof DropDownList
+     */
+    public clear($event: any){
+        if(this.currentVal) {
+            this.currentVal = null;
+        }
+    }
+    /**
+     * 处理层级代码表
+     * 
+     * @param {*} items
+     * @memberof DropDownList
+     */
+    public handleLevelCodeList(items: Array<any>){
+        if(items && items.length >0){
+            this.hasChildren = items.some((item:any) =>{
+                return item.pvalue;
+            })
+            if(this.hasChildren){
+                let list:Array<any> = [];
+                items.forEach((codeItem:any) =>{
+                    if(!codeItem.pvalue){
+                        let valueField:string = codeItem.value;
+                        this.setChildCodeItems(valueField,items,codeItem);
+                        list.push(codeItem);
+                    }
+                })
+                this.items = list;
+            }
+        }
+    }
+
+    /**
+     * 计算子类代码表
+     * 
+     * @param {*} items
+     * @memberof DropDownList
+     */
+    public setChildCodeItems(pValue:string,result:Array<any>,codeItem:any){
+        result.forEach((item:any) =>{
+            if(item.pvalue == pValue){
+                let valueField:string = item.value;
+                this.setChildCodeItems(valueField,result,item);
+                if(!codeItem.children){
+                    codeItem.children = [];
+                }
+                codeItem.children.push(item);
+            }
+        })
     }
 
 }

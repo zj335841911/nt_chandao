@@ -264,6 +264,21 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * FetchCurUer接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchCurUer(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchcuruer`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -275,6 +290,21 @@ export default class ProductServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/products/fetchdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProductPM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchProductPM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchproductpm`,tempData,isloading);
         return res;
     }
 

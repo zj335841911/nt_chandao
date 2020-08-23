@@ -396,5 +396,16 @@ export default class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
     }
 }

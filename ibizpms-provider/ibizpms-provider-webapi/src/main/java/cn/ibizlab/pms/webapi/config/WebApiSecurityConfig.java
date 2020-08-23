@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.webapi.config;
 
+import cn.ibizlab.pms.util.helper.SecurityWhitelistHandler;
 import cn.ibizlab.pms.util.security.AuthenticationEntryPoint;
 import cn.ibizlab.pms.util.security.AuthorizationTokenFilter;
 import cn.ibizlab.pms.util.service.AuthenticationUserService;
@@ -62,6 +63,10 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
     private String previewpath;
 
     @Autowired
+    private SecurityWhitelistHandler whitelistHandler;  //白名单处理类
+
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
@@ -87,6 +92,8 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+
+        whitelistHandler.handle(httpSecurity);  //对白名单放行。
 
        httpSecurity
                 // 禁用 CSRF
@@ -127,6 +134,16 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/"+uploadpath).permitAll()
                 .antMatchers("/"+ztuploadpath).permitAll()
                 .antMatchers("/"+previewpath+"/**").permitAll()
+
+
+               //开放ZT API登录接口
+               .antMatchers("/ztlogin").permitAll()
+               //开放账号名查询接口
+               .antMatchers("/ztusers/uaaloginname").permitAll()
+
+//               .antMatchers("/depts/all").permitAll()
+//
+//               .antMatchers("/users/all").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

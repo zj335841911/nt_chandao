@@ -183,7 +183,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story linkStory(Story et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
         if(et.get("srfactionparam") != null) {
@@ -209,7 +209,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story projectLinkStory(Story et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
         if(et.get("srfactionparam") != null) {
@@ -241,7 +241,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story projectUnlinkStory(Story et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
         jo.put("id", et.getProject());
@@ -270,6 +270,10 @@ public class StoryExService extends StoryServiceImpl {
     public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
         context.getSelectCond().clear();
         context.setQuery(context.getQuery());
+        if(context.getN_module_eq() != null && !String.valueOf(context.getN_module_eq()).equals(0)) {
+            context.setN_module_eq(context.getN_module_eq());
+        }
+
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
@@ -277,7 +281,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story buildLinkStory(Story et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
         if(et.get("srfactionparam") != null) {
@@ -305,7 +309,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story buildUnlinkStory(Story et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
 
         JSONObject jo = new JSONObject();

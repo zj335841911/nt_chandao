@@ -51,6 +51,23 @@ export class GetRoadmapYearListBase extends MainControlBase {
     protected appDeName: string = 'productlife';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapYearListBase
+     */
+    protected appDeLogicName: string = '产品生命周期';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductLifeUIService}
+     * @memberof GetRoadmapYearBase
+     */  
+    public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
+
+    /**
      * 建构部件服务对象
      *
      * @type {GetRoadmapService}

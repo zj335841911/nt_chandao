@@ -117,6 +117,12 @@ export default class ProductStatusChartModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

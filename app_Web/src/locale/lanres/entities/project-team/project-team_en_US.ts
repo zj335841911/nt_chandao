@@ -18,18 +18,18 @@ export default {
     username: "用户",
   },
 	views: {
-		maingridview_editrow: {
+		maingridview: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
 		},
-		maingridview: {
+		maingridview_editrow: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
 		},
 	},
 	main_editrow_grid: {
 		columns: {
-			username: "用户",
+			account: "用户",
 			role: "角色",
 			days: "可用工日",
 			hours: "可用工时/天",
@@ -75,6 +75,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

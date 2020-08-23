@@ -49,14 +49,23 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      * @memberof PendingSubmissionEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PendingSubmissionEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
     /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof PendingSubmissionEditFormBase
+     * @memberof PendingSubmissionBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 表单数据对象
@@ -79,8 +88,8 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
         modulename: null,
         module: null,
         project: null,
-        openedbuild: null,
         projectname: null,
+        openedbuild: null,
         assignedto: null,
         deadline: null,
         type: null,
@@ -169,9 +178,9 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        openedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'openedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         projectname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        openedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'openedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

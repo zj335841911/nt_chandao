@@ -51,6 +51,23 @@ export class MainBranchGridBase extends GridControlBase {
     protected appDeName: string = 'testmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainBranchGridBase
+     */
+    protected appDeLogicName: string = '测试模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestModuleUIService}
+     * @memberof MainBranchBase
+     */  
+    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -98,21 +115,13 @@ export class MainBranchGridBase extends GridControlBase {
 
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {TestModuleUIService}
-     * @memberof MainBranchBase
-     */  
-    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBranchBase
      */  
     public ActionModel: any = {
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -152,7 +161,7 @@ export class MainBranchGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.testmodule.mainbranch_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -160,7 +169,7 @@ export class MainBranchGridBase extends GridControlBase {
             label: '平台',
             langtag: 'entities.testmodule.mainbranch_grid.columns.branch',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -168,7 +177,7 @@ export class MainBranchGridBase extends GridControlBase {
             label: '简称',
             langtag: 'entities.testmodule.mainbranch_grid.columns.short',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -176,7 +185,7 @@ export class MainBranchGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.testmodule.mainbranch_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

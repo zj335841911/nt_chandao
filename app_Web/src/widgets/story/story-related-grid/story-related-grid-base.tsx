@@ -51,6 +51,15 @@ export class StoryRelatedGridBase extends GridControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
      * 界面UI服务对象
      *
      * @type {StoryUIService}
@@ -128,7 +137,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.story.storyrelated_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.storyrelated_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]

@@ -51,6 +51,15 @@ export class SubTaskNewGridBase extends GridControlBase {
     protected appDeName: string = 'subtask';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof SubTaskNewGridBase
+     */
+    protected appDeLogicName: string = '子任务';
+
+    /**
      * 界面UI服务对象
      *
      * @type {SubTaskUIService}
@@ -120,7 +129,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '所属模块',
             langtag: 'entities.subtask.subtasknew_grid.columns.modulename',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -128,7 +137,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '相关需求',
             langtag: 'entities.subtask.subtasknew_grid.columns.storyname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -136,7 +145,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.subtask.subtasknew_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -144,7 +153,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '任务类型',
             langtag: 'entities.subtask.subtasknew_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -152,7 +161,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '指派给',
             langtag: 'entities.subtask.subtasknew_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -160,7 +169,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '预计',
             langtag: 'entities.subtask.subtasknew_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -168,7 +177,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '预计开始',
             langtag: 'entities.subtask.subtasknew_grid.columns.eststarted',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -176,7 +185,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '截止日期',
             langtag: 'entities.subtask.subtasknew_grid.columns.deadline',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -184,7 +193,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '任务描述',
             langtag: 'entities.subtask.subtasknew_grid.columns.desc',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
         {
@@ -192,7 +201,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             label: '优先级',
             langtag: 'entities.subtask.subtasknew_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
     ]

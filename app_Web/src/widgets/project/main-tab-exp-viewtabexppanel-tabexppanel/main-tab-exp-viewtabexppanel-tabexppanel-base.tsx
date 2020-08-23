@@ -48,6 +48,23 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MainTabExpViewtabexppanelBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
     /**
      * 是否初始化
      *
@@ -64,7 +81,6 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
         tabviewpanel4:  false ,
         tabviewpanel7:  false ,
         tabviewpanel8:  false ,
-        tabviewpanel9:  false ,
         tabviewpanel3:  false ,
         tabviewpanel10:  false ,
         tabviewpanel12:  false ,

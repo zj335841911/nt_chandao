@@ -99,6 +99,10 @@ export default {
 			caption: "任务",
       		title: "任务甘特视图",
 		},
+		workhoursview: {
+			caption: "工时",
+      		title: "工时",
+		},
 		pivottableview: {
 			caption: "任务",
       		title: "任务表格视图",
@@ -295,6 +299,7 @@ export default {
 	},
 	taskestimate_form: {
 		details: {
+			druipart2: "", 
 			druipart1: "", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
@@ -622,12 +627,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	wheditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -651,6 +650,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {
@@ -668,6 +675,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
@@ -687,27 +702,11 @@ export default {
 	todoeditviewtoolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "新建",
-			tip: "新建",
+		tbitem1_create: {
+			caption: "新建任务",
+			tip: "新建任务",
 		},
-		tbitem4: {
-			caption: "编辑",
-			tip: "编辑",
-		},
-		tbitem6: {
-			caption: "拷贝",
-			tip: "拷贝",
-		},
-		tbitem7: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem8: {
-			caption: "删除",
-			tip: "删除",
-		},
-		tbitem9: {
+		tbitem2: {
 			caption: "-",
 			tip: "",
 		},
@@ -715,33 +714,11 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-		tbitem10: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "导出数据模型",
-			tip: "导出数据模型",
-		},
-		tbitem23: {
-			caption: "数据导入",
-			tip: "数据导入",
-		},
-		tbitem17: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem19: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-		tbitem18: {
-			caption: "帮助",
-			tip: "帮助",
+	},
+	wheditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 };

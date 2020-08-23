@@ -50,6 +50,23 @@ export class ExpTreeBase extends MainControlBase {
     protected appDeName: string = 'productmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ExpTreeBase
+     */
+    protected appDeLogicName: string = '需求模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductModuleUIService}
+     * @memberof ExpBase
+     */  
+    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+
+    /**
      * branchs_cm 部件 click 事件
      *
      * @param {*} [args={}]

@@ -70,15 +70,15 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'openedby',

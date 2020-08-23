@@ -117,6 +117,12 @@ export default class MyTestTabExpViewtabexppanelModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

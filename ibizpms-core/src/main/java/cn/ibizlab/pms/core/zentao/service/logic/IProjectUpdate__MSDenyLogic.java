@@ -13,6 +13,6 @@ import cn.ibizlab.pms.core.zentao.domain.Project;
  */
 public interface IProjectUpdate__MSDenyLogic {
 
-    void execute(Project project ) ;
+    void execute(Project et) ;
 
 }

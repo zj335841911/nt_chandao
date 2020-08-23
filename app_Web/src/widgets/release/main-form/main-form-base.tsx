@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'release';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '发布';
+
     /**
      * 界面UI服务对象
      *
      * @type {ReleaseUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
-
 
     /**
      * 关系界面数量
@@ -100,6 +109,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        name: [
+            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
+        ],
+        date: [
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**

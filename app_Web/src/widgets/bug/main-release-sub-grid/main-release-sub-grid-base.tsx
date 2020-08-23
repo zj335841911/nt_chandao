@@ -51,6 +51,15 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_ReleaseSubGridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
@@ -104,7 +113,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.main_releasesub_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.bug.main_releasesub_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_releasesub_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: 'Bug状态',
             langtag: 'entities.bug.main_releasesub_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: '由谁创建',
             langtag: 'entities.bug.main_releasesub_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -144,7 +153,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: '创建日期',
             langtag: 'entities.bug.main_releasesub_grid.columns.openeddate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -152,7 +161,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             label: '指派给',
             langtag: 'entities.bug.main_releasesub_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

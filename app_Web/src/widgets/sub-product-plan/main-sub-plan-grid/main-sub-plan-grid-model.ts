@@ -52,6 +52,9 @@ export default class MainSubPlanModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -79,7 +82,7 @@ export default class MainSubPlanModel {
         },
         {
           name: 'productplan',
-          prop: 'id',
+          prop: 'parent',
           dataType: 'FONTKEY',
         },
         {

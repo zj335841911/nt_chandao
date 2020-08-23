@@ -51,6 +51,15 @@ export class MainProjectGridBase extends GridControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainProjectGridBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ProductUIService}
@@ -120,7 +129,7 @@ export class MainProjectGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.product.mainproject_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class MainProjectGridBase extends GridControlBase {
             label: '产品代号',
             langtag: 'entities.product.mainproject_grid.columns.code',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

@@ -1,16 +1,15 @@
 package cn.ibizlab.pms.core.extensions.service;
 
-import cn.ibizlab.pms.core.zentao.domain.Build;
 import cn.ibizlab.pms.core.zentao.service.impl.BuildServiceImpl;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Primary;
+import cn.ibizlab.pms.core.zentao.domain.Build;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.Map;
+import org.springframework.context.annotation.Primary;
+import cn.ibizlab.pms.core.zentao.filter.BuildSearchContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import java.util.*;
 
 /**
  * 实体[版本] 自定义服务对象
@@ -33,26 +32,18 @@ public class BuildExService extends BuildServiceImpl {
     @Override
     @Transactional
     public Build linkStory(Build et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-        if(et.get("srfactionparam") != null) {
-            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
-            JSONArray jsonArray = new JSONArray();
-            for(Map map : list) {
-                if (map.get("id") != null) {
-                    jsonArray.add(map.get("id"));
-                }
-            }
-            jo.put("stories",jsonArray);
-        }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.linkStory(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return et;
+        return super.linkStory(et);
+    }
 
+    /**
+     * 查询集合 Bug产品版本
+     */
+    @Override
+    public Page<Build> searchBugProductBuild(BuildSearchContext context) {
+        context.getSelectCond().clear();
+        context.setQuery(context.getQuery());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 }
 

@@ -2,7 +2,7 @@ import { Store } from 'vuex';
 import axios from 'axios';
 import Router from 'vue-router';
 import i18n from '@/locale';
-
+import { Environment } from '@/environments/environment';
 
 /**
  * 拦截器
@@ -96,9 +96,9 @@ export class Interceptors {
                 config.headers['Authorization'] = `Bearer ${token}`;
             }
             config.headers['Accept-Language'] =  i18n.locale;
-            // if (!config.url.startsWith('https://') && !config.url.startsWith('http://')) {
-            //     config.url = Environment.BaseUrl + config.url;
-            // }
+            if (!Object.is(Environment.BaseUrl,"") && !config.url.startsWith('https://') && !config.url.startsWith('http://') && !config.url.startsWith('./assets')) {
+                config.url = Environment.BaseUrl + config.url;
+            }
             return config;
         }, (error: any) => {
             return Promise.reject(error);
@@ -145,27 +145,26 @@ export class Interceptors {
         if(localStorage.getItem('token')){
             localStorage.removeItem('token');
         }
-        let leftTime = new Date();
+        const leftTime = new Date();
         leftTime.setTime(leftTime.getSeconds() - 1);
         document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
         if (data.loginurl && !Object.is(data.loginurl, '') && data.originurl && !Object.is(data.originurl, '')) {
             let _url = encodeURIComponent(encodeURIComponent(window.location.href));
-            let loginurl: string = data.loginurl;
-            const originurl: string = data.originurl;
+            let loginUrl: string = data.loginurl;
+            const originUrl: string = data.originurl;
 
-            if (originurl.indexOf('?') === -1) {
+            if (originUrl.indexOf('?') === -1) {
                 _url = `${encodeURIComponent('?RU=')}${_url}`;
             } else {
                 _url = `${encodeURIComponent('&RU=')}${_url}`;
             }
-            loginurl = `${loginurl}${_url}`;
-
-            window.location.href = loginurl;
+            loginUrl = `${loginUrl}${_url}`;
+            window.location.href = loginUrl;
         } else {
             if (Object.is(this.router.currentRoute.name, 'login')) {
                 return;
             }
-            this.router.push({ name: 'login', query: { redirect: this.router.currentRoute.fullPath } });
+            this.router.push({ name: 'login', query: { redirect: encodeURIComponent(location.href) } });
         }
     }
 

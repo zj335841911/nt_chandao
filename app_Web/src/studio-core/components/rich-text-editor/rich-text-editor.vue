@@ -27,7 +27,7 @@
                         <TabPane label="公开的" name="1"></TabPane>
                     </Tabs>
                     <DropdownItem v-for="(item,index) in appTemplate" :key='index' :value="item.content">
-                        <div class="keyOperation" v-if="ibizpublic == '' || item.ibizpublic == ibizpublic">
+                        <div class="keyOperation" v-if="item.ibizpublic == ibizpublic">
                             <span class="span-content" @click="appTemplateFill(item.content)">
                                 {{item.title+"-"+item.account}}
                             </span> 
@@ -270,7 +270,7 @@ export default class RichTextEditor extends Vue {
      * @type {string}
      * @memberof RichTextEditor
      */
-    public ibizpublic: string = '';
+    public ibizpublic: string = '0';
 
     /**
      * 上传的图片id与类型集合
@@ -335,10 +335,12 @@ export default class RichTextEditor extends Vue {
     public mounted() {
         this.init();
         const ele: any = this.isDrawer(this.$el);
-        let index: number = ele.style.transform.indexOf('translateX');
-        if(index >= 0) {
-            let num: string = ele.style.transform.substring(index + 12, index + 15);
-            this.editorClass = this.editorClass + (-parseInt(num));
+        if(ele) {
+            let index: number = ele.style.transform.indexOf('translateX');
+            if(index >= 0) {
+                let num: string = ele.style.transform.substring(index + 12, index + 15);
+                this.editorClass = this.editorClass + (-parseInt(num));
+            }
         }
     }
     
@@ -352,7 +354,7 @@ export default class RichTextEditor extends Vue {
         if(!pele) {
             return false;
         }
-        if(pele.className.indexOf('studio-drawer-content') >= 0) {
+        if(pele.className && pele.className.indexOf('studio-drawer-content') >= 0) {
             return pele;
         }
         return this.isDrawer(pele);
@@ -378,7 +380,7 @@ export default class RichTextEditor extends Vue {
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
         const content: any = this.editor ? this.editor.getContent() : undefined;
-        const url = this.downloadUrl.substring(3);
+        const url = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
         if(newval) {
             newval = newval.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
         }
@@ -441,7 +443,7 @@ export default class RichTextEditor extends Vue {
                 richtexteditor.editor = editor;
                 editor.on('blur', () => {
                     let content = editor.getContent();
-                    const url = richtexteditor.downloadUrl.substring(3);
+                    const url = richtexteditor.downloadUrl.indexOf('../') === 0 ? richtexteditor.downloadUrl.substring(3) : richtexteditor.downloadUrl;
                     let newContent: string = "";
                     const imgsrc = richtexteditor.imgsrc;
                     if(imgsrc && imgsrc.length > 0){
@@ -503,7 +505,7 @@ export default class RichTextEditor extends Vue {
             },
             init_instance_callback: (editor: any) => {
                 richtexteditor.editor = editor;
-                const url = richtexteditor.downloadUrl.substring(3);
+                const url = richtexteditor.downloadUrl.indexOf('../') === 0 ? richtexteditor.downloadUrl.substring(3) : richtexteditor.downloadUrl;
                 let value = (richtexteditor.value && richtexteditor.value.length > 0) ? richtexteditor.value : '';
                 value = value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
                 if (richtexteditor.editor) {

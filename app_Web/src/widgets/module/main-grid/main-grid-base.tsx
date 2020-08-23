@@ -51,6 +51,15 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'module';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '模块';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ModuleUIService}
@@ -104,7 +113,7 @@ export class MainGridBase extends GridControlBase {
             label: '模块名称',
             langtag: 'entities.module.main_grid.columns.name',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class MainGridBase extends GridControlBase {
             label: '上级模块',
             langtag: 'entities.module.main_grid.columns.parentname',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class MainGridBase extends GridControlBase {
             label: '级别',
             langtag: 'entities.module.main_grid.columns.grade',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class MainGridBase extends GridControlBase {
             label: '排序',
             langtag: 'entities.module.main_grid.columns.order',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class MainGridBase extends GridControlBase {
             label: '负责人',
             langtag: 'entities.module.main_grid.columns.owner',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

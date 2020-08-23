@@ -49,14 +49,23 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainInfoEditFormBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
     /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof MainInfoEditFormBase
+     * @memberof MainInfoBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
-
 
     /**
      * 关系界面数量
@@ -81,9 +90,10 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        id: null,
+        title: null,
         version: null,
         precondition: null,
-        id: null,
         case:null,
     };
 
@@ -132,11 +142,13 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+
+        title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
 
@@ -160,6 +172,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
 
+
+
         if (Object.is(name, '') || Object.is(name, 'precondition')) {
             let ret = false;
             const _precondition = this.data.precondition;
@@ -168,7 +182,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.precondition.setVisible(ret);
         }
-
 
     }
 }

@@ -1,5 +1,5 @@
 <div class='tabviewpanel' v-if='isActivied'>
-        <bug-grid-view 
+        <project-test-tab-exp-view 
         class='viewcontainer2' 
         :viewdata="viewdata" 
         :viewparam="viewparam"
@@ -7,5 +7,6 @@
         :viewDefaultUsage="false"
         :viewUsage="7"
         :expActive="expActive"
+        @closeview="closeView($event)"
     />
 </div>

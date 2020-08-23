@@ -23,6 +23,15 @@ export class AppContentLeftExp extends Vue {
     protected uiState: UIStateService = new UIStateService();
 
     /**
+     * 部件名称
+     *
+     * @type {string}
+     * @memberof AppContentLeftExp
+     */
+    @Prop() 
+    public ctrlName!: string;
+
+    /**
      * 菜单数据
      *
      * @protected
@@ -108,6 +117,9 @@ export class AppContentLeftExp extends Vue {
         return <div class="app-content-left-exp">
             <div class="exp-actions">
                 {this.menus.map((item: any, index: number) => {
+                    if(item.hidden) {
+                        return;
+                    }
                     return <div title={item.tooltip} on-click={() => this.itemClick(item, index)} class={{ 'action-item': true, 'active': this.activeIndex === index }}>
                         <div class="active-item-indicator" />
                         <menu-icon item={item} />
@@ -116,7 +128,7 @@ export class AppContentLeftExp extends Vue {
             </div>
             <div class="exp-content">
                 {this.menus.map((item: any, index: number) => {
-                    if (!Object.is(item.appfuncyype, 'APPVIEW') || !item.isActivated) {
+                    if (!Object.is(item.appfuncyype, 'APPVIEW') || !item.isActivated || item.hidden) {
                         return;
                     }
                     return <div v-show={this.activeIndex === index} key={index} class="exp-item">

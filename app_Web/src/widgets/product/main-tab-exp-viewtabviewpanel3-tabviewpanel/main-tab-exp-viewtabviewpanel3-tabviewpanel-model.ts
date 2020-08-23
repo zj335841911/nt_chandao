@@ -117,6 +117,12 @@ export default class MainTabExpViewtabviewpanel3Model {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

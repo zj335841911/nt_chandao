@@ -61,4 +61,28 @@ export interface IBZCaseStep {
      * @memberof IBZCaseStep
      */
     parent?: any;
+
+    /**
+     * 实际情况
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    reals?: any;
+
+    /**
+     * 测试结果
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    steps?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    files?: any;
 }

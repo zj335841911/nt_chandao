@@ -89,6 +89,11 @@ export default class TestResultUIServiceBase extends UIService {
      * @memberof  TestResultUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testresults'});
+        this.allViewMap.set(':',{viewname:'meditview9',srfappde:'testresults'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'testresults'});
+        this.allViewMap.set(':',{viewname:'testtaskmeditview9',srfappde:'testresults'});
+        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testresults'});
     }
 
     /**
@@ -105,6 +110,75 @@ export default class TestResultUIServiceBase extends UIService {
      * @memberof  TestResultUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+    }
+
+    /**
+     * 转Bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestResult_ToBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{STORY:"%story%",MODULE:"%module%",PRECONDITION:"%precondition%",PRODUCT:"%product%",TITLE:"%title%",CASE:"%case%"});
+        Object.assign(params,{product:"%product%",story:"%story%",module:"%module%",precondition:"%precondition%",title:"%title%",case:"%case%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { testresult: '%testresult%' });
+        Object.assign(params, { id: '%testresult%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-case-to-bug-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.bug.views.casetobugeditview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
     }
 
 
@@ -165,15 +239,14 @@ export default class TestResultUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

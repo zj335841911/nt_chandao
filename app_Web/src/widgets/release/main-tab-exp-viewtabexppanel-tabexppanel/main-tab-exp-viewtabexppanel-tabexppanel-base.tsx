@@ -48,6 +48,23 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeName: string = 'release';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '发布';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ReleaseUIService}
+     * @memberof MainTabExpViewtabexppanelBase
+     */  
+    public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
     /**
      * 是否初始化
      *

@@ -218,6 +218,34 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "postponedprojectcnt")
     @JsonProperty("postponedprojectcnt")
     private Integer postponedprojectcnt;
+    /**
+     * 当前项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "currproject")
+    @JsonProperty("currproject")
+    private String currproject;
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+    /**
+     * 产品代号
+     */
+    @TableField(value = "code")
+    @JSONField(name = "code")
+    @JsonProperty("code")
+    private String code;
+    /**
+     * 产品类型
+     */
+    @TableField(value = "type")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
 
 
@@ -227,6 +255,30 @@ public class ProductStats extends EntityMP implements Serializable {
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setStatus(String status){
+        this.status = status ;
+        this.modify("status",status);
+    }
+
+    /**
+     * 设置 [产品代号]
+     */
+    public void setCode(String code){
+        this.code = code ;
+        this.modify("code",code);
+    }
+
+    /**
+     * 设置 [产品类型]
+     */
+    public void setType(String type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
 

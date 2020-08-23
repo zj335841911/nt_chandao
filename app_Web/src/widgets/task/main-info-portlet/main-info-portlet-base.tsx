@@ -51,6 +51,23 @@ export class MainInfoPortletBase extends MainControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainInfoPortletBase
+     */
+    protected appDeLogicName: string = '任务';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof MainInfoBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

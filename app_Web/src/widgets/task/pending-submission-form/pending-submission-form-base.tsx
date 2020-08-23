@@ -49,14 +49,23 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      * @memberof PendingSubmissionEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PendingSubmissionEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
+
     /**
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof PendingSubmissionEditFormBase
+     * @memberof PendingSubmissionBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 关系界面数量

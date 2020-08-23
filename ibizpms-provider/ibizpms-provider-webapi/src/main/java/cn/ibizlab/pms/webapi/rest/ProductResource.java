@@ -171,6 +171,27 @@ domain.setId(product_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all')")
+	@ApiOperation(value = "获取当前用户", tags = {"产品" } ,notes = "获取当前用户")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchcuruer")
+	public ResponseEntity<List<ProductDTO>> fetchCurUer(ProductSearchContext context) {
+        Page<Product> domains = productService.searchCurUer(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all')")
+	@ApiOperation(value = "查询当前用户", tags = {"产品" } ,notes = "查询当前用户")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchcuruer")
+	public ResponseEntity<Page<ProductDTO>> searchCurUer(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchCurUer(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"产品" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchdefault")
@@ -189,6 +210,27 @@ domain.setId(product_id);
     @RequestMapping(method= RequestMethod.POST , value="/products/searchdefault")
 	public ResponseEntity<Page<ProductDTO>> searchDefault(@RequestBody ProductSearchContext context) {
         Page<Product> domains = productService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all')")
+	@ApiOperation(value = "获取产品总览", tags = {"产品" } ,notes = "获取产品总览")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchproductpm")
+	public ResponseEntity<List<ProductDTO>> fetchProductPM(ProductSearchContext context) {
+        Page<Product> domains = productService.searchProductPM(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all')")
+	@ApiOperation(value = "查询产品总览", tags = {"产品" } ,notes = "查询产品总览")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchproductpm")
+	public ResponseEntity<Page<ProductDTO>> searchProductPM(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchProductPM(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

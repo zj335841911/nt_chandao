@@ -48,6 +48,23 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabexppanelTabexppanelBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MainTabExpViewtabexppanelBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
     /**
      * 是否初始化
      *

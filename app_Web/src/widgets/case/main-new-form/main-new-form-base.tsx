@@ -49,14 +49,23 @@ export class MainNewEditFormBase extends EditFormControlBase {
      * @memberof MainNewEditFormBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainNewEditFormBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
     /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof MainNewEditFormBase
+     * @memberof MainNewBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
-
 
     /**
      * 关系界面数量
@@ -86,6 +95,7 @@ export class MainNewEditFormBase extends EditFormControlBase {
         module: null,
         modulename: null,
         type: null,
+        stage: null,
         story: null,
         storyname: null,
         title: null,
@@ -161,6 +171,8 @@ export class MainNewEditFormBase extends EditFormControlBase {
 
         type: new FormItemModel({ caption: '用例类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        stage: new FormItemModel({ caption: '适用阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         storyname: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -182,6 +194,15 @@ export class MainNewEditFormBase extends EditFormControlBase {
      * @memberof MainNewEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('product')) {
+            this.data['product'] = this.viewparams['product'];
+        }
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['productmodule'];
+        }
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'feature';
+        }
         if (this.data.hasOwnProperty('id')) {
             this.data['id'] = 0;
         }

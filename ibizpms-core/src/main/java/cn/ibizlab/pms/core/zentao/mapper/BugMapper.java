@@ -25,6 +25,8 @@ public interface BugMapper extends BaseMapper<Bug>{
     Page<Bug> searchDefault(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchReleaseBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchReleaseLeftBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchReleaseLinkableLeftBug(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchReleaseLinkableResolvedBug(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchReportBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     @Override
     Bug selectById(Serializable id);

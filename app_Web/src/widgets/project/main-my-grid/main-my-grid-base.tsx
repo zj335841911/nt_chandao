@@ -51,6 +51,15 @@ export class MainMyGridBase extends GridControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainMyGridBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ProjectUIService}
@@ -104,7 +113,7 @@ export class MainMyGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.project.mainmy_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -112,7 +121,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '项目代号',
             langtag: 'entities.project.mainmy_grid.columns.code',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,7 +129,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.project.mainmy_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -128,7 +137,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '开始时间',
             langtag: 'entities.project.mainmy_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.project.mainmy_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -144,7 +153,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '项目状态',
             langtag: 'entities.project.mainmy_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -152,7 +161,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '角色',
             langtag: 'entities.project.mainmy_grid.columns.role',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -160,7 +169,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '加盟日',
             langtag: 'entities.project.mainmy_grid.columns.join',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -168,7 +177,7 @@ export class MainMyGridBase extends GridControlBase {
             label: '可用工时/天',
             langtag: 'entities.project.mainmy_grid.columns.hours',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

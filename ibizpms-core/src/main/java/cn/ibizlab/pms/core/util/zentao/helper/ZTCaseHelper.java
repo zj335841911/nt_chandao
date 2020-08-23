@@ -67,6 +67,7 @@ final public class ZTCaseHelper {
     private final static String  ACTION_BUGS = "bugs";
     private final static String  ACTION_AJAXGETSTORYMODULE = "ajaxGetStoryModule";
     private final static String  ACTION_AJAXGETSTATUS = "ajaxGetStatus";
+    private final static String  ACTION_RUNCASE = "runCase";
 
     // ----------
     // 接口行为HTTP方法（GET、POST）
@@ -283,6 +284,7 @@ final public class ZTCaseHelper {
         ACTION_PARAMS_EDIT.put("expects[]", null);
         ACTION_PARAMS_EDIT.put("comment", null);
         ACTION_PARAMS_EDIT.put("linkCase[]", null);
+        ACTION_PARAMS_EDIT.put("lib", null);
 
     }
 
@@ -299,6 +301,18 @@ final public class ZTCaseHelper {
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
+        // CONFIRMCHANGE
+        ACTION_URL_PARAMS_CONFIRMCHANGE.add("id");
+        ACTION_URL_PARAMS_CONFIRMCHANGE.add("task");
+        ACTION_URL_PARAMS_CONFIRMCHANGE.add("confirm");
+
+        // CONFIRMSTORYCHANGE
+        ACTION_URL_PARAMS_CONFIRMSTORYCHANGE.add("id");
+
+        // DELETE
+        ACTION_URL_PARAMS_DELETE.add("id");
+        ACTION_URL_PARAMS_DELETE.add("confirm");
+
     }
 
     // ----------
@@ -311,6 +325,52 @@ final public class ZTCaseHelper {
     // ----------
     // 接口实现
     // ----------
+
+    /**
+     * confirmChange 确认用例变更
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean confirmChange(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CONFIRMCHANGE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CONFIRMCHANGE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CONFIRMCHANGE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CONFIRMCHANGE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_CONFIRMCHANGE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_CONFIRMCHANGE;
+
+        jo.put("confirm", "list");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * confirmstorychange 确认需求变更
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean confirmstorychange(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CONFIRMSTORYCHANGE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CONFIRMSTORYCHANGE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CONFIRMSTORYCHANGE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CONFIRMSTORYCHANGE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_CONFIRMSTORYCHANGE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_CONFIRMSTORYCHANGE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
 
     /**
      * create 创建
@@ -389,37 +449,79 @@ final public class ZTCaseHelper {
      * @return
      */
     public static boolean runCase(String zentaoSid, JSONObject jo, ZTResult rst) {
-        // 参数赋值
-        String moduleName = "testtask";
-        String urlExt = ZenTaoConstants.ZT_URL_EXT;
-        String actionName = "runCase";
-        HttpMethod actionHttpMethod = HttpMethod.POST;
-        Map<String, Object> actionParams = new HashMap<>();
-        List<String> actionUrlParams = new ArrayList<>();
-        String returnUrlRegexPrev = null;
-        List<ZTCheckItem> checkList = null;
 
-        actionUrlParams.add("id");
-        actionUrlParams.add("case");
-        actionUrlParams.add("version");
 
-        actionParams.put("case", 0);
-        actionParams.put("version", 0);
-        JSONArray ja = jo.getJSONArray("srfarray");
-        if (ja != null && ja.size() > 0) {
-            for (int i = 0; i < ja.size(); i++) {
-                JSONObject jaO = ja.getJSONObject(i);
-                actionParams.put("steps" + "[" + jaO.getInteger("id") + "]", jaO.get("steps"));
-                actionParams.put("reals" + "[" + jaO.getInteger("id") + "]", jaO.get("reals"));
-            }
-        }
+        return ZTTestTaskHelper.runCase(zentaoSid, jo, rst);
+    }
 
-        JSONObject jo2 = new JSONObject();
-        jo2.put("id", 0);
-        jo2.put("case", jo.get("case"));
-        jo2.put("version", jo.get("version"));
+    /**
+     * runCase 执行测试
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean testRunCase(String zentaoSid, JSONObject jo, ZTResult rst) {
 
-        return ZenTaoHttpHelper.doZTRequest(jo2, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+
+        return ZTTestTaskHelper.testRunCase(zentaoSid, jo, rst);
+    }
+
+    /**
+     * unlinkCase 移除用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestTaskHelper.unlinkCase(zentaoSid, jo, rst);
+    }
+
+    /**
+     * unlinkCase 移除用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkSuiteCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestSuiteHelper.unlinkCase(zentaoSid, jo, rst);
+    }
+
+    /**
+     * linkCase 用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestTaskHelper.linkCase(zentaoSid, jo, rst);
+    }
+
+    /**
+     * linkCase 用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean testsuitelinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+
+
+        return ZTTestSuiteHelper.linkCase(zentaoSid, jo, rst);
     }
 
 }

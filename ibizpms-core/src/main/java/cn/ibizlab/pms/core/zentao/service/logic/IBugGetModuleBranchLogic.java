@@ -13,6 +13,6 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
  */
 public interface IBugGetModuleBranchLogic {
 
-    void execute(Bug bug ) ;
+    void execute(Bug et) ;
 
 }

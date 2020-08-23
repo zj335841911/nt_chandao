@@ -236,7 +236,7 @@ export class StudioDrawer extends Vue {
                             }
                             this.closeByIndex(i);
                         }}>
-                            {this.$t(ref.model.srfTitle)}
+                            {this.$t(ref.viewCaption)}
                         </span>
                     </span>;
                 })}

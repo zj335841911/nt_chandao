@@ -92,14 +92,33 @@
                     </template>
                 </el-table-column>
             </template>
-            !!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_zh_CN" at line 156, column 3]
-            ----
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testsuite.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testsuite.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.linkCaseDash.visabled" :disabled="scope.row.linkCaseDash.disabled" @click="uiAction(scope.row, 'linkCaseDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_linkcasedash')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.EditsuiteDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.EditsuiteDash.visabled" :disabled="scope.row.EditsuiteDash.disabled" @click="uiAction(scope.row, 'EditsuiteDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_editsuitedash')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.DeleteDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.DeleteDash.visabled" :disabled="scope.row.DeleteDash.disabled" @click="uiAction(scope.row, 'DeleteDash', $event)" :title="$t('entities.testsuite.main_grid.uiactions.testsuite_deletedash')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

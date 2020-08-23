@@ -13,6 +13,15 @@ import './app-header-menus.less';
 export class AppHeaderMenus extends Vue {
 
     /**
+     * 部件名称
+     *
+     * @type {string}
+     * @memberof AppHeaderMenus
+     */
+    @Prop() 
+    public ctrlName!: string;
+
+    /**
      * 菜单
      *
      * @type {any[]}
@@ -139,9 +148,12 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     protected renderMenuItem(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <menuItem title={item.tooltip} name={item.name}>
             <menu-icon item={item} />
-            {item.text}
+            {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
         </menuItem>;
     }
 
@@ -154,10 +166,13 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     protected renderSubMenu(item: any): any {
+        if(item.hidden) {
+            return;
+        }
         return <submenu name={item.name}>
             <template slot="title">
                 <menu-icon item={item} />
-                {item.text}
+                {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
             </template>
             {this.renderMenus(item.items)}
         </submenu>;

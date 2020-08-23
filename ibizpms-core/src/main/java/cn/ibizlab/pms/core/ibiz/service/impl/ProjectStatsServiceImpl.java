@@ -151,6 +151,15 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     }
 
     /**
+     * 查询集合 未关闭产品
+     */
+    @Override
+    public Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchNoOpenProduct(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 任务工时消耗剩余查询
      */
     @Override

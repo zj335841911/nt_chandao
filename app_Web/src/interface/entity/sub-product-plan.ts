@@ -93,4 +93,68 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     product?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    statuss?: any;
+
+    /**
+     * 待定
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    future?: any;
+
+    /**
+     * 周期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    delta?: any;
+
+    /**
+     * 上一次计划名称
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    oldtitle?: any;
+
+    /**
+     * 需求数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    storycnt?: any;
+
+    /**
+     * bug数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    bugcnt?: any;
+
+    /**
+     * 是否过期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    isexpired?: any;
+
+    /**
+     * 工时数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    estimatecnt?: any;
 }

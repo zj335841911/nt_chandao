@@ -1,4 +1,4 @@
-<div class='portlet un-closed-project ' :style="{}">
+<div class='portlet un-closed-project ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
         <p class='portlet-title'>
             <span>
             
@@ -6,6 +6,6 @@
             </span>
         </p>
         <div class="portlet-with-title">
-        <project-grid-view9-un-closed :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-grid-view9-un-closed>
+        <project-stats-grid-view9 :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-stats-grid-view9>
         </div>
 </div>

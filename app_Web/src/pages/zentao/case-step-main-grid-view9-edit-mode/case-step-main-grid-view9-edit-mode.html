@@ -1,9 +1,9 @@
 <studio-embed-view viewName="casestepmaingridview9_editmode" viewTitle="用例步骤" class='degridview9 case-step-main-grid-view9-edit-mode'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
-        <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+        <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

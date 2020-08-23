@@ -50,6 +50,23 @@ export class GroupTrendsListBase extends ListControlBase {
     protected appDeName: string = 'action';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GroupTrendsListBase
+     */
+    protected appDeLogicName: string = '系统日志';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ActionUIService}
+     * @memberof GroupTrendsBase
+     */  
+    public appUIService:ActionUIService = new ActionUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}

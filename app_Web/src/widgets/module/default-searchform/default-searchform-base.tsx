@@ -52,6 +52,23 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     protected appDeName: string = 'module';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DefaultSearchFormBase
+     */
+    protected appDeLogicName: string = '模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ModuleUIService}
+     * @memberof DefaultBase
+     */  
+    public appUIService:ModuleUIService = new ModuleUIService(this.$store);
+
+    /**
      * 表单数据对象
      *
      * @type {*}

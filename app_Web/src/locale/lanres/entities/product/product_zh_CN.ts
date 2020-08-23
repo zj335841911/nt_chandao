@@ -34,6 +34,8 @@ export default {
     doccnt: "文档数",
     buildcnt: "BUILD数",
     casecnt: "用例数",
+    srfcount: "属性",
+    mobimage: "移动端图片",
   },
 	views: {
 		testtabexpview: {
@@ -57,8 +59,8 @@ export default {
       		title: "产品测试数据看板视图",
 		},
 		testgridview: {
-			caption: "产品",
-      		title: "产品表格视图",
+			caption: "测试",
+      		title: "所有产品",
 		},
 		chartview: {
 			caption: "产品",
@@ -327,22 +329,10 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	testgridviewtoolbar_toolbar: {
-		tbitem4: {
-			caption: "编辑",
-			tip: "编辑",
-		},
-		tbitem7: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "导出数据模型",
-			tip: "导出数据模型",
+	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
 		},
 	},
 	testlistexpviewlistexpbar_list_quicktoolbar_toolbar: {
@@ -351,11 +341,7 @@ export default {
 			tip: "新建",
 		},
 	},
-	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
+	testgridviewtoolbar_toolbar: {
 	},
 	testleftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_testmanager: {
@@ -371,30 +357,12 @@ export default {
 			tip: "刷新",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
 			caption: "管理",
 			tip: "管理",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
 		},
@@ -405,6 +373,20 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 };

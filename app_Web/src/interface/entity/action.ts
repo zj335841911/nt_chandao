@@ -101,4 +101,12 @@ export interface Action {
      * @memberof Action
      */
     lastcomment?: any;
+
+    /**
+     * 操作方式
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    actionmanner?: any;
 }

@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'projectmodule';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '任务模块';
+
     /**
      * 界面UI服务对象
      *
      * @type {ProjectModuleUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:ProjectModuleUIService = new ProjectModuleUIService(this.$store);
-
 
     /**
      * 表单数据对象

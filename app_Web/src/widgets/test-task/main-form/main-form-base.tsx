@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'testtask';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '测试版本';
+
     /**
      * 界面UI服务对象
      *
      * @type {TestTaskUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
-
 
     /**
      * 表单数据对象
@@ -196,6 +205,9 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('build')) {
             this.data['build'] = this.viewparams['build'];
+        }
+        if (this.data.hasOwnProperty('status')) {
+            this.data['status'] = 'wait';
         }
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];

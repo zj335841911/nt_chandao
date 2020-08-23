@@ -1,7 +1,7 @@
 <studio-view viewName="producttestleftsidebarlistview" viewTitle="所有测试" class='delistview product-test-left-sidebar-list-view'>
     <i-input slot="quickSearch" v-model="query" placeholder="产品名称,编号" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_list 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -9,7 +9,7 @@
         createAction="Create"
         removeAction="Remove"
         updateAction="Update"
-        fetchAction="FetchDefault"
+        fetchAction="FetchCurUer"
         :showBusyIndicator="true"
         :newdata="newdata"
         :opendata="opendata"

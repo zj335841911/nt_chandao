@@ -90,6 +90,7 @@ export default class ProjectUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});
@@ -128,10 +129,10 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':0,'CLOSED':1,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':0,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('suspended',{'ACTIVATION':0,'CLOSED':0,'CREATE':1,'DELAY':1,'DELETE':0,'EDIT':0,'READ':1,'START':1,'SUSPEND':1,'UPDATE':1});
-        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'CLOSED':0,'CREATE':1,'DELAY':0,'DELETE':0,'EDIT':0,'READ':1,'START':0,'SUSPEND':0,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,}));
     }
 
     /**
@@ -285,6 +286,65 @@ export default class ProjectUIServiceBase extends UIService {
     }
 
     /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Project_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'project-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.project.views.editview.title'),
+                placement: 'DRAWER_LEFT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
      * 管理
      *
      * @param {any[]} args 当前数据
@@ -318,8 +378,8 @@ export default class ProjectUIServiceBase extends UIService {
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'projectstats', parameterName: 'projectstats' },
+            { pathName: 'allgridview', parameterName: 'allgridview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -623,15 +683,14 @@ export default class ProjectUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

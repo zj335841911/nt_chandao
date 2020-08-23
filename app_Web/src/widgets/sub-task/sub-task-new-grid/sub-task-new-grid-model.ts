@@ -158,7 +158,7 @@ export default class SubTaskNewModel {
         },
         {
           name: 'task',
-          prop: 'id',
+          prop: 'parent',
           dataType: 'FONTKEY',
         },
         {

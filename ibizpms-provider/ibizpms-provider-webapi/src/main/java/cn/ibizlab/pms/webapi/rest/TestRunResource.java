@@ -159,5 +159,401 @@ public class TestRunResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testrunMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "根据测试版本建立测试运行", tags = {"测试运行" },  notes = "根据测试版本建立测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns")
+    @Transactional
+    public ResponseEntity<TestRunDTO> createByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+		testrunService.create(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "根据测试版本批量建立测试运行", tags = {"测试运行" },  notes = "根据测试版本批量建立测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> createBatchByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+            domain.setTask(testtask_id);
+        }
+        testrunService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
+    @ApiOperation(value = "根据测试版本更新测试运行", tags = {"测试运行" },  notes = "根据测试版本更新测试运行")
+	@RequestMapping(method = RequestMethod.PUT, value = "/testtasks/{testtask_id}/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<TestRunDTO> updateByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+        domain.setId(testrun_id);
+		testrunService.update(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
+    @ApiOperation(value = "根据测试版本批量更新测试运行", tags = {"测试运行" },  notes = "根据测试版本批量更新测试运行")
+	@RequestMapping(method = RequestMethod.PUT, value = "/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> updateBatchByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+            domain.setTask(testtask_id);
+        }
+        testrunService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "根据测试版本删除测试运行", tags = {"测试运行" },  notes = "根据测试版本删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testtasks/{testtask_id}/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "根据测试版本批量删除测试运行", tags = {"测试运行" },  notes = "根据测试版本批量删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> removeBatchByTestTask(@RequestBody List<BigInteger> ids) {
+        testrunService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Get-all')")
+    @ApiOperation(value = "根据测试版本获取测试运行", tags = {"测试运行" },  notes = "根据测试版本获取测试运行")
+	@RequestMapping(method = RequestMethod.GET, value = "/testtasks/{testtask_id}/testruns/{testrun_id}")
+    public ResponseEntity<TestRunDTO> getByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
+        TestRun domain = testrunService.get(testrun_id);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据测试版本获取测试运行草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/testtasks/{testtask_id}/testruns/getdraft")
+    public ResponseEntity<TestRunDTO> getDraftByTestTask(@PathVariable("testtask_id") BigInteger testtask_id) {
+        TestRun domain = new TestRun();
+        domain.setTask(testtask_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据测试版本检查测试运行", tags = {"测试运行" },  notes = "根据测试版本检查测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns/checkkey")
+    public ResponseEntity<Boolean> checkKeyByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testrunService.checkKey(testrunMapping.toDomain(testrundto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
+    @ApiOperation(value = "根据测试版本保存测试运行", tags = {"测试运行" },  notes = "根据测试版本保存测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns/save")
+    public ResponseEntity<Boolean> saveByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
+    @ApiOperation(value = "根据测试版本批量保存测试运行", tags = {"测试运行" },  notes = "根据测试版本批量保存测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns/savebatch")
+    public ResponseEntity<Boolean> saveBatchByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+             domain.setTask(testtask_id);
+        }
+        testrunService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-searchDefault-all')")
+	@ApiOperation(value = "根据测试版本获取DEFAULT", tags = {"测试运行" } ,notes = "根据测试版本获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/testtasks/{testtask_id}/testruns/fetchdefault")
+	public ResponseEntity<List<TestRunDTO>> fetchTestRunDefaultByTestTask(@PathVariable("testtask_id") BigInteger testtask_id,TestRunSearchContext context) {
+        context.setN_task_eq(testtask_id);
+        Page<TestRun> domains = testrunService.searchDefault(context) ;
+        List<TestRunDTO> list = testrunMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-searchDefault-all')")
+	@ApiOperation(value = "根据测试版本查询DEFAULT", tags = {"测试运行" } ,notes = "根据测试版本查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/testtasks/{testtask_id}/testruns/searchdefault")
+	public ResponseEntity<Page<TestRunDTO>> searchTestRunDefaultByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunSearchContext context) {
+        context.setN_task_eq(testtask_id);
+        Page<TestRun> domains = testrunService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testrunMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "根据产品测试版本建立测试运行", tags = {"测试运行" },  notes = "根据产品测试版本建立测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns")
+    @Transactional
+    public ResponseEntity<TestRunDTO> createByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+		testrunService.create(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "根据产品测试版本批量建立测试运行", tags = {"测试运行" },  notes = "根据产品测试版本批量建立测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> createBatchByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+            domain.setTask(testtask_id);
+        }
+        testrunService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
+    @ApiOperation(value = "根据产品测试版本更新测试运行", tags = {"测试运行" },  notes = "根据产品测试版本更新测试运行")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<TestRunDTO> updateByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+        domain.setId(testrun_id);
+		testrunService.update(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
+    @ApiOperation(value = "根据产品测试版本批量更新测试运行", tags = {"测试运行" },  notes = "根据产品测试版本批量更新测试运行")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> updateBatchByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+            domain.setTask(testtask_id);
+        }
+        testrunService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "根据产品测试版本删除测试运行", tags = {"测试运行" },  notes = "根据产品测试版本删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "根据产品测试版本批量删除测试运行", tags = {"测试运行" },  notes = "根据产品测试版本批量删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> removeBatchByProductTestTask(@RequestBody List<BigInteger> ids) {
+        testrunService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Get-all')")
+    @ApiOperation(value = "根据产品测试版本获取测试运行", tags = {"测试运行" },  notes = "根据产品测试版本获取测试运行")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
+    public ResponseEntity<TestRunDTO> getByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
+        TestRun domain = testrunService.get(testrun_id);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据产品测试版本获取测试运行草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/getdraft")
+    public ResponseEntity<TestRunDTO> getDraftByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id) {
+        TestRun domain = new TestRun();
+        domain.setTask(testtask_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据产品测试版本检查测试运行", tags = {"测试运行" },  notes = "根据产品测试版本检查测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testrunService.checkKey(testrunMapping.toDomain(testrundto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
+    @ApiOperation(value = "根据产品测试版本保存测试运行", tags = {"测试运行" },  notes = "根据产品测试版本保存测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/save")
+    public ResponseEntity<Boolean> saveByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
+    @ApiOperation(value = "根据产品测试版本批量保存测试运行", tags = {"测试运行" },  notes = "根据产品测试版本批量保存测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+             domain.setTask(testtask_id);
+        }
+        testrunService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-searchDefault-all')")
+	@ApiOperation(value = "根据产品测试版本获取DEFAULT", tags = {"测试运行" } ,notes = "根据产品测试版本获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testtasks/{testtask_id}/testruns/fetchdefault")
+	public ResponseEntity<List<TestRunDTO>> fetchTestRunDefaultByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id,TestRunSearchContext context) {
+        context.setN_task_eq(testtask_id);
+        Page<TestRun> domains = testrunService.searchDefault(context) ;
+        List<TestRunDTO> list = testrunMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-searchDefault-all')")
+	@ApiOperation(value = "根据产品测试版本查询DEFAULT", tags = {"测试运行" } ,notes = "根据产品测试版本查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testtasks/{testtask_id}/testruns/searchdefault")
+	public ResponseEntity<Page<TestRunDTO>> searchTestRunDefaultByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunSearchContext context) {
+        context.setN_task_eq(testtask_id);
+        Page<TestRun> domains = testrunService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testrunMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "根据项目测试版本建立测试运行", tags = {"测试运行" },  notes = "根据项目测试版本建立测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns")
+    @Transactional
+    public ResponseEntity<TestRunDTO> createByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+		testrunService.create(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "根据项目测试版本批量建立测试运行", tags = {"测试运行" },  notes = "根据项目测试版本批量建立测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> createBatchByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+            domain.setTask(testtask_id);
+        }
+        testrunService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
+    @ApiOperation(value = "根据项目测试版本更新测试运行", tags = {"测试运行" },  notes = "根据项目测试版本更新测试运行")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<TestRunDTO> updateByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+        domain.setId(testrun_id);
+		testrunService.update(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
+    @ApiOperation(value = "根据项目测试版本批量更新测试运行", tags = {"测试运行" },  notes = "根据项目测试版本批量更新测试运行")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> updateBatchByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+            domain.setTask(testtask_id);
+        }
+        testrunService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "根据项目测试版本删除测试运行", tags = {"测试运行" },  notes = "根据项目测试版本删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "根据项目测试版本批量删除测试运行", tags = {"测试运行" },  notes = "根据项目测试版本批量删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/batch")
+    public ResponseEntity<Boolean> removeBatchByProjectTestTask(@RequestBody List<BigInteger> ids) {
+        testrunService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Get-all')")
+    @ApiOperation(value = "根据项目测试版本获取测试运行", tags = {"测试运行" },  notes = "根据项目测试版本获取测试运行")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
+    public ResponseEntity<TestRunDTO> getByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
+        TestRun domain = testrunService.get(testrun_id);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据项目测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据项目测试版本获取测试运行草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/getdraft")
+    public ResponseEntity<TestRunDTO> getDraftByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id) {
+        TestRun domain = new TestRun();
+        domain.setTask(testtask_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据项目测试版本检查测试运行", tags = {"测试运行" },  notes = "根据项目测试版本检查测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testrunService.checkKey(testrunMapping.toDomain(testrundto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
+    @ApiOperation(value = "根据项目测试版本保存测试运行", tags = {"测试运行" },  notes = "根据项目测试版本保存测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/save")
+    public ResponseEntity<Boolean> saveByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        domain.setTask(testtask_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
+    @ApiOperation(value = "根据项目测试版本批量保存测试运行", tags = {"测试运行" },  notes = "根据项目测试版本批量保存测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody List<TestRunDTO> testrundtos) {
+        List<TestRun> domainlist=testrunMapping.toDomain(testrundtos);
+        for(TestRun domain:domainlist){
+             domain.setTask(testtask_id);
+        }
+        testrunService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-searchDefault-all')")
+	@ApiOperation(value = "根据项目测试版本获取DEFAULT", tags = {"测试运行" } ,notes = "根据项目测试版本获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/testtasks/{testtask_id}/testruns/fetchdefault")
+	public ResponseEntity<List<TestRunDTO>> fetchTestRunDefaultByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id,TestRunSearchContext context) {
+        context.setN_task_eq(testtask_id);
+        Page<TestRun> domains = testrunService.searchDefault(context) ;
+        List<TestRunDTO> list = testrunMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-searchDefault-all')")
+	@ApiOperation(value = "根据项目测试版本查询DEFAULT", tags = {"测试运行" } ,notes = "根据项目测试版本查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/testtasks/{testtask_id}/testruns/searchdefault")
+	public ResponseEntity<Page<TestRunDTO>> searchTestRunDefaultByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunSearchContext context) {
+        context.setN_task_eq(testtask_id);
+        Page<TestRun> domains = testrunService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testrunMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

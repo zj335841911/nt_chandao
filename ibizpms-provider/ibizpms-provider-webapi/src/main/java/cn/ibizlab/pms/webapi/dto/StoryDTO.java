@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -435,6 +436,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private String project;
+
+    /**
+     * 属性 [PREVERSION]
+     *
+     */
+    @JSONField(name = "preversion")
+    @JsonProperty("preversion")
+    private Integer preversion;
 
 
     /**

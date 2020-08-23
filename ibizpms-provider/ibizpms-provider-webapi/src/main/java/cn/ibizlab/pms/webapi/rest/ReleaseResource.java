@@ -195,6 +195,18 @@ domain.setId(release_id);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkStory-all')")
+    @ApiOperation(value = "关联需求", tags = {"发布" },  notes = "关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkstory")
+    @Transactional
+    public ResponseEntity<ReleaseDTO> linkStory(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
+        Release domain = releaseMapping.toDomain(releasedto);
+domain.setId(release_id);
+        domain = releaseService.linkStory(domain);
+        releasedto = releaseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(releasedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Save-all')")
     @ApiOperation(value = "保存发布", tags = {"发布" },  notes = "保存发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/save")
@@ -411,6 +423,18 @@ domain.setId(release_id);
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
         domain = releaseService.linkBugbyLeftBug(domain) ;
+        releasedto = releaseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(releasedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkStory-all')")
+    @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/linkstory")
+    @Transactional
+    public ResponseEntity<ReleaseDTO> linkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
+        Release domain = releaseMapping.toDomain(releasedto);
+        domain.setProduct(product_id);
+        domain = releaseService.linkStory(domain) ;
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
     }

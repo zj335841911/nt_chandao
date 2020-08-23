@@ -128,6 +128,13 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "lastcomment")
     @JsonProperty("lastcomment")
     private String lastcomment;
+    /**
+     * 操作方式
+     */
+    @TableField(exist = false)
+    @JSONField(name = "actionmanner")
+    @JsonProperty("actionmanner")
+    private String actionmanner;
 
     /**
      * 项目

@@ -49,6 +49,23 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
     /**
      * 是否支持看板定制
      *

@@ -49,14 +49,23 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActivationEditFormBase
+     */
+    protected appDeLogicName: string = '任务';
+
     /**
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof ActivationEditFormBase
+     * @memberof ActivationBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
-
 
     /**
      * 关系界面数量

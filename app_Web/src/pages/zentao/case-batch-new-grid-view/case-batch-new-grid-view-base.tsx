@@ -69,6 +69,28 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseBatchNewGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PRODUCT': { isRawValue: false, value: 'product' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof CaseBatchNewGridViewBase
+	 */
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' }
+    };
+
     /**
      * 视图模型数据
      *
@@ -294,6 +316,9 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
         const data: any = {};
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
+        }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
         }
         let tempContext = JSON.parse(JSON.stringify(this.context));
         delete tempContext.case;

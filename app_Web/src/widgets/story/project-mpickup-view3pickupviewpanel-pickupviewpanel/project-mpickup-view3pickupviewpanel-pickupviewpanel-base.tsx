@@ -50,6 +50,23 @@ export class ProjectMPickupView3pickupviewpanelPickupviewpanelBase extends MainC
      */
     protected appDeName: string = 'story';
 
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMPickupView3pickupviewpanelPickupviewpanelBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof ProjectMPickupView3pickupviewpanelBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
 
     /**
      * 选中数据字符串

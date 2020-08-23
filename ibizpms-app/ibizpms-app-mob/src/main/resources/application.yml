@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    include: sys, mob-zentao, nacos, mob-prod
+  application:
+    name: pms-mob

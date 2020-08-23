@@ -51,6 +51,23 @@ export class MainDetailPortletBase extends MainControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDetailPortletBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainDetailBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

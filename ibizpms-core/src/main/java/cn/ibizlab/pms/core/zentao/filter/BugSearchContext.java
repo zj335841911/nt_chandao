@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
 @Data
 public class BugSearchContext extends QueryWrapperContext<Bug> {
 
+	private Integer n_severity_eq;//[严重程度]
+	public void setN_severity_eq(Integer n_severity_eq) {
+        this.n_severity_eq = n_severity_eq;
+        if(!ObjectUtils.isEmpty(this.n_severity_eq)){
+            this.getSearchCond().eq("severity", n_severity_eq);
+        }
+    }
 	private String n_assignedto_eq;//[指派给]
 	public void setN_assignedto_eq(String n_assignedto_eq) {
         this.n_assignedto_eq = n_assignedto_eq;
@@ -34,11 +41,25 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
         }
     }
+	private String n_resolution_eq;//[解决方案]
+	public void setN_resolution_eq(String n_resolution_eq) {
+        this.n_resolution_eq = n_resolution_eq;
+        if(!ObjectUtils.isEmpty(this.n_resolution_eq)){
+            this.getSearchCond().eq("resolution", n_resolution_eq);
+        }
+    }
 	private String n_closedby_eq;//[由谁关闭]
 	public void setN_closedby_eq(String n_closedby_eq) {
         this.n_closedby_eq = n_closedby_eq;
         if(!ObjectUtils.isEmpty(this.n_closedby_eq)){
             this.getSearchCond().eq("closedby", n_closedby_eq);
+        }
+    }
+	private String n_browser_eq;//[浏览器]
+	public void setN_browser_eq(String n_browser_eq) {
+        this.n_browser_eq = n_browser_eq;
+        if(!ObjectUtils.isEmpty(this.n_browser_eq)){
+            this.getSearchCond().eq("browser", n_browser_eq);
         }
     }
 	private Integer n_confirmed_eq;//[是否确认]
@@ -62,6 +83,20 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_deadline_lt = n_deadline_lt;
         if(!ObjectUtils.isEmpty(this.n_deadline_lt)){
             this.getSearchCond().lt("deadline", n_deadline_lt);
+        }
+    }
+	private String n_color_eq;//[标题颜色]
+	public void setN_color_eq(String n_color_eq) {
+        this.n_color_eq = n_color_eq;
+        if(!ObjectUtils.isEmpty(this.n_color_eq)){
+            this.getSearchCond().eq("color", n_color_eq);
+        }
+    }
+	private String n_type_eq;//[Bug类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
         }
     }
 	private String n_status_eq;//[Bug状态]
@@ -90,6 +125,27 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_resolvedbuild_eq = n_resolvedbuild_eq;
         if(!ObjectUtils.isEmpty(this.n_resolvedbuild_eq)){
             this.getSearchCond().eq("resolvedbuild", n_resolvedbuild_eq);
+        }
+    }
+	private Integer n_pri_eq;//[优先级]
+	public void setN_pri_eq(Integer n_pri_eq) {
+        this.n_pri_eq = n_pri_eq;
+        if(!ObjectUtils.isEmpty(this.n_pri_eq)){
+            this.getSearchCond().eq("pri", n_pri_eq);
+        }
+    }
+	private String n_os_eq;//[操作系统]
+	public void setN_os_eq(String n_os_eq) {
+        this.n_os_eq = n_os_eq;
+        if(!ObjectUtils.isEmpty(this.n_os_eq)){
+            this.getSearchCond().eq("os", n_os_eq);
+        }
+    }
+	private String n_lasteditedby_eq;//[最后修改者]
+	public void setN_lasteditedby_eq(String n_lasteditedby_eq) {
+        this.n_lasteditedby_eq = n_lasteditedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_lasteditedby_eq)){
+            this.getSearchCond().eq("lasteditedby", n_lasteditedby_eq);
         }
     }
 	private String n_title_like;//[Bug标题]
@@ -148,6 +204,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("tostory", n_tostory_eq);
         }
     }
+	private BigInteger n_entry_eq;//[应用]
+	public void setN_entry_eq(BigInteger n_entry_eq) {
+        this.n_entry_eq = n_entry_eq;
+        if(!ObjectUtils.isEmpty(this.n_entry_eq)){
+            this.getSearchCond().eq("entry", n_entry_eq);
+        }
+    }
 	private BigInteger n_product_eq;//[所属产品]
 	public void setN_product_eq(BigInteger n_product_eq) {
         this.n_product_eq = n_product_eq;
@@ -202,6 +265,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_story_eq = n_story_eq;
         if(!ObjectUtils.isEmpty(this.n_story_eq)){
             this.getSearchCond().eq("story", n_story_eq);
+        }
+    }
+	private BigInteger n_case_eq;//[相关用例]
+	public void setN_case_eq(BigInteger n_case_eq) {
+        this.n_case_eq = n_case_eq;
+        if(!ObjectUtils.isEmpty(this.n_case_eq)){
+            this.getSearchCond().eq("case", n_case_eq);
         }
     }
 	private BigInteger n_project_eq;//[所属项目]

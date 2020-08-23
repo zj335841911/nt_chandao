@@ -777,6 +777,50 @@ mock.onGet(new RegExp(/^\/projects\/fetchcurproduct(\?[\w-./?%&=,]*)*$/)).reply(
     return [status, records ?  records : []];
 });
     
+// FetchCurUser
+mock.onGet(new RegExp(/^\/projects\/fetchcuruser$/)).reply((config: any) => {
+    console.groupCollapsed("实体:project 方法: FetchCurUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchCurUser
+mock.onGet(new RegExp(/^\/projects\/fetchcuruser(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:project 方法: FetchCurUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/projects\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:project 方法: FetchDefault");
@@ -864,6 +908,7 @@ mock.onGet(new RegExp(/^\/projects\/fetchmyproject(\?[\w-./?%&=,]*)*$/)).reply((
     console.groupEnd();
     return [status, records ?  records : []];
 });
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 // URI参数传递情况未实现

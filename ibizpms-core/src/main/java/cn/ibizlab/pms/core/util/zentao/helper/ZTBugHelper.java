@@ -330,7 +330,7 @@ final public class ZTBugHelper {
         ACTION_PARAMS_RESOLVE.put("comment", null);
 
         // CLOSE
-        ACTION_PARAMS_CLOSE.put("comment", null);
+        ACTION_PARAMS_CLOSE.put("comment", "");
 
         // ASSIGNTO
         ACTION_PARAMS_ASSIGNTO.put("comment", null);

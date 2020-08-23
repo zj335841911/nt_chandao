@@ -1,10 +1,10 @@
-<studio-view viewName="producttestgridview" viewTitle="产品表格视图" class='degridview product-test-grid-view'>
+<studio-view viewName="producttestgridview" viewTitle="所有产品" class='degridview product-test-grid-view'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="产品名称,编号" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  
@@ -37,7 +37,7 @@
         loaddraftAction=""
         loadAction=""
         createAction=""
-        fetchAction="FetchDefault"
+        fetchAction="FetchCurUer"
         :opendata="opendata.bind(_self)"
         name="grid"  
         ref='grid' 

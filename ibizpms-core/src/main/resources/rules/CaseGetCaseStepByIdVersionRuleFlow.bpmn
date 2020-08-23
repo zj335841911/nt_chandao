@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.casegetcasestepbyidversion" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.casegetcasestepbyidversion">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="casegetcasestepbyidversiondefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="casegetcasestepbyidversionrawsqlcall1" id="BC39767B-F9A4-44B3-80ED-9192B0B8631E" implementation="http://www.jboss.org/drools/rule" name="获取用例步骤"/>
+     <endEvent id="BC39767B-F9A4-44B3-80ED-9192B0B8631E_End" name="End"/>
+     <sequenceFlow id="BC39767B-F9A4-44B3-80ED-9192B0B8631E_End_Line" sourceRef="BC39767B-F9A4-44B3-80ED-9192B0B8631E" targetRef="BC39767B-F9A4-44B3-80ED-9192B0B8631E_End"/>
+     <startEvent id="B22C301D-31B5-49DF-B65F-AA638EC40CA3" isInterrupting="true"/>
+     <sequenceFlow id="EE0DB31C-F3FD-4BE5-8370-40D07D505EFF" sourceRef="B22C301D-31B5-49DF-B65F-AA638EC40CA3" targetRef="BC39767B-F9A4-44B3-80ED-9192B0B8631E">
+     </sequenceFlow>
+    </process>
+</definitions>
+

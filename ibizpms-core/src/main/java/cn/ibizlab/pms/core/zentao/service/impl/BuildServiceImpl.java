@@ -63,12 +63,12 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Build et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes()); 
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.create(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -80,12 +80,12 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public void createBatch(List<Build> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(Build et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.edit(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -97,10 +97,10 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public void updateBatch(List<Build> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Build et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
@@ -139,12 +139,12 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Build linkStory(Build et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.linkStory(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.linkStory(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "linkStory"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -216,6 +216,15 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
     /**
+     * 查询集合 Bug产品版本
+     */
+    @Override
+    public Page<Build> searchBugProductBuild(BuildSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品版本
      */
     @Override
@@ -230,6 +239,15 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Override
     public Page<Build> searchDefault(BuildSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试版本
+     */
+    @Override
+    public Page<Build> searchTestBuild(BuildSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchTestBuild(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

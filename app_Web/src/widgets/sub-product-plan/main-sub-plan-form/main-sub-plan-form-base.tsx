@@ -49,14 +49,23 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * @memberof MainSubPlanEditFormBase
      */
     protected appDeName: string = 'subproductplan';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainSubPlanEditFormBase
+     */
+    protected appDeLogicName: string = '产品计划';
+
     /**
      * 界面UI服务对象
      *
      * @type {SubProductPlanUIService}
-     * @memberof MainSubPlanEditFormBase
+     * @memberof MainSubPlanBase
      */  
     public appUIService:SubProductPlanUIService = new SubProductPlanUIService(this.$store);
-
 
     /**
      * 表单数据对象

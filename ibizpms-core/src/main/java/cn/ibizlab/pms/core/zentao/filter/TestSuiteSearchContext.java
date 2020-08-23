@@ -34,6 +34,13 @@ public class TestSuiteSearchContext extends QueryWrapperContext<TestSuite> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
 	private BigInteger n_product_eq;//[所属产品]
 	public void setN_product_eq(BigInteger n_product_eq) {
         this.n_product_eq = n_product_eq;

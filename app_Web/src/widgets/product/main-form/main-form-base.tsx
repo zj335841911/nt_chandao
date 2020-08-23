@@ -51,6 +51,23 @@ export class MainEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -77,14 +94,6 @@ export class MainEditFormBase extends EditFormControlBase {
         const curUIService:ProductUIService  = new ProductUIService();
         curUIService.Product_SeLine(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
-    /**
-     * 界面UI服务对象
-     *
-     * @type {ProductUIService}
-     * @memberof MainEditFormBase
-     */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
-
 
     /**
      * 表单数据对象
@@ -149,7 +158,8 @@ export class MainEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } }),
 
-        button1: new FormButtonModel({ caption: '维护产品线', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiaction: { type: 'DEUIACTION', tag: 'SeLine', actiontarget: 'NONE' } }),
+        button1: new FormButtonModel({ caption: '维护产品线', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'SeLine',actiontarget: 'NONE',noprivdisplaymode:2,visabled: true,disabled: false} }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } }),
 

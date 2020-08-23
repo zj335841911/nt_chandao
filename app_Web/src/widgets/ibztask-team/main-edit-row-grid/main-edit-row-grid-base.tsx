@@ -51,6 +51,23 @@ export class MainEditRowGridBase extends GridControlBase {
     protected appDeName: string = 'ibztaskteam';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditRowGridBase
+     */
+    protected appDeLogicName: string = '任务团队';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IBZTaskTeamUIService}
+     * @memberof MainEditRowBase
+     */  
+    public appUIService:IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -127,7 +144,6 @@ export class MainEditRowGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
-          root: new FormItemModel(),
           account: new FormItemModel(),
           type: new FormItemModel(),
           estimate: new FormItemModel(),
@@ -142,10 +158,6 @@ export class MainEditRowGridBase extends GridControlBase {
      * @memberof MainEditRowGridBase
      */
     public rules: any = {
-        root: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
-        ],
         account: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },
@@ -281,10 +293,19 @@ export class MainEditRowGridBase extends GridControlBase {
             let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
             if (Object.is(item.rowDataState, 'create')) {
                 Data.id = null;
+                Data.root = null;
             }
-            Object.assign(Data, { viewparams: this.viewparams });
-            let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), Data, this.showBusyIndicator);
-            successItems.push(JSON.parse(JSON.stringify(response.data)));
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[this.createAction] && _appEntityService[this.createAction] instanceof Function) {
+                result = _appEntityService[this.createAction](Context,Data, this.showBusyIndicator);
+            }else{
+                result =this.appEntityService.Create(Context,Data, this.showBusyIndicator);
+            }
+            result.then((response) => {
+                this.service.handleResponse(this.createAction, response);
+                successItems.push(JSON.parse(JSON.stringify(response.data)));
+            })
         }
         this.$emit('save', successItems);
     }

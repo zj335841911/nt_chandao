@@ -48,6 +48,30 @@ export default class MainTabExptabviewpanelModel {
       {
         name: 'product',
       },
+      {
+        name: 'statuss',
+      },
+      {
+        name: 'future',
+      },
+      {
+        name: 'delta',
+      },
+      {
+        name: 'oldtitle',
+      },
+      {
+        name: 'storycnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'isexpired',
+      },
+      {
+        name: 'estimatecnt',
+      },
     ]
   }
 

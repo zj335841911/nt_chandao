@@ -37,9 +37,11 @@ public interface ITestTaskService extends IService<TestTask>{
     TestTask block(TestTask et) ;
     boolean checkKey(TestTask et) ;
     TestTask close(TestTask et) ;
+    TestTask linkCase(TestTask et) ;
     boolean save(TestTask et) ;
     void saveBatch(List<TestTask> list) ;
     TestTask start(TestTask et) ;
+    TestTask unlinkCase(TestTask et) ;
     Page<TestTask> searchDefault(TestTaskSearchContext context) ;
     List<TestTask> selectByBuild(BigInteger id) ;
     void removeByBuild(BigInteger id) ;

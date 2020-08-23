@@ -100,6 +100,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'tasktypeganttview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'workhoursview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'kanbanview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks'});
@@ -137,16 +138,16 @@ export default class TaskUIServiceBase extends UIService {
      * @memberof  TaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':1,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':1,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('done',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('pause',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':1,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':1,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('cancel',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('pause',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
     }
 
     /**
-     * 取消
+     * 编辑
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -157,7 +158,71 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_CancelTask(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Task_MainEditDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-main-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.task.views.maineditview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 开始
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_StartTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -200,12 +265,76 @@ export default class TaskUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'task-cancel-task-view', 
+                viewname: 'task-open-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.canceltaskview.title'),
+                title: actionContext.$t('entities.task.views.opentaskview.title'),
             };
             openPopupModal(view, data);
+    }
+
+    /**
+     * 新建任务
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.task.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
     }
 
     /**
@@ -414,69 +543,6 @@ export default class TaskUIServiceBase extends UIService {
     }
 
     /**
-     * 激活
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Task_Activation(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { task: '%task%' });
-        Object.assign(params, { id: '%task%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.story && true){
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'task-activation-task-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.task.views.activationtaskview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
      * 编辑
      *
      * @param {any[]} args 当前数据
@@ -541,7 +607,7 @@ export default class TaskUIServiceBase extends UIService {
     }
 
     /**
-     * 暂停
+     * 关闭
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -552,7 +618,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_PauseTask(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Task_CloseTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -595,10 +661,73 @@ export default class TaskUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'task-pause-task-view', 
+                viewname: 'task-close-task-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.pausetaskview.title'),
+                title: actionContext.$t('entities.task.views.closetaskview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 取消
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_CancelTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-cancel-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.canceltaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -615,7 +744,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_Forward(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Task_ForwardDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -662,6 +791,132 @@ export default class TaskUIServiceBase extends UIService {
                 height: 600, 
                 width: 800,  
                 title: actionContext.$t('entities.task.views.forwardview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 完成
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_DoneTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-done-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.donetaskview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 暂停
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_PauseTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-pause-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.pausetaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -721,10 +976,73 @@ export default class TaskUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'task-whedit-view', 
+                viewname: 'task-work-hours-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.task.views.wheditview.title'),
+                title: actionContext.$t('entities.task.views.workhoursview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 指派
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_AssignTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-assign-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.assigntaskview.title'),
             };
             openPopupModal(view, data);
     }
@@ -788,6 +1106,132 @@ export default class TaskUIServiceBase extends UIService {
                 height: 600, 
                 width: 800,  
                 title: actionContext.$t('entities.task.views.closetaskview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 激活
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_ActivationDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-activation-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.activationtaskview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 子任务
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_NewSubTaskDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%"});
+        Object.assign(params,{project:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+        const parameters: any[] = [
+            { pathName: 'subtasks', parameterName: 'subtask' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-sub-task-new-view', 
+                height: 600, 
+                width: 1200,  
+                title: actionContext.$t('entities.subtask.views.subtasknewview.title'),
             };
             openPopupModal(view, data);
     }
@@ -976,15 +1420,14 @@ export default class TaskUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -39,9 +40,11 @@ import java.util.Map;
 /**
  * 账户认证：UAA
  * 用户信息：ZT
+ * 不再使用。
  */
+@Deprecated
 @Slf4j
-@Service("IBZUAAZTUserService")
+//@Service("IBZUAAZTUserService")
 @ConditionalOnExpression("(!${ibiz.enablePermissionValid:false})&&'${ibiz.auth.service:SimpleUserService}'.equals('IBZUAAZTUserService')")
 public class IBZUAAZTUserService implements AuthenticationUserService {
 

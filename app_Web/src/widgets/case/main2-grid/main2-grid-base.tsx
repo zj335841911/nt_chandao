@@ -51,6 +51,15 @@ export class Main2GridBase extends GridControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
      * 界面UI服务对象
      *
      * @type {CaseUIService}
@@ -112,7 +121,7 @@ export class Main2GridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.case.main2_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -120,15 +129,15 @@ export class Main2GridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.main2_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '状态',
-            langtag: 'entities.case.main2_grid.columns.status',
+            langtag: 'entities.case.main2_grid.columns.status1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -167,7 +176,7 @@ export class Main2GridBase extends GridControlBase {
     public hasRowEdit: any = {
         'pri':false,
         'title':false,
-        'status':false,
+        'status1':false,
     };
 
     /**
@@ -202,8 +211,8 @@ export class Main2GridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Testcase__status',
+                name: 'status1',
+                srfkey: 'TestCaseStatusGrid',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

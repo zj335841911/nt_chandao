@@ -51,6 +51,23 @@ export class ClassifyByTypeListBase extends ListControlBase {
     protected appDeName: string = 'action';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ClassifyByTypeListBase
+     */
+    protected appDeLogicName: string = '系统日志';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ActionUIService}
+     * @memberof ClassifyByTypeBase
+     */  
+    public appUIService:ActionUIService = new ActionUIService(this.$store);
+
+    /**
      * 分页条数
      *
      * @type {number}
@@ -109,4 +126,19 @@ export class ClassifyByTypeListBase extends ListControlBase {
             return items;
         }
     }
+
+    /**
+     * 动态模型
+     *
+     * @type {*}
+     * @memberof ClassifyByType
+     */
+    public dynaModel: any = [
+  {
+  	objecttype: "bug",
+	action: "resolved",
+	othertext: "方案为",
+	codelistId: 'Bug__resolution'
+  }
+];
 }

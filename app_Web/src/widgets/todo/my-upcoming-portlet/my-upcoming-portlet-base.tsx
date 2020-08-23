@@ -51,6 +51,23 @@ export class MyUpcomingPortletBase extends MainControlBase {
     protected appDeName: string = 'todo';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyUpcomingPortletBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MyUpcomingBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

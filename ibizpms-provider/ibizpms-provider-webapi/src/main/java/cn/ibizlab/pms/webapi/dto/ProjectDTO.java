@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -428,6 +429,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
     private Double totalhours;
+
+    /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
 
 
     /**

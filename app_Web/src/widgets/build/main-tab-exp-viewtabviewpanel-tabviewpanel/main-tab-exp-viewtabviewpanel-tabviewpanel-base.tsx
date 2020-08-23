@@ -50,6 +50,23 @@ export class MainTabExpViewtabviewpanelTabviewpanelBase extends MainControlBase 
     protected appDeName: string = 'build';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanelTabviewpanelBase
+     */
+    protected appDeLogicName: string = 'build';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BuildUIService}
+     * @memberof MainTabExpViewtabviewpanelBase
+     */  
+    public appUIService:BuildUIService = new BuildUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

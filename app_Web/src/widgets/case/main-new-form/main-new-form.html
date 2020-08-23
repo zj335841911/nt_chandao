@@ -21,7 +21,7 @@
   deMajorField='name'
   deKeyField='product'
   :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
   valueitem='product' 
   :value="data.productname" 
   editortype="dropdown"
@@ -39,14 +39,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%" }' 
+  :localContext ='{ N_ROOT_EQ:"%product%" }' 
+  :localParam ='{ n_root_eq:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename'
   deMajorField='name'
   deKeyField='module'
   :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchStoryModule'}"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
   valueitem='module' 
   :value="data.modulename" 
   editortype="dropdown"
@@ -76,6 +76,25 @@
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='stage' :itemRules="this.rules.stage" class='' :caption="$t('entities.case.mainnew_form.details.stage')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list-mpicker 
+  v-model="data.stage"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.stage.disabled"
+  tag='Testcase__stage' 
+  codelistType='STATIC' 
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainnew_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
@@ -88,8 +107,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ N_PRODUCT_EQ:"%product%", N_MODULE_EQ:"%module%" }' 
+  :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'
@@ -159,7 +178,7 @@
     :context="context"
     :viewparams="viewparams"
     :localContext ='{}'
-    :localParam ='{}'
+    :localParam ='{n_version_eq:"%version%"}'
     parameterName='case'
     parentName="Case"  
     refviewtype='DEGRIDVIEW9' 

@@ -712,6 +712,186 @@ mock.onPost(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-
 });
 
 
+// FetchCurTest
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchCurTest");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchCurTest
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchCurTest");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchCurTest
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchCurTest");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchCurTest
+mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchCurTest");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtest$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
 // FetchDefault
 mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:casestep 方法: FetchDefault");
@@ -858,6 +1038,366 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefaul
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
     const matchArray:any = new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchDefault1
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault1");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchDefault1
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault1");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchDefault1
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault1");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchDefault1
+mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault1");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefault1$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchMob
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchMob");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchMob
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchMob");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchMob
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchMob");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchMob
+mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchMob");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -1070,6 +1610,218 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
     console.groupEnd();
     return [status, items];
 });
+
+
+// FetchVersions
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersions");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchVersions
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersions");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchVersions
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersions");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchVersions
+mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersions");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversions$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 

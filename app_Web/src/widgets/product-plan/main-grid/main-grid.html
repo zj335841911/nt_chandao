@@ -79,6 +79,30 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('storycnt')">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productplan.main_grid.columns.storycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.storycnt')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.storycnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('bugcnt')">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productplan.main_grid.columns.bugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.bugcnt')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.bugcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('actions')">
                 <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="160"  :align="'center'">
                     <template v-slot:header="{column}">

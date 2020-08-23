@@ -50,6 +50,23 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     protected appDeName: string = 'projectmodule';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeLogicName: string = '任务模块';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectModuleUIService}
+     * @memberof TreeExpViewtreeexpbarBase
+     */  
+    public appUIService:ProjectModuleUIService = new ProjectModuleUIService(this.$store);
+
+    /**
      * treeexpbar_toolbar 部件 click 事件
      *
      * @param {*} [args={}]

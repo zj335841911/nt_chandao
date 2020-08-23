@@ -127,6 +127,48 @@ public class TestResult extends EntityMP implements Serializable {
     @JSONField(name = "compile")
     @JsonProperty("compile")
     private BigInteger compile;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+    /**
+     * 用例名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
+    /**
+     * 相关需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    private BigInteger story;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private BigInteger product;
+    /**
+     * 前置条件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "precondition")
+    @JsonProperty("precondition")
+    private String precondition;
 
     /**
      * 

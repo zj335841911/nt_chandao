@@ -51,8 +51,17 @@ export default {
     versionc: "版本号",
     modulename1: "所属模块名称",
     project: "项目",
+    preversion: "之前的版本",
   },
 	views: {
+		pickupgridview4: {
+			caption: "需求",
+      		title: "需求",
+		},
+		usr2mpickupview: {
+			caption: "需求",
+      		title: "发布下属需求数据多项选择视图",
+		},
 		mainview9_related: {
 			caption: "需求",
       		title: "需求编辑视图",
@@ -312,8 +321,10 @@ export default {
 			result: "评审结果", 
 			pri: "优先级", 
 			estimate: "预计工时", 
+			preversion: "之前版本", 
 			closedreason: "拒绝原因", 
 			assignedto: "指派给", 
+			version: "版本号", 
 			reviewedby: "由谁评审", 
 			id: "编号", 
 		},
@@ -459,7 +470,7 @@ export default {
 		uiactions: {
 		},
 	},
-	assignto_form: {
+	activation_form: {
 		details: {
 			druipart1: "", 
 			grouppanel2: "分组面板", 
@@ -479,7 +490,7 @@ export default {
 		uiactions: {
 		},
 	},
-	activation_form: {
+	assignto_form: {
 		details: {
 			druipart1: "", 
 			grouppanel2: "分组面板", 
@@ -714,6 +725,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			story_breakdowntasks: "分解任务",
 			story_projectunlinkstory: "移除",
 		},
 	},
@@ -769,8 +781,10 @@ export default {
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			story_releaseunlinkbug: "移除关联",
 		},
 	},
 	main_reportsub_grid: {
@@ -859,6 +873,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	plansubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -877,13 +899,33 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction3: {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction4: {
 			caption: "按照计划关联",
 			tip: "按照计划关联",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -895,13 +937,33 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction3: {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction4: {
 			caption: "按照计划关联",
 			tip: "按照计划关联",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -939,19 +1001,19 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
+		deuiaction1_create: {
+			caption: "新建需求",
+			tip: "新建需求",
 		},
-		seperator1: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction2: {
-			caption: "编辑",
-			tip: "编辑",
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
 		},
-		seperator2: {
+		seperator3: {
 			caption: "",
 			tip: "",
 		},
@@ -975,9 +1037,25 @@ export default {
 		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "批量移除",
+			tip: "批量移除",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	reportsubgridviewtoolbar_toolbar: {
@@ -985,63 +1063,19 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-	},
-	main2gridviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "新建",
-			tip: "新建",
-		},
-		tbitem4: {
-			caption: "编辑",
-			tip: "编辑",
-		},
-		tbitem6: {
-			caption: "拷贝",
-			tip: "拷贝",
-		},
-		tbitem7: {
-			caption: "-",
+		seperator2: {
+			caption: "",
 			tip: "",
 		},
-		tbitem8: {
-			caption: "删除",
-			tip: "删除",
-		},
-		tbitem9: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem13: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},
-		tbitem10: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "导出数据模型",
-			tip: "导出数据模型",
-		},
-		tbitem23: {
-			caption: "数据导入",
-			tip: "数据导入",
-		},
-		tbitem17: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem19: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-		tbitem18: {
-			caption: "帮助",
-			tip: "帮助",
+	},
+	main2gridviewtoolbar_toolbar: {
+		tbitem13: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 };

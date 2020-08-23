@@ -116,12 +116,12 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     public boolean checkKey(Action et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+        @Override
     @Transactional
     public Action editComment(Action et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTActionHelper.editComment(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTActionHelper.editComment(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "editComment"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -176,6 +176,15 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Override
     public Page<Action> searchDefault(ActionSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Action> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Action>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 MobType
+     */
+    @Override
+    public Page<Action> searchMobType(ActionSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Action> pages=baseMapper.searchMobType(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Action>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

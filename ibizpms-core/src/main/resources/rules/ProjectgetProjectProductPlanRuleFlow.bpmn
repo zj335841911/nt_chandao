@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.projectgetprojectproductplan" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.projectgetprojectproductplan">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="projectgetprojectproductplandefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectgetprojectproductplanrawsqlcall1" id="3BD585C3-2632-4E9C-A5FC-2AD0BDB40508" implementation="http://www.jboss.org/drools/rule" name="获取SrfArray"/>
+     <endEvent id="3BD585C3-2632-4E9C-A5FC-2AD0BDB40508_End" name="End"/>
+     <sequenceFlow id="3BD585C3-2632-4E9C-A5FC-2AD0BDB40508_End_Line" sourceRef="3BD585C3-2632-4E9C-A5FC-2AD0BDB40508" targetRef="3BD585C3-2632-4E9C-A5FC-2AD0BDB40508_End"/>
+     <startEvent id="4058F39F-EBF9-4CA7-83D4-90D1022F0CB0" isInterrupting="true"/>
+     <sequenceFlow id="ABEABD2B-6F1C-4ED5-84B0-52DC035BEFE7" sourceRef="4058F39F-EBF9-4CA7-83D4-90D1022F0CB0" targetRef="3BD585C3-2632-4E9C-A5FC-2AD0BDB40508">
+     </sequenceFlow>
+    </process>
+</definitions>
+

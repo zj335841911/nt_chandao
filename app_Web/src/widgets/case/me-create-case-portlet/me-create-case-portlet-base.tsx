@@ -51,6 +51,23 @@ export class MeCreateCasePortletBase extends MainControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MeCreateCasePortletBase
+     */
+    protected appDeLogicName: string = '测试用例';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MeCreateCaseBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}
@@ -110,7 +127,7 @@ export class MeCreateCasePortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '450px';
         }
     }
 

@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
     /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
-
 
     /**
      * 表单数据对象
@@ -78,9 +87,9 @@ export class MainEditFormBase extends EditFormControlBase {
         product: null,
         modulename: null,
         module: null,
+        projectname: null,
         project: null,
         openedbuild: null,
-        projectname: null,
         assignedto: null,
         deadline: null,
         type: null,
@@ -167,11 +176,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        projectname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         openedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'openedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        projectname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -244,9 +253,6 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['productmodule'];
-        }
-        if (this.data.hasOwnProperty('project')) {
-            this.data['project'] = this.viewparams['project'];
         }
     }
 }

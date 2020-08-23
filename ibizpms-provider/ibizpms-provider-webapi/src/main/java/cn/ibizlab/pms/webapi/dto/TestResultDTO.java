@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -119,6 +120,54 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "compile")
     @JsonProperty("compile")
     private BigInteger compile;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+
+    /**
+     * 属性 [TITLE]
+     *
+     */
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
+
+    /**
+     * 属性 [STORY]
+     *
+     */
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    private BigInteger story;
+
+    /**
+     * 属性 [MODULE]
+     *
+     */
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
+
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private BigInteger product;
+
+    /**
+     * 属性 [PRECONDITION]
+     *
+     */
+    @JSONField(name = "precondition")
+    @JsonProperty("precondition")
+    private String precondition;
 
 
     /**

@@ -57,6 +57,9 @@ export default class MainTabExpViewtabviewpanel3Model {
       {
         name: 'productname',
       },
+      {
+        name: 'ids',
+      },
     ]
   }
 

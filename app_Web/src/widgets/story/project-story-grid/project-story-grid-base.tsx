@@ -51,6 +51,51 @@ export class ProjectStoryGridBase extends GridControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStoryGridBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof ProjectStoryBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u44590b9_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_Breakdowntasks(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -79,21 +124,14 @@ export class ProjectStoryGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof ProjectStoryBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof ProjectStoryBase
      */  
     public ActionModel: any = {
-        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', actiontarget: 'SINGLEKEY'},
+        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -133,7 +171,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.story.projectstory_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -141,7 +179,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.story.projectstory_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -149,7 +187,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.projectstory_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -157,7 +195,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '计划',
             langtag: 'entities.story.projectstory_grid.columns.plan',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -165,7 +203,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.story.projectstory_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -173,7 +211,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '指派',
             langtag: 'entities.story.projectstory_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -181,7 +219,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '预计',
             langtag: 'entities.story.projectstory_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -189,7 +227,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.story.projectstory_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -197,7 +235,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '阶段',
             langtag: 'entities.story.projectstory_grid.columns.stage',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -205,7 +243,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.story.projectstory_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -339,6 +377,9 @@ export class ProjectStoryGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('Breakdowntasks', tag)) {
+            this.grid_uagridcolumn1_u44590b9_click(row, tag, $event);
+        }
         if(Object.is('ProjectUnlinkStory', tag)) {
             this.grid_uagridcolumn1_ucdf692f_click(row, tag, $event);
         }

@@ -55,6 +55,23 @@ export class ProjectStatusBarChartBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStatusBarChartBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof ProjectStatusBarBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}
@@ -326,6 +343,7 @@ export class ProjectStatusBarChartBase extends MainControlBase {
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
         Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        Object.assign(arg,{sort: 'id,desc'});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});

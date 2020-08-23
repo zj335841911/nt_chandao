@@ -21,7 +21,7 @@
   deMajorField='name'
   deKeyField='product'
   :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
   valueitem='product' 
   :value="data.prodoctname" 
   editortype="dropdown"
@@ -70,6 +70,7 @@
   valueitem='module' 
   :value="data.modulename" 
   editortype="dropdown"
+  :valFormat="{0: '/'}"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>

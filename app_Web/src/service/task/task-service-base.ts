@@ -5030,10 +5030,6 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // URI参数传递情况未实现
-        // URI参数传递情况未实现
-        // URI参数传递情况未实现
-        // URI参数传递情况未实现
     }
 
     /**

@@ -1,9 +1,9 @@
 <studio-view viewName="storyplansubeditview" viewTitle="需求" class='deeditview story-plan-sub-edit-view'>
     <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 

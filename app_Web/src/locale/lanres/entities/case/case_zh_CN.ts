@@ -49,11 +49,24 @@ export default {
     resultcnt: "测试结果数",
     stepcnt: "用例步骤数",
     comment: "备注",
+    resultfalicnt: "测试失败数",
+    status1: "用例状态",
+    assignedto: "指派给",
+    task: "属性",
+    libname: "用例库",
   },
 	views: {
 		editview: {
 			caption: "测试用例",
       		title: "功能测试编辑视图",
+		},
+		linkcasegridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（关联用例）",
+		},
+		optionview: {
+			caption: "执行",
+      		title: "执行",
 		},
 		gridview9_my: {
 			caption: "测试用例",
@@ -63,11 +76,23 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		tobugeditview: {
+			caption: "转BUG",
+      		title: "转BUG",
+		},
 		maingridview: {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		testmaindashboardview: {
+			caption: "功能测试",
+      		title: "功能测试",
+		},
 		maininfoeditview9: {
+			caption: "测试用例",
+      		title: "测试用例编辑视图",
+		},
+		testmaindetaileditview9: {
 			caption: "测试用例",
       		title: "测试用例编辑视图",
 		},
@@ -82,6 +107,14 @@ export default {
 		batchnewgridview: {
 			caption: "测试用例",
       		title: "测试用例",
+		},
+		testoptionview: {
+			caption: "执行",
+      		title: "执行",
+		},
+		exceditview: {
+			caption: "执行结果",
+      		title: "执行结果",
 		},
 		maindashboardview: {
 			caption: "功能测试",
@@ -115,6 +148,14 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		suitelinkcasegridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（关联用例）",
+		},
+		testtaskexceditview: {
+			caption: "执行结果",
+      		title: "执行结果",
+		},
 		gridview: {
 			caption: "测试用例",
       		title: "功能测试表格视图",
@@ -138,6 +179,7 @@ export default {
 			module: "所属模块", 
 			modulename: "模块名称", 
 			type: "用例类型", 
+			stage: "适用阶段", 
 			story: "相关需求", 
 			storyname: "需求名称", 
 			title: "用例标题", 
@@ -161,8 +203,87 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "", 
+			title: "", 
+			version: "", 
+			precondition: "前置条件", 
+		},
+		uiactions: {
+		},
+	},
+	maincarry_form: {
+		details: {
+			grouppanel4: "分组面板", 
+			druipart1: "用例步骤", 
+			rawitem1: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			grouppanel3: "分组面板", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
 			version: "版本#", 
 			precondition: "前置条件", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	mainr_form: {
+		details: {
+			grouppanel4: "分组面板", 
+			rawitem1: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			grouppanel3: "分组面板", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			precondition: "前置条件", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	tobug_form: {
+		details: {
+			rawitem1: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -264,10 +385,107 @@ export default {
 		uiactions: {
 		},
 	},
+	maintesttask_form: {
+		details: {
+			grouppanel4: "分组面板", 
+			druipart1: "用例步骤", 
+			rawitem1: "", 
+			rawitem3: "", 
+			grouppanel1: "分组面板", 
+			druipart2: "", 
+			grouppanel2: "分组面板", 
+			grouppanel3: "分组面板", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			precondition: "前置条件", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	testtaskrmain_form: {
+		details: {
+			grouppanel4: "分组面板", 
+			rawitem1: "", 
+			rawitem3: "", 
+			grouppanel2: "分组面板", 
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			grouppanel3: "分组面板", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			precondition: "前置条件", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			pri: "P",
 			title: "用例标题",
+		},
+		uiactions: {
+		},
+	},
+	testmaingrid_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			assignedto: "指派给",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			case_edits: "概况",
+			case_confirmchange: "确认用例变动",
+			case_newbugbycaseresult: "转Bug",
+			case_caseopentestrunresultview: "结果",
+			case_caseexecute: "执行",
+			case_unlinkcase: "移除",
+		},
+	},
+	mainlinktest_grid: {
+		columns: {
+			id: "ID",
+			version: "版本",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
 		},
 		uiactions: {
 		},
@@ -282,13 +500,14 @@ export default {
 			lastrunner: "执行人",
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
-			status: "状态",
+			status1: "状态",
 			tobugcnt: "B",
 			resultcnt: "R",
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			case_confirmstorychange: "确认",
 			case_opentestrunresultview: "结果",
 			case_execute: "执行",
 			case_mainedit: "编辑",
@@ -314,13 +533,14 @@ export default {
 			title: "用例标题",
 			type: "用例类型",
 			lastrunresult: "结果",
-			status: "状态",
+			status1: "状态",
 			tobugcnt: "B",
 			resultcnt: "R",
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			case_unlinksuitecase: "移除",
 			case_opentestrunresultview: "结果",
 			case_execute: "执行",
 		},
@@ -329,7 +549,7 @@ export default {
 		columns: {
 			pri: "P",
 			title: "用例标题",
-			status: "状态",
+			status1: "状态",
 		},
 		uiactions: {
 		},
@@ -338,7 +558,14 @@ export default {
 		columns: {
 			pri: "P",
 			title: "用例标题",
-			status: "状态",
+			status1: "状态",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
 		},
 		uiactions: {
 		},
@@ -359,6 +586,26 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	linkcasegridviewtoolbar_toolbar: {
+		deuiaction1_linkcase: {
+			caption: "保存",
+			tip: "保存",
+		},
+	},
+	curtesttaskgridviewtoolbar_toolbar: {
+		deuiaction1_linkcasec: {
+			caption: "关联用例",
+			tip: "关联用例",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	batchnewgridviewtoolbar_toolbar: {
@@ -396,31 +643,19 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
-	curtesttaskgridviewtoolbar_toolbar: {
-		deuiaction3_batchnew: {
-			caption: "批量新建用例",
-			tip: "批量新建用例",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+	suitelinkcasegridviewtoolbar_toolbar: {
+		deuiaction1_suitelinkcase: {
+			caption: "保存",
+			tip: "保存",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -439,6 +674,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 };

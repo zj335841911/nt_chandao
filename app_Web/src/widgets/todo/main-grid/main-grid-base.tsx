@@ -51,6 +51,23 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'todo';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '待办事宜表';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TodoUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TodoUIService = new TodoUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -219,26 +236,18 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {TodoUIService}
-     * @memberof MainBase
-     */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        assignTo: { name: 'assignTo',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY'},
-        finish: { name: 'finish',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'FINISH', target: 'SINGLEKEY'},
-        activate: { name: 'activate',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY'},
-        close: { name: 'close',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
-        edit1: { name: 'edit1',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UPDATE', target: 'SINGLEKEY'},
-        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DELETE', target: 'SINGLEKEY'}
+        assignTo: { name: 'assignTo',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ASSIGNTO', actiontarget: 'SINGLEKEY'},
+        finish: { name: 'finish',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'FINISH', actiontarget: 'SINGLEKEY'},
+        activate: { name: 'activate',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ACTIVATE', actiontarget: 'SINGLEKEY'},
+        close: { name: 'close',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', actiontarget: 'SINGLEKEY'},
+        edit1: { name: 'edit1',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'UPDATE', actiontarget: 'SINGLEKEY'},
+        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DELETE', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -278,7 +287,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.todo.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -286,7 +295,7 @@ export class MainGridBase extends GridControlBase {
             label: '日期',
             langtag: 'entities.todo.main_grid.columns.date1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -294,7 +303,7 @@ export class MainGridBase extends GridControlBase {
             label: '类型',
             langtag: 'entities.todo.main_grid.columns.type',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -302,7 +311,7 @@ export class MainGridBase extends GridControlBase {
             label: '优先级',
             langtag: 'entities.todo.main_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -310,7 +319,7 @@ export class MainGridBase extends GridControlBase {
             label: '待办名称',
             langtag: 'entities.todo.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -318,7 +327,7 @@ export class MainGridBase extends GridControlBase {
             label: '开始',
             langtag: 'entities.todo.main_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -326,7 +335,7 @@ export class MainGridBase extends GridControlBase {
             label: '结束',
             langtag: 'entities.todo.main_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -334,7 +343,7 @@ export class MainGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.todo.main_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -342,7 +351,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.todo.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

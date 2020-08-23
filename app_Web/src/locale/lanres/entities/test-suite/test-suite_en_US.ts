@@ -30,6 +30,25 @@ export default {
       		title: "测试套件数据看板视图",
 		},
 	},
+	main_form: {
+		details: {
+			group1: "testsuite基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "名称", 
+			desc: "描述", 
+			type: "类型", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	maininfo_form: {
 		details: {
 			group1: "基本信息", 
@@ -48,25 +67,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
-		details: {
-			group1: "testsuite基本信息", 
-			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			name: "名称", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			id: "编号",
@@ -77,12 +77,21 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        testsuite_linkcasedash: "关联用例",
+        testsuite_editsuitedash: "编辑",
+        testsuite_deletedash: "删除",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",
@@ -92,11 +101,13 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-	},
-	editviewtoolbar_toolbar: {
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

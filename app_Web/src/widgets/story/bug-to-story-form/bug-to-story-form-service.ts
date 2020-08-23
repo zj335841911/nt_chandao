@@ -100,8 +100,8 @@ export default class BugToStoryService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchCurUer')) {
+            return this.doItems(this.productService.FetchCurUer(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
         }
         if (Object.is(serviceName, 'ProductModuleService') && Object.is(interfaceName, 'FetchStoryModule')) {
             return this.doItems(this.productmoduleService.FetchStoryModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'productmodule');

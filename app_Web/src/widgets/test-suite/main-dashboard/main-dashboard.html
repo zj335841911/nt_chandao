@@ -8,17 +8,17 @@
           <span>
                       <div class='portlet-container main-dashboard-viewdashboard-container1 ' :style="{}">
                 <row>
-                  <i-col :xs="{ span: 16, offset: 0 }" :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
+                  <i-col :md="{ span: 24, offset: 0 }" :lg="{ span: 16, offset: 0 }">
                       <div class="portlet-without-title">
-                          <card class="portlet-card" :bordered="false" dis-hover :padding="0">
-                        <span>
-                                        <div class='portlet-container main-dashboard-viewdashboard-container2 ' :style="{}">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                          <span>
+                                          <div class='portlet-container main-dashboard-viewdashboard-container2 ' :style="{}">
                               <row>
                                 <i-col :md="{ span: 24, offset: 0 }">
                                     <div class="portlet-without-title">
-                                        <card class="portlet-card custom-card" :bordered="false" dis-hover :padding="10">
-                                      <span>
-                                                      <view_dashboard_sysportlet1 
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                        <span>
+                                                        <view_dashboard_sysportlet1 
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
@@ -28,27 +28,57 @@
                                           ref='dashboard_sysportlet1' 
                                           @closeview="closeView($event)">
                                       </view_dashboard_sysportlet1>
-                                      </span>
-                                    </card>
+                                        </span>
+                                      </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                        <span>
+                                                        <div class='portlet-container main-dashboard-viewdashboard-container4  dashboard-footer-button-wrapper' :style="{}">
+                                            <row>
+                                              <i-col :md="{ span: 24, offset: 0 }">
+                                                  <div class="portlet-without-title">
+                                                    <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                                      <span>
+                                                                      <view_dashboard_sysportlet4 
+                                                        :viewState="viewState"  
+                                                        :viewparams="viewparams" 
+                                                        :context="context" 
+                                                        :height="0"
+                                                        :width="0"
+                                                        name="dashboard_sysportlet4"  
+                                                        ref='dashboard_sysportlet4' 
+                                                        @closeview="closeView($event)">
+                                                    </view_dashboard_sysportlet4>
+                                                      </span>
+                                                    </card>
+                                                  </div>
+                                              </i-col>
+                                            </row>
+                                        </div>
+                                        </span>
+                                      </card>
                                     </div>
                                 </i-col>
                               </row>
                           </div>
-                        </span>
-                      </card>
+                          </span>
+                        </card>
                       </div>
                   </i-col>
-                  <i-col :xs="{ span: 8, offset: 0 }" :sm="{ span: 8, offset: 0 }" :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }">
+                  <i-col :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }">
                       <div class="portlet-without-title">
-                          <card class="portlet-card" :bordered="false" dis-hover :padding="0">
-                        <span>
-                                        <div class='portlet-container main-dashboard-viewdashboard-container3 ' :style="{}">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                          <span>
+                                          <div class='portlet-container main-dashboard-viewdashboard-container3 ' :style="{}">
                               <row>
                                 <i-col :md="{ span: 24, offset: 0 }">
                                     <div class="portlet-without-title">
-                                        <card class="portlet-card custom-card" :bordered="false" dis-hover :padding="10">
-                                      <span>
-                                                      <view_dashboard_sysportlet2 
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                        <span>
+                                                        <view_dashboard_sysportlet2 
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
@@ -58,15 +88,15 @@
                                           ref='dashboard_sysportlet2' 
                                           @closeview="closeView($event)">
                                       </view_dashboard_sysportlet2>
-                                      </span>
-                                    </card>
+                                        </span>
+                                      </card>
                                     </div>
                                 </i-col>
                                 <i-col :md="{ span: 24, offset: 0 }">
                                     <div class="portlet-without-title">
-                                        <card class="portlet-card custom-card" :bordered="false" dis-hover :padding="10">
-                                      <span>
-                                                      <view_dashboard_sysportlet3 
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                        <span>
+                                                        <view_dashboard_sysportlet3 
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
@@ -76,14 +106,14 @@
                                           ref='dashboard_sysportlet3' 
                                           @closeview="closeView($event)">
                                       </view_dashboard_sysportlet3>
-                                      </span>
-                                    </card>
+                                        </span>
+                                      </card>
                                     </div>
                                 </i-col>
                               </row>
                           </div>
-                        </span>
-                      </card>
+                          </span>
+                        </card>
                       </div>
                   </i-col>
                 </row>

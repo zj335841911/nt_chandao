@@ -51,6 +51,23 @@ export class Main_RowEditGridBase extends GridControlBase {
     protected appDeName: string = 'ibzcasestep';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_RowEditGridBase
+     */
+    protected appDeLogicName: string = '用例步骤';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IBZCaseStepUIService}
+     * @memberof Main_RowEditBase
+     */  
+    public appUIService:IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -138,6 +155,7 @@ export class Main_RowEditGridBase extends GridControlBase {
         return {
           expect: new FormItemModel(),
           desc: new FormItemModel(),
+          case: new FormItemModel(),
           type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
@@ -157,6 +175,10 @@ export class Main_RowEditGridBase extends GridControlBase {
         desc: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'blur' },
+        ],
+        case: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例 值不能为空', trigger: 'blur' },
         ],
         type: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型 值不能为空', trigger: 'change' },
@@ -278,10 +300,19 @@ export class Main_RowEditGridBase extends GridControlBase {
             let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
             if (Object.is(item.rowDataState, 'create')) {
                 Data.id = null;
+                Data.ibizcase = null;
             }
-            Object.assign(Data, { viewparams: this.viewparams });
-            let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), Data, this.showBusyIndicator);
-            successItems.push(JSON.parse(JSON.stringify(response.data)));
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[this.createAction] && _appEntityService[this.createAction] instanceof Function) {
+                result = _appEntityService[this.createAction](Context,Data, this.showBusyIndicator);
+            }else{
+                result =this.appEntityService.Create(Context,Data, this.showBusyIndicator);
+            }
+            result.then((response) => {
+                this.service.handleResponse(this.createAction, response);
+                successItems.push(JSON.parse(JSON.stringify(response.data)));
+            })
         }
         this.$emit('save', successItems);
     }

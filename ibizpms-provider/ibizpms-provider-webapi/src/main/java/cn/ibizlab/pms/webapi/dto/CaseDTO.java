@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -411,6 +412,46 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+
+    /**
+     * 属性 [RESULTFALICNT]
+     *
+     */
+    @JSONField(name = "resultfalicnt")
+    @JsonProperty("resultfalicnt")
+    private Integer resultfalicnt;
+
+    /**
+     * 属性 [STATUS1]
+     *
+     */
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    private String status1;
+
+    /**
+     * 属性 [ASSIGNEDTO]
+     *
+     */
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+
+    /**
+     * 属性 [LIBNAME]
+     *
+     */
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
 
 
     /**

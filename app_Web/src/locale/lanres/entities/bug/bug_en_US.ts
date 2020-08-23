@@ -75,6 +75,10 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		mpickupview4: {
+			caption: "关联Bug",
+      		title: "关联Bug",
+		},
 		maineditview: {
 			caption: "Bug编辑",
       		title: "Bug编辑",
@@ -82,6 +86,10 @@ export default {
 		maindashboardview: {
 			caption: "Bug",
       		title: "Bug数据看板视图",
+		},
+		pickupgridview4: {
+			caption: "Bug",
+      		title: "bug选择表格视图",
 		},
 		pickupgridview: {
 			caption: "Bug",
@@ -135,9 +143,17 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
+		usr2gridview: {
+			caption: "Bug",
+      		title: "Bug表格视图",
+		},
 		editview_4791: {
 			caption: "Bug",
       		title: "Bug",
+		},
+		projectgridview: {
+			caption: "项目",
+      		title: "bug表格视图（项目）",
 		},
 		pickupgridview_buildlinkresolvedbugs: {
 			caption: "Bug",
@@ -150,6 +166,10 @@ export default {
 		todoeditview: {
 			caption: "待办提交",
       		title: "待办提交",
+		},
+		pickupgridview5: {
+			caption: "Bug",
+      		title: "bug选择表格视图",
 		},
 		resolveview: {
 			caption: "解决Bug",
@@ -171,6 +191,10 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		casetobugeditview: {
+			caption: "Bug",
+      		title: "Bug",
+		},
 		closeview: {
 			caption: "关闭Bug",
       		title: "关闭Bug",
@@ -182,6 +206,10 @@ export default {
 		dashboardmaineditview9: {
 			caption: "Bug",
       		title: "主信息",
+		},
+		mpickupview5: {
+			caption: "关联Bug",
+      		title: "关联Bug",
 		},
 		buildsubgridview_done: {
 			caption: "Bug",
@@ -385,9 +413,52 @@ export default {
 			id: "Bug编号", 
 			resolvedbuild: "影响版本", 
 			assignedto: "指派给", 
+			product: "所属产品", 
 			files: "附件", 
 			project: "所属项目", 
 			comment: "备注", 
+		},
+		uiactions: {
+		},
+	},
+	casetobug_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			group1: "bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			branch: "", 
+			product: "所属产品", 
+			modulename: "所属模块", 
+			module: "所属模块", 
+			projectname: "项目", 
+			project: "所属项目", 
+			openedbuild: "影响版本", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			steps: "重现步骤", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
+			story: "相关需求", 
+			id: "Bug编号", 
+			task: "相关任务", 
 		},
 		uiactions: {
 		},
@@ -411,9 +482,9 @@ export default {
 			product: "所属产品", 
 			modulename: "所属模块", 
 			module: "所属模块", 
+			projectname: "项目", 
 			project: "所属项目", 
 			openedbuild: "影响版本", 
-			projectname: "项目", 
 			assignedto: "指派给", 
 			deadline: "截止日期", 
 			type: "Bug类型", 
@@ -454,8 +525,8 @@ export default {
 			modulename: "所属模块", 
 			module: "所属模块", 
 			project: "所属项目", 
-			openedbuild: "影响版本", 
 			projectname: "项目", 
+			openedbuild: "影响版本", 
 			assignedto: "指派给", 
 			deadline: "截止日期", 
 			type: "Bug类型", 
@@ -565,8 +636,8 @@ export default {
 			modulename: "所属模块", 
 			module: "所属模块", 
 			project: "所属项目", 
-			openedbuild: "影响版本", 
 			projectname: "项目", 
+			openedbuild: "影响版本", 
 			assignedto: "指派给", 
 			deadline: "截止日期", 
 			type: "Bug类型", 
@@ -614,6 +685,29 @@ export default {
 		uiactions: {
 		},
 	},
+	main_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			confirmed: "确认",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			resolution: "方案",
+			uagridcolumn1: "操作",
+			lastediteddate: "修改日期",
+			activateddate: "激活日期",
+		},
+		uiactions: {
+        bug_confirmbug: "确认",
+        bug_resolvebug: "解决",
+        bug_closebug: "关闭",
+        bug_mainedit: "编辑",
+        copy: "Copy",
+		},
+	},
 	main_buildsub2_grid: {
 		columns: {
 			id: "ID",
@@ -627,6 +721,21 @@ export default {
 		},
 		uiactions: {
         bug_unlinkbug_build: "解除关联",
+		},
+	},
+	main_buildsub3_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "创建",
+			assignedto: "指派",
+			resolvedby: "解决者",
+			resolution: "方案",
+			project: "所属项目",
+		},
+		uiactions: {
 		},
 	},
 	main_buildsub_grid: {
@@ -670,28 +779,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			confirmed: "确认",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
-			resolution: "方案",
-			uagridcolumn1: "操作",
-			lastediteddate: "修改日期",
-			activateddate: "激活日期",
-		},
-		uiactions: {
-        bug_confirmbug: "确认",
-        bug_resolvebug: "解决",
-        bug_closebug: "关闭",
-        bug_mainedit: "编辑",
-		},
-	},
 	main_reportsub_grid: {
 		columns: {
 			id: "ID",
@@ -721,6 +808,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	casetobugeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
 		deuiaction3_planrelationbug: {
 			caption: "关联Bug",
@@ -734,11 +827,47 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	projectgridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	usr2gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "保存",
+			tip: "保存",
 		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
@@ -751,6 +880,14 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	editview_4791toolbar_toolbar: {
@@ -766,25 +903,37 @@ export default {
 		},
 	},
 	releasesubgridview_donetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+			caption: "批量移除",
+			tip: "批量移除",
 		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "关联bug",
+			tip: "关联bug",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+			caption: "批量移除",
+			tip: "批量移除",
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",
@@ -794,11 +943,27 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	testreportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	todoeditviewtoolbar_toolbar: {

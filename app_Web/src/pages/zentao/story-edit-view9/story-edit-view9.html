@@ -1,6 +1,6 @@
 <studio-embed-view viewName="storyeditview9" viewTitle="关联需求" class='deeditview9 story-edit-view9'>
     <template slot="toolbar">
-        <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+        <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 

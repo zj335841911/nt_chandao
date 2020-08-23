@@ -19,9 +19,12 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface CaseMapper extends BaseMapper<Case>{
 
+    Page<Case> searchBatchNew(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchCurSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchDefault(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
+    Page<Case> searchNotCurTestSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
+    Page<Case> searchNotCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     @Override
     Case selectById(Serializable id);
     @Override

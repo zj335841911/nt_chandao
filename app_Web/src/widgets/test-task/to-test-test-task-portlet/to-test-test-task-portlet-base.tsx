@@ -51,6 +51,23 @@ export class ToTestTestTaskPortletBase extends MainControlBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ToTestTestTaskPortletBase
+     */
+    protected appDeLogicName: string = '测试版本';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof ToTestTestTaskBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}
@@ -110,7 +127,7 @@ export class ToTestTestTaskPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '450px';
         }
     }
 

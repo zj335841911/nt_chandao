@@ -117,6 +117,12 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'srfcount',
+      },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

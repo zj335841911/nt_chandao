@@ -51,6 +51,15 @@ export class LineGridBase extends GridControlBase {
     protected appDeName: string = 'module';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof LineGridBase
+     */
+    protected appDeLogicName: string = '模块';
+
+    /**
      * 界面UI服务对象
      *
      * @type {ModuleUIService}
@@ -88,7 +97,7 @@ export class LineGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.module.line_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -96,7 +105,7 @@ export class LineGridBase extends GridControlBase {
             label: '简称',
             langtag: 'entities.module.line_grid.columns.short',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: true,
         },
     ]

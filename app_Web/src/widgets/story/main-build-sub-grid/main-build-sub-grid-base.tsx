@@ -51,6 +51,23 @@ export class Main_BuildSubGridBase extends GridControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_BuildSubGridBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main_BuildSubBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -79,21 +96,13 @@ export class Main_BuildSubGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof Main_BuildSubBase
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof Main_BuildSubBase
      */  
     public ActionModel: any = {
-        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -133,7 +142,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.story.main_buildsub_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -141,7 +150,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.story.main_buildsub_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -149,7 +158,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.main_buildsub_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -157,7 +166,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '所属模块名称',
             langtag: 'entities.story.main_buildsub_grid.columns.modulename',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -165,7 +174,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '创建',
             langtag: 'entities.story.main_buildsub_grid.columns.openedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -173,7 +182,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '预计',
             langtag: 'entities.story.main_buildsub_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -181,7 +190,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '状态',
             langtag: 'entities.story.main_buildsub_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -189,7 +198,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '阶段',
             langtag: 'entities.story.main_buildsub_grid.columns.stage',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -197,7 +206,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.story.main_buildsub_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

@@ -165,6 +165,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'totalhours',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

@@ -112,12 +112,12 @@ export default class SubTaskUIServiceBase extends UIService {
      * @memberof  SubTaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('closed',{'ACTIVATION':1,'ASSIGN':0,'CANCEL':0,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('doing',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':0,'EDIT':1,'PAUSE':1,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('done',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':0,'CLOSE':1,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('pause',{'ACTIVATION':0,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':1,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':1,'READ':0,'START':0,'SUBTASKS':1,'UPDATE':0});
-        this.allDeMainStateOPPrivsMap.set('wait',{'ACTIVATION':1,'ASSIGN':1,'CANCEL':1,'CLOSE':0,'COMPLETE':0,'CREATE':0,'DELETE':1,'EDIT':1,'PAUSE':0,'PROCEED':0,'READ':0,'START':1,'SUBTASKS':1,'UPDATE':0});
+        this.allDeMainStateOPPrivsMap.set('cancel',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('pause',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
     }
 
 
@@ -178,15 +178,14 @@ export default class SubTaskUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const isEnableMultiForm:boolean = false;
         const multiFormDEField:string|null =null;
 
-        if (isEnableMultiForm && multiFormDEField) {
+        if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
 			if(!Environment.isAppMode){
-				return 'MOBEDITVIEW'+objFormValue;
+				return 'MOBEDITVIEW:'+objFormValue;
 			}
-			return 'EDITVIEW'+objFormValue;
+			return 'EDITVIEW:'+objFormValue;
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){

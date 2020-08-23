@@ -51,6 +51,23 @@ export class Main3GridBase extends GridControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main3GridBase
+     */
+    protected appDeLogicName: string = '需求';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main3Base
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -191,25 +208,17 @@ export class Main3GridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {StoryUIService}
-     * @memberof Main3Base
-     */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof Main3Base
      */  
     public ActionModel: any = {
-        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CHANGED', target: 'SINGLEKEY'},
-        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: '', target: 'SINGLEKEY'},
-        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSED', target: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
-        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -273,7 +282,7 @@ export class Main3GridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.story.main3_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -281,7 +290,7 @@ export class Main3GridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.story.main3_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -289,7 +298,7 @@ export class Main3GridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.main3_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -297,7 +306,7 @@ export class Main3GridBase extends GridControlBase {
             label: '指派给',
             langtag: 'entities.story.main3_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -305,7 +314,7 @@ export class Main3GridBase extends GridControlBase {
             label: '预计工时',
             langtag: 'entities.story.main3_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -313,7 +322,7 @@ export class Main3GridBase extends GridControlBase {
             label: '当前状态',
             langtag: 'entities.story.main3_grid.columns.status',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -321,7 +330,7 @@ export class Main3GridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.story.main3_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]

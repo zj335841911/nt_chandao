@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.testtaskgetproductbuild" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.testtaskgetproductbuild">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="testtaskgetproductbuilddefault" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
+        </extensionElements>
+     <startEvent id="7FF2BF6E-27EA-4255-AD34-AB1BA4C59298" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testtaskgetproductbuildrawsqlcall1" id="7FD2E770-376E-4D4D-8492-E23F7773DF09" implementation="http://www.jboss.org/drools/rule" name="获取产品"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testtaskgetproductbuildrawsqlcall2" id="7074A09A-265D-4D38-BC2A-7FBBB1449057" implementation="http://www.jboss.org/drools/rule" name="获取版本"/>
+     <endEvent id="7074A09A-265D-4D38-BC2A-7FBBB1449057_End" name="End"/>
+     <sequenceFlow id="7074A09A-265D-4D38-BC2A-7FBBB1449057_End_Line" sourceRef="7074A09A-265D-4D38-BC2A-7FBBB1449057" targetRef="7074A09A-265D-4D38-BC2A-7FBBB1449057_End"/>
+     <sequenceFlow id="BF42CEA5-D3C2-43F5-9798-17F71905962D" sourceRef="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09" targetRef="7074A09A-265D-4D38-BC2A-7FBBB1449057">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $testtaskgetproductbuilddefault:TestTask();
+            eval($testtaskgetproductbuilddefault==testtaskgetproductbuilddefault);
+                eval((RuleUtils.test($testtaskgetproductbuilddefault.get("PRODUCT"),"ISNOTNULL","")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="624794DC-F8C8-40A7-92F4-2AB3382CA24B" sourceRef="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298" targetRef="7FD2E770-376E-4D4D-8492-E23F7773DF09">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $testtaskgetproductbuilddefault:TestTask();
+            eval($testtaskgetproductbuilddefault==testtaskgetproductbuilddefault);
+                eval((RuleUtils.test($testtaskgetproductbuilddefault.get("PROJECT"),"ISNOTNULL","")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+    <exclusiveGateway id="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09" name="Gateway" gatewayDirection="Diverging" default="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09_End_Line"></exclusiveGateway>
+    <sequenceFlow id="BF42CEA5-D3C2-43F5-9798-17F71905962D-gatewayline" sourceRef="7FD2E770-376E-4D4D-8492-E23F7773DF09" targetRef="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09"></sequenceFlow>
+    <sequenceFlow id="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09_End_Line" sourceRef="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09" targetRef="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09_End"/>
+    <endEvent id="gateway-7FD2E770-376E-4D4D-8492-E23F7773DF09_End" name="End"/>
+    <exclusiveGateway id="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298" name="Gateway" gatewayDirection="Diverging" default="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298_End_Line"></exclusiveGateway>
+    <sequenceFlow id="624794DC-F8C8-40A7-92F4-2AB3382CA24B-gatewayline" sourceRef="7FF2BF6E-27EA-4255-AD34-AB1BA4C59298" targetRef="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298"></sequenceFlow>
+    <sequenceFlow id="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298_End_Line" sourceRef="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298" targetRef="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298_End"/>
+    <endEvent id="gateway-7FF2BF6E-27EA-4255-AD34-AB1BA4C59298_End" name="End"/>
+    </process>
+</definitions>
+

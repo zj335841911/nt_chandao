@@ -1,12 +1,9 @@
 export default {
-    ProjectQuickpaketMy: {
-        "All": "我的项目",
-        "empty": ""
-    },
-    Bug__status: {
-        "active": "激活",
-        "resolved": "已解决",
-        "closed": "已关闭",
+    Testresult__result: {
+        "n/a": "忽略",
+        "pass": "通过",
+        "fail": "失败",
+        "blocked": "阻塞",
         "empty": ""
     },
     Story__closed_reason: {
@@ -17,18 +14,6 @@ export default {
         "willnotdo": "不做",
         "cancel": "已取消",
         "bydesign": "设计如此",
-        "empty": ""
-    },
-    RelatedStory: {
-        "empty": "",
-    },
-    Testcase__stage: {
-        "unittest": "单元测试阶段",
-        "feature": "功能测试阶段",
-        "intergrate": "集成测试阶段",
-        "system": "系统测试阶段",
-        "smoke": "冒烟测试阶段",
-        "bvt": "版本验证阶段",
         "empty": ""
     },
     Task__color: {
@@ -42,12 +27,6 @@ export default {
     },
     ProductBranch_Cache: {
         "empty": "",
-    },
-    Casestep__type: {
-        "step": "步骤",
-        "group": "分组",
-        "item": "分组步骤",
-        "empty": ""
     },
     BugQuickpacketMy: {
         "TOME": "指派给我",
@@ -63,16 +42,8 @@ export default {
         "ICLOSE": "由我关闭",
         "empty": ""
     },
-    Product__acl: {
-        "open": "默认设置(有产品视图权限，即可访问)",
-        "private": "私有产品(相关负责人和项目团队成员才能访问)",
-        "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
-        "empty": ""
-    },
-    BugCodeList2: {
-        "All": "所有",
-        "active": "未解决",
-        "empty": ""
+    RealNameProjectM: {
+        "empty": "",
     },
     Project__status: {
         "wait": "未开始",
@@ -80,26 +51,6 @@ export default {
         "suspended": "已挂起",
         "closed": "已关闭",
         "empty": ""
-    },
-    CurProductPlan: {
-        "empty": "",
-    },
-    Task_quickpacket: {
-        "All": "所有",
-        "UNCLOSED": "未关闭",
-        "TOME": "指派给我",
-        "MORE": "更多",
-        "NOTSTARTED": "未开始",
-        "INPROGRESS": "进行中",
-        "UNACCOMPLISHED": "未完成",
-        "IFINISHED": "我完成",
-        "COMPLETED": "已完成",
-        "CLOSED": "已关闭",
-        "CANCELLED": "已取消",
-        "empty": ""
-    },
-    UserRealNameTask: {
-        "empty": "",
     },
     Pri: {
         "1": "一般",
@@ -112,44 +63,8 @@ export default {
         "on": "暂时不设定时间",
         "empty": ""
     },
-    CodeList47: {
-        "1": "1号",
-        "2": "2号",
-        "3": "3号",
-        "4": "4号",
-        "5": "5号",
-        "6": "6号",
-        "7": "7号",
-        "8": "8号",
-        "9": "9号",
-        "10": "10号",
-        "11": "11号",
-        "12": "12号",
-        "13": "13号",
-        "14": "14号",
-        "15": "15号",
-        "16": "16号",
-        "17": "17号",
-        "18": "18号",
-        "19": "19号",
-        "20": "20号",
-        "21": "21号",
-        "22": "22号",
-        "23": "23号",
-        "24": "24号",
-        "25": "25号",
-        "26": "26号",
-        "27": "27号",
-        "28": "28号",
-        "29": "29号",
-        "30": "30号",
-        "31": "31号",
-        "empty": ""
-    },
-    YesNo: {
-        "1": "是",
-        "0": "否",
-        "empty": ""
+    UserRealNameW: {
+        "empty": "未指派",
     },
     Bug__os: {
         "all": "全部",
@@ -181,22 +96,8 @@ export default {
     ProductBranch: {
         "empty": "",
     },
-    TypeAll: {
-        "custom": "自定义",
-        "bug": "Bug",
-        "task": "项目任务",
-        "story": "项目需求",
-        "cycle": "周期",
-        "empty": ""
-    },
     CurProductBuild: {
         "empty": "",
-    },
-    Product__type: {
-        "normal": "正常",
-        "branch": "多分支",
-        "platform": "多平台",
-        "empty": ""
     },
     Bug__severity: {
         "1": "1",
@@ -254,24 +155,6 @@ export default {
         "1": "1",
         "empty": ""
     },
-    Module__type: {
-        "line": "产品线",
-        "story": "需求",
-        "task": "任务",
-        "doc": "文档目录",
-        "case": "测试用例",
-        "bug": "Bug",
-        "empty": ""
-    },
-    Task__status: {
-        "wait": "未开始",
-        "doing": "进行中",
-        "done": "已完成",
-        "pause": "已暂停",
-        "cancel": "已取消",
-        "closed": "已关闭",
-        "empty": ""
-    },
     Story__review_result: {
         "pass": "确认通过",
         "revert": "撤销变更",
@@ -279,53 +162,19 @@ export default {
         "reject": "拒绝",
         "empty": ""
     },
-    CaseQuickpacketMy: {
-        "TOME": "给我的用例",
-        "ICREATE": "我建的用例",
-        "empty": ""
-    },
-    YesNo2: {
-        "1": "是",
-        "0": "否",
-        "empty": ""
-    },
     BugModule: {
         "empty": "",
     },
-    CodeList46: {
-        "2": "星期一",
-        "3": "星期二",
-        "4": "星期三",
-        "5": "星期四",
-        "6": "星期五",
-        "7": "星期六",
-        "1": "星期日",
+    CaseQuickpachet: {
+        "ALL": "所有",
+        "TOME": "需求变动",
         "empty": ""
     },
     Role: {
         "empty": "",
     },
-    TestTask: {
-        "empty": "",
-    },
     Date_disable: {
         "on": "待定",
-        "empty": ""
-    },
-    Product__status: {
-        "normal": "正常",
-        "closed": "结束",
-        "empty": ""
-    },
-    Task__type: {
-        "design": "设计",
-        "devel": "开发",
-        "test": "测试",
-        "study": "研究",
-        "discuss": "讨论",
-        "ui": "界面",
-        "affair": "事务",
-        "misc": "其他",
         "empty": ""
     },
     Testtask__pri: {
@@ -342,25 +191,8 @@ export default {
         "4": "4",
         "empty": ""
     },
-    ProjectProductPlan: {
-        "empty": "",
-    },
-    TestQuickpacket: {
-        "ALL": "全部",
-        "ICREATE": "待测测试单",
-        "IREVIEW": "测试中测试单",
-        "ICLOSE": "被阻塞测试单",
-        "Tested": "已测测试单",
-        "empty": ""
-    },
     BugUserRealName: {
         "empty": "",
-    },
-    Project__acl: {
-        "open": "默认设置(有项目视图权限，即可访问)",
-        "private": "私有项目(只有项目团队成员才能访问)",
-        "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
-        "empty": ""
     },
     BeginendDropList: {
         "0600": "06:00",
@@ -473,6 +305,347 @@ export default {
         "2350": "23:50",
         "empty": ""
     },
+    Zt__productplan: {
+        "All": "所有",
+        "UNEXPIRED": "未过期",
+        "ISEXPIRED": "已过期",
+        "empty": ""
+    },
+    TestCaseStatusGrid: {
+        "wait": "未开始",
+        "normal": "正常",
+        "blocked": "被阻塞",
+        "investigate": "研究中",
+        "done": "已完成",
+        "storychange": "需求变更",
+        "casechange": "原用例更新",
+        "empty": ""
+    },
+    CurCaseVersion: {
+        "empty": "",
+    },
+    Action__object_type: {
+        "product": "产品",
+        "story": "需求",
+        "productplan": "计划",
+        "release": "发布",
+        "project": "项目",
+        "task": "任务",
+        "build": "版本",
+        "bug": "Bug",
+        "case": "用例",
+        "caseresult": "用例结果",
+        "stepresult": "用例步骤",
+        "testtask": "测试单",
+        "user": "用户",
+        "doc": "文档",
+        "doclib": "文档库",
+        "todo": "待办",
+        "branch": "分支",
+        "module": "模块",
+        "testsuite": "套件",
+        "caselib": "用例库",
+        "testreport": "报告",
+        "entry": "应用",
+        "webhook": "Webhook",
+        "empty": ""
+    },
+    ProductPlan: {
+        "empty": "",
+    },
+    Task__pri: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "empty": ""
+    },
+    Release__status: {
+        "normal": "正常",
+        "terminate": "停止维护",
+        "empty": ""
+    },
+    Type: {
+        "custom": "自定义",
+        "bug": "Bug",
+        "task": "项目任务",
+        "story": "项目需求",
+        "empty": ""
+    },
+    TodoQuickpacketMy: {
+        "All": "所有待办",
+        "thisyear": "本年度",
+        "Unfinished": "未完",
+        "BYME": "待定",
+        "cycle": "周期",
+        "empty": ""
+    },
+    TASK_QuickacketMy: {
+        "TOME": "指派给我",
+        "CANCELLED": "由我创建",
+        "IFINISHED": "由我完成",
+        "COMPLETED": "由我关闭",
+        "CLOSED": "由我取消",
+        "empty": ""
+    },
+    UserRealNameProject: {
+        "empty": "",
+    },
+    Story__stage: {
+        "wait": "未开始",
+        "planned": "已计划",
+        "projected": "已立项",
+        "developing": "研发中",
+        "developed": "研发完毕",
+        "testing": "测试中",
+        "tested": "测试完毕",
+        "verified": "已验收",
+        "released": "已发布",
+        "closed": "已关闭",
+        "empty": ""
+    },
+    StoryStageKane: {
+        "projected": "已立项",
+        "developing": "研发中",
+        "developed": "研发完毕",
+        "testing": "测试中",
+        "tested": "测试完毕",
+        "verified": "已验收",
+        "released": "已发布",
+        "empty": ""
+    },
+    UserRealNameTaskTeam: {
+        "empty": "",
+    },
+    Bug__pri: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "empty": ""
+    },
+    ProjectQuickpaketMy: {
+        "All": "我的项目",
+        "empty": ""
+    },
+    Bug__status: {
+        "active": "激活",
+        "resolved": "已解决",
+        "closed": "已关闭",
+        "empty": ""
+    },
+    Testsuite__type: {
+        "library": "用例库",
+        "private": "私有",
+        "public": "公开",
+        "empty": ""
+    },
+    RelatedStory: {
+        "empty": "",
+    },
+    Realease_sort: {
+        "all": "所有",
+        "normal": "正常",
+        "terminate": "停止维护",
+        "empty": ""
+    },
+    Testcase__stage: {
+        "unittest": "单元测试阶段",
+        "feature": "功能测试阶段",
+        "intergrate": "集成测试阶段",
+        "system": "系统测试阶段",
+        "smoke": "冒烟测试阶段",
+        "bvt": "版本验证阶段",
+        "empty": ""
+    },
+    Casestep__type: {
+        "step": "步骤",
+        "group": "分组",
+        "item": "分组步骤",
+        "empty": ""
+    },
+    Product__acl: {
+        "open": "默认设置(有产品视图权限，即可访问)",
+        "private": "私有产品(相关负责人和项目团队成员才能访问)",
+        "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
+        "empty": ""
+    },
+    BugCodeList2: {
+        "All": "所有",
+        "active": "未解决",
+        "empty": ""
+    },
+    CurProductPlan: {
+        "empty": "",
+    },
+    Task_quickpacket: {
+        "All": "所有",
+        "UNCLOSED": "未关闭",
+        "TOME": "指派给我",
+        "MORE": "更多",
+        "NOTSTARTED": "未开始",
+        "INPROGRESS": "进行中",
+        "UNACCOMPLISHED": "未完成",
+        "IFINISHED": "我完成",
+        "COMPLETED": "已完成",
+        "CLOSED": "已关闭",
+        "CANCELLED": "已取消",
+        "empty": ""
+    },
+    ActionManner: {
+        "story_closed_willnotdo": "不做",
+        "story_closed_cancel": "已取消",
+        "story_closed_done": "已完成",
+        "story_closed_subdivided": "已细分",
+        "story_closed_postponed": "延期",
+        "story_closed_bydesign": "设计如此",
+        "story_closed_duplicate": "重复",
+        "bug_resolved_willnotfix": "不予解决",
+        "bug_resolved_external": "外部原因",
+        "bug_resolved_fixed": "已解决",
+        "bug_resolved_postponed": "延期处理",
+        "bug_resolved_notrepro": "无法重现",
+        "bug_resolved_bydesign": "设计如此",
+        "bug_resolved_tostory": "转为需求",
+        "bug_resolved_duplicate": "重复Bug",
+        "story_reviewed_reject": "拒绝",
+        "story_reviewed_revert": "撤销变更",
+        "story_reviewed_clarify": "有待明确",
+        "story_reviewed_pass": "确认通过",
+        " release_changestatus_terminate": "停止维护",
+        " release_changestatus_normal": "正常",
+        "empty": ""
+    },
+    UserRealNameTask: {
+        "empty": "",
+    },
+    CodeList47: {
+        "1": "1号",
+        "2": "2号",
+        "3": "3号",
+        "4": "4号",
+        "5": "5号",
+        "6": "6号",
+        "7": "7号",
+        "8": "8号",
+        "9": "9号",
+        "10": "10号",
+        "11": "11号",
+        "12": "12号",
+        "13": "13号",
+        "14": "14号",
+        "15": "15号",
+        "16": "16号",
+        "17": "17号",
+        "18": "18号",
+        "19": "19号",
+        "20": "20号",
+        "21": "21号",
+        "22": "22号",
+        "23": "23号",
+        "24": "24号",
+        "25": "25号",
+        "26": "26号",
+        "27": "27号",
+        "28": "28号",
+        "29": "29号",
+        "30": "30号",
+        "31": "31号",
+        "empty": ""
+    },
+    YesNo: {
+        "1": "是",
+        "0": "否",
+        "empty": ""
+    },
+    TypeAll: {
+        "custom": "自定义",
+        "bug": "Bug",
+        "task": "项目任务",
+        "story": "项目需求",
+        "cycle": "周期",
+        "empty": ""
+    },
+    Product__type: {
+        "normal": "正常",
+        "branch": "多分支",
+        "platform": "多平台",
+        "empty": ""
+    },
+    Module__type: {
+        "line": "产品线",
+        "story": "需求",
+        "task": "任务",
+        "doc": "文档目录",
+        "case": "测试用例",
+        "bug": "Bug",
+        "empty": ""
+    },
+    Task__status: {
+        "wait": "未开始",
+        "doing": "进行中",
+        "done": "已完成",
+        "pause": "已暂停",
+        "cancel": "已取消",
+        "closed": "已关闭",
+        "empty": ""
+    },
+    CaseQuickpacketMy: {
+        "TOME": "给我的用例",
+        "ICREATE": "我建的用例",
+        "empty": ""
+    },
+    YesNo2: {
+        "1": "是",
+        "0": "否",
+        "empty": ""
+    },
+    CodeList46: {
+        "2": "星期一",
+        "3": "星期二",
+        "4": "星期三",
+        "5": "星期四",
+        "6": "星期五",
+        "7": "星期六",
+        "1": "星期日",
+        "empty": ""
+    },
+    TestTask: {
+        "empty": "",
+    },
+    Product__status: {
+        "normal": "正常",
+        "closed": "结束",
+        "empty": ""
+    },
+    Task__type: {
+        "design": "设计",
+        "devel": "开发",
+        "test": "测试",
+        "study": "研究",
+        "discuss": "讨论",
+        "ui": "界面",
+        "affair": "事务",
+        "misc": "其他",
+        "empty": ""
+    },
+    ProjectProductPlan: {
+        "empty": "",
+    },
+    TestQuickpacket: {
+        "ALL": "全部",
+        "ICREATE": "待测测试单",
+        "IREVIEW": "测试中测试单",
+        "ICLOSE": "被阻塞测试单",
+        "Tested": "已测测试单",
+        "empty": ""
+    },
+    Project__acl: {
+        "open": "默认设置(有项目视图权限，即可访问)",
+        "private": "私有项目(只有项目团队成员才能访问)",
+        "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
+        "empty": ""
+    },
     Bug__type: {
         "codeerror": "代码错误",
         "config": "配置相关",
@@ -582,60 +755,20 @@ export default {
         "deletechildrenstory": "删除子需求",
         "empty": ""
     },
-    CurCaseVersion: {
-        "empty": "",
-    },
     User__gender: {
         "f": "女",
         "m": "男",
         "empty": ""
     },
-    Action__object_type: {
-        "product": "产品",
-        "story": "需求",
-        "productplan": "计划",
-        "release": "发布",
-        "project": "项目",
-        "task": "任务",
-        "build": "版本",
-        "bug": "Bug",
-        "case": "用例",
-        "caseresult": "用例结果",
-        "stepresult": "用例步骤",
-        "testtask": "测试单",
-        "user": "用户",
-        "doc": "文档",
-        "doclib": "文档库",
-        "todo": "待办",
-        "branch": "分支",
-        "module": "模块",
-        "testsuite": "套件",
-        "caselib": "用例库",
-        "testreport": "报告",
-        "entry": "应用",
-        "webhook": "Webhook",
+    CaseTestTaskQuickpachet: {
+        "ALL": "所有用例",
+        "TOME": "指派给我",
         "empty": ""
     },
-    ProductPlan: {
-        "empty": "",
-    },
-    Task__pri: {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "empty": ""
-    },
-    Release__status: {
-        "normal": "正常",
-        "terminate": "停止维护",
-        "empty": ""
-    },
-    Type: {
-        "custom": "自定义",
-        "bug": "Bug",
-        "task": "项目任务",
-        "story": "项目需求",
+    ProductQuickpacket: {
+        "All": "所有",
+        "normal": "未关闭",
+        "closed": "已关闭",
         "empty": ""
     },
     Bug__quickpacket: {
@@ -657,24 +790,12 @@ export default {
         "cancel": "已取消",
         "empty": ""
     },
-    TodoQuickpacketMy: {
-        "All": "所有待办",
-        "thisyear": "本年度",
-        "Unfinished": "未完",
-        "BYME": "待定",
-        "cycle": "周期",
+    Testrun__status: {
+        "wait": "未开始",
+        "doing": "进行中",
+        "done": "已完成",
+        "blocked": "被阻塞",
         "empty": ""
-    },
-    TASK_QuickacketMy: {
-        "TOME": "指派给我",
-        "CANCELLED": "由我创建",
-        "IFINISHED": "由我完成",
-        "COMPLETED": "由我关闭",
-        "CLOSED": "由我取消",
-        "empty": ""
-    },
-    UserRealNameProject: {
-        "empty": "",
     },
     Private_choose: {
         "1": "是",
@@ -719,25 +840,19 @@ export default {
         "month": "月度",
         "empty": ""
     },
-    Story__stage: {
-        "wait": "未开始",
-        "planned": "已计划",
-        "projected": "已立项",
-        "developing": "研发中",
-        "developed": "研发完毕",
-        "testing": "测试中",
-        "tested": "测试完毕",
-        "verified": "已验收",
-        "released": "已发布",
-        "closed": "已关闭",
-        "empty": ""
-    },
     CurStory: {
         "empty": "",
     },
     Company__guest: {
         "1": "允许",
         "0": "不允许",
+        "empty": ""
+    },
+    Testrun__result: {
+        "n/a": "忽略",
+        "pass": "通过",
+        "fail": "失败",
+        "blocked": "阻塞",
         "empty": ""
     },
     YesNo3: {
@@ -769,14 +884,13 @@ export default {
         "4": "4",
         "empty": ""
     },
-    StoryStageKane: {
-        "projected": "已立项",
-        "developing": "研发中",
-        "developed": "研发完毕",
-        "testing": "测试中",
-        "tested": "测试完毕",
-        "verified": "已验收",
-        "released": "已发布",
+    ProjectQuickpacket: {
+        "All": "所有",
+        "nowait": "未完成",
+        "wait": "未开始",
+        "doing": "进行中",
+        "suspended": "已挂起",
+        "closed": "已关闭",
         "empty": ""
     },
     Testcase__result: {
@@ -784,17 +898,7 @@ export default {
         "pass": "通过",
         "fail": "失败",
         "blocked": "阻塞",
-        "empty": ""
-    },
-    UserRealNameTaskTeam: {
-        "empty": "",
-    },
-    Bug__pri: {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "empty": ""
+        "empty": "未执行"
     },
     Bug__resolution: {
         "bydesign": "设计如此",

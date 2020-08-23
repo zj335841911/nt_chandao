@@ -51,6 +51,23 @@ export class MyWorkPortletBase extends MainControlBase {
     protected appDeName: string = 'ibzmyterritory';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyWorkPortletBase
+     */
+    protected appDeLogicName: string = '我的地盘';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof MyWorkBase
+     */  
+    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
+    /**
      * 长度
      *
      * @type {number}

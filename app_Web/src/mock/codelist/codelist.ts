@@ -8,57 +8,51 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
-        srfkey: "ProjectQuickpaketMy",
+        srfkey: "Testresult__result",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "All",
-                label: "我的项目",
-                text: "我的项目",
-                "data":{"n_account_eq":"%srfloginname%"},
-                "codename":"All",
-                value: "All",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "Bug__status",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "active",
-                label: "激活",
-                text: "激活",
+                id: "n/a",
+                label: "忽略",
+                text: "忽略",
                 "data":"",
-                "codename":"Active",
-                "color": "rgba(0, 157, 255, 1)",
-                value: "active",
+                "codename":"N_a",
+                "color": "rgba(27, 97, 247, 1)",
+                value: "n/a",
                 
                 disabled: false,
             },
             {
-                id: "resolved",
-                label: "已解决",
-                text: "已解决",
+                id: "pass",
+                label: "通过",
+                text: "通过",
                 "data":"",
-                "codename":"Resolved",
-                "color": "rgba(1, 217, 19, 1)",
-                value: "resolved",
+                "codename":"Pass",
+                "color": "rgba(101, 214, 15, 1)",
+                value: "pass",
                 
                 disabled: false,
             },
             {
-                id: "closed",
-                label: "已关闭",
-                text: "已关闭",
+                id: "fail",
+                label: "失败",
+                text: "失败",
                 "data":"",
-                "codename":"Closed",
-                "color": "rgba(151, 152, 141, 1)",
-                value: "closed",
+                "codename":"Fail",
+                "color": "rgba(244, 12, 12, 1)",
+                value: "fail",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "阻塞",
+                text: "阻塞",
+                "data":"",
+                "codename":"Blocked",
+                "color": "rgba(234, 187, 17, 1)",
+                value: "blocked",
                 
                 disabled: false,
             },
@@ -136,81 +130,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Bydesign",
                 value: "bydesign",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "RelatedStory",
-        "emptytext": "",
-        "codelisttype":"dynamic",
-        "appdataentity":"Story",
-        "appdedataset":"FetchDefault",
-        "items": []
-    },
-    {
-        srfkey: "Testcase__stage",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "unittest",
-                label: "单元测试阶段",
-                text: "单元测试阶段",
-                "data":"",
-                "codename":"Unittest",
-                value: "unittest",
-                
-                disabled: false,
-            },
-            {
-                id: "feature",
-                label: "功能测试阶段",
-                text: "功能测试阶段",
-                "data":"",
-                "codename":"Feature",
-                value: "feature",
-                
-                disabled: false,
-            },
-            {
-                id: "intergrate",
-                label: "集成测试阶段",
-                text: "集成测试阶段",
-                "data":"",
-                "codename":"Intergrate",
-                value: "intergrate",
-                
-                disabled: false,
-            },
-            {
-                id: "system",
-                label: "系统测试阶段",
-                text: "系统测试阶段",
-                "data":"",
-                "codename":"System",
-                value: "system",
-                
-                disabled: false,
-            },
-            {
-                id: "smoke",
-                label: "冒烟测试阶段",
-                text: "冒烟测试阶段",
-                "data":"",
-                "codename":"Smoke",
-                value: "smoke",
-                
-                disabled: false,
-            },
-            {
-                id: "bvt",
-                label: "版本验证阶段",
-                text: "版本验证阶段",
-                "data":"",
-                "codename":"Bvt",
-                value: "bvt",
                 
                 disabled: false,
             },
@@ -296,43 +215,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"Branch",
         "appdedataset":"FetchCurProduct",
         "items": []
-    },
-    {
-        srfkey: "Casestep__type",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "step",
-                label: "步骤",
-                text: "步骤",
-                "data":"",
-                "codename":"Step",
-                value: "step",
-                
-                disabled: false,
-            },
-            {
-                id: "group",
-                label: "分组",
-                text: "分组",
-                "data":"",
-                "codename":"Group",
-                value: "group",
-                
-                disabled: false,
-            },
-            {
-                id: "item",
-                label: "分组步骤",
-                text: "分组步骤",
-                "data":"",
-                "codename":"Item",
-                value: "item",
-                
-                disabled: false,
-            },
-        ]
     },
     {
         srfkey: "BugQuickpacketMy",
@@ -429,68 +311,12 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "Product__acl",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "open",
-                label: "默认设置(有产品视图权限，即可访问)",
-                text: "默认设置(有产品视图权限，即可访问)",
-                "data":"",
-                "codename":"Open",
-                value: "open",
-                
-                disabled: false,
-            },
-            {
-                id: "private",
-                label: "私有产品(相关负责人和项目团队成员才能访问)",
-                text: "私有产品(相关负责人和项目团队成员才能访问)",
-                "data":"",
-                "codename":"Private",
-                value: "private",
-                
-                disabled: false,
-            },
-            {
-                id: "custom",
-                label: "自定义白名单(团队成员和白名单的成员可以访问)",
-                text: "自定义白名单(团队成员和白名单的成员可以访问)",
-                "data":"",
-                "codename":"Custom",
-                value: "custom",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "BugCodeList2",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "All",
-                label: "所有",
-                text: "所有",
-                "data":{},
-                "codename":"All",
-                value: "All",
-                
-                disabled: false,
-            },
-            {
-                id: "active",
-                label: "未解决",
-                text: "未解决",
-                "data":{"n_status_eq":"active"},
-                "codename":"Active",
-                value: "active",
-                
-                disabled: false,
-            },
-        ]
+        "srfkey": "RealNameProjectM",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamM",
+        "items": []
     },
     {
         srfkey: "Project__status",
@@ -540,139 +366,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        "srfkey": "CurProductPlan",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"ProductPlan",
-        "appdedataset":"FetchDefault",
-        "items": []
-    },
-    {
-        srfkey: "Task_quickpacket",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "All",
-                label: "所有",
-                text: "所有",
-                "data":{},
-                "codename":"All",
-                value: "All",
-                
-                disabled: false,
-            },
-            {
-                id: "UNCLOSED",
-                label: "未关闭",
-                text: "未关闭",
-                "data":{"n_status_noteq":"closed"},
-                "codename":"Unclosed",
-                value: "UNCLOSED",
-                
-                disabled: false,
-            },
-            {
-                id: "TOME",
-                label: "指派给我",
-                text: "指派给我",
-                "data":{"n_assignedto_eq":"%srfloginname%"},
-                "codename":"Tome",
-                value: "TOME",
-                
-                disabled: false,
-            },
-            {
-                id: "MORE",
-                label: "更多",
-                text: "更多",
-                "data":"",
-                "codename":"More",
-                value: "MORE",
-                
-                disabled: false,
-            },
-            {
-                id: "NOTSTARTED",
-                label: "未开始",
-                text: "未开始",
-                "data":{"n_status_eq":"wait"},
-                "codename":"Notstarted",
-                value: "NOTSTARTED",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: "INPROGRESS",
-                label: "进行中",
-                text: "进行中",
-                "data":{"n_status_eq":"doing"},
-                "codename":"Inprogress",
-                value: "INPROGRESS",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: "UNACCOMPLISHED",
-                label: "未完成",
-                text: "未完成",
-                "data":{"n_status_noteq":"done"},
-                "codename":"Unaccomplished",
-                value: "UNACCOMPLISHED",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: "IFINISHED",
-                label: "我完成",
-                text: "我完成",
-                "data":{"n_finishedby_eq":"%srfloginname%"},
-                "codename":"Ifinished",
-                value: "IFINISHED",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: "COMPLETED",
-                label: "已完成",
-                text: "已完成",
-                "data":{"n_status_eq":"done"},
-                "codename":"Completed",
-                value: "COMPLETED",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: "CLOSED",
-                label: "已关闭",
-                text: "已关闭",
-                "data":{"n_status_eq":"closed"},
-                "codename":"Closed",
-                value: "CLOSED",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: "CANCELLED",
-                label: "已取消",
-                text: "已取消",
-                "data":{"n_status_eq":"cancel"},
-                "codename":"Cancelled",
-                value: "CANCELLED",
-                "pvalue": "MORE",
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "UserRealNameTask",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser_Task",
-        "items": []
-    },
-    {
         srfkey: "Pri",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -683,8 +376,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "一般",
                 "data":"",
                 "codename":"Item_1",
-                "color": "rgba(25, 65, 152, 1)",
-                value: "1",
+                value: 1,
                 
                 disabled: false,
             },
@@ -694,8 +386,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "最高",
                 "data":"",
                 "codename":"Item_2",
-                "color": "rgba(247, 5, 5, 1)",
-                value: "2",
+                value: 2,
                 
                 disabled: false,
             },
@@ -705,8 +396,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "较高",
                 "data":"",
                 "codename":"Item_3",
-                "color": "rgba(255, 0, 43, 0.68)",
-                value: "3",
+                value: 3,
                 
                 disabled: false,
             },
@@ -716,8 +406,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "最低",
                 "data":"",
                 "codename":"Item_4",
-                "color": "rgba(41, 137, 46, 1)",
-                value: "4",
+                value: 4,
                 
                 disabled: false,
             },
@@ -741,348 +430,12 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "CodeList47",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "1",
-                label: "1号",
-                text: "1号",
-                "data":"",
-                "codename":"Item_1",
-                value: "1",
-                
-                disabled: false,
-            },
-            {
-                id: "2",
-                label: "2号",
-                text: "2号",
-                "data":"",
-                "codename":"Item_2",
-                value: "2",
-                
-                disabled: false,
-            },
-            {
-                id: "3",
-                label: "3号",
-                text: "3号",
-                "data":"",
-                "codename":"Item_3",
-                value: "3",
-                
-                disabled: false,
-            },
-            {
-                id: "4",
-                label: "4号",
-                text: "4号",
-                "data":"",
-                "codename":"Item_4",
-                value: "4",
-                
-                disabled: false,
-            },
-            {
-                id: "5",
-                label: "5号",
-                text: "5号",
-                "data":"",
-                "codename":"Item_5",
-                value: "5",
-                
-                disabled: false,
-            },
-            {
-                id: "6",
-                label: "6号",
-                text: "6号",
-                "data":"",
-                "codename":"Item_6",
-                value: "6",
-                
-                disabled: false,
-            },
-            {
-                id: "7",
-                label: "7号",
-                text: "7号",
-                "data":"",
-                "codename":"Item_7",
-                value: "7",
-                
-                disabled: false,
-            },
-            {
-                id: "8",
-                label: "8号",
-                text: "8号",
-                "data":"",
-                "codename":"Item_8",
-                value: "8",
-                
-                disabled: false,
-            },
-            {
-                id: "9",
-                label: "9号",
-                text: "9号",
-                "data":"",
-                "codename":"Item_9",
-                value: "9",
-                
-                disabled: false,
-            },
-            {
-                id: "10",
-                label: "10号",
-                text: "10号",
-                "data":"",
-                "codename":"Item_10",
-                value: "10",
-                
-                disabled: false,
-            },
-            {
-                id: "11",
-                label: "11号",
-                text: "11号",
-                "data":"",
-                "codename":"Item_11",
-                value: "11",
-                
-                disabled: false,
-            },
-            {
-                id: "12",
-                label: "12号",
-                text: "12号",
-                "data":"",
-                "codename":"Item_12",
-                value: "12",
-                
-                disabled: false,
-            },
-            {
-                id: "13",
-                label: "13号",
-                text: "13号",
-                "data":"",
-                "codename":"Item_13",
-                value: "13",
-                
-                disabled: false,
-            },
-            {
-                id: "14",
-                label: "14号",
-                text: "14号",
-                "data":"",
-                "codename":"Item_14",
-                value: "14",
-                
-                disabled: false,
-            },
-            {
-                id: "15",
-                label: "15号",
-                text: "15号",
-                "data":"",
-                "codename":"Item_15",
-                value: "15",
-                
-                disabled: false,
-            },
-            {
-                id: "16",
-                label: "16号",
-                text: "16号",
-                "data":"",
-                "codename":"Item_16",
-                value: "16",
-                
-                disabled: false,
-            },
-            {
-                id: "17",
-                label: "17号",
-                text: "17号",
-                "data":"",
-                "codename":"Item_17",
-                value: "17",
-                
-                disabled: false,
-            },
-            {
-                id: "18",
-                label: "18号",
-                text: "18号",
-                "data":"",
-                "codename":"Item_18",
-                value: "18",
-                
-                disabled: false,
-            },
-            {
-                id: "19",
-                label: "19号",
-                text: "19号",
-                "data":"",
-                "codename":"Item_19",
-                value: "19",
-                
-                disabled: false,
-            },
-            {
-                id: "20",
-                label: "20号",
-                text: "20号",
-                "data":"",
-                "codename":"Item_20",
-                value: "20",
-                
-                disabled: false,
-            },
-            {
-                id: "21",
-                label: "21号",
-                text: "21号",
-                "data":"",
-                "codename":"Item_21",
-                value: "21",
-                
-                disabled: false,
-            },
-            {
-                id: "22",
-                label: "22号",
-                text: "22号",
-                "data":"",
-                "codename":"Item_22",
-                value: "22",
-                
-                disabled: false,
-            },
-            {
-                id: "23",
-                label: "23号",
-                text: "23号",
-                "data":"",
-                "codename":"Item_23",
-                value: "23",
-                
-                disabled: false,
-            },
-            {
-                id: "24",
-                label: "24号",
-                text: "24号",
-                "data":"",
-                "codename":"Item_24",
-                value: "24",
-                
-                disabled: false,
-            },
-            {
-                id: "25",
-                label: "25号",
-                text: "25号",
-                "data":"",
-                "codename":"Item_25",
-                value: "25",
-                
-                disabled: false,
-            },
-            {
-                id: "26",
-                label: "26号",
-                text: "26号",
-                "data":"",
-                "codename":"Item_26",
-                value: "26",
-                
-                disabled: false,
-            },
-            {
-                id: "27",
-                label: "27号",
-                text: "27号",
-                "data":"",
-                "codename":"Item_27",
-                value: "27",
-                
-                disabled: false,
-            },
-            {
-                id: "28",
-                label: "28号",
-                text: "28号",
-                "data":"",
-                "codename":"Item_28",
-                value: "28",
-                
-                disabled: false,
-            },
-            {
-                id: "29",
-                label: "29号",
-                text: "29号",
-                "data":"",
-                "codename":"Item_29",
-                value: "29",
-                
-                disabled: false,
-            },
-            {
-                id: "30",
-                label: "30号",
-                text: "30号",
-                "data":"",
-                "codename":"Item_30",
-                value: "30",
-                
-                disabled: false,
-            },
-            {
-                id: "31",
-                label: "31号",
-                text: "31号",
-                "data":"",
-                "codename":"Item_31",
-                value: "31",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "YesNo",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "1",
-                label: "是",
-                text: "是",
-                "data":"",
-                "codename":"Item_1",
-                value: "1",
-                
-                disabled: false,
-            },
-            {
-                id: "0",
-                label: "否",
-                text: "否",
-                "data":"",
-                "codename":"Item_0",
-                value: "0",
-                
-                disabled: false,
-            },
-        ]
+        "srfkey": "UserRealNameW",
+        "emptytext": "未指派",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         srfkey: "Bug__os",
@@ -1318,107 +671,12 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
-        srfkey: "TypeAll",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "custom",
-                label: "自定义",
-                text: "自定义",
-                "data":"",
-                "codename":"Custom",
-                value: "custom",
-                
-                disabled: false,
-            },
-            {
-                id: "bug",
-                label: "Bug",
-                text: "Bug",
-                "data":"",
-                "codename":"Bug",
-                value: "bug",
-                
-                disabled: false,
-            },
-            {
-                id: "task",
-                label: "项目任务",
-                text: "项目任务",
-                "data":"",
-                "codename":"Task",
-                value: "task",
-                
-                disabled: false,
-            },
-            {
-                id: "story",
-                label: "项目需求",
-                text: "项目需求",
-                "data":"",
-                "codename":"Story",
-                value: "story",
-                
-                disabled: false,
-            },
-            {
-                id: "cycle",
-                label: "周期",
-                text: "周期",
-                "data":"",
-                "codename":"Cycle",
-                value: "cycle",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         "srfkey": "CurProductBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Build",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchBugProductBuild",
         "items": []
-    },
-    {
-        srfkey: "Product__type",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "normal",
-                label: "正常",
-                text: "正常",
-                "data":"",
-                "codename":"Normal",
-                "color": "blue",
-                value: "normal",
-                
-                disabled: false,
-            },
-            {
-                id: "branch",
-                label: "多分支",
-                text: "多分支",
-                "data":"",
-                "codename":"Branch",
-                value: "branch",
-                
-                disabled: false,
-            },
-            {
-                id: "platform",
-                label: "多平台",
-                text: "多平台",
-                "data":"",
-                "codename":"Platform",
-                value: "platform",
-                
-                disabled: false,
-            },
-        ]
     },
     {
         srfkey: "Bug__severity",
@@ -1848,146 +1106,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "Module__type",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "line",
-                label: "产品线",
-                text: "产品线",
-                "data":"",
-                "codename":"Line",
-                value: "line",
-                
-                disabled: false,
-            },
-            {
-                id: "story",
-                label: "需求",
-                text: "需求",
-                "data":"",
-                "codename":"Story",
-                value: "story",
-                
-                disabled: false,
-            },
-            {
-                id: "task",
-                label: "任务",
-                text: "任务",
-                "data":"",
-                "codename":"Task",
-                value: "task",
-                
-                disabled: false,
-            },
-            {
-                id: "doc",
-                label: "文档目录",
-                text: "文档目录",
-                "data":"",
-                "codename":"Doc",
-                value: "doc",
-                
-                disabled: false,
-            },
-            {
-                id: "case",
-                label: "测试用例",
-                text: "测试用例",
-                "data":"",
-                "codename":"Case",
-                value: "case",
-                
-                disabled: false,
-            },
-            {
-                id: "bug",
-                label: "Bug",
-                text: "Bug",
-                "data":"",
-                "codename":"Bug",
-                value: "bug",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "Task__status",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "wait",
-                label: "未开始",
-                text: "未开始",
-                "data":"",
-                "codename":"Wait",
-                "color": "rgba(131, 138, 157, 1)",
-                value: "wait",
-                
-                disabled: false,
-            },
-            {
-                id: "doing",
-                label: "进行中",
-                text: "进行中",
-                "data":"",
-                "codename":"Doing",
-                "color": "rgba(255, 93, 93, 1)",
-                value: "doing",
-                
-                disabled: false,
-            },
-            {
-                id: "done",
-                label: "已完成",
-                text: "已完成",
-                "data":"",
-                "codename":"Done",
-                "color": "rgba(67, 160, 71, 1)",
-                value: "done",
-                
-                disabled: false,
-            },
-            {
-                id: "pause",
-                label: "已暂停",
-                text: "已暂停",
-                "data":"",
-                "codename":"Pause",
-                "color": "rgba(255, 152, 0, 1)",
-                value: "pause",
-                
-                disabled: false,
-            },
-            {
-                id: "cancel",
-                label: "已取消",
-                text: "已取消",
-                "data":"",
-                "codename":"Cancel",
-                "color": "rgba(131, 138, 157, 1)",
-                value: "cancel",
-                
-                disabled: false,
-            },
-            {
-                id: "closed",
-                label: "已关闭",
-                text: "已关闭",
-                "data":"",
-                "codename":"Closed",
-                "color": "rgba(131, 138, 157, 1)",
-                value: "closed",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: "Story__review_result",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -2036,60 +1154,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "CaseQuickpacketMy",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "TOME",
-                label: "给我的用例",
-                text: "给我的用例",
-                "data":{"n_lastrunner_eq":"%srfloginname%"},
-                "codename":"Tome",
-                value: "TOME",
-                
-                disabled: false,
-            },
-            {
-                id: "ICREATE",
-                label: "我建的用例",
-                text: "我建的用例",
-                "data":{"n_openedby_eq":"%srfloginname%"},
-                "codename":"Icreate",
-                value: "ICREATE",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "YesNo2",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "1",
-                label: "是",
-                text: "是",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
-                
-                disabled: false,
-            },
-            {
-                id: "0",
-                label: "否",
-                text: "否",
-                "data":"",
-                "codename":"Item_0",
-                value: 0,
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         "srfkey": "BugModule",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -2098,77 +1162,27 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
-        srfkey: "CodeList46",
+        srfkey: "CaseQuickpachet",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "2",
-                label: "星期一",
-                text: "星期一",
-                "data":"",
-                "codename":"Item_2",
-                value: "2",
+                id: "ALL",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
                 
                 disabled: false,
             },
             {
-                id: "3",
-                label: "星期二",
-                text: "星期二",
-                "data":"",
-                "codename":"Item_3",
-                value: "3",
-                
-                disabled: false,
-            },
-            {
-                id: "4",
-                label: "星期三",
-                text: "星期三",
-                "data":"",
-                "codename":"Item_4",
-                value: "4",
-                
-                disabled: false,
-            },
-            {
-                id: "5",
-                label: "星期四",
-                text: "星期四",
-                "data":"",
-                "codename":"Item_5",
-                value: "5",
-                
-                disabled: false,
-            },
-            {
-                id: "6",
-                label: "星期五",
-                text: "星期五",
-                "data":"",
-                "codename":"Item_6",
-                value: "6",
-                
-                disabled: false,
-            },
-            {
-                id: "7",
-                label: "星期六",
-                text: "星期六",
-                "data":"",
-                "codename":"Item_7",
-                value: "7",
-                
-                disabled: false,
-            },
-            {
-                id: "1",
-                label: "星期日",
-                text: "星期日",
-                "data":"",
-                "codename":"Item_1",
-                value: "1",
+                id: "TOME",
+                label: "需求变动",
+                text: "需求变动",
+                "data":{"n_status1_eq":"storychange"},
+                "codename":"Tome",
+                value: "TOME",
                 
                 disabled: false,
             },
@@ -2179,14 +1193,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Group",
-        "appdedataset":"FetchDefault",
-        "items": []
-    },
-    {
-        "srfkey": "TestTask",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"TestTask",
         "appdedataset":"FetchDefault",
         "items": []
     },
@@ -2208,121 +1214,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "Product__status",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "normal",
-                label: "正常",
-                text: "正常",
-                "data":"",
-                "codename":"Normal",
-                "color": "rgba(13, 255, 0, 1)",
-                value: "normal",
-                
-                disabled: false,
-            },
-            {
-                id: "closed",
-                label: "结束",
-                text: "结束",
-                "data":"",
-                "codename":"Closed",
-                value: "closed",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "Task__type",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "design",
-                label: "设计",
-                text: "设计",
-                "data":"",
-                "codename":"Design",
-                value: "design",
-                
-                disabled: false,
-            },
-            {
-                id: "devel",
-                label: "开发",
-                text: "开发",
-                "data":"",
-                "codename":"Devel",
-                value: "devel",
-                
-                disabled: false,
-            },
-            {
-                id: "test",
-                label: "测试",
-                text: "测试",
-                "data":"",
-                "codename":"Test",
-                value: "test",
-                
-                disabled: false,
-            },
-            {
-                id: "study",
-                label: "研究",
-                text: "研究",
-                "data":"",
-                "codename":"Study",
-                value: "study",
-                
-                disabled: false,
-            },
-            {
-                id: "discuss",
-                label: "讨论",
-                text: "讨论",
-                "data":"",
-                "codename":"Discuss",
-                value: "discuss",
-                
-                disabled: false,
-            },
-            {
-                id: "ui",
-                label: "界面",
-                text: "界面",
-                "data":"",
-                "codename":"Ui",
-                value: "ui",
-                
-                disabled: false,
-            },
-            {
-                id: "affair",
-                label: "事务",
-                text: "事务",
-                "data":"",
-                "codename":"Affair",
-                value: "affair",
-                
-                disabled: false,
-            },
-            {
-                id: "misc",
-                label: "其他",
-                text: "其他",
-                "data":"",
-                "codename":"Misc",
-                value: "misc",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: "Testtask__pri",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -2331,6 +1222,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "1",
                 label: "1",
                 text: "1",
+                "iconcls":"fa fa-square-o",
                 "data":"",
                 "codename":"Item_1",
                 value: 1,
@@ -2402,7 +1294,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "3",
                 "data":"",
                 "codename":"Item_3",
-                "color": "rgba(49, 27, 146, 1)",
+                "color": "rgba(52, 8, 248, 1)",
                 value: 3,
                 
                 disabled: false,
@@ -2421,114 +1313,12 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        "srfkey": "ProjectProductPlan",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"ProductPlan",
-        "appdedataset":"FetchProjectPlan",
-        "items": []
-    },
-    {
-        srfkey: "TestQuickpacket",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "ALL",
-                label: "全部",
-                text: "全部",
-                "data":{},
-                "codename":"All",
-                value: "ALL",
-                
-                disabled: false,
-            },
-            {
-                id: "ICREATE",
-                label: "待测测试单",
-                text: "待测测试单",
-                "data":{"n_status_eq":"wait"},
-                "codename":"Icreate",
-                value: "ICREATE",
-                
-                disabled: false,
-            },
-            {
-                id: "IREVIEW",
-                label: "测试中测试单",
-                text: "测试中测试单",
-                "data":{"n_status_eq":"doing"},
-                "codename":"Ireview",
-                value: "IREVIEW",
-                
-                disabled: false,
-            },
-            {
-                id: "ICLOSE",
-                label: "被阻塞测试单",
-                text: "被阻塞测试单",
-                "data":{"n_status_eq":"blocked"},
-                "codename":"Iclose",
-                value: "ICLOSE",
-                
-                disabled: false,
-            },
-            {
-                id: "Tested",
-                label: "已测测试单",
-                text: "已测测试单",
-                "data":{"n_status_eq":"done"},
-                "codename":"Tested",
-                value: "Tested",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"User",
         "appdedataset":"FetchBugUser",
         "items": []
-    },
-    {
-        srfkey: "Project__acl",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "open",
-                label: "默认设置(有项目视图权限，即可访问)",
-                text: "默认设置(有项目视图权限，即可访问)",
-                "data":"",
-                "codename":"Open",
-                value: "open",
-                
-                disabled: false,
-            },
-            {
-                id: "private",
-                label: "私有项目(只有项目团队成员才能访问)",
-                text: "私有项目(只有项目团队成员才能访问)",
-                "data":"",
-                "codename":"Private",
-                value: "private",
-                
-                disabled: false,
-            },
-            {
-                id: "custom",
-                label: "自定义白名单(团队成员和白名单的成员可以访问)",
-                text: "自定义白名单(团队成员和白名单的成员可以访问)",
-                "data":"",
-                "codename":"Custom",
-                value: "custom",
-                
-                disabled: false,
-            },
-        ]
     },
     {
         srfkey: "BeginendDropList",
@@ -3618,6 +2408,2467 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Zt__productplan",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "UNEXPIRED",
+                label: "未过期",
+                text: "未过期",
+                "data":{"n_isexpired_eq":0},
+                "codename":"Unexpired",
+                value: "UNEXPIRED",
+                
+                disabled: false,
+            },
+            {
+                id: "ISEXPIRED",
+                label: "已过期",
+                text: "已过期",
+                "data":{"n_isexpired_eq":1},
+                "codename":"Isexpired",
+                value: "ISEXPIRED",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TestCaseStatusGrid",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "rgba(84, 238, 19, 1)",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "被阻塞",
+                text: "被阻塞",
+                "data":"",
+                "codename":"Blocked",
+                "color": "rgba(230, 242, 3, 0.97)",
+                value: "blocked",
+                
+                disabled: false,
+            },
+            {
+                id: "investigate",
+                label: "研究中",
+                text: "研究中",
+                "data":"",
+                "codename":"Investigate",
+                "color": "rgba(245, 12, 12, 1)",
+                value: "investigate",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "storychange",
+                label: "需求变更",
+                text: "需求变更",
+                "data":"",
+                "codename":"Storychange",
+                "color": "rgba(254, 8, 8, 1)",
+                value: "storychange",
+                
+                disabled: false,
+            },
+            {
+                id: "casechange",
+                label: "原用例更新",
+                text: "原用例更新",
+                "data":"",
+                "codename":"Casechange",
+                "color": "rgba(247, 31, 7, 1)",
+                value: "casechange",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersions",
+        "items": []
+    },
+    {
+        srfkey: "Action__object_type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "product",
+                label: "产品",
+                text: "产品",
+                "data":"",
+                "codename":"Product",
+                value: "product",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "productplan",
+                label: "计划",
+                text: "计划",
+                "data":"",
+                "codename":"Productplan",
+                value: "productplan",
+                
+                disabled: false,
+            },
+            {
+                id: "release",
+                label: "发布",
+                text: "发布",
+                "data":"",
+                "codename":"Release",
+                value: "release",
+                
+                disabled: false,
+            },
+            {
+                id: "project",
+                label: "项目",
+                text: "项目",
+                "data":"",
+                "codename":"Project",
+                value: "project",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "build",
+                label: "版本",
+                text: "版本",
+                "data":"",
+                "codename":"Build",
+                value: "build",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "case",
+                label: "用例",
+                text: "用例",
+                "data":"",
+                "codename":"Case",
+                value: "case",
+                
+                disabled: false,
+            },
+            {
+                id: "caseresult",
+                label: "用例结果",
+                text: "用例结果",
+                "data":"",
+                "codename":"Caseresult",
+                value: "caseresult",
+                
+                disabled: false,
+            },
+            {
+                id: "stepresult",
+                label: "用例步骤",
+                text: "用例步骤",
+                "data":"",
+                "codename":"Stepresult",
+                value: "stepresult",
+                
+                disabled: false,
+            },
+            {
+                id: "testtask",
+                label: "测试单",
+                text: "测试单",
+                "data":"",
+                "codename":"Testtask",
+                value: "testtask",
+                
+                disabled: false,
+            },
+            {
+                id: "user",
+                label: "用户",
+                text: "用户",
+                "data":"",
+                "codename":"User",
+                value: "user",
+                
+                disabled: false,
+            },
+            {
+                id: "doc",
+                label: "文档",
+                text: "文档",
+                "data":"",
+                "codename":"Doc",
+                value: "doc",
+                
+                disabled: false,
+            },
+            {
+                id: "doclib",
+                label: "文档库",
+                text: "文档库",
+                "data":"",
+                "codename":"Doclib",
+                value: "doclib",
+                
+                disabled: false,
+            },
+            {
+                id: "todo",
+                label: "待办",
+                text: "待办",
+                "data":"",
+                "codename":"Todo",
+                value: "todo",
+                
+                disabled: false,
+            },
+            {
+                id: "branch",
+                label: "分支",
+                text: "分支",
+                "data":"",
+                "codename":"Branch",
+                value: "branch",
+                
+                disabled: false,
+            },
+            {
+                id: "module",
+                label: "模块",
+                text: "模块",
+                "data":"",
+                "codename":"Module",
+                value: "module",
+                
+                disabled: false,
+            },
+            {
+                id: "testsuite",
+                label: "套件",
+                text: "套件",
+                "data":"",
+                "codename":"Testsuite",
+                value: "testsuite",
+                
+                disabled: false,
+            },
+            {
+                id: "caselib",
+                label: "用例库",
+                text: "用例库",
+                "data":"",
+                "codename":"Caselib",
+                value: "caselib",
+                
+                disabled: false,
+            },
+            {
+                id: "testreport",
+                label: "报告",
+                text: "报告",
+                "data":"",
+                "codename":"Testreport",
+                value: "testreport",
+                
+                disabled: false,
+            },
+            {
+                id: "entry",
+                label: "应用",
+                text: "应用",
+                "data":"",
+                "codename":"Entry",
+                value: "entry",
+                
+                disabled: false,
+            },
+            {
+                id: "webhook",
+                label: "Webhook",
+                text: "Webhook",
+                "data":"",
+                "codename":"Webhook",
+                value: "webhook",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "ProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchCurProductPlan",
+        "items": []
+    },
+    {
+        srfkey: "Task__pri",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "iconcls":"fa fa-bomb",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(183, 35, 35, 1)",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(197, 26, 26, 1)",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "iconcls":"fa fa-sort-amount-asc",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(64, 78, 227, 1)",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(94, 231, 3, 1)",
+                value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Release__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "rgba(13, 255, 0, 1)",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "terminate",
+                label: "停止维护",
+                text: "停止维护",
+                "data":"",
+                "codename":"Terminate",
+                value: "terminate",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "项目任务",
+                text: "项目任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "项目需求",
+                text: "项目需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TodoQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有待办",
+                text: "所有待办",
+                "data":{"n_cycle_eq":"0"},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "thisyear",
+                label: "本年度",
+                text: "本年度",
+                "data":{"thisyear":"thisyear","n_cycle_eq":"0"},
+                "codename":"Thisyear",
+                value: "thisyear",
+                
+                disabled: false,
+            },
+            {
+                id: "Unfinished",
+                label: "未完",
+                text: "未完",
+                "data":{"n_status_eq":"wait","n_cycle_eq":"0","n_date_noteq":"2030-01-01"},
+                "codename":"Unfinished",
+                value: "Unfinished",
+                
+                disabled: false,
+            },
+            {
+                id: "BYME",
+                label: "待定",
+                text: "待定",
+                "data":{"n_date_eq":"2030-01-01","n_cycle_eq":"0"},
+                "codename":"Byme",
+                value: "BYME",
+                
+                disabled: false,
+            },
+            {
+                id: "cycle",
+                label: "周期",
+                text: "周期",
+                "data":{"n_cycle_eq":"1"},
+                "codename":"Cycle",
+                value: "cycle",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TASK_QuickacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "CANCELLED",
+                label: "由我创建",
+                text: "由我创建",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Cancelled",
+                value: "CANCELLED",
+                
+                disabled: false,
+            },
+            {
+                id: "IFINISHED",
+                label: "由我完成",
+                text: "由我完成",
+                "data":{"n_finishedby_eq":"%srfloginname%"},
+                "codename":"Ifinished",
+                value: "IFINISHED",
+                
+                disabled: false,
+            },
+            {
+                id: "COMPLETED",
+                label: "由我关闭",
+                text: "由我关闭",
+                "data":{"n_closedby_eq":"%srfloginname%"},
+                "codename":"Completed",
+                value: "COMPLETED",
+                
+                disabled: false,
+            },
+            {
+                id: "CLOSED",
+                label: "由我取消",
+                text: "由我取消",
+                "data":{"n_canceledby_eq":"%srfloginname%"},
+                "codename":"Closed",
+                value: "CLOSED",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser",
+        "items": []
+    },
+    {
+        srfkey: "Story__stage",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "planned",
+                label: "已计划",
+                text: "已计划",
+                "data":"",
+                "codename":"Planned",
+                value: "planned",
+                
+                disabled: false,
+            },
+            {
+                id: "projected",
+                label: "已立项",
+                text: "已立项",
+                "data":"",
+                "codename":"Projected",
+                value: "projected",
+                
+                disabled: false,
+            },
+            {
+                id: "developing",
+                label: "研发中",
+                text: "研发中",
+                "data":"",
+                "codename":"Developing",
+                value: "developing",
+                
+                disabled: false,
+            },
+            {
+                id: "developed",
+                label: "研发完毕",
+                text: "研发完毕",
+                "data":"",
+                "codename":"Developed",
+                value: "developed",
+                
+                disabled: false,
+            },
+            {
+                id: "testing",
+                label: "测试中",
+                text: "测试中",
+                "data":"",
+                "codename":"Testing",
+                value: "testing",
+                
+                disabled: false,
+            },
+            {
+                id: "tested",
+                label: "测试完毕",
+                text: "测试完毕",
+                "data":"",
+                "codename":"Tested",
+                value: "tested",
+                
+                disabled: false,
+            },
+            {
+                id: "verified",
+                label: "已验收",
+                text: "已验收",
+                "data":"",
+                "codename":"Verified",
+                value: "verified",
+                
+                disabled: false,
+            },
+            {
+                id: "released",
+                label: "已发布",
+                text: "已发布",
+                "data":"",
+                "codename":"Released",
+                value: "released",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "StoryStageKane",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "projected",
+                label: "已立项",
+                text: "已立项",
+                "data":"",
+                "codename":"Projected",
+                "color": "rgba(139, 173, 237, 1)",
+                value: "projected",
+                
+                disabled: false,
+            },
+            {
+                id: "developing",
+                label: "研发中",
+                text: "研发中",
+                "data":"",
+                "codename":"Developing",
+                "color": "rgba(63, 77, 238, 1)",
+                value: "developing",
+                
+                disabled: false,
+            },
+            {
+                id: "developed",
+                label: "研发完毕",
+                text: "研发完毕",
+                "data":"",
+                "codename":"Developed",
+                "color": "rgba(73, 227, 101, 1)",
+                value: "developed",
+                
+                disabled: false,
+            },
+            {
+                id: "testing",
+                label: "测试中",
+                text: "测试中",
+                "data":"",
+                "codename":"Testing",
+                "color": "rgba(224, 198, 54, 1)",
+                value: "testing",
+                
+                disabled: false,
+            },
+            {
+                id: "tested",
+                label: "测试完毕",
+                text: "测试完毕",
+                "data":"",
+                "codename":"Tested",
+                "color": "rgba(234, 233, 237, 1)",
+                value: "tested",
+                
+                disabled: false,
+            },
+            {
+                id: "verified",
+                label: "已验收",
+                text: "已验收",
+                "data":"",
+                "codename":"Verified",
+                "color": "rgba(109, 108, 108, 1)",
+                value: "verified",
+                
+                disabled: false,
+            },
+            {
+                id: "released",
+                label: "已发布",
+                text: "已发布",
+                "data":"",
+                "codename":"Released",
+                "color": "rgba(11, 11, 11, 1)",
+                value: "released",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "UserRealNameTaskTeam",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchTaskTeam",
+        "items": []
+    },
+    {
+        srfkey: "Bug__pri",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ProjectQuickpaketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "我的项目",
+                text: "我的项目",
+                "data":{"n_account_eq":"%srfloginname%"},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Bug__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "active",
+                label: "激活",
+                text: "激活",
+                "data":"",
+                "codename":"Active",
+                "color": "rgba(0, 157, 255, 1)",
+                value: "active",
+                
+                disabled: false,
+            },
+            {
+                id: "resolved",
+                label: "已解决",
+                text: "已解决",
+                "data":"",
+                "codename":"Resolved",
+                "color": "rgba(1, 217, 19, 1)",
+                value: "resolved",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "color": "rgba(151, 152, 141, 1)",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testsuite__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "library",
+                label: "用例库",
+                text: "用例库",
+                "data":"",
+                "codename":"Library",
+                value: "library",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有",
+                text: "私有",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "public",
+                label: "公开",
+                text: "公开",
+                "data":"",
+                "codename":"Public",
+                value: "public",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "RelatedStory",
+        "emptytext": "",
+        "codelisttype":"dynamic",
+        "appdataentity":"Story",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        srfkey: "Realease_sort",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "all",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "all",
+                
+                disabled: false,
+            },
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":{"n_status_eq":"normal"},
+                "codename":"Normal",
+                "color": "rgba(13, 255, 0, 1)",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "terminate",
+                label: "停止维护",
+                text: "停止维护",
+                "data":{"n_status_eq":"terminate"},
+                "codename":"Terminate",
+                value: "terminate",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testcase__stage",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "unittest",
+                label: "单元测试阶段",
+                text: "单元测试阶段",
+                "data":"",
+                "codename":"Unittest",
+                value: "unittest",
+                
+                disabled: false,
+            },
+            {
+                id: "feature",
+                label: "功能测试阶段",
+                text: "功能测试阶段",
+                "data":"",
+                "codename":"Feature",
+                value: "feature",
+                
+                disabled: false,
+            },
+            {
+                id: "intergrate",
+                label: "集成测试阶段",
+                text: "集成测试阶段",
+                "data":"",
+                "codename":"Intergrate",
+                value: "intergrate",
+                
+                disabled: false,
+            },
+            {
+                id: "system",
+                label: "系统测试阶段",
+                text: "系统测试阶段",
+                "data":"",
+                "codename":"System",
+                value: "system",
+                
+                disabled: false,
+            },
+            {
+                id: "smoke",
+                label: "冒烟测试阶段",
+                text: "冒烟测试阶段",
+                "data":"",
+                "codename":"Smoke",
+                value: "smoke",
+                
+                disabled: false,
+            },
+            {
+                id: "bvt",
+                label: "版本验证阶段",
+                text: "版本验证阶段",
+                "data":"",
+                "codename":"Bvt",
+                value: "bvt",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Casestep__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "step",
+                label: "步骤",
+                text: "步骤",
+                "data":"",
+                "codename":"Step",
+                value: "step",
+                
+                disabled: false,
+            },
+            {
+                id: "group",
+                label: "分组",
+                text: "分组",
+                "data":"",
+                "codename":"Group",
+                value: "group",
+                
+                disabled: false,
+            },
+            {
+                id: "item",
+                label: "分组步骤",
+                text: "分组步骤",
+                "data":"",
+                "codename":"Item",
+                value: "item",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Product__acl",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "open",
+                label: "默认设置(有产品视图权限，即可访问)",
+                text: "默认设置(有产品视图权限，即可访问)",
+                "data":"",
+                "codename":"Open",
+                value: "open",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有产品(相关负责人和项目团队成员才能访问)",
+                text: "私有产品(相关负责人和项目团队成员才能访问)",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义白名单(团队成员和白名单的成员可以访问)",
+                text: "自定义白名单(团队成员和白名单的成员可以访问)",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "BugCodeList2",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "active",
+                label: "未解决",
+                text: "未解决",
+                "data":{"n_status_eq":"active"},
+                "codename":"Active",
+                value: "active",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "CurProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        srfkey: "Task_quickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "UNCLOSED",
+                label: "未关闭",
+                text: "未关闭",
+                "data":{"n_status_noteq":"closed"},
+                "codename":"Unclosed",
+                value: "UNCLOSED",
+                
+                disabled: false,
+            },
+            {
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "MORE",
+                label: "更多",
+                text: "更多",
+                "data":"",
+                "codename":"More",
+                value: "MORE",
+                
+                disabled: false,
+            },
+            {
+                id: "NOTSTARTED",
+                label: "未开始",
+                text: "未开始",
+                "data":{"n_status_eq":"wait"},
+                "codename":"Notstarted",
+                value: "NOTSTARTED",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: "INPROGRESS",
+                label: "进行中",
+                text: "进行中",
+                "data":{"n_status_eq":"doing"},
+                "codename":"Inprogress",
+                value: "INPROGRESS",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: "UNACCOMPLISHED",
+                label: "未完成",
+                text: "未完成",
+                "data":{"n_status_noteq":"done"},
+                "codename":"Unaccomplished",
+                value: "UNACCOMPLISHED",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: "IFINISHED",
+                label: "我完成",
+                text: "我完成",
+                "data":{"n_finishedby_eq":"%srfloginname%"},
+                "codename":"Ifinished",
+                value: "IFINISHED",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: "COMPLETED",
+                label: "已完成",
+                text: "已完成",
+                "data":{"n_status_eq":"done"},
+                "codename":"Completed",
+                value: "COMPLETED",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: "CLOSED",
+                label: "已关闭",
+                text: "已关闭",
+                "data":{"n_status_eq":"closed"},
+                "codename":"Closed",
+                value: "CLOSED",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: "CANCELLED",
+                label: "已取消",
+                text: "已取消",
+                "data":{"n_status_eq":"cancel"},
+                "codename":"Cancelled",
+                value: "CANCELLED",
+                "pvalue": "MORE",
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ActionManner",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "story_closed_willnotdo",
+                label: "不做",
+                text: "不做",
+                "data":"",
+                "codename":"Story_closed_willnotdo",
+                value: "story_closed_willnotdo",
+                
+                disabled: false,
+            },
+            {
+                id: "story_closed_cancel",
+                label: "已取消",
+                text: "已取消",
+                "data":"",
+                "codename":"Story_closed_cancel",
+                value: "story_closed_cancel",
+                
+                disabled: false,
+            },
+            {
+                id: "story_closed_done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Story_closed_done",
+                value: "story_closed_done",
+                
+                disabled: false,
+            },
+            {
+                id: "story_closed_subdivided",
+                label: "已细分",
+                text: "已细分",
+                "data":"",
+                "codename":"Story_closed_subdivided",
+                value: "story_closed_subdivided",
+                
+                disabled: false,
+            },
+            {
+                id: "story_closed_postponed",
+                label: "延期",
+                text: "延期",
+                "data":"",
+                "codename":"Story_closed_postponed",
+                value: "story_closed_postponed",
+                
+                disabled: false,
+            },
+            {
+                id: "story_closed_bydesign",
+                label: "设计如此",
+                text: "设计如此",
+                "data":"",
+                "codename":"Story_closed_bydesign",
+                value: "story_closed_bydesign",
+                
+                disabled: false,
+            },
+            {
+                id: "story_closed_duplicate",
+                label: "重复",
+                text: "重复",
+                "data":"",
+                "codename":"Story_closed_duplicate",
+                value: "story_closed_duplicate",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_willnotfix",
+                label: "不予解决",
+                text: "不予解决",
+                "data":"",
+                "codename":"Bug_resolved_willnotfix",
+                value: "bug_resolved_willnotfix",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_external",
+                label: "外部原因",
+                text: "外部原因",
+                "data":"",
+                "codename":"Bug_resolved_external",
+                value: "bug_resolved_external",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_fixed",
+                label: "已解决",
+                text: "已解决",
+                "data":"",
+                "codename":"Bug_resolved_fixed",
+                value: "bug_resolved_fixed",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_postponed",
+                label: "延期处理",
+                text: "延期处理",
+                "data":"",
+                "codename":"Bug_resolved_postponed",
+                value: "bug_resolved_postponed",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_notrepro",
+                label: "无法重现",
+                text: "无法重现",
+                "data":"",
+                "codename":"Bug_resolved_notrepro",
+                value: "bug_resolved_notrepro",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_bydesign",
+                label: "设计如此",
+                text: "设计如此",
+                "data":"",
+                "codename":"Bug_resolved_bydesign",
+                value: "bug_resolved_bydesign",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_tostory",
+                label: "转为需求",
+                text: "转为需求",
+                "data":"",
+                "codename":"Bug_resolved_tostory",
+                value: "bug_resolved_tostory",
+                
+                disabled: false,
+            },
+            {
+                id: "bug_resolved_duplicate",
+                label: "重复Bug",
+                text: "重复Bug",
+                "data":"",
+                "codename":"Bug_resolved_duplicate",
+                value: "bug_resolved_duplicate",
+                
+                disabled: false,
+            },
+            {
+                id: "story_reviewed_reject",
+                label: "拒绝",
+                text: "拒绝",
+                "data":"",
+                "codename":"Story_reviewed_reject",
+                value: "story_reviewed_reject",
+                
+                disabled: false,
+            },
+            {
+                id: "story_reviewed_revert",
+                label: "撤销变更",
+                text: "撤销变更",
+                "data":"",
+                "codename":"Story_reviewed_revert",
+                value: "story_reviewed_revert",
+                
+                disabled: false,
+            },
+            {
+                id: "story_reviewed_clarify",
+                label: "有待明确",
+                text: "有待明确",
+                "data":"",
+                "codename":"Story_reviewed_clarify",
+                value: "story_reviewed_clarify",
+                
+                disabled: false,
+            },
+            {
+                id: "story_reviewed_pass",
+                label: "确认通过",
+                text: "确认通过",
+                "data":"",
+                "codename":"Story_reviewed_pass",
+                value: "story_reviewed_pass",
+                
+                disabled: false,
+            },
+            {
+                id: " release_changestatus_terminate",
+                label: "停止维护",
+                text: "停止维护",
+                "data":"",
+                "codename":"_release_changestatus_terminate",
+                value: " release_changestatus_terminate",
+                
+                disabled: false,
+            },
+            {
+                id: " release_changestatus_normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"_release_changestatus_normal",
+                value: " release_changestatus_normal",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "UserRealNameTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser_Task",
+        "items": []
+    },
+    {
+        srfkey: "CodeList47",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1号",
+                text: "1号",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2号",
+                text: "2号",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3号",
+                text: "3号",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4号",
+                text: "4号",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "5号",
+                text: "5号",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "6",
+                label: "6号",
+                text: "6号",
+                "data":"",
+                "codename":"Item_6",
+                value: "6",
+                
+                disabled: false,
+            },
+            {
+                id: "7",
+                label: "7号",
+                text: "7号",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "8",
+                label: "8号",
+                text: "8号",
+                "data":"",
+                "codename":"Item_8",
+                value: "8",
+                
+                disabled: false,
+            },
+            {
+                id: "9",
+                label: "9号",
+                text: "9号",
+                "data":"",
+                "codename":"Item_9",
+                value: "9",
+                
+                disabled: false,
+            },
+            {
+                id: "10",
+                label: "10号",
+                text: "10号",
+                "data":"",
+                "codename":"Item_10",
+                value: "10",
+                
+                disabled: false,
+            },
+            {
+                id: "11",
+                label: "11号",
+                text: "11号",
+                "data":"",
+                "codename":"Item_11",
+                value: "11",
+                
+                disabled: false,
+            },
+            {
+                id: "12",
+                label: "12号",
+                text: "12号",
+                "data":"",
+                "codename":"Item_12",
+                value: "12",
+                
+                disabled: false,
+            },
+            {
+                id: "13",
+                label: "13号",
+                text: "13号",
+                "data":"",
+                "codename":"Item_13",
+                value: "13",
+                
+                disabled: false,
+            },
+            {
+                id: "14",
+                label: "14号",
+                text: "14号",
+                "data":"",
+                "codename":"Item_14",
+                value: "14",
+                
+                disabled: false,
+            },
+            {
+                id: "15",
+                label: "15号",
+                text: "15号",
+                "data":"",
+                "codename":"Item_15",
+                value: "15",
+                
+                disabled: false,
+            },
+            {
+                id: "16",
+                label: "16号",
+                text: "16号",
+                "data":"",
+                "codename":"Item_16",
+                value: "16",
+                
+                disabled: false,
+            },
+            {
+                id: "17",
+                label: "17号",
+                text: "17号",
+                "data":"",
+                "codename":"Item_17",
+                value: "17",
+                
+                disabled: false,
+            },
+            {
+                id: "18",
+                label: "18号",
+                text: "18号",
+                "data":"",
+                "codename":"Item_18",
+                value: "18",
+                
+                disabled: false,
+            },
+            {
+                id: "19",
+                label: "19号",
+                text: "19号",
+                "data":"",
+                "codename":"Item_19",
+                value: "19",
+                
+                disabled: false,
+            },
+            {
+                id: "20",
+                label: "20号",
+                text: "20号",
+                "data":"",
+                "codename":"Item_20",
+                value: "20",
+                
+                disabled: false,
+            },
+            {
+                id: "21",
+                label: "21号",
+                text: "21号",
+                "data":"",
+                "codename":"Item_21",
+                value: "21",
+                
+                disabled: false,
+            },
+            {
+                id: "22",
+                label: "22号",
+                text: "22号",
+                "data":"",
+                "codename":"Item_22",
+                value: "22",
+                
+                disabled: false,
+            },
+            {
+                id: "23",
+                label: "23号",
+                text: "23号",
+                "data":"",
+                "codename":"Item_23",
+                value: "23",
+                
+                disabled: false,
+            },
+            {
+                id: "24",
+                label: "24号",
+                text: "24号",
+                "data":"",
+                "codename":"Item_24",
+                value: "24",
+                
+                disabled: false,
+            },
+            {
+                id: "25",
+                label: "25号",
+                text: "25号",
+                "data":"",
+                "codename":"Item_25",
+                value: "25",
+                
+                disabled: false,
+            },
+            {
+                id: "26",
+                label: "26号",
+                text: "26号",
+                "data":"",
+                "codename":"Item_26",
+                value: "26",
+                
+                disabled: false,
+            },
+            {
+                id: "27",
+                label: "27号",
+                text: "27号",
+                "data":"",
+                "codename":"Item_27",
+                value: "27",
+                
+                disabled: false,
+            },
+            {
+                id: "28",
+                label: "28号",
+                text: "28号",
+                "data":"",
+                "codename":"Item_28",
+                value: "28",
+                
+                disabled: false,
+            },
+            {
+                id: "29",
+                label: "29号",
+                text: "29号",
+                "data":"",
+                "codename":"Item_29",
+                value: "29",
+                
+                disabled: false,
+            },
+            {
+                id: "30",
+                label: "30号",
+                text: "30号",
+                "data":"",
+                "codename":"Item_30",
+                value: "30",
+                
+                disabled: false,
+            },
+            {
+                id: "31",
+                label: "31号",
+                text: "31号",
+                "data":"",
+                "codename":"Item_31",
+                value: "31",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "YesNo",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "是",
+                text: "是",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "0",
+                label: "否",
+                text: "否",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TypeAll",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "项目任务",
+                text: "项目任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "项目需求",
+                text: "项目需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "cycle",
+                label: "周期",
+                text: "周期",
+                "data":"",
+                "codename":"Cycle",
+                value: "cycle",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Product__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "blue",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "branch",
+                label: "多分支",
+                text: "多分支",
+                "data":"",
+                "codename":"Branch",
+                value: "branch",
+                
+                disabled: false,
+            },
+            {
+                id: "platform",
+                label: "多平台",
+                text: "多平台",
+                "data":"",
+                "codename":"Platform",
+                value: "platform",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Module__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "line",
+                label: "产品线",
+                text: "产品线",
+                "data":"",
+                "codename":"Line",
+                value: "line",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "doc",
+                label: "文档目录",
+                text: "文档目录",
+                "data":"",
+                "codename":"Doc",
+                value: "doc",
+                
+                disabled: false,
+            },
+            {
+                id: "case",
+                label: "测试用例",
+                text: "测试用例",
+                "data":"",
+                "codename":"Case",
+                value: "case",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Task__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                "color": "rgba(255, 93, 93, 1)",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                "color": "rgba(67, 160, 71, 1)",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "pause",
+                label: "已暂停",
+                text: "已暂停",
+                "data":"",
+                "codename":"Pause",
+                "color": "rgba(255, 152, 0, 1)",
+                value: "pause",
+                
+                disabled: false,
+            },
+            {
+                id: "cancel",
+                label: "已取消",
+                text: "已取消",
+                "data":"",
+                "codename":"Cancel",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "cancel",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "CaseQuickpacketMy",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "TOME",
+                label: "给我的用例",
+                text: "给我的用例",
+                "data":{"n_lastrunner_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "我建的用例",
+                text: "我建的用例",
+                "data":{"n_openedby_eq":"%srfloginname%"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "YesNo2",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "是",
+                text: "是",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: "0",
+                label: "否",
+                text: "否",
+                "data":"",
+                "codename":"Item_0",
+                value: 0,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "CodeList46",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "2",
+                label: "星期一",
+                text: "星期一",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "星期二",
+                text: "星期二",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "星期三",
+                text: "星期三",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "星期四",
+                text: "星期四",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "6",
+                label: "星期五",
+                text: "星期五",
+                "data":"",
+                "codename":"Item_6",
+                value: "6",
+                
+                disabled: false,
+            },
+            {
+                id: "7",
+                label: "星期六",
+                text: "星期六",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "星期日",
+                text: "星期日",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "TestTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"TestTask",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        srfkey: "Product__status",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "normal",
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "rgba(13, 255, 0, 1)",
+                value: "normal",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "结束",
+                text: "结束",
+                "data":"",
+                "codename":"Closed",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Task__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "design",
+                label: "设计",
+                text: "设计",
+                "data":"",
+                "codename":"Design",
+                value: "design",
+                
+                disabled: false,
+            },
+            {
+                id: "devel",
+                label: "开发",
+                text: "开发",
+                "data":"",
+                "codename":"Devel",
+                value: "devel",
+                
+                disabled: false,
+            },
+            {
+                id: "test",
+                label: "测试",
+                text: "测试",
+                "data":"",
+                "codename":"Test",
+                value: "test",
+                
+                disabled: false,
+            },
+            {
+                id: "study",
+                label: "研究",
+                text: "研究",
+                "data":"",
+                "codename":"Study",
+                value: "study",
+                
+                disabled: false,
+            },
+            {
+                id: "discuss",
+                label: "讨论",
+                text: "讨论",
+                "data":"",
+                "codename":"Discuss",
+                value: "discuss",
+                
+                disabled: false,
+            },
+            {
+                id: "ui",
+                label: "界面",
+                text: "界面",
+                "data":"",
+                "codename":"Ui",
+                value: "ui",
+                
+                disabled: false,
+            },
+            {
+                id: "affair",
+                label: "事务",
+                text: "事务",
+                "data":"",
+                "codename":"Affair",
+                value: "affair",
+                
+                disabled: false,
+            },
+            {
+                id: "misc",
+                label: "其他",
+                text: "其他",
+                "data":"",
+                "codename":"Misc",
+                value: "misc",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "ProjectProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchProjectPlan",
+        "items": []
+    },
+    {
+        srfkey: "TestQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "ALL",
+                label: "全部",
+                text: "全部",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
+                
+                disabled: false,
+            },
+            {
+                id: "ICREATE",
+                label: "待测测试单",
+                text: "待测测试单",
+                "data":{"n_status_eq":"wait"},
+                "codename":"Icreate",
+                value: "ICREATE",
+                
+                disabled: false,
+            },
+            {
+                id: "IREVIEW",
+                label: "测试中测试单",
+                text: "测试中测试单",
+                "data":{"n_status_eq":"doing"},
+                "codename":"Ireview",
+                value: "IREVIEW",
+                
+                disabled: false,
+            },
+            {
+                id: "ICLOSE",
+                label: "被阻塞测试单",
+                text: "被阻塞测试单",
+                "data":{"n_status_eq":"blocked"},
+                "codename":"Iclose",
+                value: "ICLOSE",
+                
+                disabled: false,
+            },
+            {
+                id: "Tested",
+                label: "已测测试单",
+                text: "已测测试单",
+                "data":{"n_status_eq":"done"},
+                "codename":"Tested",
+                value: "Tested",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Project__acl",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "open",
+                label: "默认设置(有项目视图权限，即可访问)",
+                text: "默认设置(有项目视图权限，即可访问)",
+                "data":"",
+                "codename":"Open",
+                value: "open",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有项目(只有项目团队成员才能访问)",
+                text: "私有项目(只有项目团队成员才能访问)",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义白名单(团队成员和白名单的成员可以访问)",
+                text: "自定义白名单(团队成员和白名单的成员可以访问)",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -4571,14 +5822,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        "srfkey": "CurCaseVersion",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"CaseStep",
-        "appdedataset":"FetchVersion",
-        "items": []
-    },
-    {
         srfkey: "User__gender",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -4606,367 +5849,64 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "Action__object_type",
+        srfkey: "CaseTestTaskQuickpachet",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "product",
-                label: "产品",
-                text: "产品",
-                "data":"",
-                "codename":"Product",
-                value: "product",
+                id: "ALL",
+                label: "所有用例",
+                text: "所有用例",
+                "data":{},
+                "codename":"All",
+                value: "ALL",
                 
                 disabled: false,
             },
             {
-                id: "story",
-                label: "需求",
-                text: "需求",
-                "data":"",
-                "codename":"Story",
-                value: "story",
-                
-                disabled: false,
-            },
-            {
-                id: "productplan",
-                label: "计划",
-                text: "计划",
-                "data":"",
-                "codename":"Productplan",
-                value: "productplan",
-                
-                disabled: false,
-            },
-            {
-                id: "release",
-                label: "发布",
-                text: "发布",
-                "data":"",
-                "codename":"Release",
-                value: "release",
-                
-                disabled: false,
-            },
-            {
-                id: "project",
-                label: "项目",
-                text: "项目",
-                "data":"",
-                "codename":"Project",
-                value: "project",
-                
-                disabled: false,
-            },
-            {
-                id: "task",
-                label: "任务",
-                text: "任务",
-                "data":"",
-                "codename":"Task",
-                value: "task",
-                
-                disabled: false,
-            },
-            {
-                id: "build",
-                label: "版本",
-                text: "版本",
-                "data":"",
-                "codename":"Build",
-                value: "build",
-                
-                disabled: false,
-            },
-            {
-                id: "bug",
-                label: "Bug",
-                text: "Bug",
-                "data":"",
-                "codename":"Bug",
-                value: "bug",
-                
-                disabled: false,
-            },
-            {
-                id: "case",
-                label: "用例",
-                text: "用例",
-                "data":"",
-                "codename":"Case",
-                value: "case",
-                
-                disabled: false,
-            },
-            {
-                id: "caseresult",
-                label: "用例结果",
-                text: "用例结果",
-                "data":"",
-                "codename":"Caseresult",
-                value: "caseresult",
-                
-                disabled: false,
-            },
-            {
-                id: "stepresult",
-                label: "用例步骤",
-                text: "用例步骤",
-                "data":"",
-                "codename":"Stepresult",
-                value: "stepresult",
-                
-                disabled: false,
-            },
-            {
-                id: "testtask",
-                label: "测试单",
-                text: "测试单",
-                "data":"",
-                "codename":"Testtask",
-                value: "testtask",
-                
-                disabled: false,
-            },
-            {
-                id: "user",
-                label: "用户",
-                text: "用户",
-                "data":"",
-                "codename":"User",
-                value: "user",
-                
-                disabled: false,
-            },
-            {
-                id: "doc",
-                label: "文档",
-                text: "文档",
-                "data":"",
-                "codename":"Doc",
-                value: "doc",
-                
-                disabled: false,
-            },
-            {
-                id: "doclib",
-                label: "文档库",
-                text: "文档库",
-                "data":"",
-                "codename":"Doclib",
-                value: "doclib",
-                
-                disabled: false,
-            },
-            {
-                id: "todo",
-                label: "待办",
-                text: "待办",
-                "data":"",
-                "codename":"Todo",
-                value: "todo",
-                
-                disabled: false,
-            },
-            {
-                id: "branch",
-                label: "分支",
-                text: "分支",
-                "data":"",
-                "codename":"Branch",
-                value: "branch",
-                
-                disabled: false,
-            },
-            {
-                id: "module",
-                label: "模块",
-                text: "模块",
-                "data":"",
-                "codename":"Module",
-                value: "module",
-                
-                disabled: false,
-            },
-            {
-                id: "testsuite",
-                label: "套件",
-                text: "套件",
-                "data":"",
-                "codename":"Testsuite",
-                value: "testsuite",
-                
-                disabled: false,
-            },
-            {
-                id: "caselib",
-                label: "用例库",
-                text: "用例库",
-                "data":"",
-                "codename":"Caselib",
-                value: "caselib",
-                
-                disabled: false,
-            },
-            {
-                id: "testreport",
-                label: "报告",
-                text: "报告",
-                "data":"",
-                "codename":"Testreport",
-                value: "testreport",
-                
-                disabled: false,
-            },
-            {
-                id: "entry",
-                label: "应用",
-                text: "应用",
-                "data":"",
-                "codename":"Entry",
-                value: "entry",
-                
-                disabled: false,
-            },
-            {
-                id: "webhook",
-                label: "Webhook",
-                text: "Webhook",
-                "data":"",
-                "codename":"Webhook",
-                value: "webhook",
+                id: "TOME",
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: "TOME",
                 
                 disabled: false,
             },
         ]
     },
     {
-        "srfkey": "ProductPlan",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"ProductPlan",
-        "appdedataset":"FetchCurProductPlan",
-        "items": []
-    },
-    {
-        srfkey: "Task__pri",
+        srfkey: "ProductQuickpacket",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "1",
-                label: "1",
-                text: "1",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
                 
                 disabled: false,
             },
-            {
-                id: "2",
-                label: "2",
-                text: "2",
-                "data":"",
-                "codename":"Item_2",
-                value: 2,
-                
-                disabled: false,
-            },
-            {
-                id: "3",
-                label: "3",
-                text: "3",
-                "data":"",
-                "codename":"Item_3",
-                value: 3,
-                
-                disabled: false,
-            },
-            {
-                id: "4",
-                label: "4",
-                text: "4",
-                "data":"",
-                "codename":"Item_4",
-                value: 4,
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "Release__status",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
             {
                 id: "normal",
-                label: "正常",
-                text: "正常",
-                "data":"",
+                label: "未关闭",
+                text: "未关闭",
+                "data":{"n_status_eq":"normal"},
                 "codename":"Normal",
-                "color": "rgba(13, 255, 0, 1)",
                 value: "normal",
                 
                 disabled: false,
             },
             {
-                id: "terminate",
-                label: "停止维护",
-                text: "停止维护",
-                "data":"",
-                "codename":"Terminate",
-                value: "terminate",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "Type",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "custom",
-                label: "自定义",
-                text: "自定义",
-                "data":"",
-                "codename":"Custom",
-                value: "custom",
-                
-                disabled: false,
-            },
-            {
-                id: "bug",
-                label: "Bug",
-                text: "Bug",
-                "data":"",
-                "codename":"Bug",
-                value: "bug",
-                
-                disabled: false,
-            },
-            {
-                id: "task",
-                label: "项目任务",
-                text: "项目任务",
-                "data":"",
-                "codename":"Task",
-                value: "task",
-                
-                disabled: false,
-            },
-            {
-                id: "story",
-                label: "项目需求",
-                text: "项目需求",
-                "data":"",
-                "codename":"Story",
-                value: "story",
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":{"n_status_eq":"closed"},
+                "codename":"Closed",
+                value: "closed",
                 
                 disabled: false,
             },
@@ -5117,126 +6057,51 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "TodoQuickpacketMy",
+        srfkey: "Testrun__status",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "All",
-                label: "所有待办",
-                text: "所有待办",
-                "data":{"n_cycle_eq":"0"},
-                "codename":"All",
-                value: "All",
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                value: "wait",
                 
                 disabled: false,
             },
             {
-                id: "thisyear",
-                label: "本年度",
-                text: "本年度",
-                "data":{"thisyear":"thisyear","n_cycle_eq":"0"},
-                "codename":"Thisyear",
-                value: "thisyear",
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                value: "doing",
                 
                 disabled: false,
             },
             {
-                id: "Unfinished",
-                label: "未完",
-                text: "未完",
-                "data":{"n_status_eq":"wait","n_cycle_eq":"0","n_date_noteq":"2030-01-01"},
-                "codename":"Unfinished",
-                value: "Unfinished",
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                value: "done",
                 
                 disabled: false,
             },
             {
-                id: "BYME",
-                label: "待定",
-                text: "待定",
-                "data":{"n_date_eq":"2030-01-01","n_cycle_eq":"0"},
-                "codename":"Byme",
-                value: "BYME",
-                
-                disabled: false,
-            },
-            {
-                id: "cycle",
-                label: "周期",
-                text: "周期",
-                "data":{"n_cycle_eq":"1"},
-                "codename":"Cycle",
-                value: "cycle",
+                id: "blocked",
+                label: "被阻塞",
+                text: "被阻塞",
+                "data":"",
+                "codename":"Blocked",
+                value: "blocked",
                 
                 disabled: false,
             },
         ]
-    },
-    {
-        srfkey: "TASK_QuickacketMy",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "TOME",
-                label: "指派给我",
-                text: "指派给我",
-                "data":{"n_assignedto_eq":"%srfloginname%"},
-                "codename":"Tome",
-                value: "TOME",
-                
-                disabled: false,
-            },
-            {
-                id: "CANCELLED",
-                label: "由我创建",
-                text: "由我创建",
-                "data":{"n_openedby_eq":"%srfloginname%"},
-                "codename":"Cancelled",
-                value: "CANCELLED",
-                
-                disabled: false,
-            },
-            {
-                id: "IFINISHED",
-                label: "由我完成",
-                text: "由我完成",
-                "data":{"n_finishedby_eq":"%srfloginname%"},
-                "codename":"Ifinished",
-                value: "IFINISHED",
-                
-                disabled: false,
-            },
-            {
-                id: "COMPLETED",
-                label: "由我关闭",
-                text: "由我关闭",
-                "data":{"n_closedby_eq":"%srfloginname%"},
-                "codename":"Completed",
-                value: "COMPLETED",
-                
-                disabled: false,
-            },
-            {
-                id: "CLOSED",
-                label: "由我取消",
-                text: "由我取消",
-                "data":{"n_canceledby_eq":"%srfloginname%"},
-                "codename":"Closed",
-                value: "CLOSED",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "UserRealNameProject",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser",
-        "items": []
     },
     {
         srfkey: "Private_choose",
@@ -5363,6 +6228,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "正常",
                 "data":"",
                 "codename":"Normal",
+                "color": "rgba(84, 238, 19, 1)",
                 value: "normal",
                 
                 disabled: false,
@@ -5373,6 +6239,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "被阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(242, 238, 7, 1)",
                 value: "blocked",
                 
                 disabled: false,
@@ -5383,6 +6250,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "研究中",
                 "data":"",
                 "codename":"Investigate",
+                "color": "rgba(245, 12, 12, 1)",
                 value: "investigate",
                 
                 disabled: false,
@@ -5554,113 +6422,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "Story__stage",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "wait",
-                label: "未开始",
-                text: "未开始",
-                "data":"",
-                "codename":"Wait",
-                value: "wait",
-                
-                disabled: false,
-            },
-            {
-                id: "planned",
-                label: "已计划",
-                text: "已计划",
-                "data":"",
-                "codename":"Planned",
-                value: "planned",
-                
-                disabled: false,
-            },
-            {
-                id: "projected",
-                label: "已立项",
-                text: "已立项",
-                "data":"",
-                "codename":"Projected",
-                value: "projected",
-                
-                disabled: false,
-            },
-            {
-                id: "developing",
-                label: "研发中",
-                text: "研发中",
-                "data":"",
-                "codename":"Developing",
-                value: "developing",
-                
-                disabled: false,
-            },
-            {
-                id: "developed",
-                label: "研发完毕",
-                text: "研发完毕",
-                "data":"",
-                "codename":"Developed",
-                value: "developed",
-                
-                disabled: false,
-            },
-            {
-                id: "testing",
-                label: "测试中",
-                text: "测试中",
-                "data":"",
-                "codename":"Testing",
-                value: "testing",
-                
-                disabled: false,
-            },
-            {
-                id: "tested",
-                label: "测试完毕",
-                text: "测试完毕",
-                "data":"",
-                "codename":"Tested",
-                value: "tested",
-                
-                disabled: false,
-            },
-            {
-                id: "verified",
-                label: "已验收",
-                text: "已验收",
-                "data":"",
-                "codename":"Verified",
-                value: "verified",
-                
-                disabled: false,
-            },
-            {
-                id: "released",
-                label: "已发布",
-                text: "已发布",
-                "data":"",
-                "codename":"Released",
-                value: "released",
-                
-                disabled: false,
-            },
-            {
-                id: "closed",
-                label: "已关闭",
-                text: "已关闭",
-                "data":"",
-                "codename":"Closed",
-                value: "closed",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         "srfkey": "CurStory",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -5690,6 +6451,56 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_0",
                 value: "0",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testrun__result",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "n/a",
+                label: "忽略",
+                text: "忽略",
+                "data":"",
+                "codename":"N_a",
+                value: "n/a",
+                
+                disabled: false,
+            },
+            {
+                id: "pass",
+                label: "通过",
+                text: "通过",
+                "data":"",
+                "codename":"Pass",
+                "color": "rgba(126, 222, 16, 1)",
+                value: "pass",
+                
+                disabled: false,
+            },
+            {
+                id: "fail",
+                label: "失败",
+                text: "失败",
+                "data":"",
+                "codename":"Fail",
+                "color": "rgba(238, 18, 18, 1)",
+                value: "fail",
+                
+                disabled: false,
+            },
+            {
+                id: "blocked",
+                label: "阻塞",
+                text: "阻塞",
+                "data":"",
+                "codename":"Blocked",
+                "color": "rgba(220, 224, 12, 1)",
+                value: "blocked",
                 
                 disabled: false,
             },
@@ -5917,84 +6728,67 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "StoryStageKane",
+        srfkey: "ProjectQuickpacket",
         emptytext: "未定义",
         "codelisttype":"static",
         items: [
             {
-                id: "projected",
-                label: "已立项",
-                text: "已立项",
-                "data":"",
-                "codename":"Projected",
-                "color": "rgba(139, 173, 237, 1)",
-                value: "projected",
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
                 
                 disabled: false,
             },
             {
-                id: "developing",
-                label: "研发中",
-                text: "研发中",
-                "data":"",
-                "codename":"Developing",
-                "color": "rgba(63, 77, 238, 1)",
-                value: "developing",
+                id: "nowait",
+                label: "未完成",
+                text: "未完成",
+                "data":{"n_status_noteq":"closed"},
+                "codename":"Nowait",
+                value: "nowait",
                 
                 disabled: false,
             },
             {
-                id: "developed",
-                label: "研发完毕",
-                text: "研发完毕",
-                "data":"",
-                "codename":"Developed",
-                "color": "rgba(73, 227, 101, 1)",
-                value: "developed",
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":{"n_status_eq":"wait"},
+                "codename":"Wait",
+                value: "wait",
                 
                 disabled: false,
             },
             {
-                id: "testing",
-                label: "测试中",
-                text: "测试中",
-                "data":"",
-                "codename":"Testing",
-                "color": "rgba(224, 198, 54, 1)",
-                value: "testing",
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":{"n_status_eq":"doing"},
+                "codename":"Doing",
+                value: "doing",
                 
                 disabled: false,
             },
             {
-                id: "tested",
-                label: "测试完毕",
-                text: "测试完毕",
-                "data":"",
-                "codename":"Tested",
-                "color": "rgba(234, 233, 237, 1)",
-                value: "tested",
+                id: "suspended",
+                label: "已挂起",
+                text: "已挂起",
+                "data":{"n_status_eq":"suspended"},
+                "codename":"Suspended",
+                value: "suspended",
                 
                 disabled: false,
             },
             {
-                id: "verified",
-                label: "已验收",
-                text: "已验收",
-                "data":"",
-                "codename":"Verified",
-                "color": "rgba(109, 108, 108, 1)",
-                value: "verified",
-                
-                disabled: false,
-            },
-            {
-                id: "released",
-                label: "已发布",
-                text: "已发布",
-                "data":"",
-                "codename":"Released",
-                "color": "rgba(11, 11, 11, 1)",
-                value: "released",
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":{"n_status_eq":"closed"},
+                "codename":"Closed",
+                value: "closed",
                 
                 disabled: false,
             },
@@ -6002,7 +6796,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     },
     {
         srfkey: "Testcase__result",
-        emptytext: "未定义",
+        emptytext: "未执行",
         "codelisttype":"static",
         items: [
             {
@@ -6011,6 +6805,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "忽略",
                 "data":"",
                 "codename":"N_a",
+                "color": "rgba(190, 184, 184, 1)",
                 value: "n/a",
                 
                 disabled: false,
@@ -6021,6 +6816,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "通过",
                 "data":"",
                 "codename":"Pass",
+                "color": "rgba(93, 238, 9, 1)",
                 value: "pass",
                 
                 disabled: false,
@@ -6031,6 +6827,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "失败",
                 "data":"",
                 "codename":"Fail",
+                "color": "rgba(251, 12, 12, 1)",
                 value: "fail",
                 
                 disabled: false,
@@ -6041,62 +6838,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "阻塞",
                 "data":"",
                 "codename":"Blocked",
+                "color": "rgba(228, 15, 15, 1)",
                 value: "blocked",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "UserRealNameTaskTeam",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchTaskTeam",
-        "items": []
-    },
-    {
-        srfkey: "Bug__pri",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "1",
-                label: "1",
-                text: "1",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
-                
-                disabled: false,
-            },
-            {
-                id: "2",
-                label: "2",
-                text: "2",
-                "data":"",
-                "codename":"Item_2",
-                value: 2,
-                
-                disabled: false,
-            },
-            {
-                id: "3",
-                label: "3",
-                text: "3",
-                "data":"",
-                "codename":"Item_3",
-                value: 3,
-                
-                disabled: false,
-            },
-            {
-                id: "4",
-                label: "4",
-                text: "4",
-                "data":"",
-                "codename":"Item_4",
-                value: 4,
                 
                 disabled: false,
             },

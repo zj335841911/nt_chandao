@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'testsuite';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '测试套件';
+
     /**
      * 界面UI服务对象
      *
      * @type {TestSuiteUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
-
 
     /**
      * 表单数据对象
@@ -73,6 +82,8 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         name: null,
+        desc: null,
+        type: null,
         id: null,
         testsuite:null,
     };
@@ -106,13 +117,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'testsuite基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testsuite.main_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: 'testsuite基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testsuite.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testsuite.main_form', extractMode: 'ITEM', details: [] } }),
-
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -130,8 +137,21 @@ export class MainEditFormBase extends EditFormControlBase {
 
         name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'private';
+        }
+    }
 }

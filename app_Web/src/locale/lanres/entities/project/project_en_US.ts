@@ -36,9 +36,9 @@ export default {
     taskcnt: "任务总数",
     bugcnt: "Bug总数",
     storycnt: "需求总数",
-    products: "关联产品集合",
+    products: "关联产品",
     branchs: "关联产品平台集合",
-    plans: "关联产品产品计划",
+    plans: "关联计划",
     srfarray: "关联数据数组",
     comment: "备注",
     period: "时间段",
@@ -51,11 +51,16 @@ export default {
     totalleft: "任务预计剩余总工时",
     totalestimate: "任务最初预计总工时",
     totalhours: "可用工时",
+    mobimage: "移动端图片",
   },
 	views: {
 		tasktreeexpview: {
 			caption: "项目",
       		title: "项目任务导航视图",
+		},
+		testtabexpview: {
+			caption: "测试",
+      		title: "项目分页导航视图（测试）",
 		},
 		editview_putoff: {
 			caption: "项目",
@@ -132,6 +137,7 @@ export default {
 	},
 	putoff_form: {
 		details: {
+			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
 			druipart1: "", 
 			group1: "project基本信息", 
@@ -144,8 +150,8 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
+			end: "至", 
+			period: "", 
 			days: "可用工作日", 
 			type: "项目类型", 
 			comment: "备注", 
@@ -197,6 +203,7 @@ export default {
 		details: {
 			grouppanel3: "分组面板", 
 			grouppanel2: "负责人", 
+			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
 			group1: "project基本信息", 
 			formpage1: "基本信息", 
@@ -209,9 +216,8 @@ export default {
 			srfsourcekey: "", 
 			name: "项目名称", 
 			code: "项目代号", 
-			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
+			begin: "起始日期", 
+			end: "至", 
 			period: "", 
 			days: "可用工作日", 
 			type: "项目类型", 
@@ -222,9 +228,9 @@ export default {
 			rd: "发布负责人", 
 			qd: "测试负责人", 
 			srfarray: "关联数据数组", 
-			products: "关联产品集合", 
+			products: "关联产品", 
 			branchs: "关联产品平台集合", 
-			plans: "关联产品产品计划", 
+			plans: "关联计划", 
 			formitemex2: "", 
 			desc: "项目描述", 
 			acl: "访问控制", 
@@ -274,7 +280,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
+	newform_form: {
 		details: {
 			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
@@ -290,16 +296,15 @@ export default {
 			name: "项目名称", 
 			code: "项目代号", 
 			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
+			end: "至", 
 			period: "", 
 			days: "可用工作日", 
 			team: "团队名称", 
 			type: "项目类型", 
 			srfarray: "关联数据数组", 
-			products: "关联产品集合", 
+			products: "关联产品", 
 			branchs: "关联产品平台集合", 
-			plans: "关联产品产品计划", 
+			plans: "关联计划", 
 			formitemex2: "", 
 			desc: "项目描述", 
 			acl: "访问控制", 
@@ -309,17 +314,6 @@ export default {
 		},
 	},
 	main_grid: {
-		columns: {
-			id: "ID",
-			name: "项目名称",
-			code: "项目代号",
-			status: "项目状态",
-			end: "结束日期",
-		},
-		uiactions: {
-		},
-	},
-	main2_grid: {
 		columns: {
 			id: "ID",
 			name: "项目名称",
@@ -341,6 +335,17 @@ export default {
 			role: "角色",
 			join: "加盟日",
 			hours: "可用工时/天",
+		},
+		uiactions: {
+		},
+	},
+	main2_grid: {
+		columns: {
+			id: "ID",
+			name: "项目名称",
+			code: "项目代号",
+			status: "项目状态",
+			end: "结束日期",
 		},
 		uiactions: {
 		},
@@ -387,6 +392,14 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -407,16 +420,16 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-	},
-	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction3_manager: {
-			caption: "管理",
-			tip: "管理",
-		},
-		seperator2: {
+		seperator3: {
 			caption: "",
 			tip: "",
 		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
@@ -429,11 +442,23 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
-	mainmygridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_manager: {
+			caption: "管理",
+			tip: "管理",
+		},
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",

@@ -24,7 +24,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.testtask.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.testtask.main_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.id')}}
@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main_grid.columns.name')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.name')}}
@@ -94,7 +94,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('build')">
-                <el-table-column show-overflow-tooltip :prop="'build'" :label="$t('entities.testtask.main_grid.columns.build')" :width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'build'" :label="$t('entities.testtask.main_grid.columns.build')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.build')}}
@@ -120,7 +120,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('begin')">
-                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main_grid.columns.begin')" :width="160"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main_grid.columns.begin')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.begin')}}
@@ -132,7 +132,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('end')">
-                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main_grid.columns.end')" :width="160"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.end')}}
@@ -158,7 +158,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testtask.main_grid.columns.uagridcolumn1')" :width="250"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testtask.main_grid.columns.uagridcolumn1')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.uagridcolumn1')}}
@@ -180,8 +180,8 @@
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testtask.main_grid.uiactions.remove')">
+                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

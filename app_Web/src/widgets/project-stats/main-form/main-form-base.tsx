@@ -49,14 +49,23 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     protected appDeName: string = 'projectstats';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainEditFormBase
+     */
+    protected appDeLogicName: string = '项目统计';
+
     /**
      * 界面UI服务对象
      *
      * @type {ProjectStatsUIService}
-     * @memberof MainEditFormBase
+     * @memberof MainBase
      */  
     public appUIService:ProjectStatsUIService = new ProjectStatsUIService(this.$store);
-
 
     /**
      * 表单数据对象

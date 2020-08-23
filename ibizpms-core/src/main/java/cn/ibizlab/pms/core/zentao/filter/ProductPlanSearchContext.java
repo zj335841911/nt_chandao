@@ -69,6 +69,20 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
+	private String n_future_eq;//[待定]
+	public void setN_future_eq(String n_future_eq) {
+        this.n_future_eq = n_future_eq;
+        if(!ObjectUtils.isEmpty(this.n_future_eq)){
+            this.getSearchCond().eq("future", n_future_eq);
+        }
+    }
+	private String n_delta_eq;//[周期]
+	public void setN_delta_eq(String n_delta_eq) {
+        this.n_delta_eq = n_delta_eq;
+        if(!ObjectUtils.isEmpty(this.n_delta_eq)){
+            this.getSearchCond().eq("delta", n_delta_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

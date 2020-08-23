@@ -51,6 +51,23 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMainToolbarPortletBase
+     */
+    protected appDeLogicName: string = '产品';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof ProductMainToolbarBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -161,16 +178,31 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROD_CLOSED_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u993e8bf_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROD_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u0828b1d_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROD_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         }
     ];
 

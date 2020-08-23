@@ -27,39 +27,17 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'srfmstag',
         },
         {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'storycnt',
+          prop: 'storycnt',
+          dataType: 'INT',
         },
         {
           name: 'srfkey',
@@ -68,13 +46,48 @@ export default class MainModel {
           isEditable:true
         },
         {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
         },
         {
           name: 'begin',
           prop: 'begin',
+          dataType: 'DATE',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'bugcnt',
+          prop: 'bugcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'end',
+          prop: 'end',
           dataType: 'DATE',
         },
         {

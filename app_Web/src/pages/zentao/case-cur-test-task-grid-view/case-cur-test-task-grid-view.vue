@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseCurTestTaskGridViewBase } from './case-cur-test-task-grid-view-base';
-import view_grid from '@widgets/case/main-grid-grid/main-grid-grid.vue';
+import view_grid from '@widgets/case/test-main-grid-grid/test-main-grid-grid.vue';
 
 /**
  * 功能测试视图

@@ -5,6 +5,8 @@ import { ProductList } from './components/product-list/product-list';
 import { ProjectList } from './components/project-list/project-list';
 import { TestList } from './components/test-list/test-list';
 import { RoadMap } from './components/road-map/road-map';
+import CodeListIcon from './components/codelist-icon/codelist-icon.vue'; 
+import OverProgress from './components/over-progress/over-progress.vue';
 
 // 注册Vue插件
 export const iBizProjectCore = {
@@ -16,5 +18,7 @@ export const iBizProjectCore = {
         v.component('project-list', ProjectList);
         v.component('test-list', TestList);
         v.component('road-map', RoadMap);
+        v.component('codelist-icon', CodeListIcon);
+        v.component('over-progress', OverProgress);
     }
 };

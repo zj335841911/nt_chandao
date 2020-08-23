@@ -51,6 +51,23 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainToolbarPortletBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof ProjectMainToolbarBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -264,31 +281,61 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         text: "延期",
         iconcls: "fa fa-calendar-o",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROJ_DELAY_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u6e94857_click",
         text: "挂起",
         iconcls: "fa fa-pause",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROJ_SUSPEND_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u2db4a08_click",
         text: "激活",
         iconcls: "fa fa-plug",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROJ_ACTIVATION_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u698efc2_click",
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROJ_CLOSED_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u209627c_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROJ_EDIT_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_ufb9f459_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__PROJ_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
         }
     ];
 

@@ -160,6 +160,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                          <a v-show="scope.row.Breakdowntasks.visabled" :disabled="scope.row.Breakdowntasks.disabled" @click="uiAction(scope.row, 'Breakdowntasks', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_breakdowntasks')">
+                            <i class='fa fa-plus'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.ProjectUnlinkStory.visabled" type='vertical'></divider>
                           <a v-show="scope.row.ProjectUnlinkStory.visabled" :disabled="scope.row.ProjectUnlinkStory.disabled" @click="uiAction(scope.row, 'ProjectUnlinkStory', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_projectunlinkstory')">
                             <i class='fa fa-unlink'></i>
                             

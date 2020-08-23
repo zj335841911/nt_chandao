@@ -139,6 +139,7 @@ final public class ZTTestTaskHelper {
     private final static List<String> ACTION_URL_PARAMS_UNLINKCASE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_BATCHUNLINKCASES = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_RUNCASE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_TESTRUNCASE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_BATCHRUN = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_RESULTS = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_BATCHASSIGN = new ArrayList<>();
@@ -230,6 +231,16 @@ final public class ZTTestTaskHelper {
         ACTION_PARAMS_EDIT.put("mailto", null);
         ACTION_PARAMS_EDIT.put("comment", null);
 
+        // RUNCASE
+        ACTION_PARAMS_RUNCASE.put("steps[]", null);
+        ACTION_PARAMS_RUNCASE.put("reals[]", null);
+        ACTION_PARAMS_RUNCASE.put("case", null);
+        ACTION_PARAMS_RUNCASE.put("version", null);
+
+        // LINKCASE
+        ACTION_PARAMS_LINKCASE.put("cases[]", null);
+        ACTION_PARAMS_LINKCASE.put("versions[cases]", null);
+
         // START
         ACTION_PARAMS_START.put("comment", null);
 
@@ -260,8 +271,23 @@ final public class ZTTestTaskHelper {
         ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
 
+        // UNLINKCASE
+        ACTION_URL_PARAMS_UNLINKCASE.add("id");
+        ACTION_URL_PARAMS_UNLINKCASE.add("confirm");
+
+        // LINKCASE
+        ACTION_URL_PARAMS_LINKCASE.add("id");
+
         // START
         ACTION_URL_PARAMS_START.add("id");
+
+        // RUNCASE
+        ACTION_URL_PARAMS_RUNCASE.add("id");
+        ACTION_URL_PARAMS_RUNCASE.add("case");
+        ACTION_URL_PARAMS_RUNCASE.add("version");
+
+        // TESTRUNCASE
+        ACTION_URL_PARAMS_TESTRUNCASE.add("id");
 
         // BLOCK
         ACTION_URL_PARAMS_BLOCK.add("id");
@@ -438,6 +464,96 @@ final public class ZTTestTaskHelper {
         List<String> actionUrlParams = ACTION_URL_PARAMS_CLOSE;
         String returnUrlRegexPrev = ACTION_RETURNURL_CLOSE;
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_CLOSE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * runCase 执行
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean testRunCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_RUNCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_RUNCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_RUNCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_TESTRUNCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_RUNCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_RUNCASE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * runCase 执行
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean runCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_RUNCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_RUNCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_RUNCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_RUNCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_RUNCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_RUNCASE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * unlinkCas 移除用例关联
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_UNLINKCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_UNLINKCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_UNLINKCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_UNLINKCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_UNLINKCASE;
+
+        jo.put("confirm", "yes");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * linkCas 关联用例
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkCase(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LINKCASE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LINKCASE;
+        Map<String, Object> actionParams = ACTION_PARAMS_LINKCASE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_LINKCASE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_LINKCASE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_LINKCASE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }

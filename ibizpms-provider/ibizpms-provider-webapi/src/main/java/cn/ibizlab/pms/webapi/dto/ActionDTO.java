@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
 
 /**
@@ -119,6 +120,14 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "lastcomment")
     @JsonProperty("lastcomment")
     private String lastcomment;
+
+    /**
+     * 属性 [ACTIONMANNER]
+     *
+     */
+    @JSONField(name = "actionmanner")
+    @JsonProperty("actionmanner")
+    private String actionmanner;
 
 
     /**

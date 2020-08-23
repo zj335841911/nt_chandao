@@ -51,6 +51,23 @@ export class MainGridBase extends GridControlBase {
     protected appDeName: string = 'productplan';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeLogicName: string = '产品计划';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductPlanUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -163,24 +180,16 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {ProductPlanUIService}
-     * @memberof MainBase
-     */  
-    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', actiontarget: 'SINGLEKEY'},
+        RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LBUG_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -220,7 +229,7 @@ export class MainGridBase extends GridControlBase {
             label: '编号',
             langtag: 'entities.productplan.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -228,7 +237,7 @@ export class MainGridBase extends GridControlBase {
             label: '名称',
             langtag: 'entities.productplan.main_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -236,7 +245,7 @@ export class MainGridBase extends GridControlBase {
             label: '开始日期',
             langtag: 'entities.productplan.main_grid.columns.begin',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -244,7 +253,23 @@ export class MainGridBase extends GridControlBase {
             label: '结束日期',
             langtag: 'entities.productplan.main_grid.columns.end',
             show: true,
-            util: 'PX',
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'storycnt',
+            label: '需求数',
+            langtag: 'entities.productplan.main_grid.columns.storycnt',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'bugcnt',
+            label: 'bug数',
+            langtag: 'entities.productplan.main_grid.columns.bugcnt',
+            show: true,
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -252,7 +277,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.productplan.main_grid.columns.actions',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -293,6 +318,8 @@ export class MainGridBase extends GridControlBase {
         'title':false,
         'begin':false,
         'end':false,
+        'storycnt':false,
+        'bugcnt':false,
         'actions':false,
     };
 

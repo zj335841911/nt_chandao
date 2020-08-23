@@ -395,6 +395,41 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 测试失败数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resultfalicnt")
+    @JsonProperty("resultfalicnt")
+    private Integer resultfalicnt;
+    /**
+     * 用例状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    private String status1;
+    /**
+     * 指派给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+    /**
+     * 用例库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
 
     /**
      * 

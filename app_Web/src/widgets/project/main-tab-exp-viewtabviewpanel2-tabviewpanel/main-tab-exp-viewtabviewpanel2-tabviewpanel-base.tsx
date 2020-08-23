@@ -50,6 +50,23 @@ export class MainTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel2TabviewpanelBase
+     */
+    protected appDeLogicName: string = '项目';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MainTabExpViewtabviewpanel2Base
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
      * 导航模式下项是否激活
      *
      * @type {*}

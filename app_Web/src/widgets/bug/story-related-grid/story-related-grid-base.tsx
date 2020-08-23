@@ -51,6 +51,15 @@ export class StoryRelatedGridBase extends GridControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    protected appDeLogicName: string = 'Bug';
+
+    /**
      * 界面UI服务对象
      *
      * @type {BugUIService}
@@ -128,7 +137,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.bug.storyrelated_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -136,7 +145,7 @@ export class StoryRelatedGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.storyrelated_grid.columns.title',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]
