@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.util.security;
 
+import cn.ibizlab.pms.util.helper.SecurityWhitelistHandler;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.util.service.AuthenticationUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,6 +32,9 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
     @Value("${ibiz.permitall:false}")
     boolean permitAll;
 
+    @Autowired
+    private SecurityWhitelistHandler whitelistHandler;  //白名单处理类
+
     public AuthorizationTokenFilter(AuthenticationUserService userDetailsService, AuthTokenUtil authTokenUtil, @Value("${ibiz.jwt.header:Authorization}") String tokenHeader) {
         this.userDetailsService = userDetailsService;
         this.authTokenUtil = authTokenUtil;
@@ -39,9 +44,12 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
 
-        final String requestHeader = request.getHeader(this.tokenHeader);
-
         String url = request.getRequestURI();
+        final String requestHeader = request.getHeader(this.tokenHeader);
+        if(whitelistHandler.include(url)){
+            chain.doFilter(request, response);
+            return;
+        }
         if(url.startsWith("/uaa/open/dingtalk")){
             chain.doFilter(request, response);
             return ;

@@ -1,0 +1,6 @@
+/v7/login
+/uaa/publickey
+/uaa/open/dingtalk/auth/
+/uaa/open/dingtalk/access_token
+/ztlogin
+/ztusers/uaaloginname
