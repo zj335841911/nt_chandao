@@ -41,6 +41,11 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
 
         final String requestHeader = request.getHeader(this.tokenHeader);
 
+        String url = request.getRequestURI();
+        if(url.startsWith("/uaa/open/dingtalk")){
+            chain.doFilter(request, response);
+            return ;
+        }
         String username = null;
         String authToken = null;
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
@@ -61,6 +66,7 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
             // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
             // the database compellingly. Again it's up to you ;)
             if (authTokenUtil.validateToken(authToken, userDetails)) {
+                log.info("userdetails",userDetails);
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 log.info("authorizated user '{}', setting security context", username);
