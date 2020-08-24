@@ -9,12 +9,6 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.left " side="start">
-                            <ion-item-option v-for="uiitem in uiActions.left"  :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
-                        </ion-item-options>
-                        <ion-item-options  v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.right " side="end">
-                            <ion-item-option v-for="uiitem in uiActions.right" :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -32,12 +26,6 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.left " side="start">
-                            <ion-item-option v-for="uiitem in uiActions.left"  :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
-                        </ion-item-options>
-                        <ion-item-options  v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.right " side="end">
-                            <ion-item-option v-for="uiitem in uiActions.right" :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -288,14 +276,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     @Prop() protected removeAction!: string;
-
-    /**
-     * 界面行为
-     *
-     * @type {string}
-     * @memberof Mob
-     */
-    @Prop() protected uiActions?:any ;
     
     /**
      * 部件行为--load
@@ -948,7 +928,6 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        this.$emit("mdctrl_click",item,tag);
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -1053,14 +1032,7 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
-        let allUiAction = {};
-        this.uiActions.right.forEach((item:any) => {
-            Object.assign(allUiAction,{[item.name]:item});
-        });
-        this.uiActions.left.forEach((item:any) => {
-            Object.assign(allUiAction,{[item.name]:item});
-        });
-        let tempActionModel:any = JSON.parse(JSON.stringify(allUiAction));
+        let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
     }
