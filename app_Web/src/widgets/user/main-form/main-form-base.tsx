@@ -186,7 +186,7 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('dept')) {
-            this.data['dept'] = this.viewparams['srfparentkey'];
+            this.data['dept'] = this.viewparams['dept'];
         }
     }
 }

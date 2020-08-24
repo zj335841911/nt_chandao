@@ -74,7 +74,7 @@ export class UserEditViewBase extends EditViewBase {
 	 * @memberof UserEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+        'DEPT': { isRawValue: false, value: 'dept' }
     };
 
 	/**
@@ -85,7 +85,7 @@ export class UserEditViewBase extends EditViewBase {
 	 * @memberof UserEditViewBase
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' }
+        'dept': { isRawValue: false, value: 'dept' }
     };
 
     /**

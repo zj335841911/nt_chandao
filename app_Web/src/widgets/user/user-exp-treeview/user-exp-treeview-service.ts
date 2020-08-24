@@ -261,6 +261,8 @@ export default class UserExpService extends ControlService {
                         }
                         Object.assign(treeNode, { navfilter: "n_dept_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {DEPT:"%dept%"} });
+                        Object.assign(treeNode, {navigateParams: {dept:"%dept%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -419,6 +421,8 @@ export default class UserExpService extends ControlService {
                         }
                         Object.assign(treeNode, { navfilter: "n_dept_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {DEPT:"%dept%"} });
+                        Object.assign(treeNode, {navigateParams: {dept:"%dept%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -628,6 +632,8 @@ export default class UserExpService extends ControlService {
                         Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {DEPT:"0"} });
+                        Object.assign(treeNode, {navigateParams: {dept:"0"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
