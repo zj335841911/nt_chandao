@@ -196,10 +196,6 @@ export default {
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -223,5 +219,9 @@ export default {
 			caption: '保存',
 			tip: '保存',
 		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
+	assmobmdviewrighttoolbar_toolbar: {
 	},
 };

@@ -198,10 +198,6 @@ export default {
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -225,5 +221,9 @@ export default {
 			caption: 'Save And Close',
 			tip: 'tbitem1',
 		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
+	assmobmdviewrighttoolbar_toolbar: {
 	},
 };

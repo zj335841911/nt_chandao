@@ -189,7 +189,12 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0656049eb79b4207ae62933aa96c2f07',
+                'd0dab56a25ae62257d276606a854f105',
+                '962c2f3cb6edfbf24460d02154be01b1',
+                'e5b4dc2c97c12885513cb8a719e5583e',
                 '69a540ab88c1edd1da7f89cebe5f4588',
+                '9a78bd0bf4ddaee8cfa25375dbd766c6',
             ],
         },
         {
@@ -430,7 +435,12 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0656049eb79b4207ae62933aa96c2f07',
+                'd0dab56a25ae62257d276606a854f105',
+                '962c2f3cb6edfbf24460d02154be01b1',
+                'e5b4dc2c97c12885513cb8a719e5583e',
                 '69a540ab88c1edd1da7f89cebe5f4588',
+                '9a78bd0bf4ddaee8cfa25375dbd766c6',
             ],
         },
         {

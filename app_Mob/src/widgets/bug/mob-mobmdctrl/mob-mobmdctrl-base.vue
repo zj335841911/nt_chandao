@@ -10,6 +10,11 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon" :name="item.ConfirmBugMob.icon"></ion-icon>确认</ion-item-option>
+                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon" :name="item.AssingToBugMob.icon"></ion-icon>指派</ion-item-option>
+                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u21df92f', item)"><ion-icon v-if="item.ResolveBugMob.icon" :name="item.ResolveBugMob.icon"></ion-icon>解决</ion-item-option>
+                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'u2454fd8', item)"><ion-icon v-if="item.ActivationMob.icon" :name="item.ActivationMob.icon"></ion-icon>激活</ion-item-option>
+                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb3e16f', item)"><ion-icon v-if="item.CloseBugMob.icon" :name="item.CloseBugMob.icon"></ion-icon>关闭</ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u3571afd', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
@@ -30,6 +35,11 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon" :name="item.ConfirmBugMob.icon"></ion-icon>确认</ion-item-option>
+                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon" :name="item.AssingToBugMob.icon"></ion-icon>指派</ion-item-option>
+                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u21df92f', item)"><ion-icon v-if="item.ResolveBugMob.icon" :name="item.ResolveBugMob.icon"></ion-icon>解决</ion-item-option>
+                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'u2454fd8', item)"><ion-icon v-if="item.ActivationMob.icon" :name="item.ActivationMob.icon"></ion-icon>激活</ion-item-option>
+                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb3e16f', item)"><ion-icon v-if="item.CloseBugMob.icon" :name="item.CloseBugMob.icon"></ion-icon>关闭</ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u3571afd', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
@@ -230,6 +240,161 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:BugUIService = new BugUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u1c99d88_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ConfirmBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u79d161d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_AssingToBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u21df92f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u2454fd8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ActivationMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ubb3e16f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_CloseBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件
@@ -965,6 +1130,21 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'u1c99d88')) {
+            this.mdctrl_u1c99d88_click();
+        }
+        if (Object.is(tag, 'u79d161d')) {
+            this.mdctrl_u79d161d_click();
+        }
+        if (Object.is(tag, 'u21df92f')) {
+            this.mdctrl_u21df92f_click();
+        }
+        if (Object.is(tag, 'u2454fd8')) {
+            this.mdctrl_u2454fd8_click();
+        }
+        if (Object.is(tag, 'ubb3e16f')) {
+            this.mdctrl_ubb3e16f_click();
+        }
         if (Object.is(tag, 'u3571afd')) {
             this.mdctrl_u3571afd_click();
         }
@@ -1063,6 +1243,11 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:''},
+        AssingToBugMob: { name: 'AssingToBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', target: 'SINGLEKEY',icon:''},
+        ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:''},
+        ActivationMob: { name: 'ActivationMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', target: 'SINGLEKEY',icon:''},
+        CloseBugMob: { name: 'CloseBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', target: 'SINGLEKEY',icon:''},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_DELETE_BUT', target: 'SINGLEKEY',icon:'remove'}
     };
 
