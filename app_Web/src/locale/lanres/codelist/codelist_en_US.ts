@@ -680,6 +680,9 @@ export default {
         "1": "周期",
         "empty": ""
     },
+    RealDept: {
+        "empty": "",
+    },
     Action__type: {
         "created": "创建",
         "opened": "创建",

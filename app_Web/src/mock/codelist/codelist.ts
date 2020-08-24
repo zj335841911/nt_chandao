@@ -5095,6 +5095,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "RealDept",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Dept",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "Action__type",
         emptytext: "未定义",
         "codelisttype":"static",

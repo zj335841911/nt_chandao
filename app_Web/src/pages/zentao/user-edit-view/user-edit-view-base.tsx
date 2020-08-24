@@ -66,6 +66,28 @@ export class UserEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof UserEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof UserEditViewBase
+	 */
+    protected customViewParams: any = {
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' }
+    };
+
     /**
      * 视图模型数据
      *

@@ -33,15 +33,21 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='dept' :itemRules="this.rules.dept" class='' :caption="$t('entities.user.main_form.details.dept')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.dept.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.dept"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.dept.disabled" 
-    type='number' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.dept"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.dept.disabled"
+    valueType="number"
+    tag='RealDept'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

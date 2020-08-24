@@ -179,4 +179,14 @@ export class MainEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('dept')) {
+            this.data['dept'] = this.viewparams['srfparentkey'];
+        }
+    }
 }

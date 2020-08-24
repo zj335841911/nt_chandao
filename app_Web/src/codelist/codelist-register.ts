@@ -58,6 +58,7 @@ export class CodeListRegister {
         this.allCodeList.set('TestTask', () => import('@/codelist/test-task'));
         this.allCodeList.set('ProjectProductPlan', () => import('@/codelist/project-product-plan'));
         this.allCodeList.set('Product', () => import('@/codelist/product'));
+        this.allCodeList.set('RealDept', () => import('@/codelist/real-dept'));
         this.allCodeList.set('CurStory', () => import('@/codelist/cur-story'));
     }
 
