@@ -90,14 +90,14 @@ export class StudioViewBase extends Vue {
      */
     protected renderContent(): any {
         return [
-            this.isShowHeader ? <div class="view-header">
+            this.isShowHeader ? <div class="view-header" key="view-header">
                 {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
                 {this.$slots.toolbar ? <div class="toolbar">{this.$slots.toolbar}</div> : null}
                 {this.$slots.quickGroupSearch ? <div class="quick-group-search">{this.$slots.quickGroupSearch}</div> : null}
                 {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
                 {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
             </div> : null,
-            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }}>
+            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
                 {this.$slots.searchForm ? <div class="search-form-wrapper">
                     {this.$slots.searchForm}
                 </div> : null}
@@ -108,7 +108,7 @@ export class StudioViewBase extends Vue {
                     {this.$slots.default}
                 </div>
             </div>,
-            this.$slots.footer ? <div class="view-footer">
+            this.$slots.footer ? <div class="view-footer" key="view-footer">
                 {this.$slots.footer}
             </div> : null
         ];

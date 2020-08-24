@@ -63,6 +63,14 @@ export class FormDetailModel {
     protected $visible: boolean;
 
     /**
+     * 是否有权限
+     *
+     * @type {boolean}
+     * @memberof FormDetailModel
+     */
+    public isPower: boolean = true;
+
+    /**
      * 成员是否隐藏
      *
      * @readonly
@@ -71,6 +79,17 @@ export class FormDetailModel {
      */
     public get visible(): boolean {
         return (this.isShowMore && this.$visible);
+    }
+
+    /**
+     * 设置成员是否隐藏
+     *
+     * @memberof FormDetailModel
+     */
+    public set visible(val: boolean) {
+        if(this.isPower) {
+            this.$visible = val;
+        }
     }
 
     /**
@@ -127,7 +146,9 @@ export class FormDetailModel {
      * @memberof FormDetailModel
      */
     public setVisible(state: boolean): void {
-        this.$visible = state;
+        if(this.isPower) {
+            this.visible = state;
+        }
     }
 
     /**

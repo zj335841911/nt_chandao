@@ -121,10 +121,10 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 		{
 	id: 'BBD41A12-8E6A-4893-A647-BB76A575FF0B',
 	name: 'menuitem11',
-	text: '菜单项',
+	text: '用户',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '菜单项',
+	tooltip: '用户',
 	expanded: false,
 	separator: false,
 	hidden: false,

@@ -65,6 +65,7 @@ export default {
     branchname: "平台/分支",
     modulename1: "模块名称",
     files: "附件",
+    mobimage: "移动端图片",
   },
 	views: {
 		plansubgridview: {

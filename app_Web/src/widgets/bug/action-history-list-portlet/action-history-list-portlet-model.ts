@@ -207,6 +207,9 @@ export default class ActionHistoryListModel {
       {
         name: 'files',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

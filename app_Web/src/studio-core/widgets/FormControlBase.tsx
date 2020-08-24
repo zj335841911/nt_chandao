@@ -491,7 +491,6 @@ export class FormControlBase extends MainControlBase {
                 const data = response.data;
                 this.onFormLoad(data, 'load');
                 this.$emit(events.ctrl.LOAD, data);
-                this.computeButtonState(data);
                 this.$nextTick(() => {
                     this.formState.next({ type: 'load', data: data });
                 });
@@ -535,7 +534,6 @@ export class FormControlBase extends MainControlBase {
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
             this.$emit('load', data);
-            this.computeButtonState(data);
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
@@ -640,10 +638,12 @@ export class FormControlBase extends MainControlBase {
         if(this.detailsModel && Object.keys(this.detailsModel).length >0){
             Object.keys(this.detailsModel).forEach((name:any) =>{
                 if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
+                    this.detailsModel[name].isPower = true;
                     let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
-                    ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService);
-                    this.detailsModel[name].setVisible(tempUIAction.visabled);
+                    let result: any[] = ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService);
+                    this.detailsModel[name].visible = tempUIAction.visabled;
                     this.detailsModel[name].disabled = tempUIAction.disabled;
+                    this.detailsModel[name].isPower = result[0] === 1 ? true : false;
                 }
             })
         }

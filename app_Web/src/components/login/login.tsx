@@ -1,5 +1,6 @@
 import { Vue, Component, Watch } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
+import * as dd from 'dingtalk-jsapi';
 import './login.less';
 
 /**
@@ -75,6 +76,10 @@ export default class Login extends Vue {
      */
     public created() {
         this.setRules();
+        const info: string = window.navigator.userAgent.toUpperCase();
+        if (info.indexOf('DINGTALK') !== -1) {
+            this.checkDingDing();
+        }
     }
 
     /**
@@ -222,6 +227,50 @@ export default class Login extends Vue {
             return unescape(arr[2]);
         else
             return null;
+    }
+
+    /**
+     * 验证钉钉登录
+     *
+     * @memberof Login
+     */
+    public async checkDingDing() {
+        const access_token :any= await this.$http.get(`/uaa/open/dingtalk/access_token`);
+        if(access_token.status == 200 && access_token.data && access_token.data.regionid){
+            const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.regionid });
+            if (res && res.code) {
+                const userInfo:any = await this.$http.get(`/uaa/open/dingtalk/auth/${res.code}`);
+                if(userInfo.status == 200 && userInfo.data.token && userInfo.data.user){
+                    localStorage.setItem("token", userInfo.data.token);
+                    this.setCookie('ibzuaa-token', userInfo.data.token, 1);
+                    this.setCookie("loginname", userInfo.data.user.loginname, 7);
+                    // 页面回跳
+                    if (this.$route.query.redirect) {
+                        window.location.href = decodeURIComponent((this.$route.query.redirect as any));
+                    } else {
+                        this.$router.push({ path: '/' });
+                    }
+                } else {
+                    this.$Message.error({
+                        content: userInfo.data.message,
+                        duration: 5,
+                        closable: true
+                    });
+                }
+            } else {
+                this.$Message.error({
+                    content: "钉钉用户信息获取失败",
+                    duration: 5,
+                    closable: true
+                });
+            }
+        } else {
+            this.$Message.error({
+                content: "获取企业id失败",
+                duration: 5,
+                closable: true
+            });
+        }
     }
 
     /**
