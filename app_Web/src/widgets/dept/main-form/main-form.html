@@ -48,15 +48,21 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.manager.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='manager' :itemRules="this.rules.manager" class='' :caption="$t('entities.dept.main_form.details.manager')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.manager.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.manager"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.manager.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.manager"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.manager.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

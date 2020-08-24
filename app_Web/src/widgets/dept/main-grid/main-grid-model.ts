@@ -34,7 +34,7 @@ export default class MainModel {
         {
           name: 'manager',
           prop: 'manager',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'name',

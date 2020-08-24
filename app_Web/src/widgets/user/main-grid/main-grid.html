@@ -124,7 +124,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('address')">
-                <el-table-column show-overflow-tooltip :prop="'address'" :label="$t('entities.user.main_grid.columns.address')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'address'" :label="$t('entities.user.main_grid.columns.address')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.user.main_grid.columns.address')}}
@@ -148,7 +148,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('visits')">
-                <el-table-column show-overflow-tooltip :prop="'visits'" :label="$t('entities.user.main_grid.columns.visits')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'visits'" :label="$t('entities.user.main_grid.columns.visits')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.user.main_grid.columns.visits')}}
@@ -160,7 +160,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.user.main_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.user.main_grid.columns.uagridcolumn1')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.user.main_grid.columns.uagridcolumn1')}}
@@ -170,12 +170,12 @@
                         <div style="text-align: center;">
                           <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.user.main_grid.uiactions.edit')">
                             <i class='fa fa-edit'></i>
-                            {{$t('entities.user.main_grid.uiactions.edit')}}
+                            
                           </a>
                           <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.user.main_grid.uiactions.remove')">
                             <i class='fa fa-remove'></i>
-                            {{$t('entities.user.main_grid.uiactions.remove')}}
+                            
                           </a>
                         </div>
                     </template>
