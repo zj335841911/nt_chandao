@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Create-all')")
     @ApiOperation(value = "新建部门", tags = {"部门" },  notes = "新建部门")
 	@RequestMapping(method = RequestMethod.POST, value = "/depts")
-    @Transactional
     public ResponseEntity<DeptDTO> create(@RequestBody DeptDTO deptdto) {
         Dept domain = deptMapping.toDomain(deptdto);
 		deptService.create(domain);
@@ -69,7 +67,6 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Update-all')")
     @ApiOperation(value = "更新部门", tags = {"部门" },  notes = "更新部门")
 	@RequestMapping(method = RequestMethod.PUT, value = "/depts/{dept_id}")
-    @Transactional
     public ResponseEntity<DeptDTO> update(@PathVariable("dept_id") BigInteger dept_id, @RequestBody DeptDTO deptdto) {
 		Dept domain  = deptMapping.toDomain(deptdto);
         domain .setId(dept_id);
@@ -89,7 +86,6 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
     @ApiOperation(value = "删除部门", tags = {"部门" },  notes = "删除部门")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/{dept_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("dept_id") BigInteger dept_id) {
          return ResponseEntity.status(HttpStatus.OK).body(deptService.remove(dept_id));
     }

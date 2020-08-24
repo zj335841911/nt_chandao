@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class IbzProjectMemberResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzProjectMember-Create-all')")
     @ApiOperation(value = "新建项目相关成员", tags = {"项目相关成员" },  notes = "新建项目相关成员")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzprojectmembers")
-    @Transactional
     public ResponseEntity<IbzProjectMemberDTO> create(@RequestBody IbzProjectMemberDTO ibzprojectmemberdto) {
         IbzProjectMember domain = ibzprojectmemberMapping.toDomain(ibzprojectmemberdto);
 		ibzprojectmemberService.create(domain);
@@ -69,7 +67,6 @@ public class IbzProjectMemberResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzProjectMember-Update-all')")
     @ApiOperation(value = "更新项目相关成员", tags = {"项目相关成员" },  notes = "更新项目相关成员")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzprojectmembers/{ibzprojectmember_id}")
-    @Transactional
     public ResponseEntity<IbzProjectMemberDTO> update(@PathVariable("ibzprojectmember_id") BigInteger ibzprojectmember_id, @RequestBody IbzProjectMemberDTO ibzprojectmemberdto) {
 		IbzProjectMember domain  = ibzprojectmemberMapping.toDomain(ibzprojectmemberdto);
         domain .setId(ibzprojectmember_id);
@@ -89,7 +86,6 @@ public class IbzProjectMemberResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzProjectMember-Remove-all')")
     @ApiOperation(value = "删除项目相关成员", tags = {"项目相关成员" },  notes = "删除项目相关成员")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzprojectmembers/{ibzprojectmember_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("ibzprojectmember_id") BigInteger ibzprojectmember_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberService.remove(ibzprojectmember_id));
     }

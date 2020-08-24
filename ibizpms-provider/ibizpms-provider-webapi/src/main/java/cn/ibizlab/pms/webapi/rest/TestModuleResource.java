@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Create-all')")
     @ApiOperation(value = "新建测试模块", tags = {"测试模块" },  notes = "新建测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/testmodules")
-    @Transactional
     public ResponseEntity<TestModuleDTO> create(@RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
 		testmoduleService.create(domain);
@@ -69,7 +67,6 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Update-all')")
     @ApiOperation(value = "更新测试模块", tags = {"测试模块" },  notes = "更新测试模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testmodules/{testmodule_id}")
-    @Transactional
     public ResponseEntity<TestModuleDTO> update(@PathVariable("testmodule_id") BigInteger testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
 		TestModule domain  = testmoduleMapping.toDomain(testmoduledto);
         domain .setId(testmodule_id);
@@ -89,7 +86,6 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Remove-all')")
     @ApiOperation(value = "删除测试模块", tags = {"测试模块" },  notes = "删除测试模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testmodules/{testmodule_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("testmodule_id") BigInteger testmodule_id) {
          return ResponseEntity.status(HttpStatus.OK).body(testmoduleService.remove(testmodule_id));
     }
@@ -126,7 +122,6 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Fix-all')")
     @ApiOperation(value = "重建模块路径", tags = {"测试模块" },  notes = "重建模块路径")
 	@RequestMapping(method = RequestMethod.POST, value = "/testmodules/{testmodule_id}/fix")
-    @Transactional
     public ResponseEntity<TestModuleDTO> fix(@PathVariable("testmodule_id") BigInteger testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
 domain.setId(testmodule_id);
@@ -258,7 +253,6 @@ domain.setId(testmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Create-all')")
     @ApiOperation(value = "根据产品建立测试模块", tags = {"测试模块" },  notes = "根据产品建立测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules")
-    @Transactional
     public ResponseEntity<TestModuleDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
         domain.setRoot(product_id);
@@ -282,7 +276,6 @@ domain.setId(testmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Update-all')")
     @ApiOperation(value = "根据产品更新测试模块", tags = {"测试模块" },  notes = "根据产品更新测试模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testmodules/{testmodule_id}")
-    @Transactional
     public ResponseEntity<TestModuleDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
         domain.setRoot(product_id);
@@ -307,7 +300,6 @@ domain.setId(testmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Remove-all')")
     @ApiOperation(value = "根据产品删除测试模块", tags = {"测试模块" },  notes = "根据产品删除测试模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testmodules/{testmodule_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testmoduleService.remove(testmodule_id));
     }
@@ -346,7 +338,6 @@ domain.setId(testmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Fix-all')")
     @ApiOperation(value = "根据产品测试模块", tags = {"测试模块" },  notes = "根据产品测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/{testmodule_id}/fix")
-    @Transactional
     public ResponseEntity<TestModuleDTO> fixByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
         domain.setRoot(product_id);

@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Create-all')")
     @ApiOperation(value = "新建群组", tags = {"群组" },  notes = "新建群组")
 	@RequestMapping(method = RequestMethod.POST, value = "/groups")
-    @Transactional
     public ResponseEntity<GroupDTO> create(@RequestBody GroupDTO groupdto) {
         Group domain = groupMapping.toDomain(groupdto);
 		groupService.create(domain);
@@ -69,7 +67,6 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Update-all')")
     @ApiOperation(value = "更新群组", tags = {"群组" },  notes = "更新群组")
 	@RequestMapping(method = RequestMethod.PUT, value = "/groups/{group_id}")
-    @Transactional
     public ResponseEntity<GroupDTO> update(@PathVariable("group_id") BigInteger group_id, @RequestBody GroupDTO groupdto) {
 		Group domain  = groupMapping.toDomain(groupdto);
         domain .setId(group_id);
@@ -89,7 +86,6 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Remove-all')")
     @ApiOperation(value = "删除群组", tags = {"群组" },  notes = "删除群组")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/groups/{group_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("group_id") BigInteger group_id) {
          return ResponseEntity.status(HttpStatus.OK).body(groupService.remove(group_id));
     }

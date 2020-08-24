@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Create-all')")
     @ApiOperation(value = "新建附件", tags = {"附件" },  notes = "新建附件")
 	@RequestMapping(method = RequestMethod.POST, value = "/files")
-    @Transactional
     public ResponseEntity<FileDTO> create(@RequestBody FileDTO filedto) {
         File domain = fileMapping.toDomain(filedto);
 		fileService.create(domain);
@@ -69,7 +67,6 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Update-all')")
     @ApiOperation(value = "更新附件", tags = {"附件" },  notes = "更新附件")
 	@RequestMapping(method = RequestMethod.PUT, value = "/files/{file_id}")
-    @Transactional
     public ResponseEntity<FileDTO> update(@PathVariable("file_id") BigInteger file_id, @RequestBody FileDTO filedto) {
 		File domain  = fileMapping.toDomain(filedto);
         domain .setId(file_id);
@@ -89,7 +86,6 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Remove-all')")
     @ApiOperation(value = "删除附件", tags = {"附件" },  notes = "删除附件")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/files/{file_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("file_id") BigInteger file_id) {
          return ResponseEntity.status(HttpStatus.OK).body(fileService.remove(file_id));
     }

@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ReleaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "新建发布", tags = {"发布" },  notes = "新建发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases")
-    @Transactional
     public ResponseEntity<ReleaseDTO> create(@RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 		releaseService.create(domain);
@@ -69,7 +67,6 @@ public class ReleaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Update-all')")
     @ApiOperation(value = "更新发布", tags = {"发布" },  notes = "更新发布")
 	@RequestMapping(method = RequestMethod.PUT, value = "/releases/{release_id}")
-    @Transactional
     public ResponseEntity<ReleaseDTO> update(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
 		Release domain  = releaseMapping.toDomain(releasedto);
         domain .setId(release_id);
@@ -89,7 +86,6 @@ public class ReleaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Remove-all')")
     @ApiOperation(value = "删除发布", tags = {"发布" },  notes = "删除发布")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/releases/{release_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("release_id") BigInteger release_id) {
          return ResponseEntity.status(HttpStatus.OK).body(releaseService.remove(release_id));
     }
@@ -120,7 +116,6 @@ public class ReleaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Activate-all')")
     @ApiOperation(value = "状态变更（激活）", tags = {"发布" },  notes = "状态变更（激活）")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/activate")
-    @Transactional
     public ResponseEntity<ReleaseDTO> activate(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -132,7 +127,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-BatchUnlinkBug-all')")
     @ApiOperation(value = "批量解除关联Bug", tags = {"发布" },  notes = "批量解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> batchUnlinkBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -144,7 +138,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-ChangeStatus-all')")
     @ApiOperation(value = "状态变更", tags = {"发布" },  notes = "状态变更")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/changestatus")
-    @Transactional
     public ResponseEntity<ReleaseDTO> changeStatus(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -162,7 +155,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkBug-all')")
     @ApiOperation(value = "关联Bug", tags = {"发布" },  notes = "关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -174,7 +166,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkBugbyBug-all')")
     @ApiOperation(value = "关联Bug（解决Bug）", tags = {"发布" },  notes = "关联Bug（解决Bug）")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkbugbybug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkBugbyBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -186,7 +177,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkBugbyLeftBug-all')")
     @ApiOperation(value = "关联Bug（遗留Bug）", tags = {"发布" },  notes = "关联Bug（遗留Bug）")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkbugbyleftbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkBugbyLeftBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -198,7 +188,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkStory-all')")
     @ApiOperation(value = "关联需求", tags = {"发布" },  notes = "关联需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkstory")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkStory(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -225,7 +214,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Terminate-all')")
     @ApiOperation(value = "状态变更（停止维护）", tags = {"发布" },  notes = "状态变更（停止维护）")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/terminate")
-    @Transactional
     public ResponseEntity<ReleaseDTO> terminate(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -237,7 +225,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-UnlinkBug-all')")
     @ApiOperation(value = "解除关联Bug", tags = {"发布" },  notes = "解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> unlinkBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 domain.setId(release_id);
@@ -270,7 +257,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "根据产品建立发布", tags = {"发布" },  notes = "根据产品建立发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases")
-    @Transactional
     public ResponseEntity<ReleaseDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -294,7 +280,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Update-all')")
     @ApiOperation(value = "根据产品更新发布", tags = {"发布" },  notes = "根据产品更新发布")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/releases/{release_id}")
-    @Transactional
     public ResponseEntity<ReleaseDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -319,7 +304,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Remove-all')")
     @ApiOperation(value = "根据产品删除发布", tags = {"发布" },  notes = "根据产品删除发布")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/releases/{release_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(releaseService.remove(release_id));
     }
@@ -352,7 +336,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Activate-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/activate")
-    @Transactional
     public ResponseEntity<ReleaseDTO> activateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -364,7 +347,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> batchUnlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -376,7 +358,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-ChangeStatus-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/changestatus")
-    @Transactional
     public ResponseEntity<ReleaseDTO> changeStatusByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -394,7 +375,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkBug-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/linkbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -406,7 +386,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkBugbyBug-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/linkbugbybug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkBugbyBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -418,7 +397,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/linkbugbyleftbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkBugbyLeftBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -430,7 +408,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-LinkStory-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/linkstory")
-    @Transactional
     public ResponseEntity<ReleaseDTO> linkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -463,7 +440,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Terminate-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/terminate")
-    @Transactional
     public ResponseEntity<ReleaseDTO> terminateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);
@@ -475,7 +451,6 @@ domain.setId(release_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-UnlinkBug-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<ReleaseDTO> unlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);

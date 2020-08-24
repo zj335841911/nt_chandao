@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ProjectTeamResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "获取成员角色", tags = {"项目团队" },  notes = "获取成员角色")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/{projectteam_id}/getuserrole")
-    @Transactional
     public ResponseEntity<ProjectTeamDTO> getUserRole(@PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
 domain.setId(projectteam_id);
@@ -62,7 +60,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
     @ApiOperation(value = "新建项目团队", tags = {"项目团队" },  notes = "新建项目团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectteams")
-    @Transactional
     public ResponseEntity<ProjectTeamDTO> create(@RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
 		projectteamService.create(domain);
@@ -81,7 +78,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Update-all')")
     @ApiOperation(value = "更新项目团队", tags = {"项目团队" },  notes = "更新项目团队")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/{projectteam_id}")
-    @Transactional
     public ResponseEntity<ProjectTeamDTO> update(@PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
 		ProjectTeam domain  = projectteamMapping.toDomain(projectteamdto);
         domain .setId(projectteam_id);
@@ -101,7 +97,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Remove-all')")
     @ApiOperation(value = "删除项目团队", tags = {"项目团队" },  notes = "删除项目团队")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectteams/{projectteam_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("projectteam_id") BigInteger projectteam_id) {
          return ResponseEntity.status(HttpStatus.OK).body(projectteamService.remove(projectteam_id));
     }
@@ -195,7 +190,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "根据项目项目团队", tags = {"项目团队" },  notes = "根据项目项目团队")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrole")
-    @Transactional
     public ResponseEntity<ProjectTeamDTO> getUserRoleByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
         domain.setRoot(project_id);
@@ -207,7 +201,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
     @ApiOperation(value = "根据项目建立项目团队", tags = {"项目团队" },  notes = "根据项目建立项目团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectteams")
-    @Transactional
     public ResponseEntity<ProjectTeamDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
         domain.setRoot(project_id);
@@ -231,7 +224,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Update-all')")
     @ApiOperation(value = "根据项目更新项目团队", tags = {"项目团队" },  notes = "根据项目更新项目团队")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}")
-    @Transactional
     public ResponseEntity<ProjectTeamDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
         domain.setRoot(project_id);
@@ -256,7 +248,6 @@ domain.setId(projectteam_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Remove-all')")
     @ApiOperation(value = "根据项目删除项目团队", tags = {"项目团队" },  notes = "根据项目删除项目团队")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectteams/{projectteam_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectteam_id") BigInteger projectteam_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(projectteamService.remove(projectteam_id));
     }

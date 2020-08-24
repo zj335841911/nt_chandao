@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class CompanyResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Create-all')")
     @ApiOperation(value = "新建公司", tags = {"公司" },  notes = "新建公司")
 	@RequestMapping(method = RequestMethod.POST, value = "/companies")
-    @Transactional
     public ResponseEntity<CompanyDTO> create(@RequestBody CompanyDTO companydto) {
         Company domain = companyMapping.toDomain(companydto);
 		companyService.create(domain);
@@ -69,7 +67,6 @@ public class CompanyResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Update-all')")
     @ApiOperation(value = "更新公司", tags = {"公司" },  notes = "更新公司")
 	@RequestMapping(method = RequestMethod.PUT, value = "/companies/{company_id}")
-    @Transactional
     public ResponseEntity<CompanyDTO> update(@PathVariable("company_id") BigInteger company_id, @RequestBody CompanyDTO companydto) {
 		Company domain  = companyMapping.toDomain(companydto);
         domain .setId(company_id);
@@ -89,7 +86,6 @@ public class CompanyResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Remove-all')")
     @ApiOperation(value = "删除公司", tags = {"公司" },  notes = "删除公司")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/companies/{company_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("company_id") BigInteger company_id) {
          return ResponseEntity.status(HttpStatus.OK).body(companyService.remove(company_id));
     }

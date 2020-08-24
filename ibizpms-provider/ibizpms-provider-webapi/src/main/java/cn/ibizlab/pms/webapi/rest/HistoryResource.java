@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
     @ApiOperation(value = "新建操作历史", tags = {"操作历史" },  notes = "新建操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories")
-    @Transactional
     public ResponseEntity<HistoryDTO> create(@RequestBody HistoryDTO historydto) {
         History domain = historyMapping.toDomain(historydto);
 		historyService.create(domain);
@@ -69,7 +67,6 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
     @ApiOperation(value = "更新操作历史", tags = {"操作历史" },  notes = "更新操作历史")
 	@RequestMapping(method = RequestMethod.PUT, value = "/histories/{history_id}")
-    @Transactional
     public ResponseEntity<HistoryDTO> update(@PathVariable("history_id") BigInteger history_id, @RequestBody HistoryDTO historydto) {
 		History domain  = historyMapping.toDomain(historydto);
         domain .setId(history_id);
@@ -89,7 +86,6 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
     @ApiOperation(value = "删除操作历史", tags = {"操作历史" },  notes = "删除操作历史")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/histories/{history_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("history_id") BigInteger history_id) {
          return ResponseEntity.status(HttpStatus.OK).body(historyService.remove(history_id));
     }
@@ -162,7 +158,6 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
     @ApiOperation(value = "根据系统日志建立操作历史", tags = {"操作历史" },  notes = "根据系统日志建立操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories")
-    @Transactional
     public ResponseEntity<HistoryDTO> createByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistoryDTO historydto) {
         History domain = historyMapping.toDomain(historydto);
         domain.setAction(action_id);
@@ -186,7 +181,6 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
     @ApiOperation(value = "根据系统日志更新操作历史", tags = {"操作历史" },  notes = "根据系统日志更新操作历史")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}/histories/{history_id}")
-    @Transactional
     public ResponseEntity<HistoryDTO> updateByAction(@PathVariable("action_id") BigInteger action_id, @PathVariable("history_id") BigInteger history_id, @RequestBody HistoryDTO historydto) {
         History domain = historyMapping.toDomain(historydto);
         domain.setAction(action_id);
@@ -211,7 +205,6 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
     @ApiOperation(value = "根据系统日志删除操作历史", tags = {"操作历史" },  notes = "根据系统日志删除操作历史")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}/histories/{history_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByAction(@PathVariable("action_id") BigInteger action_id, @PathVariable("history_id") BigInteger history_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(historyService.remove(history_id));
     }
