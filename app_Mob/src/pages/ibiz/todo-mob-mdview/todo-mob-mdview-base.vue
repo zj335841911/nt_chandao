@@ -40,7 +40,7 @@
                 <div v-show="!showCheack" class = "fab_container">
             <div class="bottom_menu">
                 <ion-fab>
-                        <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
+                    <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-icon name="fa fa-file-text-o"></ion-icon>
                 {{$t('todo.mobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
             </ion-button>

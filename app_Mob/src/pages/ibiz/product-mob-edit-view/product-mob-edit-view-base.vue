@@ -37,13 +37,13 @@
                 <div  class = "fab_container">
             <div class="bottom_menu">
                 <ion-fab>
-                    <ion-fab-button class="app-view-toolbar-button">
+                <ion-fab-button class="app-view-toolbar-button">
             <ion-icon name="add"  ></ion-icon>
         {{$t('product.mobeditviewrighttoolbar_toolbar.items1.caption')}}
         </ion-fab-button>
         
         
-        <ion-fab-list side="start">
+        <ion-fab-list side="top">
             <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}} </ion-fab-button>
             <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}} </ion-fab-button>
         </ion-fab-list>
