@@ -34,22 +34,24 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "bottom_menu">
-            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-                <ion-fab-button class="app-view-toolbar-button" @click="righttoolbarModels.items1.isshow=!righttoolbarModels.items1.isshow">
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+                <ion-fab>
+                    <ion-fab-button class="app-view-toolbar-button">
             <ion-icon name="add"  ></ion-icon>
         
         </ion-fab-button>
         
         
-        <ion-fab-list side="top">
+        <ion-fab-list side="start">
             <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">  <ion-icon name="color-wand" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}} </ion-fab-button>
             <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">  <ion-icon name="pause" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}} </ion-fab-button>
             <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}} </ion-fab-button>
             <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}} </ion-fab-button>
         </ion-fab-list>
         
-            </ion-fab>
+                </ion-fab>
+            </div>
         </div>
     </ion-footer>
 </ion-page>

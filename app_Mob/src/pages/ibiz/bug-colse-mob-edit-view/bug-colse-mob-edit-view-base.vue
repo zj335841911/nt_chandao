@@ -43,14 +43,16 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "bottom_menu">
-            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-                    <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+                <ion-fab>
+                        <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-icon name="sx-tb-saveandclose"></ion-icon>
                 {{$t('bug.colsemobeditviewrighttoolbar_toolbar.tbitem1.caption')}}
             </ion-button>
         
-            </ion-fab>
+                </ion-fab>
+            </div>
         </div>
     </ion-footer>
 </ion-page>

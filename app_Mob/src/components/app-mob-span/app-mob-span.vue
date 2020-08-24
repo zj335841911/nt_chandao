@@ -210,8 +210,5 @@ export default class AppSpan extends Vue {
 }
 </script>
 <style lang="less">
-.app-mob-span{
-    width: 100%;
-    display: flex;
-}
+  @import './app-mob-span.less';
 </style>

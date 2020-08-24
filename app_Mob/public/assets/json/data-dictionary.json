@@ -9,6 +9,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "isValueNumber":false,
                 "color": "rgba(13, 255, 0, 1)",
                 "disabled": false
             }
@@ -17,6 +18,7 @@
                 "label": "结束",
                 "text": "结束",
                 "value": "closed",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -31,6 +33,7 @@
                 "label": "激活",
                 "text": "激活",
                 "value": "active",
+                "isValueNumber":false,
                 "color": "rgba(0, 157, 255, 1)",
                 "disabled": false
             }
@@ -39,6 +42,7 @@
                 "label": "已解决",
                 "text": "已解决",
                 "value": "resolved",
+                "isValueNumber":false,
                 "color": "rgba(1, 217, 19, 1)",
                 "disabled": false
             }
@@ -47,6 +51,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "isValueNumber":false,
                 "color": "rgba(151, 152, 141, 1)",
                 "disabled": false
             }
@@ -62,6 +67,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -69,6 +75,7 @@
                 "label": "已细分",
                 "text": "已细分",
                 "value": "subdivided",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -76,6 +83,7 @@
                 "label": "重复",
                 "text": "重复",
                 "value": "duplicate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -83,6 +91,7 @@
                 "label": "延期",
                 "text": "延期",
                 "value": "postponed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -90,6 +99,7 @@
                 "label": "不做",
                 "text": "不做",
                 "value": "willnotdo",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -97,6 +107,7 @@
                 "label": "已取消",
                 "text": "已取消",
                 "value": "cancel",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -104,6 +115,7 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "value": "bydesign",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -118,6 +130,7 @@
                 "label": "设计",
                 "text": "设计",
                 "value": "design",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -125,6 +138,7 @@
                 "label": "开发",
                 "text": "开发",
                 "value": "devel",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -132,6 +146,7 @@
                 "label": "测试",
                 "text": "测试",
                 "value": "test",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -139,6 +154,7 @@
                 "label": "研究",
                 "text": "研究",
                 "value": "study",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -146,6 +162,7 @@
                 "label": "讨论",
                 "text": "讨论",
                 "value": "discuss",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -153,6 +170,7 @@
                 "label": "界面",
                 "text": "界面",
                 "value": "ui",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -160,6 +178,7 @@
                 "label": "事务",
                 "text": "事务",
                 "value": "affair",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -167,6 +186,7 @@
                 "label": "其他",
                 "text": "其他",
                 "value": "misc",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -181,6 +201,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "isValueNumber":true,
                 "iconcls":"fa fa-square-o",
                 "className":"text-red-border-color",
                 "disabled": false
@@ -190,6 +211,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "isValueNumber":true,
                 "className":"text-pink-border-color",
                 "disabled": false
             }
@@ -198,6 +220,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "isValueNumber":true,
                 "className":"text-blue-border-color",
                 "disabled": false
             }
@@ -206,6 +229,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "isValueNumber":true,
                 "className":"text-green-border-color",
                 "disabled": false
             }
@@ -221,6 +245,7 @@
                 "label": "用例库",
                 "text": "用例库",
                 "value": "library",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -228,6 +253,7 @@
                 "label": "私有",
                 "text": "私有",
                 "value": "private",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -235,6 +261,7 @@
                 "label": "公开",
                 "text": "公开",
                 "value": "public",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -249,6 +276,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "isValueNumber":true,
                 "color": "rgba(230, 43, 43, 1)",
                 "className":"text-red-border-color",
                 "disabled": false
@@ -258,6 +286,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "isValueNumber":true,
                 "color": "rgba(225, 228, 33, 1)",
                 "className":"text-pink-border-color",
                 "disabled": false
@@ -267,6 +296,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "isValueNumber":true,
                 "color": "rgba(52, 8, 248, 1)",
                 "className":"text-blue-border-color",
                 "disabled": false
@@ -276,6 +306,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "isValueNumber":true,
                 "color": "rgba(80, 133, 63, 1)",
                 "className":"text-green-border-color",
                 "disabled": false
@@ -292,6 +323,7 @@
                 "label": "单元测试阶段",
                 "text": "单元测试阶段",
                 "value": "unittest",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -299,6 +331,7 @@
                 "label": "功能测试阶段",
                 "text": "功能测试阶段",
                 "value": "feature",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -306,6 +339,7 @@
                 "label": "集成测试阶段",
                 "text": "集成测试阶段",
                 "value": "intergrate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -313,6 +347,7 @@
                 "label": "系统测试阶段",
                 "text": "系统测试阶段",
                 "value": "system",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -320,6 +355,7 @@
                 "label": "冒烟测试阶段",
                 "text": "冒烟测试阶段",
                 "value": "smoke",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -327,6 +363,7 @@
                 "label": "版本验证阶段",
                 "text": "版本验证阶段",
                 "value": "bvt",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -341,6 +378,7 @@
                 "label": "步骤",
                 "text": "步骤",
                 "value": "step",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -348,6 +386,7 @@
                 "label": "分组",
                 "text": "分组",
                 "value": "group",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -355,6 +394,7 @@
                 "label": "分组步骤",
                 "text": "分组步骤",
                 "value": "item",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -377,6 +417,7 @@
                 "label": "用户需求",
                 "text": "用户需求",
                 "value": "requirement",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -384,6 +425,7 @@
                 "label": "软件需求",
                 "text": "软件需求",
                 "value": "story",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -398,6 +440,7 @@
                 "label": "06:00",
                 "text": "06:00",
                 "value": "0600",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -405,6 +448,7 @@
                 "label": "06:10",
                 "text": "06:10",
                 "value": "0610",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -412,6 +456,7 @@
                 "label": "06:20",
                 "text": "06:20",
                 "value": "0620",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -419,6 +464,7 @@
                 "label": "06:30",
                 "text": "06:30",
                 "value": "0630",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -426,6 +472,7 @@
                 "label": "06:40",
                 "text": "06:40",
                 "value": "0640",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -433,6 +480,7 @@
                 "label": "06:50",
                 "text": "06:50",
                 "value": "0650",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -440,6 +488,7 @@
                 "label": "07:00",
                 "text": "07:00",
                 "value": "0700",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -447,6 +496,7 @@
                 "label": "07:10",
                 "text": "07:10",
                 "value": "0710",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -454,6 +504,7 @@
                 "label": "07:20",
                 "text": "07:20",
                 "value": "0720",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -461,6 +512,7 @@
                 "label": "07:30",
                 "text": "07:30",
                 "value": "0730",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -468,6 +520,7 @@
                 "label": "07:40",
                 "text": "07:40",
                 "value": "0740",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -475,6 +528,7 @@
                 "label": "07:50",
                 "text": "07:50",
                 "value": "0750",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -482,6 +536,7 @@
                 "label": "08:00",
                 "text": "08:00",
                 "value": "0800",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -489,6 +544,7 @@
                 "label": "08:10",
                 "text": "08:10",
                 "value": "0810",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -496,6 +552,7 @@
                 "label": "08:20",
                 "text": "08:20",
                 "value": "0820",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -503,6 +560,7 @@
                 "label": "08:30",
                 "text": "08:30",
                 "value": "0830",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -510,6 +568,7 @@
                 "label": "08:40",
                 "text": "08:40",
                 "value": "0840",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -517,6 +576,7 @@
                 "label": "08:50",
                 "text": "08:50",
                 "value": "0850",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -524,6 +584,7 @@
                 "label": "09:00",
                 "text": "09:00",
                 "value": "0900",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -531,6 +592,7 @@
                 "label": "09:10",
                 "text": "09:10",
                 "value": "0910",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -538,6 +600,7 @@
                 "label": "09:20",
                 "text": "09:20",
                 "value": "0920",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -545,6 +608,7 @@
                 "label": "09:30",
                 "text": "09:30",
                 "value": "0930",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -552,6 +616,7 @@
                 "label": "09:40",
                 "text": "09:40",
                 "value": "0940",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -559,6 +624,7 @@
                 "label": "09:50",
                 "text": "09:50",
                 "value": "0950",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -566,6 +632,7 @@
                 "label": "10:00",
                 "text": "10:00",
                 "value": "1000",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -573,6 +640,7 @@
                 "label": "10:10",
                 "text": "10:10",
                 "value": "1010",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -580,6 +648,7 @@
                 "label": "10:20",
                 "text": "10:20",
                 "value": "1020",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -587,6 +656,7 @@
                 "label": "10:30",
                 "text": "10:30",
                 "value": "1030",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -594,6 +664,7 @@
                 "label": "10:40",
                 "text": "10:40",
                 "value": "1040",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -601,6 +672,7 @@
                 "label": "10:50",
                 "text": "10:50",
                 "value": "1050",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -608,6 +680,7 @@
                 "label": "11:00",
                 "text": "11:00",
                 "value": "1100",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -615,6 +688,7 @@
                 "label": "11:10",
                 "text": "11:10",
                 "value": "1110",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -622,6 +696,7 @@
                 "label": "11:20",
                 "text": "11:20",
                 "value": "1120",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -629,6 +704,7 @@
                 "label": "11:30",
                 "text": "11:30",
                 "value": "1130",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -636,6 +712,7 @@
                 "label": "11:40",
                 "text": "11:40",
                 "value": "1140",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -643,6 +720,7 @@
                 "label": "11:50",
                 "text": "11:50",
                 "value": "1150",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -650,6 +728,7 @@
                 "label": "12:00",
                 "text": "12:00",
                 "value": "1200",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -657,6 +736,7 @@
                 "label": "12:10",
                 "text": "12:10",
                 "value": "1210",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -664,6 +744,7 @@
                 "label": "12:20",
                 "text": "12:20",
                 "value": "1220",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -671,6 +752,7 @@
                 "label": "12:30",
                 "text": "12:30",
                 "value": "1230",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -678,6 +760,7 @@
                 "label": "12:40",
                 "text": "12:40",
                 "value": "1240",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -685,6 +768,7 @@
                 "label": "12:50",
                 "text": "12:50",
                 "value": "1250",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -692,6 +776,7 @@
                 "label": "13:00",
                 "text": "13:00",
                 "value": "1300",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -699,6 +784,7 @@
                 "label": "13:10",
                 "text": "13:10",
                 "value": "1310",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -706,6 +792,7 @@
                 "label": "13:20",
                 "text": "13:20",
                 "value": "1320",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -713,6 +800,7 @@
                 "label": "13:30",
                 "text": "13:30",
                 "value": "1330",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -720,6 +808,7 @@
                 "label": "13:40",
                 "text": "13:40",
                 "value": "1340",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -727,6 +816,7 @@
                 "label": "13:50",
                 "text": "13:50",
                 "value": "1350",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -734,6 +824,7 @@
                 "label": "14:00",
                 "text": "14:00",
                 "value": "1400",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -741,6 +832,7 @@
                 "label": "14:10",
                 "text": "14:10",
                 "value": "1410",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -748,6 +840,7 @@
                 "label": "14:20",
                 "text": "14:20",
                 "value": "1420",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -755,6 +848,7 @@
                 "label": "14:30",
                 "text": "14:30",
                 "value": "1430",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -762,6 +856,7 @@
                 "label": "14:40",
                 "text": "14:40",
                 "value": "1440",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -769,6 +864,7 @@
                 "label": "14:50",
                 "text": "14:50",
                 "value": "1450",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -776,6 +872,7 @@
                 "label": "15:00",
                 "text": "15:00",
                 "value": "1500",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -783,6 +880,7 @@
                 "label": "15:10",
                 "text": "15:10",
                 "value": "1510",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -790,6 +888,7 @@
                 "label": "15:20",
                 "text": "15:20",
                 "value": "1520",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -797,6 +896,7 @@
                 "label": "15:30",
                 "text": "15:30",
                 "value": "1530",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -804,6 +904,7 @@
                 "label": "15:40",
                 "text": "15:40",
                 "value": "1540",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -811,6 +912,7 @@
                 "label": "15:50",
                 "text": "15:50",
                 "value": "1550",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -818,6 +920,7 @@
                 "label": "16:00",
                 "text": "16:00",
                 "value": "1600",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -825,6 +928,7 @@
                 "label": "16:10",
                 "text": "16:10",
                 "value": "1610",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -832,6 +936,7 @@
                 "label": "16:20",
                 "text": "16:20",
                 "value": "1620",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -839,6 +944,7 @@
                 "label": "16:30",
                 "text": "16:30",
                 "value": "1630",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -846,6 +952,7 @@
                 "label": "16:40",
                 "text": "16:40",
                 "value": "1640",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -853,6 +960,7 @@
                 "label": "16:50",
                 "text": "16:50",
                 "value": "1650",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -860,6 +968,7 @@
                 "label": "17:00",
                 "text": "17:00",
                 "value": "1700",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -867,6 +976,7 @@
                 "label": "17:10",
                 "text": "17:10",
                 "value": "1710",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -874,6 +984,7 @@
                 "label": "17:20",
                 "text": "17:20",
                 "value": "1720",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -881,6 +992,7 @@
                 "label": "17:30",
                 "text": "17:30",
                 "value": "1730",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -888,6 +1000,7 @@
                 "label": "17:40",
                 "text": "17:40",
                 "value": "1740",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -895,6 +1008,7 @@
                 "label": "17:50",
                 "text": "17:50",
                 "value": "1750",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -902,6 +1016,7 @@
                 "label": "18:00",
                 "text": "18:00",
                 "value": "1800",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -909,6 +1024,7 @@
                 "label": "18:10",
                 "text": "18:10",
                 "value": "1810",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -916,6 +1032,7 @@
                 "label": "18:20",
                 "text": "18:20",
                 "value": "1820",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -923,6 +1040,7 @@
                 "label": "18:30",
                 "text": "18:30",
                 "value": "1830",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -930,6 +1048,7 @@
                 "label": "18:40",
                 "text": "18:40",
                 "value": "1840",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -937,6 +1056,7 @@
                 "label": "18:50",
                 "text": "18:50",
                 "value": "1850",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -944,6 +1064,7 @@
                 "label": "19:00",
                 "text": "19:00",
                 "value": "1900",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -951,6 +1072,7 @@
                 "label": "19:10",
                 "text": "19:10",
                 "value": "1910",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -958,6 +1080,7 @@
                 "label": "19:20",
                 "text": "19:20",
                 "value": "1920",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -965,6 +1088,7 @@
                 "label": "19:30",
                 "text": "19:30",
                 "value": "1930",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -972,6 +1096,7 @@
                 "label": "19:40",
                 "text": "19:40",
                 "value": "1940",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -979,6 +1104,7 @@
                 "label": "19:50",
                 "text": "19:50",
                 "value": "1950",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -986,6 +1112,7 @@
                 "label": "20:00",
                 "text": "20:00",
                 "value": "2000",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -993,6 +1120,7 @@
                 "label": "20:10",
                 "text": "20:10",
                 "value": "2010",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1000,6 +1128,7 @@
                 "label": "20:20",
                 "text": "20:20",
                 "value": "2020",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1007,6 +1136,7 @@
                 "label": "20:30",
                 "text": "20:30",
                 "value": "2030",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1014,6 +1144,7 @@
                 "label": "20:40",
                 "text": "20:40",
                 "value": "2040",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1021,6 +1152,7 @@
                 "label": "20:50",
                 "text": "20:50",
                 "value": "2050",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1028,6 +1160,7 @@
                 "label": "21:00",
                 "text": "21:00",
                 "value": "2100",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1035,6 +1168,7 @@
                 "label": "21:10",
                 "text": "21:10",
                 "value": "2110",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1042,6 +1176,7 @@
                 "label": "21:20",
                 "text": "21:20",
                 "value": "2120",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1049,6 +1184,7 @@
                 "label": "21:30",
                 "text": "21:30",
                 "value": "2130",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1056,6 +1192,7 @@
                 "label": "21:40",
                 "text": "21:40",
                 "value": "2140",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1063,6 +1200,7 @@
                 "label": "21:50",
                 "text": "21:50",
                 "value": "2150",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1070,6 +1208,7 @@
                 "label": "22:00",
                 "text": "22:00",
                 "value": "2200",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1077,6 +1216,7 @@
                 "label": "22:10",
                 "text": "22:10",
                 "value": "2210",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1084,6 +1224,7 @@
                 "label": "22:20",
                 "text": "22:20",
                 "value": "2220",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1091,6 +1232,7 @@
                 "label": "22:30",
                 "text": "22:30",
                 "value": "2230",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1098,6 +1240,7 @@
                 "label": "22:40",
                 "text": "22:40",
                 "value": "2240",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1105,6 +1248,7 @@
                 "label": "22:50",
                 "text": "22:50",
                 "value": "2250",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1112,6 +1256,7 @@
                 "label": "23:00",
                 "text": "23:00",
                 "value": "2300",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1119,6 +1264,7 @@
                 "label": "23:10",
                 "text": "23:10",
                 "value": "2310",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1126,6 +1272,7 @@
                 "label": "23:20",
                 "text": "23:20",
                 "value": "2320",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1133,6 +1280,7 @@
                 "label": "23:30",
                 "text": "23:30",
                 "value": "2330",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1140,6 +1288,7 @@
                 "label": "23:40",
                 "text": "23:40",
                 "value": "2340",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1147,6 +1296,7 @@
                 "label": "23:50",
                 "text": "23:50",
                 "value": "2350",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -1161,6 +1311,7 @@
                 "label": "代码错误",
                 "text": "代码错误",
                 "value": "codeerror",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1168,6 +1319,7 @@
                 "label": "配置相关",
                 "text": "配置相关",
                 "value": "config",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1175,6 +1327,7 @@
                 "label": "安装部署",
                 "text": "安装部署",
                 "value": "install",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1182,6 +1335,7 @@
                 "label": "安全相关",
                 "text": "安全相关",
                 "value": "security",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1189,6 +1343,7 @@
                 "label": "性能问题",
                 "text": "性能问题",
                 "value": "performance",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1196,6 +1351,7 @@
                 "label": "标准规范",
                 "text": "标准规范",
                 "value": "standard",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1203,6 +1359,7 @@
                 "label": "测试脚本",
                 "text": "测试脚本",
                 "value": "automation",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1210,6 +1367,7 @@
                 "label": "设计缺陷",
                 "text": "设计缺陷",
                 "value": "designdefect",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1217,6 +1375,7 @@
                 "label": "其他",
                 "text": "其他",
                 "value": "others",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -1231,6 +1390,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1238,6 +1398,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "isValueNumber":false,
                 "color": "rgba(84, 238, 19, 1)",
                 "disabled": false
             }
@@ -1246,6 +1407,7 @@
                 "label": "被阻塞",
                 "text": "被阻塞",
                 "value": "blocked",
+                "isValueNumber":false,
                 "color": "rgba(230, 242, 3, 0.97)",
                 "disabled": false
             }
@@ -1254,6 +1416,7 @@
                 "label": "研究中",
                 "text": "研究中",
                 "value": "investigate",
+                "isValueNumber":false,
                 "color": "rgba(245, 12, 12, 1)",
                 "disabled": false
             }
@@ -1262,6 +1425,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1269,6 +1433,7 @@
                 "label": "需求变更",
                 "text": "需求变更",
                 "value": "storychange",
+                "isValueNumber":false,
                 "color": "rgba(254, 8, 8, 1)",
                 "disabled": false
             }
@@ -1277,6 +1442,7 @@
                 "label": "原用例更新",
                 "text": "原用例更新",
                 "value": "casechange",
+                "isValueNumber":false,
                 "color": "rgba(247, 31, 7, 1)",
                 "disabled": false
             }
@@ -1292,6 +1458,7 @@
                 "label": "创建",
                 "text": "创建",
                 "value": "created",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1299,6 +1466,7 @@
                 "label": "创建",
                 "text": "创建",
                 "value": "opened",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1306,6 +1474,7 @@
                 "label": "变更了",
                 "text": "变更了",
                 "value": "changed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1313,6 +1482,7 @@
                 "label": "编辑了",
                 "text": "编辑了",
                 "value": "edited",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1320,6 +1490,7 @@
                 "label": "指派了",
                 "text": "指派了",
                 "value": "assigned",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1327,6 +1498,7 @@
                 "label": "关闭了",
                 "text": "关闭了",
                 "value": "closed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1334,6 +1506,7 @@
                 "label": "删除了",
                 "text": "删除了",
                 "value": "deleted",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1341,6 +1514,7 @@
                 "label": "删除附件",
                 "text": "删除附件",
                 "value": "deletedfile",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1348,6 +1522,7 @@
                 "label": "编辑附件",
                 "text": "编辑附件",
                 "value": "editfile",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1355,6 +1530,7 @@
                 "label": "删除了",
                 "text": "删除了",
                 "value": "erased",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1362,6 +1538,7 @@
                 "label": "还原了",
                 "text": "还原了",
                 "value": "undeleted",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1369,6 +1546,7 @@
                 "label": "隐藏了",
                 "text": "隐藏了",
                 "value": "hidden",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1376,6 +1554,7 @@
                 "label": "评论了",
                 "text": "评论了",
                 "value": "commented",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1383,6 +1562,7 @@
                 "label": "激活了",
                 "text": "激活了",
                 "value": "activated",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1390,6 +1570,7 @@
                 "label": "阻塞了",
                 "text": "阻塞了",
                 "value": "blocked",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1397,6 +1578,7 @@
                 "label": "解决了",
                 "text": "解决了",
                 "value": "resolved",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1404,6 +1586,7 @@
                 "label": "评审了",
                 "text": "评审了",
                 "value": "reviewed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1411,6 +1594,7 @@
                 "label": "移动了",
                 "text": "移动了",
                 "value": "moved",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1418,6 +1602,7 @@
                 "label": "确认了需求",
                 "text": "确认了需求",
                 "value": "confirmed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1425,6 +1610,7 @@
                 "label": "确认了",
                 "text": "确认了",
                 "value": "bugconfirmed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1432,6 +1618,7 @@
                 "label": "转需求",
                 "text": "转需求",
                 "value": "tostory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1439,6 +1626,7 @@
                 "label": "转需求",
                 "text": "转需求",
                 "value": "frombug",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1446,6 +1634,7 @@
                 "label": "从用例库导入",
                 "text": "从用例库导入",
                 "value": "fromlib",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1453,6 +1642,7 @@
                 "label": "转任务",
                 "text": "转任务",
                 "value": "totask",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1460,6 +1650,7 @@
                 "label": "提交代码",
                 "text": "提交代码",
                 "value": "svncommited",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1467,6 +1658,7 @@
                 "label": "提交代码",
                 "text": "提交代码",
                 "value": "gitcommited",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1474,6 +1666,7 @@
                 "label": "关联计划",
                 "text": "关联计划",
                 "value": "linked2plan",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1481,6 +1674,7 @@
                 "label": "移除计划",
                 "text": "移除计划",
                 "value": "unlinkedfromplan",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1488,6 +1682,7 @@
                 "label": "修改状态",
                 "text": "修改状态",
                 "value": "changestatus",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1495,6 +1690,7 @@
                 "label": "编辑了",
                 "text": "编辑了",
                 "value": "marked",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1502,6 +1698,7 @@
                 "label": "关联项目",
                 "text": "关联项目",
                 "value": "linked2project",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1509,6 +1706,7 @@
                 "label": "移除项目",
                 "text": "移除项目",
                 "value": "unlinkedfromproject",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1516,6 +1714,7 @@
                 "label": "移除版本",
                 "text": "移除版本",
                 "value": "unlinkedfrombuild",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1523,6 +1722,7 @@
                 "label": "关联发布",
                 "text": "关联发布",
                 "value": "linked2release",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1530,6 +1730,7 @@
                 "label": "移除发布",
                 "text": "移除发布",
                 "value": "unlinkedfromrelease",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1537,6 +1738,7 @@
                 "label": "关联了相关Bug",
                 "text": "关联了相关Bug",
                 "value": "linkrelatedbug",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1544,6 +1746,7 @@
                 "label": "移除了相关Bug",
                 "text": "移除了相关Bug",
                 "value": "unlinkrelatedbug",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1551,6 +1754,7 @@
                 "label": "关联了相关用例",
                 "text": "关联了相关用例",
                 "value": "linkrelatedcase",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1558,6 +1762,7 @@
                 "label": "移除了相关用例",
                 "text": "移除了相关用例",
                 "value": "unlinkrelatedcase",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1565,6 +1770,7 @@
                 "label": "关联了相关需求",
                 "text": "关联了相关需求",
                 "value": "linkrelatedstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1572,6 +1778,7 @@
                 "label": "移除了相关需求",
                 "text": "移除了相关需求",
                 "value": "unlinkrelatedstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1579,6 +1786,7 @@
                 "label": "细分了需求",
                 "text": "细分了需求",
                 "value": "subdividestory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1586,6 +1794,7 @@
                 "label": "移除了细分需求",
                 "text": "移除了细分需求",
                 "value": "unlinkchildstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1593,6 +1802,7 @@
                 "label": "开始了",
                 "text": "开始了",
                 "value": "started",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1600,6 +1810,7 @@
                 "label": "继续了",
                 "text": "继续了",
                 "value": "restarted",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1607,6 +1818,7 @@
                 "label": "记录了工时",
                 "text": "记录了工时",
                 "value": "recordestimate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1614,6 +1826,7 @@
                 "label": "编辑了工时",
                 "text": "编辑了工时",
                 "value": "editestimate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1621,6 +1834,7 @@
                 "label": "取消了",
                 "text": "取消了",
                 "value": "canceled",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1628,6 +1842,7 @@
                 "label": "完成了",
                 "text": "完成了",
                 "value": "finished",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1635,6 +1850,7 @@
                 "label": "暂停了",
                 "text": "暂停了",
                 "value": "paused",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1642,6 +1858,7 @@
                 "label": "验收了",
                 "text": "验收了",
                 "value": "verified",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1649,6 +1866,7 @@
                 "label": "延期",
                 "text": "延期",
                 "value": "delayed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1656,6 +1874,7 @@
                 "label": "挂起",
                 "text": "挂起",
                 "value": "suspended",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1663,6 +1882,7 @@
                 "label": "登录系统",
                 "text": "登录系统",
                 "value": "login",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1670,6 +1890,7 @@
                 "label": "退出登录",
                 "text": "退出登录",
                 "value": "logout",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1677,6 +1898,7 @@
                 "label": "删除了工时",
                 "text": "删除了工时",
                 "value": "deleteestimate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1684,6 +1906,7 @@
                 "label": "关联了",
                 "text": "关联了",
                 "value": "linked2build",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1691,6 +1914,7 @@
                 "label": "关联了",
                 "text": "关联了",
                 "value": "linked2bug",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1698,6 +1922,7 @@
                 "label": "关联子任务",
                 "text": "关联子任务",
                 "value": "linkchildtask",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1705,6 +1930,7 @@
                 "label": "取消关联子任务",
                 "text": "取消关联子任务",
                 "value": "unlinkchildrentask",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1712,6 +1938,7 @@
                 "label": "关联到父任务",
                 "text": "关联到父任务",
                 "value": "linkparenttask",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1719,6 +1946,7 @@
                 "label": "从父任务取消关联",
                 "text": "从父任务取消关联",
                 "value": "unlinkparenttask",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1726,6 +1954,7 @@
                 "label": "批量创建任务",
                 "text": "批量创建任务",
                 "value": "batchcreate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1733,6 +1962,7 @@
                 "label": "创建子任务",
                 "text": "创建子任务",
                 "value": "createchildren",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1740,6 +1970,7 @@
                 "label": "维护",
                 "text": "维护",
                 "value": "managed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1747,6 +1978,7 @@
                 "label": "删除子任务",
                 "text": "删除子任务",
                 "value": "deletechildrentask",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1754,6 +1986,7 @@
                 "label": "创建子需求",
                 "text": "创建子需求",
                 "value": "createchildrenstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1761,6 +1994,7 @@
                 "label": "关联子需求",
                 "text": "关联子需求",
                 "value": "linkchildstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1768,6 +2002,7 @@
                 "label": "取消关联子需求",
                 "text": "取消关联子需求",
                 "value": "unlinkchildrenstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1775,6 +2010,7 @@
                 "label": "关联到父需求",
                 "text": "关联到父需求",
                 "value": "linkparentstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1782,6 +2018,7 @@
                 "label": "从父需求取消关联",
                 "text": "从父需求取消关联",
                 "value": "unlinkparentstory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1789,6 +2026,7 @@
                 "label": "删除子需求",
                 "text": "删除子需求",
                 "value": "deletechildrenstory",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -1811,6 +2049,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "isValueNumber":true,
                 "iconcls":"fa fa-bomb",
                 "color": "rgba(183, 35, 35, 1)",
                 "className":"text-blue-border-color",
@@ -1821,6 +2060,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "isValueNumber":true,
                 "color": "rgba(197, 26, 26, 1)",
                 "className":"text-pink-border-color",
                 "disabled": false
@@ -1830,6 +2070,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "isValueNumber":true,
                 "iconcls":"fa fa-sort-amount-asc",
                 "color": "rgba(64, 78, 227, 1)",
                 "className":"text-blue-border-color",
@@ -1840,6 +2081,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "isValueNumber":true,
                 "color": "rgba(94, 231, 3, 1)",
                 "className":"text-green-border-color",
                 "disabled": false
@@ -1856,6 +2098,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1863,6 +2106,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1870,6 +2114,7 @@
                 "label": "已挂起",
                 "text": "已挂起",
                 "value": "suspended",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1877,6 +2122,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -1891,6 +2137,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "isValueNumber":false,
                 "color": "rgba(13, 255, 0, 1)",
                 "disabled": false
             }
@@ -1899,6 +2146,7 @@
                 "label": "停止维护",
                 "text": "停止维护",
                 "value": "terminate",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -1913,6 +2161,7 @@
                 "label": "自定义",
                 "text": "自定义",
                 "value": "custom",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1920,6 +2169,7 @@
                 "label": "Bug",
                 "text": "Bug",
                 "value": "bug",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1927,6 +2177,7 @@
                 "label": "项目任务",
                 "text": "项目任务",
                 "value": "task",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1934,6 +2185,7 @@
                 "label": "项目需求",
                 "text": "项目需求",
                 "value": "story",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -1948,6 +2200,7 @@
                 "label": "不做",
                 "text": "不做",
                 "value": "story_closed_willnotdo",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1955,6 +2208,7 @@
                 "label": "已取消",
                 "text": "已取消",
                 "value": "story_closed_cancel",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1962,6 +2216,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "story_closed_done",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1969,6 +2224,7 @@
                 "label": "已细分",
                 "text": "已细分",
                 "value": "story_closed_subdivided",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1976,6 +2232,7 @@
                 "label": "延期",
                 "text": "延期",
                 "value": "story_closed_postponed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1983,6 +2240,7 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "value": "story_closed_bydesign",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1990,6 +2248,7 @@
                 "label": "重复",
                 "text": "重复",
                 "value": "story_closed_duplicate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -1997,6 +2256,7 @@
                 "label": "不予解决",
                 "text": "不予解决",
                 "value": "bug_resolved_willnotfix",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2004,6 +2264,7 @@
                 "label": "外部原因",
                 "text": "外部原因",
                 "value": "bug_resolved_external",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2011,6 +2272,7 @@
                 "label": "已解决",
                 "text": "已解决",
                 "value": "bug_resolved_fixed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2018,6 +2280,7 @@
                 "label": "延期处理",
                 "text": "延期处理",
                 "value": "bug_resolved_postponed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2025,6 +2288,7 @@
                 "label": "无法重现",
                 "text": "无法重现",
                 "value": "bug_resolved_notrepro",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2032,6 +2296,7 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "value": "bug_resolved_bydesign",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2039,6 +2304,7 @@
                 "label": "转为需求",
                 "text": "转为需求",
                 "value": "bug_resolved_tostory",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2046,6 +2312,7 @@
                 "label": "重复Bug",
                 "text": "重复Bug",
                 "value": "bug_resolved_duplicate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2053,6 +2320,7 @@
                 "label": "拒绝",
                 "text": "拒绝",
                 "value": "story_reviewed_reject",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2060,6 +2328,7 @@
                 "label": "撤销变更",
                 "text": "撤销变更",
                 "value": "story_reviewed_revert",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2067,6 +2336,7 @@
                 "label": "有待明确",
                 "text": "有待明确",
                 "value": "story_reviewed_clarify",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2074,6 +2344,7 @@
                 "label": "确认通过",
                 "text": "确认通过",
                 "value": "story_reviewed_pass",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2081,6 +2352,7 @@
                 "label": "停止维护",
                 "text": "停止维护",
                 "value": " release_changestatus_terminate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2088,6 +2360,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": " release_changestatus_normal",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2102,6 +2375,7 @@
                 "label": "一般",
                 "text": "一般",
                 "value": 1,
+                "isValueNumber":true,
                 "className":"text-blue-border-color",
                 "disabled": false
             }
@@ -2110,6 +2384,7 @@
                 "label": "最高",
                 "text": "最高",
                 "value": 2,
+                "isValueNumber":true,
                 "className":"text-red-border-color",
                 "disabled": false
             }
@@ -2118,6 +2393,7 @@
                 "label": "较高",
                 "text": "较高",
                 "value": 3,
+                "isValueNumber":true,
                 "className":"text-pink-border-color",
                 "disabled": false
             }
@@ -2126,6 +2402,7 @@
                 "label": "最低",
                 "text": "最低",
                 "value": 4,
+                "isValueNumber":true,
                 "className":"text-green-border-color",
                 "disabled": false
             }
@@ -2149,6 +2426,7 @@
                 "label": "全部",
                 "text": "全部",
                 "value": "all",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2156,6 +2434,7 @@
                 "label": "Windows",
                 "text": "Windows",
                 "value": "windows",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2163,6 +2442,7 @@
                 "label": "Windows 10",
                 "text": "Windows 10",
                 "value": "win10",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2170,6 +2450,7 @@
                 "label": "Windows 8",
                 "text": "Windows 8",
                 "value": "win8",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2177,6 +2458,7 @@
                 "label": "Windows 7",
                 "text": "Windows 7",
                 "value": "win7",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2184,6 +2466,7 @@
                 "label": "Windows Vista",
                 "text": "Windows Vista",
                 "value": "vista",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2191,6 +2474,7 @@
                 "label": "Windows XP",
                 "text": "Windows XP",
                 "value": "winxp",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2198,6 +2482,7 @@
                 "label": "Windows 2012",
                 "text": "Windows 2012",
                 "value": "win2012",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2205,6 +2490,7 @@
                 "label": "Windows 2008",
                 "text": "Windows 2008",
                 "value": "win2008",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2212,6 +2498,7 @@
                 "label": "Windows 2003",
                 "text": "Windows 2003",
                 "value": "win2003",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2219,6 +2506,7 @@
                 "label": "Windows 2000",
                 "text": "Windows 2000",
                 "value": "win2000",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2226,6 +2514,7 @@
                 "label": "Android",
                 "text": "Android",
                 "value": "android",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2233,6 +2522,7 @@
                 "label": "IOS",
                 "text": "IOS",
                 "value": "ios",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2240,6 +2530,7 @@
                 "label": "WP8",
                 "text": "WP8",
                 "value": "wp8",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2247,6 +2538,7 @@
                 "label": "WP7",
                 "text": "WP7",
                 "value": "wp7",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2254,6 +2546,7 @@
                 "label": "Symbian",
                 "text": "Symbian",
                 "value": "symbian",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2261,6 +2554,7 @@
                 "label": "Linux",
                 "text": "Linux",
                 "value": "linux",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2268,6 +2562,7 @@
                 "label": "FreeBSD",
                 "text": "FreeBSD",
                 "value": "freebsd",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2275,6 +2570,7 @@
                 "label": "OS X",
                 "text": "OS X",
                 "value": "osx",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2282,6 +2578,7 @@
                 "label": "Unix",
                 "text": "Unix",
                 "value": "unix",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2289,6 +2586,7 @@
                 "label": "其他",
                 "text": "其他",
                 "value": "others",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2319,6 +2617,7 @@
                 "label": "正常",
                 "text": "正常",
                 "value": "normal",
+                "isValueNumber":false,
                 "color": "blue",
                 "disabled": false
             }
@@ -2327,6 +2626,7 @@
                 "label": "多分支",
                 "text": "多分支",
                 "value": "branch",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2334,6 +2634,7 @@
                 "label": "多平台",
                 "text": "多平台",
                 "value": "platform",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2348,6 +2649,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "isValueNumber":true,
                 "iconcls":"radio-button-off",
                 "color": "rgba(227, 6, 6, 1)",
                 "disabled": false
@@ -2357,6 +2659,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "isValueNumber":true,
                 "iconcls":"radio-button-off",
                 "color": "rgba(255, 191, 0, 1)",
                 "disabled": false
@@ -2366,6 +2669,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "isValueNumber":true,
                 "iconcls":"radio-button-off",
                 "color": "rgba(16, 174, 231, 1)",
                 "disabled": false
@@ -2375,6 +2679,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "isValueNumber":true,
                 "iconcls":"radio-button-off",
                 "color": "rgba(49, 234, 12, 1)",
                 "disabled": false
@@ -2391,6 +2696,7 @@
                 "label": "功能测试",
                 "text": "功能测试",
                 "value": "feature",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2398,6 +2704,7 @@
                 "label": "性能测试",
                 "text": "性能测试",
                 "value": "performance",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2405,6 +2712,7 @@
                 "label": "配置相关",
                 "text": "配置相关",
                 "value": "config",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2412,6 +2720,7 @@
                 "label": "安装部署",
                 "text": "安装部署",
                 "value": "install",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2419,6 +2728,7 @@
                 "label": "安全相关",
                 "text": "安全相关",
                 "value": "security",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2426,6 +2736,7 @@
                 "label": "接口测试",
                 "text": "接口测试",
                 "value": "interface",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2433,6 +2744,7 @@
                 "label": "单元测试",
                 "text": "单元测试",
                 "value": "unit",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2440,6 +2752,7 @@
                 "label": "其他",
                 "text": "其他",
                 "value": "other",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2454,6 +2767,7 @@
                 "label": "全部",
                 "text": "全部",
                 "value": "all",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2461,6 +2775,7 @@
                 "label": "IE系列",
                 "text": "IE系列",
                 "value": "ie",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2468,6 +2783,7 @@
                 "label": "IE11",
                 "text": "IE11",
                 "value": "ie11",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2475,6 +2791,7 @@
                 "label": "IE10",
                 "text": "IE10",
                 "value": "ie10",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2482,6 +2799,7 @@
                 "label": "IE9",
                 "text": "IE9",
                 "value": "ie9",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2489,6 +2807,7 @@
                 "label": "IE8",
                 "text": "IE8",
                 "value": "ie8",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2496,6 +2815,7 @@
                 "label": "IE7",
                 "text": "IE7",
                 "value": "ie7",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2503,6 +2823,7 @@
                 "label": "IE6",
                 "text": "IE6",
                 "value": "ie6",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2510,6 +2831,7 @@
                 "label": "chrome",
                 "text": "chrome",
                 "value": "chrome",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2517,6 +2839,7 @@
                 "label": "firefox系列",
                 "text": "firefox系列",
                 "value": "firefox",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2524,6 +2847,7 @@
                 "label": "firefox4",
                 "text": "firefox4",
                 "value": "firefox4",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2531,6 +2855,7 @@
                 "label": "firefox3",
                 "text": "firefox3",
                 "value": "firefox3",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2538,6 +2863,7 @@
                 "label": "firefox2",
                 "text": "firefox2",
                 "value": "firefox2",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2545,6 +2871,7 @@
                 "label": "opera系列",
                 "text": "opera系列",
                 "value": "opera",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2552,6 +2879,7 @@
                 "label": "opera11",
                 "text": "opera11",
                 "value": "opera11",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2559,6 +2887,7 @@
                 "label": "oprea10",
                 "text": "oprea10",
                 "value": "oprea10",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2566,6 +2895,7 @@
                 "label": "opera9",
                 "text": "opera9",
                 "value": "opera9",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2573,6 +2903,7 @@
                 "label": "safari",
                 "text": "safari",
                 "value": "safari",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2580,6 +2911,7 @@
                 "label": "傲游",
                 "text": "傲游",
                 "value": "maxthon",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2587,6 +2919,7 @@
                 "label": "UC",
                 "text": "UC",
                 "value": "uc",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2594,6 +2927,7 @@
                 "label": "其他",
                 "text": "其他",
                 "value": "others",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2608,6 +2942,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2615,6 +2950,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "isValueNumber":false,
                 "color": "rgba(245, 18, 18, 1)",
                 "disabled": false
             }
@@ -2623,6 +2959,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "isValueNumber":false,
                 "color": "rgba(4, 251, 17, 1)",
                 "disabled": false
             }
@@ -2631,6 +2968,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2645,6 +2983,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2652,6 +2991,7 @@
                 "label": "已计划",
                 "text": "已计划",
                 "value": "planned",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2659,6 +2999,7 @@
                 "label": "已立项",
                 "text": "已立项",
                 "value": "projected",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2666,6 +3007,7 @@
                 "label": "研发中",
                 "text": "研发中",
                 "value": "developing",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2673,6 +3015,7 @@
                 "label": "研发完毕",
                 "text": "研发完毕",
                 "value": "developed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2680,6 +3023,7 @@
                 "label": "测试中",
                 "text": "测试中",
                 "value": "testing",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2687,6 +3031,7 @@
                 "label": "测试完毕",
                 "text": "测试完毕",
                 "value": "tested",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2694,6 +3039,7 @@
                 "label": "已验收",
                 "text": "已验收",
                 "value": "verified",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2701,6 +3047,7 @@
                 "label": "已发布",
                 "text": "已发布",
                 "value": "released",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2708,6 +3055,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -2722,6 +3070,7 @@
                 "label": "草稿",
                 "text": "草稿",
                 "value": "draft",
+                "isValueNumber":false,
                 "color": "rgba(185, 111, 241, 1)",
                 "disabled": false
             }
@@ -2730,6 +3079,7 @@
                 "label": "激活",
                 "text": "激活",
                 "value": "active",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2737,6 +3087,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "isValueNumber":false,
                 "color": "rgba(203, 198, 198, 0.84)",
                 "disabled": false
             }
@@ -2745,6 +3096,7 @@
                 "label": "已变更",
                 "text": "已变更",
                 "value": "changed",
+                "isValueNumber":false,
                 "color": "rgba(217, 68, 68, 1)",
                 "disabled": false
             }
@@ -2760,6 +3112,7 @@
                 "label": "忽略",
                 "text": "忽略",
                 "value": "n/a",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2767,6 +3120,7 @@
                 "label": "通过",
                 "text": "通过",
                 "value": "pass",
+                "isValueNumber":false,
                 "color": "rgba(126, 222, 16, 1)",
                 "disabled": false
             }
@@ -2775,6 +3129,7 @@
                 "label": "失败",
                 "text": "失败",
                 "value": "fail",
+                "isValueNumber":false,
                 "color": "rgba(238, 18, 18, 1)",
                 "disabled": false
             }
@@ -2783,6 +3138,7 @@
                 "label": "阻塞",
                 "text": "阻塞",
                 "value": "blocked",
+                "isValueNumber":false,
                 "color": "rgba(220, 224, 12, 1)",
                 "disabled": false
             }
@@ -2798,6 +3154,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "isValueNumber":false,
                 "color": "rgba(131, 138, 157, 1)",
                 "disabled": false
             }
@@ -2806,6 +3163,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "isValueNumber":false,
                 "color": "rgba(255, 93, 93, 1)",
                 "disabled": false
             }
@@ -2814,6 +3172,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "isValueNumber":false,
                 "color": "rgba(67, 160, 71, 1)",
                 "disabled": false
             }
@@ -2822,6 +3181,7 @@
                 "label": "已暂停",
                 "text": "已暂停",
                 "value": "pause",
+                "isValueNumber":false,
                 "color": "rgba(255, 152, 0, 1)",
                 "disabled": false
             }
@@ -2830,6 +3190,7 @@
                 "label": "已取消",
                 "text": "已取消",
                 "value": "cancel",
+                "isValueNumber":false,
                 "color": "rgba(131, 138, 157, 1)",
                 "disabled": false
             }
@@ -2838,6 +3199,7 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "value": "closed",
+                "isValueNumber":false,
                 "color": "rgba(131, 138, 157, 1)",
                 "disabled": false
             }
@@ -2853,6 +3215,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "isValueNumber":true,
                 "className":"text-red-border-color",
                 "disabled": false
             }
@@ -2861,6 +3224,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "isValueNumber":true,
                 "className":"text-pink-border-color",
                 "disabled": false
             }
@@ -2869,6 +3233,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "isValueNumber":true,
                 "className":"text-blue-border-color",
                 "disabled": false
             }
@@ -2877,6 +3242,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "isValueNumber":true,
                 "className":"text-green-border-color",
                 "disabled": false
             }
@@ -2892,6 +3258,7 @@
                 "label": "是",
                 "text": "是",
                 "value": 1,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
@@ -2899,6 +3266,7 @@
                 "label": "否",
                 "text": "否",
                 "value": 0,
+                "isValueNumber":true,
                 "disabled": false
             }
         ]
@@ -2913,6 +3281,7 @@
                 "label": "忽略",
                 "text": "忽略",
                 "value": "n/a",
+                "isValueNumber":false,
                 "color": "rgba(190, 184, 184, 1)",
                 "disabled": false
             }
@@ -2921,6 +3290,7 @@
                 "label": "通过",
                 "text": "通过",
                 "value": "pass",
+                "isValueNumber":false,
                 "color": "rgba(93, 238, 9, 1)",
                 "disabled": false
             }
@@ -2929,6 +3299,7 @@
                 "label": "失败",
                 "text": "失败",
                 "value": "fail",
+                "isValueNumber":false,
                 "color": "rgba(251, 12, 12, 1)",
                 "disabled": false
             }
@@ -2937,6 +3308,7 @@
                 "label": "阻塞",
                 "text": "阻塞",
                 "value": "blocked",
+                "isValueNumber":false,
                 "color": "rgba(228, 15, 15, 1)",
                 "disabled": false
             }
@@ -2952,6 +3324,7 @@
                 "label": "1",
                 "text": "1",
                 "value": 1,
+                "isValueNumber":true,
                 "className":"text-red-border-color",
                 "disabled": false
             }
@@ -2960,6 +3333,7 @@
                 "label": "2",
                 "text": "2",
                 "value": 2,
+                "isValueNumber":true,
                 "className":"text-pink-border-color",
                 "disabled": false
             }
@@ -2968,6 +3342,7 @@
                 "label": "3",
                 "text": "3",
                 "value": 3,
+                "isValueNumber":true,
                 "className":"text-blue-border-color",
                 "disabled": false
             }
@@ -2976,6 +3351,7 @@
                 "label": "4",
                 "text": "4",
                 "value": 4,
+                "isValueNumber":true,
                 "className":"text-green-border-color",
                 "disabled": false
             }
@@ -2991,6 +3367,7 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "value": "bydesign",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -2998,6 +3375,7 @@
                 "label": "重复Bug",
                 "text": "重复Bug",
                 "value": "duplicate",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -3005,6 +3383,7 @@
                 "label": "外部原因",
                 "text": "外部原因",
                 "value": "external",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -3012,6 +3391,7 @@
                 "label": "已解决",
                 "text": "已解决",
                 "value": "fixed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -3019,6 +3399,7 @@
                 "label": "无法重现",
                 "text": "无法重现",
                 "value": "notrepro",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -3026,6 +3407,7 @@
                 "label": "延期处理",
                 "text": "延期处理",
                 "value": "postponed",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -3033,6 +3415,7 @@
                 "label": "不予解决",
                 "text": "不予解决",
                 "value": "willnotfix",
+                "isValueNumber":false,
                 "disabled": false
             }
             , {
@@ -3040,6 +3423,7 @@
                 "label": "转为需求",
                 "text": "转为需求",
                 "value": "tostory",
+                "isValueNumber":false,
                 "disabled": false
             }
         ]
@@ -3054,6 +3438,7 @@
                 "label": "未开始",
                 "text": "未开始",
                 "value": "wait",
+                "isValueNumber":false,
                 "color": "rgba(220, 214, 214, 1)",
                 "disabled": false
             }
@@ -3062,6 +3447,7 @@
                 "label": "进行中",
                 "text": "进行中",
                 "value": "doing",
+                "isValueNumber":false,
                 "color": "rgba(208, 20, 20, 1)",
                 "disabled": false
             }
@@ -3070,6 +3456,7 @@
                 "label": "已完成",
                 "text": "已完成",
                 "value": "done",
+                "isValueNumber":false,
                 "color": "rgba(30, 234, 12, 1)",
                 "disabled": false
             }
@@ -3078,6 +3465,7 @@
                 "label": "被阻塞",
                 "text": "被阻塞",
                 "value": "blocked",
+                "isValueNumber":false,
                 "color": "rgba(221, 217, 10, 1)",
                 "disabled": false
             }
