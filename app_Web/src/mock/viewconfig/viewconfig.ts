@@ -2439,6 +2439,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryListView",
             "viewtag": "e2d75951e06d21bce0a31b09c67103bf"
         },
+        "usertreeexpview": {
+            "title": "用户树导航视图",
+            "caption": "用户",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserTreeExpView",
+            "viewtag": "e2f8bc0ff75f204383d2a5c15117b476"
+        },
         "productlistexpview": {
             "title": "产品列表导航视图",
             "caption": "产品统计",
