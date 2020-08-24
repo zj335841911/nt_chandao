@@ -207,7 +207,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
         if (Object.is(expmode, 'DEPTROOT')) {
             return {  
                 viewname: 'user-main-grid-view', 
-                parentdata: {"srfparentdefname":" n_dept_eq"},
+                parentdata: {"srfparentdefname":"n_dept_eq"},
                 deKeyField:'user'
 			};
         }
@@ -221,7 +221,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
         if (Object.is(expmode, 'CHILDDEPT')) {
             return {  
                 viewname: 'user-main-grid-view', 
-                parentdata: {"srfparentdefname":" n_dept_eq"},
+                parentdata: {"srfparentdefname":"n_dept_eq"},
                 deKeyField:'user'
 			};
         }

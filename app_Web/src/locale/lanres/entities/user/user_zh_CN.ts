@@ -54,7 +54,7 @@ export default {
 		},
 		treeexpview: {
 			caption: "用户",
-      		title: "用户树导航视图",
+      		title: "用户",
 		},
 	},
 	main_form: {

@@ -6,7 +6,7 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
 import UserUIService from '@/uiservice/user/user-ui-service';
 
 /**
- * 用户树导航视图视图基类
+ * 用户视图基类
  *
  * @export
  * @class UserTreeExpViewBase

@@ -259,7 +259,7 @@ export default class UserExpService extends ControlService {
                                 Object.assign(treeNode, { leaf: true });
                             }
                         }
-                        Object.assign(treeNode, { navfilter: " n_dept_eq" });
+                        Object.assign(treeNode, { navfilter: "n_dept_eq" });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -378,6 +378,14 @@ export default class UserExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+            if (Object.is(filter.strNodeType, this.TREENODE_CHILDDEPT)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+            if (Object.is(filter.strNodeType, this.TREENODE_DEPTROOT)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
@@ -409,7 +417,7 @@ export default class UserExpService extends ControlService {
                                 Object.assign(treeNode, { leaf: true });
                             }
                         }
-                        Object.assign(treeNode, { navfilter: " n_dept_eq" });
+                        Object.assign(treeNode, { navfilter: "n_dept_eq" });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -617,7 +625,7 @@ export default class UserExpService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });

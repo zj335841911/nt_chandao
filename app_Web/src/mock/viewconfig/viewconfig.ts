@@ -2440,7 +2440,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e2d75951e06d21bce0a31b09c67103bf"
         },
         "usertreeexpview": {
-            "title": "用户树导航视图",
+            "title": "用户",
             "caption": "用户",
             "viewtype": "DETREEEXPVIEW",
             "viewmodule": "zentao",

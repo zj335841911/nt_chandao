@@ -5726,6 +5726,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.user.views.treeexpview.title',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'users', parameterName: 'user' },
