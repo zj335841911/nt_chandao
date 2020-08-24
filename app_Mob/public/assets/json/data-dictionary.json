@@ -436,867 +436,867 @@
         "codelisttype":"static",
         "items": [
              {
-                "id": "0600",
+                "id": "600",
                 "label": "06:00",
                 "text": "06:00",
-                "value": "0600",
-                "isValueNumber":false,
+                "value": 600,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0610",
+                "id": "610",
                 "label": "06:10",
                 "text": "06:10",
-                "value": "0610",
-                "isValueNumber":false,
+                "value": 610,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0620",
+                "id": "620",
                 "label": "06:20",
                 "text": "06:20",
-                "value": "0620",
-                "isValueNumber":false,
+                "value": 620,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0630",
+                "id": "630",
                 "label": "06:30",
                 "text": "06:30",
-                "value": "0630",
-                "isValueNumber":false,
+                "value": 630,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0640",
+                "id": "640",
                 "label": "06:40",
                 "text": "06:40",
-                "value": "0640",
-                "isValueNumber":false,
+                "value": 640,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0650",
+                "id": "650",
                 "label": "06:50",
                 "text": "06:50",
-                "value": "0650",
-                "isValueNumber":false,
+                "value": 650,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0700",
+                "id": "700",
                 "label": "07:00",
                 "text": "07:00",
-                "value": "0700",
-                "isValueNumber":false,
+                "value": 700,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0710",
+                "id": "710",
                 "label": "07:10",
                 "text": "07:10",
-                "value": "0710",
-                "isValueNumber":false,
+                "value": 710,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0720",
+                "id": "720",
                 "label": "07:20",
                 "text": "07:20",
-                "value": "0720",
-                "isValueNumber":false,
+                "value": 720,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0730",
+                "id": "730",
                 "label": "07:30",
                 "text": "07:30",
-                "value": "0730",
-                "isValueNumber":false,
+                "value": 730,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0740",
+                "id": "740",
                 "label": "07:40",
                 "text": "07:40",
-                "value": "0740",
-                "isValueNumber":false,
+                "value": 740,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0750",
+                "id": "750",
                 "label": "07:50",
                 "text": "07:50",
-                "value": "0750",
-                "isValueNumber":false,
+                "value": 750,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0800",
+                "id": "800",
                 "label": "08:00",
                 "text": "08:00",
-                "value": "0800",
-                "isValueNumber":false,
+                "value": 800,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0810",
+                "id": "810",
                 "label": "08:10",
                 "text": "08:10",
-                "value": "0810",
-                "isValueNumber":false,
+                "value": 810,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0820",
+                "id": "820",
                 "label": "08:20",
                 "text": "08:20",
-                "value": "0820",
-                "isValueNumber":false,
+                "value": 820,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0830",
+                "id": "830",
                 "label": "08:30",
                 "text": "08:30",
-                "value": "0830",
-                "isValueNumber":false,
+                "value": 830,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0840",
+                "id": "840",
                 "label": "08:40",
                 "text": "08:40",
-                "value": "0840",
-                "isValueNumber":false,
+                "value": 840,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0850",
+                "id": "850",
                 "label": "08:50",
                 "text": "08:50",
-                "value": "0850",
-                "isValueNumber":false,
+                "value": 850,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0900",
+                "id": "900",
                 "label": "09:00",
                 "text": "09:00",
-                "value": "0900",
-                "isValueNumber":false,
+                "value": 900,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0910",
+                "id": "910",
                 "label": "09:10",
                 "text": "09:10",
-                "value": "0910",
-                "isValueNumber":false,
+                "value": 910,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0920",
+                "id": "920",
                 "label": "09:20",
                 "text": "09:20",
-                "value": "0920",
-                "isValueNumber":false,
+                "value": 920,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "0930",
                 "label": "09:30",
                 "text": "09:30",
-                "value": "0930",
-                "isValueNumber":false,
+                "value": 0930,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0940",
+                "id": "940",
                 "label": "09:40",
                 "text": "09:40",
-                "value": "0940",
-                "isValueNumber":false,
+                "value": 940,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
-                "id": "0950",
+                "id": "950",
                 "label": "09:50",
                 "text": "09:50",
-                "value": "0950",
-                "isValueNumber":false,
+                "value": 950,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1000",
                 "label": "10:00",
                 "text": "10:00",
-                "value": "1000",
-                "isValueNumber":false,
+                "value": 1000,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1010",
                 "label": "10:10",
                 "text": "10:10",
-                "value": "1010",
-                "isValueNumber":false,
+                "value": 1010,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1020",
                 "label": "10:20",
                 "text": "10:20",
-                "value": "1020",
-                "isValueNumber":false,
+                "value": 1020,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1030",
                 "label": "10:30",
                 "text": "10:30",
-                "value": "1030",
-                "isValueNumber":false,
+                "value": 1030,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1040",
                 "label": "10:40",
                 "text": "10:40",
-                "value": "1040",
-                "isValueNumber":false,
+                "value": 1040,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1050",
                 "label": "10:50",
                 "text": "10:50",
-                "value": "1050",
-                "isValueNumber":false,
+                "value": 1050,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1100",
                 "label": "11:00",
                 "text": "11:00",
-                "value": "1100",
-                "isValueNumber":false,
+                "value": 1100,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1110",
                 "label": "11:10",
                 "text": "11:10",
-                "value": "1110",
-                "isValueNumber":false,
+                "value": 1110,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1120",
                 "label": "11:20",
                 "text": "11:20",
-                "value": "1120",
-                "isValueNumber":false,
+                "value": 1120,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1130",
                 "label": "11:30",
                 "text": "11:30",
-                "value": "1130",
-                "isValueNumber":false,
+                "value": 1130,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1140",
                 "label": "11:40",
                 "text": "11:40",
-                "value": "1140",
-                "isValueNumber":false,
+                "value": 1140,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1150",
                 "label": "11:50",
                 "text": "11:50",
-                "value": "1150",
-                "isValueNumber":false,
+                "value": 1150,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1200",
                 "label": "12:00",
                 "text": "12:00",
-                "value": "1200",
-                "isValueNumber":false,
+                "value": 1200,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1210",
                 "label": "12:10",
                 "text": "12:10",
-                "value": "1210",
-                "isValueNumber":false,
+                "value": 1210,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1220",
                 "label": "12:20",
                 "text": "12:20",
-                "value": "1220",
-                "isValueNumber":false,
+                "value": 1220,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1230",
                 "label": "12:30",
                 "text": "12:30",
-                "value": "1230",
-                "isValueNumber":false,
+                "value": 1230,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1240",
                 "label": "12:40",
                 "text": "12:40",
-                "value": "1240",
-                "isValueNumber":false,
+                "value": 1240,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1250",
                 "label": "12:50",
                 "text": "12:50",
-                "value": "1250",
-                "isValueNumber":false,
+                "value": 1250,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1300",
                 "label": "13:00",
                 "text": "13:00",
-                "value": "1300",
-                "isValueNumber":false,
+                "value": 1300,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1310",
                 "label": "13:10",
                 "text": "13:10",
-                "value": "1310",
-                "isValueNumber":false,
+                "value": 1310,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1320",
                 "label": "13:20",
                 "text": "13:20",
-                "value": "1320",
-                "isValueNumber":false,
+                "value": 1320,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1330",
                 "label": "13:30",
                 "text": "13:30",
-                "value": "1330",
-                "isValueNumber":false,
+                "value": 1330,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1340",
                 "label": "13:40",
                 "text": "13:40",
-                "value": "1340",
-                "isValueNumber":false,
+                "value": 1340,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1350",
                 "label": "13:50",
                 "text": "13:50",
-                "value": "1350",
-                "isValueNumber":false,
+                "value": 1350,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1400",
                 "label": "14:00",
                 "text": "14:00",
-                "value": "1400",
-                "isValueNumber":false,
+                "value": 1400,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1410",
                 "label": "14:10",
                 "text": "14:10",
-                "value": "1410",
-                "isValueNumber":false,
+                "value": 1410,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1420",
                 "label": "14:20",
                 "text": "14:20",
-                "value": "1420",
-                "isValueNumber":false,
+                "value": 1420,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1430",
                 "label": "14:30",
                 "text": "14:30",
-                "value": "1430",
-                "isValueNumber":false,
+                "value": 1430,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1440",
                 "label": "14:40",
                 "text": "14:40",
-                "value": "1440",
-                "isValueNumber":false,
+                "value": 1440,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1450",
                 "label": "14:50",
                 "text": "14:50",
-                "value": "1450",
-                "isValueNumber":false,
+                "value": 1450,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1500",
                 "label": "15:00",
                 "text": "15:00",
-                "value": "1500",
-                "isValueNumber":false,
+                "value": 1500,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1510",
                 "label": "15:10",
                 "text": "15:10",
-                "value": "1510",
-                "isValueNumber":false,
+                "value": 1510,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1520",
                 "label": "15:20",
                 "text": "15:20",
-                "value": "1520",
-                "isValueNumber":false,
+                "value": 1520,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1530",
                 "label": "15:30",
                 "text": "15:30",
-                "value": "1530",
-                "isValueNumber":false,
+                "value": 1530,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1540",
                 "label": "15:40",
                 "text": "15:40",
-                "value": "1540",
-                "isValueNumber":false,
+                "value": 1540,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1550",
                 "label": "15:50",
                 "text": "15:50",
-                "value": "1550",
-                "isValueNumber":false,
+                "value": 1550,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1600",
                 "label": "16:00",
                 "text": "16:00",
-                "value": "1600",
-                "isValueNumber":false,
+                "value": 1600,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1610",
                 "label": "16:10",
                 "text": "16:10",
-                "value": "1610",
-                "isValueNumber":false,
+                "value": 1610,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1620",
                 "label": "16:20",
                 "text": "16:20",
-                "value": "1620",
-                "isValueNumber":false,
+                "value": 1620,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1630",
                 "label": "16:30",
                 "text": "16:30",
-                "value": "1630",
-                "isValueNumber":false,
+                "value": 1630,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1640",
                 "label": "16:40",
                 "text": "16:40",
-                "value": "1640",
-                "isValueNumber":false,
+                "value": 1640,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1650",
                 "label": "16:50",
                 "text": "16:50",
-                "value": "1650",
-                "isValueNumber":false,
+                "value": 1650,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1700",
                 "label": "17:00",
                 "text": "17:00",
-                "value": "1700",
-                "isValueNumber":false,
+                "value": 1700,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1710",
                 "label": "17:10",
                 "text": "17:10",
-                "value": "1710",
-                "isValueNumber":false,
+                "value": 1710,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1720",
                 "label": "17:20",
                 "text": "17:20",
-                "value": "1720",
-                "isValueNumber":false,
+                "value": 1720,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1730",
                 "label": "17:30",
                 "text": "17:30",
-                "value": "1730",
-                "isValueNumber":false,
+                "value": 1730,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1740",
                 "label": "17:40",
                 "text": "17:40",
-                "value": "1740",
-                "isValueNumber":false,
+                "value": 1740,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1750",
                 "label": "17:50",
                 "text": "17:50",
-                "value": "1750",
-                "isValueNumber":false,
+                "value": 1750,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1800",
                 "label": "18:00",
                 "text": "18:00",
-                "value": "1800",
-                "isValueNumber":false,
+                "value": 1800,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1810",
                 "label": "18:10",
                 "text": "18:10",
-                "value": "1810",
-                "isValueNumber":false,
+                "value": 1810,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1820",
                 "label": "18:20",
                 "text": "18:20",
-                "value": "1820",
-                "isValueNumber":false,
+                "value": 1820,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1830",
                 "label": "18:30",
                 "text": "18:30",
-                "value": "1830",
-                "isValueNumber":false,
+                "value": 1830,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1840",
                 "label": "18:40",
                 "text": "18:40",
-                "value": "1840",
-                "isValueNumber":false,
+                "value": 1840,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1850",
                 "label": "18:50",
                 "text": "18:50",
-                "value": "1850",
-                "isValueNumber":false,
+                "value": 1850,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1900",
                 "label": "19:00",
                 "text": "19:00",
-                "value": "1900",
-                "isValueNumber":false,
+                "value": 1900,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1910",
                 "label": "19:10",
                 "text": "19:10",
-                "value": "1910",
-                "isValueNumber":false,
+                "value": 1910,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1920",
                 "label": "19:20",
                 "text": "19:20",
-                "value": "1920",
-                "isValueNumber":false,
+                "value": 1920,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1930",
                 "label": "19:30",
                 "text": "19:30",
-                "value": "1930",
-                "isValueNumber":false,
+                "value": 1930,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1940",
                 "label": "19:40",
                 "text": "19:40",
-                "value": "1940",
-                "isValueNumber":false,
+                "value": 1940,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "1950",
                 "label": "19:50",
                 "text": "19:50",
-                "value": "1950",
-                "isValueNumber":false,
+                "value": 1950,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2000",
                 "label": "20:00",
                 "text": "20:00",
-                "value": "2000",
-                "isValueNumber":false,
+                "value": 2000,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2010",
                 "label": "20:10",
                 "text": "20:10",
-                "value": "2010",
-                "isValueNumber":false,
+                "value": 2010,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2020",
                 "label": "20:20",
                 "text": "20:20",
-                "value": "2020",
-                "isValueNumber":false,
+                "value": 2020,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2030",
                 "label": "20:30",
                 "text": "20:30",
-                "value": "2030",
-                "isValueNumber":false,
+                "value": 2030,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2040",
                 "label": "20:40",
                 "text": "20:40",
-                "value": "2040",
-                "isValueNumber":false,
+                "value": 2040,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2050",
                 "label": "20:50",
                 "text": "20:50",
-                "value": "2050",
-                "isValueNumber":false,
+                "value": 2050,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2100",
                 "label": "21:00",
                 "text": "21:00",
-                "value": "2100",
-                "isValueNumber":false,
+                "value": 2100,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2110",
                 "label": "21:10",
                 "text": "21:10",
-                "value": "2110",
-                "isValueNumber":false,
+                "value": 2110,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2120",
                 "label": "21:20",
                 "text": "21:20",
-                "value": "2120",
-                "isValueNumber":false,
+                "value": 2120,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2130",
                 "label": "21:30",
                 "text": "21:30",
-                "value": "2130",
-                "isValueNumber":false,
+                "value": 2130,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2140",
                 "label": "21:40",
                 "text": "21:40",
-                "value": "2140",
-                "isValueNumber":false,
+                "value": 2140,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2150",
                 "label": "21:50",
                 "text": "21:50",
-                "value": "2150",
-                "isValueNumber":false,
+                "value": 2150,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2200",
                 "label": "22:00",
                 "text": "22:00",
-                "value": "2200",
-                "isValueNumber":false,
+                "value": 2200,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2210",
                 "label": "22:10",
                 "text": "22:10",
-                "value": "2210",
-                "isValueNumber":false,
+                "value": 2210,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2220",
                 "label": "22:20",
                 "text": "22:20",
-                "value": "2220",
-                "isValueNumber":false,
+                "value": 2220,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2230",
                 "label": "22:30",
                 "text": "22:30",
-                "value": "2230",
-                "isValueNumber":false,
+                "value": 2230,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2240",
                 "label": "22:40",
                 "text": "22:40",
-                "value": "2240",
-                "isValueNumber":false,
+                "value": 2240,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2250",
                 "label": "22:50",
                 "text": "22:50",
-                "value": "2250",
-                "isValueNumber":false,
+                "value": 2250,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2300",
                 "label": "23:00",
                 "text": "23:00",
-                "value": "2300",
-                "isValueNumber":false,
+                "value": 2300,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2310",
                 "label": "23:10",
                 "text": "23:10",
-                "value": "2310",
-                "isValueNumber":false,
+                "value": 2310,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2320",
                 "label": "23:20",
                 "text": "23:20",
-                "value": "2320",
-                "isValueNumber":false,
+                "value": 2320,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2330",
                 "label": "23:30",
                 "text": "23:30",
-                "value": "2330",
-                "isValueNumber":false,
+                "value": 2330,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2340",
                 "label": "23:40",
                 "text": "23:40",
-                "value": "2340",
-                "isValueNumber":false,
+                "value": 2340,
+                "isValueNumber":true,
                 "disabled": false
             }
             , {
                 "id": "2350",
                 "label": "23:50",
                 "text": "23:50",
-                "value": "2350",
-                "isValueNumber":false,
+                "value": 2350,
+                "isValueNumber":true,
                 "disabled": false
             }
         ]
