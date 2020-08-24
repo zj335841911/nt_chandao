@@ -24,7 +24,9 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
+            :uiActions="UIActions"
             :showCheack="showCheack"
+            @mdctrl_click="mdctrl_click"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             name="mdctrl"  
@@ -608,16 +610,88 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'ud61cd4c',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
 
 
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ud61cd4c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof StoryMobMDViewBase
+     */  
+    public ActionModel:any ={
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', target: 'SINGLEKEY'}
+    };
+
+   /**
+     * 界面行为模型
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDViewBase
+     */
+    public UIActions = {
+        left:[
+                    {actionid:'ud61cd4c',title:'删除（移动端）',name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', target: 'SINGLEKEY',icon:'remove'},
+            ],
+        right:[        ]
+    }
 
 
+   /**
+     * 部件滑动行为逻辑
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDViewBase
+     */
+    public mdctrl_click(item:any,tag:string){
+        if (Object.is(tag, 'ud61cd4c')) {
+            this.mdctrl_ud61cd4c_click();
+        }
+    }
+
+   /**
+     * 获取部件数据
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDViewBase
+     */
+    public getDatas(){
+       let xData :any= this.$refs.mdctrl
+       if (xData.getDatas && xData.getDatas instanceof Function) {
+          return [...xData.getDatas()];
+        }
+       return [];
+    }
 
 
     /**

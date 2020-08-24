@@ -24,7 +24,9 @@
             createAction="Create"
             fetchAction="FetchMyUpcoming" 
             :isMutli="!isSingleSelect"
+            :uiActions="UIActions"
             :showCheack="showCheack"
+            @mdctrl_click="mdctrl_click"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             name="mdctrl"  
@@ -658,20 +660,232 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'u5a26748',title:'todo指派（移动端）'},
-                {name:'u1586fdf',title:'todo激活（移动端）'},
-                {name:'u400bc93',title:'todo完成（移动端）'},
-                {name:'u44450a6',title:'todo删除（移动端）'},
-                {name:'u775882c',title:'todo关闭（移动端）'},
-        ],
-    right:[    ]
-}
 
 
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u5a26748_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_assignToMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u1586fdf_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_activateMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u400bc93_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_finishMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u44450a6_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u775882c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_closeMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof TodoMobMDViewBase
+     */  
+    public ActionModel:any ={
+        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY'},
+        activateMob: { name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY'},
+        finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY'},
+        closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY'}
+    };
+
+   /**
+     * 界面行为模型
+     *
+     * @type {boolean}
+     * @memberof TodoMobMDViewBase
+     */
+    public UIActions = {
+        left:[
+                    {actionid:'u5a26748',title:'todo指派（移动端）',name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY',icon:'hand'},
+                    {actionid:'u1586fdf',title:'todo激活（移动端）',name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY',icon:'color-wand'},
+                    {actionid:'u400bc93',title:'todo完成（移动端）',name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY',icon:'checkmark'},
+                    {actionid:'u44450a6',title:'todo删除（移动端）',name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY',icon:'remove'},
+                    {actionid:'u775882c',title:'todo关闭（移动端）',name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY',icon:'close'},
+            ],
+        right:[        ]
+    }
 
 
+   /**
+     * 部件滑动行为逻辑
+     *
+     * @type {boolean}
+     * @memberof TodoMobMDViewBase
+     */
+    public mdctrl_click(item:any,tag:string){
+        if (Object.is(tag, 'u5a26748')) {
+            this.mdctrl_u5a26748_click();
+        }
+        if (Object.is(tag, 'u1586fdf')) {
+            this.mdctrl_u1586fdf_click();
+        }
+        if (Object.is(tag, 'u400bc93')) {
+            this.mdctrl_u400bc93_click();
+        }
+        if (Object.is(tag, 'u44450a6')) {
+            this.mdctrl_u44450a6_click();
+        }
+        if (Object.is(tag, 'u775882c')) {
+            this.mdctrl_u775882c_click();
+        }
+    }
+
+   /**
+     * 获取部件数据
+     *
+     * @type {boolean}
+     * @memberof TodoMobMDViewBase
+     */
+    public getDatas(){
+       let xData :any= this.$refs.mdctrl
+       if (xData.getDatas && xData.getDatas instanceof Function) {
+          return [...xData.getDatas()];
+        }
+       return [];
+    }
 
 
     /**

@@ -186,6 +186,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 界面行为
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop() protected uiActions?:any ;
     
     /**
      * 部件行为--load
@@ -838,6 +846,7 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        this.$emit("mdctrl_click",item,tag);
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -942,7 +951,14 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
-        let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
+        let allUiAction = {};
+        this.uiActions.right.forEach((item:any) => {
+            Object.assign(allUiAction,{[item.name]:item});
+        });
+        this.uiActions.left.forEach((item:any) => {
+            Object.assign(allUiAction,{[item.name]:item});
+        });
+        let tempActionModel:any = JSON.parse(JSON.stringify(allUiAction));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
     }

@@ -44,7 +44,9 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
+            :uiActions="UIActions"
             :showCheack="showCheack"
+            @mdctrl_click="mdctrl_click"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             name="mdctrl"  
@@ -637,14 +639,51 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
      * @memberof ProductStatsTestMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[],
-    right:[    ]
-}
 
 
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof ProductStatsTestMobMDViewBase
+     */  
+    public ActionModel:any ={
+    };
+
+   /**
+     * 界面行为模型
+     *
+     * @type {boolean}
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public UIActions = {
+        left:[],
+        right:[        ]
+    }
 
 
+   /**
+     * 部件滑动行为逻辑
+     *
+     * @type {boolean}
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public mdctrl_click(item:any,tag:string){
+    }
+
+   /**
+     * 获取部件数据
+     *
+     * @type {boolean}
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public getDatas(){
+       let xData :any= this.$refs.mdctrl
+       if (xData.getDatas && xData.getDatas instanceof Function) {
+          return [...xData.getDatas()];
+        }
+       return [];
+    }
 
 
     /**

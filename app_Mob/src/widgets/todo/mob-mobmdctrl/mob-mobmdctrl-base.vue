@@ -9,12 +9,11 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)">指派</ion-item-option>
-                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
-                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)">完成</ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
-                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)">关闭</ion-item-option>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.left " side="start">
+                            <ion-item-option v-for="uiitem in uiActions.left"  :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
+                        </ion-item-options>
+                        <ion-item-options  v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.right " side="end">
+                            <ion-item-option v-for="uiitem in uiActions.right" :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -33,12 +32,11 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)">指派</ion-item-option>
-                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
-                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)">完成</ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
-                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)">关闭</ion-item-option>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.left " side="start">
+                            <ion-item-option v-for="uiitem in uiActions.left"  :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
+                        </ion-item-options>
+                        <ion-item-options  v-if="controlStyle != 'LISTVIEW3' &&  uiActions &&  uiActions.right " side="end">
+                            <ion-item-option v-for="uiitem in uiActions.right" :key="uiitem.uiactionid" v-show="item[(uiitem.name)].visabled" :disabled="item[(uiitem.name)].disabled"  @click="mdctrl_click($event, uiitem.actionid, item)"><ion-icon v-if="uiitem.icon" :name="uiitem.icon"></ion-icon>{{uiitem.title}}</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -445,6 +443,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 界面行为
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop() protected uiActions?:any ;
     
     /**
      * 部件行为--load
@@ -1097,21 +1103,7 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u5a26748')) {
-            this.mdctrl_u5a26748_click();
-        }
-        if (Object.is(tag, 'u1586fdf')) {
-            this.mdctrl_u1586fdf_click();
-        }
-        if (Object.is(tag, 'u400bc93')) {
-            this.mdctrl_u400bc93_click();
-        }
-        if (Object.is(tag, 'u44450a6')) {
-            this.mdctrl_u44450a6_click();
-        }
-        if (Object.is(tag, 'u775882c')) {
-            this.mdctrl_u775882c_click();
-        }
+        this.$emit("mdctrl_click",item,tag);
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -1221,7 +1213,14 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
-        let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
+        let allUiAction = {};
+        this.uiActions.right.forEach((item:any) => {
+            Object.assign(allUiAction,{[item.name]:item});
+        });
+        this.uiActions.left.forEach((item:any) => {
+            Object.assign(allUiAction,{[item.name]:item});
+        });
+        let tempActionModel:any = JSON.parse(JSON.stringify(allUiAction));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
     }

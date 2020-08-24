@@ -39,7 +39,9 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
+            :uiActions="UIActions"
             :showCheack="showCheack"
+            @mdctrl_click="mdctrl_click"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             name="mdctrl"  
@@ -613,17 +615,124 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'ubbd2867',title:'关闭产品（移动端）'},
-                {name:'u4089ced',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
 
 
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ubbd2867_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_CloseProductMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u4089ced_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof ProductMobMDViewBase
+     */  
+    public ActionModel:any ={
+        CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY'}
+    };
+
+   /**
+     * 界面行为模型
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public UIActions = {
+        left:[
+                    {actionid:'ubbd2867',title:'关闭产品（移动端）',name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'trash'},
+                    {actionid:'u4089ced',title:'删除（移动端）',name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'remove'},
+            ],
+        right:[        ]
+    }
 
 
+   /**
+     * 部件滑动行为逻辑
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public mdctrl_click(item:any,tag:string){
+        if (Object.is(tag, 'ubbd2867')) {
+            this.mdctrl_ubbd2867_click();
+        }
+        if (Object.is(tag, 'u4089ced')) {
+            this.mdctrl_u4089ced_click();
+        }
+    }
+
+   /**
+     * 获取部件数据
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public getDatas(){
+       let xData :any= this.$refs.mdctrl
+       if (xData.getDatas && xData.getDatas instanceof Function) {
+          return [...xData.getDatas()];
+        }
+       return [];
+    }
 
 
     /**

@@ -24,7 +24,9 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
+            :uiActions="UIActions"
             :showCheack="showCheack"
+            @mdctrl_click="mdctrl_click"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             name="mdctrl"  
@@ -608,16 +610,88 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'u3571afd',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
 
 
+        /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u3571afd_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof BugMobMDViewBase
+     */  
+    public ActionModel:any ={
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_DELETE_BUT', target: 'SINGLEKEY'}
+    };
+
+   /**
+     * 界面行为模型
+     *
+     * @type {boolean}
+     * @memberof BugMobMDViewBase
+     */
+    public UIActions = {
+        left:[
+                    {actionid:'u3571afd',title:'删除（移动端）',name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_DELETE_BUT', target: 'SINGLEKEY',icon:'remove'},
+            ],
+        right:[        ]
+    }
 
 
+   /**
+     * 部件滑动行为逻辑
+     *
+     * @type {boolean}
+     * @memberof BugMobMDViewBase
+     */
+    public mdctrl_click(item:any,tag:string){
+        if (Object.is(tag, 'u3571afd')) {
+            this.mdctrl_u3571afd_click();
+        }
+    }
+
+   /**
+     * 获取部件数据
+     *
+     * @type {boolean}
+     * @memberof BugMobMDViewBase
+     */
+    public getDatas(){
+       let xData :any= this.$refs.mdctrl
+       if (xData.getDatas && xData.getDatas instanceof Function) {
+          return [...xData.getDatas()];
+        }
+       return [];
+    }
 
 
     /**

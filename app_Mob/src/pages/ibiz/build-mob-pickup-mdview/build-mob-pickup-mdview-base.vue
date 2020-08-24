@@ -16,6 +16,7 @@
     createAction="Create"
     fetchAction="FetchDefault" 
     :isMutli="!isSingleSelect"
+    :uiActions="UIActions"
     :isTempMode="false"
     name="mdctrl"  
     ref='mdctrl' 
