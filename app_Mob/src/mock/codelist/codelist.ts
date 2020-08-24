@@ -2270,6 +2270,14 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        "srfkey": "CurProductBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Build",
+        "appdedataset":"FetchBugProductBuild",
+        "items": []
+    },
+    {
         srfkey: 'Product__type',
         emptytext: '未定义',
         "codelisttype":"static",

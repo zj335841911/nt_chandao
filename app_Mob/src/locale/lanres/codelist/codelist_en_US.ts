@@ -372,6 +372,9 @@ export default {
     UserRealName: {
         empty: '',
     },
+    CurProductBuild: {
+        empty: '',
+    },
     Product__type: {
         'normal': '正常',
         'branch': '多分支',

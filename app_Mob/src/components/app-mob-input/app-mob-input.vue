@@ -1,5 +1,5 @@
 <template>
-    <ion-input  debounce="300" :type="type" :value="value" :placeholder="placeholder" @ionChange="change" @ionBlur="()=>{this.$emit('blur')}"></ion-input>
+    <ion-input class="app-mob-input" debounce="300" :type="type" :value="value" :placeholder="placeholder" @ionChange="change" @ionBlur="()=>{this.$emit('blur')}"></ion-input>
 </template>
 
 <script lang="ts">

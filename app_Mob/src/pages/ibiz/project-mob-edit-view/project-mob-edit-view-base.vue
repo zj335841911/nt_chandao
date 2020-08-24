@@ -35,30 +35,23 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "bottom_menu">
-                        <ion-button class="app-view-toolbar-button" @click="righttoolbarModels.items1.isshow=!righttoolbarModels.items1.isshow">
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                <ion-fab-button class="app-view-toolbar-button" @click="righttoolbarModels.items1.isshow=!righttoolbarModels.items1.isshow">
             <ion-icon name="add"  ></ion-icon>
         
-        </ion-button>
+        </ion-fab-button>
         
         
+        <ion-fab-list side="top">
+            <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">  <ion-icon name="color-wand" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}} </ion-fab-button>
+            <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">  <ion-icon name="pause" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}} </ion-fab-button>
+            <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}} </ion-fab-button>
+            <ion-fab-button  @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}} </ion-fab-button>
+        </ion-fab-list>
         
-        
-        
-        
-        
-        
+            </ion-fab>
         </div>
     </ion-footer>
-    <ion-backdrop tappable="false" style="height :100vh;z-index: 99;" v-show="righttoolbarModels.items1.isshow" @ionBackdropTap="righttoolbarModels.items1.isshow=false" visible="true"></ion-backdrop>
-    <div v-show="righttoolbarModels.items1.isshow" class="footer_group">
-      <ion-list class="ionlist">
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="color-wand" class="group_ion-icon"></ion-icon> {{'激活'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="pause" class="group_ion-icon"></ion-icon> {{'挂起'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction3' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{'关闭'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction4' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{'删除'}} </ion-item>
-        <ion-item  @click="righttoolbarModels.items1.isshow=false"> <ion-icon name="close" class="group_ion-icon"></ion-icon> 关闭 </ion-item>
-      </ion-list>
-    </div>
 </ion-page>
 </template>
 

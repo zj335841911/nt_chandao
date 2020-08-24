@@ -10,11 +10,11 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)">指派</ion-item-option>
-                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
-                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)">完成</ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
-                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)">关闭</ion-item-option>
+                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><ion-icon v-if="item.assignToMob.icon" :name="item.assignToMob.icon"></ion-icon>指派</ion-item-option>
+                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)"><ion-icon v-if="item.activateMob.icon" :name="item.activateMob.icon"></ion-icon>激活</ion-item-option>
+                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)"><ion-icon v-if="item.finishMob.icon" :name="item.finishMob.icon"></ion-icon>完成</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)"><ion-icon v-if="item.closeMob.icon" :name="item.closeMob.icon"></ion-icon>关闭</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -34,11 +34,11 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)">指派</ion-item-option>
-                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)">激活</ion-item-option>
-                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)">完成</ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)">删除</ion-item-option>
-                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)">关闭</ion-item-option>
+                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><ion-icon v-if="item.assignToMob.icon" :name="item.assignToMob.icon"></ion-icon>指派</ion-item-option>
+                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)"><ion-icon v-if="item.activateMob.icon" :name="item.activateMob.icon"></ion-icon>激活</ion-item-option>
+                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)"><ion-icon v-if="item.finishMob.icon" :name="item.finishMob.icon"></ion-icon>完成</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)"><ion-icon v-if="item.closeMob.icon" :name="item.closeMob.icon"></ion-icon>关闭</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -1207,11 +1207,11 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY'},
-        activateMob: { name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY'},
-        finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY'},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY'},
-        closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY'}
+        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY',icon:'hand'},
+        activateMob: { name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY',icon:'color-wand'},
+        finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY',icon:'checkmark'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY',icon:'remove'},
+        closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY',icon:'close'}
     };
 
     /**

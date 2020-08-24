@@ -38,11 +38,13 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div v-show="!showCheack" class = "bottom_menu">
-                            <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                    <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-icon name="fa fa-file-text-o"></ion-icon>
                 {{$t('todo.mobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
             </ion-button>
         
+            </ion-fab>
         </div>
         
     </ion-footer>

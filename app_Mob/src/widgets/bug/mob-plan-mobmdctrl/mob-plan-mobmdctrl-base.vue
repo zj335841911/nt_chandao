@@ -10,7 +10,7 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)">移除关联</ion-item-option>
+                            <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><ion-icon v-if="item.UnlinkBugMob.icon" :name="item.UnlinkBugMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -30,7 +30,7 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)">移除关联</ion-item-option>
+                            <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><ion-icon v-if="item.UnlinkBugMob.icon" :name="item.UnlinkBugMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -1063,7 +1063,7 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      * @memberof Mob_PlanBase
      */  
     public ActionModel:any ={
-        UnlinkBugMob: { name: 'UnlinkBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', target: 'SINGLEKEY'}
+        UnlinkBugMob: { name: 'UnlinkBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', target: 'SINGLEKEY',icon:'trash'}
     };
 
     /**
