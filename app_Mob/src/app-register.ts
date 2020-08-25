@@ -104,6 +104,6 @@ export const AppComponents = {
         v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
         // 下拉列表组件
-        v.component('app-info-list',() => import('@/components/app-info-list/app-info-list.vue'));
+        v.component('app-info-list',() => import('@/components/app-info-list/app-history-list.vue'));
     },
 };
