@@ -31,6 +31,8 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
 
     @Value("${ibiz.permitall:false}")
     boolean permitAll;
+    @Value("${spring.application.name:appname}")
+    private String appname;
 
     @Autowired
     private SecurityWhitelistHandler whitelistHandler;  //白名单处理类
@@ -45,7 +47,9 @@ public class AuthorizationTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
 
         String url = request.getRequestURI();
+        log.info("app[{}],requestURI[{}]",appname,url);
         final String requestHeader = request.getHeader(this.tokenHeader);
+
         if(whitelistHandler.include(url)){
             chain.doFilter(request, response);
             return;
