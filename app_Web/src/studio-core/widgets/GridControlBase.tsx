@@ -345,7 +345,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     get adaptiveState(): boolean {
-        return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
+        return !this.allColumns.find((column: any) => column.show && Object.is(column.unit, 'STAR'));
     }
 
     /**

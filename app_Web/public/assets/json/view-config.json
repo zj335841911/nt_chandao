@@ -1320,7 +1320,7 @@
         "memo": ""
     },
     "deptmaingridview": {
-        "title": "部门表格视图",
+        "title": "部门",
         "caption": "部门",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",

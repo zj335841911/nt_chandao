@@ -6,7 +6,7 @@ import { DeptMainGridViewBase } from './dept-main-grid-view-base';
 import view_grid from '@widgets/dept/main-grid/main-grid.vue';
 
 /**
- * 部门表格视图视图
+ * 部门视图
  *
  * @export
  * @class DeptMainGridView

@@ -1064,7 +1064,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e"
         },
         "deptmaingridview": {
-            "title": "部门表格视图",
+            "title": "部门",
             "caption": "部门",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",

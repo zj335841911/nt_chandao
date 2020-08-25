@@ -9,7 +9,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 部门表格视图视图基类
+ * 部门视图基类
  *
  * @export
  * @class DeptMainGridViewBase

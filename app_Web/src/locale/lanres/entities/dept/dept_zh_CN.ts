@@ -19,7 +19,7 @@ export default {
 		},
 		maingridview: {
 			caption: "部门",
-      		title: "部门表格视图",
+      		title: "部门",
 		},
 		editview: {
 			caption: "部门信息",
