@@ -310,8 +310,8 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @memberof MOBORDERMobTabExpViewBase
      */    
     public setLocalStorage(value:any) {
-        let name:string = 'ibz_myterritory';
-        let id:any = this.context.ibz_myterritory;
+        let name:string = 'ibzmyterritory';
+        let id:any = this.context.ibzmyterritory;
         let obj:any = {"name":name,"id":id,"value":value};
         localStorage.setItem('tabKey',JSON.stringify(obj));    
     }
@@ -326,10 +326,8 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
         let key:any = localStorage.getItem('tabKey')
         if(key){
         let info:any = JSON.parse(key);
-        if (info.name == 'ibz_myterritory') {
-          if (info.id == this.context.ibz_myterritory) {
-            this.activiedTabViewPanel = info.value;
-          }
+        if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
+          this.activiedTabViewPanel = info.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel';
         }

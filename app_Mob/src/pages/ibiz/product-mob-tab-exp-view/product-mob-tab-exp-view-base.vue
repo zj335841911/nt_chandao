@@ -312,8 +312,8 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @memberof MOBORDERMobTabExpViewBase
      */    
     public setLocalStorage(value:any) {
-        let name:string = 'zt_product';
-        let id:any = this.context.zt_product;
+        let name:string = 'product';
+        let id:any = this.context.product;
         let obj:any = {"name":name,"id":id,"value":value};
         localStorage.setItem('tabKey',JSON.stringify(obj));    
     }
@@ -328,10 +328,8 @@ export default class ProductMobTabExpViewBase extends Vue {
         let key:any = localStorage.getItem('tabKey')
         if(key){
         let info:any = JSON.parse(key);
-        if (info.name == 'zt_product') {
-          if (info.id == this.context.zt_product) {
-            this.activiedTabViewPanel = info.value;
-          }
+        if (info.name && info.name == 'product' && info.id && info.id == this.context.product) {
+          this.activiedTabViewPanel = info.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel3';
         }

@@ -312,8 +312,8 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof MOBORDERMobTabExpViewBase
      */    
     public setLocalStorage(value:any) {
-        let name:string = 'zt_project';
-        let id:any = this.context.zt_project;
+        let name:string = 'project';
+        let id:any = this.context.project;
         let obj:any = {"name":name,"id":id,"value":value};
         localStorage.setItem('tabKey',JSON.stringify(obj));    
     }
@@ -328,10 +328,8 @@ export default class ProjectMobTabExpViewBase extends Vue {
         let key:any = localStorage.getItem('tabKey')
         if(key){
         let info:any = JSON.parse(key);
-        if (info.name == 'zt_project') {
-          if (info.id == this.context.zt_project) {
-            this.activiedTabViewPanel = info.value;
-          }
+        if (info.name && info.name == 'project' && info.id && info.id == this.context.project) {
+          this.activiedTabViewPanel = info.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel';
         }
