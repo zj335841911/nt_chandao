@@ -40,7 +40,9 @@ public class OUSyncJob implements ApplicationRunner {
     ICompanyService companyService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
+        this.syncAccount();
+    }
+    public void syncAccount(){
         try {
             Thread.sleep(10000);
             JSONObject jo= new JSONObject();
@@ -60,6 +62,5 @@ public class OUSyncJob implements ApplicationRunner {
             ex.printStackTrace();
             log.error(String.format("向[OU]同步用户资源失败，请检查[OU]服务是否正常! [%s]",ex));
         }
-
     }
 }
