@@ -1,4 +1,28 @@
 .app-login{
+    .app-loading-contant{
+        height: 100%;
+        width: 100%;
+        background: #8e9eab;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(45deg, #8e9eab, #eef2f3);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(45deg, #8e9eab, #eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .loadingCircle{
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            border:5px solid rgba(255, 255, 255, .6);
+            border-top-color: #fff;
+            animation: loadingRole 2s linear infinite;
+            background: linear-gradient(30deg, #7BC6CC, #BE93C5);
+            box-shadow: 0 0 20px #8e9eab;
+        }
+        @keyframes loadingRole {
+            0% {transform: rotate(0);}
+            100% {transform: rotate(360deg);}
+        }
+    }
     .app-login-contant{
         width: 100%;
         height: 100%;

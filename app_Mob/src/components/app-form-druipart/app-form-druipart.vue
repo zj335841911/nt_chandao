@@ -294,7 +294,7 @@ export default class AppFormDRUIPart extends Vue {
         this.blockUIStop();
       }
     }
-    this.formDruipart.next({ action: "load", data: {}});
+    setTimeout(()=>{this.formDruipart.next({ action: "load", data: {}})},500)
   }
 
   /**

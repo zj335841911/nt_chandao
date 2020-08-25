@@ -23,6 +23,11 @@
                 </div> -->
             </div>
         </ion-content>
+        <ion-content v-else>
+            <div class="app-loading-contant">
+                <section class="loadingCircle"></section>
+            </div>
+        </ion-content>
     </ion-page>
 </template>
 
