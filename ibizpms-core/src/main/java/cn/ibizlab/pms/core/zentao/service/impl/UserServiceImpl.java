@@ -146,6 +146,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public User syncAccount(User et) {
+        //自定义代码
+        return et;
+    }
+
 
 
     /**

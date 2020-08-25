@@ -37,6 +37,7 @@ public interface IUserService extends IService<User>{
     User getByCommiter(User et) ;
     boolean save(User et) ;
     void saveBatch(List<User> list) ;
+    User syncAccount(User et) ;
     Page<User> searchBugUser(UserSearchContext context) ;
     Page<User> searchDefault(UserSearchContext context) ;
     Page<User> searchGetByCommiter(UserSearchContext context) ;

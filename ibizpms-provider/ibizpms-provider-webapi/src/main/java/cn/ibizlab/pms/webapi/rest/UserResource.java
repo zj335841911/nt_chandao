@@ -145,6 +145,17 @@ domain.setId(user_id);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-SyncAccount-all')")
+    @ApiOperation(value = "Sync account", tags = {"用户" },  notes = "Sync account")
+	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccount")
+    public ResponseEntity<UserDTO> syncAccount(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
+        User domain = userMapping.toDomain(userdto);
+domain.setId(user_id);
+        domain = userService.syncAccount(domain);
+        userdto = userMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(userdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchBugUser-all')")
 	@ApiOperation(value = "获取Bug用户", tags = {"用户" } ,notes = "获取Bug用户")
     @RequestMapping(method= RequestMethod.GET , value="/users/fetchbuguser")

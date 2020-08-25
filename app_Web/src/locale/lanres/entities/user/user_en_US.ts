@@ -163,9 +163,13 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction3_syncaccount: {
+			caption: "同步账号",
+			tip: "同步账号",
 		},
 		seperator1: {
 			caption: "",
@@ -175,11 +179,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
