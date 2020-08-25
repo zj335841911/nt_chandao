@@ -660,13 +660,13 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+		deuiaction3_batchnew: {
+			caption: "批量新建用例",
+			tip: "批量新建用例",
 		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",
@@ -676,11 +676,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

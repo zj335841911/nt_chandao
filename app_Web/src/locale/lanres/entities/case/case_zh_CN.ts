@@ -659,13 +659,13 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
+		deuiaction3_batchnew: {
+			caption: "批量新建用例",
+			tip: "批量新建用例",
+		},
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
 		},
 		seperator1: {
 			caption: "",
@@ -675,11 +675,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},

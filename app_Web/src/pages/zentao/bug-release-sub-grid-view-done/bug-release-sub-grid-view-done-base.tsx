@@ -102,7 +102,7 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      * @memberof BugReleaseSubGridView_Done
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'releaseLinkResolvedBug', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'releaseLinkResolvedBug', target: 'NONE', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '批量移除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '批量移除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'releaseBatchUnlinkBug', target: 'MULTIKEY', class: '' } },

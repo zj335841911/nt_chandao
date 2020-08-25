@@ -102,7 +102,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
      * @memberof Main_BuildSub2Base
      */  
     public ActionModel: any = {
-        unlinkBug_build: { name: 'unlinkBug_build',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        unlinkBug_build: { name: 'unlinkBug_build',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**

@@ -102,7 +102,7 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @memberof CaseMainGridView
      */
     public toolBarModels: any = {
-        deuiaction3_batchnew: { name: 'deuiaction3_batchnew', caption: '批量新建用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '批量新建用例', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'BatchNew', target: 'NONE', class: '' } },
+        deuiaction3_batchnew: { name: 'deuiaction3_batchnew', caption: '批量新建用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '批量新建用例', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CREATE_BUT', uiaction: { tag: 'BatchNew', target: 'NONE', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },

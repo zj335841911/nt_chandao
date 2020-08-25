@@ -687,9 +687,9 @@ export default {
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",
@@ -703,15 +703,23 @@ export default {
 	todoeditviewtoolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
-		tbitem1_create: {
-			caption: "新建任务",
-			tip: "新建任务",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
-		tbitem2: {
-			caption: "-",
+		seperator1: {
+			caption: "",
 			tip: "",
 		},
-		tbitem13: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

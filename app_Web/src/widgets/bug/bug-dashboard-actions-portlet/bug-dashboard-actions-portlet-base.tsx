@@ -402,6 +402,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_EDIT_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false

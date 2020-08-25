@@ -278,6 +278,11 @@
        }
         ,
        {
+            "unirescode":"CASE_CREATE_BUT",
+            "uniresname":"测试用例新建"
+       }
+        ,
+       {
             "unirescode":"PRODSTA_PLANCRT_BUT",
             "uniresname":"产品统计创建计划"
        }
