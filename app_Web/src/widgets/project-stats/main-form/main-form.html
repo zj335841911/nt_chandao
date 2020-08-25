@@ -79,14 +79,10 @@
 </div>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.taskcnt.visible" :style="{}"  :lg="{ span: 4, offset: 18 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='taskcnt' :itemRules="this.rules.taskcnt" class='' :caption="$t('entities.projectstats.main_form.details.taskcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.taskcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='taskcnt' :value="data.taskcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <div class="" style="">
+    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;总任务&nbsp;:&nbsp;{{data.taskcnt ? data.taskcnt : 0}}</div>
+</div>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -95,14 +91,10 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.undonetaskcnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='undonetaskcnt' :itemRules="this.rules.undonetaskcnt" class='' :caption="$t('entities.projectstats.main_form.details.undonetaskcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.undonetaskcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='undonetaskcnt' :value="data.undonetaskcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <div class="" style="">
+    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;未完成&nbsp;:&nbsp;{{data.undonetaskcnt ? data.undonetaskcnt : 0}}</div>
+</div>
 
 </i-col>
     
@@ -120,14 +112,10 @@
 </div>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 4, offset: 18 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='' :caption="$t('entities.projectstats.main_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='storycnt' :value="data.storycnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <div class="" style="">
+    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;总需求&nbsp;:&nbsp;{{data.storycnt ? data.storycnt : 0}}</div>
+</div>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -163,7 +151,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 69px;">&nbsp;所有&nbsp;:<b>{{data.bugcnt ? data.bugcnt : 0}}</b></div>
+    <div style="margin-top: 6px;padding-left: 26px;">&nbsp;所有&nbsp;:&nbsp;{{data.bugcnt ? data.bugcnt : 0}}</div>
 </div>
 
 </i-col>
