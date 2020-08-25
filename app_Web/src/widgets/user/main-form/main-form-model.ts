@@ -68,7 +68,7 @@ export default class MainModel {
       {
         name: 'role',
         prop: 'role',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'gender',
