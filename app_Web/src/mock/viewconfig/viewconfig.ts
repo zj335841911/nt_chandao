@@ -2431,6 +2431,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryCloseView",
             "viewtag": "e0fbca7627cdd68765e173028b07f687"
         },
+        "branchpminfoeditview": {
+            "title": "平台管理",
+            "caption": "产品的分支和平台信息",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BranchPMInfoEditView",
+            "viewtag": "e1a0e6c29939260ead53dcd3beb8b736"
+        },
         "ibzmyterritorylistview": {
             "title": "欢迎",
             "caption": "欢迎",

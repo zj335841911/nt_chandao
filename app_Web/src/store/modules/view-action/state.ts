@@ -982,6 +982,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '54c7ba4afb6222c4c0af04a78a0592df',
+                'aad9a5713d6828d3119b811b26915215',
                 '170c1d558f26cf37236390b28f8aca82',
             ],
         },
@@ -1503,6 +1504,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd4cb26555e6d81a172652580cf7d9f7f',
+                'e1a0e6c29939260ead53dcd3beb8b736',
             ],
         },
         {
@@ -1979,7 +1981,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7df0f0deee91304e0350f00baa8a92d6',
+                '6c7b582273d0726bcf77214807cfe40c',
+                'fffe78c32fb25b287d0c5165d46f8dd2',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -2363,6 +2366,7 @@ export const viewstate: any = {
                 '54a5f5fa5f8def88d2aec9c7ee6d85fe',
                 'b9bdfc0e33d333ade00934745d9dc0ad',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
             ],
         },
         {
@@ -2835,6 +2839,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e1a0e6c29939260ead53dcd3beb8b736',
+            viewmodule: 'zentao',
+            viewname: 'BranchPMInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -68,12 +68,70 @@ export class PlatformManagementGridBase extends GridControlBase {
     public appUIService:BranchUIService = new BranchUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ubc7e0b1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BranchUIService  = new BranchUIService();
+        curUIService.Branch_Edit(datas,contextJO, paramJO,  $event, xData,this,"Branch");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u7324c5a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BranchUIService  = new BranchUIService();
+        curUIService.Branch_Delete(datas,contextJO, paramJO,  $event, xData,this,"Branch");
+    }
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof PlatformManagementBase
      */  
     public ActionModel: any = {
+        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -132,6 +190,14 @@ export class PlatformManagementGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.branch.platformmanagement_grid.columns.uagridcolumn1',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -169,6 +235,7 @@ export class PlatformManagementGridBase extends GridControlBase {
         'id':false,
         'name':false,
         'order':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -197,4 +264,22 @@ export class PlatformManagementGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof PlatformManagementGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Edit', tag)) {
+            this.grid_uagridcolumn1_ubc7e0b1_click(row, tag, $event);
+        }
+        if(Object.is('Delete', tag)) {
+            this.grid_uagridcolumn1_u7324c5a_click(row, tag, $event);
+        }
+    }
 }

@@ -854,17 +854,13 @@ export default {
 	editview9toolbar_toolbar: {
 	},
 	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建需求",
+			tip: "新建需求",
+		},
 		deuiaction3_planrelationstory: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
 		},
 		seperator1: {
 			caption: "",
@@ -874,11 +870,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
@@ -1041,18 +1037,6 @@ export default {
 		deuiaction1: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction3: {
-			caption: "批量移除",
-			tip: "批量移除",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "Export",

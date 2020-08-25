@@ -69,13 +69,9 @@ export default {
 		},
 	},
 	subplangridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
+		deuiaction3_create: {
+			caption: "创建计划",
+			tip: "创建计划",
 		},
 		seperator1: {
 			caption: "",
@@ -85,11 +81,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},

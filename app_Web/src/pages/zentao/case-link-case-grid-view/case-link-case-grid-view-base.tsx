@@ -125,7 +125,7 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      * @memberof CaseLinkCaseGridView
      */
     public toolBarModels: any = {
-        deuiaction1_linkcase: { name: 'deuiaction1_linkcase', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'linkCase', target: 'MULTIKEY', class: '' } },
+        deuiaction1_linkcase: { name: 'deuiaction1_linkcase', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'linkCase', target: 'MULTIKEY', class: '' } },
 
     };
 

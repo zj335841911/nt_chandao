@@ -373,6 +373,11 @@
        }
         ,
        {
+            "unirescode":"BUILD_SUBT_BUT",
+            "uniresname":"项目版本提交测试"
+       }
+        ,
+       {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
        }

@@ -102,7 +102,7 @@ export default {
 			build_submittotesting: "提交测试",
 			build_viewbugs: "查看Bug",
 			build_editbuild: "编辑版本",
-			remove: "删除",
+			build_delete: "删除",
 		},
 	},
 	default_searchform: {
@@ -119,9 +119,25 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "创建版本",
 			tip: "创建版本",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 };

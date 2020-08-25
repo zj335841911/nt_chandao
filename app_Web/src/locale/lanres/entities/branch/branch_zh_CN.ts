@@ -19,6 +19,10 @@ export default {
 			caption: "产品的分支和平台信息",
       		title: "平台管理",
 		},
+		pminfoeditview: {
+			caption: "产品的分支和平台信息",
+      		title: "平台管理",
+		},
 		pickupgridview: {
 			caption: "产品的分支和平台信息",
       		title: "平台选择表格视图",
@@ -47,8 +51,11 @@ export default {
 			id: "编号",
 			name: "名称",
 			order: "排序",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			branch_edit: "编辑",
+			branch_delete: "删除",
 		},
 	},
 	main_grid: {
@@ -65,8 +72,14 @@ export default {
 		uiactions: {
 		},
 	},
-	pmgridviewtoolbar_toolbar: {
+	pmeditviewtoolbar_toolbar: {
 		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	pmgridviewtoolbar_toolbar: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
 		},
@@ -75,14 +88,18 @@ export default {
 			tip: "",
 		},
 		deuiaction2: {
-			caption: "编辑",
-			tip: "编辑",
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
-	pmeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
+	pminfoeditviewtoolbar_toolbar: {
 	},
 };

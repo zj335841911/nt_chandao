@@ -907,27 +907,11 @@ export default {
 			caption: "关联bug",
 			tip: "关联bug",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "批量移除",
-			tip: "批量移除",
-		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
 			tip: "关联bug",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "批量移除",
-			tip: "批量移除",
 		},
 	},
 	gridviewtoolbar_toolbar: {
