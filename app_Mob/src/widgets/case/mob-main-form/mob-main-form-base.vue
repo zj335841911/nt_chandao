@@ -159,7 +159,7 @@
     ]" 
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ "N_VERSION_EQ": "%version%" } ' 
+    :navigateContext ='{ "n_version_eq": "%version%" } ' 
     :navigateParam ='{ "n_version_eq": "%version%" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  

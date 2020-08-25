@@ -51,7 +51,7 @@
     :context="context"
     :viewparams="viewparams"
     :value="data.resolvedbuild"   
-    :navigateContext ='{ "BUGPRODUCT": "%product%", "BUGPROJECT": "%project%" } '
+    :navigateContext ='{ "bugproduct": "%product%", "bugproject": "%project%" } '
     :navigateParam ='{ "bugproject": "%project%", "bugproduct": "%product%" } '
     @change="($event)=>this.data.resolvedbuild = $event"/>
 </app-form-item>
@@ -82,7 +82,7 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.assignedto"  
-    :navigateContext ='{ "PROJECT": "%project%" } '
+    :navigateContext ='{ "project": "%project%" } '
     :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
