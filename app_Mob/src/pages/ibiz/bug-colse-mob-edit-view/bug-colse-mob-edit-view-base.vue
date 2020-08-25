@@ -67,7 +67,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 @Component({
     components: {
@@ -90,6 +90,14 @@ export default class BugColseMobEditViewBase extends Vue {
      * @memberof BugColseMobEditViewBase
      */
     protected appEntityService: BugService = new BugService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BugUIService
+     * @memberof BugColseMobEditViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
      * 数据变化

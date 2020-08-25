@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     protected appEntityService: TaskService = new TaskService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskMobMDViewBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化

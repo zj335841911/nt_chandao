@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import CaseService from '@/app-core/service/case/case-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import CaseUIService from '@/ui-service/case/case-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class CaseMobMDViewBase extends Vue {
      * @memberof CaseMobMDViewBase
      */
     protected appEntityService: CaseService = new CaseService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMobMDViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
      * 数据变化

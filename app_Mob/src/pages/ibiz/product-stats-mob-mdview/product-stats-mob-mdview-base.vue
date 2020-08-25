@@ -69,7 +69,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
 
 @Component({
     components: {
@@ -92,6 +92,14 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     protected appEntityService: ProductStatsService = new ProductStatsService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductStatsUIService
+     * @memberof ProductStatsMobMDViewBase
+     */
+    public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
     /**
      * 数据变化

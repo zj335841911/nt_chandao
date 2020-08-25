@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BuildService from '@/app-core/service/build/build-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import BuildUIService from '@/ui-service/build/build-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class BuildMobEditViewBase extends Vue {
      * @memberof BuildMobEditViewBase
      */
     protected appEntityService: BuildService = new BuildService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMobEditViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
     /**
      * 数据变化

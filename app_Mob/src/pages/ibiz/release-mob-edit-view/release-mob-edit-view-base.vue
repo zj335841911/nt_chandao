@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @memberof ReleaseMobEditViewBase
      */
     protected appEntityService: ReleaseService = new ReleaseService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ReleaseUIService
+     * @memberof ReleaseMobEditViewBase
+     */
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
     /**
      * 数据变化

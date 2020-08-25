@@ -64,7 +64,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import ProjectUIService from '@/ui-service/project/project-ui-action';
 
 @Component({
     components: {
@@ -87,6 +87,14 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     protected appEntityService: ProjectService = new ProjectService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectMobMDViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
      * 数据变化

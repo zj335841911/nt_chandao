@@ -62,7 +62,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({
     components: {
@@ -85,6 +85,14 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TodoUIService
+     * @memberof TodoMobMDViewBase
+     */
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 数据变化

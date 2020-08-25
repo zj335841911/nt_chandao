@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BuildService from '@/app-core/service/build/build-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import BuildUIService from '@/ui-service/build/build-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class BuildMobMDViewBase extends Vue {
      * @memberof BuildMobMDViewBase
      */
     protected appEntityService: BuildService = new BuildService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMobMDViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
     /**
      * 数据变化

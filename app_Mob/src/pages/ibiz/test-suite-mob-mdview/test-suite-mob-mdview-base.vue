@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @memberof TestSuiteMobMDViewBase
      */
     protected appEntityService: TestSuiteService = new TestSuiteService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TestSuiteUIService
+     * @memberof TestSuiteMobMDViewBase
+     */
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
 
     /**
      * 数据变化

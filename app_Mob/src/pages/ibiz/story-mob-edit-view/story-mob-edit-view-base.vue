@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class StoryMobEditViewBase extends Vue {
      * @memberof StoryMobEditViewBase
      */
     protected appEntityService: StoryService = new StoryService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMobEditViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化

@@ -43,7 +43,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import CaseStepService from '@/app-core/service/case-step/case-step-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
-
+import CaseStepUIService from '@/ui-service/case-step/case-step-ui-action';
 
 @Component({
     components: {
@@ -66,6 +66,14 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     protected appEntityService: CaseStepService = new CaseStepService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type CaseStepUIService
+     * @memberof CaseStepMobMDView9Base
+     */
+    public appUIService: CaseStepUIService = new CaseStepUIService(this.$store);
 
     /**
      * 数据变化

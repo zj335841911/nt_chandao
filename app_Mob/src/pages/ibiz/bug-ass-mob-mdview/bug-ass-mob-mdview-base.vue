@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     protected appEntityService: BugService = new BugService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BugUIService
+     * @memberof BugAssMobMDViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
      * 数据变化

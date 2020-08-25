@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @memberof ProductPlanMobEditViewBase
      */
     protected appEntityService: ProductPlanService = new ProductPlanService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductPlanUIService
+     * @memberof ProductPlanMobEditViewBase
+     */
+    public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
     /**
      * 数据变化

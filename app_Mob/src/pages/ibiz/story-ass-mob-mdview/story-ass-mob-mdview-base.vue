@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class StoryAssMobMDViewBase extends Vue {
      * @memberof StoryAssMobMDViewBase
      */
     protected appEntityService: StoryService = new StoryService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryAssMobMDViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化

@@ -49,7 +49,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
 @Component({
     components: {
@@ -72,6 +72,14 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     protected appEntityService: ReleaseService = new ReleaseService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ReleaseUIService
+     * @memberof ReleaseMobMDViewBase
+     */
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
     /**
      * 数据变化

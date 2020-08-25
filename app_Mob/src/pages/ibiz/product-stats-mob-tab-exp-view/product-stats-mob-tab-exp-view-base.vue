@@ -46,7 +46,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
-
+import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
 
 @Component({
     components: {
@@ -69,6 +69,14 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
      * @memberof ProductStatsMobTabExpViewBase
      */
     protected appEntityService: ProductStatsService = new ProductStatsService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductStatsUIService
+     * @memberof ProductStatsMobTabExpViewBase
+     */
+    public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
     /**
      * 数据变化

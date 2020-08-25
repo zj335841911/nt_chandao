@@ -35,7 +35,6 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 
 
-
 @Component({
     components: {
     },

@@ -67,7 +67,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import ProjectUIService from '@/ui-service/project/project-ui-action';
 
 @Component({
     components: {
@@ -90,6 +90,14 @@ export default class ProjectActiviteMobEditViewBase extends Vue {
      * @memberof ProjectActiviteMobEditViewBase
      */
     protected appEntityService: ProjectService = new ProjectService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectActiviteMobEditViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
      * 数据变化

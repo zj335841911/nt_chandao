@@ -43,7 +43,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BuildService from '@/app-core/service/build/build-service';
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
-
+import BuildUIService from '@/ui-service/build/build-ui-action';
 
 @Component({
     components: {
@@ -66,6 +66,14 @@ export default class BuildMobPickupViewBase extends Vue {
      * @memberof BuildMobPickupViewBase
      */
     protected appEntityService: BuildService = new BuildService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMobPickupViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
     /**
      * 数据变化
