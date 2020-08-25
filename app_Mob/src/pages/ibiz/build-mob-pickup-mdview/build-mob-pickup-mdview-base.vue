@@ -1,31 +1,18 @@
 <template>
 <div class="view-container app-mob-pickup-mdview build-mob-pickup-mdview">
     <div class="view-content">
-        <view_mdctrl
-    :viewState="viewState"
-    viewName="BuildMobPickupMDView"  
-    :viewparams="viewparams" 
-    :context="context" 
-    :showBusyIndicator="true" 
-    viewType="DEMOBPICKUPMDVIEW"
-    controlStyle="LISTVIEW"
-    updateAction="Update"
-    removeAction="Remove"
-    loaddraftAction=""
-    loadAction="Get"
-    createAction="Create"
-    fetchAction="FetchDefault" 
-    :isMutli="!isSingleSelect"
-    :isTempMode="false"
-    :isEnableChoose="false"
-    name="mdctrl"  
-    ref='mdctrl' 
-    @selectionchange="mdctrl_selectionchange($event)"  
-    @beforeload="mdctrl_beforeload($event)"  
-    @rowclick="mdctrl_rowclick($event)"  
-    @load="mdctrl_load($event)"  
-    @closeview="closeView($event)">
-</view_mdctrl>
+        !!!!模版产生代码错误:----
+Tip: If you just want "true"/"false" result as you are generting computer-language output, use "?c", like ${myBool?c}.
+----
+Tip: You can write myBool?string('yes', 'no') and like to specify boolean formatting in place.
+----
+Tip: If you need the same two values on most places, the programmers should set the "boolean_format" setting to something like "yes,no".
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${view.isEnablePullDownRefresh()}  [in template "TEMPLCODE_en_US" at line 19, column 95]
+----
     </div>
 </div>
 </template>
