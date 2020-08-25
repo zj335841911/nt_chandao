@@ -66,6 +66,18 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzCaseDashboardViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'case' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'ibzcase' }
+    };
+
     /**
      * 视图模型数据
      *
