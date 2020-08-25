@@ -43,7 +43,14 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.realname}}</span>
+                        <app-column-link deKeyField='user' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'user-infoedit-view', height: 0,width: 750,title: $t('entities.user.views.infoeditview.title'),placement: 'DRAWER_RIGHT', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'users', parameterName: 'user' },
+            { pathName: 'infoeditview', parameterName: 'infoeditview' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.realname}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>

@@ -68,12 +68,70 @@ export class MainGridBase extends GridControlBase {
     public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u51d6396_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzLibUIService  = new IbzLibUIService();
+        curUIService.IbzLib_Editlib(datas,contextJO, paramJO,  $event, xData,this,"IbzLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u8656fbb_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzLibUIService  = new IbzLibUIService();
+        curUIService.IbzLib_Delete(datas,contextJO, paramJO,  $event, xData,this,"IbzLib");
+    }
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        Editlib: { name: 'Editlib',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEDATA'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -104,6 +162,14 @@ export class MainGridBase extends GridControlBase {
             name: 'name',
             label: '名称',
             langtag: 'entities.ibzlib.main_grid.columns.name',
+            show: true,
+            unit: 'STAR',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.ibzlib.main_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -144,6 +210,7 @@ export class MainGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'name':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -172,4 +239,22 @@ export class MainGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Editlib', tag)) {
+            this.grid_uagridcolumn1_u51d6396_click(row, tag, $event);
+        }
+        if(Object.is('Delete', tag)) {
+            this.grid_uagridcolumn1_u8656fbb_click(row, tag, $event);
+        }
+    }
 }

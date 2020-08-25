@@ -73,8 +73,11 @@ export default {
 		columns: {
 			id: "编号",
 			name: "名称",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        ibzlib_editlib: "编辑",
+        ibzlib_delete: "删除",
 		},
 	},
 	default_searchform: {
@@ -91,9 +94,9 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",
@@ -103,11 +106,11 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

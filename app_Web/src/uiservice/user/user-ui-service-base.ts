@@ -90,6 +90,7 @@ export default class UserUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'users'});
+        this.allViewMap.set(':',{viewname:'infoeditview',srfappde:'users'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'users'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'users'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'users'});

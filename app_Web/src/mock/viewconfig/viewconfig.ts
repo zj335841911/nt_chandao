@@ -1231,6 +1231,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskProjectGridView",
             "viewtag": "72614f86125fa2a1421156c17116a4e3"
         },
+        "userinfoeditview": {
+            "title": "用户编辑视图",
+            "caption": "用户信息",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserINFOEditView",
+            "viewtag": "72a44528b73b17f6e29a3ca59e432d19"
+        },
         "casecursuitgridview": {
             "title": "功能测试",
             "caption": "功能测试",
@@ -1798,6 +1806,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryProjectPickupGridView",
             "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d"
+        },
+        "deptinfoeditview": {
+            "title": "部门编辑视图",
+            "caption": "部门信息",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DeptInfoEditView",
+            "viewtag": "a52f8b23a989b8526e4c98c49d73a3d0"
         },
         "casestepcarryouteditmode": {
             "title": "用例步骤",

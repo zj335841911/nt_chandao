@@ -402,10 +402,10 @@ export class UserMainGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'user-edit-view', 
+            viewname: 'user-infoedit-view', 
             height: 0, 
             width: 750,  
-            title: this.$t('entities.user.views.editview.title'),
+            title: this.$t('entities.user.views.infoeditview.title'),
             placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);

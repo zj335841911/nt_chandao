@@ -22,6 +22,10 @@ export default {
 			caption: "部门",
       		title: "部门",
 		},
+		infoeditview: {
+			caption: "部门信息",
+      		title: "部门编辑视图",
+		},
 		editview: {
 			caption: "部门信息",
       		title: "部门编辑视图",
@@ -51,14 +55,36 @@ export default {
 		uiactions: {
 		},
 	},
+	info_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "部门名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "部门名称", 
+			parentname: "上级部门", 
+			manager: "负责人", 
+			id: "id", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
 			name: "部门",
 			parentname: "上级部门",
 			manager: "负责人",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        dept_delete: "删除",
+        dept_edit: "编辑",
 		},
 	},
 	default_searchform: {
@@ -66,32 +92,6 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
-		},
-	},
-	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -111,5 +111,29 @@ export default {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
 		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	infoeditviewtoolbar_toolbar: {
 	},
 };

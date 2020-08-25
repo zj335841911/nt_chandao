@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.ibzlib.main_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.ibzlib.main_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibzlib.main_grid.columns.name')}}
@@ -51,6 +51,28 @@
             ]}" valueitem="srfkey">
                             <span>{{row.name}}</span>
                         </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.ibzlib.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.ibzlib.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.Editlib.visabled" :disabled="scope.row.Editlib.disabled" @click="uiAction(scope.row, 'Editlib', $event)" :title="$t('entities.ibzlib.main_grid.uiactions.ibzlib_editlib')">
+                            <i class=''></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.ibzlib.main_grid.uiactions.ibzlib_delete')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

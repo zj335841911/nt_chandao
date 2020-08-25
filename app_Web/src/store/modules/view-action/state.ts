@@ -1220,6 +1220,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'bae11f9447355ecc9e2cdff2490e6d11',
+                'a52f8b23a989b8526e4c98c49d73a3d0',
             ],
         },
         {
@@ -1450,6 +1451,15 @@ export const viewstate: any = {
                 '513dfe852d9d8a97b32eccb44e7b55c3',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
+            ],
+        },
+        {
+            viewtag: '72a44528b73b17f6e29a3ca59e432d19',
+            viewmodule: 'zentao',
+            viewname: 'UserINFOEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2136,6 +2146,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a52f8b23a989b8526e4c98c49d73a3d0',
+            viewmodule: 'zentao',
+            viewname: 'DeptInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a694d988e3134a33bb5a99e6e07246f6',
             viewmodule: 'zentao',
             viewname: 'CaseStepCarryOutEditMode',
@@ -2727,6 +2746,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '83b1f6c353e9383e36b8d58eec845267',
+                '72a44528b73b17f6e29a3ca59e432d19',
             ],
         },
         {
@@ -2917,6 +2937,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bae11f9447355ecc9e2cdff2490e6d11',
             ],
         },
         {
