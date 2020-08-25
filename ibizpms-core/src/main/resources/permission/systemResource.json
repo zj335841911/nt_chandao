@@ -73,6 +73,11 @@
        }
         ,
        {
+            "unirescode":"BUILD_CREATE_BUT",
+            "uniresname":"项目版本新建"
+       }
+        ,
+       {
             "unirescode":"TESTMOD_OQCVIEW_BUT",
             "uniresname":"测试模块打开快速编辑试图"
        }
@@ -130,6 +135,11 @@
        {
             "unirescode":"STORY_ASS_BUT",
             "uniresname":"需求指派给"
+       }
+        ,
+       {
+            "unirescode":"BUILD_EDIT_BUT",
+            "uniresname":"项目版本编辑"
        }
         ,
        {
@@ -243,6 +253,11 @@
        }
         ,
        {
+            "unirescode":"BUILD_LINK_BUT",
+            "uniresname":"项目版本关联Bug（需求）"
+       }
+        ,
+       {
             "unirescode":"CASE_RESULT_BUT",
             "uniresname":"测试用例结果"
        }
@@ -333,6 +348,11 @@
        }
         ,
        {
+            "unirescode":"BUILD_DELETE_BUT",
+            "uniresname":"项目版本删除"
+       }
+        ,
+       {
             "unirescode":"BUG_TOSTORY_BUT",
             "uniresname":"Bug提需求"
        }
@@ -405,6 +425,11 @@
        {
             "unirescode":"PRODSTA_STORYCRT_BUT",
             "uniresname":"产品统计提需求"
+       }
+        ,
+       {
+            "unirescode":"BUG_EDIT_BUT",
+            "uniresname":"Bug编辑"
        }
         ,
        {
