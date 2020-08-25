@@ -70,7 +70,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class=' group-projectstats' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -103,7 +103,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class=' group-projectstats' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -124,14 +124,10 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.unclosedstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='unclosedstorycnt' :itemRules="this.rules.unclosedstorycnt" class='' :caption="$t('entities.projectstats.main_form.details.unclosedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unclosedstorycnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='unclosedstorycnt' :value="data.unclosedstorycnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <div class="" style="">
+    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;未关闭&nbsp;:&nbsp;{{data.unclosedstorycnt ? data.unclosedstorycnt : 0}}</div>
+</div>
 
 </i-col>
     
@@ -140,7 +136,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class=' group-projectstats' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -161,14 +157,10 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.activebugcnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='activebugcnt' :itemRules="this.rules.activebugcnt" class='' :caption="$t('entities.projectstats.main_form.details.activebugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.activebugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='activebugcnt' :value="data.activebugcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <div class="" style="">
+    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;未解决&nbsp;:&nbsp;{{data.activebugcnt ? data.activebugcnt : 0}}</div>
+</div>
 
 </i-col>
     
