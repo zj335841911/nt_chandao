@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { PortalViewBase } from '@/studio-core';
 
 /**

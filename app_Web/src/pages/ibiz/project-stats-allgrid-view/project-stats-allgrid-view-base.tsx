@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import ProjectStatsAuthService from '@/authservice/project-stats/project-stats-auth-service';

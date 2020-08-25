@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';

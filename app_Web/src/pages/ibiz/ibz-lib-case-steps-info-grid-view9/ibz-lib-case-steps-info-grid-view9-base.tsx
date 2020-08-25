@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import IbzLibCasestepsService from '@/service/ibz-lib-casesteps/ibz-lib-casesteps-service';
 import IbzLibCasestepsAuthService from '@/authservice/ibz-lib-casesteps/ibz-lib-casesteps-auth-service';

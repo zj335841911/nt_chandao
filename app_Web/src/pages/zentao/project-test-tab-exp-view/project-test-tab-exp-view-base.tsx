@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';

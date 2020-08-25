@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import BranchAuthService from '@/authservice/branch/branch-auth-service';

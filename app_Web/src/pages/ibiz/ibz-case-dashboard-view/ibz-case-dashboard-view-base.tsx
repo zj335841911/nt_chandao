@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCaseAuthService from '@/authservice/ibz-case/ibz-case-auth-service';

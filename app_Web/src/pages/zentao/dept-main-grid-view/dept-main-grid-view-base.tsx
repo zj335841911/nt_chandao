@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import DeptService from '@/service/dept/dept-service';
 import DeptAuthService from '@/authservice/dept/dept-auth-service';

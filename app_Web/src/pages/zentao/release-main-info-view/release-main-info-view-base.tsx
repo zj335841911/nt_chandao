@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
 import ReleaseAuthService from '@/authservice/release/release-auth-service';

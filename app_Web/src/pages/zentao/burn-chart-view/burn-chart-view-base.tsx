@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { ChartViewBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnAuthService from '@/authservice/burn/burn-auth-service';

@@ -1,6 +1,7 @@
 
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { KanBanViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
