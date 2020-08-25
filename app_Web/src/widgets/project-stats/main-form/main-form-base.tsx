@@ -142,13 +142,25 @@ export class MainEditFormBase extends EditFormControlBase {
 
         rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        rawitem6: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem7: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         grouppanel1: new FormGroupPanelModel({ caption: '任务统计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        rawitem5: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem5', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem8: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem8', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         grouppanel2: new FormGroupPanelModel({ caption: '需求统计', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem4: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem9: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem9', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel3: new FormGroupPanelModel({ caption: 'bug统计', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } }),
 

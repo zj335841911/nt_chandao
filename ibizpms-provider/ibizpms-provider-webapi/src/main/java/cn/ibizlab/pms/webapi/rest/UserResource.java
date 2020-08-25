@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Create-all')")
     @ApiOperation(value = "新建用户", tags = {"用户" },  notes = "新建用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users")
-    @Transactional
     public ResponseEntity<UserDTO> create(@RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
 		userService.create(domain);
@@ -69,7 +67,6 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Update-all')")
     @ApiOperation(value = "更新用户", tags = {"用户" },  notes = "更新用户")
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/{user_id}")
-    @Transactional
     public ResponseEntity<UserDTO> update(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
 		User domain  = userMapping.toDomain(userdto);
         domain .setId(user_id);
@@ -89,7 +86,6 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
     @ApiOperation(value = "删除用户", tags = {"用户" },  notes = "删除用户")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{user_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("user_id") BigInteger user_id) {
          return ResponseEntity.status(HttpStatus.OK).body(userService.remove(user_id));
     }
@@ -126,7 +122,6 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-GetByCommiter-all')")
     @ApiOperation(value = "根据代码账户查询用户信息", tags = {"用户" },  notes = "根据代码账户查询用户信息")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}/getbycommiter")
-    @Transactional
     public ResponseEntity<UserDTO> getByCommiter(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
 domain.setId(user_id);

@@ -263,8 +263,14 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	todocreateviewtoolbar_toolbar: {
 		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_todocreate: {
 			caption: "新建",
 			tip: "新建",
 		},
@@ -276,19 +282,13 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	todocreateviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

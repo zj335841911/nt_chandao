@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Create-all')")
     @ApiOperation(value = "新建burn", tags = {"burn" },  notes = "新建burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/burns")
-    @Transactional
     public ResponseEntity<BurnDTO> create(@RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
 		burnService.create(domain);
@@ -69,7 +67,6 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Update-all')")
     @ApiOperation(value = "更新burn", tags = {"burn" },  notes = "更新burn")
 	@RequestMapping(method = RequestMethod.PUT, value = "/burns/{burn_id}")
-    @Transactional
     public ResponseEntity<BurnDTO> update(@PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
 		Burn domain  = burnMapping.toDomain(burndto);
         domain .setId(burn_id);
@@ -89,7 +86,6 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Remove-all')")
     @ApiOperation(value = "删除burn", tags = {"burn" },  notes = "删除burn")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/burns/{burn_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("burn_id") String burn_id) {
          return ResponseEntity.status(HttpStatus.OK).body(burnService.remove(burn_id));
     }
@@ -126,7 +122,6 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ComputeBurn-all')")
     @ApiOperation(value = "更新燃尽图", tags = {"burn" },  notes = "更新燃尽图")
 	@RequestMapping(method = RequestMethod.POST, value = "/burns/{burn_id}/computeburn")
-    @Transactional
     public ResponseEntity<BurnDTO> computeBurn(@PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
 domain.setId(burn_id);
@@ -195,7 +190,6 @@ domain.setId(burn_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Create-all')")
     @ApiOperation(value = "根据项目建立burn", tags = {"burn" },  notes = "根据项目建立burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns")
-    @Transactional
     public ResponseEntity<BurnDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);
@@ -219,7 +213,6 @@ domain.setId(burn_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Update-all')")
     @ApiOperation(value = "根据项目更新burn", tags = {"burn" },  notes = "根据项目更新burn")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/burns/{burn_id}")
-    @Transactional
     public ResponseEntity<BurnDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);
@@ -244,7 +237,6 @@ domain.setId(burn_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Remove-all')")
     @ApiOperation(value = "根据项目删除burn", tags = {"burn" },  notes = "根据项目删除burn")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/burns/{burn_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(burnService.remove(burn_id));
     }
@@ -283,7 +275,6 @@ domain.setId(burn_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ComputeBurn-all')")
     @ApiOperation(value = "根据项目burn", tags = {"burn" },  notes = "根据项目burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/{burn_id}/computeburn")
-    @Transactional
     public ResponseEntity<BurnDTO> computeBurnByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);

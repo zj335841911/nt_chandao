@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     protected appEntityService: TaskService = new TaskService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskMobEditViewBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -244,6 +252,13 @@ export default class TaskMobEditViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof TaskMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数

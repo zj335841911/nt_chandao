@@ -1064,7 +1064,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e"
         },
         "deptmaingridview": {
-            "title": "部门表格视图",
+            "title": "部门",
             "caption": "部门",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -2438,6 +2438,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzMyTerritoryListView",
             "viewtag": "e2d75951e06d21bce0a31b09c67103bf"
+        },
+        "usertreeexpview": {
+            "title": "用户",
+            "caption": "用户",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserTreeExpView",
+            "viewtag": "e2f8bc0ff75f204383d2a5c15117b476"
         },
         "productlistexpview": {
             "title": "产品列表导航视图",

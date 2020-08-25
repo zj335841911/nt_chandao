@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "新建项目产品", tags = {"项目产品" },  notes = "新建项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts")
-    @Transactional
     public ResponseEntity<ProjectProductDTO> create(@RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
 		projectproductService.create(domain);
@@ -69,7 +67,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
     @ApiOperation(value = "更新项目产品", tags = {"项目产品" },  notes = "更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectproducts/{projectproduct_id}")
-    @Transactional
     public ResponseEntity<ProjectProductDTO> update(@PathVariable("projectproduct_id") String projectproduct_id, @RequestBody ProjectProductDTO projectproductdto) {
 		ProjectProduct domain  = projectproductMapping.toDomain(projectproductdto);
         domain .setId(projectproduct_id);
@@ -89,7 +86,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
     @ApiOperation(value = "删除项目产品", tags = {"项目产品" },  notes = "删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectproducts/{projectproduct_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("projectproduct_id") String projectproduct_id) {
          return ResponseEntity.status(HttpStatus.OK).body(projectproductService.remove(projectproduct_id));
     }
@@ -183,7 +179,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "根据产品建立项目产品", tags = {"项目产品" },  notes = "根据产品建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts")
-    @Transactional
     public ResponseEntity<ProjectProductDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
         domain.setProduct(product_id);
@@ -207,7 +202,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
     @ApiOperation(value = "根据产品更新项目产品", tags = {"项目产品" },  notes = "根据产品更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/projectproducts/{projectproduct_id}")
-    @Transactional
     public ResponseEntity<ProjectProductDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("projectproduct_id") String projectproduct_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
         domain.setProduct(product_id);
@@ -232,7 +226,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
     @ApiOperation(value = "根据产品删除项目产品", tags = {"项目产品" },  notes = "根据产品删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/projectproducts/{projectproduct_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("projectproduct_id") String projectproduct_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(projectproductService.remove(projectproduct_id));
     }
@@ -338,7 +331,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "根据项目建立项目产品", tags = {"项目产品" },  notes = "根据项目建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts")
-    @Transactional
     public ResponseEntity<ProjectProductDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
         domain.setProject(project_id);
@@ -362,7 +354,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
     @ApiOperation(value = "根据项目更新项目产品", tags = {"项目产品" },  notes = "根据项目更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectproducts/{projectproduct_id}")
-    @Transactional
     public ResponseEntity<ProjectProductDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectproduct_id") String projectproduct_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
         domain.setProject(project_id);
@@ -387,7 +378,6 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
     @ApiOperation(value = "根据项目删除项目产品", tags = {"项目产品" },  notes = "根据项目删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectproducts/{projectproduct_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectproduct_id") String projectproduct_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(projectproductService.remove(projectproduct_id));
     }

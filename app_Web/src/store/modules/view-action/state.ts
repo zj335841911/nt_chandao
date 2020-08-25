@@ -302,6 +302,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '16b54862dad958907853dc7eb084a0c0',
+            viewmodule: 'zentao',
+            viewname: 'DeptPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e644f7976b08c3d7f14fd7e1d5329da8',
+            ],
+        },
+        {
             viewtag: '170c1d558f26cf37236390b28f8aca82',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanCreateView',
@@ -383,6 +393,7 @@ export const viewstate: any = {
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                'e2f8bc0ff75f204383d2a5c15117b476',
                 'e698418f007d36b627d6af23c1042f31',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
@@ -1201,6 +1212,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5c2b20935d511794aeca60376bd81fef',
+            viewmodule: 'zentao',
+            viewname: 'DeptMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bae11f9447355ecc9e2cdff2490e6d11',
+            ],
+        },
+        {
             viewtag: '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
             viewmodule: 'zentao',
             viewname: 'CaseGridView9_StoryRelated',
@@ -1654,6 +1675,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '83b1f6c353e9383e36b8d58eec845267',
+            viewmodule: 'zentao',
+            viewname: 'UserEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2336,6 +2366,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bae11f9447355ecc9e2cdff2490e6d11',
+            viewmodule: 'zentao',
+            viewname: 'DeptEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16b54862dad958907853dc7eb084a0c0',
+            ],
+        },
+        {
             viewtag: 'bb8860972029d9947daa3652a4b5d291',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleTreeExpView',
@@ -2676,6 +2716,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd364bfbf7092ee45cd0acae49fac77ab',
+            viewmodule: 'zentao',
+            viewname: 'UserMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '83b1f6c353e9383e36b8d58eec845267',
+            ],
+        },
+        {
             viewtag: 'd4cb26555e6d81a172652580cf7d9f7f',
             viewmodule: 'zentao',
             viewname: 'BranchPMEditView',
@@ -2788,6 +2838,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e2f8bc0ff75f204383d2a5c15117b476',
+            viewmodule: 'zentao',
+            viewname: 'UserTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd364bfbf7092ee45cd0acae49fac77ab',
+                '5c2b20935d511794aeca60376bd81fef',
+            ],
+        },
+        {
             viewtag: 'e396b6f39451e3bf963aec602106adf0',
             viewmodule: 'zentao',
             viewname: 'ProductListExpView',
@@ -2834,6 +2895,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e644f7976b08c3d7f14fd7e1d5329da8',
+            viewmodule: 'zentao',
+            viewname: 'DeptPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

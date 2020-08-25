@@ -36,7 +36,7 @@ export default class AppSelect extends Vue {
      * @type {string}
      * @memberof AppSelect
      */
-    @Prop() public value?: string;
+    @Prop() public value?: any;
 
     /**
      * 当前选中值
@@ -56,7 +56,13 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
-        this.$emit("change", value.detail.value);
+        let devalue:any = value.detail.value;
+        for(let key in this.options){
+          if (this.options[key].isValueNumber) {
+            devalue = +devalue;
+          }
+        }
+        this.$emit("change", devalue);
     }
 
     /**

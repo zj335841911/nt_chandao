@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Create-all')")
     @ApiOperation(value = "新建我的地盘", tags = {"我的地盘" },  notes = "新建我的地盘")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories")
-    @Transactional
     public ResponseEntity<IbzMyTerritoryDTO> create(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
         IbzMyTerritory domain = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
 		ibzmyterritoryService.create(domain);
@@ -69,7 +67,6 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Update-all')")
     @ApiOperation(value = "更新我的地盘", tags = {"我的地盘" },  notes = "更新我的地盘")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmyterritories/{ibzmyterritory_id}")
-    @Transactional
     public ResponseEntity<IbzMyTerritoryDTO> update(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id, @RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
 		IbzMyTerritory domain  = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
         domain .setId(ibzmyterritory_id);
@@ -89,7 +86,6 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Remove-all')")
     @ApiOperation(value = "删除我的地盘", tags = {"我的地盘" },  notes = "删除我的地盘")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzmyterritories/{ibzmyterritory_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.remove(ibzmyterritory_id));
     }

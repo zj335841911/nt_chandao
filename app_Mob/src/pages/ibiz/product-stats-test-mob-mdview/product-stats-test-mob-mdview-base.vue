@@ -14,8 +14,8 @@
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                             <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="fa fa-file-text-o"> </ion-icon>
-                    {{$t('productstats.testmobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
+                        <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
+                    
                     </ion-button>
                 
                     </div>
@@ -47,6 +47,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -69,7 +70,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
 
 @Component({
     components: {
@@ -92,6 +93,14 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
      * @memberof ProductStatsTestMobMDViewBase
      */
     protected appEntityService: ProductStatsService = new ProductStatsService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductStatsUIService
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
     /**
      * 数据变化
@@ -253,10 +262,17 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
     * @memberof ProductStatsTestMobMDView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '' } },
 
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -637,14 +653,6 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
      * @memberof ProductStatsTestMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

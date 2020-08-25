@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
     @ApiOperation(value = "新建测试运行", tags = {"测试运行" },  notes = "新建测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/testruns")
-    @Transactional
     public ResponseEntity<TestRunDTO> create(@RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
 		testrunService.create(domain);
@@ -69,7 +67,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
     @ApiOperation(value = "更新测试运行", tags = {"测试运行" },  notes = "更新测试运行")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<TestRunDTO> update(@PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
 		TestRun domain  = testrunMapping.toDomain(testrundto);
         domain .setId(testrun_id);
@@ -89,7 +86,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
     @ApiOperation(value = "删除测试运行", tags = {"测试运行" },  notes = "删除测试运行")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("testrun_id") BigInteger testrun_id) {
          return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
     }
@@ -162,7 +158,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
     @ApiOperation(value = "根据测试版本建立测试运行", tags = {"测试运行" },  notes = "根据测试版本建立测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns")
-    @Transactional
     public ResponseEntity<TestRunDTO> createByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
@@ -186,7 +181,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
     @ApiOperation(value = "根据测试版本更新测试运行", tags = {"测试运行" },  notes = "根据测试版本更新测试运行")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testtasks/{testtask_id}/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<TestRunDTO> updateByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
@@ -211,7 +205,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
     @ApiOperation(value = "根据测试版本删除测试运行", tags = {"测试运行" },  notes = "根据测试版本删除测试运行")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testtasks/{testtask_id}/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByTestTask(@PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
     }
@@ -294,7 +287,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
     @ApiOperation(value = "根据产品测试版本建立测试运行", tags = {"测试运行" },  notes = "根据产品测试版本建立测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns")
-    @Transactional
     public ResponseEntity<TestRunDTO> createByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
@@ -318,7 +310,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
     @ApiOperation(value = "根据产品测试版本更新测试运行", tags = {"测试运行" },  notes = "根据产品测试版本更新测试运行")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<TestRunDTO> updateByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
@@ -343,7 +334,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
     @ApiOperation(value = "根据产品测试版本删除测试运行", tags = {"测试运行" },  notes = "根据产品测试版本删除测试运行")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductTestTask(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
     }
@@ -426,7 +416,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
     @ApiOperation(value = "根据项目测试版本建立测试运行", tags = {"测试运行" },  notes = "根据项目测试版本建立测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns")
-    @Transactional
     public ResponseEntity<TestRunDTO> createByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
@@ -450,7 +439,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Update-all')")
     @ApiOperation(value = "根据项目测试版本更新测试运行", tags = {"测试运行" },  notes = "根据项目测试版本更新测试运行")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<TestRunDTO> updateByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
@@ -475,7 +463,6 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
     @ApiOperation(value = "根据项目测试版本删除测试运行", tags = {"测试运行" },  notes = "根据项目测试版本删除测试运行")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/{testrun_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProjectTestTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @PathVariable("testrun_id") BigInteger testrun_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
     }

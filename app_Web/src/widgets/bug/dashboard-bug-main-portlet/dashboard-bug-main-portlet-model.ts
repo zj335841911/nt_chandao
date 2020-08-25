@@ -207,6 +207,9 @@ export default class DashboardBugMainModel {
       {
         name: 'files',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

@@ -45,7 +45,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
-
+import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
 @Component({
     components: {
@@ -68,6 +68,14 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryMobTabExpViewBase
      */
     protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type IbzMyTerritoryUIService
+     * @memberof IbzMyTerritoryMobTabExpViewBase
+     */
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -223,6 +231,13 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
 
 
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof IbzMyTerritoryMobTabExpViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

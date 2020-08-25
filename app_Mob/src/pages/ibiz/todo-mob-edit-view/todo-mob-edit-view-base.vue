@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class TodoMobEditViewBase extends Vue {
      * @memberof TodoMobEditViewBase
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TodoUIService
+     * @memberof TodoMobEditViewBase
+     */
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 数据变化
@@ -244,6 +252,13 @@ export default class TodoMobEditViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof TodoMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数

@@ -158,6 +158,11 @@
        }
         ,
        {
+            "unirescode":"UNIVERSALDELETE",
+            "uniresname":"通用删除"
+       }
+        ,
+       {
             "unirescode":"PROJ_EDIT_BUT",
             "uniresname":"项目编辑"
        }
@@ -353,6 +358,11 @@
        }
         ,
        {
+            "unirescode":"CUTINTBEHAVIOR",
+            "uniresname":"通用自定义界面行为"
+       }
+        ,
+       {
             "unirescode":"PROJ_ACTIVATION_BUT",
             "uniresname":"项目激活"
        }
@@ -360,6 +370,11 @@
        {
             "unirescode":"PROP_LSTORY_BUT",
             "uniresname":"计划关联需求"
+       }
+        ,
+       {
+            "unirescode":"UNIVERSALSAVE",
+            "uniresname":"通用保存"
        }
         ,
        {
@@ -435,6 +450,11 @@
        {
             "unirescode":"TESTT_ACTIVITE_BUT",
             "uniresname":"测试版本激活"
+       }
+        ,
+       {
+            "unirescode":"UNIVERSALCREATE",
+            "uniresname":"通用创建"
        }
         ,
        {
@@ -917,7 +937,7 @@
             {
                "appid":"Web",
                "appname":"iBiz软件生产管理",
-               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem9" , "name":"我的地盘" },{ "id":"menuitem3" , "name":"产品主页" },{ "id":"menuitem2" , "name":"项目主页" },{ "id":"menuitem1" , "name":"测试主页" },{ "id":"menuitem10" , "name":"用例库" },{ "id":"menuitem7" , "name":"iBiz软件生产管理" }]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" },{ "id":"menuitem6" , "name":"测试" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" }] }]
+               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem9" , "name":"我的地盘" },{ "id":"menuitem3" , "name":"产品主页" },{ "id":"menuitem2" , "name":"项目主页" },{ "id":"menuitem1" , "name":"测试主页" },{ "id":"menuitem10" , "name":"用例库" },{ "id":"menuitem11" , "name":"用户" },{ "id":"menuitem7" , "name":"iBiz软件生产管理" }]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" },{ "id":"menuitem6" , "name":"测试" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" }] }]
             }
             ]
     }

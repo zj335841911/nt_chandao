@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class BranchResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "新建产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "新建产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches")
-    @Transactional
     public ResponseEntity<BranchDTO> create(@RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
 		branchService.create(domain);
@@ -69,7 +67,6 @@ public class BranchResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
     @ApiOperation(value = "更新产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "更新产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.PUT, value = "/branches/{branch_id}")
-    @Transactional
     public ResponseEntity<BranchDTO> update(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
 		Branch domain  = branchMapping.toDomain(branchdto);
         domain .setId(branch_id);
@@ -89,7 +86,6 @@ public class BranchResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
     @ApiOperation(value = "删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "删除产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/{branch_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("branch_id") BigInteger branch_id) {
          return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
     }
@@ -141,7 +137,6 @@ public class BranchResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
     @ApiOperation(value = "排序", tags = {"产品的分支和平台信息" },  notes = "排序")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/{branch_id}/sort")
-    @Transactional
     public ResponseEntity<BranchDTO> sort(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
 domain.setId(branch_id);
@@ -195,7 +190,6 @@ domain.setId(branch_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "根据产品建立产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品建立产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches")
-    @Transactional
     public ResponseEntity<BranchDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
         domain.setProduct(product_id);
@@ -219,7 +213,6 @@ domain.setId(branch_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
     @ApiOperation(value = "根据产品更新产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品更新产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/branches/{branch_id}")
-    @Transactional
     public ResponseEntity<BranchDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
         domain.setProduct(product_id);
@@ -244,7 +237,6 @@ domain.setId(branch_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
     @ApiOperation(value = "根据产品删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品删除产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/{branch_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
     }
@@ -304,7 +296,6 @@ domain.setId(branch_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
     @ApiOperation(value = "根据产品产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/{branch_id}/sort")
-    @Transactional
     public ResponseEntity<BranchDTO> sortByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
         domain.setProduct(product_id);

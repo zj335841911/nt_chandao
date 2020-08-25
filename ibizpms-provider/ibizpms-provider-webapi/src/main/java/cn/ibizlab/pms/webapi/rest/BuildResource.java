@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "新建版本", tags = {"版本" },  notes = "新建版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds")
-    @Transactional
     public ResponseEntity<BuildDTO> create(@RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
 		buildService.create(domain);
@@ -69,7 +67,6 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "更新版本", tags = {"版本" },  notes = "更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/builds/{build_id}")
-    @Transactional
     public ResponseEntity<BuildDTO> update(@PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
 		Build domain  = buildMapping.toDomain(builddto);
         domain .setId(build_id);
@@ -89,7 +86,6 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "删除版本", tags = {"版本" },  notes = "删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/builds/{build_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("build_id") BigInteger build_id) {
          return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
@@ -126,7 +122,6 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "关联需求", tags = {"版本" },  notes = "关联需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/linkstory")
-    @Transactional
     public ResponseEntity<BuildDTO> linkStory(@PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
 domain.setId(build_id);
@@ -237,7 +232,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据产品建立版本", tags = {"版本" },  notes = "根据产品建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds")
-    @Transactional
     public ResponseEntity<BuildDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
@@ -261,7 +255,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "根据产品更新版本", tags = {"版本" },  notes = "根据产品更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/{build_id}")
-    @Transactional
     public ResponseEntity<BuildDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
@@ -286,7 +279,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "根据产品删除版本", tags = {"版本" },  notes = "根据产品删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/builds/{build_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
@@ -325,7 +317,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/linkstory")
-    @Transactional
     public ResponseEntity<BuildDTO> linkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
@@ -450,7 +441,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据项目建立版本", tags = {"版本" },  notes = "根据项目建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds")
-    @Transactional
     public ResponseEntity<BuildDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
@@ -474,7 +464,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "根据项目更新版本", tags = {"版本" },  notes = "根据项目更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/{build_id}")
-    @Transactional
     public ResponseEntity<BuildDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
@@ -499,7 +488,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "根据项目删除版本", tags = {"版本" },  notes = "根据项目删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/builds/{build_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
@@ -538,7 +526,6 @@ domain.setId(build_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/linkstory")
-    @Transactional
     public ResponseEntity<BuildDTO> linkStoryByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);

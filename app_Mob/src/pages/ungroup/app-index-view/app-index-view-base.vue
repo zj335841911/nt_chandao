@@ -23,7 +23,6 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 
 
-
 @Component({
     components: {
     },
@@ -188,6 +187,13 @@ export default class AppIndexViewBase extends Vue {
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof AppIndexViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

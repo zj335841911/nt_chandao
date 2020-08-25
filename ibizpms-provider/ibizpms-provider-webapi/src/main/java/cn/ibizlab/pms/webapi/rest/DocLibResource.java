@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Create-all')")
     @ApiOperation(value = "新建文档库", tags = {"文档库" },  notes = "新建文档库")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibs")
-    @Transactional
     public ResponseEntity<DocLibDTO> create(@RequestBody DocLibDTO doclibdto) {
         DocLib domain = doclibMapping.toDomain(doclibdto);
 		doclibService.create(domain);
@@ -69,7 +67,6 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Update-all')")
     @ApiOperation(value = "更新文档库", tags = {"文档库" },  notes = "更新文档库")
 	@RequestMapping(method = RequestMethod.PUT, value = "/doclibs/{doclib_id}")
-    @Transactional
     public ResponseEntity<DocLibDTO> update(@PathVariable("doclib_id") BigInteger doclib_id, @RequestBody DocLibDTO doclibdto) {
 		DocLib domain  = doclibMapping.toDomain(doclibdto);
         domain .setId(doclib_id);
@@ -89,7 +86,6 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Remove-all')")
     @ApiOperation(value = "删除文档库", tags = {"文档库" },  notes = "删除文档库")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/doclibs/{doclib_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("doclib_id") BigInteger doclib_id) {
          return ResponseEntity.status(HttpStatus.OK).body(doclibService.remove(doclib_id));
     }

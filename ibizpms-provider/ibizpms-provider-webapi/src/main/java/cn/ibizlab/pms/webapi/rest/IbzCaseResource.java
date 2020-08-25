@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -56,7 +55,6 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Create-all')")
     @ApiOperation(value = "新建测试用例", tags = {"测试用例" },  notes = "新建测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzcases")
-    @Transactional
     public ResponseEntity<IbzCaseDTO> create(@RequestBody IbzCaseDTO ibzcasedto) {
         IbzCase domain = ibzcaseMapping.toDomain(ibzcasedto);
 		ibzcaseService.create(domain);
@@ -75,7 +73,6 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Update-all')")
     @ApiOperation(value = "更新测试用例", tags = {"测试用例" },  notes = "更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzcases/{ibzcase_id}")
-    @Transactional
     public ResponseEntity<IbzCaseDTO> update(@PathVariable("ibzcase_id") BigInteger ibzcase_id, @RequestBody IbzCaseDTO ibzcasedto) {
 		IbzCase domain  = ibzcaseMapping.toDomain(ibzcasedto);
         domain .setId(ibzcase_id);
@@ -95,7 +92,6 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Remove-all')")
     @ApiOperation(value = "删除测试用例", tags = {"测试用例" },  notes = "删除测试用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzcases/{ibzcase_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("ibzcase_id") BigInteger ibzcase_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzcaseService.remove(ibzcase_id));
     }
@@ -168,7 +164,6 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Create-all')")
     @ApiOperation(value = "根据用例库建立测试用例", tags = {"测试用例" },  notes = "根据用例库建立测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibs/{ibzlib_id}/ibzcases")
-    @Transactional
     public ResponseEntity<IbzCaseDTO> createByIbzLib(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @RequestBody IbzCaseDTO ibzcasedto) {
         IbzCase domain = ibzcaseMapping.toDomain(ibzcasedto);
         domain.setLib(ibzlib_id);
@@ -192,7 +187,6 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Update-all')")
     @ApiOperation(value = "根据用例库更新测试用例", tags = {"测试用例" },  notes = "根据用例库更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}")
-    @Transactional
     public ResponseEntity<IbzCaseDTO> updateByIbzLib(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzcase_id") BigInteger ibzcase_id, @RequestBody IbzCaseDTO ibzcasedto) {
         IbzCase domain = ibzcaseMapping.toDomain(ibzcasedto);
         domain.setLib(ibzlib_id);
@@ -217,7 +211,6 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Remove-all')")
     @ApiOperation(value = "根据用例库删除测试用例", tags = {"测试用例" },  notes = "根据用例库删除测试用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByIbzLib(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzcase_id") BigInteger ibzcase_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(ibzcaseService.remove(ibzcase_id));
     }

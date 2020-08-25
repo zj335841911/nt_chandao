@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Create-all')")
     @ApiOperation(value = "新建项目统计", tags = {"项目统计" },  notes = "新建项目统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectstats")
-    @Transactional
     public ResponseEntity<ProjectStatsDTO> create(@RequestBody ProjectStatsDTO projectstatsdto) {
         ProjectStats domain = projectstatsMapping.toDomain(projectstatsdto);
 		projectstatsService.create(domain);
@@ -69,7 +67,6 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Update-all')")
     @ApiOperation(value = "更新项目统计", tags = {"项目统计" },  notes = "更新项目统计")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectstats/{projectstats_id}")
-    @Transactional
     public ResponseEntity<ProjectStatsDTO> update(@PathVariable("projectstats_id") BigInteger projectstats_id, @RequestBody ProjectStatsDTO projectstatsdto) {
 		ProjectStats domain  = projectstatsMapping.toDomain(projectstatsdto);
         domain .setId(projectstats_id);
@@ -89,7 +86,6 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Remove-all')")
     @ApiOperation(value = "删除项目统计", tags = {"项目统计" },  notes = "删除项目统计")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectstats/{projectstats_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("projectstats_id") BigInteger projectstats_id) {
          return ResponseEntity.status(HttpStatus.OK).body(projectstatsService.remove(projectstats_id));
     }

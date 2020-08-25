@@ -23,6 +23,7 @@
     "async-validator": "^3.3.0",
     "axios": "^0.19.1",
     "core-js": "^3.4.4",
+    "dingtalk-jsapi": "^2.12.1",
     "echarts": "^4.6.0",
     "element-ui": "^2.13.2",
     "file-saver": "^2.0.2",

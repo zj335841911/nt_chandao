@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ProjectModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Create-all')")
     @ApiOperation(value = "新建任务模块", tags = {"任务模块" },  notes = "新建任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules")
-    @Transactional
     public ResponseEntity<ProjectModuleDTO> create(@RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
 		projectmoduleService.create(domain);
@@ -69,7 +67,6 @@ public class ProjectModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Update-all')")
     @ApiOperation(value = "更新任务模块", tags = {"任务模块" },  notes = "更新任务模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectmodules/{projectmodule_id}")
-    @Transactional
     public ResponseEntity<ProjectModuleDTO> update(@PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
 		ProjectModule domain  = projectmoduleMapping.toDomain(projectmoduledto);
         domain .setId(projectmodule_id);
@@ -89,7 +86,6 @@ public class ProjectModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Remove-all')")
     @ApiOperation(value = "删除任务模块", tags = {"任务模块" },  notes = "删除任务模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectmodules/{projectmodule_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("projectmodule_id") BigInteger projectmodule_id) {
          return ResponseEntity.status(HttpStatus.OK).body(projectmoduleService.remove(projectmodule_id));
     }
@@ -126,7 +122,6 @@ public class ProjectModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Fix-all')")
     @ApiOperation(value = "重建模块路径", tags = {"任务模块" },  notes = "重建模块路径")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/fix")
-    @Transactional
     public ResponseEntity<ProjectModuleDTO> fix(@PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
 domain.setId(projectmodule_id);
@@ -279,7 +274,6 @@ domain.setId(projectmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Create-all')")
     @ApiOperation(value = "根据项目建立任务模块", tags = {"任务模块" },  notes = "根据项目建立任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules")
-    @Transactional
     public ResponseEntity<ProjectModuleDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
         domain.setRoot(project_id);
@@ -303,7 +297,6 @@ domain.setId(projectmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Update-all')")
     @ApiOperation(value = "根据项目更新任务模块", tags = {"任务模块" },  notes = "根据项目更新任务模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectmodules/{projectmodule_id}")
-    @Transactional
     public ResponseEntity<ProjectModuleDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
         domain.setRoot(project_id);
@@ -328,7 +321,6 @@ domain.setId(projectmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Remove-all')")
     @ApiOperation(value = "根据项目删除任务模块", tags = {"任务模块" },  notes = "根据项目删除任务模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectmodules/{projectmodule_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectmodule_id") BigInteger projectmodule_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(projectmoduleService.remove(projectmodule_id));
     }
@@ -367,7 +359,6 @@ domain.setId(projectmodule_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Fix-all')")
     @ApiOperation(value = "根据项目任务模块", tags = {"任务模块" },  notes = "根据项目任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/fix")
-    @Transactional
     public ResponseEntity<ProjectModuleDTO> fixByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
         domain.setRoot(project_id);

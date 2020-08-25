@@ -58,7 +58,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import CaseService from '@/app-core/service/case/case-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import CaseUIService from '@/ui-service/case/case-ui-action';
 
 @Component({
     components: {
@@ -81,6 +81,14 @@ export default class CaseMobEditViewBase extends Vue {
      * @memberof CaseMobEditViewBase
      */
     protected appEntityService: CaseService = new CaseService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMobEditViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
      * 数据变化
@@ -244,6 +252,13 @@ export default class CaseMobEditViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof CaseMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数

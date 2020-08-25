@@ -220,9 +220,9 @@
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.case.maingrid_grid.uiactions.remove')">
-                            <i class='fa fa-remove'></i>
+                          <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_delete')">
+                            <i class=''></i>
                             
                           </a>
                         </div>

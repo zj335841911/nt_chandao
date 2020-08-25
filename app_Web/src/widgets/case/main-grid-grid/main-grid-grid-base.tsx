@@ -215,7 +215,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5913b24_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u8d84f61_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -231,7 +231,8 @@ export class MainGridGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Case");
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_delete(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -255,39 +256,19 @@ export class MainGridGridBase extends GridControlBase {
     }
 
     /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainMyGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
-
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainGridBase
      */  
     public ActionModel: any = {
-        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'MULTIKEY'}
+        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
+        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -575,8 +556,8 @@ export class MainGridGridBase extends GridControlBase {
         if(Object.is('NewBugByCaseResult', tag)) {
             this.grid_uagridcolumn1_uc64fb7f_click(row, tag, $event);
         }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u5913b24_click(row, tag, $event);
+        if(Object.is('delete', tag)) {
+            this.grid_uagridcolumn1_u8d84f61_click(row, tag, $event);
         }
     }
 }

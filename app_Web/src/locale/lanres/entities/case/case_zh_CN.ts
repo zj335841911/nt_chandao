@@ -513,7 +513,7 @@ export default {
 			case_mainedit: "编辑",
 			refresh: "刷新",
 			case_newbugbycaseresult: "转Bug",
-			remove: "删除",
+			case_delete: "删除",
 		},
 	},
 	batchnew_grid: {

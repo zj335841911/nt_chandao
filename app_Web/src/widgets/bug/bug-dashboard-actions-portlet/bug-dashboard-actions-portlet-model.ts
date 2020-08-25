@@ -207,6 +207,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'files',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

@@ -26,7 +26,7 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 
-
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({
     components: {
@@ -49,6 +49,14 @@ export default class TodoMobOptionViewBase extends Vue {
      * @memberof TodoMobOptionViewBase
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TodoUIService
+     * @memberof TodoMobOptionViewBase
+     */
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 数据变化
@@ -200,6 +208,13 @@ export default class TodoMobOptionViewBase extends Vue {
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof TodoMobOptionViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

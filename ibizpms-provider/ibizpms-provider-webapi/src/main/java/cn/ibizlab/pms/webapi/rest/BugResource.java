@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class BugResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "新建Bug", tags = {"Bug" },  notes = "新建Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs")
-    @Transactional
     public ResponseEntity<BugDTO> create(@RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 		bugService.create(domain);
@@ -70,7 +68,6 @@ public class BugResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "更新Bug", tags = {"Bug" },  notes = "更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<BugDTO> update(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
 		Bug domain  = bugMapping.toDomain(bugdto);
         domain .setId(bug_id);
@@ -90,7 +87,6 @@ public class BugResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "删除Bug", tags = {"Bug" },  notes = "删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("bug_id") BigInteger bug_id) {
          return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
@@ -121,7 +117,6 @@ public class BugResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
     @ApiOperation(value = "激活", tags = {"Bug" },  notes = "激活")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activate")
-    @Transactional
     public ResponseEntity<BugDTO> activate(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -133,7 +128,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "指派", tags = {"Bug" },  notes = "指派")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/assignto")
-    @Transactional
     public ResponseEntity<BugDTO> assignTo(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -145,7 +139,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "批量解除关联Bug", tags = {"Bug" },  notes = "批量解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> batchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -157,7 +150,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
     @ApiOperation(value = "版本批量解除关联Bug", tags = {"Bug" },  notes = "版本批量解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildbatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildBatchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -169,7 +161,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "版本关联Bug", tags = {"Bug" },  notes = "版本关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildLinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -181,7 +172,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "版本解除关联Bug", tags = {"Bug" },  notes = "版本解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -199,7 +189,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
     @ApiOperation(value = "关闭", tags = {"Bug" },  notes = "关闭")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/close")
-    @Transactional
     public ResponseEntity<BugDTO> close(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -211,7 +200,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "确认", tags = {"Bug" },  notes = "确认")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/confirm")
-    @Transactional
     public ResponseEntity<BugDTO> confirm(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -223,7 +211,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "关联Bug", tags = {"Bug" },  notes = "关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/linkbug")
-    @Transactional
     public ResponseEntity<BugDTO> linkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -235,7 +222,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "批量解除关联Bug", tags = {"Bug" },  notes = "批量解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaasebatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -247,7 +233,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "关联Bug（解决Bug）", tags = {"Bug" },  notes = "关联Bug（解决Bug）")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbybug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -259,7 +244,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "关联Bug（遗留Bug）", tags = {"Bug" },  notes = "关联Bug（遗留Bug）")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbyleftbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -271,7 +255,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "解除关联Bug", tags = {"Bug" },  notes = "解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaseunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -283,7 +266,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "解决", tags = {"Bug" },  notes = "解决")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/resolve")
-    @Transactional
     public ResponseEntity<BugDTO> resolve(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -310,7 +292,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "转需求", tags = {"Bug" },  notes = "转需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/tostory")
-    @Transactional
     public ResponseEntity<BugDTO> toStory(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -322,7 +303,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "解除关联Bug", tags = {"Bug" },  notes = "解除关联Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> unlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 domain.setId(bug_id);
@@ -523,7 +503,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "根据产品建立Bug", tags = {"Bug" },  notes = "根据产品建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs")
-    @Transactional
     public ResponseEntity<BugDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -548,7 +527,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品更新Bug", tags = {"Bug" },  notes = "根据产品更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<BugDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -573,7 +551,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "根据产品删除Bug", tags = {"Bug" },  notes = "根据产品删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
@@ -606,7 +583,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/activate")
-    @Transactional
     public ResponseEntity<BugDTO> activateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -618,7 +594,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/assignto")
-    @Transactional
     public ResponseEntity<BugDTO> assignToByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -630,7 +605,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> batchUnlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -642,7 +616,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/buildbatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildBatchUnlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -654,7 +627,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/buildlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildLinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -666,7 +638,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/buildunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildUnlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -684,7 +655,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/close")
-    @Transactional
     public ResponseEntity<BugDTO> closeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -696,7 +666,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/confirm")
-    @Transactional
     public ResponseEntity<BugDTO> confirmByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -708,7 +677,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/linkbug")
-    @Transactional
     public ResponseEntity<BugDTO> linkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -720,7 +688,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaasebatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -732,7 +699,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaselinkbugbybug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -744,7 +710,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -756,7 +721,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaseunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseUnlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -768,7 +732,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/resolve")
-    @Transactional
     public ResponseEntity<BugDTO> resolveByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -801,7 +764,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/tostory")
-    @Transactional
     public ResponseEntity<BugDTO> toStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -813,7 +775,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> unlinkBugByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
@@ -1032,7 +993,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "根据需求建立Bug", tags = {"Bug" },  notes = "根据需求建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs")
-    @Transactional
     public ResponseEntity<BugDTO> createByStory(@PathVariable("story_id") BigInteger story_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1057,7 +1017,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据需求更新Bug", tags = {"Bug" },  notes = "根据需求更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<BugDTO> updateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1082,7 +1041,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "根据需求删除Bug", tags = {"Bug" },  notes = "根据需求删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
@@ -1115,7 +1073,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/activate")
-    @Transactional
     public ResponseEntity<BugDTO> activateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1127,7 +1084,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/assignto")
-    @Transactional
     public ResponseEntity<BugDTO> assignToByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1139,7 +1095,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> batchUnlinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1151,7 +1106,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/buildbatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildBatchUnlinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1163,7 +1117,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/buildlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildLinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1175,7 +1128,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/buildunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildUnlinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1193,7 +1145,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/close")
-    @Transactional
     public ResponseEntity<BugDTO> closeByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1205,7 +1156,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/confirm")
-    @Transactional
     public ResponseEntity<BugDTO> confirmByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1217,7 +1167,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/linkbug")
-    @Transactional
     public ResponseEntity<BugDTO> linkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1229,7 +1178,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaasebatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1241,7 +1189,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaselinkbugbybug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1253,7 +1200,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1265,7 +1211,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaseunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseUnlinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1277,7 +1222,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/resolve")
-    @Transactional
     public ResponseEntity<BugDTO> resolveByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1310,7 +1254,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/tostory")
-    @Transactional
     public ResponseEntity<BugDTO> toStoryByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1322,7 +1265,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> unlinkBugByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -1541,7 +1483,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "根据项目建立Bug", tags = {"Bug" },  notes = "根据项目建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs")
-    @Transactional
     public ResponseEntity<BugDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1566,7 +1507,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据项目更新Bug", tags = {"Bug" },  notes = "根据项目更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<BugDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1591,7 +1531,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "根据项目删除Bug", tags = {"Bug" },  notes = "根据项目删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
@@ -1624,7 +1563,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/activate")
-    @Transactional
     public ResponseEntity<BugDTO> activateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1636,7 +1574,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/assignto")
-    @Transactional
     public ResponseEntity<BugDTO> assignToByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1648,7 +1585,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> batchUnlinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1660,7 +1596,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/buildbatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildBatchUnlinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1672,7 +1607,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/buildlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildLinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1684,7 +1618,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/buildunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildUnlinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1702,7 +1635,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/close")
-    @Transactional
     public ResponseEntity<BugDTO> closeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1714,7 +1646,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/confirm")
-    @Transactional
     public ResponseEntity<BugDTO> confirmByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1726,7 +1657,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/linkbug")
-    @Transactional
     public ResponseEntity<BugDTO> linkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1738,7 +1668,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaasebatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1750,7 +1679,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaselinkbugbybug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1762,7 +1690,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1774,7 +1701,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaseunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseUnlinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1786,7 +1712,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/resolve")
-    @Transactional
     public ResponseEntity<BugDTO> resolveByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1819,7 +1744,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/tostory")
-    @Transactional
     public ResponseEntity<BugDTO> toStoryByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -1831,7 +1755,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> unlinkBugByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
@@ -2050,7 +1973,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "根据产品需求建立Bug", tags = {"Bug" },  notes = "根据产品需求建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs")
-    @Transactional
     public ResponseEntity<BugDTO> createByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2075,7 +1997,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品需求更新Bug", tags = {"Bug" },  notes = "根据产品需求更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<BugDTO> updateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2100,7 +2021,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "根据产品需求删除Bug", tags = {"Bug" },  notes = "根据产品需求删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
@@ -2133,7 +2053,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/activate")
-    @Transactional
     public ResponseEntity<BugDTO> activateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2145,7 +2064,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/assignto")
-    @Transactional
     public ResponseEntity<BugDTO> assignToByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2157,7 +2075,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> batchUnlinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2169,7 +2086,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildbatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildBatchUnlinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2181,7 +2097,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildLinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2193,7 +2108,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> buildUnlinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2211,7 +2125,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/close")
-    @Transactional
     public ResponseEntity<BugDTO> closeByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2223,7 +2136,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/confirm")
-    @Transactional
     public ResponseEntity<BugDTO> confirmByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2235,7 +2147,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/linkbug")
-    @Transactional
     public ResponseEntity<BugDTO> linkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2247,7 +2158,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaasebatchunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2259,7 +2169,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaselinkbugbybug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2271,7 +2180,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2283,7 +2191,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaseunlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> releaseUnlinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2295,7 +2202,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/resolve")
-    @Transactional
     public ResponseEntity<BugDTO> resolveByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2328,7 +2234,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/tostory")
-    @Transactional
     public ResponseEntity<BugDTO> toStoryByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
@@ -2340,7 +2245,6 @@ domain.setId(bug_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<BugDTO> unlinkBugByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);

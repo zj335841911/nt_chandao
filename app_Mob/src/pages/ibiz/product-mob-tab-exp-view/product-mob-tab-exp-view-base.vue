@@ -46,7 +46,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
-
+import ProductUIService from '@/ui-service/product/product-ui-action';
 
 @Component({
     components: {
@@ -69,6 +69,14 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @memberof ProductMobTabExpViewBase
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMobTabExpViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * 数据变化
@@ -225,6 +233,13 @@ export default class ProductMobTabExpViewBase extends Vue {
 
 
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobTabExpViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

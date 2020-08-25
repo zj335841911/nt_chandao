@@ -27,6 +27,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -49,7 +50,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 @Component({
     components: {
@@ -72,6 +73,14 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     protected appEntityService: BugService = new BugService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BugUIService
+     * @memberof BugMobMDViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
      * 数据变化
@@ -235,6 +244,13 @@ export default class BugMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -608,16 +624,6 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'u3571afd',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

@@ -53,6 +53,10 @@ export default {
 			caption: "用户",
       		title: "用户表格视图",
 		},
+		treeexpview: {
+			caption: "用户",
+      		title: "用户",
+		},
 	},
 	main_form: {
 		details: {
@@ -140,6 +144,15 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	userexp_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+        refreshall: "刷新",
+        company_editdept: "维护部门",
 		},
 	},
 };

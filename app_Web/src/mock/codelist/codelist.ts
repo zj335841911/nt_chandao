@@ -1326,242 +1326,242 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: "0600",
+                id: "600",
                 label: "06:00",
                 text: "06:00",
                 "data":"",
-                "codename":"Item_0600",
-                value: "0600",
+                "codename":"Item_600",
+                value: 600,
                 
                 disabled: false,
             },
             {
-                id: "0610",
+                id: "610",
                 label: "06:10",
                 text: "06:10",
                 "data":"",
-                "codename":"Item_0610",
-                value: "0610",
+                "codename":"Item_610",
+                value: 610,
                 
                 disabled: false,
             },
             {
-                id: "0620",
+                id: "620",
                 label: "06:20",
                 text: "06:20",
                 "data":"",
-                "codename":"Item_0620",
-                value: "0620",
+                "codename":"Item_620",
+                value: 620,
                 
                 disabled: false,
             },
             {
-                id: "0630",
+                id: "630",
                 label: "06:30",
                 text: "06:30",
                 "data":"",
-                "codename":"Item_0630",
-                value: "0630",
+                "codename":"Item_630",
+                value: 630,
                 
                 disabled: false,
             },
             {
-                id: "0640",
+                id: "640",
                 label: "06:40",
                 text: "06:40",
                 "data":"",
-                "codename":"Item_0640",
-                value: "0640",
+                "codename":"Item_640",
+                value: 640,
                 
                 disabled: false,
             },
             {
-                id: "0650",
+                id: "650",
                 label: "06:50",
                 text: "06:50",
                 "data":"",
-                "codename":"Item_0650",
-                value: "0650",
+                "codename":"Item_650",
+                value: 650,
                 
                 disabled: false,
             },
             {
-                id: "0700",
+                id: "700",
                 label: "07:00",
                 text: "07:00",
                 "data":"",
-                "codename":"Item_0700",
-                value: "0700",
+                "codename":"Item_700",
+                value: 700,
                 
                 disabled: false,
             },
             {
-                id: "0710",
+                id: "710",
                 label: "07:10",
                 text: "07:10",
                 "data":"",
-                "codename":"Item_0710",
-                value: "0710",
+                "codename":"Item_710",
+                value: 710,
                 
                 disabled: false,
             },
             {
-                id: "0720",
+                id: "720",
                 label: "07:20",
                 text: "07:20",
                 "data":"",
-                "codename":"Item_0720",
-                value: "0720",
+                "codename":"Item_720",
+                value: 720,
                 
                 disabled: false,
             },
             {
-                id: "0730",
+                id: "730",
                 label: "07:30",
                 text: "07:30",
                 "data":"",
-                "codename":"Item_0730",
-                value: "0730",
+                "codename":"Item_730",
+                value: 730,
                 
                 disabled: false,
             },
             {
-                id: "0740",
+                id: "740",
                 label: "07:40",
                 text: "07:40",
                 "data":"",
-                "codename":"Item_0740",
-                value: "0740",
+                "codename":"Item_740",
+                value: 740,
                 
                 disabled: false,
             },
             {
-                id: "0750",
+                id: "750",
                 label: "07:50",
                 text: "07:50",
                 "data":"",
-                "codename":"Item_0750",
-                value: "0750",
+                "codename":"Item_750",
+                value: 750,
                 
                 disabled: false,
             },
             {
-                id: "0800",
+                id: "800",
                 label: "08:00",
                 text: "08:00",
                 "data":"",
-                "codename":"Item_0800",
-                value: "0800",
+                "codename":"Item_800",
+                value: 800,
                 
                 disabled: false,
             },
             {
-                id: "0810",
+                id: "810",
                 label: "08:10",
                 text: "08:10",
                 "data":"",
-                "codename":"Item_0810",
-                value: "0810",
+                "codename":"Item_810",
+                value: 810,
                 
                 disabled: false,
             },
             {
-                id: "0820",
+                id: "820",
                 label: "08:20",
                 text: "08:20",
                 "data":"",
-                "codename":"Item_0820",
-                value: "0820",
+                "codename":"Item_820",
+                value: 820,
                 
                 disabled: false,
             },
             {
-                id: "0830",
+                id: "830",
                 label: "08:30",
                 text: "08:30",
                 "data":"",
-                "codename":"Item_0830",
-                value: "0830",
+                "codename":"Item_830",
+                value: 830,
                 
                 disabled: false,
             },
             {
-                id: "0840",
+                id: "840",
                 label: "08:40",
                 text: "08:40",
                 "data":"",
-                "codename":"Item_0840",
-                value: "0840",
+                "codename":"Item_840",
+                value: 840,
                 
                 disabled: false,
             },
             {
-                id: "0850",
+                id: "850",
                 label: "08:50",
                 text: "08:50",
                 "data":"",
-                "codename":"Item_0850",
-                value: "0850",
+                "codename":"Item_850",
+                value: 850,
                 
                 disabled: false,
             },
             {
-                id: "0900",
+                id: "900",
                 label: "09:00",
                 text: "09:00",
                 "data":"",
-                "codename":"Item_0900",
-                value: "0900",
+                "codename":"Item_900",
+                value: 900,
                 
                 disabled: false,
             },
             {
-                id: "0910",
+                id: "910",
                 label: "09:10",
                 text: "09:10",
                 "data":"",
-                "codename":"Item_0910",
-                value: "0910",
+                "codename":"Item_910",
+                value: 910,
                 
                 disabled: false,
             },
             {
-                id: "0920",
+                id: "920",
                 label: "09:20",
                 text: "09:20",
                 "data":"",
-                "codename":"Item_0920",
-                value: "0920",
+                "codename":"Item_920",
+                value: 920,
                 
                 disabled: false,
             },
             {
-                id: "0930",
+                id: "930",
                 label: "09:30",
                 text: "09:30",
                 "data":"",
-                "codename":"Item_0930",
-                value: "0930",
+                "codename":"Item_930",
+                value: 930,
                 
                 disabled: false,
             },
             {
-                id: "0940",
+                id: "940",
                 label: "09:40",
                 text: "09:40",
                 "data":"",
-                "codename":"Item_0940",
-                value: "0940",
+                "codename":"Item_940",
+                value: 940,
                 
                 disabled: false,
             },
             {
-                id: "0950",
+                id: "950",
                 label: "09:50",
                 text: "09:50",
                 "data":"",
-                "codename":"Item_0950",
-                value: "0950",
+                "codename":"Item_950",
+                value: 950,
                 
                 disabled: false,
             },
@@ -1571,7 +1571,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "10:00",
                 "data":"",
                 "codename":"Item_1000",
-                value: "1000",
+                value: 1000,
                 
                 disabled: false,
             },
@@ -1581,7 +1581,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "10:10",
                 "data":"",
                 "codename":"Item_1010",
-                value: "1010",
+                value: 1010,
                 
                 disabled: false,
             },
@@ -1591,7 +1591,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "10:20",
                 "data":"",
                 "codename":"Item_1020",
-                value: "1020",
+                value: 1020,
                 
                 disabled: false,
             },
@@ -1601,7 +1601,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "10:30",
                 "data":"",
                 "codename":"Item_1030",
-                value: "1030",
+                value: 1030,
                 
                 disabled: false,
             },
@@ -1611,7 +1611,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "10:40",
                 "data":"",
                 "codename":"Item_1040",
-                value: "1040",
+                value: 1040,
                 
                 disabled: false,
             },
@@ -1621,7 +1621,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "10:50",
                 "data":"",
                 "codename":"Item_1050",
-                value: "1050",
+                value: 1050,
                 
                 disabled: false,
             },
@@ -1631,7 +1631,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "11:00",
                 "data":"",
                 "codename":"Item_1100",
-                value: "1100",
+                value: 1100,
                 
                 disabled: false,
             },
@@ -1641,7 +1641,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "11:10",
                 "data":"",
                 "codename":"Item_1110",
-                value: "1110",
+                value: 1110,
                 
                 disabled: false,
             },
@@ -1651,7 +1651,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "11:20",
                 "data":"",
                 "codename":"Item_1120",
-                value: "1120",
+                value: 1120,
                 
                 disabled: false,
             },
@@ -1661,7 +1661,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "11:30",
                 "data":"",
                 "codename":"Item_1130",
-                value: "1130",
+                value: 1130,
                 
                 disabled: false,
             },
@@ -1671,7 +1671,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "11:40",
                 "data":"",
                 "codename":"Item_1140",
-                value: "1140",
+                value: 1140,
                 
                 disabled: false,
             },
@@ -1681,7 +1681,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "11:50",
                 "data":"",
                 "codename":"Item_1150",
-                value: "1150",
+                value: 1150,
                 
                 disabled: false,
             },
@@ -1691,7 +1691,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "12:00",
                 "data":"",
                 "codename":"Item_1200",
-                value: "1200",
+                value: 1200,
                 
                 disabled: false,
             },
@@ -1701,7 +1701,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "12:10",
                 "data":"",
                 "codename":"Item_1210",
-                value: "1210",
+                value: 1210,
                 
                 disabled: false,
             },
@@ -1711,7 +1711,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "12:20",
                 "data":"",
                 "codename":"Item_1220",
-                value: "1220",
+                value: 1220,
                 
                 disabled: false,
             },
@@ -1721,7 +1721,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "12:30",
                 "data":"",
                 "codename":"Item_1230",
-                value: "1230",
+                value: 1230,
                 
                 disabled: false,
             },
@@ -1731,7 +1731,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "12:40",
                 "data":"",
                 "codename":"Item_1240",
-                value: "1240",
+                value: 1240,
                 
                 disabled: false,
             },
@@ -1741,7 +1741,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "12:50",
                 "data":"",
                 "codename":"Item_1250",
-                value: "1250",
+                value: 1250,
                 
                 disabled: false,
             },
@@ -1751,7 +1751,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "13:00",
                 "data":"",
                 "codename":"Item_1300",
-                value: "1300",
+                value: 1300,
                 
                 disabled: false,
             },
@@ -1761,7 +1761,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "13:10",
                 "data":"",
                 "codename":"Item_1310",
-                value: "1310",
+                value: 1310,
                 
                 disabled: false,
             },
@@ -1771,7 +1771,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "13:20",
                 "data":"",
                 "codename":"Item_1320",
-                value: "1320",
+                value: 1320,
                 
                 disabled: false,
             },
@@ -1781,7 +1781,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "13:30",
                 "data":"",
                 "codename":"Item_1330",
-                value: "1330",
+                value: 1330,
                 
                 disabled: false,
             },
@@ -1791,7 +1791,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "13:40",
                 "data":"",
                 "codename":"Item_1340",
-                value: "1340",
+                value: 1340,
                 
                 disabled: false,
             },
@@ -1801,7 +1801,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "13:50",
                 "data":"",
                 "codename":"Item_1350",
-                value: "1350",
+                value: 1350,
                 
                 disabled: false,
             },
@@ -1811,7 +1811,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "14:00",
                 "data":"",
                 "codename":"Item_1400",
-                value: "1400",
+                value: 1400,
                 
                 disabled: false,
             },
@@ -1821,7 +1821,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "14:10",
                 "data":"",
                 "codename":"Item_1410",
-                value: "1410",
+                value: 1410,
                 
                 disabled: false,
             },
@@ -1831,7 +1831,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "14:20",
                 "data":"",
                 "codename":"Item_1420",
-                value: "1420",
+                value: 1420,
                 
                 disabled: false,
             },
@@ -1841,7 +1841,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "14:30",
                 "data":"",
                 "codename":"Item_1430",
-                value: "1430",
+                value: 1430,
                 
                 disabled: false,
             },
@@ -1851,7 +1851,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "14:40",
                 "data":"",
                 "codename":"Item_1440",
-                value: "1440",
+                value: 1440,
                 
                 disabled: false,
             },
@@ -1861,7 +1861,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "14:50",
                 "data":"",
                 "codename":"Item_1450",
-                value: "1450",
+                value: 1450,
                 
                 disabled: false,
             },
@@ -1871,7 +1871,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "15:00",
                 "data":"",
                 "codename":"Item_1500",
-                value: "1500",
+                value: 1500,
                 
                 disabled: false,
             },
@@ -1881,7 +1881,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "15:10",
                 "data":"",
                 "codename":"Item_1510",
-                value: "1510",
+                value: 1510,
                 
                 disabled: false,
             },
@@ -1891,7 +1891,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "15:20",
                 "data":"",
                 "codename":"Item_1520",
-                value: "1520",
+                value: 1520,
                 
                 disabled: false,
             },
@@ -1901,7 +1901,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "15:30",
                 "data":"",
                 "codename":"Item_1530",
-                value: "1530",
+                value: 1530,
                 
                 disabled: false,
             },
@@ -1911,7 +1911,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "15:40",
                 "data":"",
                 "codename":"Item_1540",
-                value: "1540",
+                value: 1540,
                 
                 disabled: false,
             },
@@ -1921,7 +1921,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "15:50",
                 "data":"",
                 "codename":"Item_1550",
-                value: "1550",
+                value: 1550,
                 
                 disabled: false,
             },
@@ -1931,7 +1931,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "16:00",
                 "data":"",
                 "codename":"Item_1600",
-                value: "1600",
+                value: 1600,
                 
                 disabled: false,
             },
@@ -1941,7 +1941,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "16:10",
                 "data":"",
                 "codename":"Item_1610",
-                value: "1610",
+                value: 1610,
                 
                 disabled: false,
             },
@@ -1951,7 +1951,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "16:20",
                 "data":"",
                 "codename":"Item_1620",
-                value: "1620",
+                value: 1620,
                 
                 disabled: false,
             },
@@ -1961,7 +1961,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "16:30",
                 "data":"",
                 "codename":"Item_1630",
-                value: "1630",
+                value: 1630,
                 
                 disabled: false,
             },
@@ -1971,7 +1971,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "16:40",
                 "data":"",
                 "codename":"Item_1640",
-                value: "1640",
+                value: 1640,
                 
                 disabled: false,
             },
@@ -1981,7 +1981,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "16:50",
                 "data":"",
                 "codename":"Item_1650",
-                value: "1650",
+                value: 1650,
                 
                 disabled: false,
             },
@@ -1991,7 +1991,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "17:00",
                 "data":"",
                 "codename":"Item_1700",
-                value: "1700",
+                value: 1700,
                 
                 disabled: false,
             },
@@ -2001,7 +2001,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "17:10",
                 "data":"",
                 "codename":"Item_1710",
-                value: "1710",
+                value: 1710,
                 
                 disabled: false,
             },
@@ -2011,7 +2011,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "17:20",
                 "data":"",
                 "codename":"Item_1720",
-                value: "1720",
+                value: 1720,
                 
                 disabled: false,
             },
@@ -2021,7 +2021,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "17:30",
                 "data":"",
                 "codename":"Item_1730",
-                value: "1730",
+                value: 1730,
                 
                 disabled: false,
             },
@@ -2031,7 +2031,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "17:40",
                 "data":"",
                 "codename":"Item_1740",
-                value: "1740",
+                value: 1740,
                 
                 disabled: false,
             },
@@ -2041,7 +2041,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "17:50",
                 "data":"",
                 "codename":"Item_1750",
-                value: "1750",
+                value: 1750,
                 
                 disabled: false,
             },
@@ -2051,7 +2051,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "18:00",
                 "data":"",
                 "codename":"Item_1800",
-                value: "1800",
+                value: 1800,
                 
                 disabled: false,
             },
@@ -2061,7 +2061,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "18:10",
                 "data":"",
                 "codename":"Item_1810",
-                value: "1810",
+                value: 1810,
                 
                 disabled: false,
             },
@@ -2071,7 +2071,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "18:20",
                 "data":"",
                 "codename":"Item_1820",
-                value: "1820",
+                value: 1820,
                 
                 disabled: false,
             },
@@ -2081,7 +2081,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "18:30",
                 "data":"",
                 "codename":"Item_1830",
-                value: "1830",
+                value: 1830,
                 
                 disabled: false,
             },
@@ -2091,7 +2091,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "18:40",
                 "data":"",
                 "codename":"Item_1840",
-                value: "1840",
+                value: 1840,
                 
                 disabled: false,
             },
@@ -2101,7 +2101,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "18:50",
                 "data":"",
                 "codename":"Item_1850",
-                value: "1850",
+                value: 1850,
                 
                 disabled: false,
             },
@@ -2111,7 +2111,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "19:00",
                 "data":"",
                 "codename":"Item_1900",
-                value: "1900",
+                value: 1900,
                 
                 disabled: false,
             },
@@ -2121,7 +2121,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "19:10",
                 "data":"",
                 "codename":"Item_1910",
-                value: "1910",
+                value: 1910,
                 
                 disabled: false,
             },
@@ -2131,7 +2131,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "19:20",
                 "data":"",
                 "codename":"Item_1920",
-                value: "1920",
+                value: 1920,
                 
                 disabled: false,
             },
@@ -2141,7 +2141,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "19:30",
                 "data":"",
                 "codename":"Item_1930",
-                value: "1930",
+                value: 1930,
                 
                 disabled: false,
             },
@@ -2151,7 +2151,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "19:40",
                 "data":"",
                 "codename":"Item_1940",
-                value: "1940",
+                value: 1940,
                 
                 disabled: false,
             },
@@ -2161,7 +2161,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "19:50",
                 "data":"",
                 "codename":"Item_1950",
-                value: "1950",
+                value: 1950,
                 
                 disabled: false,
             },
@@ -2171,7 +2171,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "20:00",
                 "data":"",
                 "codename":"Item_2000",
-                value: "2000",
+                value: 2000,
                 
                 disabled: false,
             },
@@ -2181,7 +2181,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "20:10",
                 "data":"",
                 "codename":"Item_2010",
-                value: "2010",
+                value: 2010,
                 
                 disabled: false,
             },
@@ -2191,7 +2191,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "20:20",
                 "data":"",
                 "codename":"Item_2020",
-                value: "2020",
+                value: 2020,
                 
                 disabled: false,
             },
@@ -2201,7 +2201,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "20:30",
                 "data":"",
                 "codename":"Item_2030",
-                value: "2030",
+                value: 2030,
                 
                 disabled: false,
             },
@@ -2211,7 +2211,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "20:40",
                 "data":"",
                 "codename":"Item_2040",
-                value: "2040",
+                value: 2040,
                 
                 disabled: false,
             },
@@ -2221,7 +2221,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "20:50",
                 "data":"",
                 "codename":"Item_2050",
-                value: "2050",
+                value: 2050,
                 
                 disabled: false,
             },
@@ -2231,7 +2231,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "21:00",
                 "data":"",
                 "codename":"Item_2100",
-                value: "2100",
+                value: 2100,
                 
                 disabled: false,
             },
@@ -2241,7 +2241,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "21:10",
                 "data":"",
                 "codename":"Item_2110",
-                value: "2110",
+                value: 2110,
                 
                 disabled: false,
             },
@@ -2251,7 +2251,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "21:20",
                 "data":"",
                 "codename":"Item_2120",
-                value: "2120",
+                value: 2120,
                 
                 disabled: false,
             },
@@ -2261,7 +2261,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "21:30",
                 "data":"",
                 "codename":"Item_2130",
-                value: "2130",
+                value: 2130,
                 
                 disabled: false,
             },
@@ -2271,7 +2271,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "21:40",
                 "data":"",
                 "codename":"Item_2140",
-                value: "2140",
+                value: 2140,
                 
                 disabled: false,
             },
@@ -2281,7 +2281,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "21:50",
                 "data":"",
                 "codename":"Item_2150",
-                value: "2150",
+                value: 2150,
                 
                 disabled: false,
             },
@@ -2291,7 +2291,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "22:00",
                 "data":"",
                 "codename":"Item_2200",
-                value: "2200",
+                value: 2200,
                 
                 disabled: false,
             },
@@ -2301,7 +2301,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "22:10",
                 "data":"",
                 "codename":"Item_2210",
-                value: "2210",
+                value: 2210,
                 
                 disabled: false,
             },
@@ -2311,7 +2311,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "22:20",
                 "data":"",
                 "codename":"Item_2220",
-                value: "2220",
+                value: 2220,
                 
                 disabled: false,
             },
@@ -2321,7 +2321,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "22:30",
                 "data":"",
                 "codename":"Item_2230",
-                value: "2230",
+                value: 2230,
                 
                 disabled: false,
             },
@@ -2331,7 +2331,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "22:40",
                 "data":"",
                 "codename":"Item_2240",
-                value: "2240",
+                value: 2240,
                 
                 disabled: false,
             },
@@ -2341,7 +2341,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "22:50",
                 "data":"",
                 "codename":"Item_2250",
-                value: "2250",
+                value: 2250,
                 
                 disabled: false,
             },
@@ -2351,7 +2351,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "23:00",
                 "data":"",
                 "codename":"Item_2300",
-                value: "2300",
+                value: 2300,
                 
                 disabled: false,
             },
@@ -2361,7 +2361,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "23:10",
                 "data":"",
                 "codename":"Item_2310",
-                value: "2310",
+                value: 2310,
                 
                 disabled: false,
             },
@@ -2371,7 +2371,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "23:20",
                 "data":"",
                 "codename":"Item_2320",
-                value: "2320",
+                value: 2320,
                 
                 disabled: false,
             },
@@ -2381,7 +2381,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "23:30",
                 "data":"",
                 "codename":"Item_2330",
-                value: "2330",
+                value: 2330,
                 
                 disabled: false,
             },
@@ -2391,7 +2391,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "23:40",
                 "data":"",
                 "codename":"Item_2340",
-                value: "2340",
+                value: 2340,
                 
                 disabled: false,
             },
@@ -2401,7 +2401,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "23:50",
                 "data":"",
                 "codename":"Item_2350",
-                value: "2350",
+                value: 2350,
                 
                 disabled: false,
             },
@@ -5093,6 +5093,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "RealDept",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Dept",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         srfkey: "Action__type",

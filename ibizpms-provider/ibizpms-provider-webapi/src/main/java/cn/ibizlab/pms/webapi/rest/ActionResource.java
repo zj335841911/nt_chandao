@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Create-all')")
     @ApiOperation(value = "新建系统日志", tags = {"系统日志" },  notes = "新建系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions")
-    @Transactional
     public ResponseEntity<ActionDTO> create(@RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
 		actionService.create(domain);
@@ -69,7 +67,6 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Update-all')")
     @ApiOperation(value = "更新系统日志", tags = {"系统日志" },  notes = "更新系统日志")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}")
-    @Transactional
     public ResponseEntity<ActionDTO> update(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
 		Action domain  = actionMapping.toDomain(actiondto);
         domain .setId(action_id);
@@ -89,7 +86,6 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
     @ApiOperation(value = "删除系统日志", tags = {"系统日志" },  notes = "删除系统日志")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("action_id") BigInteger action_id) {
          return ResponseEntity.status(HttpStatus.OK).body(actionService.remove(action_id));
     }
@@ -126,7 +122,6 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-EditComment-all')")
     @ApiOperation(value = "编辑备注信息", tags = {"系统日志" },  notes = "编辑备注信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/editcomment")
-    @Transactional
     public ResponseEntity<ActionDTO> editComment(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
 domain.setId(action_id);

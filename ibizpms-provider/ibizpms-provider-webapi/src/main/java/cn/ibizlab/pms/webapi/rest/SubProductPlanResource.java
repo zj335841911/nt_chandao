@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
     @ApiOperation(value = "根据产品计划建立产品计划", tags = {"产品计划" },  notes = "根据产品计划建立产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> createByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -74,7 +72,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
     @ApiOperation(value = "根据产品计划更新产品计划", tags = {"产品计划" },  notes = "根据产品计划更新产品计划")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> updateByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -99,7 +96,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
     @ApiOperation(value = "根据产品计划删除产品计划", tags = {"产品计划" },  notes = "根据产品计划删除产品计划")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(productplanService.remove(subproductplan_id));
     }
@@ -132,7 +128,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> batchUnlinkBugByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -144,7 +139,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/batchunlinkstory")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> batchUnlinkStoryByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -162,7 +156,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkBug-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/linkbug")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> linkBugByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -174,7 +167,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkStory-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/linkstory")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> linkStoryByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -207,7 +199,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkBug-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> unlinkBugByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -219,7 +210,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkStory-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/unlinkstory")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> unlinkStoryByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -300,7 +290,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
     @ApiOperation(value = "根据产品产品计划建立产品计划", tags = {"产品计划" },  notes = "根据产品产品计划建立产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> createByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -324,7 +313,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
     @ApiOperation(value = "根据产品产品计划更新产品计划", tags = {"产品计划" },  notes = "根据产品产品计划更新产品计划")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> updateByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -349,7 +337,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
     @ApiOperation(value = "根据产品产品计划删除产品计划", tags = {"产品计划" },  notes = "根据产品产品计划删除产品计划")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(productplanService.remove(subproductplan_id));
     }
@@ -382,7 +369,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/batchunlinkbug")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> batchUnlinkBugByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -394,7 +380,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/batchunlinkstory")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> batchUnlinkStoryByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -412,7 +397,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkBug-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/linkbug")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> linkBugByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -424,7 +408,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkStory-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/linkstory")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> linkStoryByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -457,7 +440,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkBug-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/unlinkbug")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> unlinkBugByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
@@ -469,7 +451,6 @@ public class SubProductPlanResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkStory-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/unlinkstory")
-    @Transactional
     public ResponseEntity<SubProductPlanDTO> unlinkStoryByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("subproductplan_id") BigInteger subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);

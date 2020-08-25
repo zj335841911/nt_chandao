@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class IBZ_LOGINResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_LOGIN-GetUser-all')")
     @ApiOperation(value = "获取ZT账户登录信息", tags = {"实体" },  notes = "获取ZT账户登录信息")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibz_logins/{ibz_login_id}/getuser")
-    @Transactional
     public ResponseEntity<IBZ_LOGINDTO> getUser(@PathVariable("ibz_login_id") BigInteger ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
         IBZ_LOGIN domain = ibz_loginMapping.toDomain(ibz_logindto);
 domain.setId(ibz_login_id);
@@ -62,7 +60,6 @@ domain.setId(ibz_login_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_LOGIN-Ztlogin-all')")
     @ApiOperation(value = "ZT登录", tags = {"实体" },  notes = "ZT登录")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibz_logins/{ibz_login_id}/ztlogin")
-    @Transactional
     public ResponseEntity<IBZ_LOGINDTO> ztlogin(@PathVariable("ibz_login_id") BigInteger ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
         IBZ_LOGIN domain = ibz_loginMapping.toDomain(ibz_logindto);
 domain.setId(ibz_login_id);

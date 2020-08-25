@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class IbzLibCaseStepsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibCaseSteps-Create-all')")
     @ApiOperation(value = "根据测试用例建立用例库用例步骤", tags = {"用例库用例步骤" },  notes = "根据测试用例建立用例库用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzcases/{ibzcase_id}/ibzlibcasesteps")
-    @Transactional
     public ResponseEntity<IbzLibCaseStepsDTO> createByIbzCase(@PathVariable("ibzcase_id") BigInteger ibzcase_id, @RequestBody IbzLibCaseStepsDTO ibzlibcasestepsdto) {
         IbzLibCaseSteps domain = ibzlibcasestepsMapping.toDomain(ibzlibcasestepsdto);
         domain.setIbizcase(ibzcase_id);
@@ -74,7 +72,6 @@ public class IbzLibCaseStepsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibCaseSteps-Update-all')")
     @ApiOperation(value = "根据测试用例更新用例库用例步骤", tags = {"用例库用例步骤" },  notes = "根据测试用例更新用例库用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzcases/{ibzcase_id}/ibzlibcasesteps/{ibzlibcasesteps_id}")
-    @Transactional
     public ResponseEntity<IbzLibCaseStepsDTO> updateByIbzCase(@PathVariable("ibzcase_id") BigInteger ibzcase_id, @PathVariable("ibzlibcasesteps_id") BigInteger ibzlibcasesteps_id, @RequestBody IbzLibCaseStepsDTO ibzlibcasestepsdto) {
         IbzLibCaseSteps domain = ibzlibcasestepsMapping.toDomain(ibzlibcasestepsdto);
         domain.setIbizcase(ibzcase_id);
@@ -99,7 +96,6 @@ public class IbzLibCaseStepsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibCaseSteps-Remove-all')")
     @ApiOperation(value = "根据测试用例删除用例库用例步骤", tags = {"用例库用例步骤" },  notes = "根据测试用例删除用例库用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzcases/{ibzcase_id}/ibzlibcasesteps/{ibzlibcasesteps_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByIbzCase(@PathVariable("ibzcase_id") BigInteger ibzcase_id, @PathVariable("ibzlibcasesteps_id") BigInteger ibzlibcasesteps_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(ibzlibcasestepsService.remove(ibzlibcasesteps_id));
     }
@@ -182,7 +178,6 @@ public class IbzLibCaseStepsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibCaseSteps-Create-all')")
     @ApiOperation(value = "根据用例库测试用例建立用例库用例步骤", tags = {"用例库用例步骤" },  notes = "根据用例库测试用例建立用例库用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}/ibzlibcasesteps")
-    @Transactional
     public ResponseEntity<IbzLibCaseStepsDTO> createByIbzLibIbzCase(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzcase_id") BigInteger ibzcase_id, @RequestBody IbzLibCaseStepsDTO ibzlibcasestepsdto) {
         IbzLibCaseSteps domain = ibzlibcasestepsMapping.toDomain(ibzlibcasestepsdto);
         domain.setIbizcase(ibzcase_id);
@@ -206,7 +201,6 @@ public class IbzLibCaseStepsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibCaseSteps-Update-all')")
     @ApiOperation(value = "根据用例库测试用例更新用例库用例步骤", tags = {"用例库用例步骤" },  notes = "根据用例库测试用例更新用例库用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}/ibzlibcasesteps/{ibzlibcasesteps_id}")
-    @Transactional
     public ResponseEntity<IbzLibCaseStepsDTO> updateByIbzLibIbzCase(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzcase_id") BigInteger ibzcase_id, @PathVariable("ibzlibcasesteps_id") BigInteger ibzlibcasesteps_id, @RequestBody IbzLibCaseStepsDTO ibzlibcasestepsdto) {
         IbzLibCaseSteps domain = ibzlibcasestepsMapping.toDomain(ibzlibcasestepsdto);
         domain.setIbizcase(ibzcase_id);
@@ -231,7 +225,6 @@ public class IbzLibCaseStepsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibCaseSteps-Remove-all')")
     @ApiOperation(value = "根据用例库测试用例删除用例库用例步骤", tags = {"用例库用例步骤" },  notes = "根据用例库测试用例删除用例库用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}/ibzlibcasesteps/{ibzlibcasesteps_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByIbzLibIbzCase(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzcase_id") BigInteger ibzcase_id, @PathVariable("ibzlibcasesteps_id") BigInteger ibzlibcasesteps_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(ibzlibcasestepsService.remove(ibzlibcasesteps_id));
     }

@@ -27,6 +27,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -49,7 +50,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
@@ -72,6 +73,14 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     protected appEntityService: TaskService = new TaskService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskMobMDViewBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -235,6 +244,13 @@ export default class TaskMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -608,14 +624,6 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

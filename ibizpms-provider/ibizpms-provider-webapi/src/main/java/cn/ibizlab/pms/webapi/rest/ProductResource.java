@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
     @ApiOperation(value = "新建产品", tags = {"产品" },  notes = "新建产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products")
-    @Transactional
     public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
 		productService.create(domain);
@@ -69,7 +67,6 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Update-all')")
     @ApiOperation(value = "更新产品", tags = {"产品" },  notes = "更新产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}")
-    @Transactional
     public ResponseEntity<ProductDTO> update(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
 		Product domain  = productMapping.toDomain(productdto);
         domain .setId(product_id);
@@ -89,7 +86,6 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
     @ApiOperation(value = "删除产品", tags = {"产品" },  notes = "删除产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("product_id") BigInteger product_id) {
          return ResponseEntity.status(HttpStatus.OK).body(productService.remove(product_id));
     }
@@ -126,7 +122,6 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
     @ApiOperation(value = "关闭", tags = {"产品" },  notes = "关闭")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/close")
-    @Transactional
     public ResponseEntity<ProductDTO> close(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
 domain.setId(product_id);

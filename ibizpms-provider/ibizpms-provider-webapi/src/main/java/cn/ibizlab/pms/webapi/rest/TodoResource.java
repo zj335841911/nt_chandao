@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class TodoResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Create-all')")
     @ApiOperation(value = "新建待办事宜表", tags = {"待办事宜表" },  notes = "新建待办事宜表")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos")
-    @Transactional
     public ResponseEntity<TodoDTO> create(@RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
 		todoService.create(domain);
@@ -69,7 +67,6 @@ public class TodoResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Update-all')")
     @ApiOperation(value = "更新待办事宜表", tags = {"待办事宜表" },  notes = "更新待办事宜表")
 	@RequestMapping(method = RequestMethod.PUT, value = "/todos/{todo_id}")
-    @Transactional
     public ResponseEntity<TodoDTO> update(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
 		Todo domain  = todoMapping.toDomain(tododto);
         domain .setId(todo_id);
@@ -89,7 +86,6 @@ public class TodoResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Remove-all')")
     @ApiOperation(value = "删除待办事宜表", tags = {"待办事宜表" },  notes = "删除待办事宜表")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/todos/{todo_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("todo_id") BigInteger todo_id) {
          return ResponseEntity.status(HttpStatus.OK).body(todoService.remove(todo_id));
     }
@@ -120,7 +116,6 @@ public class TodoResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Activate-all')")
     @ApiOperation(value = "Activate", tags = {"待办事宜表" },  notes = "Activate")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/activate")
-    @Transactional
     public ResponseEntity<TodoDTO> activate(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
 domain.setId(todo_id);
@@ -132,7 +127,6 @@ domain.setId(todo_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-AssignTo-all')")
     @ApiOperation(value = "AssignTo", tags = {"待办事宜表" },  notes = "AssignTo")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/assignto")
-    @Transactional
     public ResponseEntity<TodoDTO> assignTo(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
 domain.setId(todo_id);
@@ -150,7 +144,6 @@ domain.setId(todo_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Close-all')")
     @ApiOperation(value = "Close", tags = {"待办事宜表" },  notes = "Close")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/close")
-    @Transactional
     public ResponseEntity<TodoDTO> close(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
 domain.setId(todo_id);
@@ -162,7 +155,6 @@ domain.setId(todo_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Finish-all')")
     @ApiOperation(value = "Finish", tags = {"待办事宜表" },  notes = "Finish")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/finish")
-    @Transactional
     public ResponseEntity<TodoDTO> finish(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
 domain.setId(todo_id);

@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Create-all')")
     @ApiOperation(value = "新建测试套件", tags = {"测试套件" },  notes = "新建测试套件")
 	@RequestMapping(method = RequestMethod.POST, value = "/testsuites")
-    @Transactional
     public ResponseEntity<TestSuiteDTO> create(@RequestBody TestSuiteDTO testsuitedto) {
         TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
 		testsuiteService.create(domain);
@@ -69,7 +67,6 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Update-all')")
     @ApiOperation(value = "更新测试套件", tags = {"测试套件" },  notes = "更新测试套件")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testsuites/{testsuite_id}")
-    @Transactional
     public ResponseEntity<TestSuiteDTO> update(@PathVariable("testsuite_id") BigInteger testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
 		TestSuite domain  = testsuiteMapping.toDomain(testsuitedto);
         domain .setId(testsuite_id);
@@ -89,7 +86,6 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Remove-all')")
     @ApiOperation(value = "删除测试套件", tags = {"测试套件" },  notes = "删除测试套件")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testsuites/{testsuite_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("testsuite_id") BigInteger testsuite_id) {
          return ResponseEntity.status(HttpStatus.OK).body(testsuiteService.remove(testsuite_id));
     }

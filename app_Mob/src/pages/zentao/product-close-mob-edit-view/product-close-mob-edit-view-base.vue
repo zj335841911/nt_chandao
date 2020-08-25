@@ -43,12 +43,18 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "bottom_menu">
-                            <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-icon name="sx-tb-saveandclose"></ion-icon>
-                {{$t('product.closemobeditviewrighttoolbar_toolbar.tbitem1.caption')}}
-            </ion-button>
+                <div  class = "fab_container">
+            <div class="bottom_menu">
         
+        
+            <ion-fab>
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-icon name="done-all"></ion-icon>
+                
+            </ion-fab-button>
+        
+            </ion-fab>
+            </div>
         </div>
     </ion-footer>
 </ion-page>
@@ -61,7 +67,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import ProductUIService from '@/ui-service/product/product-ui-action';
 
 @Component({
     components: {
@@ -84,6 +90,14 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @memberof ProductCloseMobEditViewBase
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * 数据变化
@@ -245,7 +259,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
     * @memberof ProductCloseMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
 
@@ -257,6 +271,13 @@ export default class ProductCloseMobEditViewBase extends Vue {
      */
     public righttoolbarShowState: boolean = false;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数

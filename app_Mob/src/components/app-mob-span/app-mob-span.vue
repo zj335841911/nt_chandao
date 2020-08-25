@@ -175,37 +175,40 @@ export default class AppSpan extends Vue {
      * @memberof AppSpan
      */
     public setText(){
-      if(this.items.length > 0){ // 判断代码表存在
-          this.currentItem= this.items.find((item:any)=>{
-              return item.value == this.value;
-          });
-          let valueArr = this.value.split(",");
-          if (this.currentItem) {
-              this.text = this.currentItem.text;
-          } else if (valueArr.length > 1){  // 如果是多数据回显
-              valueArr.forEach((val: string) => {
-                this.items.forEach((item: any) => {
-                    if (val === item.id) {
-                        this.text = this.text + `${item.text},`;
-                    }
-                });
-            });
-          } else {
-              // 不匹配显示原值，不存在显示空值
-              if(this.value){
-                  this.text = this.value;
-              }
-          }
-      }else{
-          this.text = this.value;
-      }
+        if (!this.value) {  // 新建等没有值的情况
+            this.text = "";
+        }
+        if (this.items.length === 0) {  // 代码表为空的情况
+            this.text = this.value;
+        }
+        this.currentItem = this.items.find((item: any) => {
+            return item.value == this.value;
+        });
+        if (!this.currentItem) {
+            let valueArr: any;
+            if (typeof this.value === "number") { // 值为数值类型
+                this.text = this.value;
+            } else {  // 值为字符串类型
+                valueArr = this.value.split(",");
+                if (valueArr.length > 1) {  // 值为多数据类型
+                    valueArr.forEach((val: string) => {
+                        this.items.forEach((item: any) => {
+                            if (val === item.id) {
+                                this.text = this.text + `${item.text},`;
+                            }
+                        });
+                    });
+                } else {
+                    this.text = this.value;
+                }
+            }
+        } else {
+            this.text = this.currentItem.text;
+        }
     }
 
 }
 </script>
 <style lang="less">
-.app-mob-span{
-    width: 100%;
-    display: flex;
-}
+  @import './app-mob-span.less';
 </style>

@@ -34,27 +34,30 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "bottom_menu">
-                        <ion-button class="app-view-toolbar-button" @click="righttoolbarModels.items1.isshow=!righttoolbarModels.items1.isshow">
-            <ion-icon name="add"  ></ion-icon>
-        {{$t('product.mobeditviewrighttoolbar_toolbar.items1.caption')}}
-        </ion-button>
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab>
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="add"></ion-icon></ion-fab-button>
+                <ion-fab-list class="fab-list" side="top">
+                
+        
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
+            </ion-fab-button>
+        
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
+            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
+            </ion-fab-button>
         
         
         
-        
-        
-        
+                </ion-fab-list>
+            </ion-fab>
+            </div>
         </div>
     </ion-footer>
-    <ion-backdrop tappable="false" style="height :100vh;z-index: 99;" v-show="righttoolbarModels.items1.isshow" @ionBackdropTap="righttoolbarModels.items1.isshow=false" visible="true"></ion-backdrop>
-    <div v-show="righttoolbarModels.items1.isshow" class="footer_group">
-      <ion-list class="ionlist">
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction1' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="close" class="group_ion-icon"></ion-icon> {{'关闭'}} </ion-item>
-        <ion-item  @click="righttoolbar_click({ tag: 'deuiaction2' }, $event), righttoolbarModels.items1.isshow=false">  <ion-icon name="remove" class="group_ion-icon"></ion-icon> {{'删除'}} </ion-item>
-        <ion-item  @click="righttoolbarModels.items1.isshow=false"> <ion-icon name="close" class="group_ion-icon"></ion-icon> 关闭 </ion-item>
-      </ion-list>
-    </div>
 </ion-page>
 </template>
 
@@ -65,7 +68,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import ProductUIService from '@/ui-service/product/product-ui-action';
 
 @Component({
     components: {
@@ -88,6 +91,14 @@ export default class ProductMobEditViewBase extends Vue {
      * @memberof ProductMobEditViewBase
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMobEditViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * 数据变化
@@ -250,8 +261,8 @@ export default class ProductMobEditViewBase extends Vue {
     */
     public righttoolbarModels: any = {
         items1: { isshow:false, name: 'items1', caption: '更多', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
-          deuiaction1: {  name: 'deuiaction1', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
-          deuiaction2: {  name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+          deuiaction1: { name: 'deuiaction1', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
+          deuiaction2: { name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
 
@@ -263,6 +274,13 @@ export default class ProductMobEditViewBase extends Vue {
      */
     public righttoolbarShowState: boolean = false;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数

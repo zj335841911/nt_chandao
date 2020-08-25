@@ -19,7 +19,7 @@ export default {
 		},
 		maingridview: {
 			caption: "部门",
-      		title: "部门表格视图",
+      		title: "部门",
 		},
 		editview: {
 			caption: "部门信息",
@@ -56,7 +56,6 @@ export default {
 			name: "部门",
 			parentname: "上级部门",
 			manager: "负责人",
-			order: "排序值",
 		},
 		uiactions: {
 		},

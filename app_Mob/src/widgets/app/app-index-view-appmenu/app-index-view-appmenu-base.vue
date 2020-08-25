@@ -421,17 +421,17 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case '_10': 
-                    this.click_10(item);
+                case 'Auto22': 
+                    this.clickAuto22(item);
                     return;
-                case '_3': 
-                    this.click_3(item);
+                case 'Auto13': 
+                    this.clickAuto13(item);
                     return;
-                case '_7': 
-                    this.click_7(item);
+                case 'Auto18': 
+                    this.clickAuto18(item);
                     return;
-                case '_8': 
-                    this.click_8(item);
+                case 'Auto20': 
+                    this.clickAuto20(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -446,7 +446,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_10(item: any = {}) {
+    protected clickAuto22(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -467,7 +467,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_3(item: any = {}) {
+    protected clickAuto13(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -488,7 +488,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_7(item: any = {}) {
+    protected clickAuto18(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -509,7 +509,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      * @param {*} [item={}]
      * @memberof AppIndexView
      */
-    protected click_8(item: any = {}) {
+    protected clickAuto20(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});

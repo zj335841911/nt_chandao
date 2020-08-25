@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Create-all')")
     @ApiOperation(value = "新建用例库", tags = {"用例库" },  notes = "新建用例库")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibs")
-    @Transactional
     public ResponseEntity<IbzLibDTO> create(@RequestBody IbzLibDTO ibzlibdto) {
         IbzLib domain = ibzlibMapping.toDomain(ibzlibdto);
 		ibzlibService.create(domain);
@@ -69,7 +67,6 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Update-all')")
     @ApiOperation(value = "更新用例库", tags = {"用例库" },  notes = "更新用例库")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibs/{ibzlib_id}")
-    @Transactional
     public ResponseEntity<IbzLibDTO> update(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @RequestBody IbzLibDTO ibzlibdto) {
 		IbzLib domain  = ibzlibMapping.toDomain(ibzlibdto);
         domain .setId(ibzlib_id);
@@ -89,7 +86,6 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Remove-all')")
     @ApiOperation(value = "删除用例库", tags = {"用例库" },  notes = "删除用例库")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibs/{ibzlib_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("ibzlib_id") BigInteger ibzlib_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzlibService.remove(ibzlib_id));
     }

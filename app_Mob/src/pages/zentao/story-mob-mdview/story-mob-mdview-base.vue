@@ -27,6 +27,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -49,7 +50,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
@@ -72,6 +73,14 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     protected appEntityService: StoryService = new StoryService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMobMDViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -235,6 +244,13 @@ export default class StoryMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -608,16 +624,6 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'ud61cd4c',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

@@ -1320,7 +1320,7 @@
         "memo": ""
     },
     "deptmaingridview": {
-        "title": "部门表格视图",
+        "title": "部门",
         "caption": "部门",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -3037,6 +3037,16 @@
         "viewname": "IbzMyTerritoryListView",
         "viewfilename": "ibz-my-territory-list-view",
         "viewtag": "e2d75951e06d21bce0a31b09c67103bf",
+        "memo": ""
+    },
+    "usertreeexpview": {
+        "title": "用户",
+        "caption": "用户",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserTreeExpView",
+        "viewfilename": "user-tree-exp-view",
+        "viewtag": "e2f8bc0ff75f204383d2a5c15117b476",
         "memo": ""
     },
     "productlistexpview": {

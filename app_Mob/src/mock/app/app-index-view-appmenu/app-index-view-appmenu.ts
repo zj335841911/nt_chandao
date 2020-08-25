@@ -25,7 +25,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'home',
 	icon: '',
 	textcls: '',
-	appfunctag: '_3',
+	appfunctag: 'Auto13',
 	resourcetag: '',
 },
             {
@@ -43,7 +43,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'cube',
 	icon: '',
 	textcls: '',
-	appfunctag: '_7',
+	appfunctag: 'Auto18',
 	resourcetag: '',
 },
             {
@@ -61,7 +61,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'clipboard',
 	icon: '',
 	textcls: '',
-	appfunctag: '_8',
+	appfunctag: 'Auto20',
 	resourcetag: '',
 },
             {
@@ -79,7 +79,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'person',
 	icon: '',
 	textcls: '',
-	appfunctag: '_10',
+	appfunctag: 'Auto22',
 	resourcetag: '',
 },
         ],

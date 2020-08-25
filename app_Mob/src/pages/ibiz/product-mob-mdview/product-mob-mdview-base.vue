@@ -42,6 +42,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -64,7 +65,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import ProductUIService from '@/ui-service/product/product-ui-action';
 
 @Component({
     components: {
@@ -87,6 +88,14 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMobMDViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * 数据变化
@@ -250,6 +259,13 @@ export default class ProductMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -613,17 +629,6 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'ubbd2867',title:'关闭产品（移动端）'},
-                {name:'u4089ced',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

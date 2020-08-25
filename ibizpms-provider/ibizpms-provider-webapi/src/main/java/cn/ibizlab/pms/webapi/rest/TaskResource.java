@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -62,7 +61,6 @@ public class TaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "新建任务", tags = {"任务" },  notes = "新建任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks")
-    @Transactional
     public ResponseEntity<TaskDTO> create(@RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 		taskService.create(domain);
@@ -82,7 +80,6 @@ public class TaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
     @ApiOperation(value = "更新任务", tags = {"任务" },  notes = "更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<TaskDTO> update(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
 		Task domain  = taskMapping.toDomain(taskdto);
         domain .setId(task_id);
@@ -102,7 +99,6 @@ public class TaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
     @ApiOperation(value = "删除任务", tags = {"任务" },  notes = "删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("task_id") BigInteger task_id) {
          return ResponseEntity.status(HttpStatus.OK).body(taskService.remove(task_id));
     }
@@ -133,7 +129,6 @@ public class TaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Activate-all')")
     @ApiOperation(value = "激活", tags = {"任务" },  notes = "激活")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/activate")
-    @Transactional
     public ResponseEntity<TaskDTO> activate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -145,7 +140,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "指派/转交", tags = {"任务" },  notes = "指派/转交")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/assignto")
-    @Transactional
     public ResponseEntity<TaskDTO> assignTo(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -157,7 +151,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "取消", tags = {"任务" },  notes = "取消")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/cancel")
-    @Transactional
     public ResponseEntity<TaskDTO> cancel(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -175,7 +168,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Close-all')")
     @ApiOperation(value = "关闭", tags = {"任务" },  notes = "关闭")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/close")
-    @Transactional
     public ResponseEntity<TaskDTO> close(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -187,7 +179,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "删除工时", tags = {"任务" },  notes = "删除工时")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/deleteestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> deleteEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -199,7 +190,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "编辑工时", tags = {"任务" },  notes = "编辑工时")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/editestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> editEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -211,7 +201,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "完成", tags = {"任务" },  notes = "完成")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/finish")
-    @Transactional
     public ResponseEntity<TaskDTO> finish(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -223,7 +212,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "暂停", tags = {"任务" },  notes = "暂停")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/pause")
-    @Transactional
     public ResponseEntity<TaskDTO> pause(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -235,7 +223,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "工时录入", tags = {"任务" },  notes = "工时录入")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/recordestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> recordEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -247,7 +234,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "继续", tags = {"任务" },  notes = "继续")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/restart")
-    @Transactional
     public ResponseEntity<TaskDTO> restart(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -274,7 +260,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "开始", tags = {"任务" },  notes = "开始")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/start")
-    @Transactional
     public ResponseEntity<TaskDTO> start(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
 domain.setId(task_id);
@@ -409,7 +394,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "根据需求建立任务", tags = {"任务" },  notes = "根据需求建立任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks")
-    @Transactional
     public ResponseEntity<TaskDTO> createByStory(@PathVariable("story_id") BigInteger story_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -434,7 +418,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
     @ApiOperation(value = "根据需求更新任务", tags = {"任务" },  notes = "根据需求更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<TaskDTO> updateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -459,7 +442,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
     @ApiOperation(value = "根据需求删除任务", tags = {"任务" },  notes = "根据需求删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(taskService.remove(task_id));
     }
@@ -492,7 +474,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Activate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/activate")
-    @Transactional
     public ResponseEntity<TaskDTO> activateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -504,7 +485,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/assignto")
-    @Transactional
     public ResponseEntity<TaskDTO> assignToByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -516,7 +496,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/cancel")
-    @Transactional
     public ResponseEntity<TaskDTO> cancelByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -534,7 +513,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Close-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/close")
-    @Transactional
     public ResponseEntity<TaskDTO> closeByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -546,7 +524,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/deleteestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> deleteEstimateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -558,7 +535,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/editestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> editEstimateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -570,7 +546,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/finish")
-    @Transactional
     public ResponseEntity<TaskDTO> finishByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -582,7 +557,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/pause")
-    @Transactional
     public ResponseEntity<TaskDTO> pauseByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -594,7 +568,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/recordestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> recordEstimateByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -606,7 +579,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/restart")
-    @Transactional
     public ResponseEntity<TaskDTO> restartByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -639,7 +611,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/start")
-    @Transactional
     public ResponseEntity<TaskDTO> startByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -786,7 +757,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "根据项目建立任务", tags = {"任务" },  notes = "根据项目建立任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks")
-    @Transactional
     public ResponseEntity<TaskDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -811,7 +781,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
     @ApiOperation(value = "根据项目更新任务", tags = {"任务" },  notes = "根据项目更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<TaskDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -836,7 +805,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
     @ApiOperation(value = "根据项目删除任务", tags = {"任务" },  notes = "根据项目删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(taskService.remove(task_id));
     }
@@ -869,7 +837,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Activate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/activate")
-    @Transactional
     public ResponseEntity<TaskDTO> activateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -881,7 +848,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/assignto")
-    @Transactional
     public ResponseEntity<TaskDTO> assignToByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -893,7 +859,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/cancel")
-    @Transactional
     public ResponseEntity<TaskDTO> cancelByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -911,7 +876,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Close-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/close")
-    @Transactional
     public ResponseEntity<TaskDTO> closeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -923,7 +887,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/deleteestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> deleteEstimateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -935,7 +898,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/editestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> editEstimateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -947,7 +909,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/finish")
-    @Transactional
     public ResponseEntity<TaskDTO> finishByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -959,7 +920,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/pause")
-    @Transactional
     public ResponseEntity<TaskDTO> pauseByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -971,7 +931,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/recordestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> recordEstimateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -983,7 +942,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/restart")
-    @Transactional
     public ResponseEntity<TaskDTO> restartByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -1016,7 +974,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/start")
-    @Transactional
     public ResponseEntity<TaskDTO> startByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setProject(project_id);
@@ -1163,7 +1120,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "根据产品需求建立任务", tags = {"任务" },  notes = "根据产品需求建立任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks")
-    @Transactional
     public ResponseEntity<TaskDTO> createByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1188,7 +1144,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
     @ApiOperation(value = "根据产品需求更新任务", tags = {"任务" },  notes = "根据产品需求更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<TaskDTO> updateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1213,7 +1168,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
     @ApiOperation(value = "根据产品需求删除任务", tags = {"任务" },  notes = "根据产品需求删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(taskService.remove(task_id));
     }
@@ -1246,7 +1200,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Activate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/activate")
-    @Transactional
     public ResponseEntity<TaskDTO> activateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1258,7 +1211,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/assignto")
-    @Transactional
     public ResponseEntity<TaskDTO> assignToByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1270,7 +1222,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/cancel")
-    @Transactional
     public ResponseEntity<TaskDTO> cancelByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1288,7 +1239,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Close-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/close")
-    @Transactional
     public ResponseEntity<TaskDTO> closeByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1300,7 +1250,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/deleteestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> deleteEstimateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1312,7 +1261,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/editestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> editEstimateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1324,7 +1272,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/finish")
-    @Transactional
     public ResponseEntity<TaskDTO> finishByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1336,7 +1283,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/pause")
-    @Transactional
     public ResponseEntity<TaskDTO> pauseByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1348,7 +1294,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/recordestimate")
-    @Transactional
     public ResponseEntity<TaskDTO> recordEstimateByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1360,7 +1305,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/restart")
-    @Transactional
     public ResponseEntity<TaskDTO> restartByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
@@ -1393,7 +1337,6 @@ domain.setId(task_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/start")
-    @Transactional
     public ResponseEntity<TaskDTO> startByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);

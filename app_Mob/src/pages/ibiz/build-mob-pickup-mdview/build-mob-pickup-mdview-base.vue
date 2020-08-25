@@ -17,6 +17,7 @@
     fetchAction="FetchDefault" 
     :isMutli="!isSingleSelect"
     :isTempMode="false"
+    :isEnableChoose="false"
     name="mdctrl"  
     ref='mdctrl' 
     @selectionchange="mdctrl_selectionchange($event)"  
@@ -36,7 +37,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BuildService from '@/app-core/service/build/build-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
-
+import BuildUIService from '@/ui-service/build/build-ui-action';
 
 @Component({
     components: {
@@ -59,6 +60,14 @@ export default class BuildMobPickupMDViewBase extends Vue {
      * @memberof BuildMobPickupMDViewBase
      */
     protected appEntityService: BuildService = new BuildService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMobPickupMDViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
     /**
      * 数据变化
@@ -210,6 +219,13 @@ export default class BuildMobPickupMDViewBase extends Vue {
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof BuildMobPickupMDViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

@@ -27,6 +27,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -49,7 +50,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
 
 @Component({
     components: {
@@ -72,6 +73,14 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @memberof TestSuiteMobMDViewBase
      */
     protected appEntityService: TestSuiteService = new TestSuiteService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TestSuiteUIService
+     * @memberof TestSuiteMobMDViewBase
+     */
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
 
     /**
      * 数据变化
@@ -235,6 +244,13 @@ export default class TestSuiteMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof TestSuiteMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -598,14 +614,6 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @memberof TestSuiteMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[],
-    right:[    ]
-}
-
-
-
-
 
 
     /**
