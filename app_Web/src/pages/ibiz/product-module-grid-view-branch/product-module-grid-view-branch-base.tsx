@@ -70,6 +70,17 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProductModuleGridViewBranchBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFPARENTKEY': { isRawValue: true, value: '0' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -78,6 +89,7 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
+        'srfparentkey': { isRawValue: true, value: '0' },
         'moduletype': { isRawValue: false, value: 'moduletype' },
         'root': { isRawValue: false, value: 'product' },
         'branch': { isRawValue: false, value: 'branch' }
