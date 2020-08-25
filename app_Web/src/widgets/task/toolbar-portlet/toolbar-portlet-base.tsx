@@ -506,6 +506,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TASK_FORWARD_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false

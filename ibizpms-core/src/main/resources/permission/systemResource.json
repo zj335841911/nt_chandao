@@ -538,6 +538,11 @@
        }
         ,
        {
+            "unirescode":"TASK_FORWARD_BUT",
+            "uniresname":"任务转交"
+       }
+        ,
+       {
             "unirescode":"TESTT_BLOCK_BUT",
             "uniresname":"测试版本阻塞"
        }
