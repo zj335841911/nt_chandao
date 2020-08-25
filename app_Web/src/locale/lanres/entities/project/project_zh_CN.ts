@@ -407,29 +407,7 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
-	mainmygridviewtoolbar_toolbar: {
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
 		},
@@ -441,11 +419,33 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},
