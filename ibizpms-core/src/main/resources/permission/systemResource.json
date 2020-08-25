@@ -453,6 +453,11 @@
        }
         ,
        {
+            "unirescode":"UNIVERSALCREATE",
+            "uniresname":"通用创建"
+       }
+        ,
+       {
             "unirescode":"STORY_CLOSED_BUT",
             "uniresname":"需求关闭"
        }

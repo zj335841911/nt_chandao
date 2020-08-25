@@ -134,7 +134,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	icon: '',
 	textcls: '',
 	appfunctag: 'Auto19',
-	resourcetag: '',
+	resourcetag: 'IBZ_LIB_M',
 },
 		{
 	id: 'AAADCE5D-2685-4C0A-9251-8731E49443A0',

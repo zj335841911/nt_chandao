@@ -157,7 +157,7 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto19',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'user-tree-exp-view',
-                	resourcetag: '',
+                	resourcetag: 'IBZ_LIB_M',
                 }
                 ,
                 		        {

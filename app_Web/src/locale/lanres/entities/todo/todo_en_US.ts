@@ -264,10 +264,16 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	todocreateviewtoolbar_toolbar: {
 		deuiaction1: {
-			caption: "New",
-			tip: "New",
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_todocreate: {
+			caption: "新建",
+			tip: "新建",
 		},
 		seperator1: {
 			caption: "",
@@ -277,19 +283,13 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	todocreateviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };

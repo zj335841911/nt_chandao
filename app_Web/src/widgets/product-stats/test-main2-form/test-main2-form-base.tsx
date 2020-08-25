@@ -131,11 +131,11 @@ export class TestMain2EditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '产品统计基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } }),
 
-        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+        rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } }),
 
@@ -198,73 +198,4 @@ export class TestMain2EditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '产品编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
-
-    /**
-     * 表单项逻辑
-     *
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @returns {Promise<void>}
-     * @memberof TestMain2EditFormBase
-     */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
-                
-
-        if (Object.is(name, '') || Object.is(name, 'yesterdayresolvedbugcnt')) {
-            let ret = false;
-            const _yesterdayresolvedbugcnt = this.data.yesterdayresolvedbugcnt;
-            if (this.$verify.testCond(_yesterdayresolvedbugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.rawitem1.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'yesterdayconfirmbugcnt')) {
-            let ret = false;
-            const _yesterdayconfirmbugcnt = this.data.yesterdayconfirmbugcnt;
-            if (this.$verify.testCond(_yesterdayconfirmbugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.rawitem2.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'yesterdayclosedbugcnt')) {
-            let ret = false;
-            const _yesterdayclosedbugcnt = this.data.yesterdayclosedbugcnt;
-            if (this.$verify.testCond(_yesterdayclosedbugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.rawitem3.setVisible(ret);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
 }
