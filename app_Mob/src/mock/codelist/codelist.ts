@@ -529,10 +529,10 @@ const datas: Array<any> = [
                 disabled: false,
             },
             {
-                id: '0930',
+                id: '930',
                 label: '09:30',
                 text: '09:30',
-                value: 0930,
+                value: 930,
                 disabled: false,
             },
             {

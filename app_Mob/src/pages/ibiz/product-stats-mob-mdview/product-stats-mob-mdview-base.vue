@@ -14,8 +14,8 @@
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                             <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="fa fa-file-text-o"> </ion-icon>
-                    {{$t('productstats.mobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
+                        <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
+                    
                     </ion-button>
                 
                     </div>

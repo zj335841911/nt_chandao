@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
-          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh">
+          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
@@ -371,6 +371,21 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
     */
     @Prop() public opendata?: Function; 
 
+    /**
+    * 是否能下拉刷新
+    *
+    * @type {Function}
+    * @memberof Mob
+    */
+    @Prop({ default: true }) public isEnableRefresh?: Boolean;
+
+    /**
+    * 是否能长按
+    *
+    * @type {Function}
+    * @memberof Mob
+    */
+    @Prop({ default: true }) public isEnableChoose?: Boolean;
 
     /**
     * 当前选中数组
@@ -897,7 +912,9 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
     * @memberof Mob_Plan
     */
     public created() {
-        this.onPress();
+        if (this.isEnableChoose) {
+           this.onPress();
+        }
         this.afterCreated();
     }
 

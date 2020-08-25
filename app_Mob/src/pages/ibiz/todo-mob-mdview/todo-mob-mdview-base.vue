@@ -40,13 +40,17 @@
                 <div v-show="!showCheack" class = "fab_container">
             <div class="bottom_menu">
                 <ion-fab>
-                    <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-icon name="fa fa-file-text-o"></ion-icon>
-                {{$t('todo.mobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
-            </ion-button>
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="add"></ion-icon></ion-fab-button>
+                <ion-fab-list side="top">
+                    <ion-fab-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-icon name="add"></ion-icon>
+                
+            </ion-fab-button>
         
+                </ion-fab-list>
                 </ion-fab>
             </div>
+        
         </div>
         
     </ion-footer>

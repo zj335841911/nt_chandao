@@ -29,7 +29,7 @@ export class AppIndexViewModel {
 	iconcls: 'home',
 	icon: '',
 	textcls: '',
-	appfunctag: '_3',
+	appfunctag: 'Auto13',
 	resourcetag: '',
 },
         {
@@ -47,7 +47,7 @@ export class AppIndexViewModel {
 	iconcls: 'cube',
 	icon: '',
 	textcls: '',
-	appfunctag: '_7',
+	appfunctag: 'Auto18',
 	resourcetag: '',
 },
         {
@@ -65,7 +65,7 @@ export class AppIndexViewModel {
 	iconcls: 'clipboard',
 	icon: '',
 	textcls: '',
-	appfunctag: '_8',
+	appfunctag: 'Auto20',
 	resourcetag: '',
 },
         {
@@ -83,7 +83,7 @@ export class AppIndexViewModel {
 	iconcls: 'person',
 	icon: '',
 	textcls: '',
-	appfunctag: '_10',
+	appfunctag: 'Auto22',
 	resourcetag: '',
 },
     ];
@@ -97,7 +97,7 @@ export class AppIndexViewModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_10',
+            appfunctag: 'Auto22',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'ibz-my-territory-mob-tab-exp-view', 
@@ -110,7 +110,7 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_3',
+            appfunctag: 'Auto13',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'product-mob-mdview', 
@@ -123,7 +123,7 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_7',
+            appfunctag: 'Auto18',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'project-mob-mdview', 
@@ -136,7 +136,7 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: '_8',
+            appfunctag: 'Auto20',
             appfuncyype: 'APPVIEW',
             openmode: '', 
             componentname: 'product-test-mob-mdview', 

@@ -29,7 +29,7 @@ export class IconStyleMenuModel {
 	iconcls: 'attach',
 	icon: '',
 	textcls: '',
-	appfunctag: '_6',
+	appfunctag: 'Auto17',
 	resourcetag: '',
 },
         {
@@ -47,7 +47,7 @@ export class IconStyleMenuModel {
 	iconcls: 'help-buoy',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: 'Auto12',
 	resourcetag: '',
 },
         {
@@ -65,7 +65,7 @@ export class IconStyleMenuModel {
 	iconcls: 'flask',
 	icon: '',
 	textcls: '',
-	appfunctag: '_9',
+	appfunctag: 'Auto21',
 	resourcetag: '',
 },
         {
