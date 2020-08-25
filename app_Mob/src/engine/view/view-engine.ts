@@ -185,31 +185,33 @@ export default class ViewEngine {
      */
     public calcToolbarItemAuthState(data:any){
         const _this: any = this;
-        for (const key in _this.view.toolBarModels) {
-            if (!_this.view.toolBarModels.hasOwnProperty(key)) {
-                return;
-            }
-            const _item = _this.view.toolBarModels[key];
-            if(_item && _item['dataaccaction'] && _this.view.appUIService && data && Object.keys(data).length >0){
-                let dataActionResult:any = _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];
-                // 无权限:0;有权限:1
-                if(dataActionResult === 0){
-                    // 禁用:1;隐藏:2;隐藏且默认隐藏:6
-                    if(_item.noprivdisplaymode === 1){
-                        _this.view.toolBarModels[key].disabled = true;
+        _this.view.toolbarModelList.forEach((tool:any) => {
+            for (const key in _this.view[tool]) {
+                if (!_this.view[tool].hasOwnProperty(key)) {
+                    return;
+                }
+                const _item = _this.view[tool][key];
+                if(_item && _item['dataaccaction'] && _this.view.appUIService && data && Object.keys(data).length >0){
+                    let dataActionResult:any = _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                    // 无权限:0;有权限:1
+                    if(dataActionResult === 0){
+                        // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                        if(_item.noprivdisplaymode === 1){
+                            _this.view[tool][key].disabled = true;
+                        }
+                        if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                            _this.view[tool][key].visabled = false;
+                        }else{
+                            _this.view[tool][key].visabled = true;
+                        }
                     }
-                    if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
-                        _this.view.toolBarModels[key].visabled = false;
-                    }else{
-                        _this.view.toolBarModels[key].visabled = true;
+                    if(dataActionResult === 1){
+                        _this.view[tool][key].visabled = true;
+                        _this.view[tool][key].disabled = false;
                     }
                 }
-                if(dataActionResult === 1){
-                    _this.view.toolBarModels[key].visabled = true;
-                    _this.view.toolBarModels[key].disabled = false;
-                }
             }
-        }
-    }  
+        });
+    }
 
 }
