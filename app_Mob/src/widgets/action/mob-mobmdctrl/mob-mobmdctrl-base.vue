@@ -2,7 +2,7 @@
     <div  class="app-mob-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
           <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
-                    <app-history-list :items="items"></app-history-list>
+                    <app-history-list :items="items"  :itemNameDetail="{time:{{ 'name':'date','isCodeList':false,} },method:{{ 'name':'actions','isCodeList':false,} },info:{{ 'name':'actionmanner','isCodeList':true,} }}"></app-history-list>
 
           </van-pull-refresh>
         </div>
