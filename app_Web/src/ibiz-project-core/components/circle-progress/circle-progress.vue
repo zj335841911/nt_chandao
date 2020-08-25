@@ -28,7 +28,7 @@ export default class CircleProgress extends Vue {
      * 进度环尺寸
      * 
      */
-    @Prop() size: number = 192;
+    @Prop({default: 192}) size!: number;
     /**
      * 进度环颜色
      */

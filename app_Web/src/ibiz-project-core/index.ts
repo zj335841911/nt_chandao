@@ -21,6 +21,6 @@ export const iBizProjectCore = {
         v.component('road-map', RoadMap);
         v.component('codelist-icon', CodeListIcon);
         v.component('over-progress', OverProgress);
-        v.component('circle-progress', OverProgress);
+        v.component('circle-progress', CircleProgress);
     }
 };
