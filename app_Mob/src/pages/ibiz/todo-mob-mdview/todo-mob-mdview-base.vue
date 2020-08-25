@@ -27,6 +27,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -42,7 +43,7 @@
         
         
             <ion-fab>
-                <ion-fab-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
                 <ion-icon name="add"></ion-icon>
                 
             </ion-fab-button>
@@ -254,7 +255,7 @@ export default class TodoMobMDViewBase extends Vue {
     * @memberof TodoMobMDView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '' } },
 
     };
 

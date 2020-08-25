@@ -43,22 +43,22 @@
                 <ion-fab-list class="fab-list" side="top">
                 
         
-                <ion-fab-button @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
                 <ion-icon name="color-wand"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
             </ion-fab-button>
         
-                <ion-fab-button @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
                 <ion-icon name="pause"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
             </ion-fab-button>
         
-                <ion-fab-button @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3.visabled" :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">
                 <ion-icon name="close"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}    
             </ion-fab-button>
         
-                <ion-fab-button @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction4.visabled" :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">
                 <ion-icon name="remove"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}    
             </ion-fab-button>
@@ -273,10 +273,10 @@ export default class ProjectMobEditViewBase extends Vue {
     */
     public righttoolbarModels: any = {
         items1: { isshow:false, name: 'items1', caption: '更多', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
-          deuiaction1: {  name: 'deuiaction1', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_ACTIVATION_BUT', uiaction: { tag: 'ProjectActivateMob', target: 'SINGLEKEY' } },
-          deuiaction2: {  name: 'deuiaction2', caption: '挂起', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspendMob', target: 'SINGLEKEY' } },
-          deuiaction3: {  name: 'deuiaction3', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectCloseMob', target: 'SINGLEKEY' } },
-          deuiaction4: {  name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+          deuiaction1: { name: 'deuiaction1', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_ACTIVATION_BUT', uiaction: { tag: 'ProjectActivateMob', target: 'SINGLEKEY' } },
+          deuiaction2: { name: 'deuiaction2', caption: '挂起', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspendMob', target: 'SINGLEKEY' } },
+          deuiaction3: { name: 'deuiaction3', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectCloseMob', target: 'SINGLEKEY' } },
+          deuiaction4: { name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
 

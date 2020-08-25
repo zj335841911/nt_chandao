@@ -27,6 +27,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  

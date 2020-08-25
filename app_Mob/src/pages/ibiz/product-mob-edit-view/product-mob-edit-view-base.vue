@@ -43,11 +43,11 @@
                 <ion-fab-list class="fab-list" side="top">
                 
         
-                <ion-fab-button @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
             {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
             </ion-fab-button>
         
-                <ion-fab-button @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
             {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
             </ion-fab-button>
         
@@ -261,8 +261,8 @@ export default class ProductMobEditViewBase extends Vue {
     */
     public righttoolbarModels: any = {
         items1: { isshow:false, name: 'items1', caption: '更多', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
-          deuiaction1: {  name: 'deuiaction1', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
-          deuiaction2: {  name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+          deuiaction1: { name: 'deuiaction1', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
+          deuiaction2: { name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
 

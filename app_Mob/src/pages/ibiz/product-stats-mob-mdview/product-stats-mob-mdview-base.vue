@@ -47,6 +47,7 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -261,7 +262,7 @@ export default class ProductStatsMobMDViewBase extends Vue {
     * @memberof ProductStatsMobMDView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '' } },
 
     };
 

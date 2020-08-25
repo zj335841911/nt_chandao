@@ -48,7 +48,7 @@
         
         
             <ion-fab>
-                <ion-fab-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
                 <ion-icon name="done-all"></ion-icon>
                 
             </ion-fab-button>
@@ -259,7 +259,7 @@ export default class ProjectSupMobEditViewBase extends Vue {
     * @memberof ProjectSupMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
 

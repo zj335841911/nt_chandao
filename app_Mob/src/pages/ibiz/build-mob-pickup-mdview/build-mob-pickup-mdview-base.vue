@@ -17,6 +17,7 @@
     fetchAction="FetchDefault" 
     :isMutli="!isSingleSelect"
     :isTempMode="false"
+    :isEnableChoose="false"
     name="mdctrl"  
     ref='mdctrl' 
     @selectionchange="mdctrl_selectionchange($event)"  
