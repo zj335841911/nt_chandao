@@ -18,13 +18,13 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 @Component({
     components: {}
 })
-export default class AppInfoList extends Vue {
+export default class APPHistoryList extends Vue {
 
     /**
      * 传入数据
      *
      * @type {Array}
-     * @memberof AppInfoList
+     * @memberof APPHistoryList
      */
     @Prop({default:()=>{ return [
           {time:'2020-08-20',method:'手动变更',info:'胡维将状态由"实现中"修改为"已实现"；将完成时间由"空"修改为"2020-08-20 14：00：31"'},
@@ -37,7 +37,7 @@ export default class AppInfoList extends Vue {
      * 按钮文本
      *
      * @type {String}
-     * @memberof AppInfoList
+     * @memberof APPHistoryList
      */
     public text = '查看更多记录';
 
@@ -45,7 +45,7 @@ export default class AppInfoList extends Vue {
      * 文本切换
      *
      * @type {Boolean}
-     * @memberof AppInfoList
+     * @memberof APPHistoryList
      */
     public isShow = false;
 
@@ -54,7 +54,7 @@ export default class AppInfoList extends Vue {
      * 初始个数
      *
      * @type {Number}
-     * @memberof AppInfoList
+     * @memberof APPHistoryList
      */
     public num = 3;
 
@@ -63,7 +63,7 @@ export default class AppInfoList extends Vue {
      * 点击展开
      *
      * @returns {void}
-     * @memberof AppInfoList
+     * @memberof APPHistoryList
      */
     public loadMore(): void {
           this.isShow = !this.isShow;
@@ -85,5 +85,5 @@ export default class AppInfoList extends Vue {
 </script>
 
 <style lang="less">
-@import "./app-info-list.less";
+@import "./app-history-list.less";
 </style>
