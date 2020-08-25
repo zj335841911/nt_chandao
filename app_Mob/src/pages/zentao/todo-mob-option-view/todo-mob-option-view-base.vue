@@ -210,6 +210,13 @@ export default class TodoMobOptionViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof TodoMobOptionViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof TodoMobOptionViewBase

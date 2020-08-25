@@ -235,6 +235,13 @@ export default class ProductMobTabExpViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobTabExpViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof ProductMobTabExpViewBase

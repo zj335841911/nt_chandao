@@ -273,6 +273,13 @@ export default class BugConfirmMobEditViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof BugConfirmMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof BugConfirmMobEditViewBase

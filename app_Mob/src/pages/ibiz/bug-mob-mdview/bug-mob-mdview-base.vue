@@ -246,6 +246,13 @@ export default class BugMobMDViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof BugMobMDViewBase

@@ -246,6 +246,13 @@ export default class TaskAssMobMDViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof TaskAssMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof TaskAssMobMDViewBase

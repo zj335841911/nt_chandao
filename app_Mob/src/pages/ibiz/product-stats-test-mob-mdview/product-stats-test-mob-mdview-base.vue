@@ -268,6 +268,13 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof ProductStatsTestMobMDViewBase

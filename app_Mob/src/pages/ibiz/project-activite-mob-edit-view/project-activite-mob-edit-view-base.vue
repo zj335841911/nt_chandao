@@ -273,6 +273,13 @@ export default class ProjectActiviteMobEditViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProjectActiviteMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof ProjectActiviteMobEditViewBase

@@ -240,6 +240,13 @@ export default class BugPlanMobMDView9Base extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof BugPlanMobMDView9Base
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof BugPlanMobMDView9Base

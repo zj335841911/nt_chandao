@@ -254,6 +254,13 @@ export default class TodoMobEditViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof TodoMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof TodoMobEditViewBase

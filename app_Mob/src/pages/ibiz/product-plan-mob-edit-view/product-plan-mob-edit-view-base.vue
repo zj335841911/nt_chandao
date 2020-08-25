@@ -254,6 +254,13 @@ export default class ProductPlanMobEditViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductPlanMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof ProductPlanMobEditViewBase

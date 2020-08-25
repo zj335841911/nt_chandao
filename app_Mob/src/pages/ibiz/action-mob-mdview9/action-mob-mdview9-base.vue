@@ -228,6 +228,13 @@ export default class ActionMobMDView9Base extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ActionMobMDView9Base
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof ActionMobMDView9Base

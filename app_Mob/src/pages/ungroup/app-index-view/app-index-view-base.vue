@@ -189,6 +189,13 @@ export default class AppIndexViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof AppIndexViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof AppIndexViewBase

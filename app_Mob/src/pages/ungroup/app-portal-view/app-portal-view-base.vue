@@ -207,6 +207,13 @@ export default class AppPortalViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof AppPortalViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof AppPortalViewBase

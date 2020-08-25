@@ -158,6 +158,11 @@
        }
         ,
        {
+            "unirescode":"UNIVERSALDELETE",
+            "uniresname":"通用删除"
+       }
+        ,
+       {
             "unirescode":"PROJ_EDIT_BUT",
             "uniresname":"项目编辑"
        }
@@ -353,6 +358,11 @@
        }
         ,
        {
+            "unirescode":"CUTINTBEHAVIOR",
+            "uniresname":"通用自定义界面行为"
+       }
+        ,
+       {
             "unirescode":"PROJ_ACTIVATION_BUT",
             "uniresname":"项目激活"
        }
@@ -360,6 +370,11 @@
        {
             "unirescode":"PROP_LSTORY_BUT",
             "uniresname":"计划关联需求"
+       }
+        ,
+       {
+            "unirescode":"UNIVERSALSAVE",
+            "uniresname":"通用保存"
        }
         ,
        {

@@ -254,6 +254,13 @@ export default class TestSuiteMobEditViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof TestSuiteMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
      * 解析视图参数
      *
      * @memberof TestSuiteMobEditViewBase

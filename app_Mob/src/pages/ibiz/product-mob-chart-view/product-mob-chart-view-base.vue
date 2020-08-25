@@ -223,6 +223,13 @@ export default class ProductMobChartViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobChartViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof ProductMobChartViewBase

@@ -235,6 +235,13 @@ export default class ProjectMobTabExpViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProjectMobTabExpViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof ProjectMobTabExpViewBase

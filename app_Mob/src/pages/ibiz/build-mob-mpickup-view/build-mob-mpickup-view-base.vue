@@ -233,6 +233,13 @@ export default class BuildMobMPickupViewBase extends Vue {
 
 
     /**
+     * 工具栏模型集合名
+     *
+     * @memberof BuildMobMPickupViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
      * 解析视图参数
      *
      * @memberof BuildMobMPickupViewBase
