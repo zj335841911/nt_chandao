@@ -33,40 +33,20 @@
 <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='dept' :itemRules="this.rules.dept" class='' :caption="$t('entities.user.info_form.details.dept')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.dept.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.dept"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.dept.disabled"
-    valueType="number"
-    tag='RealDept'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='dept' :value="data.dept" dataType="INT"     :precision="0"
+tag='RealDept' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.role.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='role' :itemRules="this.rules.role" class='' :caption="$t('entities.user.info_form.details.role')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.role.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.role"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.role.disabled"
-    valueType="string"
-    tag='Role'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='role' :value="data.role" dataType="SSCODELIST"     :precision="0"
+tag='Role' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -115,13 +95,6 @@
 <app-span name='email' :value="data.email" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.password.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='password' :itemRules="this.rules.password" class='' :caption="$t('entities.user.info_form.details.password')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.password.error" :isEmptyCaption="false" labelPos="LEFT">
-    <i-input type="password" v-model="data.password" :disabled="detailsModel.password.disabled" style=""></i-input>
 
 </app-form-item>
 

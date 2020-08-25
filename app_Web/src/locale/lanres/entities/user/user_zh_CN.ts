@@ -82,7 +82,6 @@ export default {
 			gender: "性别", 
 			account: "账户", 
 			email: "邮箱", 
-			password: "密码", 
 			mobile: "手机", 
 			phone: "电话", 
 			qq: "QQ", 
@@ -143,8 +142,8 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			edit: "编辑",
-			remove: "删除",
+			user_edit: "编辑",
+			user_delete: "删除",
 		},
 	},
 	default_searchform: {
@@ -155,6 +154,12 @@ export default {
 		},
 	},
 	infoeditviewtoolbar_toolbar: {
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -176,12 +181,6 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	userexp_treeview: {

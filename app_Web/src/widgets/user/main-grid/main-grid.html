@@ -175,12 +175,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.user.main_grid.uiactions.edit')">
+                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.user.main_grid.uiactions.user_edit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.user.main_grid.uiactions.remove')">
+                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.user.main_grid.uiactions.user_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

@@ -88,7 +88,6 @@ export class INFOEditFormBase extends EditFormControlBase {
         gender: null,
         account: null,
         email: null,
-        password: null,
         mobile: null,
         phone: null,
         qq: null,
@@ -162,8 +161,6 @@ export class INFOEditFormBase extends EditFormControlBase {
 
         email: new FormItemModel({ caption: '邮箱', detailType: 'FORMITEM', name: 'email', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        password: new FormItemModel({ caption: '密码', detailType: 'FORMITEM', name: 'password', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         mobile: new FormItemModel({ caption: '手机', detailType: 'FORMITEM', name: 'mobile', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         phone: new FormItemModel({ caption: '电话', detailType: 'FORMITEM', name: 'phone', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -179,14 +176,4 @@ export class INFOEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
-
-    /**
-     * 新建默认值
-     * @memberof INFOEditFormBase
-     */
-    public createDefault(){                    
-        if (this.data.hasOwnProperty('dept')) {
-            this.data['dept'] = this.viewparams['dept'];
-        }
-    }
 }

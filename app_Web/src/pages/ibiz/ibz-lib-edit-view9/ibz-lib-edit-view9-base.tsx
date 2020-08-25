@@ -74,7 +74,7 @@ export class IbzLibEditView9Base extends EditView9Base {
 	 * @memberof IbzLibEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+        'OBJECTTYPE': { isRawValue: true, value: 'caselib' }
     };
 
     /**

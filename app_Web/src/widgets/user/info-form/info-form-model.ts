@@ -86,11 +86,6 @@ export default class INFOModel {
         dataType: 'TEXT',
       },
       {
-        name: 'password',
-        prop: 'password',
-        dataType: 'TEXT',
-      },
-      {
         name: 'mobile',
         prop: 'mobile',
         dataType: 'TEXT',
