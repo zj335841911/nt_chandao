@@ -146,7 +146,7 @@ domain.setId(user_id);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-SyncAccount-all')")
-    @ApiOperation(value = "Sync account", tags = {"用户" },  notes = "Sync account")
+    @ApiOperation(value = "同步账号", tags = {"用户" },  notes = "同步账号")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccount")
     public ResponseEntity<UserDTO> syncAccount(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
