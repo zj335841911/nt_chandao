@@ -50,6 +50,7 @@ export default {
 			rawitem2: "", 
 			grouppanel2: "需求统计", 
 			rawitem3: "", 
+			rawitem4: "", 
 			grouppanel3: "bug统计", 
 			group1: "项目统计基本信息", 
 			formpage1: "基本信息", 
