@@ -298,6 +298,11 @@
        }
         ,
        {
+            "unirescode":"ADMIN",
+            "uniresname":"管理员操作"
+       }
+        ,
+       {
             "unirescode":"PROP_EDIT_BUT",
             "uniresname":"计划编辑"
        }
