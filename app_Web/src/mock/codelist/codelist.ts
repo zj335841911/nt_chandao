@@ -1536,12 +1536,12 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
             {
-                id: "0930",
+                id: "930",
                 label: "09:30",
                 text: "09:30",
                 "data":"",
-                "codename":"Item_0930",
-                value: 0930,
+                "codename":"Item_930",
+                value: 930,
                 
                 disabled: false,
             },
