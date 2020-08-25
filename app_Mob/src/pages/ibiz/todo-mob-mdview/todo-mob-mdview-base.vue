@@ -39,18 +39,16 @@
     <ion-footer class="view-footer" style="z-index:9;">
                 <div v-show="!showCheack" class = "fab_container">
             <div class="bottom_menu">
-                <ion-fab>
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="add"></ion-icon></ion-fab-button>
-                <ion-fab-list side="top">
-                    <ion-fab-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+        
+        
+            <ion-fab>
+                <ion-fab-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
                 <ion-icon name="add"></ion-icon>
                 
             </ion-fab-button>
         
-                </ion-fab-list>
-                </ion-fab>
+            </ion-fab>
             </div>
-        
         </div>
         
     </ion-footer>

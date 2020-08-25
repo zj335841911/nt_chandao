@@ -1119,11 +1119,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
     /**
      * 校验全部
+     *
+     * @public
+     * @param {{ filter: string}} { filter}
+     * @returns {void}
+     * @memberof MobMain
      */
-    public async validAll() {
+    public async validAll(filter:string = "defult") {
         let validateState = true;
+        let filterProperty = ""
+        if(filter === 'new'){
+            filterProperty= 'id'
+        }
         for (let item of Object.keys(this.rules)) {
-            if(!await this.validItem(item,this.data[item])){
+            if(!await this.validItem(item,this.data[item]) && item != filterProperty){
                 validateState = false;
             }
         }
@@ -1587,13 +1596,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
         opt.saveEmit = opt.saveEmit === undefined ? true : false;
-        if (!await this.validAll()) {
-            this.$notice.error('值规则校验异常');
-            return Promise.reject();
-        }
+
         const arg: any = { ...opt };
         const data = this.getValues();
         Object.assign(arg, data);
+        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        if (this.data.srfuf =='1'? !await this.validAll():!await this.validAll('new')) {
+            this.$notice.error('值规则校验异常');
+            return Promise.reject();
+        }
         if (isStateNext) {
             this.drcounter = 1;
             if (this.drcounter !== 0) {
@@ -1602,7 +1613,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 return Promise.reject();
             }
         }
-        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        
         if (!action) {
             let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
