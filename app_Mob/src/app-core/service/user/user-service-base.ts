@@ -186,6 +186,20 @@ export class UserServiceBase extends EntityService {
     }
 
     /**
+     * SyncAccount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async SyncAccount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/users/${context.user}/syncaccount`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchBugUser接口方法
      *
      * @param {*} [context={}]
