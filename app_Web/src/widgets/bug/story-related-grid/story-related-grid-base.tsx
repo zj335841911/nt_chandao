@@ -126,14 +126,6 @@ export class StoryRelatedGridBase extends GridControlBase {
     public limit: number = 500;
 
     /**
-     * 是否显示标题
-     *
-     * @type {boolean}
-     * @memberof StoryRelatedGridBase
-     */
-    public isHideHeader: boolean = true;
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -154,46 +146,6 @@ export class StoryRelatedGridBase extends GridControlBase {
             langtag: 'entities.bug.storyrelated_grid.columns.title',
             show: true,
             unit: 'STAR',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'status',
-            label: '状态',
-            langtag: 'entities.bug.storyrelated_grid.columns.status',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'openedby',
-            label: '由谁创建',
-            langtag: 'entities.bug.storyrelated_grid.columns.openedby',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'resolvedby',
-            label: '解决者',
-            langtag: 'entities.bug.storyrelated_grid.columns.resolvedby',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'resolution',
-            label: '解决方案',
-            langtag: 'entities.bug.storyrelated_grid.columns.resolution',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'lasteditedby',
-            label: '最后修改者',
-            langtag: 'entities.bug.storyrelated_grid.columns.lasteditedby',
-            show: true,
-            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -232,11 +184,6 @@ export class StoryRelatedGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'title':false,
-        'status':false,
-        'openedby':false,
-        'resolvedby':false,
-        'resolution':false,
-        'lasteditedby':false,
     };
 
     /**
@@ -262,46 +209,6 @@ export class StoryRelatedGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'status',
-                srfkey: 'Bug__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'openedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'resolvedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'resolution',
-                srfkey: 'Bug__resolution',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'lasteditedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
         ]);
     }
 

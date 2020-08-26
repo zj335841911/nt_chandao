@@ -93,9 +93,9 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'New',
-			tip: 'tbitem1',
+		deuiaction1: {
+			caption: '新建',
+			tip: 'deuiaction1',
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {

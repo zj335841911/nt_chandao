@@ -328,14 +328,14 @@ export default class AppMobPicture extends Vue {
         this.uploadUrl = _uploadUrl;
 
         this.files.forEach((file: any) => {
-            // if (process.env.NODE_ENV === 'development') {
-            //     let index = this.devFiles.findIndex((devFile: any) => Object.is(devFile.id, file.id));
-            //     if (index !== -1) {
-            //         file.url = this.devFiles[index].url;
-            //         file.isImage = true;
-            //     }
-            //     return;
-            // }
+            if (process.env.NODE_ENV === 'development') {
+                let index = this.devFiles.findIndex((devFile: any) => Object.is(devFile.id, file.id));
+                if (index !== -1) {
+                    file.url = this.devFiles[index].url;
+                    file.isImage = true;
+                }
+                // return;
+            }
 
             let _downloadUrl = `${this.downloadUrl}/${file.id}`;
             const exportContextStr: string = qs.stringify(exportContext, { delimiter: '&' });

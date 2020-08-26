@@ -171,6 +171,9 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
     ]
   }
 

@@ -192,7 +192,13 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.tabpanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+    <div class="" style="">
+    影响范围
+</div>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.tabpanel1.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <tabs :animated="false" name='tabpanel1' v-show="detailsModel.tabpanel1.visible" class=''  
     :value="detailsModel.tabpanel1.activiedPage" @on-click="detailsModel.tabpanel1.clickPage($event)">
         <tab-pane v-show="detailsModel.tabpage1.visible" name='tabpage1' :index="0" tab='tabpanel1' class=''  
@@ -204,7 +210,32 @@
                 ])
             }">
             
+    <i-col class="form-layout-container" v-show="detailsModel.druipart4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
     
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEMEDITVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='project-story-medit-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
 
         </tab-pane>
         <tab-pane v-show="detailsModel.tabpage2.visible" name='tabpage2' :index="1" tab='tabpanel1' class=''  
@@ -216,13 +247,7 @@
                 ])
             }">
             
-    <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
-    <div class="" style="">
-    影响范围
-</div>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+    <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
     :formState="formState"
@@ -241,7 +266,7 @@
     refviewtype='DEGRIDVIEW9' 
     refreshitems='' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='bug-grid-view9-story-related' 
+    viewname='bug-grid-view9-storyaffect' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
     style="overflow: auto;">
@@ -260,13 +285,7 @@
                 ])
             }">
             
-    <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
-    <div class="" style="">
-    影响范围
-</div>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart3.visible" :style="{}"  :lg="{ span: 21, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+    <i-col class="form-layout-container" v-show="detailsModel.druipart3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
     :formState="formState"
@@ -285,7 +304,7 @@
     refviewtype='DEGRIDVIEW9' 
     refreshitems='' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='case-grid-view9-story-related' 
+    viewname='case-grid-view9-storyaffect' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
     style="overflow: auto;">

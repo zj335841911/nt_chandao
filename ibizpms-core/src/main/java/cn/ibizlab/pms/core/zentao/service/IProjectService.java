@@ -52,6 +52,7 @@ public interface IProjectService extends IService<Project>{
     Page<Project> searchCurUser(ProjectSearchContext context) ;
     Page<Project> searchDefault(ProjectSearchContext context) ;
     Page<Project> searchMyProject(ProjectSearchContext context) ;
+    Page<Project> searchStoryProject(ProjectSearchContext context) ;
     List<Project> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
     /**

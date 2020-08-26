@@ -445,6 +445,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("preversion")
     private Integer preversion;
 
+    /**
+     * 属性 [NEEDNOTREVIEW]
+     *
+     */
+    @JSONField(name = "neednotreview")
+    @JsonProperty("neednotreview")
+    private String neednotreview;
+
 
     /**
      * 设置 [ASSIGNEDTO]

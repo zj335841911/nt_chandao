@@ -3,6 +3,7 @@
         <test-suite-mob-mdview 
             :_context="JSON.stringify(_context)" 
             :_viewparams="JSON.stringify(_viewparams)" 
+            :isChildView="true"
             :panelNavParam="panelNavParam"
             :panelNavContext="panelNavContext"
             :viewDefaultUsage="false" >

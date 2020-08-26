@@ -438,6 +438,22 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("mobimage")
     private String mobimage;
 
+    /**
+     * 属性 [ACCOUNTS]
+     *
+     */
+    @JSONField(name = "accounts")
+    @JsonProperty("accounts")
+    private String accounts;
+
+    /**
+     * 属性 [ORDER1]
+     *
+     */
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
+
 
     /**
      * 设置 [OPENEDVERSION]

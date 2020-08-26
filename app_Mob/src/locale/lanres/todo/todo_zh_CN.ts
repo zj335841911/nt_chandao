@@ -91,7 +91,7 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
+		deuiaction1: {
 			caption: '新建',
 			tip: '新建',
 		},

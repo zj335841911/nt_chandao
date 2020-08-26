@@ -55,6 +55,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0626fb8e7d46da2437209b658d8f51c2',
+            viewmodule: 'zentao',
+            viewname: 'ProjectStoryMEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0681bc3d1ffa8e147640ab0dd005d3b5',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView4',
@@ -318,6 +327,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '174408669d176924efbb3227d0784e93',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_Storyaffect',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {
@@ -613,6 +633,17 @@ export const viewstate: any = {
                 '97f38c5fa6f63f69e18299306eae9077',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: '3458603afa6fef36eda88e9f794840f5',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_Storyaffect',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -2819,8 +2850,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
-                'c959d7fe98c33b7befcad24e2596633e',
+                '3458603afa6fef36eda88e9f794840f5',
+                '0626fb8e7d46da2437209b658d8f51c2',
+                '174408669d176924efbb3227d0784e93',
                 '770a170098d148e438a7666b248e6519',
             ],
         },

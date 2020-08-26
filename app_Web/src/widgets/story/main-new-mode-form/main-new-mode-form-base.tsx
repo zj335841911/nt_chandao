@@ -91,6 +91,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         sourcenote: null,
         reviewedby: null,
         assignedto: null,
+        neednotreview: null,
         title: null,
         pri: null,
         estimate: null,
@@ -169,6 +170,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -204,6 +207,56 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'prodoctname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });
         }
+        if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof Main_NewModeEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
+            let ret = false;
+            const _neednotreview = this.data.neednotreview;
+            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
+
+
+
+
+
+
+
+
+
+
     }
 
     /**
@@ -219,6 +272,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('plan')) {
             this.data['plan'] = this.viewparams['plan'];
+        }
+        if (this.data.hasOwnProperty('neednotreview')) {
+            this.data['neednotreview'] = '1';
         }
     }
 }

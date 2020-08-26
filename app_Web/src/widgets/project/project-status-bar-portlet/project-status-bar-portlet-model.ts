@@ -168,6 +168,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 

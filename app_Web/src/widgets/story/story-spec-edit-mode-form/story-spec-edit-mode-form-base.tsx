@@ -93,8 +93,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         id: null,
         status: null,
         version: null,
+        assignedto: null,
         reviewedby: null,
-        notreview: null,
+        neednotreview: null,
         title: null,
         spec: null,
         verify: null,
@@ -162,9 +163,11 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
         version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        notreview: new FormItemModel({ caption: '不需要评审', detailType: 'FORMITEM', name: 'notreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -185,6 +188,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @memberof StorySpec_EditModeEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
         if (Object.is(name, 'notreview')) {
             this.onFormItemValueChange({ name: 'reviewedby', value: null });
         }
@@ -214,6 +220,15 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
+            let ret = false;
+            const _neednotreview = this.data.neednotreview;
+            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
+
         if (Object.is(name, '') || Object.is(name, 'notreview')) {
             let ret = false;
             const _notreview = this.data.notreview;
@@ -232,6 +247,16 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'version')) {
             const details: string[] = ['verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
+        }
+    }
+
+    /**
+     * 新建默认值
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('neednotreview')) {
+            this.data['neednotreview'] = '0';
         }
     }
 }

@@ -51,8 +51,13 @@ export default {
     totalestimate: "任务最初预计总工时",
     totalhours: "可用工时",
     mobimage: "移动端图片",
+    accounts: "项目团队相关成员",
   },
 	views: {
+		storymeditview9: {
+			caption: "需求相关",
+      		title: "项目多表单编辑视图（需求相关）",
+		},
 		tasktreeexpview: {
 			caption: "项目",
       		title: "项目任务导航视图",
@@ -96,6 +101,10 @@ export default {
 		mainview_edit: {
 			caption: "项目",
       		title: "项目编辑视图",
+		},
+		storyeditview9: {
+			caption: "需求",
+      		title: "项目编辑视图（需求相关）",
 		},
 		leftsidebarlistview: {
 			caption: "项目",
@@ -307,6 +316,24 @@ export default {
 			formitemex2: "", 
 			desc: "项目描述", 
 			acl: "访问控制", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
+	storyproject_form: {
+		details: {
+			druipart1: "", 
+			group1: "项目基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			accounts: "", 
 			id: "项目编号", 
 		},
 		uiactions: {

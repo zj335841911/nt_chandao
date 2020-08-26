@@ -572,6 +572,10 @@ export default {
         "platform": "多平台",
         "empty": "",
     },
+    NeedNotReviewNew: {
+        "1": "不需要评审",
+        "empty": "",
+    },
     Module__type: {
         "line": "产品线",
         "story": "需求",
@@ -630,6 +634,10 @@ export default {
         "empty": "",
     },
     ProjectProductPlan: {
+        "empty": "",
+    },
+    NeedNotReview: {
+        "0": "不需要评审",
         "empty": "",
     },
     TestQuickpacket: {

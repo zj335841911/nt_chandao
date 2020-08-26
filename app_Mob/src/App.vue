@@ -28,5 +28,28 @@ export default class App extends Vue {
             return 'app-dark-blue-theme';
         }
 	}
+
+    /**
+     * 设置第三方应用
+     *
+     * @readonly
+     * @memberof App
+     */
+    public setThirdPartyPath(){
+        let name = this.$viewTool.getThirdPartyName();
+        if(name){
+            this.$router.app.$store.commit('setThirdPartyName',name);
+        }
+    }
+
+	/**
+     * 生命周期
+     *
+     * @readonly
+     * @memberof App
+     */
+    public created(){
+        this.setThirdPartyPath();
+    }
 }
 </script>

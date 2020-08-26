@@ -4373,6 +4373,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "NeedNotReviewNew",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "不需要评审",
+                text: "不需要评审",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Module__type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -4773,6 +4790,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"ProductPlan",
         "appdedataset":"FetchProjectPlan",
         "items": []
+    },
+    {
+        srfkey: "NeedNotReview",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "不需要评审",
+                text: "不需要评审",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "TestQuickpacket",

@@ -163,4 +163,17 @@ export class DingTalkService {
     public close(){
         this.dd.biz.navigation.close({});
     }
+
+    /**
+     * 设置钉钉标题
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setTitle(title:string){
+        this.dd.biz.navigation.setTitle({
+            title : title,
+        });
+    }
 }

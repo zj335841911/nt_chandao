@@ -313,6 +313,14 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("mobimage")
     private String mobimage;
 
+    /**
+     * 属性 [ORDER1]
+     *
+     */
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
+
 
     /**
      * 设置 [QD]

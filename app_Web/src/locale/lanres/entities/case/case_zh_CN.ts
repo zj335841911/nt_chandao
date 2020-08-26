@@ -72,6 +72,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		gridview9_storyaffect: {
+			caption: "相关用例",
+      		title: "相关用例",
+		},
 		curtesttaskgridview: {
 			caption: "功能测试",
       		title: "功能测试",
@@ -444,9 +448,6 @@ export default {
 		columns: {
 			pri: "P",
 			title: "用例标题",
-			status: "状态",
-			openedby: "由谁创建",
-			lasteditedby: "最后修改者",
 		},
 		uiactions: {
 		},
@@ -489,6 +490,17 @@ export default {
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
 			status1: "状态",
+		},
+		uiactions: {
+		},
+	},
+	storyaffectcase_grid: {
+		columns: {
+			pri: "P",
+			title: "用例标题",
+			status: "状态",
+			openedby: "由谁创建",
+			lasteditedby: "最后修改者",
 		},
 		uiactions: {
 		},

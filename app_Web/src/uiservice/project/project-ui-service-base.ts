@@ -89,6 +89,7 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
@@ -100,6 +101,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects'});
         this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'storyeditview9',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects'});

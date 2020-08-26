@@ -168,6 +168,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 

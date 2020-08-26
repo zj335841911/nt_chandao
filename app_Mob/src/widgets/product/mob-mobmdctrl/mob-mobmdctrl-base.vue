@@ -1019,7 +1019,7 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
         CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'trash'},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'remove'}
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'close'}
     };
 
     /**

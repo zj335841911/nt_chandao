@@ -124,6 +124,10 @@ export default {
 			caption: "激活任务",
       		title: "激活任务",
 		},
+		gridview9_project: {
+			caption: "相关任务",
+      		title: "任务表格视图",
+		},
 		workinfoeditview9: {
 			caption: "工时信息",
       		title: "工时信息",
@@ -611,6 +615,18 @@ export default {
 			id: "编号",
 			name: "任务名称",
 			projectname: "所属项目",
+		},
+		uiactions: {
+		},
+	},
+	projectrelated_grid: {
+		columns: {
+			id: "编号",
+			name: "任务名称",
+			assignedto: "指派给",
+			status: "任务状态",
+			consumed: "总计消耗",
+			left: "预计剩余",
 		},
 		uiactions: {
 		},

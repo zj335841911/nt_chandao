@@ -3,7 +3,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'bug-resolve-mob-edit-view': true }">
     
     <ion-header>
-        <ion-toolbar class="ionoc-view-header">
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button v-show="isShowBackButton" @click="closeView">
                     <ion-icon name="chevron-back"></ion-icon>
@@ -160,6 +160,21 @@ export default class BugResolveMobEditViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof BugResolveMobEditViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof BugResolveMobEditViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -223,6 +238,18 @@ export default class BugResolveMobEditViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof BugResolveMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -280,11 +307,9 @@ export default class BugResolveMobEditViewBase extends Vue {
     get getToolBarLimit() {
         let toolBarVisable:boolean = true;
         if(this.righttoolbarModels){
-            toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem].visabled === true;
+            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem].visabled === false;
             })
-        } else{
-            toolBarVisable = false;
         }
         return toolBarVisable;
     }
@@ -376,6 +401,7 @@ export default class BugResolveMobEditViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
         if(this.$route && this.$route.query && this.$route.query.bsinfo){
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
@@ -401,6 +427,7 @@ export default class BugResolveMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -411,6 +438,9 @@ export default class BugResolveMobEditViewBase extends Vue {
         _this.engineInit();
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
+        }
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
         }
 
     }

@@ -138,6 +138,21 @@ export default class TaskTeamMobMDView9Base extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof TaskTeamMobMDView9Base
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof TaskTeamMobMDView9Base
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -198,6 +213,18 @@ export default class TaskTeamMobMDView9Base extends Vue {
     @Watch('_viewparams')
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+    }
+
+    /**
+     * 设置工具栏状态
+     *
+     * @memberof TaskTeamMobMDView9Base
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
     }
 
     /**
@@ -318,6 +345,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
         if (this.formDruipart) {
             this.formDruipart.subscribe(($event: any) => {
                 if (Object.is($event.action, 'load')) {
@@ -348,6 +376,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -358,6 +387,9 @@ export default class TaskTeamMobMDView9Base extends Vue {
         _this.engineInit();
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
+        }
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
         }
 
     }

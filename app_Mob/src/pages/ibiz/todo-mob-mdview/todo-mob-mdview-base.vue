@@ -44,7 +44,7 @@
         
         
             <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
                 <ion-icon name="add"></ion-icon>
                 
             </ion-fab-button>
@@ -157,6 +157,21 @@ export default class TodoMobMDViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof TodoMobMDViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof TodoMobMDViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -220,6 +235,18 @@ export default class TodoMobMDViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof TodoMobMDViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -256,7 +283,7 @@ export default class TodoMobMDViewBase extends Vue {
     * @memberof TodoMobMDView
     */
     public righttoolbarModels: any = {
-            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'TodoCreateMob', target: 'NONE' } },
 
     };
 
@@ -277,11 +304,9 @@ export default class TodoMobMDViewBase extends Vue {
     get getToolBarLimit() {
         let toolBarVisable:boolean = true;
         if(this.righttoolbarModels){
-            toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem].visabled === true;
+            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem].visabled === false;
             })
-        } else{
-            toolBarVisable = false;
         }
         return toolBarVisable;
     }
@@ -379,6 +404,7 @@ export default class TodoMobMDViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 
@@ -400,6 +426,7 @@ export default class TodoMobMDViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -410,6 +437,9 @@ export default class TodoMobMDViewBase extends Vue {
         _this.engineInit();
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
+        }
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
         }
 
     }
@@ -491,8 +521,8 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem1')) {
-            this.righttoolbar_tbitem1_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
         }
     }
 
@@ -507,7 +537,7 @@ export default class TodoMobMDViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof TodoMobMDViewBase
      */
-    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -523,7 +553,10 @@ export default class TodoMobMDViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        this.globaluiservice.New(datas, contextJO, paramJO, $event, xData, this);
+        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
+        if (curUIService) {
+            curUIService.Todo_TodoCreateMob(datas, contextJO, paramJO, $event, xData, this);
+        }
     }
 
     /**
@@ -550,14 +583,13 @@ export default class TodoMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const view: any = { 
-            viewname: 'todo-new-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '快速新建', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.globaluiservice.openService.openModal(view, _context, _params);
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;

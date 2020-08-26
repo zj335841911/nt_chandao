@@ -136,6 +136,21 @@ export default class BuildMobMPickupViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof BuildMobMPickupViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof BuildMobMPickupViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -196,6 +211,18 @@ export default class BuildMobMPickupViewBase extends Vue {
     @Watch('_viewparams')
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+    }
+
+    /**
+     * 设置工具栏状态
+     *
+     * @memberof BuildMobMPickupViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
     }
 
     /**
@@ -316,6 +343,7 @@ export default class BuildMobMPickupViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 
@@ -337,6 +365,7 @@ export default class BuildMobMPickupViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -347,6 +376,9 @@ export default class BuildMobMPickupViewBase extends Vue {
         _this.engineInit();
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
+        }
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
         }
 
     }

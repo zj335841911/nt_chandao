@@ -54,12 +54,12 @@
             </ion-fab-button>
         
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3.visabled" :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">
-                <ion-icon name="close"></ion-icon>
+                <ion-icon name="power"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}    
             </ion-fab-button>
         
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction4.visabled" :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">
-                <ion-icon name="remove"></ion-icon>
+                <ion-icon name="close"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}    
             </ion-fab-button>
         
@@ -173,6 +173,21 @@ export default class ProjectMobEditViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof ProjectMobEditViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProjectMobEditViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -233,6 +248,18 @@ export default class ProjectMobEditViewBase extends Vue {
     @Watch('_viewparams')
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+    }
+
+    /**
+     * 设置工具栏状态
+     *
+     * @memberof ProjectMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
     }
 
     /**
@@ -297,11 +324,9 @@ export default class ProjectMobEditViewBase extends Vue {
     get getToolBarLimit() {
         let toolBarVisable:boolean = true;
         if(this.righttoolbarModels){
-            toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem].visabled === true;
+            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem].visabled === false;
             })
-        } else{
-            toolBarVisable = false;
         }
         return toolBarVisable;
     }
@@ -393,6 +418,7 @@ export default class ProjectMobEditViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
         if(this.$route && this.$route.query && this.$route.query.bsinfo){
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
@@ -418,6 +444,7 @@ export default class ProjectMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -428,6 +455,9 @@ export default class ProjectMobEditViewBase extends Vue {
         _this.engineInit();
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
+        }
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
         }
 
     }

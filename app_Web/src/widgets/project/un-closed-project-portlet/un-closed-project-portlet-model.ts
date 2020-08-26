@@ -168,6 +168,9 @@ export default class UnClosedProjectModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 
