@@ -126,7 +126,11 @@ export class StudioActionController {
                 }, '*');
                 Vue.prototype.$message.warning('请在已打开的配置平台查看!');
             } else {
-                this.studioWin = window.open(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`, '_blank');
+                if (Environment.debugOpenMode === 'sln') {
+                    this.studioWin = window.open(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`, '_blank');
+                } else {
+                    this.studioWin = window.open(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_mosindex/srfkeys=${Environment.SysId}`, '_blank');
+                }
             }
         }
     }

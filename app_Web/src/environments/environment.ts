@@ -39,6 +39,8 @@ export const Environment = {
     ibizlabtUrl: 'https://www.ibizlab.cn',
     // ibiz论坛地址
     ibizbbstUrl: 'https://bbs.ibizlab.cn',
+    // debug栏打开sln还是mos
+    debugOpenMode: 'mos'
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

@@ -5,6 +5,7 @@ import { MainControlBase } from './MainControlBase';
 import { events } from '../global';
 import { ViewTool } from '@/utils';
 import schema from 'async-validator';
+import { Environment } from '@/environments/environment';
 
 /**
  * 表单部件基类
@@ -634,18 +635,20 @@ export class FormControlBase extends MainControlBase {
      * @memberof ${srfclassname('${ctrl.codeName}')}Base
      */
     public computeButtonState(data:any){
-        let targetData:any = this.transformData(data);
-        if(this.detailsModel && Object.keys(this.detailsModel).length >0){
-            Object.keys(this.detailsModel).forEach((name:any) =>{
-                if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
-                    this.detailsModel[name].isPower = true;
-                    let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
-                    let result: any[] = ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService);
-                    this.detailsModel[name].visible = tempUIAction.visabled;
-                    this.detailsModel[name].disabled = tempUIAction.disabled;
-                    this.detailsModel[name].isPower = result[0] === 1 ? true : false;
-                }
-            })
+        if(Environment.enablePermissionValid){
+            let targetData:any = this.transformData(data);
+            if(this.detailsModel && Object.keys(this.detailsModel).length >0){
+                Object.keys(this.detailsModel).forEach((name:any) =>{
+                    if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
+                        this.detailsModel[name].isPower = true;
+                        let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
+                        let result: any[] = ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService);
+                        this.detailsModel[name].visible = tempUIAction.visabled;
+                        this.detailsModel[name].disabled = tempUIAction.disabled;
+                        this.detailsModel[name].isPower = result[0] === 1 ? true : false;
+                    }
+                })
+            }
         }
     }
 }

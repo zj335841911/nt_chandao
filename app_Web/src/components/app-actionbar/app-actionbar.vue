@@ -22,6 +22,7 @@
 <script lang="tsx">
 import { Vue, Component, Prop, Model, Emit,Inject, Watch } from "vue-property-decorator";
 import { Subject,Subscription } from "rxjs";
+import { Environment } from '@/environments/environment';
 
 @Component({})
 export default class AppActionBar extends Vue {
@@ -107,38 +108,40 @@ export default class AppActionBar extends Vue {
    * @param {*} [UIService] 界面行为服务
    * @memberof AppActionBar
    */
-  public calcActionItemAuthState(data:any,ActionModel:any,UIService:any){
-    for (const key in ActionModel) {
-        if (!ActionModel.hasOwnProperty(key)) {
-            return;
-        }
-        const _item = ActionModel[key];
-        if(_item && _item['dataaccaction'] && UIService){
-            let dataActionResult:any;
-            if(Object.is(_item['actiontarget'],"NONE")){
-                dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
-            }else{
-                if(data && Object.keys(data).length >0){
-                    dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
-                }
-            }
-            // 无权限:0;有权限:1
-            if(dataActionResult === 0){
-                // 禁用:1;隐藏:2;隐藏且默认隐藏:6
-                if(_item.noprivdisplaymode === 1){
-                    _item.disabled = true;
-                }
-                if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
-                    _item.visabled = false;
-                }else{
-                    _item.visabled = true;
-                }
-            }
-            if(dataActionResult === 1){
-                _item.visabled = true;
-                _item.disabled = false;
-            }
-        }
+public calcActionItemAuthState(data:any,ActionModel:any,UIService:any){
+    if(Environment.enablePermissionValid){
+      for (const key in ActionModel) {
+          if (!ActionModel.hasOwnProperty(key)) {
+              return;
+          }
+          const _item = ActionModel[key];
+          if(_item && _item['dataaccaction'] && UIService){
+              let dataActionResult:any;
+              if(Object.is(_item['actiontarget'],"NONE")){
+                  dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
+              }else{
+                  if(data && Object.keys(data).length >0){
+                      dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                  }
+              }
+              // 无权限:0;有权限:1
+              if(dataActionResult === 0){
+                  // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                  if(_item.noprivdisplaymode === 1){
+                      _item.disabled = true;
+                  }
+                  if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                      _item.visabled = false;
+                  }else{
+                      _item.visabled = true;
+                  }
+              }
+              if(dataActionResult === 1){
+                  _item.visabled = true;
+                  _item.disabled = false;
+              }
+          }
+      }
     }
   } 
 
