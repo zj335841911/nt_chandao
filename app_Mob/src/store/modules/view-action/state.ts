@@ -20,6 +20,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'd739ee414172cbfdc3d6e2d2e01e3676',
+                '78beacb29481bfa83dfce62ac4bd9d13',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -283,6 +285,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '78beacb29481bfa83dfce62ac4bd9d13',
+            viewmodule: 'ibiz',
+            viewname: 'TaskComMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '82f9b0fd0fdc90237c7aa1a1e543920e',
             viewmodule: 'ibiz',
             viewname: 'ProductStatsMobTabExpView',
@@ -336,6 +348,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'd739ee414172cbfdc3d6e2d2e01e3676',
+                '78beacb29481bfa83dfce62ac4bd9d13',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -512,6 +526,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '52913a5dcfd665154092ec7aedf84049',
+            ],
+        },
+        {
+            viewtag: 'd739ee414172cbfdc3d6e2d2e01e3676',
+            viewmodule: 'ibiz',
+            viewname: 'TaskMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
