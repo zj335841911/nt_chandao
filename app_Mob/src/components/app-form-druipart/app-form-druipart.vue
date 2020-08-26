@@ -22,13 +22,14 @@
     </ion-list>
     <div v-show="!blockUI">
       <component
-        :is="viewname"
         class="viewcontainer2"
+        :is="viewname"
         :viewDefaultUsage="false"
         :formDruipart="formDruipart"
         :isformDruipart="true"
         :_context="JSON.stringify(tempContext)"
         :_viewparams="JSON.stringify(tempViewParams)"
+        :isChildView="true"
         @mditemsload="mditemsload"
         @drdatasaved="drdatasaved"
         @drdatachange="drdatachange"
