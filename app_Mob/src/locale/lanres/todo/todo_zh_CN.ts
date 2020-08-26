@@ -91,6 +91,10 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
