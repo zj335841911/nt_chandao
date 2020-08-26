@@ -168,6 +168,9 @@ export class MobTabExpViewtabviewpanel5Model {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 

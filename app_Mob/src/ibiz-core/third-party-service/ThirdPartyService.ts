@@ -152,4 +152,19 @@ export class ThirdPartyService {
         }
     }
 
+    /**
+     * 设置钉钉标题
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setTitle(title:string){
+        if (this.isDingTalk()) {
+            this.dd.setTitle(title);
+        } else if (this.isWeChat()) {
+            this.weChat.setTitle(title);
+        }
+    }
+
 }

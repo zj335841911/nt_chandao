@@ -200,4 +200,15 @@ export class WeChatService {
     public close(){
         // 关闭
     }
+
+    /**
+     * 设置微信标题
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setTitle(title:string){
+        // 设置标题
+    }
 }

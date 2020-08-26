@@ -171,6 +171,9 @@ export class MobModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
     ]
   }
 

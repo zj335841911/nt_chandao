@@ -337,6 +337,7 @@ export default class BuildMobPickupMDViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
 
     }
 

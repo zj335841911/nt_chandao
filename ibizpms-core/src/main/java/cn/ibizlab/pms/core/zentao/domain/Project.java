@@ -412,6 +412,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "mobimage")
     @JsonProperty("mobimage")
     private String mobimage;
+    /**
+     * 项目团队相关成员
+     */
+    @TableField(exist = false)
+    @JSONField(name = "accounts")
+    @JsonProperty("accounts")
+    private String accounts;
 
     /**
      * 
