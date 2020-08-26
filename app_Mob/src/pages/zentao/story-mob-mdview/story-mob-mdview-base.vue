@@ -9,18 +9,33 @@
 
 
     <ion-content>
-                !!!!模版产生代码错误:----
-        Tip: If you just want "true"/"false" result as you are generting computer-language output, use "?c", like ${myBool?c}.
-        ----
-        Tip: You can write myBool?string('yes', 'no') and like to specify boolean formatting in place.
-        ----
-        Tip: If you need the same two values on most places, the programmers should set the "boolean_format" setting to something like "yes,no".
-        ----
-        
-        ----
-        FTL stack trace ("~" means nesting-related):
-        	- Failed at: ${view.isEnablePullDownRefresh()}  [in template "TEMPLCODE_en_US" at line 19, column 95]
-        ----
+                <view_mdctrl
+            :viewState="viewState"
+            viewName="StoryMobMDView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true" 
+            viewType="DEMOBMDVIEW"
+            controlStyle="LISTVIEW"
+            updateAction="Update"
+            removeAction="Remove"
+            loaddraftAction=""
+            loadAction="Get"
+            createAction="Create"
+            fetchAction="FetchDefault" 
+            :isMutli="!isSingleSelect"
+            :showCheack="showCheack"
+            @showCheackChange="showCheackChange"
+            :isTempMode="false"
+            :isEnableChoose="false"
+            name="mdctrl"  
+            ref='mdctrl' 
+            @selectionchange="mdctrl_selectionchange($event)"  
+            @beforeload="mdctrl_beforeload($event)"  
+            @rowclick="mdctrl_rowclick($event)"  
+            @load="mdctrl_load($event)"  
+            @closeview="closeView($event)">
+        </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
         
