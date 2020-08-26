@@ -159,6 +159,14 @@ export default class ProductMobMDViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -374,6 +382,7 @@ export default class ProductMobMDViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -385,7 +394,9 @@ export default class ProductMobMDViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
-        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+        }
 
     }
 
