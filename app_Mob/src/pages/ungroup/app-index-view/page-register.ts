@@ -1,11 +1,14 @@
 export const PageComponents = {
     install(Vue: any, opt: any) {
-                Vue.component('product-mob-tab-exp-view', () => import('@pages/ibiz/product-mob-tab-exp-view/product-mob-tab-exp-view.vue'));
+                Vue.component('task-cancel-mob-option-view', () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'));
+        Vue.component('task-stop-mob-option-view', () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'));
+        Vue.component('product-mob-tab-exp-view', () => import('@pages/ibiz/product-mob-tab-exp-view/product-mob-tab-exp-view.vue'));
         Vue.component('task-team-mob-mdview9', () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'));
         Vue.component('release-mob-mdview', () => import('@pages/ibiz/release-mob-mdview/release-mob-mdview.vue'));
         Vue.component('todo-mob-mdview', () => import('@pages/ibiz/todo-mob-mdview/todo-mob-mdview.vue'));
         Vue.component('story-mob-edit-view', () => import('@pages/ibiz/story-mob-edit-view/story-mob-edit-view.vue'));
         Vue.component('bug-plan-mob-mdview9', () => import('@pages/ibiz/bug-plan-mob-mdview9/bug-plan-mob-mdview9.vue'));
+        Vue.component('task-close-mob-option-view', () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'));
         Vue.component('bug-mob-mdview', () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'));
         Vue.component('product-plan-mob-edit-view', () => import('@pages/ibiz/product-plan-mob-edit-view/product-plan-mob-edit-view.vue'));
         Vue.component('bug-ass-mob-mdview', () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'));
@@ -45,8 +48,8 @@ export const PageComponents = {
         Vue.component('product-mob-mdview', () => import('@pages/ibiz/product-mob-mdview/product-mob-mdview.vue'));
         Vue.component('product-close-mob-edit-view', () => import('@pages/zentao/product-close-mob-edit-view/product-close-mob-edit-view.vue'));
         Vue.component('story-mob-mdview9', () => import('@pages/ibiz/story-mob-mdview9/story-mob-mdview9.vue'));
-        Vue.component('todo-mob-edit-view', () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'));
         Vue.component('test-task-mob-edit-view', () => import('@pages/ibiz/test-task-mob-edit-view/test-task-mob-edit-view.vue'));
+        Vue.component('todo-mob-edit-view', () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'));
         Vue.component('build-mob-mdview', () => import('@pages/ibiz/build-mob-mdview/build-mob-mdview.vue'));
         Vue.component('case-mob-mdview', () => import('@pages/ibiz/case-mob-mdview/case-mob-mdview.vue'));
         Vue.component('release-mob-edit-view', () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'));

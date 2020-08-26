@@ -59,6 +59,118 @@ const router = new Router({
             component: () => import('@/components/view-shell/view-shell.vue'),
             children: [
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/cancelmoboptionview',
+                    meta: {
+                        caption: 'task.views.cancelmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/cancelmoboptionview',
+                    meta: {
+                        caption: 'task.views.cancelmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/cancelmoboptionview',
+                    meta: {
+                        caption: 'task.views.cancelmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/cancelmoboptionview',
+                    meta: {
+                        caption: 'task.views.cancelmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/stopmoboptionview',
+                    meta: {
+                        caption: 'task.views.stopmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/stopmoboptionview',
+                    meta: {
+                        caption: 'task.views.stopmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/stopmoboptionview',
+                    meta: {
+                        caption: 'task.views.stopmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/stopmoboptionview',
+                    meta: {
+                        caption: 'task.views.stopmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/mobtabexpview',
                     meta: {
                         caption: 'product.views.mobtabexpview.caption',
@@ -280,6 +392,62 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/bug-plan-mob-mdview9/bug-plan-mob-mdview9.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/closemoboptionview',
+                    meta: {
+                        caption: 'task.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/closemoboptionview',
+                    meta: {
+                        caption: 'task.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/closemoboptionview',
+                    meta: {
+                        caption: 'task.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/closemoboptionview',
+                    meta: {
+                        caption: 'task.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobmdview',
@@ -1703,19 +1871,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-mdview9/story-mob-mdview9.vue'),
                 },
                 {
-                    path: 'todos/:todo?/mobeditview',
-                    meta: {
-                        caption: 'todo.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'),
-                },
-                {
                     path: 'projects/:project?/testtasks/:testtask?/mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
@@ -1755,6 +1910,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-task-mob-edit-view/test-task-mob-edit-view.vue'),
+                },
+                {
+                    path: 'todos/:todo?/mobeditview',
+                    meta: {
+                        caption: 'todo.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobmdview',

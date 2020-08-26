@@ -6,8 +6,17 @@ export default {
 		mobeditview: {
 			caption: '任务',
 		},
+		stopmoboptionview: {
+			caption: '暂停',
+		},
+		cancelmoboptionview: {
+			caption: '取消',
+		},
+		closemoboptionview: {
+			caption: '关闭',
+		},
 		commoboptionview: {
-			caption: '指派',
+			caption: '完成',
 		},
 		assmobmdview: {
 			caption: '任务',
@@ -61,6 +70,26 @@ export default {
 			finisheddate: '实际完成', 
 			files: '附件', 
 			comment: '备注', 
+		},
+		uiactions: {
+		},
+	},
+	closepausecancelformmob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			comment: '备注', 
+			id: '编号', 
 		},
 		uiactions: {
 		},

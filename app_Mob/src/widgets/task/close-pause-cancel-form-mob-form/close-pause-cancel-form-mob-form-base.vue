@@ -9,175 +9,12 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('task.completeformmob_form.details.group1')" 
+    :caption="$t('task.closepausecancelformmob_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     @groupuiactionclick="groupUIActionClick($event)">
     
-<app-form-item 
-    name='consumed' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="consumed_item"  
-    :itemValue="this.data.consumed" 
-    v-show="detailsModel.consumed.visible" 
-    :itemRules="this.rules.consumed" 
-    :caption="$t('task.completeformmob_form.details.consumed')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.consumed.disabled"
-    :error="detailsModel.consumed.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.consumed" 
-    :disabled="detailsModel.consumed.disabled" 
-    @change="($event)=>this.data.consumed = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='currentconsumed' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="currentconsumed_item"  
-    :itemValue="this.data.currentconsumed" 
-    v-show="detailsModel.currentconsumed.visible" 
-    :itemRules="this.rules.currentconsumed" 
-    :caption="$t('task.completeformmob_form.details.currentconsumed')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.currentconsumed.disabled"
-    :error="detailsModel.currentconsumed.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.currentconsumed" 
-    :disabled="detailsModel.currentconsumed.disabled" 
-    @change="($event)=>this.data.currentconsumed = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='totaltime' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="totaltime_item"  
-    :itemValue="this.data.totaltime" 
-    v-show="detailsModel.totaltime.visible" 
-    :itemRules="this.rules.totaltime" 
-    :caption="$t('task.completeformmob_form.details.totaltime')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.totaltime.disabled"
-    :error="detailsModel.totaltime.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.totaltime" 
-    :disabled="detailsModel.totaltime.disabled" 
-    @change="($event)=>this.data.totaltime = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='assignedto' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="assignedto_item"  
-    :itemValue="this.data.assignedto" 
-    v-show="detailsModel.assignedto.visible" 
-    :itemRules="this.rules.assignedto" 
-    :caption="$t('task.completeformmob_form.details.assignedto')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.assignedto.disabled"
-    :error="detailsModel.assignedto.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.assignedto.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.assignedto"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.assignedto = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='finisheddate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="finisheddate_item"  
-    :itemValue="this.data.finisheddate" 
-    v-show="detailsModel.finisheddate.visible" 
-    :itemRules="this.rules.finisheddate" 
-    :caption="$t('task.completeformmob_form.details.finisheddate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.finisheddate.disabled"
-    :error="detailsModel.finisheddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.finisheddate" 
-    :disabled="detailsModel.finisheddate.disabled"
-    @change="($event)=>this.data.finisheddate = $event"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='files' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="files_item"  
-    :itemValue="this.data.files" 
-    v-show="detailsModel.files.visible" 
-    :itemRules="this.rules.files" 
-    :caption="$t('task.completeformmob_form.details.files')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.files.disabled"
-    :error="detailsModel.files.error" 
-    :isEmptyCaption="false">
-        <app-mob-file-upload 
-    name='files' 
-    style="overflow: auto;" 
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.files" 
-    :disabled="detailsModel.files.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
-    @formitemvaluechange="onFormItemValueChange" />
-</app-form-item>
-
-
-
 <app-form-item 
     name='comment' 
     class='' 
@@ -187,7 +24,7 @@
     :itemValue="this.data.comment" 
     v-show="detailsModel.comment.visible" 
     :itemRules="this.rules.comment" 
-    :caption="$t('task.completeformmob_form.details.comment')"  
+    :caption="$t('task.closepausecancelformmob_form.details.comment')"  
     :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.comment.disabled"
@@ -210,8 +47,8 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.grouppanel1.visible" 
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('task.completeformmob_form.details.grouppanel1')" 
-    :isShowCaption="true" 
+    :caption="$t('task.closepausecancelformmob_form.details.grouppanel1')" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     @groupuiactionclick="groupUIActionClick($event)">
@@ -257,7 +94,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
-import CompleteFormMobService from '@/app-core/ctrl-service/task/complete-form-mob-form-service';
+import ClosePauseCancelFormMobService from '@/app-core/ctrl-service/task/close-pause-cancel-form-mob-form-service';
 
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
@@ -270,13 +107,13 @@ import {  Util } from '@/ibiz-core/utils';
     components: {
     }
 })
-export default class CompleteFormMobBase extends Vue implements ControlInterface {
+export default class ClosePauseCancelFormMobBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected name?: string;
 
@@ -284,7 +121,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 视图名称
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected viewName!: string;
 
@@ -293,7 +130,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -301,7 +138,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 应用上下文
      *
      * @type {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -309,7 +146,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 视图参数
      *
      * @type {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -318,7 +155,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -326,7 +163,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected getControlType(): string {
         return 'FORM'
@@ -336,7 +173,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -345,7 +182,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 转化数据
      *
      * @param {any} args
-     * @memberof  CompleteFormMobBase
+     * @memberof  ClosePauseCancelFormMobBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -357,16 +194,16 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * 建构部件服务对象
      *
-     * @type {CompleteFormMobService}
-     * @memberof CompleteFormMob
+     * @type {ClosePauseCancelFormMobService}
+     * @memberof ClosePauseCancelFormMob
      */
-    protected service: CompleteFormMobService = new CompleteFormMobService({$store:this.$store});
+    protected service: ClosePauseCancelFormMobService = new ClosePauseCancelFormMobService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected appEntityService: TaskService = new TaskService();
 
@@ -374,7 +211,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof CompleteFormMobBase
+     * @memberof ClosePauseCancelFormMobBase
      */  
     public deUIService:TaskUIService = new TaskUIService(this.$store);
     
@@ -383,7 +220,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -394,7 +231,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() srfwfmemo?: string;
 
@@ -402,7 +239,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     public getDatas(): any[] {
         return [this.data];
@@ -412,7 +249,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 获取单项树
      *
      * @returns {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     public getData(): any {
         return this.data;
@@ -422,7 +259,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -430,7 +267,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -438,7 +275,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -446,7 +283,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--start
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected WFStartAction!: string;
     
@@ -454,7 +291,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--update
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected updateAction!: string;
     
@@ -462,7 +299,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected removeAction!: string;
     
@@ -470,7 +307,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -478,7 +315,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--load
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected loadAction!: string;
     
@@ -486,7 +323,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--create
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected createAction!: string;
 
@@ -494,7 +331,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件行为--create
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected searchAction!: string;
 
@@ -502,7 +339,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 视图标识
      *
      * @type {string}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Prop() protected viewtag!: string;
 
@@ -510,7 +347,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected formState: Subject<any> = new Subject();
 
@@ -518,7 +355,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -527,7 +364,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @private
      * @type {Subject<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -536,7 +373,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -545,7 +382,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @private
      * @type {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private oldData: any = {};
 
@@ -553,7 +390,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 表单数据对象
      *
      * @type {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected data: any = {
         srfupdatedate: null,
@@ -564,14 +401,8 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        id: null,
-        consumed: null,
-        currentconsumed: null,
-        totaltime: null,
-        assignedto: null,
-        finisheddate: null,
-        files: null,
         comment: null,
+        id: null,
         task: null,
     };
 
@@ -579,7 +410,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof CompleteFormMob
+      * @memberof ClosePauseCancelFormMob
       */
     protected currentAction: string = "";
 
@@ -587,7 +418,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof CompleteFormMob
+      * @memberof ClosePauseCancelFormMob
       */
     protected drcounter: number = 0;
 
@@ -595,7 +426,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof CompleteFormMob
+      * @memberof ClosePauseCancelFormMob
       */
     protected saveState:any ;
 
@@ -603,7 +434,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 属性值规则
      *
      * @type {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected rules: any = {
         srfupdatedate: [
@@ -654,53 +485,17 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        id: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        consumed: [
-            { type: 'number', message: '之前消耗 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '之前消耗 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '之前消耗 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '之前消耗 值不能为空', trigger: 'blur' },
-        ],
-        currentconsumed: [
-            { type: 'number', message: '本次消耗 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '本次消耗 值必须为数值类型', trigger: 'blur' },
-            { required: true, type: 'number', message: '本次消耗 值不能为空', trigger: 'change' },
-            { required: true, type: 'number', message: '本次消耗 值不能为空', trigger: 'blur' },
-        ],
-        totaltime: [
-            { type: 'number', message: '总计耗时 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '总计耗时 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '总计耗时 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '总计耗时 值不能为空', trigger: 'blur' },
-        ],
-        assignedto: [
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        finisheddate: [
-            { type: 'string', message: '实际完成 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '实际完成 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '实际完成 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '实际完成 值不能为空', trigger: 'blur' },
-        ],
-        files: [
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
         comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        ],
+        id: [
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -708,7 +503,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 属性值规则
      *
      * @type {*}
-     * @memberof CompleteFormMobBase
+     * @memberof ClosePauseCancelFormMobBase
      */
     public deRules:any = {
     };
@@ -718,7 +513,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof CompleteFormMobBase
+     * @memberof ClosePauseCancelFormMobBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -783,14 +578,14 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 详情模型集合
      *
      * @type {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.completeformmob_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.closepausecancelformmob_form', extractMode: 'ITEM', details: [] } })
 , 
-        group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.completeformmob_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.closepausecancelformmob_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -810,21 +605,9 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        totaltime: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        finisheddate: new FormItemModel({ caption: '实际完成', detailType: 'FORMITEM', name: 'finisheddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -833,7 +616,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -845,7 +628,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -857,7 +640,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -869,7 +652,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -881,7 +664,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -893,7 +676,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -905,7 +688,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -917,7 +700,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -925,99 +708,27 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     }
 
     /**
-     * 监控表单属性 id 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 consumed 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.consumed')
-    onConsumedChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'consumed', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 currentconsumed 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.currentconsumed')
-    onCurrentconsumedChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'currentconsumed', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 totaltime 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.totaltime')
-    onTotaltimeChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'totaltime', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assignedto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 finisheddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.finisheddate')
-    onFinisheddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'finisheddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 files 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof CompleteFormMob
-     */
-    @Watch('data.files')
-    onFilesChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 comment 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     @Watch('data.comment')
     onCommentChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 id 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ClosePauseCancelFormMob
+     */
+    @Watch('data.id')
+    onIdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1026,7 +737,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -1052,7 +763,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -1070,19 +781,6 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 
 
 
-
-
-
-
-
-
-
-        if (Object.is(name, 'currentconsumed')) {
-            const details: string[] = ['totaltime'];
-            if(await this.validItem('currentconsumed', this.data[currentconsumed])){
-                this.updateFormItems('CalcTime', this.data, details, true);
-            }
-        }
     }
 
 
@@ -1111,7 +809,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
@@ -1134,7 +832,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1152,7 +850,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -1168,7 +866,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1193,7 +891,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @protected
      * @param {*} data
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1209,7 +907,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 重置草稿表单状态
      *
      * @private
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1221,7 +919,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * 重置校验结果
      *
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1237,7 +935,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1255,10 +953,10 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['consumed_item', 'currentconsumed_item', 'totaltime_item', 'assignedto_item', 'finisheddate_item', 'files_item', 'comment_item', ];
+        const refArr: Array<string> = ['comment_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1273,7 +971,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 获取全部值
      *
      * @returns {*}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected getValues(): any {
         return this.data;
@@ -1284,7 +982,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1302,7 +1000,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1320,7 +1018,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1332,7 +1030,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected created(): void {
         this.afterCreated();
@@ -1341,7 +1039,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * 执行created后的逻辑
      *
-     *  @memberof CompleteFormMob
+     *  @memberof ClosePauseCancelFormMob
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1394,7 +1092,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * vue 生命周期
      *
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1403,7 +1101,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1418,7 +1116,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof CompleteFormMob
+     * @memberof @memberof ClosePauseCancelFormMob
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1428,7 +1126,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1451,7 +1149,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1473,7 +1171,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1501,7 +1199,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1535,7 +1233,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -1579,7 +1277,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -1675,7 +1373,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -1698,7 +1396,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -1725,7 +1423,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1765,7 +1463,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * 回车事件
      *
      * @param {*} $event
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected onEnter($event: any): void {
     }
@@ -1776,7 +1474,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -1794,7 +1492,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1813,7 +1511,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1828,7 +1526,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof CompleteFormMob
+    * @memberof ClosePauseCancelFormMob
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -1851,14 +1549,14 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 
     /**
      * 新建默认值
-     * @memberof CompleteFormMob
+     * @memberof ClosePauseCancelFormMob
      */
     public createDefault(){                    
     }
 
         /**
      * 更新默认值
-     * @memberof CompleteFormMobBase
+     * @memberof ClosePauseCancelFormMobBase
      */
     public updateDefault(){                    
     }
@@ -1887,5 +1585,5 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 </script>
 
 <style lang='less'>
-@import './complete-form-mob-form.less';
+@import './close-pause-cancel-form-mob-form.less';
 </style>

@@ -20,8 +20,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '3dceefbdc55213c1c17b2eb35095fb3c',
+                '20d9ad91186fc647b9fd98d0b562341b',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
+                '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -105,6 +108,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '20d9ad91186fc647b9fd98d0b562341b',
+            viewmodule: 'ibiz',
+            viewname: 'TaskStopMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '2771dfa8ed94c48f35d293293bfbf6ac',
             viewmodule: 'ibiz',
             viewname: 'BuildMobPickupMDView',
@@ -142,12 +155,32 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3dceefbdc55213c1c17b2eb35095fb3c',
+            viewmodule: 'ibiz',
+            viewname: 'TaskCancelMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '46c4b323d60fd1658313b26c6b3ac34d',
             viewmodule: 'ibiz',
             viewname: 'TestSuiteMobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '4a68a7fca37b1f7d3cf396c66fd2347a',
+            viewmodule: 'ibiz',
+            viewname: 'TaskCloseMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
@@ -348,8 +381,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '3dceefbdc55213c1c17b2eb35095fb3c',
+                '20d9ad91186fc647b9fd98d0b562341b',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
+                '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },

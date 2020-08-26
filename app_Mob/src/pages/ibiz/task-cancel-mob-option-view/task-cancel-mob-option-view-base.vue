@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'task-com-mob-option-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'task-cancel-mob-option-view': true }">
     
     <ion-header>
         <ion-toolbar class="ionoc-view-header">
@@ -32,13 +32,13 @@ import TaskUIService from '@/ui-service/task/task-ui-action';
     components: {
     },
 })
-export default class TaskComMobOptionViewBase extends Vue {
+export default class TaskCancelMobOptionViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -46,7 +46,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected appEntityService: TaskService = new TaskService();
 
@@ -54,7 +54,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type TaskUIService
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
@@ -63,7 +63,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -74,7 +74,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     @Prop() protected _context!: string;
 
@@ -82,7 +82,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -90,7 +90,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -98,15 +98,15 @@ export default class TaskComMobOptionViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TaskComMobOptionViewBase
+	 * @memberof TaskCancelMobOptionViewBase
 	 */
-	protected viewtag: string = '78beacb29481bfa83dfce62ac4bd9d13';
+	protected viewtag: string = '3dceefbdc55213c1c17b2eb35095fb3c';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected context: any = {};
 
@@ -114,7 +114,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected viewparams: any = {};
 
@@ -123,7 +123,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected navContext: any = {};
 
@@ -132,7 +132,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected navParam: any = {};
 
@@ -140,11 +140,11 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected model: any = {
-        srfTitle: '任务选项操作视图（完成）',
-        srfCaption: 'task.views.commoboptionview.caption',
+        srfTitle: '任务选项操作视图（取消）',
+        srfCaption: 'task.views.cancelmoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -156,7 +156,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TaskComMobOptionViewBase
+     * @memberof  TaskCancelMobOptionViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -185,7 +185,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -195,7 +195,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -204,7 +204,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -212,14 +212,14 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -232,7 +232,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -246,7 +246,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 引擎初始化
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected engineInit(): void {
     }
@@ -254,7 +254,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected created() {
         this.afterCreated();
@@ -263,7 +263,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     public activated() {
         this.afterMounted();
@@ -272,7 +272,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -285,7 +285,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -294,7 +294,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -303,7 +303,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -317,7 +317,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -326,7 +326,7 @@ export default class TaskComMobOptionViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -344,7 +344,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if (this.viewDefaultUsage === "routerView" ) {
@@ -361,7 +361,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -373,7 +373,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TaskComMobOptionViewBase
+     * @memberof TaskCancelMobOptionViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -394,5 +394,5 @@ export default class TaskComMobOptionViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './task-com-mob-option-view.less';
+@import './task-cancel-mob-option-view.less';
 </style>
