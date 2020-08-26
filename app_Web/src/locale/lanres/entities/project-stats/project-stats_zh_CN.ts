@@ -135,10 +135,6 @@ export default {
 			caption: "添加项目",
 			tip: "添加项目",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

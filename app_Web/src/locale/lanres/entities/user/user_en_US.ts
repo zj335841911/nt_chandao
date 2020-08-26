@@ -171,10 +171,6 @@ export default {
 			caption: "同步账号",
 			tip: "同步账号",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

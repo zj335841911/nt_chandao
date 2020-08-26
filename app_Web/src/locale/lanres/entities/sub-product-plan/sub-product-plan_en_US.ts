@@ -74,10 +74,6 @@ export default {
 			caption: "创建计划",
 			tip: "创建计划",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

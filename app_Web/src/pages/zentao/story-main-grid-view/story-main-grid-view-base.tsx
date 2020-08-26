@@ -117,10 +117,8 @@ export class StoryMainGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction1_create: { name: 'deuiaction1_create', caption: '新建需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建需求', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction4: { name: 'deuiaction4', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
-        seperator3: {  name: 'seperator3', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction3: { name: 'deuiaction3', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };

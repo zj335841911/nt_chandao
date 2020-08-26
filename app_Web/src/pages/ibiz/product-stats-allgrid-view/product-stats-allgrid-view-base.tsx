@@ -106,7 +106,6 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction3_addproduct: { name: 'deuiaction3_addproduct', caption: '添加产品', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加产品', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PRODSTA_ADDPROD_BUT', uiaction: { tag: 'AddProduct', target: 'NONE', class: '' } },
 
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },

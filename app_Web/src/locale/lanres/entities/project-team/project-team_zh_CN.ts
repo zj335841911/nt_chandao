@@ -67,10 +67,6 @@ export default {
 			caption: "团队管理",
 			tip: "团队管理",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

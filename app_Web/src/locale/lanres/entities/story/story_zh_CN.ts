@@ -861,10 +861,6 @@ export default {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -895,33 +891,17 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction3: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction4: {
 			caption: "按照计划关联",
 			tip: "按照计划关联",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction5: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -933,33 +913,17 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction3: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction4: {
 			caption: "按照计划关联",
 			tip: "按照计划关联",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction5: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -1001,17 +965,9 @@ export default {
 			caption: "新建需求",
 			tip: "新建需求",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction3: {
 			caption: "过滤",

@@ -105,7 +105,6 @@ export class ReleaseGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction3_quickcreate: { name: 'deuiaction3_quickcreate', caption: '创建发布', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建发布', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PRODSTA_RELCRT_BUT', uiaction: { tag: 'quickCreate', target: 'NONE', class: '' } },
 
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
