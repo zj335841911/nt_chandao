@@ -93,6 +93,8 @@ export default class MobEditViewEngine extends ViewEngine {
     public onFormLoad(arg: any): void {
         this.view.$emit('load', arg);
         this.view.$emit('viewdataschange', JSON.stringify({ action: 'load', status: 'success', data: arg }));
+        const newdata: boolean = !Object.is(arg.srfuf, '1');
+        this.calcToolbarItemState(newdata);
         this.calcToolbarItemAuthState(arg);
     }
 
@@ -105,6 +107,8 @@ export default class MobEditViewEngine extends ViewEngine {
     public onFormSave(arg: any): void {
         this.view.$emit('save', arg);
         this.view.$emit('viewdataschange', JSON.stringify({ action: 'save', status: 'success', data: arg }));
+        const newdata: boolean = !Object.is(arg.srfuf, '1');
+        this.calcToolbarItemState(newdata);
         this.calcToolbarItemAuthState(arg);
     }
 
