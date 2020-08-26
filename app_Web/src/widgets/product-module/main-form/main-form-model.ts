@@ -81,14 +81,14 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
-      },
-      {
         name: 'root',
         prop: 'root',
         dataType: 'PICKUP',
+      },
+      {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'parent',

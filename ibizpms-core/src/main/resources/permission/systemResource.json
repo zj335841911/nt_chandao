@@ -523,6 +523,11 @@
        }
         ,
        {
+            "unirescode":"UNIVERSALEDIT",
+            "uniresname":"通用编辑"
+       }
+        ,
+       {
             "unirescode":"STORY_REVIEW_BUT",
             "uniresname":"需求评审"
        }

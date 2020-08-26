@@ -87,8 +87,8 @@ export class MainEditFormBase extends EditFormControlBase {
         name: null,
         short: null,
         order: null,
-        id: null,
         root: null,
+        id: null,
         parent: null,
         productmodule:null,
     };
@@ -140,7 +140,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        rootname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'rootname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        rootname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'rootname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         branch: new FormItemModel({ caption: '平台', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -152,9 +152,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
         order: new FormItemModel({ caption: '排序值', detailType: 'FORMITEM', name: 'order', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
-
         root: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'root', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         parent: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

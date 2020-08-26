@@ -7,7 +7,7 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
 
 /**
- * 用例库分页导航视图视图基类
+ * 用例库视图基类
  *
  * @export
  * @class IbzLibTabExpViewBase

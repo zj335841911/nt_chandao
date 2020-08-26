@@ -30,7 +30,7 @@ export default {
 		},
 		tabexpview: {
 			caption: "用例库",
-      		title: "用例库分页导航视图",
+      		title: "用例库",
 		},
 	},
 	desc_form: {

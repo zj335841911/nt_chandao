@@ -2608,7 +2608,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "ebf37bf3881bb27c09db9bbe5d0b0f77"
         },
         "ibzlibtabexpview": {
-            "title": "用例库分页导航视图",
+            "title": "用例库",
             "caption": "用例库",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "ibiz",

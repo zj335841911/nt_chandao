@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Editlib: { name: 'Editlib',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEDATA'},
+        Editlib: { name: 'Editlib',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'},
         Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
     };
 

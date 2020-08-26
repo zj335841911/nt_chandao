@@ -57,8 +57,8 @@ export default {
 			name: "名称", 
 			short: "简称", 
 			order: "排序值", 
-			id: "id", 
 			root: "产品", 
+			id: "id", 
 			parent: "id", 
 		},
 		uiactions: {

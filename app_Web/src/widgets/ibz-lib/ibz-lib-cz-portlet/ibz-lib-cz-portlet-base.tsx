@@ -207,7 +207,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__ADMIN',
-        actiontarget:'SINGLEDATA',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
