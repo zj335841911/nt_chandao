@@ -275,10 +275,10 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDView 
      */
     get getToolBarLimit() {
-        let toolBarVisable:boolean;
+        let toolBarVisable:boolean = true;
         if(this.righttoolbarModels){
             toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem] === true;
+                return this.righttoolbarModels[tbitem].visabled === true;
             })
         } else{
             toolBarVisable = false;
