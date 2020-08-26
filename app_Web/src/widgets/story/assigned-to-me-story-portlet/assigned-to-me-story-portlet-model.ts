@@ -171,6 +171,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
     ]
   }
 

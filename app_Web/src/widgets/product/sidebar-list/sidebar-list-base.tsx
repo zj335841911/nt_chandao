@@ -80,13 +80,5 @@ export class SidebarListBase extends ListControlBase {
      * @type {string}
      * @memberof SidebarListBase
      */
-    public minorSortDir: string = 'DESC';
-
-    /**
-     * 排序字段
-     *
-     * @type {string}
-     * @memberof SidebarListBase
-     */
-    public minorSortPSDEF: string = 'id';
+    public minorSortDir: string = '';
 }

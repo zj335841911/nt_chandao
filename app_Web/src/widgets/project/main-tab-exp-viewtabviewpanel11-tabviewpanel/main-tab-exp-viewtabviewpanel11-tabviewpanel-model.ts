@@ -168,6 +168,9 @@ export default class MainTabExpViewtabviewpanel11Model {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 

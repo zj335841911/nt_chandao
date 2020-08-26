@@ -168,6 +168,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 

@@ -43,11 +43,14 @@
 
     <!--数据集合[CurUer]-->
 	 <select id="searchCurUer"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductSearchContext"  resultMap="ProductResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="CurUer" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by order  desc , id   desc
      </select>
 
     <!--数据集合[Default]-->

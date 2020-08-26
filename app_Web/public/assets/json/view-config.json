@@ -79,6 +79,16 @@
         "viewtag": "0568d197dda832ceb89ad0442ab9f230",
         "memo": ""
     },
+    "projectstorymeditview9": {
+        "title": "项目多表单编辑视图（需求相关）",
+        "caption": "需求相关",
+        "viewtype": "DEMEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProjectStoryMEditView9",
+        "viewfilename": "project-story-medit-view9",
+        "viewtag": "0626fb8e7d46da2437209b658d8f51c2",
+        "memo": ""
+    },
     "storypickupgridview4": {
         "title": "需求",
         "caption": "需求",
@@ -337,6 +347,16 @@
         "viewname": "ProductPlanSubPlanCreateView",
         "viewfilename": "product-plan-sub-plan-create-view",
         "viewtag": "170c1d558f26cf37236390b28f8aca82",
+        "memo": ""
+    },
+    "buggridview9_storyaffect": {
+        "title": "相关Bug",
+        "caption": "相关Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_Storyaffect",
+        "viewfilename": "bug-grid-view9-storyaffect",
+        "viewtag": "174408669d176924efbb3227d0784e93",
         "memo": ""
     },
     "productplanmaineditview": {
@@ -647,6 +667,16 @@
         "viewname": "CaseGridView9_My",
         "viewfilename": "case-grid-view9-my",
         "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a",
+        "memo": ""
+    },
+    "casegridview9_storyaffect": {
+        "title": "相关用例",
+        "caption": "相关用例",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseGridView9_Storyaffect",
+        "viewfilename": "case-grid-view9-storyaffect",
+        "viewtag": "3458603afa6fef36eda88e9f794840f5",
         "memo": ""
     },
     "tasksubtasknewview": {
@@ -1319,6 +1349,16 @@
         "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e",
         "memo": ""
     },
+    "projectstoryeditview9": {
+        "title": "项目编辑视图（需求相关）",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProjectStoryEditView9",
+        "viewfilename": "project-story-edit-view9",
+        "viewtag": "5bd10fe33398f9552892c6d217135f8e",
+        "memo": ""
+    },
     "deptmaingridview": {
         "title": "部门",
         "caption": "部门",
@@ -1847,6 +1887,16 @@
         "viewname": "ProjectGridView",
         "viewfilename": "project-grid-view",
         "viewtag": "846ddf8e555650608d4f75c4595c1270",
+        "memo": ""
+    },
+    "taskgridview9_project": {
+        "title": "任务表格视图",
+        "caption": "相关任务",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskGridView9_Project",
+        "viewfilename": "task-grid-view9-project",
+        "viewtag": "85e834a5eec7818746a2425f39d82630",
         "memo": ""
     },
     "projectmaindashboardview": {

@@ -168,6 +168,9 @@ export default class ProjectExpViewModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
     ]
   }
 

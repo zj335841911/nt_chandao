@@ -27,45 +27,6 @@ export default class StoryRelatedModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'TEXT',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -76,9 +37,9 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
         },
         {
           name: 'title',
@@ -86,13 +47,18 @@ export default class StoryRelatedModel {
           dataType: 'TEXT',
         },
         {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
         },
         {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
+          name: 'frombug',
+          prop: 'frombug',
           dataType: 'PICKUP',
         },
         {
@@ -101,9 +67,28 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'lasteditedby',
-          prop: 'lasteditedby',
+          name: 'fromcaseid',
+          prop: 'fromcaseid',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'case',

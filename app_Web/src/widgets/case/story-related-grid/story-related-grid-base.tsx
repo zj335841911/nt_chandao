@@ -126,14 +126,6 @@ export class StoryRelatedGridBase extends GridControlBase {
     public limit: number = 500;
 
     /**
-     * 是否显示标题
-     *
-     * @type {boolean}
-     * @memberof StoryRelatedGridBase
-     */
-    public isHideHeader: boolean = true;
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -154,30 +146,6 @@ export class StoryRelatedGridBase extends GridControlBase {
             langtag: 'entities.case.storyrelated_grid.columns.title',
             show: true,
             unit: 'STAR',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'status',
-            label: '状态',
-            langtag: 'entities.case.storyrelated_grid.columns.status',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'openedby',
-            label: '由谁创建',
-            langtag: 'entities.case.storyrelated_grid.columns.openedby',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'lasteditedby',
-            label: '最后修改者',
-            langtag: 'entities.case.storyrelated_grid.columns.lasteditedby',
-            show: true,
-            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -216,9 +184,6 @@ export class StoryRelatedGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'pri':false,
         'title':false,
-        'status':false,
-        'openedby':false,
-        'lasteditedby':false,
     };
 
     /**
@@ -251,22 +216,6 @@ export class StoryRelatedGridBase extends GridControlBase {
                 renderMode: 'other',
                 textSeparator: '、',
                 valueSeparator: ',',
-            },
-            {
-                name: 'status',
-                srfkey: 'Testcase__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'openedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
             },
         ]);
     }

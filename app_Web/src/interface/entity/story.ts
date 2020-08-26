@@ -421,4 +421,12 @@ export interface Story {
      * @memberof Story
      */
     preversion?: any;
+
+    /**
+     * 不需要评审
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    neednotreview?: any;
 }

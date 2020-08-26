@@ -66,12 +66,19 @@ export default class StorySpec_EditModeModel {
         dataType: 'INT',
       },
       {
+        name: 'assignedto',
+        prop: 'assignedto',
+        dataType: 'TEXT',
+      },
+      {
         name: 'reviewedby',
         prop: 'reviewedby',
         dataType: 'SMCODELIST',
       },
       {
-        name: 'notreview',
+        name: 'neednotreview',
+        prop: 'neednotreview',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'title',

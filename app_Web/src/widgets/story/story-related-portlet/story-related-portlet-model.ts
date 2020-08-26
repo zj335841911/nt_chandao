@@ -171,6 +171,9 @@ export default class StoryRelatedModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
     ]
   }
 
