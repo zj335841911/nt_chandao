@@ -15,7 +15,32 @@
 
 
     <ion-content>
-                <div>暂不支持</div>
+                <div class="view-container demoboptview task-com-mob-option-view">
+            <div class='view-card   view-no-toolbar' dis-hover :padding="0" :bordered="false">
+                <div class="content-container">
+                    <view_form
+                        :viewState="viewState"
+                        viewName="TaskComMobOptionView"  
+                        :viewparams="viewparams" 
+                        :context="context" 
+                        :autosave="false" 
+                        :viewtag="viewtag"
+                        :showBusyIndicator="true"
+                        updateAction="Finish"
+                        removeAction="Remove"
+                        loaddraftAction="GetDraft"
+                        loadAction="Get"
+                        createAction="Finish"
+                        WFSubmitAction=""
+                        WFStartAction=""
+                        style='' 
+                        name="form"  
+                        ref='form' 
+                        @closeview="closeView($event)">
+                    </view_form>
+                </div>
+            </div>
+        </div>
     </ion-content>
 </ion-page>
 </template>
