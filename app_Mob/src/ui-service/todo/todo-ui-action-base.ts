@@ -255,14 +255,13 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-        const view: any = { 
-            viewname: 'todo-new-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '快速新建', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.openService.openModal(view, _context, _params);
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
         if (response) {
             if (xData && xData.refresh && xData.refresh instanceof Function) {
                 xData.refresh(args);

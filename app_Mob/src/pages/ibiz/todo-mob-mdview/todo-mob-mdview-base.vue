@@ -46,7 +46,7 @@
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
                 <ion-icon name="add"></ion-icon>
-            {{$t('todo.mobmdviewrighttoolbar_toolbar.deuiaction1.caption')}}    
+                
             </ion-fab-button>
         
             </ion-fab>
@@ -283,7 +283,7 @@ export default class TodoMobMDViewBase extends Vue {
     * @memberof TodoMobMDView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'TodoCreateMob', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'TodoCreateMob', target: 'NONE' } },
 
     };
 
@@ -583,14 +583,13 @@ export default class TodoMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const view: any = { 
-            viewname: 'todo-new-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '快速新建', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.globaluiservice.openService.openModal(view, _context, _params);
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;
