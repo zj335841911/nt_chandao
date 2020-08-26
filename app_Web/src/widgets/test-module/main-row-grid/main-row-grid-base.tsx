@@ -121,7 +121,7 @@ export class MainRowGridBase extends GridControlBase {
      * @memberof MainRowBase
      */  
     public ActionModel: any = {
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'MULTIKEY'}
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
     };
 
     /**
