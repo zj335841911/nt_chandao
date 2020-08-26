@@ -445,6 +445,9 @@ export default {
 		columns: {
 			pri: "P",
 			title: "用例标题",
+			status: "状态",
+			openedby: "由谁创建",
+			lasteditedby: "最后修改者",
 		},
 		uiactions: {
 		},

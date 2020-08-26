@@ -101,6 +101,11 @@ export default class ReviewModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

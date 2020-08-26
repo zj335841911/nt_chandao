@@ -37,6 +37,11 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'task',
           prop: 'task',
           dataType: 'PICKUP',
@@ -50,6 +55,11 @@ export default class StoryRelatedModel {
           name: 'tostory',
           prop: 'tostory',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
@@ -74,6 +84,11 @@ export default class StoryRelatedModel {
           name: 'duplicatebug',
           prop: 'duplicatebug',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'id',
@@ -111,6 +126,11 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'entry',
           prop: 'entry',
           dataType: 'PICKUP',
@@ -124,6 +144,11 @@ export default class StoryRelatedModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'lasteditedby',
+          prop: 'lasteditedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'bug',

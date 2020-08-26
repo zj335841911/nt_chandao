@@ -74,7 +74,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof ReviewEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 3;
 
     /**
      * 表单数据对象
@@ -100,6 +100,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
         assignedto: null,
         version: null,
         reviewedby: null,
+        comment: null,
         id: null,
         story:null,
     };
@@ -157,7 +158,15 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
         tabpage1: new FormTabPageModel({ caption: '影响项目', detailType: 'TABPAGE', name: 'tabpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         tabpage2: new FormTabPageModel({ caption: '影响Bug', detailType: 'TABPAGE', name: 'tabpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         tabpage3: new FormTabPageModel({ caption: '影响用例', detailType: 'TABPAGE', name: 'tabpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -203,6 +212,8 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
@@ -233,6 +244,10 @@ export class ReviewEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel3.setVisible(ret);
         }
+
+
+
+
 
 
 
@@ -289,6 +304,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 return false;
             });
         }
+
 
 
 

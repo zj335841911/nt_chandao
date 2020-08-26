@@ -1,8 +1,6 @@
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
     <i-form>
     <el-table v-if="isDisplay === true"
-        :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
-        @sort-change="onSortChange($event)"  
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
@@ -24,7 +22,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.case.storyrelated_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.case.storyrelated_grid.columns.pri')" :width="70"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.storyrelated_grid.columns.pri')}}
@@ -38,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.storyrelated_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.storyrelated_grid.columns.title')" :min-width="1"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.storyrelated_grid.columns.title')}}
@@ -54,6 +52,46 @@
             ]}" valueitem="srfkey">
                             <span>{{row.title}}</span>
                         </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('status')">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.case.storyrelated_grid.columns.status')" :width="100"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.storyrelated_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.status" tag='Testcase__status' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('openedby')">
+                <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.case.storyrelated_grid.columns.openedby')" :width="100"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.storyrelated_grid.columns.openedby')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('lasteditedby')">
+                <el-table-column show-overflow-tooltip :prop="'lasteditedby'" :label="$t('entities.case.storyrelated_grid.columns.lasteditedby')" :width="100"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.storyrelated_grid.columns.lasteditedby')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.lasteditedby}}</span>
                     </template>
                 </el-table-column>
             </template>
