@@ -93,10 +93,6 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'New',
-			tip: 'tbitem1',
-		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

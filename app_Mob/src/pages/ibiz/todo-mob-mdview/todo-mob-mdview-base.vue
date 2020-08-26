@@ -43,13 +43,6 @@
             <div class="bottom_menu">
         
         
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
-                <ion-icon name="add"></ion-icon>
-                
-            </ion-fab-button>
-        
-            </ion-fab>
             </div>
         </div>
         
@@ -283,8 +276,6 @@ export default class TodoMobMDViewBase extends Vue {
     * @memberof TodoMobMDView
     */
     public righttoolbarModels: any = {
-            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '' } },
-
     };
 
     /**
@@ -513,48 +504,6 @@ export default class TodoMobMDViewBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TodoMobMDViewBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem1')) {
-            this.righttoolbar_tbitem1_click($event, '', $event2);
-        }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TodoMobMDViewBase
-     */
-    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.mdctrl;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.New(datas, contextJO, paramJO, $event, xData, this);
-    }
 
     /**
      * 打开新建数据视图
