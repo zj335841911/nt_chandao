@@ -387,4 +387,11 @@ export class ViewTool {
     public setViewTitleOfThirdParty(title:string) {
         this.thirdPartyService.setTitle(title);
     }
+
+    /**
+     * 获取第三方服务名称
+     */
+    public getThirdPartyName(): any {
+        return this.thirdPartyService.platform
+    }
 }

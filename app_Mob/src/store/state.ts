@@ -10,6 +10,7 @@ export const rootstate: any = {
     selectTheme: '',
     selectFont: '',
     appdata: '',
+    thirdPartyName:'',
     localdata: {},
     zIndex: 300,
 }

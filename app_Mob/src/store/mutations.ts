@@ -226,6 +226,16 @@ export const removeOtherPage = (state: any) => {
 }
 
 /**
+ * 设置第三方应用名称 
+ * 
+ * @param state 
+ * @param name 
+ */
+export const setThirdPartyName = (state: any, name: any) => {
+    state.thirdPartyName = name;
+}
+
+/**
  * 更新 z-index 
  * 
  * @param state 

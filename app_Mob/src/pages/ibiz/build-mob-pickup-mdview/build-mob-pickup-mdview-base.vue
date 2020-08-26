@@ -139,6 +139,13 @@ export default class BuildMobPickupMDViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 标题状态
+     *
+     * @memberof BuildMobPickupMDViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -199,6 +206,18 @@ export default class BuildMobPickupMDViewBase extends Vue {
     @Watch('_viewparams')
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+    }
+
+    /**
+     * 设置工具栏状态
+     *
+     * @memberof BuildMobPickupMDViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
     }
 
     /**
@@ -313,6 +332,7 @@ export default class BuildMobPickupMDViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 

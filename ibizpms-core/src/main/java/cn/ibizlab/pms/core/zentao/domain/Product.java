@@ -300,6 +300,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "mobimage")
     @JsonProperty("mobimage")
     private String mobimage;
+    /**
+     * 排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
 
     /**
      * 产品线

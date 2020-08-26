@@ -169,6 +169,13 @@ export default class ProductMobEditViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 标题状态
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -232,6 +239,18 @@ export default class ProductMobEditViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -291,11 +310,9 @@ export default class ProductMobEditViewBase extends Vue {
     get getToolBarLimit() {
         let toolBarVisable:boolean = true;
         if(this.righttoolbarModels){
-            toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem].visabled === true;
+            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem].visabled === false;
             })
-        } else{
-            toolBarVisable = false;
         }
         return toolBarVisable;
     }
@@ -387,6 +404,7 @@ export default class ProductMobEditViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
         if(this.$route && this.$route.query && this.$route.query.bsinfo){
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);

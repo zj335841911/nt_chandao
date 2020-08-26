@@ -60,6 +60,16 @@ export const getPage = (state: any) => (arg: any) => {
 }
 
 /**
+ * 获取第三方应用名称
+ * 
+ * @param state 
+ */
+export const getThirdPartyName = (state: any) =>() => {
+    return state.thirdPartyName;
+}
+
+
+/**
  * 获取 z-index 
  * 
  * @param state 

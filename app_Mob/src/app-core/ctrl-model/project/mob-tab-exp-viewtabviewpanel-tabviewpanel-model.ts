@@ -171,6 +171,9 @@ export class MobTabExpViewtabviewpanelModel {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 
