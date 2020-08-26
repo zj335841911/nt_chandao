@@ -12,7 +12,18 @@ zuul:
       path: /ibizutil/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-
+    dingtalktoken:
+      path: /uaa/open/dingtalk/access_token
+      serviceId: ${ibiz.ref.service.uaa:pms-webapi}
+      stripPrefix: false
+    dingtalkauth:
+      path:  /uaa/open/dingtalk/auth/**
+      serviceId: ${ibiz.ref.service.uaa:pms-webapi}
+      stripPrefix: false
+    guest:
+      path:  /login/guest
+      serviceId: ${ibiz.ref.service.uaa:pms-webapi}
+      stripPrefix: false
 environment:
   - TZ=Asia/Shanghai
 
