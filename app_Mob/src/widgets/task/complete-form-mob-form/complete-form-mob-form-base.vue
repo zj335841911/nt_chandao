@@ -1076,13 +1076,6 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 
 
 
-
-        if (Object.is(name, 'currentconsumed')) {
-            const details: string[] = ['totaltime'];
-            if(await this.validItem('currentconsumed', this.data[currentconsumed])){
-                this.updateFormItems('CalcTime', this.data, details, true);
-            }
-        }
     }
 
 
