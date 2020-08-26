@@ -38,8 +38,8 @@
             <div class="bottom_menu">
         
         
-            <ion-fab>
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="add"></ion-icon></ion-fab-button>
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
                 <ion-fab-list class="fab-list" side="top">
                 
         
@@ -273,6 +273,26 @@ export default class ProductMobEditViewBase extends Vue {
      * @memberof ProductMobEditView 
      */
     public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean;
+        if(this.righttoolbarModels){
+            toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem] === true;
+            })
+        } else{
+            toolBarVisable = false;
+        }
+        return toolBarVisable;
+    }
+
+    
 
 
     /**

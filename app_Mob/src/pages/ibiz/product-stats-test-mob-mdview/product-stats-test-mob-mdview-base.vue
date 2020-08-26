@@ -267,6 +267,8 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
 
     };
 
+    
+
 
     /**
      * 工具栏模型集合名

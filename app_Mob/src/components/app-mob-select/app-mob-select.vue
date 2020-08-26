@@ -1,6 +1,6 @@
 <template>
     <div v-if="overload" class="app-mobile-select"  >
-        <ion-icon v-if="curValue" name="close-outline" @click="clear"></ion-icon>
+        <div class="cancel-icon" v-if="curValue"><ion-icon name="close-outline" @click="clear"></ion-icon></div>
         <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
         <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')">
               <template v-if="codeListType == 'DYNAMIC'">

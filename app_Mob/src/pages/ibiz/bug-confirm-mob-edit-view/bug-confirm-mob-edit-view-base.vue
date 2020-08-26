@@ -47,7 +47,7 @@
             <div class="bottom_menu">
         
         
-            <ion-fab>
+            <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
                 <ion-icon name="done-all"></ion-icon>
                 
@@ -270,6 +270,26 @@ export default class BugConfirmMobEditViewBase extends Vue {
      * @memberof BugConfirmMobEditView 
      */
     public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BugConfirmMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean;
+        if(this.righttoolbarModels){
+            toolBarVisable = Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem] === true;
+            })
+        } else{
+            toolBarVisable = false;
+        }
+        return toolBarVisable;
+    }
+
+    
 
 
     /**

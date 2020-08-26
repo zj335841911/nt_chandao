@@ -260,6 +260,8 @@ export default class ProjectMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+    
+
 
     /**
      * 工具栏模型集合名
