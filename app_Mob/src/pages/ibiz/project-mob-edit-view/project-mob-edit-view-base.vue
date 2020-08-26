@@ -54,12 +54,12 @@
             </ion-fab-button>
         
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3.visabled" :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">
-                <ion-icon name="close"></ion-icon>
+                <ion-icon name="power"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}    
             </ion-fab-button>
         
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction4.visabled" :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">
-                <ion-icon name="remove"></ion-icon>
+                <ion-icon name="close"></ion-icon>
             {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}    
             </ion-fab-button>
         
