@@ -53,6 +53,22 @@ export default class CircleProgress extends Vue {
      * 当前进度
      */
     @Prop() progress:any;
+
+    /**
+     * 监听总数
+     */
+    @Watch('total')
+    public change() {
+        this.initData();
+    }
+
+    /**
+     * 监听进度
+     */
+    @Watch('progress')
+    public changeProgress() {
+        this.initData();
+    }
     /**
      * 进度百分比
      */
@@ -73,8 +89,11 @@ export default class CircleProgress extends Vue {
      * 数据初始化
      */
     public initData() {
-        if(this.total && this.total!=0) {
-            this.percent = this.progress / this.total;
+        if(this.total) {
+            this.percent = (this.progress / this.total) * 100;
+        }
+        if(this.total === 0) {
+            this.percent = 0;
         }
         if(this.strokeColor) {
             this.color = "rgba(" + this.strokeColor.toString().substr(0, this.strokeColor.length-1) + '-rgb)' + ", 0.36)";
