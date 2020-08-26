@@ -328,8 +328,8 @@ export class EditFormControlBase extends FormControlBase {
             }
             const arg: any = { ...opt };
             const data = this.getValues();
-            Object.assign(arg, data);
             Object.assign(arg, this.context);
+            Object.assign(arg, data);
             if (ifStateNext && this.drCount > 0) {
                 this.drcounter = this.drCount;
                 this.drsaveopt = opt;
