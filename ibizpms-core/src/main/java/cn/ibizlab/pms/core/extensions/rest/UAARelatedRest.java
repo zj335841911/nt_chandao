@@ -33,7 +33,8 @@ public class UAARelatedRest {
 
     @PostMapping(value="/ztlogin")
     public JSONObject doZTLogin(String uaaloginname, String  token){
-        JSONObject userJO = doZTLogin(uaaloginname, ztpassword, token);
+        User user = getZTUserInfo(uaaloginname);
+        JSONObject userJO = doZTLogin(user.getAccount(), ztpassword, token);
         return userJO;
     }
 
@@ -57,9 +58,9 @@ public class UAARelatedRest {
         }
         IUserService userService = SpringContextHolder.getBean(IUserService.class);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("account",loginname).or().eq("commiter", loginname);
-        //兼容测试环境及生产环境
-        queryWrapper.eq("account",loginname).or().like("commiter", loginname);
+        queryWrapper.eq("account",loginname).or().eq("commiter", loginname);
+//        //兼容测试环境及生产环境
+//        queryWrapper.eq("account",loginname).or().like("commiter", loginname);
         List<User> users = userService.list(queryWrapper);
 
         User ztUser = null;
