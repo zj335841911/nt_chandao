@@ -104,10 +104,6 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",

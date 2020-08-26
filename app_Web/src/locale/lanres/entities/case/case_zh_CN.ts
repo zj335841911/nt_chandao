@@ -599,10 +599,6 @@ export default {
 			caption: "关联用例",
 			tip: "关联用例",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction7: {
 			caption: "导出",
 			tip: "导出",
@@ -631,10 +627,6 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
@@ -658,10 +650,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "导出",

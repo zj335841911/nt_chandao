@@ -128,10 +128,6 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",

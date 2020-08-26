@@ -163,7 +163,7 @@ export class MainEditFormBase extends EditFormControlBase {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         button1: new FormButtonModel({ caption: '转Bug', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ToBug',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,visabled: true,disabled: false} }),
+ tag: 'ToBug',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__CUTINTBEHAVIOR',visabled: true,disabled: false} }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testresult.main_form', extractMode: 'ITEM', details: [] } }),
 
