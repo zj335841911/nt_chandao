@@ -171,6 +171,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

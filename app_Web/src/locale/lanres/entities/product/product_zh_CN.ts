@@ -36,6 +36,7 @@ export default {
     casecnt: "用例数",
     srfcount: "属性",
     mobimage: "移动端图片",
+    order1: "排序",
   },
 	views: {
 		testtabexpview: {

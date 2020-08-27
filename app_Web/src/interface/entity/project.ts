@@ -421,4 +421,12 @@ export interface Project {
      * @memberof Project
      */
     accounts?: any;
+
+    /**
+     * 项目排序
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    order1?: any;
 }

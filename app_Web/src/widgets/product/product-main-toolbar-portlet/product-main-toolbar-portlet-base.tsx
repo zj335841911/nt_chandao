@@ -195,7 +195,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet5_ua3abd8c_click",
         text: "关闭",
-        iconcls: "fa fa-power-off",
+        iconcls: "power",
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROD_CLOSED_BUT',

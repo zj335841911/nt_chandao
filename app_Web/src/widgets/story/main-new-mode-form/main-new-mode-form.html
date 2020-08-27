@@ -151,27 +151,6 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.neednotreview.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='neednotreview' :itemRules="this.rules.neednotreview" class='' :caption="$t('entities.story.main_newmode_form.details.neednotreview')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.neednotreview.error" :isEmptyCaption="true" labelPos="LEFT">
-    
-<app-checkbox-list 
-  v-model="data.neednotreview" 
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :disabled="detailsModel.neednotreview.disabled" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  tag='NeedNotReviewNew' 
-  codelistType='STATIC' 
-  mode=""
-  name="neednotreview" 
-  style="">
-</app-checkbox-list>
-
-</app-form-item>
-
-</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.main_newmode_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 

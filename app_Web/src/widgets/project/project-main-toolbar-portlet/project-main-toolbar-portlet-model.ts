@@ -171,6 +171,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

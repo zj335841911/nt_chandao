@@ -171,6 +171,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

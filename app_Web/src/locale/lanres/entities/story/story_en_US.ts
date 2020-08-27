@@ -290,7 +290,7 @@ export default {
 			version: "版本#", 
 			assignedto: "由谁评审", 
 			reviewedby: "由谁评审", 
-			neednotreview: "", 
+			neednotreview1: "", 
 			title: "需求名称", 
 			spec: "需求描述", 
 			verify: "验收标准", 

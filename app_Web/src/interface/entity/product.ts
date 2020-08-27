@@ -293,4 +293,12 @@ export interface Product {
      * @memberof Product
      */
     mobimage?: any;
+
+    /**
+     * 排序
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    order1?: any;
 }

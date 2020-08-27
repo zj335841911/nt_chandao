@@ -95,7 +95,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         version: null,
         assignedto: null,
         reviewedby: null,
-        neednotreview: null,
+        neednotreview1: null,
         title: null,
         spec: null,
         verify: null,
@@ -167,7 +167,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        neednotreview1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -188,7 +188,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @memberof StorySpec_EditModeEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-        if (Object.is(name, 'neednotreview')) {
+        if (Object.is(name, 'neednotreview1')) {
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
         if (Object.is(name, 'notreview')) {
@@ -220,10 +220,10 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
+        if (Object.is(name, '') || Object.is(name, 'neednotreview1')) {
             let ret = false;
-            const _neednotreview = this.data.neednotreview;
-            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
+            const _neednotreview1 = this.data.neednotreview1;
+            if (this.$verify.testCond(_neednotreview1, 'ISNULL', '') || this.$verify.testCond(_neednotreview1, 'EQ', '0')) {
                 ret = true;
             }
             this.detailsModel.assignedto.setDisabled(!ret);
@@ -255,8 +255,8 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @memberof StorySpec_EditModeEditFormBase
      */
     public createDefault(){                    
-        if (this.data.hasOwnProperty('neednotreview')) {
-            this.data['neednotreview'] = '0';
+        if (this.data.hasOwnProperty('neednotreview1')) {
+            this.data['neednotreview1'] = '0';
         }
     }
 }

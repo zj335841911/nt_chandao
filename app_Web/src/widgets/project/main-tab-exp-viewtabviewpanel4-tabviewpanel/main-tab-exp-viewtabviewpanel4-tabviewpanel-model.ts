@@ -171,6 +171,9 @@ export default class MainTabExpViewtabviewpanel4Model {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

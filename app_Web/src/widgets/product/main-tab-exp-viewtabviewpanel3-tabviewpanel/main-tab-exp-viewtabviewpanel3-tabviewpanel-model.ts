@@ -123,6 +123,9 @@ export default class MainTabExpViewtabviewpanel3Model {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

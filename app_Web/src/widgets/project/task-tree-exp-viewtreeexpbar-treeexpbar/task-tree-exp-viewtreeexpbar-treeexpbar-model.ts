@@ -171,6 +171,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

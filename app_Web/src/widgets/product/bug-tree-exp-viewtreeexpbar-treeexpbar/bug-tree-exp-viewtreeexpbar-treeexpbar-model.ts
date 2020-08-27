@@ -123,6 +123,9 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

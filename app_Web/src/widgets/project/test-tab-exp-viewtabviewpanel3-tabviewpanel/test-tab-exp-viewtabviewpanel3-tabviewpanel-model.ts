@@ -171,6 +171,9 @@ export default class TestTabExpViewtabviewpanel3Model {
       {
         name: 'accounts',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

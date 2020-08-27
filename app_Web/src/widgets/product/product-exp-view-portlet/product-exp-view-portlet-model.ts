@@ -123,6 +123,9 @@ export default class ProductExpViewModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

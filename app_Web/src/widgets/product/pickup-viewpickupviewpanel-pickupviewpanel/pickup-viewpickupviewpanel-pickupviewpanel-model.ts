@@ -123,6 +123,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 

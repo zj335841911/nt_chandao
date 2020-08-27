@@ -123,6 +123,9 @@ export default class ProductStatusChartModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
     ]
   }
 
