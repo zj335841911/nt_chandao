@@ -126,6 +126,9 @@ export class MobTabExpViewtabviewpanel4Model {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 
