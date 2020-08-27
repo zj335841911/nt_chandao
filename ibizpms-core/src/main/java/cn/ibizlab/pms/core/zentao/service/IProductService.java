@@ -33,8 +33,10 @@ public interface IProductService extends IService<Product>{
     void removeBatch(Collection<BigInteger> idList) ;
     Product get(BigInteger key) ;
     Product getDraft(Product et) ;
+    Product cancelProductTop(Product et) ;
     boolean checkKey(Product et) ;
     Product close(Product et) ;
+    Product productTop(Product et) ;
     boolean save(Product et) ;
     void saveBatch(List<Product> list) ;
     Page<Product> searchCurProject(ProductSearchContext context) ;

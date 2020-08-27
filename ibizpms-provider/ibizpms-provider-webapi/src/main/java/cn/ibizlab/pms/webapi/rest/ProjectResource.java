@@ -135,6 +135,17 @@ domain.setId(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-CancelProjectTop-all')")
+    @ApiOperation(value = "取消置顶", tags = {"项目" },  notes = "取消置顶")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/cancelprojecttop")
+    public ResponseEntity<ProjectDTO> cancelProjectTop(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+domain.setId(project_id);
+        domain = projectService.cancelProjectTop(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
     @ApiOperation(value = "检查项目", tags = {"项目" },  notes = "检查项目")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProjectDTO projectdto) {
@@ -174,13 +185,13 @@ domain.setId(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ProductTop-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ProjectTop-all')")
     @ApiOperation(value = "置顶", tags = {"项目" },  notes = "置顶")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/producttop")
-    public ResponseEntity<ProjectDTO> productTop(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projecttop")
+    public ResponseEntity<ProjectDTO> projectTop(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
 domain.setId(project_id);
-        domain = projectService.productTop(domain);
+        domain = projectService.projectTop(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }

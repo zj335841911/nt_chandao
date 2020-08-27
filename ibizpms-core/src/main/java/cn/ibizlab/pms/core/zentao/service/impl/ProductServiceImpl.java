@@ -100,6 +100,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductCancelProductTopLogic cancelproducttopLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -175,6 +179,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
+    @Transactional
+    public Product cancelProductTop(Product et) {
+        cancelproducttopLogic.execute(et);
+         return et ;
+    }
+
+    @Override
     public boolean checkKey(Product et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
@@ -189,6 +200,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Product productTop(Product et) {
+        cancelproducttopLogic.execute(et);
+         return et ;
     }
 
     @Override
