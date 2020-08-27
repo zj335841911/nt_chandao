@@ -126,6 +126,9 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

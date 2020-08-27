@@ -131,6 +131,11 @@ export default class Main_NewModeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'SMCODELIST',

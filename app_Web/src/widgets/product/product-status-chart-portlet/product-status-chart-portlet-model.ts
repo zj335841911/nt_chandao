@@ -126,6 +126,9 @@ export default class ProductStatusChartModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

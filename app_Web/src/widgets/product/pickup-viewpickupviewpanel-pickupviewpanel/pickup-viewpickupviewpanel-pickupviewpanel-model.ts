@@ -126,6 +126,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

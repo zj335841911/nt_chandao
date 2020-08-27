@@ -126,6 +126,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

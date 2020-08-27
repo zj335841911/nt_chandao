@@ -301,4 +301,12 @@ export interface Product {
      * @memberof Product
      */
     order1?: any;
+
+    /**
+     * 是否置顶
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    istop?: any;
 }

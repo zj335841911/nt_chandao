@@ -126,6 +126,9 @@ export default class UnClosedProductModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

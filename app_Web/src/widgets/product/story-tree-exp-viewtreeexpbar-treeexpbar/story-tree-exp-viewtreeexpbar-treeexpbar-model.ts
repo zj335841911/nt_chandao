@@ -126,6 +126,9 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

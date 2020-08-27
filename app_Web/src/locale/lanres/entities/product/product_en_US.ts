@@ -38,6 +38,7 @@ export default {
     srfcount: "属性",
     mobimage: "移动端图片",
     order1: "排序",
+    istop: "是否置顶",
   },
 	views: {
 		testtabexpview: {

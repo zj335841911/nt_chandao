@@ -126,6 +126,9 @@ export default class TextExpViewModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

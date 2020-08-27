@@ -126,6 +126,9 @@ export default class TestTabExpViewtabviewpanel4Model {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

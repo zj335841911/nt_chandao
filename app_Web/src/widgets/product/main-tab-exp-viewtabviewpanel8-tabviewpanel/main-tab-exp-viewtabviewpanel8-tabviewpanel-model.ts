@@ -126,6 +126,9 @@ export default class MainTabExpViewtabviewpanel8Model {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

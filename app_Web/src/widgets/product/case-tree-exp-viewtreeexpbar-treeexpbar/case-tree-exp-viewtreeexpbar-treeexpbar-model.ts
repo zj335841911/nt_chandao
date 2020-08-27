@@ -126,6 +126,9 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

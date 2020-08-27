@@ -126,6 +126,9 @@ export default class ProductInfoModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 
