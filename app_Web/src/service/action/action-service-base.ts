@@ -155,6 +155,20 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * Comment接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async Comment(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/actions/${context.action}/comment`,data,isloading);
+            return res;
+    }
+
+    /**
      * EditComment接口方法
      *
      * @param {*} [context={}]

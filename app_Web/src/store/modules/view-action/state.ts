@@ -1525,6 +1525,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'af6f4065b0510b7994c3cd2bc6074440',
                 'f8b69912b3ca27b5d083c8fb1971c84a',
             ],
         },
@@ -2306,6 +2307,15 @@ export const viewstate: any = {
             viewtag: 'ac71a1cfaecb07640c14f75b8f202b1e',
             viewmodule: 'zentao',
             viewname: 'CaseStepMainGridView9_EditMode',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'af6f4065b0510b7994c3cd2bc6074440',
+            viewmodule: 'zentao',
+            viewname: 'ActionOptionView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

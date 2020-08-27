@@ -117,6 +117,7 @@ export const PageComponents = {
         Vue.component('branch-pmedit-view', () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'));
         Vue.component('ibz-lib-open-lib-view', () => import('@pages/ibiz/ibz-lib-open-lib-view/ibz-lib-open-lib-view.vue'));
         Vue.component('test-task-edit-view-edit', () => import('@pages/zentao/test-task-edit-view-edit/test-task-edit-view-edit.vue'));
+        Vue.component('action-option-view', () => import('@pages/zentao/action-option-view/action-option-view.vue'));
         Vue.component('test-module-grid-view-branch', () => import('@pages/ibiz/test-module-grid-view-branch/test-module-grid-view-branch.vue'));
         Vue.component('test-suite-grid-view', () => import('@pages/zentao/test-suite-grid-view/test-suite-grid-view.vue'));
         Vue.component('product-plan-main-tab-exp', () => import('@pages/zentao/product-plan-main-tab-exp/product-plan-main-tab-exp.vue'));

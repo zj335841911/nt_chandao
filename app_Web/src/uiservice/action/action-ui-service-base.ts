@@ -94,6 +94,7 @@ export default class ActionUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'projecttrendslistview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'projecttrendslistview9',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'producttrendslistview9',srfappde:'actions'});
+        this.allViewMap.set(':',{viewname:'optionview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'alltrendslistview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'producttrendslistview',srfappde:'actions'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'actions'});
@@ -113,6 +114,64 @@ export default class ActionUIServiceBase extends UIService {
      * @memberof  ActionUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+    }
+
+    /**
+     * 添加备注
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Action_AddComment(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'actions', parameterName: 'action' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'action-option-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.action.views.optionview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 
