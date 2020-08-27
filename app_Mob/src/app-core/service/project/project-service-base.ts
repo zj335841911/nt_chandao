@@ -208,6 +208,20 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * CancelProjectTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async CancelProjectTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/cancelprojecttop`,data,isloading);
+            return res;
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -260,6 +274,20 @@ export class ProjectServiceBase extends EntityService {
      */
     public async ManageMembers(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/projects/${context.project}/managemembers`,data,isloading);
+            return res;
+    }
+
+    /**
+     * ProjectTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ProjectTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/projecttop`,data,isloading);
             return res;
     }
 

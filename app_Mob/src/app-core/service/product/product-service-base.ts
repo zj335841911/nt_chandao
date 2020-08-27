@@ -1,5 +1,7 @@
 import { Http,Util } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { CancelProductTopLogic } from './cancel-product-top-logic';
+import { ProductTopLogic } from './product-top-logic';
 
 
 
@@ -182,6 +184,20 @@ export class ProductServiceBase extends EntityService {
     }
 
     /**
+     * CancelProductTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async CancelProductTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/products/${context.product}/cancelproducttop`,data,isloading);
+            return res;
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -206,6 +222,20 @@ export class ProductServiceBase extends EntityService {
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/products/${context.product}/close`,data,isloading);
+            return res;
+    }
+
+    /**
+     * ProductTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async ProductTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/products/${context.product}/producttop`,data,isloading);
             return res;
     }
 

@@ -153,7 +153,7 @@ export class ThirdPartyService {
     }
 
     /**
-     * 设置钉钉标题
+     * 设置第三方标题
      *
      * @static
      * @returns {DingTalkService}
@@ -164,6 +164,21 @@ export class ThirdPartyService {
             this.dd.setTitle(title);
         } else if (this.isWeChat()) {
             this.weChat.setTitle(title);
+        }
+    }
+
+    /**
+     * 设置第三方容器导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setBackEvent(event:Function){
+        if (this.isDingTalk()) {
+            this.dd.setBackEvent(event);
+        } else if (this.isWeChat()) {
+            this.weChat.setBackEvent(event);
         }
     }
 

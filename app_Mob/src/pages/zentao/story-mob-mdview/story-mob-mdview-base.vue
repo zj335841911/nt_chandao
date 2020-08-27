@@ -399,10 +399,19 @@ export default class StoryMobMDViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof StoryMobMDViewBase
+     */
+    protected  thirdPartyInit(){
         if(!this.isChildView){
             this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setBackEvent(this.closeView);
         }
-
     }
 
     /**

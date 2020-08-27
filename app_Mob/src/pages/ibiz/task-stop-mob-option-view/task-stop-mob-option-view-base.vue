@@ -15,33 +15,34 @@
 
 
     <ion-content>
-                <div class="view-container demoboptview task-stop-mob-option-view">
-            <div class='view-card   view-no-toolbar' dis-hover :padding="0" :bordered="false">
-                <div class="content-container">
-                    <view_form
-                        :viewState="viewState"
-                        viewName="TaskStopMobOptionView"  
-                        :viewparams="viewparams" 
-                        :context="context" 
-                        :autosave="false" 
-                        :viewtag="viewtag"
-                        :showBusyIndicator="true"
-                        updateAction="Pause"
-                        removeAction="Remove"
-                        loaddraftAction="GetDraft"
-                        loadAction="Get"
-                        createAction="Pause"
-                        WFSubmitAction=""
-                        WFStartAction=""
-                        style='' 
-                        name="form"  
-                        ref='form' 
-                        @closeview="closeView($event)">
-                    </view_form>
-                </div>
-            </div>
-        </div>
+                <view_form
+            :viewState="viewState"
+            viewName="TaskStopMobOptionView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :autosave="false" 
+            :viewtag="viewtag"
+            :showBusyIndicator="true"
+            updateAction="Pause"
+            removeAction="Remove"
+            loaddraftAction="GetDraft"
+            loadAction="Get"
+            createAction="Pause"
+            WFSubmitAction=""
+            WFStartAction=""
+            style='' 
+            name="form"  
+            ref='form' 
+            @closeview="closeView($event)">
+        </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+        <div class="option-view-btnbox">
+  <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
+  <ion-button class="option-btn success" @click="save">保存</ion-button> 
+</div>
+
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -365,10 +366,19 @@ export default class TaskStopMobOptionViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof TaskStopMobOptionViewBase
+     */
+    protected  thirdPartyInit(){
         if(!this.isChildView){
             this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setBackEvent(this.closeView);
         }
-
     }
 
     /**
@@ -446,6 +456,40 @@ export default class TaskStopMobOptionViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 保存按钮事件
+     *
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
+     */
+    protected save() {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        this.viewState.next({ tag: 'form', action: 'saveandexit', data: datas });
+    }
+
+    /**
+     * 返回按钮事件
+     *
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
+     */
+    protected back(args: any[]) {
+        if (this.viewDefaultUsage === "routerView" ) {
+            this.$store.commit("deletePage", this.$route.fullPath);
+            this.$router.go(-1);
+        } else {
+            this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
+        }
+    }
 
 }
 </script>

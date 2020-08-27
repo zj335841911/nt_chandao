@@ -211,4 +211,24 @@ export class WeChatService {
     public setTitle(title:string){
         // 设置标题
     }
+
+    /**
+     * 微信导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    private backEvent:Function = ()=>{};
+
+    /**
+     * 设置微信导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setBackEvent(event:Function){
+        this.backEvent = event;
+    }
 }

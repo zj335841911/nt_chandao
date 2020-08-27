@@ -337,11 +337,20 @@ export default class AppPortalViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
-        if(!this.isChildView){
-            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
-        }
         this.viewState.next({ tag: 'dashboard', action: 'load', data: {} });
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof AppPortalViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setBackEvent(this.closeView);
+        }
     }
 
     /**
