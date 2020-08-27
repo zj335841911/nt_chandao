@@ -67,6 +67,18 @@ export class ActionOptionViewBase extends OptionViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ActionOptionViewBase
+	 */
+    protected customViewParams: any = {
+        'ogjectid': { isRawValue: false, value: 'srfparentkey' },
+        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' }
+    };
+
     /**
      * 视图模型数据
      *
