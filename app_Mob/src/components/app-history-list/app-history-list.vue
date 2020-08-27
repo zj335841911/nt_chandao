@@ -62,7 +62,7 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    @Watch('items')
+    @Watch('items',{immediate: true, deep: true})
     itemsChange(){
       this.handler();
       this.setHeight();
@@ -193,12 +193,16 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     public setHeight(){
-      let ele:any =  this.$refs.onecontent;
+      let ele:any =  document.querySelector('.onecontent');
       let ite:any =  this.$refs.oneitem;
-      for(let i = 0; i <= this.num; i++){
-        this.startHeig += ite[i].offsetHeight;
+      if (ite !== undefined) {
+        for(let i:any = 0; i <= this.num; i++){
+          this.startHeig += ite[i].offsetHeight;
+        }
       }
-      ele.style.height = this.startHeig + 'px';
+      if(ele && ele.style){
+        ele.style.height = this.startHeig + 'px';
+      }
     }
 
     /**
@@ -207,9 +211,7 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public mounted(){
-      this.setHeight();
-    }
+    public mounted(){}
 
 }
 </script>

@@ -198,7 +198,8 @@
     :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <div>暂不支持</div>
+        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-mob-rich-text-editor>
+
 </app-form-item>
 
 
