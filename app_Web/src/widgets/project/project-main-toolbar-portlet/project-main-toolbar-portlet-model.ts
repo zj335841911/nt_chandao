@@ -174,6 +174,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

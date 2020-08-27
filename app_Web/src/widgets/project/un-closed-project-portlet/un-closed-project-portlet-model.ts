@@ -174,6 +174,9 @@ export default class UnClosedProjectModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 
