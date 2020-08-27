@@ -174,6 +174,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

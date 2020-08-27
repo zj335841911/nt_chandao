@@ -454,6 +454,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("order1")
     private Integer order1;
 
+    /**
+     * 属性 [ISTOP]
+     *
+     */
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
+
 
     /**
      * 设置 [OPENEDVERSION]

@@ -21,6 +21,9 @@ export default class TestSidebarModel {
 				name: 'notclosedbugcnt',
 			},
 			{
+				name: 'istop',
+			},
+			{
 				name: 'status',
         codelist:{tag:'Product__status',codelistType:'STATIC'},
 			},

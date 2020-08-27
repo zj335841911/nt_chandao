@@ -53,6 +53,7 @@ export default {
     mobimage: "移动端图片",
     accounts: "项目团队相关成员",
     order1: "项目排序",
+    istop: "是否置顶",
   },
 	views: {
 		storymeditview9: {

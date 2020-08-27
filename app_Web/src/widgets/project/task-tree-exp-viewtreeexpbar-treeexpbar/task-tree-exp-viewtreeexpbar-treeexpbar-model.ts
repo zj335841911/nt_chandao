@@ -174,6 +174,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

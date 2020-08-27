@@ -174,6 +174,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

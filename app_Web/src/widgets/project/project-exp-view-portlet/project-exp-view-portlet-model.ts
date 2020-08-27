@@ -174,6 +174,9 @@ export default class ProjectExpViewModel {
       {
         name: 'order1',
       },
+      {
+        name: 'istop',
+      },
     ]
   }
 

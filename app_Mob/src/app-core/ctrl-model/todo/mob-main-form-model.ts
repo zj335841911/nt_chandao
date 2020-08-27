@@ -96,6 +96,11 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

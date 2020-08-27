@@ -105,5 +105,8 @@ export const AppComponents = {
         v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
         // 下拉列表组件
         v.component('app-history-list',() => import('@/components/app-history-list/app-history-list.vue'));
+        // 富文本
+        v.component('quill-editor',() => import('@/components/vue-quill-editor/src/editor.vue'));
+        v.component('app-mob-rich-text-editor',() => import('@/components/app-mob-rich-text-editor/app-mob-rich-text-editor.vue'));
     },
 };

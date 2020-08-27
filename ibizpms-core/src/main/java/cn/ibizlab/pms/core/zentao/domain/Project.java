@@ -426,6 +426,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "order1")
     @JsonProperty("order1")
     private Integer order1;
+    /**
+     * 是否置顶
+     */
+    @TableField(exist = false)
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
 
     /**
      * 

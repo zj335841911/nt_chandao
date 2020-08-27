@@ -429,4 +429,12 @@ export interface Project {
      * @memberof Project
      */
     order1?: any;
+
+    /**
+     * 是否置顶
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    istop?: any;
 }

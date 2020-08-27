@@ -182,6 +182,27 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('todo.mobnew_form.details.desc')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-mob-rich-text-editor>
+
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -511,6 +532,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
         end: null,
         type: null,
         private: null,
+        desc: null,
         id: null,
         todo: null,
     };
@@ -629,6 +651,12 @@ export default class MobNewBase extends Vue implements ControlInterface {
             { type: 'number', message: '私人事务 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '私人事务 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '私人事务 值不能为空', trigger: 'blur' },
+        ],
+        desc: [
+            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
@@ -751,6 +779,8 @@ export default class MobNewBase extends Vue implements ControlInterface {
         type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         private: new FormItemModel({ caption: '私人事务', detailType: 'FORMITEM', name: 'private', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -925,6 +955,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -972,6 +1014,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1164,7 +1207,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'pri_item', 'date_item', 'begin_item', 'end_item', 'private_item', ];
+        const refArr: Array<string> = ['name_item', 'pri_item', 'date_item', 'begin_item', 'end_item', 'private_item', 'desc_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

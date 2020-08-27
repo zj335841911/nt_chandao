@@ -4773,6 +4773,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-edit-view-edit/test-task-edit-view-edit.vue'),
                 },
                 {
+                    path: 'actions/:action?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.action.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-option-view/action-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/testmodules/:testmodule?/gridviewbranch/:gridviewbranch?',
                     meta: {
                         caption: 'entities.testmodule.views.gridviewbranch.title',
