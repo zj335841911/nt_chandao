@@ -3,8 +3,9 @@ window.Environment = {
     devMode: true,
     // 项目模板地址
     ProjectUrl: "https://gitee.com/ibizlab/iBizPMS",
+    debugOpenMode:'mos',
     // 配置平台地址
-    StudioUrl: "http://studio.ibizlab.cn/slnstudio/",
+    StudioUrl: "http://mos.ibizlab.cn/mos/",
     // 方案标识
     SlnId: "506FF789-2742-4C35-A91D-E3990C379D41",
     // 系统标识
