@@ -71,6 +71,17 @@ export class ActionHistoryListViewBase extends ListViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ActionHistoryListViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
