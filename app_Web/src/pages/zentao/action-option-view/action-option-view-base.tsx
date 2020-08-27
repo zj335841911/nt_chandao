@@ -75,7 +75,7 @@ export class ActionOptionViewBase extends OptionViewBase {
 	 * @memberof ActionOptionViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
+        'OBJECTID': { isRawValue: false, value: 'objectid' }
     };
 
 	/**
@@ -87,7 +87,7 @@ export class ActionOptionViewBase extends OptionViewBase {
 	 */
     protected customViewParams: any = {
         'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
-        'objectid': { isRawValue: false, value: 'srfparentkey' }
+        'objectid': { isRawValue: false, value: 'objectid' }
     };
 
     /**
