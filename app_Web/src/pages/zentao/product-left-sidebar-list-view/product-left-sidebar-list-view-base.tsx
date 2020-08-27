@@ -112,6 +112,20 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
     };
 
 
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProductLeftSidebarListView
+     */
+    public leftsidebarlistviewlist_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '置顶', iconcls: 'fa fa-hand-o-up', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ProductTop', target: 'SINGLEKEY', class: '' } },
+
+        deuiaction2: { name: 'deuiaction2', caption: '取消置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '取消置顶', iconcls: 'fa fa-hand-o-down', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CancelProductTop', target: 'SINGLEKEY', class: '' } },
+
+    };
+
+
 
 	/**
      * 视图唯一标识

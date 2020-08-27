@@ -67,6 +67,80 @@ export class SidebarListBase extends ListControlBase {
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
     /**
+     * list_quicktoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof SidebarListBase
+     */
+    public list_quicktoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.list_quicktoolbar_deuiaction1_click(null, 'list_quicktoolbar', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.list_quicktoolbar_deuiaction2_click(null, 'list_quicktoolbar', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public list_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductUIService  = new ProductUIService();
+        curUIService.Product_ProductTop(datas,contextJO, paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public list_quicktoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductUIService  = new ProductUIService();
+        curUIService.Product_CancelProductTop(datas,contextJO, paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
      * 分页条数
      *
      * @type {number}

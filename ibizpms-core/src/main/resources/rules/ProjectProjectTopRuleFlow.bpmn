@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.projectprojecttop" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.projectprojecttop">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="projectprojecttopibztop" type="cn.ibizlab.pms.core.ibiz.domain.IbzTop" />
+        <tns:global identifier="projectprojecttopdefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttopdeaction1" id="561332CE-7A60-44D5-B81E-954D295B44F7" implementation="http://www.jboss.org/drools/rule" name="Save"/>
+     <endEvent id="561332CE-7A60-44D5-B81E-954D295B44F7_End" name="End"/>
+     <sequenceFlow id="561332CE-7A60-44D5-B81E-954D295B44F7_End_Line" sourceRef="561332CE-7A60-44D5-B81E-954D295B44F7" targetRef="561332CE-7A60-44D5-B81E-954D295B44F7_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttopprepareparam1" id="78EA677C-BAA2-4195-BAAB-12336C6793A9" implementation="http://www.jboss.org/drools/rule" name="设置参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttoprawsqlcall1" id="5572DFAD-2603-4659-AEA5-CE05B9427ACF" implementation="http://www.jboss.org/drools/rule" name="获取置顶最大排序值"/>
+     <startEvent id="338B8339-3840-4B35-AA57-33483FCF6421" isInterrupting="true"/>
+     <sequenceFlow id="89F23CF7-AB56-423C-B07A-A1EFCD0422E5" sourceRef="338B8339-3840-4B35-AA57-33483FCF6421" targetRef="5572DFAD-2603-4659-AEA5-CE05B9427ACF">
+     </sequenceFlow>
+     <sequenceFlow id="6B6C9209-14CE-4DD5-9D62-EE41CFEFF613" sourceRef="5572DFAD-2603-4659-AEA5-CE05B9427ACF" targetRef="78EA677C-BAA2-4195-BAAB-12336C6793A9">
+     </sequenceFlow>
+     <sequenceFlow id="36595CA2-0166-499E-97C5-7A43B35C7444" sourceRef="78EA677C-BAA2-4195-BAAB-12336C6793A9" targetRef="561332CE-7A60-44D5-B81E-954D295B44F7">
+     </sequenceFlow>
+    </process>
+</definitions>
+

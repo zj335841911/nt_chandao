@@ -97,7 +97,11 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProductTopLogic producttopLogic;
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectCancelProjectTopLogic cancelprojecttopLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTopLogic projecttopLogic;
 
     @Autowired
     @Lazy
@@ -215,6 +219,13 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
 
     @Override
+    @Transactional
+    public Project cancelProjectTop(Project et) {
+        cancelprojecttopLogic.execute(et);
+         return et ;
+    }
+
+    @Override
     public boolean checkKey(Project et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
@@ -259,8 +270,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Override
     @Transactional
-    public Project productTop(Project et) {
-        producttopLogic.execute(et);
+    public Project projectTop(Project et) {
+        projecttopLogic.execute(et);
          return et ;
     }
 
