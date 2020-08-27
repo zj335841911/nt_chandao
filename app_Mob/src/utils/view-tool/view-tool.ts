@@ -409,4 +409,13 @@ export class ViewTool {
     public setThirdPartyEvent(event:Function): void {
         this.thirdPartyService.setBackEvent(event);
     }
+
+    /**
+     * 退出第三方
+     * 
+     * @memberof ViewTool 
+     */
+    public ThirdPartyClose() {
+        this.thirdPartyService.close();
+    }
 }
