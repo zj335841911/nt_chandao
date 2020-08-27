@@ -104,6 +104,10 @@ final public class ZTActionHelper {
         // CREATE
         ACTION_PARAMS_EDITCOMMENT.put("lastComment", null);
 
+        // COMMENT
+        ACTION_PARAMS_COMMENT.put("comment", null);
+        ACTION_PARAMS_COMMENT.put("uid", null);
+
     }
 
     // ----------
@@ -113,6 +117,10 @@ final public class ZTActionHelper {
     static {
         // CREATE
         ACTION_URL_PARAMS_EDITCOMMENT.add("id");
+
+        // COMMENT
+        ACTION_URL_PARAMS_COMMENT.add("objecttype");
+        ACTION_URL_PARAMS_COMMENT.add("objectid");
 
     }
 
@@ -126,6 +134,28 @@ final public class ZTActionHelper {
     // ----------
     // 接口实现
     // ----------
+
+    /**
+     * editComment 编辑备注
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean comment(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_COMMENT;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_COMMENT;
+        Map<String, Object> actionParams = ACTION_PARAMS_COMMENT;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_COMMENT;
+        String returnUrlRegexPrev = ACTION_RETURNURL_COMMENT;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_COMMENT;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
 
     /**
      * editComment 编辑备注

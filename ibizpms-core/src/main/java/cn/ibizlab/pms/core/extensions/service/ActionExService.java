@@ -2,6 +2,7 @@ package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.zentao.filter.ActionSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.ActionServiceImpl;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import org.springframework.data.domain.Page;
@@ -22,6 +23,13 @@ public class ActionExService extends ActionServiceImpl {
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
+    }
+
+    @Override
+    @Transactional
+    public boolean create(Action et) {
+        super.comment(et);
+        return true;
     }
 
     /**
