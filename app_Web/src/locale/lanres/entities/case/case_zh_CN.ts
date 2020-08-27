@@ -444,6 +444,17 @@ export default {
 		uiactions: {
 		},
 	},
+	storyaffectcase_grid: {
+		columns: {
+			pri: "P",
+			title: "用例标题",
+			status: "状态",
+			openedby: "由谁创建",
+			lasteditedby: "最后修改者",
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			pri: "P",
@@ -490,17 +501,6 @@ export default {
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
 			status1: "状态",
-		},
-		uiactions: {
-		},
-	},
-	storyaffectcase_grid: {
-		columns: {
-			pri: "P",
-			title: "用例标题",
-			status: "状态",
-			openedby: "由谁创建",
-			lasteditedby: "最后修改者",
 		},
 		uiactions: {
 		},

@@ -267,6 +267,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * ProductTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ProductTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/producttop`,data,isloading);
+            return res;
+    }
+
+    /**
      * Putoff接口方法
      *
      * @param {*} [context={}]

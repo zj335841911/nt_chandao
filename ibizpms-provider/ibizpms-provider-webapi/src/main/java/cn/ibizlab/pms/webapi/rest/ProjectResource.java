@@ -174,6 +174,17 @@ domain.setId(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ProductTop-all')")
+    @ApiOperation(value = "置顶", tags = {"项目" },  notes = "置顶")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/producttop")
+    public ResponseEntity<ProjectDTO> productTop(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+domain.setId(project_id);
+        domain = projectService.productTop(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Putoff-all')")
     @ApiOperation(value = "延期", tags = {"项目" },  notes = "延期")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/putoff")

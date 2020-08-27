@@ -97,6 +97,10 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProductTopLogic producttopLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateCycle__MSDenyLogic updatecycle__msdenyLogic;
 
     @Autowired
@@ -251,6 +255,13 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Project productTop(Project et) {
+        producttopLogic.execute(et);
+         return et ;
     }
 
         @Override

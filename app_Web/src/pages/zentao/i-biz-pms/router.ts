@@ -982,20 +982,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/storymeditview9/:storymeditview9?',
-                    meta: {
-                        caption: 'entities.project.views.storymeditview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'storymeditview9', parameterName: 'storymeditview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-story-medit-view9/project-story-medit-view9.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/gridview9_child/:gridview9_child?',
                     meta: {
                         caption: 'entities.story.views.gridview9_child.title',

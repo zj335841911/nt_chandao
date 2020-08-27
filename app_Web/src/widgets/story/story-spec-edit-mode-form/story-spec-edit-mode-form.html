@@ -12,15 +12,21 @@
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.story.storyspec_editmode_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.assignedto"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.assignedto.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.assignedto"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.assignedto.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

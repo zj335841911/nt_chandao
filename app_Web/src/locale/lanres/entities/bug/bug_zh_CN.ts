@@ -662,6 +662,19 @@ export default {
 		uiactions: {
 		},
 	},
+	storyaffectbug_grid: {
+		columns: {
+			id: "ID",
+			title: "Bug标题",
+			status: "状态",
+			openedby: "由谁创建",
+			resolvedby: "解决者",
+			resolution: "解决方案",
+			lasteditedby: "最后修改者",
+		},
+		uiactions: {
+		},
+	},
 	main_plansub_grid: {
 		columns: {
 			id: "ID",
@@ -762,19 +775,6 @@ export default {
 			bug_mainedit: "编辑",
 		},
 	},
-	storyaffectbug_grid: {
-		columns: {
-			id: "ID",
-			title: "Bug标题",
-			status: "状态",
-			openedby: "由谁创建",
-			resolvedby: "解决者",
-			resolution: "解决方案",
-			lasteditedby: "最后修改者",
-		},
-		uiactions: {
-		},
-	},
 	storyrelated_grid: {
 		columns: {
 			id: "ID",
@@ -825,6 +825,18 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	casetobugeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
 		deuiaction3_planrelationbug: {
 			caption: "关联Bug",
@@ -837,18 +849,6 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	casetobugeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	projectgridviewtoolbar_toolbar: {

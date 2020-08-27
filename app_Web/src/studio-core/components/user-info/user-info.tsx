@@ -65,7 +65,15 @@ export class UserInfo extends Vue {
             return;
         }
         if (name === 'custom-logout') {
-            return this.$appService.logout();
+            const get: Promise<any> = this.$http.get('/v7/logout');
+            get.then((response:any) =>{
+                if (response && response.status === 200) {
+                    this.$appService.logout();
+                }
+            }).catch((error: any) =>{
+                console.error(error);
+            })
+            return;
         }
         const item: any = this.findMenuByName(name);
         if (item) {

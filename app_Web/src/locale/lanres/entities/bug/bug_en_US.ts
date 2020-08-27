@@ -663,6 +663,19 @@ export default {
 		uiactions: {
 		},
 	},
+	storyaffectbug_grid: {
+		columns: {
+			id: "ID",
+			title: "Bug标题",
+			status: "状态",
+			openedby: "由谁创建",
+			resolvedby: "解决者",
+			resolution: "解决方案",
+			lasteditedby: "最后修改者",
+		},
+		uiactions: {
+		},
+	},
 	main_plansub_grid: {
 		columns: {
 			id: "ID",
@@ -763,19 +776,6 @@ export default {
         bug_mainedit: "编辑",
 		},
 	},
-	storyaffectbug_grid: {
-		columns: {
-			id: "ID",
-			title: "Bug标题",
-			status: "状态",
-			openedby: "由谁创建",
-			resolvedby: "解决者",
-			resolution: "解决方案",
-			lasteditedby: "最后修改者",
-		},
-		uiactions: {
-		},
-	},
 	storyrelated_grid: {
 		columns: {
 			id: "ID",
@@ -826,6 +826,18 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	casetobugeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
 		deuiaction3_planrelationbug: {
 			caption: "关联Bug",
@@ -838,18 +850,6 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
-	casetobugeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	projectgridviewtoolbar_toolbar: {
