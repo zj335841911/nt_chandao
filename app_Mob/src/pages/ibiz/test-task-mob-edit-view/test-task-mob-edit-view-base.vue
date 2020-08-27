@@ -415,7 +415,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     protected  thirdPartyInit(){
         if(!this.isChildView){
             this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
-            this.$viewTool.setBackEvent(this.closeView);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
         }
     }
 
