@@ -63,6 +63,8 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			objecttype: "对象类型", 
+			objectid: "对象ID", 
 			comment: "备注", 
 			id: "id", 
 		},

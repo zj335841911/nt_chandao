@@ -168,7 +168,7 @@ export default class ActionUIServiceBase extends UIService {
             const view: any = {
                 viewname: 'action-option-view', 
                 height: 500, 
-                width: 500,  
+                width: 800,  
                 title: actionContext.$t('entities.action.views.optionview.title'),
             };
             openPopupModal(view, data);

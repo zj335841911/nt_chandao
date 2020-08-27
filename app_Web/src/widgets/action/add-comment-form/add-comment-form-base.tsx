@@ -81,6 +81,8 @@ export class AddCommentEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        objecttype: null,
+        objectid: null,
         comment: null,
         id: null,
         action:null,
@@ -129,9 +131,26 @@ export class AddCommentEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        objecttype: new FormItemModel({ caption: '对象类型', detailType: 'FORMITEM', name: 'objecttype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        objectid: new FormItemModel({ caption: '对象ID', detailType: 'FORMITEM', name: 'objectid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof AddCommentEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('objecttype')) {
+            this.data['objecttype'] = this.viewparams['objecttype'];
+        }
+        if (this.data.hasOwnProperty('objectid')) {
+            this.data['objectid'] = this.viewparams['objectid'];
+        }
+    }
 }

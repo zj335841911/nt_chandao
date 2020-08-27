@@ -51,6 +51,16 @@ export default class AddCommentModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'objecttype',
+        prop: 'objecttype',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'objectid',
+        prop: 'objectid',
+        dataType: 'INT',
+      },
+      {
         name: 'comment',
         prop: 'comment',
         dataType: 'LONGTEXT',
