@@ -78,6 +78,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionHistoryListViewBase
 	 */
     protected customViewParams: any = {
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
         'objecttype': { isRawValue: false, value: 'OBJECTTYPE' }
     };
 
