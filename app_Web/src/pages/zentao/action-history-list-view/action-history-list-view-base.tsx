@@ -78,7 +78,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionHistoryListViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+        'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
     };
 
 	/**
@@ -89,8 +89,8 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionHistoryListViewBase
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' }
+        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
+        'objectid': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**
