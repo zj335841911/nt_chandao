@@ -16,9 +16,8 @@ ruleflow-group "productcancelproducttoprawsqlcall1"
     then
     Map param =new HashMap();
     param.put("param0",productcancelproducttopdefault.get("id"));
-    param.put("param1","product");
-    param.put("param2",curuser.getSessionParams().get("srfloginname"));
-    String strSql="";
+    param.put("param1",curuser.getSessionParams().get("srfloginname"));
+    String strSql="delete from T_IBZ_TOP  where type = 'product' and objectid = #{et.param0} and account = #{et.param1}";
     iBzSysProductDefaultService.execute(strSql,param);//SQL调用
     update(productcancelproducttopdefault);//更新fact中变量值
     end

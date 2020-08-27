@@ -23,9 +23,8 @@ ruleflow-group "projectcancelprojecttoprawsqlcall1"
     then
     Map param =new HashMap();
     param.put("param0",projectcancelprojecttopdefault.get("id"));
-    param.put("param1","project");
-    param.put("param2",curuser.getSessionParams().get("srfloginname"));
-    String strSql="";
+    param.put("param1",curuser.getSessionParams().get("srfloginname"));
+    String strSql="delete from T_IBZ_TOP  where type = 'project' and objectid = #{et.param0} and account = #{et.param1}";
     iBzSysProjectDefaultService.execute(strSql,param);//SQL调用
     update(projectcancelprojecttopdefault);//更新fact中变量值
     end

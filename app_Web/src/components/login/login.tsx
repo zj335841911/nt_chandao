@@ -19,7 +19,7 @@ export default class Login extends Vue {
      * @type {*}
      * @memberof Login
      */
-    public form = { loginname: '', password: '' };
+    public form = { loginname: Environment.defaultLogin, password: Environment.defaultPwd };
 
     /**
      * 登录提示语

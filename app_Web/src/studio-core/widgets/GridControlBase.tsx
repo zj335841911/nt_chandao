@@ -1135,10 +1135,8 @@ export class GridControlBase extends MDControlBase {
      */
     public getActionState(data: any) {
         let tempActionModel: any = JSON.parse(JSON.stringify(this.ActionModel));
-        if (Environment.enablePermissionValid) {
-            let targetData: any = this.transformData(data);
-            ViewTool.calcActionItemAuthState(targetData, tempActionModel, this.appUIService);
-        }
+        let targetData: any = this.transformData(data);
+        ViewTool.calcActionItemAuthState(targetData, tempActionModel, this.appUIService);
         return tempActionModel;
     }
 

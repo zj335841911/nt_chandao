@@ -40,7 +40,10 @@ export const Environment = {
     // ibiz论坛地址
     ibizbbstUrl: 'https://bbs.ibizlab.cn',
     // debug栏打开sln还是mos
-    debugOpenMode: 'mos'
+    debugOpenMode: 'mos',
+    // 默认登录账户与密码
+    defaultLogin: '',
+    defaultPwd: ''
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

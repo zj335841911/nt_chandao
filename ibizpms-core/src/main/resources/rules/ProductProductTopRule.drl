@@ -47,9 +47,7 @@ ruleflow-group "productproducttoprawsqlcall1"
     then
     Map param =new HashMap();
     param.put("param0",productproducttopdefault.get("id"));
-    param.put("param1",curuser.getSessionParams().get("srfloginname"));
-    param.put("param2","product");
-    String strSql="";
+    String strSql="select (case when max(t1.`objectorder`) >= 16000000  then max(t1.`objectorder`) + 1 else 16000000 end) as `objectorder` from T_IBZ_TOP t1 where t1.type = 'product' and t1.objectid = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysProductDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
