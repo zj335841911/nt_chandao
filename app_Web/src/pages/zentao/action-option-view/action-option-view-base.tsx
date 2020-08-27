@@ -68,6 +68,17 @@ export class ActionOptionViewBase extends OptionViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ActionOptionViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -75,8 +86,8 @@ export class ActionOptionViewBase extends OptionViewBase {
 	 * @memberof ActionOptionViewBase
 	 */
     protected customViewParams: any = {
-        'ogjectid': { isRawValue: false, value: 'srfparentkey' },
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' }
+        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
+        'objectid': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**
