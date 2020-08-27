@@ -26,6 +26,13 @@ public class ProjectProjectTopLogicImpl implements IProjectProjectTopLogic{
     @Autowired
     private KieContainer kieContainer;
 
+    @Autowired
+    private cn.ibizlab.pms.core.ibiz.service.IIbzTopService ibztopservice;
+
+    public cn.ibizlab.pms.core.ibiz.service.IIbzTopService getIbztopService() {
+        return this.ibztopservice;
+    }
+
 
     @Autowired
     private cn.ibizlab.pms.core.zentao.service.IProjectService iBzSysDefaultService;
@@ -39,8 +46,12 @@ public class ProjectProjectTopLogicImpl implements IProjectProjectTopLogic{
           KieSession kieSession = null;
         try{
            kieSession=kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzTop  projectprojecttopibztop =new cn.ibizlab.pms.core.ibiz.domain.IbzTop();
+           kieSession.insert(projectprojecttopibztop); 
+           kieSession.setGlobal("projectprojecttopibztop",projectprojecttopibztop);
            kieSession.insert(et); 
            kieSession.setGlobal("projectprojecttopdefault",et);
+           kieSession.setGlobal("ibztopservice",ibztopservice);
            kieSession.setGlobal("iBzSysProjectDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.projectprojecttop");

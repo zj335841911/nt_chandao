@@ -8,8 +8,11 @@
         <tns:global identifier="projectcancelprojecttopdefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         </extensionElements>
      <startEvent id="229B58AA-4CB6-4E06-9B13-DC52031D132A" isInterrupting="true"/>
-     <endEvent id="229B58AA-4CB6-4E06-9B13-DC52031D132A_End" name="End"/>
-     <sequenceFlow id="229B58AA-4CB6-4E06-9B13-DC52031D132A_End_Line" sourceRef="229B58AA-4CB6-4E06-9B13-DC52031D132A" targetRef="229B58AA-4CB6-4E06-9B13-DC52031D132A_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectcancelprojecttoprawsqlcall1" id="DC3B7F6E-2CE6-408A-A0F0-C85FDF4D6C2D" implementation="http://www.jboss.org/drools/rule" name="删除置顶"/>
+     <endEvent id="DC3B7F6E-2CE6-408A-A0F0-C85FDF4D6C2D_End" name="End"/>
+     <sequenceFlow id="DC3B7F6E-2CE6-408A-A0F0-C85FDF4D6C2D_End_Line" sourceRef="DC3B7F6E-2CE6-408A-A0F0-C85FDF4D6C2D" targetRef="DC3B7F6E-2CE6-408A-A0F0-C85FDF4D6C2D_End"/>
+     <sequenceFlow id="BA9878DC-F91F-4DA0-A239-972ED67F734A" sourceRef="229B58AA-4CB6-4E06-9B13-DC52031D132A" targetRef="DC3B7F6E-2CE6-408A-A0F0-C85FDF4D6C2D">
+     </sequenceFlow>
     </process>
 </definitions>
 

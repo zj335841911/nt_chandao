@@ -16,3 +16,17 @@ ruleflow-group "projectcancelprojecttopbegin"
     then
     end
 
+//逻辑处理节点[删除置顶]
+rule "rawsqlcall1"
+ruleflow-group "projectcancelprojecttoprawsqlcall1"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",projectcancelprojecttopdefault.get("id"));
+    param.put("param1","project");
+    param.put("param2",curuser.getSessionParams().get("srfloginname"));
+    String strSql="";
+    iBzSysProjectDefaultService.execute(strSql,param);//SQL调用
+    update(projectcancelprojecttopdefault);//更新fact中变量值
+    end
+

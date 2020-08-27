@@ -26,6 +26,13 @@ public class ProductProductTopLogicImpl implements IProductProductTopLogic{
     @Autowired
     private KieContainer kieContainer;
 
+    @Autowired
+    private cn.ibizlab.pms.core.ibiz.service.IIbzTopService ibztopservice;
+
+    public cn.ibizlab.pms.core.ibiz.service.IIbzTopService getIbztopService() {
+        return this.ibztopservice;
+    }
+
 
     @Autowired
     private cn.ibizlab.pms.core.zentao.service.IProductService iBzSysDefaultService;
@@ -39,8 +46,12 @@ public class ProductProductTopLogicImpl implements IProductProductTopLogic{
           KieSession kieSession = null;
         try{
            kieSession=kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzTop  productproducttopibztop =new cn.ibizlab.pms.core.ibiz.domain.IbzTop();
+           kieSession.insert(productproducttopibztop); 
+           kieSession.setGlobal("productproducttopibztop",productproducttopibztop);
            kieSession.insert(et); 
            kieSession.setGlobal("productproducttopdefault",et);
+           kieSession.setGlobal("ibztopservice",ibztopservice);
            kieSession.setGlobal("iBzSysProductDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.productproducttop");

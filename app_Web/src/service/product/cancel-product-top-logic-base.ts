@@ -59,6 +59,15 @@ export default class CancelProductTopLogicBase {
 
 
     /**
+     * 计算0节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute0Cond(params:any):boolean{
+        return true;
+    }
+
+    /**
      * 执行逻辑
      * 
      * @param context 应用上下文
@@ -70,13 +79,27 @@ export default class CancelProductTopLogicBase {
 
 
     /**
+    * 删除置顶
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
+        // RAWSQLCALL暂未支持
+        console.log("RAWSQLCALL暂未支持");
+        return this.paramsMap.get(this.defaultParamName).data;
+    }
+
+    /**
     * 开始
     * 
     * @param params 传入参数
     */
     private async executeBegin(context:any,params:any,isloading:boolean){
         //开始节点
-        return this.paramsMap.get(this.defaultParamName).data;
+        if(this.compute0Cond(params)){
+            return this.executeRawsqlcall1(context,params,isloading);   
+        }
     }
 
 
