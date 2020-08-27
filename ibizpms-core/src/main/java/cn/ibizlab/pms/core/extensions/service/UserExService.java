@@ -24,9 +24,6 @@ public class UserExService extends UserServiceImpl {
     }
 
 
-    @Autowired
-    OUSyncJob syncJob;
-
     /**
      * 自定义行为[SyncAccount]用户扩展
      * 同步PMS账户到OU系统
@@ -36,7 +33,7 @@ public class UserExService extends UserServiceImpl {
     @Override
     @Transactional
     public User syncAccount(User et) {
-       syncJob.syncAccount();
+
        return null;
     }
 }

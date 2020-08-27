@@ -22,6 +22,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.Map;
@@ -77,13 +78,18 @@ public class IBZZTUserService implements AuthenticationUserService{
         if (!ZTAPIHelper.getSessionID(rstSession)) {
             throw new InternalServerErrorException("登录失败");
         }
-        String zentaoSid = JSONObject.parseObject(rstSession.getResult().getString("data")).getString("sessionID");
 
+        String zentaoSid1 = JSONObject.parseObject(rstSession.getResult().getString("data")).getString("sessionID");
+        ZTResult rstSession2 = new ZTResult();
+        if (!ZTAPIHelper.getSessionID(rstSession2,zentaoSid1)) {
+            throw new InternalServerErrorException("登录失败");
+        }
+        String zentaoSid2 = DigestUtils.md5DigestAsHex(zentaoSid1.getBytes());
         ZTResult rstLogin = new ZTResult();
         JSONObject jo = new JSONObject();
         jo.put("account", loginname);
         jo.put("password", password);
-        if (!ZTUserHelper.login(zentaoSid, jo, rstLogin)) {
+        if (!ZTUserHelper.login(zentaoSid2, jo, rstLogin)) {
             throw new InternalServerErrorException("登录失败");
         }
 
@@ -105,8 +111,8 @@ public class IBZZTUserService implements AuthenticationUserService{
         user.setSex(userJO.getString("gender"));
         Map<String,Object> sessionParams = user.getSessionParams();
         sessionParams.put("ztuser", userJO);
-        sessionParams.put("zentaosid", zentaoSid);
-        sessionParams.put("token", zentaoSid);
+        sessionParams.put("zentaosid", zentaoSid1);
+        sessionParams.put("token", zentaoSid1);
 
         user.setSessionParams(sessionParams);
         // 权限默认给管理员（权限未接入之前）
