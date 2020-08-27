@@ -33,6 +33,7 @@ export default {
 			end: '结束', 
 			type: '类型', 
 			private: '私人事务', 
+			desc: '描述', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -81,6 +82,7 @@ export default {
 			assignedby: '由谁指派', 
 			assigneddate: '指派日期', 
 			assignedto: '指派给', 
+			desc: '描述', 
 			id: '编号', 
 		},
 		uiactions: {

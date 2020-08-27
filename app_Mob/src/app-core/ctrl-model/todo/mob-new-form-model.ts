@@ -81,6 +81,11 @@ export class MobNewModel {
                 dataType: 'NSCODELIST',
             },
             {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
