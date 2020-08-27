@@ -337,6 +337,7 @@ export default class AppPortalViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
         this.viewState.next({ tag: 'dashboard', action: 'load', data: {} });
 
     }

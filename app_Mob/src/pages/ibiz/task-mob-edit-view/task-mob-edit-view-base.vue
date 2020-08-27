@@ -404,6 +404,7 @@ export default class TaskMobEditViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
     }
 

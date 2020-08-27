@@ -442,6 +442,7 @@ export default class ProductMobEditViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
     }
 

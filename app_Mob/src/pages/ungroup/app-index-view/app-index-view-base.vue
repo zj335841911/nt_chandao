@@ -321,6 +321,7 @@ export default class AppIndexViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
         this.viewState.next({ tag: 'appmenu', action: 'load', data: {} });
         this.$viewTool.setIndexParameters([{ pathName: 'appindexview', parameterName: 'appindexview' }]);
         this.$viewTool.setIndexViewParam(this.context);

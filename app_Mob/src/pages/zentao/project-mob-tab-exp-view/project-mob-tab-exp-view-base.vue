@@ -449,6 +449,7 @@ this.getLocalStorage();
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
     }
 
