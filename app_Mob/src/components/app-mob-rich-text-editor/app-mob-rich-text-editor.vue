@@ -1,13 +1,5 @@
 <template>
-    <quill-editor class="quill-editor"
-                v-model="reValue"
-                ref="myQuillEditor"
-                @blur="onEditorBlur"
-                @focus="onEditorFocus"
-                @change="change"
-                style="height:calc(100% - 110px)"
-                @ready="onEditorReady">
-      </quill-editor>
+    <div>暂不支持</div>
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
