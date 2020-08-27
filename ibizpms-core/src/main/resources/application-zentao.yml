@@ -32,9 +32,6 @@ spring:
       max-file-size: 100MB
       # 代表文件上传最大总大小
       max-request-size: 1024MB
-hystrix:
-  metrics:
-    polling-interval-ms:
 
 pms:
   # 启动时，批量同步资源。
