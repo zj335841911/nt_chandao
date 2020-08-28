@@ -52,11 +52,16 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IActionCommentLogic commentLogic;
+
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(Action et) {
+        commentLogic.execute(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -116,17 +121,11 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     public boolean checkKey(Action et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+    @Override
     @Transactional
     public Action comment(Action et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTActionHelper.comment(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "comment"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return et;
+        commentLogic.execute(et);
+         return et ;
     }
 
         @Override
