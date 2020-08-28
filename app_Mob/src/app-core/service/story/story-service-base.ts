@@ -1,8 +1,5 @@
 import { Http,Util } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
-import { GetStorySpecsLogic } from './get-story-specs-logic';
-import { BuildUnlinkStorysLogic } from './build-unlink-storys-logic';
-import { ProjectUnlinkStorysLogic } from './project-unlink-storys-logic';
 
 
 
@@ -2377,6 +2374,26 @@ export class StoryServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchgetproductstories`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 

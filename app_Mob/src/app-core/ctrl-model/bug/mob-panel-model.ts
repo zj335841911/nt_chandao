@@ -210,6 +210,9 @@ export class MobModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 
