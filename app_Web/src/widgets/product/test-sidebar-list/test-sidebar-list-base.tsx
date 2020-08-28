@@ -164,7 +164,19 @@ export class TestSidebarListBase extends ListControlBase {
      */
     public minorSortPSDEF: string = 'id';
 
-
+    /**
+     * 项行为触发
+     *
+     * @param {*} $event
+     * @param {*} $event2
+     * @memberof TestSidebarListBase
+     */
+    public itemActionClick($event: any, $event2: any) {
+        this.handleClick($event2);
+        if(this.list_quicktoolbar_click && this.list_quicktoolbar_click instanceof Function) {
+            this.list_quicktoolbar_click($event, $event2);
+        }
+    }
 
 
 }
