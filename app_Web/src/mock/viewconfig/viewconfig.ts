@@ -159,6 +159,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductProjectGridView9",
             "viewtag": "0b1b51910ca13751bfd6d356dcadbbce"
         },
+        "ibzfavoritestabexpview": {
+            "title": "收藏分页导航视图",
+            "caption": "收藏",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzFavoritesTabExpView",
+            "viewtag": "0bd16cd21ee2e8951fb8a86599ac1510"
+        },
         "storyusr2mpickupview": {
             "title": "发布下属需求数据多项选择视图",
             "caption": "需求",
@@ -2062,6 +2070,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzCaseMainEditView9",
             "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d"
+        },
+        "storymyfavoritesgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "Ungroup",
+            "viewname": "StoryMyFavoritesGridView",
+            "viewtag": "b7e6268db4bdeb10211fc15383de685d"
         },
         "storympickupview": {
             "title": "关联需求",

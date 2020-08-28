@@ -35,6 +35,27 @@ export default class ZentaoModel {
         	resourcetag: '',
         	items: [
                 		        {
+                	id: '8CD06207-EEB3-4F6B-A532-E28B797B203C',
+                	name: 'menuitem12',
+                	text: '我的收藏',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '我的收藏',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: true,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: '_2',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-favorites-tab-exp-view',
+                	resourcetag: '',
+                }
+                ,
+                		        {
                 	id: '885119A5-EBD5-42E2-A9AD-CECBF403ADE6',
                 	name: 'menuitem9',
                 	text: '我的地盘',
@@ -171,7 +192,7 @@ export default class ZentaoModel {
                 	separator: false,
                 	hidden: false,
                 	hidesidebar: false,
-                	opendefault: true,
+                	opendefault: false,
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
@@ -350,6 +371,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'htmlview', parameterName: 'htmlview' },
+            ],
+        },
+        {
+            appfunctag: '_2',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzfavoritestabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzfavorites/:ibzfavorites?/tabexpview/:tabexpview?',
+            parameters: [
+                { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
+                { pathName: 'tabexpview', parameterName: 'tabexpview' },
             ],
         },
         {

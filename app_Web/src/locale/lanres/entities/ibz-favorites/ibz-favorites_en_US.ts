@@ -11,4 +11,10 @@ export default {
     account: "收藏用户",
     type: "类型",
   },
+	views: {
+		tabexpview: {
+			caption: "收藏",
+      		title: "收藏分页导航视图",
+		},
+	},
 };

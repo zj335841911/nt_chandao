@@ -192,6 +192,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		myfavoritesgridview: {
+			caption: "需求",
+      		title: "story表格视图",
+		},
 		mpickupview: {
 			caption: "关联需求",
       		title: "关联需求",
@@ -1009,6 +1013,16 @@ export default {
 		},
 	},
 	reportsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	myfavoritesgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

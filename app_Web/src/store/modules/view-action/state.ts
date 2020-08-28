@@ -153,6 +153,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0bd16cd21ee2e8951fb8a86599ac1510',
+            viewmodule: 'ibiz',
+            viewname: 'IbzFavoritesTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a4af2d93ae66c9877ee99bfe7b93d22c',
+                'b7e6268db4bdeb10211fc15383de685d',
+            ],
+        },
+        {
             viewtag: '0bfc1d5ae45c2a74d3b58739784ec7f7',
             viewmodule: 'zentao',
             viewname: 'StoryUsr2MPickupView',
@@ -401,6 +412,7 @@ export const viewstate: any = {
                 '7af111f4c127f7032c3e12e8c5fc0045',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
+                '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
@@ -2395,6 +2407,22 @@ export const viewstate: any = {
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
                 '80a70857025f1c997cddb437e76ff6e1',
+            ],
+        },
+        {
+            viewtag: 'b7e6268db4bdeb10211fc15383de685d',
+            viewmodule: 'Ungroup',
+            viewname: 'StoryMyFavoritesGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5890a810365fec51e801d2cffce44fde',
+                'df5a966e312ca9c5f5a41428bc2e2672',
+                '538555af88ea31549a5bc7dbf1e6286a',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
+                'e54598b1e6d38d7c6ce8231b531b46bd',
             ],
         },
         {

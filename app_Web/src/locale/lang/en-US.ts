@@ -188,6 +188,7 @@ export default {
         menus: {
             zentao: {
                 top_menus: "顶部菜单",
+                menuitem12: "我的收藏",
                 menuitem9: "我的地盘",
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
