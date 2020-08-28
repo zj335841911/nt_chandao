@@ -2,6 +2,7 @@ import { Prop } from 'vue-property-decorator';
 import { Watch } from '@/studio-core';
 import { ViewTool } from '@/utils';
 import { MDControlBase } from './MDControlBase';
+import { Environment } from '@/environments/environment';
 
 /**
  * 表格部件基类
@@ -345,7 +346,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     get adaptiveState(): boolean {
-        return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
+        return !this.allColumns.find((column: any) => column.show && Object.is(column.unit, 'STAR'));
     }
 
     /**
@@ -1133,8 +1134,8 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public getActionState(data: any) {
-        const targetData: any = this.transformData(data);
-        const tempActionModel: any = JSON.parse(JSON.stringify(this.ActionModel));
+        let tempActionModel: any = JSON.parse(JSON.stringify(this.ActionModel));
+        let targetData: any = this.transformData(data);
         ViewTool.calcActionItemAuthState(targetData, tempActionModel, this.appUIService);
         return tempActionModel;
     }

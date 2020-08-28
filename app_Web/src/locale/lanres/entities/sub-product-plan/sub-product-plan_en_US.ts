@@ -70,27 +70,15 @@ export default {
 		},
 	},
 	subplangridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
+		deuiaction3_create: {
+			caption: "创建计划",
+			tip: "创建计划",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

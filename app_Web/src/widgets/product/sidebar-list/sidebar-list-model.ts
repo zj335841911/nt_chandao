@@ -15,6 +15,9 @@ export default class SidebarModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'istop',
+			},
+			{
 				name: 'activestorycnt',
 			},
 			{

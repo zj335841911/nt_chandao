@@ -208,7 +208,7 @@ export default {
 			story: "待办名称", 
 			bug: "待办名称", 
 			name: "待办名称", 
-			formitem1: "描述", 
+			desc: "描述", 
 			status: "状态", 
 			begin: "起止时间", 
 			end: "~", 
@@ -263,32 +263,24 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	todocreateviewtoolbar_toolbar: {
 		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_todocreate: {
 			caption: "新建",
 			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	todocreateviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

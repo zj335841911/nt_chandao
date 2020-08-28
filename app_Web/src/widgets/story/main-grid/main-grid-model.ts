@@ -131,6 +131,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

@@ -5,7 +5,7 @@ import Mock from 'mockjs'
 const Random = Mock.Random;
 
 // 获取应用数据
-mock.onGet('v7/appdata').reply((config: any) => {
+mock.onGet('appdata').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, {
         remotetag: Random.string('upper', 128),

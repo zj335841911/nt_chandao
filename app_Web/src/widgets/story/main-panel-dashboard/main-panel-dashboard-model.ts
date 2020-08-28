@@ -171,6 +171,12 @@ export default class MainPanelModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

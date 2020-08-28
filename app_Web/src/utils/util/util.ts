@@ -427,4 +427,17 @@ export class Util {
         // 校验返回Promise
         return schema.validate({ [property]: value })
     }
+
+    /**
+     * 处理数据
+     *
+     * @static
+     * @param {*} params
+     * @param {string} sep
+     * @returns
+     * @memberof Util
+     */
+    public static handleParams(params: any, sep: string) {
+        return qs.stringify(params, { delimiter: sep })
+    }
 }

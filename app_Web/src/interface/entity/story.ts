@@ -421,4 +421,20 @@ export interface Story {
      * @memberof Story
      */
     preversion?: any;
+
+    /**
+     * 不需要评审
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    neednotreview?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    isfavorites?: any;
 }

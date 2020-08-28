@@ -102,7 +102,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u7fcab41_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u20ca129_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +119,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:IbzLibUIService  = new IbzLibUIService();
-        curUIService.IbzLib_Editlib(datas,contextJO, paramJO,  $event, xData,this,"IbzLib");
+        curUIService.IbzLib_EditlibCz(datas,contextJO, paramJO,  $event, xData,this,"IbzLib");
     }
 
     /**
@@ -130,7 +130,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_uf7004c6_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u6ea81fb_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +147,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:IbzLibUIService  = new IbzLibUIService();
-        curUIService.IbzLib_Delete(datas,contextJO, paramJO,  $event, xData,this,"IbzLib");
+        curUIService.IbzLib_DeleteCz(datas,contextJO, paramJO,  $event, xData,this,"IbzLib");
     }
 
     /**
@@ -201,21 +201,22 @@ export class IbzLibCzPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u7fcab41_click",
+        { viewlogicname:"dashboard_sysportlet2_u20ca129_click",
         text: "编辑",
-        iconcls: null,
-        icon: null,
-        noprivdisplaymode: 1,
-        dataaccaction:'SRFUR__LIBM_EDIT_BUT',
-        actiontarget:'SINGLEDATA',
+        iconcls: "fa fa-edit",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__ADMIN',
+        actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_uf7004c6_click",
+        { viewlogicname:"dashboard_sysportlet2_u6ea81fb_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__ADMIN',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
@@ -231,11 +232,11 @@ export class IbzLibCzPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet2_udc1b4e7_click')){
             this.dashboard_sysportlet2_udc1b4e7_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u7fcab41_click')){
-            this.dashboard_sysportlet2_u7fcab41_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u20ca129_click')){
+            this.dashboard_sysportlet2_u20ca129_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_uf7004c6_click')){
-            this.dashboard_sysportlet2_uf7004c6_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u6ea81fb_click')){
+            this.dashboard_sysportlet2_u6ea81fb_click(null);
         }
     }
 

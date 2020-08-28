@@ -2,7 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'product-stats-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar class="ionoc-view-header">
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button v-show="isShowBackButton" @click="closeView">
                     <ion-icon name="chevron-back"></ion-icon>
@@ -14,8 +14,8 @@
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                             <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="fa fa-file-text-o"> </ion-icon>
-                    {{$t('productstats.mobmdviewrighttoolbar_toolbar.tbitem1.caption')}}
+                        <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
+                    
                     </ion-button>
                 
                     </div>
@@ -47,6 +47,8 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
+            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -69,7 +71,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
 
 @Component({
     components: {
@@ -92,6 +94,14 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     protected appEntityService: ProductStatsService = new ProductStatsService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductStatsUIService
+     * @memberof ProductStatsMobMDViewBase
+     */
+    public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
     /**
      * 数据变化
@@ -152,6 +162,21 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof ProductStatsMobMDViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProductStatsMobMDViewBase
+     */
+    public titleStatus :boolean = true;
 
     /**
      * 视图导航上下文
@@ -217,6 +242,18 @@ export default class ProductStatsMobMDViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof ProductStatsMobMDViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -253,10 +290,19 @@ export default class ProductStatsMobMDViewBase extends Vue {
     * @memberof ProductStatsMobMDView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '' } },
 
     };
 
+    
+
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductStatsMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -341,6 +387,7 @@ export default class ProductStatsMobMDViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 
@@ -362,6 +409,7 @@ export default class ProductStatsMobMDViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -373,7 +421,20 @@ export default class ProductStatsMobMDViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof ProductStatsMobMDViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
     }
 
     /**
@@ -559,7 +620,9 @@ export default class ProductStatsMobMDViewBase extends Vue {
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else {
+        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+        }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -637,14 +700,6 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

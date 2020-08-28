@@ -21,6 +21,8 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
+            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -43,7 +45,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
-
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
@@ -66,6 +68,14 @@ export default class StoryMobMDView9Base extends Vue {
      * @memberof StoryMobMDView9Base
      */
     protected appEntityService: StoryService = new StoryService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMobMDView9Base
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -126,6 +136,21 @@ export default class StoryMobMDView9Base extends Vue {
      * @memberof StoryMobMDView9Base
      */
     protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDView9Base
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof StoryMobMDView9Base
+     */
+    public titleStatus :boolean = true;
 
     /**
      * 视图导航上下文
@@ -191,6 +216,18 @@ export default class StoryMobMDView9Base extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof StoryMobMDView9Base
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -217,6 +254,13 @@ export default class StoryMobMDView9Base extends Vue {
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof StoryMobMDView9Base
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -301,6 +345,7 @@ export default class StoryMobMDView9Base extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
         if (this.formDruipart) {
             this.formDruipart.subscribe(($event: any) => {
                 if (Object.is($event.action, 'load')) {
@@ -331,6 +376,7 @@ export default class StoryMobMDView9Base extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -342,7 +388,20 @@ export default class StoryMobMDView9Base extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof StoryMobMDView9Base
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
     }
 
     /**
@@ -524,7 +583,9 @@ export default class StoryMobMDView9Base extends Vue {
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else {
+        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+        }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

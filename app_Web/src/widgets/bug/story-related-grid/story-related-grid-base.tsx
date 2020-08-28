@@ -94,6 +94,14 @@ export class StoryRelatedGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof StoryRelatedGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -116,14 +124,6 @@ export class StoryRelatedGridBase extends GridControlBase {
      * @memberof StoryRelatedGridBase
      */
     public limit: number = 500;
-
-    /**
-     * 是否显示标题
-     *
-     * @type {boolean}
-     * @memberof StoryRelatedGridBase
-     */
-    public isHideHeader: boolean = true;
 
     /**
      * 所有列成员

@@ -27,6 +27,8 @@
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
             :isTempMode="false"
+            :isEnableChoose="false"
+            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -49,7 +51,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 @Component({
     components: {
@@ -72,6 +74,14 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     protected appEntityService: BugService = new BugService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type BugUIService
+     * @memberof BugMobMDViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
      * 数据变化
@@ -132,6 +142,21 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof BugMobMDViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public titleStatus :boolean = true;
 
     /**
      * 视图导航上下文
@@ -197,6 +222,18 @@ export default class BugMobMDViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -235,6 +272,15 @@ export default class BugMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
     };
 
+    
+
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -319,6 +365,7 @@ export default class BugMobMDViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 
@@ -340,6 +387,7 @@ export default class BugMobMDViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -351,7 +399,20 @@ export default class BugMobMDViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof BugMobMDViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
     }
 
     /**
@@ -530,7 +591,9 @@ export default class BugMobMDViewBase extends Vue {
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else {
+        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+        }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -608,16 +671,6 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
-public UIActions = {
-    left:[
-                {name:'u3571afd',title:'删除（移动端）'},
-        ],
-    right:[    ]
-}
-
-
-
-
 
 
     /**

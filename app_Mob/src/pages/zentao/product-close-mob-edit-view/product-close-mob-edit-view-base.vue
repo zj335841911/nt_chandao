@@ -3,7 +3,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-close-mob-edit-view': true }">
     
     <ion-header>
-        <ion-toolbar class="ionoc-view-header">
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button v-show="isShowBackButton" @click="closeView">
                     <ion-icon name="chevron-back"></ion-icon>
@@ -43,12 +43,18 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "bottom_menu">
-                            <ion-button @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-icon name="sx-tb-saveandclose"></ion-icon>
-                {{$t('product.closemobeditviewrighttoolbar_toolbar.tbitem1.caption')}}
-            </ion-button>
+                <div  class = "fab_container">
+            <div class="bottom_menu">
         
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-icon name="done-all"></ion-icon>
+                
+            </ion-fab-button>
+        
+            </ion-fab>
+            </div>
         </div>
     </ion-footer>
 </ion-page>
@@ -61,7 +67,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-
+import ProductUIService from '@/ui-service/product/product-ui-action';
 
 @Component({
     components: {
@@ -84,6 +90,14 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @memberof ProductCloseMobEditViewBase
      */
     protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * 数据变化
@@ -144,6 +158,21 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @memberof ProductCloseMobEditViewBase
      */
     protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof ProductCloseMobEditViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public titleStatus :boolean = true;
 
     /**
      * 视图导航上下文
@@ -209,6 +238,18 @@ export default class ProductCloseMobEditViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -245,7 +286,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
     * @memberof ProductCloseMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: {  name: 'tbitem1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
 
@@ -257,6 +298,31 @@ export default class ProductCloseMobEditViewBase extends Vue {
      */
     public righttoolbarShowState: boolean = false;
 
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof ProductCloseMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = true;
+        if(this.righttoolbarModels){
+            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem].visabled === false;
+            })
+        }
+        return toolBarVisable;
+    }
+
+    
+
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -335,6 +401,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
         if(this.$route && this.$route.query && this.$route.query.bsinfo){
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
@@ -360,6 +427,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -371,7 +439,20 @@ export default class ProductCloseMobEditViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof ProductCloseMobEditViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
     }
 
     /**

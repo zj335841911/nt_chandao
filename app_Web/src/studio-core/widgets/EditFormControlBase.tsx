@@ -110,6 +110,9 @@ export class EditFormControlBase extends FormControlBase {
                 if (Object.is('removeandexit', action)) {
                     this.removeAndExit(data);
                 }
+                if (Object.is('panelaction', action)) {
+                    this.panelAction(data.action,data.emitAction,data.data);
+                }
             });
         }
         this.dataChang
@@ -203,6 +206,7 @@ export class EditFormControlBase extends FormControlBase {
         // 更新上下文，当前数据视图数据
         this.$appService.contextStore.setContextData(this.context, this.appDeName, { data })
         this.setFormEnableCond(data);
+        this.computeButtonState(data);
         this.fillForm(data, action);
         this.oldData = {};
         Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
@@ -258,10 +262,13 @@ export class EditFormControlBase extends FormControlBase {
         const arg: any = { ...opt };
         const data = this.getValues();
         Object.assign(arg, data);
+        if(this.viewparams && this.viewparams.copymode) {
+            data.srfuf = '0';
+        }
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if (!action) {
             let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.formpage.notconfig.actionname') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.notconfig.actionname') as string) });
             return;
         }
         Object.assign(arg, { viewparams: this.viewparams });
@@ -330,13 +337,19 @@ export class EditFormControlBase extends FormControlBase {
                 this.saveState = resolve;
                 return;
             }
+            if(this.viewparams && this.viewparams.copymode) {
+                data.srfuf = '0';
+            }
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if (!action) {
                 let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.formpage.notconfig.actionname') as string) });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.notconfig.actionname') as string) });
                 return;
             }
             Object.assign(arg, { viewparams: this.viewparams });
+            if (this.viewparams && this.viewparams.copymode) {
+                data.srfuf = '0';
+            }
             const post: Promise<any> = Object.is(data.srfuf, '1') ? this.service.update(action, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator) : this.service.add(action, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
             post.then((response: any) => {
                 if (!response.status || response.status !== 200) {
@@ -345,7 +358,7 @@ export class EditFormControlBase extends FormControlBase {
                     }
                     return;
                 }
-
+                this.viewparams.copymode = false;
                 const data = response.data;
                 this.onFormLoad(data, 'save');
                 this.$emit('save', data);
@@ -394,7 +407,7 @@ export class EditFormControlBase extends FormControlBase {
     public remove(opt: Array<any> = [], showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if (!this.removeAction) {
-                this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: `${this.name}表单removeAction参数未配置` });
                 return;
             }
             const arg: any = opt[0];
@@ -431,6 +444,8 @@ export class EditFormControlBase extends FormControlBase {
             const post: Promise<any> = _this.save({}, false);
             post.then((response: any) => {
                 const arg: any = response.data;
+                // 准备工作流数据,填充未存库数据
+                Object.assign(arg, this.getData());
                 if (this.viewparams) {
                     Object.assign(arg, { viewparams: this.viewparams });
                 }
@@ -498,6 +513,8 @@ export class EditFormControlBase extends FormControlBase {
                 this.$nextTick(() => {
                     this.formState.next({ type: 'save', data: arg });
                 });
+                // 准备工作流数据,填充未存库数据
+                Object.assign(arg, this.getData());
                 // 准备提交参数
                 if (this.viewparams) {
                     Object.assign(arg, { viewparams: this.viewparams });
@@ -602,6 +619,50 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof EditFormControlBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void { }
+
+    /**
+     * 面板行为
+     *
+     * @param {string} [action] 调用的实体行为
+     * @param {string} [emitAction] 抛出行为
+     * @param {*} [data={}] 传入数据
+     * @param {boolean} [showloading] 是否显示加载状态
+     * 
+     * @memberof EditFormControlBase
+     */
+    public panelAction(action:string,emitAction:string,data:any ={},showloading?:boolean):void{
+        if (!action || (action && Object.is(action, ''))) {
+            return;
+        }
+        const arg: any = { ...data };
+        const formdata = this.getValues();
+        Object.assign(arg, formdata);
+        Object.assign(arg,this.viewparams);
+        const post: Promise<any> = this.service.frontLogic(action,JSON.parse(JSON.stringify(this.context)),arg, showloading);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.data) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                }
+                return;
+            }
+            const data = response.data;
+            this.onFormLoad(data,emitAction);
+            this.$emit(emitAction, data);
+            this.$nextTick(() => {
+                this.formState.next({ type: emitAction, data: data });
+            });
+        }).catch((response: any) => {
+            if (response && response.status && response.data) {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                return;
+            }
+        });
+    }
 
     /**
      * 保存并退出
@@ -711,6 +772,16 @@ export class EditFormControlBase extends FormControlBase {
     protected sendAccMessage(type: 'update' | 'create' | 'remove'): void {
         this.data.___localUpdateDate = new Date().getTime();
         this.$acc.send[type](this.data, this.appDeName.toUpperCase());
+    }
+
+    /**
+     * 编辑器行为触发
+     *
+     * @param {*} arg
+     * @memberof EditFormControlBase
+     */
+    public onFormItemActionClick(arg: any) {
+        if (arg && (arg instanceof Function)) arg();
     }
 
 }

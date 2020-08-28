@@ -1,3 +1,5 @@
+import { Environment } from '@/environments/environment';
+
 /**
  * 
  *
@@ -170,7 +172,7 @@ export default class ViewEngine {
                 _item.disabled = state;
             }
             _item.visabled = true;
-            if(_item.noprivdisplaymode && _item.noprivdisplaymode === 6){
+            if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
                 _item.visabled = false;
             }
         }
@@ -183,40 +185,40 @@ export default class ViewEngine {
      * @param {*} [dataaccaction]
      * @memberof ViewEngine
      */
-    public calcToolbarItemAuthState(data:any){
+    public calcToolbarItemAuthState(data: any) {
         const _this: any = this;
         for (const key in _this.view.toolBarModels) {
             if (!_this.view.toolBarModels.hasOwnProperty(key)) {
                 return;
             }
             const _item = _this.view.toolBarModels[key];
-            if(_item && _item['dataaccaction'] && _this.view.appUIService){
-                let dataActionResult:any;
-                if (_item.uiaction && (Object.is(_item.uiaction.target, 'NONE'))){
+            if (_item && _item['dataaccaction'] && _this.view.appUIService) {
+                let dataActionResult: any;
+                if (_item.uiaction && (Object.is(_item.uiaction.target, 'NONE'))) {
                     dataActionResult = _this.view.appUIService.getResourceOPPrivs(_item['dataaccaction']);
-                }else{
-                    if(data && Object.keys(data).length >0){
-                        dataActionResult= _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];       
+                } else {
+                    if (data && Object.keys(data).length > 0) {
+                        dataActionResult = _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];
                     }
                 }
                 // 无权限:0;有权限:1
-                if(dataActionResult === 0){
+                if (dataActionResult === 0) {
                     // 禁用:1;隐藏:2;隐藏且默认隐藏:6
-                    if(_item.noprivdisplaymode === 1){
+                    if (_item.noprivdisplaymode === 1) {
                         _this.view.toolBarModels[key].disabled = true;
                     }
-                    if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                    if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
                         _this.view.toolBarModels[key].visabled = false;
-                    }else{
+                    } else {
                         _this.view.toolBarModels[key].visabled = true;
                     }
                 }
-                if(dataActionResult === 1){
+                if (dataActionResult === 1) {
                     _this.view.toolBarModels[key].visabled = true;
                     _this.view.toolBarModels[key].disabled = false;
                 }
             }
         }
-    }  
+    }
 
 }

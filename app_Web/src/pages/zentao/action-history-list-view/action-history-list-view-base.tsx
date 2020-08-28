@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -70,6 +71,17 @@ export class ActionHistoryListViewBase extends ListViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ActionHistoryListViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -77,7 +89,8 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionHistoryListViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' }
+        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
+        'objectid': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**
@@ -103,8 +116,21 @@ export class ActionHistoryListViewBase extends ListViewBase {
      */
     protected containerModel: any = {
         view_history: { name: 'history', type: 'LIST' },
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_list: { name: 'list', type: 'LIST' },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ActionHistoryListView
+     */
+    public toolBarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '添加备注', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加备注', iconcls: 'fa fa-twitch', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'AddComment', target: 'NONE', class: '' } },
+
+    };
+
 
 
 	/**
@@ -146,6 +172,19 @@ export class ActionHistoryListViewBase extends ListViewBase {
             majorPSDEField: 'comment',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ActionHistoryListViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
+        }
     }
 
     /**
@@ -201,6 +240,35 @@ export class ActionHistoryListViewBase extends ListViewBase {
      */
     public list_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.list;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ActionUIService  = new ActionUIService();
+        curUIService.Action_AddComment(datas,contextJO, paramJO,  $event, xData,this,"Action");
     }
 
     /**

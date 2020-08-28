@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import IbzLibAuthService from '@/authservice/ibz-lib/ibz-lib-auth-service';
@@ -6,7 +7,7 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
 
 /**
- * 用例库分页导航视图视图基类
+ * 用例库视图基类
  *
  * @export
  * @class IbzLibTabExpViewBase

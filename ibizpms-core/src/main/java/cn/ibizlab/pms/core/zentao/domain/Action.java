@@ -65,7 +65,7 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 备注
      */
-    @TableField(value = "comment")
+    @TableField(value = "`comment`")
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
@@ -73,7 +73,7 @@ public class Action extends EntityMP implements Serializable {
      * 已读
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "read")
+    @TableField(value = "`read`")
     @JSONField(name = "read")
     @JsonProperty("read")
     private String read;
@@ -87,7 +87,8 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 日期
      */
-    @TableField(value = "date")
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "date" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
@@ -186,24 +187,6 @@ public class Action extends EntityMP implements Serializable {
         this.modify("action",action);
     }
 
-    /**
-     * 设置 [日期]
-     */
-    public void setDate(Timestamp date){
-        this.date = date ;
-        this.modify("date",date);
-    }
-
-    /**
-     * 格式化日期 [日期]
-     */
-    public String formatDate(){
-        if (this.date == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(date);
-    }
     /**
      * 设置 [产品]
      */

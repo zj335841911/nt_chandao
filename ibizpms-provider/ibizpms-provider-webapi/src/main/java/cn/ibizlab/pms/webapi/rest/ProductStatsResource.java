@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Create-all')")
     @ApiOperation(value = "新建产品统计", tags = {"产品统计" },  notes = "新建产品统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/productstats")
-    @Transactional
     public ResponseEntity<ProductStatsDTO> create(@RequestBody ProductStatsDTO productstatsdto) {
         ProductStats domain = productstatsMapping.toDomain(productstatsdto);
 		productstatsService.create(domain);
@@ -69,7 +67,6 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Update-all')")
     @ApiOperation(value = "更新产品统计", tags = {"产品统计" },  notes = "更新产品统计")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productstats/{productstats_id}")
-    @Transactional
     public ResponseEntity<ProductStatsDTO> update(@PathVariable("productstats_id") BigInteger productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
 		ProductStats domain  = productstatsMapping.toDomain(productstatsdto);
         domain .setId(productstats_id);
@@ -89,7 +86,6 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
     @ApiOperation(value = "删除产品统计", tags = {"产品统计" },  notes = "删除产品统计")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/{productstats_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("productstats_id") BigInteger productstats_id) {
          return ResponseEntity.status(HttpStatus.OK).body(productstatsService.remove(productstats_id));
     }
@@ -126,7 +122,6 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-GetTestStats-all')")
     @ApiOperation(value = "获取测试统计详情", tags = {"产品统计" },  notes = "获取测试统计详情")
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}/getteststats")
-    @Transactional
     public ResponseEntity<ProductStatsDTO> getTestStats(@PathVariable("productstats_id") BigInteger productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
         ProductStats domain = productstatsMapping.toDomain(productstatsdto);
 domain.setId(productstats_id);

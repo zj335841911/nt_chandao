@@ -164,7 +164,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main_grid.columns.uagridcolumn1')" :width="160"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main_grid.columns.uagridcolumn1')" :width="220"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.story.main_grid.columns.uagridcolumn1')}}
@@ -194,6 +194,16 @@
                           <divider v-show="scope.row.OpenCaseCreateView.visabled" type='vertical'></divider>
                           <a v-show="scope.row.OpenCaseCreateView.visabled" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.main_grid.uiactions.story_opencasecreateview')">
                             <i class='fa fa-lightbulb-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.StoryFavorites.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.StoryFavorites.visabled" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.main_grid.uiactions.story_storyfavorites')">
+                            <i class='fa fa-star-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.StoryNFavorites.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.StoryNFavorites.visabled" :disabled="scope.row.StoryNFavorites.disabled" @click="uiAction(scope.row, 'StoryNFavorites', $event)" :title="$t('entities.story.main_grid.uiactions.story_storynfavorites')">
+                            <i class='fa fa-star'></i>
                             
                           </a>
                         </div>

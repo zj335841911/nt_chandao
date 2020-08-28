@@ -101,6 +101,11 @@ export default class Main_NewModeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'neednotreview',
+        prop: 'neednotreview',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
@@ -123,6 +128,11 @@ export default class Main_NewModeModel {
       {
         name: 'verify',
         prop: 'verify',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'files',
+        prop: 'files',
         dataType: 'TEXT',
       },
       {

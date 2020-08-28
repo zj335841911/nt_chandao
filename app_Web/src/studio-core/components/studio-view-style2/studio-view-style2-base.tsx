@@ -46,13 +46,13 @@ export class StudioViewStyle2Base extends StudioViewBase {
      */
     protected renderContent(): any {
         return [
-            this.$slots.toolbar ? <div class="view-top">
+            this.$slots.toolbar ? <div class="view-top" key="view-top">
                 {this.$slots.toolbar ? <div class="view-toolbar">{this.$slots.toolbar}</div> : null}
                 {this.$slots.quickSearch ? <div class="quick-search">
                     {this.$slots.quickSearch}
                 </div> : null}
             </div> : null,
-            this.isShowHeader ? <div class={{ 'view-header': true, 'hidden-top': !this.$slots.toolbar }}>
+            this.isShowHeader ? <div class={{ 'view-header': true, 'hidden-top': !this.$slots.toolbar }} key="view-header">
                 {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
                 {this.$slots.dataPanel ? <div class="data-panel">{this.$slots.dataPanel}</div> : null}
                 {this.$slots.quickGroupSearch ? <div class="quick-group-search">
@@ -63,7 +63,7 @@ export class StudioViewStyle2Base extends StudioViewBase {
                 </div> : null}
                 {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
             </div> : null,
-            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }}>
+            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
                 {this.$slots.searchForm ? <div class="search-form-wrapper">
                     <transition name="width-transition">
                         {this.$slots.searchForm}
@@ -73,7 +73,7 @@ export class StudioViewStyle2Base extends StudioViewBase {
                     {this.$slots.default}
                 </div>
             </div>,
-            this.$slots.footer ? <div class="view-footer">
+            this.$slots.footer ? <div class="view-footer" key="view-footer">
                 {this.$slots.footer}
             </div> : null
         ];

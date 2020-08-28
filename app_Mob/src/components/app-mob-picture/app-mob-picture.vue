@@ -334,7 +334,7 @@ export default class AppMobPicture extends Vue {
                     file.url = this.devFiles[index].url;
                     file.isImage = true;
                 }
-                return;
+                // return;
             }
 
             let _downloadUrl = `${this.downloadUrl}/${file.id}`;

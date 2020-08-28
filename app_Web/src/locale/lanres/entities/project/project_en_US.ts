@@ -52,8 +52,15 @@ export default {
     totalestimate: "任务最初预计总工时",
     totalhours: "可用工时",
     mobimage: "移动端图片",
+    accounts: "项目团队相关成员",
+    order1: "项目排序",
+    istop: "是否置顶",
   },
 	views: {
+		storymeditview9: {
+			caption: "需求相关",
+      		title: "项目多表单编辑视图（需求相关）",
+		},
 		tasktreeexpview: {
 			caption: "项目",
       		title: "项目任务导航视图",
@@ -97,6 +104,10 @@ export default {
 		mainview_edit: {
 			caption: "项目",
       		title: "项目编辑视图",
+		},
+		storyeditview9: {
+			caption: "需求",
+      		title: "项目编辑视图（需求相关）",
 		},
 		leftsidebarlistview: {
 			caption: "项目",
@@ -313,6 +324,24 @@ export default {
 		uiactions: {
 		},
 	},
+	storyproject_form: {
+		details: {
+			druipart1: "", 
+			group1: "项目基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			accounts: "", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -392,10 +421,6 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
@@ -408,21 +433,13 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",
@@ -430,23 +447,15 @@ export default {
 		},
 	},
 	mainmygridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
@@ -460,13 +469,19 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	leftsidebarlistviewlist_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "置顶",
+			tip: "置顶",
+		},
+		deuiaction2: {
+			caption: "取消置顶",
+			tip: "取消置顶",
 		},
 	},
 };

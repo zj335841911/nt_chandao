@@ -123,6 +123,12 @@ export default class TestTabExpViewtabexppanelModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'istop',
+      },
     ]
   }
 

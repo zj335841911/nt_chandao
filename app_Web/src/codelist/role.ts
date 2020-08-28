@@ -108,8 +108,8 @@ export default class Role {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.id});
-            Object.assign(itemdata,{value:item.id});
+            Object.assign(itemdata,{id:item.role});
+            Object.assign(itemdata,{value:item.role});
             Object.assign(itemdata,{text:item.name});
             Object.assign(itemdata,{label:item.name});
             

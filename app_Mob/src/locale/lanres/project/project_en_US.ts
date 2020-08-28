@@ -9,7 +9,7 @@ export default {
 			caption: '挂起',
 		},
 		mobtabexpview: {
-			caption: '项目',
+			caption: '项目详情',
 		},
 		activitemobeditview: {
 			caption: '激活',
@@ -18,7 +18,7 @@ export default {
 			caption: '关闭',
 		},
 		mobmdview: {
-			caption: '项目详情',
+			caption: '项目',
 		},
 	},
 	mobmain_form: {

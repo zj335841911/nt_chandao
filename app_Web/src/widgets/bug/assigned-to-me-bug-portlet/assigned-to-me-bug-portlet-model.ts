@@ -207,6 +207,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'files',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

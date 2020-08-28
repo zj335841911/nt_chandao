@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.release.main_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.release.main_grid.columns.name')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.release.main_grid.columns.name')}}
@@ -102,7 +102,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.release.main_grid.columns.uagridcolumn1')" :width="200"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.release.main_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.release.main_grid.columns.uagridcolumn1')}}
@@ -136,7 +136,7 @@
                           </a>
                           <divider v-show="scope.row.remove.visabled" type='vertical'></divider>
                           <a v-show="scope.row.remove.visabled" :disabled="scope.row.remove.disabled" @click="uiAction(scope.row, 'remove', $event)" :title="$t('entities.release.main_grid.uiactions.release_remove')">
-                            <i class=''></i>
+                            <i class='fa fa-remove'></i>
                             
                           </a>
                         </div>

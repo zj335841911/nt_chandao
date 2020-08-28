@@ -389,7 +389,7 @@ export default class AppRichTextEditor extends Vue {
                         }
                     })    
                 }
-                this.uploadUrl = _url;
+                // this.uploadUrl = _url;
                 richtexteditor.uploadFile(_url, formData).subscribe((file: any) => {
                     const item: any = { id: file.fileid, type: file.ext };
                     richtexteditor.imgsrc.push(item);

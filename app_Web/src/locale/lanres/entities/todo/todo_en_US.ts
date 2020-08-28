@@ -209,7 +209,7 @@ export default {
 			story: "待办名称", 
 			bug: "待办名称", 
 			name: "待办名称", 
-			formitem1: "描述", 
+			desc: "描述", 
 			status: "状态", 
 			begin: "起止时间", 
 			end: "~", 
@@ -264,32 +264,24 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	todocreateviewtoolbar_toolbar: {
 		deuiaction1: {
-			caption: "New",
-			tip: "New",
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_todocreate: {
+			caption: "新建",
+			tip: "新建",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	todocreateviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };

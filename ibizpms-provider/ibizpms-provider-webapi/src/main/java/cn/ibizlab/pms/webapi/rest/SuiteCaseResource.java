@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class SuiteCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Create-all')")
     @ApiOperation(value = "新建套件用例", tags = {"套件用例" },  notes = "新建套件用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/suitecases")
-    @Transactional
     public ResponseEntity<SuiteCaseDTO> create(@RequestBody SuiteCaseDTO suitecasedto) {
         SuiteCase domain = suitecaseMapping.toDomain(suitecasedto);
 		suitecaseService.create(domain);
@@ -69,7 +67,6 @@ public class SuiteCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Update-all')")
     @ApiOperation(value = "更新套件用例", tags = {"套件用例" },  notes = "更新套件用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/suitecases/{suitecase_id}")
-    @Transactional
     public ResponseEntity<SuiteCaseDTO> update(@PathVariable("suitecase_id") String suitecase_id, @RequestBody SuiteCaseDTO suitecasedto) {
 		SuiteCase domain  = suitecaseMapping.toDomain(suitecasedto);
         domain .setId(suitecase_id);
@@ -89,7 +86,6 @@ public class SuiteCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Remove-all')")
     @ApiOperation(value = "删除套件用例", tags = {"套件用例" },  notes = "删除套件用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/suitecases/{suitecase_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("suitecase_id") String suitecase_id) {
          return ResponseEntity.status(HttpStatus.OK).body(suitecaseService.remove(suitecase_id));
     }

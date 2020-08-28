@@ -395,17 +395,9 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",
@@ -423,17 +415,9 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",

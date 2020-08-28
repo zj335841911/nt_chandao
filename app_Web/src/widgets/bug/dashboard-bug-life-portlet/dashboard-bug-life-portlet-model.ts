@@ -207,6 +207,9 @@ export default class DashboardBugLifeModel {
       {
         name: 'files',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

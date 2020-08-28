@@ -157,23 +157,25 @@ export default class ViewEngine {
      */
     public calcToolbarItemState(state: boolean, dataaccaction?: any) {
         const _this: any = this;
-        if (!_this.view.toolBarModels || Object.keys(_this.view.toolBarModels).length === 0) {
-            return;
-        }
-
-        for (const key in _this.view.toolBarModels) {
-            if (!_this.view.toolBarModels.hasOwnProperty(key)) {
+        _this.view.toolbarModelList.forEach((tool:any) => {
+            if (!_this.view[tool] || Object.keys(_this.view[tool]).length === 0) {
                 return;
             }
-            const _item = _this.view.toolBarModels[key];
-            if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
-                _item.disabled = state;
+
+            for (const key in _this.view[tool]) {
+                if (!_this.view[tool].hasOwnProperty(key)) {
+                    return;
+                }
+                const _item = _this.view[tool][key];
+                if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
+                    _item.disabled = state;
+                }
+                _item.visabled = true;
+                if(_item.noprivdisplaymode && _item.noprivdisplaymode === 6){
+                    _item.visabled = false;
+                }
             }
-            _item.visabled = true;
-            if(_item.noprivdisplaymode && _item.noprivdisplaymode === 6){
-                _item.visabled = false;
-            }
-        }
+        });
     }
 
     /**
@@ -185,31 +187,40 @@ export default class ViewEngine {
      */
     public calcToolbarItemAuthState(data:any){
         const _this: any = this;
-        for (const key in _this.view.toolBarModels) {
-            if (!_this.view.toolBarModels.hasOwnProperty(key)) {
-                return;
-            }
-            const _item = _this.view.toolBarModels[key];
-            if(_item && _item['dataaccaction'] && _this.view.appUIService && data && Object.keys(data).length >0){
-                let dataActionResult:any = _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];
-                // 无权限:0;有权限:1
-                if(dataActionResult === 0){
-                    // 禁用:1;隐藏:2;隐藏且默认隐藏:6
-                    if(_item.noprivdisplaymode === 1){
-                        _this.view.toolBarModels[key].disabled = true;
-                    }
-                    if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
-                        _this.view.toolBarModels[key].visabled = false;
+        _this.view.toolbarModelList.forEach((tool:any) => {
+            for (const key in _this.view[tool]) {
+                if (!_this.view[tool].hasOwnProperty(key)) {
+                    return;
+                }
+                const _item = _this.view[tool][key];
+                if(_item && _item['dataaccaction'] && _this.view.appUIService && data && Object.keys(data).length >0){
+                    let dataActionResult:any;
+                    if (_item.uiaction && (Object.is(_item.uiaction.target, 'NONE'))){
+                        dataActionResult = _this.view.appUIService.getResourceOPPrivs(_item['dataaccaction']);
                     }else{
-                        _this.view.toolBarModels[key].visabled = true;
+                        if(data && Object.keys(data).length >0){
+                            dataActionResult= _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];       
+                        }
+                    }
+                    // 无权限:0;有权限:1
+                    if(dataActionResult === 0){
+                        // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                        if(_item.noprivdisplaymode === 1){
+                            _this.view[tool][key].disabled = true;
+                        }
+                        if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                            _this.view[tool][key].visabled = false;
+                        }else{
+                            _this.view[tool][key].visabled = true;
+                        }
+                    }
+                    if(dataActionResult === 1){
+                        _this.view[tool][key].visabled = true;
+                        _this.view[tool][key].disabled = false;
                     }
                 }
-                if(dataActionResult === 1){
-                    _this.view.toolBarModels[key].visabled = true;
-                    _this.view.toolBarModels[key].disabled = false;
-                }
             }
-        }
-    }  
+        });
+    }
 
 }

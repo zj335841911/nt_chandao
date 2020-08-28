@@ -65,6 +65,7 @@ export default {
     branchname: "平台/分支",
     modulename1: "模块名称",
     files: "附件",
+    mobimage: "移动端图片",
   },
 	views: {
 		plansubgridview: {
@@ -86,6 +87,10 @@ export default {
 		maindashboardview: {
 			caption: "Bug",
       		title: "Bug数据看板视图",
+		},
+		gridview9_storyaffect: {
+			caption: "相关Bug",
+      		title: "相关Bug",
 		},
 		pickupgridview4: {
 			caption: "Bug",
@@ -421,48 +426,6 @@ export default {
 		uiactions: {
 		},
 	},
-	casetobug_form: {
-		details: {
-			grouppanel1: "分组面板", 
-			grouppanel2: "分组面板", 
-			group1: "bug基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "修改日期", 
-			srforikey: "", 
-			srfkey: "Bug编号", 
-			srfmajortext: "Bug标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			productname: "产品", 
-			branch: "", 
-			product: "所属产品", 
-			modulename: "所属模块", 
-			module: "所属模块", 
-			projectname: "项目", 
-			project: "所属项目", 
-			openedbuild: "影响版本", 
-			assignedto: "指派给", 
-			deadline: "截止日期", 
-			type: "Bug类型", 
-			os: "操作系统", 
-			browser: "浏览器", 
-			title: "Bug标题", 
-			severity: "严重程度", 
-			pri: "优先级", 
-			steps: "重现步骤", 
-			storyname: "相关需求", 
-			taskname: "相关任务", 
-			mailto: "抄送给", 
-			keywords: "关键词", 
-			story: "相关需求", 
-			id: "Bug编号", 
-			task: "相关任务", 
-		},
-		uiactions: {
-		},
-	},
 	main_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -500,6 +463,48 @@ export default {
 			keywords: "关键词", 
 			id: "Bug编号", 
 			story: "相关需求", 
+			task: "相关任务", 
+		},
+		uiactions: {
+		},
+	},
+	casetobug_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			group1: "bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			branch: "", 
+			product: "所属产品", 
+			modulename: "所属模块", 
+			module: "所属模块", 
+			projectname: "项目", 
+			project: "所属项目", 
+			openedbuild: "影响版本", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			steps: "重现步骤", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
+			story: "相关需求", 
+			id: "Bug编号", 
 			task: "相关任务", 
 		},
 		uiactions: {
@@ -658,6 +663,19 @@ export default {
 		uiactions: {
 		},
 	},
+	storyaffectbug_grid: {
+		columns: {
+			id: "ID",
+			title: "Bug标题",
+			status: "状态",
+			openedby: "由谁创建",
+			resolvedby: "解决者",
+			resolution: "解决方案",
+			lasteditedby: "最后修改者",
+		},
+		uiactions: {
+		},
+	},
 	main_plansub_grid: {
 		columns: {
 			id: "ID",
@@ -808,6 +826,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	casetobugeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -819,27 +843,13 @@ export default {
 			caption: "关联Bug",
 			tip: "关联Bug",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	projectgridviewtoolbar_toolbar: {
@@ -847,17 +857,9 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",
@@ -881,10 +883,6 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
@@ -907,27 +905,11 @@ export default {
 			caption: "关联bug",
 			tip: "关联bug",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "批量移除",
-			tip: "批量移除",
-		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
 			tip: "关联bug",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "批量移除",
-			tip: "批量移除",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -935,17 +917,9 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",
@@ -956,10 +930,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",

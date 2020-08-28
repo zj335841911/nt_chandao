@@ -20,25 +20,52 @@
                         >.title {
                             padding: 0px 5px;
                             white-space: nowrap;
+                            display: flex;
+                            width: calc(100% - 70px);
 
+                            >.item-action {
+                                display: none;
+                                position: absolute;
+                                right: 5px;
+                                top: 5px;
+                                >.ivu-btn {
+                                    height: 24px;
+                                    font-size: 12px;
+                                }
+                            }
+                            >.ivu-tag {
+                                flex-shrink: 0;
+                            }
                             >.ivu-tag.ivu-tag-border {
                                 height: 22px;
                                 line-height: 22px;
                             }
 
-                            >.name {
-                                font-weight: 700;
-                                font-size: 16px;
-                                vertical-align: -2px;
-                                padding-left: 5px;
+                            >.name-content {
+                                flex-grow: 1;
+                                display: flex;
+                                width: 50%;
+
+                                >.name {
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    vertical-align: -2px;
+                                    padding-left: 5px;
+                                    display: inline-block;
+                                    max-width: calc(100% - 20px);
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                }
+
+                                >.open-action {
+                                    cursor: pointer;
+                                    margin-left: 5px;
+                                    font-size: 15px;
+                                    vertical-align: -1px;
+                                }
                             }
 
-                            >.open-action {
-                                cursor: pointer;
-                                margin-left: 5px;
-                                font-size: 15px;
-                                vertical-align: -1px;
-                            }
                         }
 
                         >.content {
@@ -57,6 +84,15 @@
 
                         >li::after {
                             background-color: var(--view-dividing-line-color-tint);
+                        }
+                    }
+                }
+                >.ivu-list-item:hover {
+                    >.content-wrapper {
+                        >.title {
+                            >.item-action {
+                                display: block;
+                            }
                         }
                     }
                 }

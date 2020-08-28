@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
-          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh">
+          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
@@ -10,7 +10,7 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)">移除关联</ion-item-option>
+                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon" :name="item.UnlinkStoryMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -30,7 +30,7 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)">移除关联</ion-item-option>
+                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon" :name="item.UnlinkStoryMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -371,6 +371,21 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
     */
     @Prop() public opendata?: Function; 
 
+    /**
+    * 是否能下拉刷新
+    *
+    * @type {Function}
+    * @memberof Mob
+    */
+    @Prop({ default: true }) public isEnableRefresh?: Boolean;
+
+    /**
+    * 是否能长按
+    *
+    * @type {Function}
+    * @memberof Mob
+    */
+    @Prop({ default: true }) public isEnableChoose?: Boolean;
 
     /**
     * 当前选中数组
@@ -897,7 +912,9 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
     * @memberof Mob_Plan
     */
     public created() {
-        this.onPress();
+        if (this.isEnableChoose) {
+           this.onPress();
+        }
         this.afterCreated();
     }
 
@@ -1063,7 +1080,7 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      * @memberof Mob_PlanBase
      */  
     public ActionModel:any ={
-        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
+        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'trash'}
     };
 
     /**

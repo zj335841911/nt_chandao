@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class UserTplResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Create-all')")
     @ApiOperation(value = "新建用户模板", tags = {"用户模板" },  notes = "新建用户模板")
 	@RequestMapping(method = RequestMethod.POST, value = "/usertpls")
-    @Transactional
     public ResponseEntity<UserTplDTO> create(@RequestBody UserTplDTO usertpldto) {
         UserTpl domain = usertplMapping.toDomain(usertpldto);
 		usertplService.create(domain);
@@ -69,7 +67,6 @@ public class UserTplResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Update-all')")
     @ApiOperation(value = "更新用户模板", tags = {"用户模板" },  notes = "更新用户模板")
 	@RequestMapping(method = RequestMethod.PUT, value = "/usertpls/{usertpl_id}")
-    @Transactional
     public ResponseEntity<UserTplDTO> update(@PathVariable("usertpl_id") BigInteger usertpl_id, @RequestBody UserTplDTO usertpldto) {
 		UserTpl domain  = usertplMapping.toDomain(usertpldto);
         domain .setId(usertpl_id);
@@ -89,7 +86,6 @@ public class UserTplResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Remove-all')")
     @ApiOperation(value = "删除用户模板", tags = {"用户模板" },  notes = "删除用户模板")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/usertpls/{usertpl_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("usertpl_id") BigInteger usertpl_id) {
          return ResponseEntity.status(HttpStatus.OK).body(usertplService.remove(usertpl_id));
     }

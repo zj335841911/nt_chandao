@@ -171,6 +171,12 @@ export default class TabExpViewtabviewpanelModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

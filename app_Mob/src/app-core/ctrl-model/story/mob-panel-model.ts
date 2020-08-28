@@ -171,6 +171,12 @@ export class MobModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

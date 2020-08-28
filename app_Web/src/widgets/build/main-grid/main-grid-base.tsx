@@ -187,7 +187,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u92e4430_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uc7f0296_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,28 +203,9 @@ export class MainGridBase extends GridControlBase {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Build");
+        const curUIService:BuildUIService  = new BuildUIService();
+        curUIService.Build_Delete(datas,contextJO, paramJO,  $event, xData,this,"Build");
     }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof BuildMainGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
-
 
     /**
      * 界面行为模型
@@ -233,11 +214,11 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_LINK_BUT', actiontarget: 'SINGLEKEY'},
+        submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_SUBT_BUT', actiontarget: 'SINGLEKEY'},
         viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'MULTIKEY'}
+        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -437,8 +418,8 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('editBuild', tag)) {
             this.grid_uagridcolumn1_ua6d943e_click(row, tag, $event);
         }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u92e4430_click(row, tag, $event);
+        if(Object.is('Delete', tag)) {
+            this.grid_uagridcolumn1_uc7f0296_click(row, tag, $event);
         }
     }
 }

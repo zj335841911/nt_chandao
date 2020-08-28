@@ -517,4 +517,12 @@ export interface Bug {
      * @memberof Bug
      */
     files?: any;
+
+    /**
+     * 移动端图片
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mobimage?: any;
 }

@@ -79,6 +79,16 @@
         "viewtag": "0568d197dda832ceb89ad0442ab9f230",
         "memo": ""
     },
+    "projectstorymeditview9": {
+        "title": "项目多表单编辑视图（需求相关）",
+        "caption": "需求相关",
+        "viewtype": "DEMEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProjectStoryMEditView9",
+        "viewfilename": "project-story-medit-view9",
+        "viewtag": "0626fb8e7d46da2437209b658d8f51c2",
+        "memo": ""
+    },
     "storypickupgridview4": {
         "title": "需求",
         "caption": "需求",
@@ -177,6 +187,16 @@
         "viewname": "ProductProjectGridView9",
         "viewfilename": "product-project-grid-view9",
         "viewtag": "0b1b51910ca13751bfd6d356dcadbbce",
+        "memo": ""
+    },
+    "ibzfavoritestabexpview": {
+        "title": "收藏分页导航视图",
+        "caption": "收藏",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzFavoritesTabExpView",
+        "viewfilename": "ibz-favorites-tab-exp-view",
+        "viewtag": "0bd16cd21ee2e8951fb8a86599ac1510",
         "memo": ""
     },
     "storyusr2mpickupview": {
@@ -337,6 +357,16 @@
         "viewname": "ProductPlanSubPlanCreateView",
         "viewfilename": "product-plan-sub-plan-create-view",
         "viewtag": "170c1d558f26cf37236390b28f8aca82",
+        "memo": ""
+    },
+    "buggridview9_storyaffect": {
+        "title": "相关Bug",
+        "caption": "相关Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_Storyaffect",
+        "viewfilename": "bug-grid-view9-storyaffect",
+        "viewtag": "174408669d176924efbb3227d0784e93",
         "memo": ""
     },
     "productplanmaineditview": {
@@ -647,6 +677,16 @@
         "viewname": "CaseGridView9_My",
         "viewfilename": "case-grid-view9-my",
         "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a",
+        "memo": ""
+    },
+    "casegridview9_storyaffect": {
+        "title": "相关用例",
+        "caption": "相关用例",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseGridView9_Storyaffect",
+        "viewfilename": "case-grid-view9-storyaffect",
+        "viewtag": "3458603afa6fef36eda88e9f794840f5",
         "memo": ""
     },
     "tasksubtasknewview": {
@@ -1319,8 +1359,18 @@
         "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e",
         "memo": ""
     },
+    "projectstoryeditview9": {
+        "title": "项目编辑视图（需求相关）",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProjectStoryEditView9",
+        "viewfilename": "project-story-edit-view9",
+        "viewtag": "5bd10fe33398f9552892c6d217135f8e",
+        "memo": ""
+    },
     "deptmaingridview": {
-        "title": "部门表格视图",
+        "title": "部门",
         "caption": "部门",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -1527,6 +1577,16 @@
         "viewname": "TestTaskProjectGridView",
         "viewfilename": "test-task-project-grid-view",
         "viewtag": "72614f86125fa2a1421156c17116a4e3",
+        "memo": ""
+    },
+    "userinfoeditview": {
+        "title": "用户编辑视图",
+        "caption": "用户信息",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserINFOEditView",
+        "viewfilename": "user-infoedit-view",
+        "viewtag": "72a44528b73b17f6e29a3ca59e432d19",
         "memo": ""
     },
     "casecursuitgridview": {
@@ -1837,6 +1897,16 @@
         "viewname": "ProjectGridView",
         "viewfilename": "project-grid-view",
         "viewtag": "846ddf8e555650608d4f75c4595c1270",
+        "memo": ""
+    },
+    "taskgridview9_project": {
+        "title": "任务表格视图",
+        "caption": "相关任务",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskGridView9_Project",
+        "viewfilename": "task-grid-view9-project",
+        "viewtag": "85e834a5eec7818746a2425f39d82630",
         "memo": ""
     },
     "projectmaindashboardview": {
@@ -2239,6 +2309,16 @@
         "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d",
         "memo": "用于【项目】关联【需求】，显示项目下的所有需求。"
     },
+    "deptinfoeditview": {
+        "title": "部门编辑视图",
+        "caption": "部门信息",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DeptInfoEditView",
+        "viewfilename": "dept-info-edit-view",
+        "viewtag": "a52f8b23a989b8526e4c98c49d73a3d0",
+        "memo": ""
+    },
     "casestepcarryouteditmode": {
         "title": "用例步骤",
         "caption": "用例步骤",
@@ -2399,6 +2479,16 @@
         "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e",
         "memo": ""
     },
+    "actionoptionview": {
+        "title": "添加备注",
+        "caption": "添加备注",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ActionOptionView",
+        "viewfilename": "action-option-view",
+        "viewtag": "af6f4065b0510b7994c3cd2bc6074440",
+        "memo": ""
+    },
     "taskpausetaskview": {
         "title": "暂停任务",
         "caption": "暂停任务",
@@ -2487,6 +2577,16 @@
         "viewname": "IbzCaseMainEditView9",
         "viewfilename": "ibz-case-main-edit-view9",
         "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d",
+        "memo": ""
+    },
+    "storymyfavoritesgridview": {
+        "title": "story表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "Ungroup",
+        "viewname": "StoryMyFavoritesGridView",
+        "viewfilename": "story-my-favorites-grid-view",
+        "viewtag": "b7e6268db4bdeb10211fc15383de685d",
         "memo": ""
     },
     "storympickupview": {
@@ -3029,6 +3129,16 @@
         "viewtag": "e0fbca7627cdd68765e173028b07f687",
         "memo": ""
     },
+    "branchpminfoeditview": {
+        "title": "平台管理",
+        "caption": "产品的分支和平台信息",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BranchPMInfoEditView",
+        "viewfilename": "branch-pminfo-edit-view",
+        "viewtag": "e1a0e6c29939260ead53dcd3beb8b736",
+        "memo": ""
+    },
     "ibzmyterritorylistview": {
         "title": "欢迎",
         "caption": "欢迎",
@@ -3037,6 +3147,16 @@
         "viewname": "IbzMyTerritoryListView",
         "viewfilename": "ibz-my-territory-list-view",
         "viewtag": "e2d75951e06d21bce0a31b09c67103bf",
+        "memo": ""
+    },
+    "usertreeexpview": {
+        "title": "用户",
+        "caption": "用户",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserTreeExpView",
+        "viewfilename": "user-tree-exp-view",
+        "viewtag": "e2f8bc0ff75f204383d2a5c15117b476",
         "memo": ""
     },
     "productlistexpview": {
@@ -3210,7 +3330,7 @@
         "memo": ""
     },
     "ibzlibtabexpview": {
-        "title": "用例库分页导航视图",
+        "title": "用例库",
         "caption": "用例库",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "ibiz",

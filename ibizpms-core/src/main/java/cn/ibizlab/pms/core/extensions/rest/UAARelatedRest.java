@@ -8,6 +8,7 @@ import cn.ibizlab.pms.core.zentao.domain.User;
 import cn.ibizlab.pms.core.zentao.service.IUserService;
 import cn.ibizlab.pms.util.client.IBZUAAFeignClient;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
+import cn.ibizlab.pms.util.errors.InternalServerErrorException;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,11 +33,12 @@ public class UAARelatedRest {
 
     @PostMapping(value="/ztlogin")
     public JSONObject doZTLogin(String uaaloginname, String  token){
-        User ztUser = getZTUserInfo(uaaloginname);
-
-        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
+        User user = getZTUserInfo(uaaloginname);
+        JSONObject userJO = doZTLogin(user.getAccount(), ztpassword, token);
         return userJO;
     }
+
+    @Deprecated
     @GetMapping(value="/ztusers/uaaloginname")
     public JSONObject getUser(String uaaloginname){
         User ztUser = getZTUserInfo(uaaloginname);
@@ -50,11 +53,16 @@ public class UAARelatedRest {
      * 注意：根据commiter，查询到多个账号时，只返回符合条件的第一个账号。
      */
     private User getZTUserInfo(String loginname) {
+        if(StringUtils.isEmpty(loginname)){
+            throw new InternalServerErrorException("账户名不能为空");
+        }
         IUserService userService = SpringContextHolder.getBean(IUserService.class);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("account",loginname).or().eq("commiter", loginname);
-
+//        //兼容测试环境及生产环境
+//        queryWrapper.eq("account",loginname).or().like("commiter", loginname);
         List<User> users = userService.list(queryWrapper);
+
         User ztUser = null;
         if (CollectionUtils.isEmpty(users)) {
 
@@ -62,6 +70,13 @@ public class UAARelatedRest {
             throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0012, null, null);
         } else {
             ztUser = users.get(0);
+            //兼容测试及生产环境
+            for(String commiter:ztUser.getCommiter().split(";")){
+                if(loginname.equals(commiter)){
+                    return ztUser;
+                }
+            }
+            return null;
         }
         if (ztUser == null || ztUser.getCommiter() == null) {
             //（二期）没有对应账号，后台新建账号，再登录

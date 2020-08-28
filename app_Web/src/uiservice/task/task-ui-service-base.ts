@@ -106,6 +106,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'wheditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'activationtaskview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'gridview9_project',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'workinfoeditview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'tasks'});
@@ -274,7 +275,7 @@ export default class TaskUIServiceBase extends UIService {
     }
 
     /**
-     * 新建任务
+     * 新建
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文

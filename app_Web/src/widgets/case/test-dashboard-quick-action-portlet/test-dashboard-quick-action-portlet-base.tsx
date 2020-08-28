@@ -158,7 +158,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u09cf58f_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u75d5960_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +175,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_MainEditCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -186,7 +186,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ua34bf46_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u4bcdc26_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,7 +203,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_delete(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_deleteCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -281,7 +281,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
         dataaccaction:'SRFUR__CASE_CASERUN_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
@@ -291,26 +291,26 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
-        noprivdisplaymode: 2,
+        noprivdisplaymode: 1,
         dataaccaction:'SRFUR__CASE_CASERESULT_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u09cf58f_click",
+        { viewlogicname:"dashboard_sysportlet4_u75d5960_click",
         text: "编辑",
-        iconcls: "fa fa-edit",
-        icon: "",
+        iconcls: null,
+        icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_EDIT_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_ua34bf46_click",
+        { viewlogicname:"dashboard_sysportlet4_u4bcdc26_click",
         text: "删除",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-remove",
+        icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_DELETE_BUT',
         actiontarget:'SINGLEKEY',
@@ -334,11 +334,11 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet4_u20add63_click')){
             this.dashboard_sysportlet4_u20add63_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u09cf58f_click')){
-            this.dashboard_sysportlet4_u09cf58f_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u75d5960_click')){
+            this.dashboard_sysportlet4_u75d5960_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_ua34bf46_click')){
-            this.dashboard_sysportlet4_ua34bf46_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u4bcdc26_click')){
+            this.dashboard_sysportlet4_u4bcdc26_click(null);
         }
     }
 

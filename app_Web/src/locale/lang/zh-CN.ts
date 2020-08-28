@@ -12,6 +12,7 @@ import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
+import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
@@ -187,11 +188,13 @@ export default {
         menus: {
             zentao: {
                 top_menus: "顶部菜单",
+                menuitem12: "我的收藏",
                 menuitem9: "我的地盘",
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
                 menuitem10: "用例库",
+                menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
@@ -311,6 +314,7 @@ export default {
         subproductplan: subproductplan_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
+        ibzfavorites: ibzfavorites_zh_CN,
         branch: branch_zh_CN,
         productstats: productstats_zh_CN,
         ibzprojectmember: ibzprojectmember_zh_CN,

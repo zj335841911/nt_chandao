@@ -171,6 +171,12 @@ export default class StoryspecModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

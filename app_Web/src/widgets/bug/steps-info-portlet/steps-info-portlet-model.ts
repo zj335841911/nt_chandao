@@ -207,6 +207,9 @@ export default class StepsInfoModel {
       {
         name: 'files',
       },
+      {
+        name: 'mobimage',
+      },
     ]
   }
 

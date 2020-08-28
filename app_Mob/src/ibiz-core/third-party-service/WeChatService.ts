@@ -200,4 +200,35 @@ export class WeChatService {
     public close(){
         // 关闭
     }
+
+    /**
+     * 设置微信标题
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setTitle(title:string){
+        // 设置标题
+    }
+
+    /**
+     * 微信导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    private backEvent:Function = ()=>{};
+
+    /**
+     * 设置微信导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setBackEvent(event:Function){
+        this.backEvent = event;
+    }
 }

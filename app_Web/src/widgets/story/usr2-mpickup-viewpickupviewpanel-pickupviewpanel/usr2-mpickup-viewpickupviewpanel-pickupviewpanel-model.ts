@@ -171,6 +171,12 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

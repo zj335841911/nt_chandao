@@ -151,7 +151,9 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ## 系统地址
 
-演示Demo地址：http://pms.ibizlab.cn
+演示Demo地址：<a href="http://pms.ibizlab.cn/" target="_blank">http://pms.ibizlab.cn/</a>
+
+演示移动端地址：<a href="http://pms.ibizlab.cn/mob/" target="_blank">http://pms.ibizlab.cn/mob/</a>  
 
 演示账号/密码：gitee/gitee@123，pms_guest/guest@123
 

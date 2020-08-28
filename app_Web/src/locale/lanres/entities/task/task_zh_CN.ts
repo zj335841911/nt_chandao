@@ -123,6 +123,10 @@ export default {
 			caption: "激活任务",
       		title: "激活任务",
 		},
+		gridview9_project: {
+			caption: "相关任务",
+      		title: "任务表格视图",
+		},
 		workinfoeditview9: {
 			caption: "工时信息",
       		title: "工时信息",
@@ -614,6 +618,18 @@ export default {
 		uiactions: {
 		},
 	},
+	projectrelated_grid: {
+		columns: {
+			id: "编号",
+			name: "任务名称",
+			assignedto: "指派给",
+			status: "任务状态",
+			consumed: "总计消耗",
+			left: "预计剩余",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -634,27 +650,15 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},
@@ -686,13 +690,9 @@ export default {
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -702,15 +702,15 @@ export default {
 	todoeditviewtoolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
-		tbitem1_create: {
-			caption: "新建任务",
-			tip: "新建任务",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
-		tbitem2: {
-			caption: "-",
-			tip: "",
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
-		tbitem13: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},

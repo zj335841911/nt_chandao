@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -49,7 +48,6 @@ public class ProductLineResource {
 
     @ApiOperation(value = "新建产品线", tags = {"产品线" },  notes = "新建产品线")
 	@RequestMapping(method = RequestMethod.POST, value = "/productlines")
-    @Transactional
     public ResponseEntity<ProductLineDTO> create(@RequestBody ProductLineDTO productlinedto) {
         ProductLine domain = productlineMapping.toDomain(productlinedto);
 		productlineService.create(domain);
@@ -67,7 +65,6 @@ public class ProductLineResource {
     @VersionCheck(entity = "productline" , versionfield = "updatedate")
     @ApiOperation(value = "更新产品线", tags = {"产品线" },  notes = "更新产品线")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productlines/{productline_id}")
-    @Transactional
     public ResponseEntity<ProductLineDTO> update(@PathVariable("productline_id") String productline_id, @RequestBody ProductLineDTO productlinedto) {
 		ProductLine domain  = productlineMapping.toDomain(productlinedto);
         domain .setProductlineid(productline_id);
@@ -85,7 +82,6 @@ public class ProductLineResource {
 
     @ApiOperation(value = "删除产品线", tags = {"产品线" },  notes = "删除产品线")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productlines/{productline_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("productline_id") String productline_id) {
          return ResponseEntity.status(HttpStatus.OK).body(productlineService.remove(productline_id));
     }

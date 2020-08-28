@@ -171,6 +171,12 @@ export default class ProjectMPickupView3pickupviewpanelModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

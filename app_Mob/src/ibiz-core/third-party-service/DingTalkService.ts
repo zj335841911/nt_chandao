@@ -68,6 +68,7 @@ export class DingTalkService {
         if (info.indexOf('DINGTALK') !== -1) {
             dd.ready(() => {
                 this.$isInit = true;
+                this.navBack();
             });
             dd.error((err: any) => {
                 alert(`dd加载错误：${JSON.stringify(err)}`);
@@ -162,5 +163,64 @@ export class DingTalkService {
      */
     public close(){
         this.dd.biz.navigation.close({});
+    }
+
+    /**
+     * 设置钉钉标题
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setTitle(title:string){
+        this.dd.biz.navigation.setTitle({
+            title : title,
+        });
+    }
+
+    /**
+     * 设置钉钉导航栏返回按钮
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    private navBack(){
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        if(isAndroid){
+            document.addEventListener('backbutton', (e:any)=> {
+                e.preventDefault();
+                this.backEvent();
+            },false)
+        }else{
+            dd.biz.navigation.setLeft({
+                 control : true,//是否控制点击事件，true 控制，false 不控制， 默认false
+                 text : '返回', //控制显示文本，空字符串表示显示默认文本
+                 onSuccess : ()=>{
+                    this.backEvent();
+                 }
+             });
+        }
+    }
+
+    /**
+     * 钉钉导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    private backEvent:Function = ()=>{};
+
+    /**
+     * 设置钉钉导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setBackEvent(event:Function){
+        this.backEvent = event;
     }
 }

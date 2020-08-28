@@ -87,6 +87,14 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IStoryprojectUnlinkStorysLogic projectunlinkstorysLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryFavoritesLogic storyfavoritesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryNFavoritesLogic storynfavoritesLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -510,6 +518,20 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public Story storyFavorites(Story et) {
+        storyfavoritesLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Story storyNFavorites(Story et) {
+        storynfavoritesLogic.execute(et);
+         return et ;
+    }
+
         @Override
     @Transactional
     public Story unlinkStory(Story et) {
@@ -646,6 +668,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     public Page<Story> searchGetProductStories(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchGetProductStories(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<Story> searchMyFavorites(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

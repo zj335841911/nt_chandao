@@ -20,6 +20,10 @@ zuul:
       path:  /uaa/open/dingtalk/auth/**
       serviceId: ${ibiz.ref.service.uaa:pms-webapi}
       stripPrefix: false
+    guest:
+      path:  /login/guest
+      serviceId: ${ibiz.ref.service.uaa:pms-webapi}
+      stripPrefix: false
 environment:
   - TZ=Asia/Shanghai
 

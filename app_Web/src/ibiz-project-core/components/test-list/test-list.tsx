@@ -59,6 +59,32 @@ export class TestList extends Vue {
     }
 
     /**
+     * 置顶
+     *
+     * @param {*} $event
+     * @param {*} item
+     * @memberof TestList
+     */
+    public setTop($event: any, item: any) {
+        $event.stopPropagation();
+        this.$nextTick(() => {
+            this.$emit("item-action-click", {tag: 'deuiaction1'}, item);
+        })
+    }
+
+    /**
+     * 取消置顶
+     *
+     * @param {*} $event
+     * @param {*} item
+     * @memberof TestList
+     */
+    public canelTop($event: any, item: any) {
+        $event.stopPropagation();
+        this.$emit("item-action-click", {tag: 'deuiaction2'}, item);
+    }
+
+    /**
      * 绘制产品项
      *
      * @protected
@@ -72,10 +98,15 @@ export class TestList extends Vue {
                 <div class="title">
                     <tag type="border">{p.id}</tag>
                     <tag>{p.code}</tag>
-                    <span class="name">{p.name}</span>
-                    <span class="open-action" on-click={(e: any) => this.click(e, p)}>
-                        <icon type="md-open" />
-                    </span>
+                    <div class="name-content">
+                        <div class="name" title={p.name}>{p.name}</div>
+                        <span class="open-action" on-click={(e: any) => this.click(e, p)}>
+                            <icon type="md-open" />
+                        </span>
+                    </div>
+                    <div class="item-action">
+                        {p.istop ? <i-button on-click={($event: any) => this.canelTop($event, p)}>取消置顶</i-button> : <i-button on-click={($event: any) => this.setTop($event, p)}>置顶</i-button>}
+                    </div>
                 </div>
                 <div class="content">
                     <tag color="cyan">类型：{p.type}</tag>

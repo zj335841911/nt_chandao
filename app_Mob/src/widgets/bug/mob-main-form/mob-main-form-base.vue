@@ -302,6 +302,45 @@
 </app-form-item>
 
 
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('bug.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='bug' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    paramItem='bug' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
     
 </app-form-group>
 
@@ -875,6 +914,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '变更历史', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -1219,6 +1262,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
+
     }
 
 
@@ -1243,11 +1288,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
     /**
      * 校验全部
+     *
+     * @public
+     * @param {{ filter: string}} { filter}
+     * @returns {void}
+     * @memberof MobMain
      */
-    public async validAll() {
+    public async validAll(filter:string = "defult") {
         let validateState = true;
+        let filterProperty = ""
+        if(filter === 'new'){
+            filterProperty= 'id'
+        }
         for (let item of Object.keys(this.rules)) {
-            if(!await this.validItem(item,this.data[item])){
+            if(!await this.validItem(item,this.data[item]) && item != filterProperty){
                 validateState = false;
             }
         }
@@ -1711,22 +1765,24 @@ export default class MobMainBase extends Vue implements ControlInterface {
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
         opt.saveEmit = opt.saveEmit === undefined ? true : false;
-        if (!await this.validAll()) {
-            this.$notice.error('值规则校验异常');
-            return Promise.reject();
-        }
+
         const arg: any = { ...opt };
         const data = this.getValues();
         Object.assign(arg, data);
+        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        if (this.data.srfuf =='1'? !await this.validAll():!await this.validAll('new')) {
+            this.$notice.error('值规则校验异常');
+            return Promise.reject();
+        }
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
                 return Promise.reject();
             }
         }
-        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        
         if (!action) {
             let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));

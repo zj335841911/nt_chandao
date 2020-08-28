@@ -112,36 +112,24 @@ export default {
         release_remove: "删除",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	quickcreateviewtoolbar_toolbar: {
 		deuiaction1: {
-			caption: "New",
-			tip: "New",
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_quickcreate: {
+			caption: "创建发布",
+			tip: "创建发布",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	quickcreateviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	editviewtoolbar_toolbar: {

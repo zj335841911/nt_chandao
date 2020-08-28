@@ -168,6 +168,15 @@ export default class TestTabExpViewtabviewpanelModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'istop',
+      },
     ]
   }
 

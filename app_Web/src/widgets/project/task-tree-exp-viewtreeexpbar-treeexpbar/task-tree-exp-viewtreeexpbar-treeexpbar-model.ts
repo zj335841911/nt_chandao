@@ -168,6 +168,15 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'istop',
+      },
     ]
   }
 

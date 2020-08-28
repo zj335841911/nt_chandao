@@ -102,7 +102,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u5e0cd96_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u48229d2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +119,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_ExecuteCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -130,7 +130,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ue17919a_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u9ccf27c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +147,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_OpenTestRunResultViewCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -158,7 +158,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u365135c_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u195de43_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +175,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_NewBugByCaseResult(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_NewBugByCaseResultCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -186,7 +186,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u4c22fea_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_ue9d4654_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,7 +203,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_MainEditCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -214,7 +214,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ud9f9776_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_ua71b4c9_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -231,7 +231,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_delete(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_deleteCz(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -305,7 +305,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u5e0cd96_click",
+        { viewlogicname:"dashboard_sysportlet4_u48229d2_click",
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
@@ -315,7 +315,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_ue17919a_click",
+        { viewlogicname:"dashboard_sysportlet4_u9ccf27c_click",
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
@@ -325,7 +325,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u365135c_click",
+        { viewlogicname:"dashboard_sysportlet4_u195de43_click",
         text: "转Bug",
         iconcls: "fa fa-bug",
         icon: "",
@@ -335,20 +335,20 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u4c22fea_click",
+        { viewlogicname:"dashboard_sysportlet4_ue9d4654_click",
         text: "编辑",
-        iconcls: "fa fa-edit",
-        icon: "",
+        iconcls: null,
+        icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_EDIT_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_ud9f9776_click",
+        { viewlogicname:"dashboard_sysportlet4_ua71b4c9_click",
         text: "删除",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-remove",
+        icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_DELETE_BUT',
         actiontarget:'SINGLEKEY',
@@ -366,20 +366,20 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet4_u947bac5_click')){
             this.dashboard_sysportlet4_u947bac5_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u5e0cd96_click')){
-            this.dashboard_sysportlet4_u5e0cd96_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u48229d2_click')){
+            this.dashboard_sysportlet4_u48229d2_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_ue17919a_click')){
-            this.dashboard_sysportlet4_ue17919a_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u9ccf27c_click')){
+            this.dashboard_sysportlet4_u9ccf27c_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u365135c_click')){
-            this.dashboard_sysportlet4_u365135c_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u195de43_click')){
+            this.dashboard_sysportlet4_u195de43_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u4c22fea_click')){
-            this.dashboard_sysportlet4_u4c22fea_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_ue9d4654_click')){
+            this.dashboard_sysportlet4_ue9d4654_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_ud9f9776_click')){
-            this.dashboard_sysportlet4_ud9f9776_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_ua71b4c9_click')){
+            this.dashboard_sysportlet4_ua71b4c9_click(null);
         }
     }
 

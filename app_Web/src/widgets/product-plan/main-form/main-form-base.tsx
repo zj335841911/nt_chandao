@@ -249,11 +249,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         if (Object.is(name, 'begin')) {
             const details: string[] = ['end'];
-            this.updateFormItems('getPlanEnd', this.data, details, true);
+            this.updateFormItems('GetPlanEnd', this.data, details, true);
         }
         if (Object.is(name, 'delta')) {
             const details: string[] = ['end'];
-            this.updateFormItems('getPlanEnd', this.data, details, true);
+            this.updateFormItems('GetPlanEnd', this.data, details, true);
         }
     }
 }

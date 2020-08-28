@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCaseAuthService from '@/authservice/ibz-case/ibz-case-auth-service';
@@ -65,6 +66,18 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @memberof IbzCaseDashboardViewBase
      */    
     protected counterServiceArray: Array<any> = [];
+
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzCaseDashboardViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'case' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'ibzcase' }
+    };
 
     /**
      * 视图模型数据

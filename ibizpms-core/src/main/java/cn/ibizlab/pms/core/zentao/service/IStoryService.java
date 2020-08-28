@@ -66,6 +66,8 @@ public interface IStoryService extends IService<Story>{
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
+    Story storyFavorites(Story et) ;
+    Story storyNFavorites(Story et) ;
     Story unlinkStory(Story et) ;
     Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) ;
     Page<Story> searchBuildLinkableStories(StorySearchContext context) ;
@@ -73,6 +75,7 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchByModule(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;
     Page<Story> searchGetProductStories(StorySearchContext context) ;
+    Page<Story> searchMyFavorites(StorySearchContext context) ;
     Page<Story> searchProjectLinkStory(StorySearchContext context) ;
     Page<Story> searchProjectStories(StorySearchContext context) ;
     Page<Story> searchReleaseLinkableStories(StorySearchContext context) ;

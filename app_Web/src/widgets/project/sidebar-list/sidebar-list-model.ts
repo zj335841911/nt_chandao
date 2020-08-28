@@ -41,6 +41,9 @@ export default class SidebarModel {
 				name: 'id',
 			},
 			{
+				name: 'istop',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

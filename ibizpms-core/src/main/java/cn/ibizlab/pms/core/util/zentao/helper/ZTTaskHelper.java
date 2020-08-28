@@ -284,19 +284,19 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_EDIT.put("multiple", 0);
         ACTION_PARAMS_EDIT.put("teamLeft[]", null);
         ACTION_PARAMS_EDIT.put("teamConsumed[]", 0);
-        ACTION_PARAMS_EDIT.put("comment", null);
+        ACTION_PARAMS_EDIT.put("comment", "");
 
 
         // ASSIGNTO
         ACTION_PARAMS_ASSIGNTO.put("assignedTo", null);
         ACTION_PARAMS_ASSIGNTO.put("left", null);
-        ACTION_PARAMS_ASSIGNTO.put("comment", null);
+        ACTION_PARAMS_ASSIGNTO.put("comment", "");
 
         // START
         ACTION_PARAMS_START.put("realStarted", "0000-00-00");
         ACTION_PARAMS_START.put("consumed", null);
         ACTION_PARAMS_START.put("left", null);
-        ACTION_PARAMS_START.put("comment", null);
+        ACTION_PARAMS_START.put("comment", "");
 
         // RECORDESTIMATE
         ACTION_PARAMS_RECORDESTIMATE.put("id[]", null);
@@ -312,31 +312,31 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_EDITESTIMATE.put("work", null);
 
         // PAUSE
-        ACTION_PARAMS_PAUSE.put("comment", null);
+        ACTION_PARAMS_PAUSE.put("comment", "");
 
         // RESTART
         ACTION_PARAMS_RESTART.put("realStarted", "0000-00-00");
         ACTION_PARAMS_RESTART.put("consumed", null);
         ACTION_PARAMS_RESTART.put("left", null);
-        ACTION_PARAMS_RESTART.put("comment", null);
+        ACTION_PARAMS_RESTART.put("comment", "");
 
         // CANCEL
-        ACTION_PARAMS_CANCEL.put("comment", null);
+        ACTION_PARAMS_CANCEL.put("comment", "");
 
         // ACTIVATE
         ACTION_PARAMS_ACTIVATE.put("assignedTo", null);
         ACTION_PARAMS_ACTIVATE.put("left", null);
-        ACTION_PARAMS_ACTIVATE.put("comment", null);
+        ACTION_PARAMS_ACTIVATE.put("comment", "");
 
         // FINISH
         ACTION_PARAMS_FINISH.put("currentConsumed", null);
         ACTION_PARAMS_FINISH.put("consumed", null);
         ACTION_PARAMS_FINISH.put("assignedTo", null);
         ACTION_PARAMS_FINISH.put("finishedDate", null);
-        ACTION_PARAMS_FINISH.put("comment", null);
+        ACTION_PARAMS_FINISH.put("comment", "");
 
         // CLOSE
-        ACTION_PARAMS_CLOSE.put("comment", null);
+        ACTION_PARAMS_CLOSE.put("comment", "");
 
     }
 

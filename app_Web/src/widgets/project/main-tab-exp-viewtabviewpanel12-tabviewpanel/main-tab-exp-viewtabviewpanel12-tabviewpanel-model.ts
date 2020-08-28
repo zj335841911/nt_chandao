@@ -168,6 +168,15 @@ export default class MainTabExpViewtabviewpanel12Model {
       {
         name: 'mobimage',
       },
+      {
+        name: 'accounts',
+      },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'istop',
+      },
     ]
   }
 

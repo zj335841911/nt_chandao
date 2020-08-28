@@ -20,6 +20,10 @@ export default {
 			caption: "产品的分支和平台信息",
       		title: "平台管理",
 		},
+		pminfoeditview: {
+			caption: "产品的分支和平台信息",
+      		title: "平台管理",
+		},
 		pickupgridview: {
 			caption: "产品的分支和平台信息",
       		title: "平台选择表格视图",
@@ -48,8 +52,11 @@ export default {
 			id: "编号",
 			name: "名称",
 			order: "排序",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        branch_edit: "编辑",
+        branch_delete: "删除",
 		},
 	},
 	main_grid: {
@@ -66,24 +73,26 @@ export default {
 		uiactions: {
 		},
 	},
-	pmgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "Edit",
-			tip: "Edit {0}",
-		},
-	},
 	pmeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
+	},
+	pmgridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	pminfoeditviewtoolbar_toolbar: {
 	},
 };

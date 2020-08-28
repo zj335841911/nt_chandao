@@ -422,6 +422,20 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "preversion")
     @JsonProperty("preversion")
     private Integer preversion;
+    /**
+     * 不需要评审
+     */
+    @TableField(exist = false)
+    @JSONField(name = "neednotreview")
+    @JsonProperty("neednotreview")
+    private String neednotreview;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private String isfavorites;
 
     /**
      * 

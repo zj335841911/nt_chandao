@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class DynaDashboardResource {
     @PreAuthorize("hasPermission(this.dynadashboardMapping.toDomain(#dynadashboarddto),'pms-DynaDashboard-Create')")
     @ApiOperation(value = "新建动态数据看板", tags = {"动态数据看板" },  notes = "新建动态数据看板")
 	@RequestMapping(method = RequestMethod.POST, value = "/dynadashboards")
-    @Transactional
     public ResponseEntity<DynaDashboardDTO> create(@RequestBody DynaDashboardDTO dynadashboarddto) {
         DynaDashboard domain = dynadashboardMapping.toDomain(dynadashboarddto);
 		dynadashboardService.create(domain);
@@ -70,7 +68,6 @@ public class DynaDashboardResource {
     @PreAuthorize("hasPermission(this.dynadashboardService.get(#dynadashboard_id),'pms-DynaDashboard-Update')")
     @ApiOperation(value = "更新动态数据看板", tags = {"动态数据看板" },  notes = "更新动态数据看板")
 	@RequestMapping(method = RequestMethod.PUT, value = "/dynadashboards/{dynadashboard_id}")
-    @Transactional
     public ResponseEntity<DynaDashboardDTO> update(@PathVariable("dynadashboard_id") String dynadashboard_id, @RequestBody DynaDashboardDTO dynadashboarddto) {
 		DynaDashboard domain  = dynadashboardMapping.toDomain(dynadashboarddto);
         domain .setDynadashboardid(dynadashboard_id);
@@ -90,7 +87,6 @@ public class DynaDashboardResource {
     @PreAuthorize("hasPermission(this.dynadashboardService.get(#dynadashboard_id),'pms-DynaDashboard-Remove')")
     @ApiOperation(value = "删除动态数据看板", tags = {"动态数据看板" },  notes = "删除动态数据看板")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/dynadashboards/{dynadashboard_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("dynadashboard_id") String dynadashboard_id) {
          return ResponseEntity.status(HttpStatus.OK).body(dynadashboardService.remove(dynadashboard_id));
     }

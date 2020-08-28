@@ -19,7 +19,11 @@ export default {
 		},
 		maingridview: {
 			caption: "部门",
-      		title: "部门表格视图",
+      		title: "部门",
+		},
+		infoeditview: {
+			caption: "部门信息",
+      		title: "部门编辑视图",
 		},
 		editview: {
 			caption: "部门信息",
@@ -50,15 +54,36 @@ export default {
 		uiactions: {
 		},
 	},
+	info_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "部门名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "部门名称", 
+			parentname: "上级部门", 
+			manager: "负责人", 
+			id: "id", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
 			name: "部门",
 			parentname: "上级部门",
 			manager: "负责人",
-			order: "排序值",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			dept_delete: "删除",
+			dept_edit: "编辑",
 		},
 	},
 	default_searchform: {
@@ -66,32 +91,6 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
-		},
-	},
-	maingridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "导出",
-			tip: "导出",
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -111,5 +110,21 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	infoeditviewtoolbar_toolbar: {
 	},
 };

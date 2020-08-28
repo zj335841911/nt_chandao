@@ -171,6 +171,12 @@ export default class MPickupView2pickupviewpanelModel {
       {
         name: 'preversion',
       },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

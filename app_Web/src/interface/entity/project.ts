@@ -413,4 +413,28 @@ export interface Project {
      * @memberof Project
      */
     mobimage?: any;
+
+    /**
+     * 项目团队相关成员
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    accounts?: any;
+
+    /**
+     * 项目排序
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    order1?: any;
+
+    /**
+     * 是否置顶
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    istop?: any;
 }

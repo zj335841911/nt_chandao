@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "新建测试结果", tags = {"测试结果" },  notes = "新建测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/testresults")
-    @Transactional
     public ResponseEntity<TestResultDTO> create(@RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
 		testresultService.create(domain);
@@ -69,7 +67,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Update-all')")
     @ApiOperation(value = "更新测试结果", tags = {"测试结果" },  notes = "更新测试结果")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<TestResultDTO> update(@PathVariable("testresult_id") BigInteger testresult_id, @RequestBody TestResultDTO testresultdto) {
 		TestResult domain  = testresultMapping.toDomain(testresultdto);
         domain .setId(testresult_id);
@@ -89,7 +86,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Remove-all')")
     @ApiOperation(value = "删除测试结果", tags = {"测试结果" },  notes = "删除测试结果")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("testresult_id") BigInteger testresult_id) {
          return ResponseEntity.status(HttpStatus.OK).body(testresultService.remove(testresult_id));
     }
@@ -183,7 +179,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "根据测试用例建立测试结果", tags = {"测试结果" },  notes = "根据测试用例建立测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testresults")
-    @Transactional
     public ResponseEntity<TestResultDTO> createByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -207,7 +202,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Update-all')")
     @ApiOperation(value = "根据测试用例更新测试结果", tags = {"测试结果" },  notes = "根据测试用例更新测试结果")
 	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<TestResultDTO> updateByCase(@PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -232,7 +226,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Remove-all')")
     @ApiOperation(value = "根据测试用例删除测试结果", tags = {"测试结果" },  notes = "根据测试用例删除测试结果")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByCase(@PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testresultService.remove(testresult_id));
     }
@@ -338,7 +331,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "根据产品测试用例建立测试结果", tags = {"测试结果" },  notes = "根据产品测试用例建立测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/testresults")
-    @Transactional
     public ResponseEntity<TestResultDTO> createByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -362,7 +354,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Update-all')")
     @ApiOperation(value = "根据产品测试用例更新测试结果", tags = {"测试结果" },  notes = "根据产品测试用例更新测试结果")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<TestResultDTO> updateByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -387,7 +378,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Remove-all')")
     @ApiOperation(value = "根据产品测试用例删除测试结果", tags = {"测试结果" },  notes = "根据产品测试用例删除测试结果")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testresultService.remove(testresult_id));
     }
@@ -493,7 +483,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "根据需求测试用例建立测试结果", tags = {"测试结果" },  notes = "根据需求测试用例建立测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/testresults")
-    @Transactional
     public ResponseEntity<TestResultDTO> createByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -517,7 +506,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Update-all')")
     @ApiOperation(value = "根据需求测试用例更新测试结果", tags = {"测试结果" },  notes = "根据需求测试用例更新测试结果")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<TestResultDTO> updateByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -542,7 +530,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Remove-all')")
     @ApiOperation(value = "根据需求测试用例删除测试结果", tags = {"测试结果" },  notes = "根据需求测试用例删除测试结果")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testresultService.remove(testresult_id));
     }
@@ -648,7 +635,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "根据产品需求测试用例建立测试结果", tags = {"测试结果" },  notes = "根据产品需求测试用例建立测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults")
-    @Transactional
     public ResponseEntity<TestResultDTO> createByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -672,7 +658,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Update-all')")
     @ApiOperation(value = "根据产品需求测试用例更新测试结果", tags = {"测试结果" },  notes = "根据产品需求测试用例更新测试结果")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<TestResultDTO> updateByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
@@ -697,7 +682,6 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Remove-all')")
     @ApiOperation(value = "根据产品需求测试用例删除测试结果", tags = {"测试结果" },  notes = "根据产品需求测试用例删除测试结果")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/{testresult_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("testresult_id") BigInteger testresult_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testresultService.remove(testresult_id));
     }

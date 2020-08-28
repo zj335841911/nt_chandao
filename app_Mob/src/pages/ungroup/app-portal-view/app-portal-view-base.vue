@@ -3,7 +3,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'appportalview': true, 'app-portal-view': true }">
     
     <ion-header>
-        <ion-toolbar class="ionoc-view-header">
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button v-show="isShowBackButton" @click="closeView">
                     <ion-icon name="chevron-back"></ion-icon>
@@ -33,7 +33,6 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-
 
 
 @Component({
@@ -111,6 +110,21 @@ export default class AppPortalViewBase extends Vue {
     protected viewparams: any = {};
 
     /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof AppPortalViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof AppPortalViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
      * 视图导航上下文
      *
      * @protected
@@ -174,6 +188,18 @@ export default class AppPortalViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof AppPortalViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -206,6 +232,13 @@ export default class AppPortalViewBase extends Vue {
 
 
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof AppPortalViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -270,6 +303,7 @@ export default class AppPortalViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 
@@ -291,6 +325,7 @@ export default class AppPortalViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -302,8 +337,21 @@ export default class AppPortalViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
         this.viewState.next({ tag: 'dashboard', action: 'load', data: {} });
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof AppPortalViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
     }
 
     /**
@@ -335,7 +383,9 @@ export default class AppPortalViewBase extends Vue {
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else {
+        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+        }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

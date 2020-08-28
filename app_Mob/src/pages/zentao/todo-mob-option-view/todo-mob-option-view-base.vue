@@ -2,7 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'todo-mob-option-view': true }">
     
     <ion-header>
-        <ion-toolbar class="ionoc-view-header">
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button v-show="isShowBackButton" @click="closeView">
                     <ion-icon name="chevron-back"></ion-icon>
@@ -15,8 +15,34 @@
 
 
     <ion-content>
-                <div>暂不支持</div>
+                <view_form
+            :viewState="viewState"
+            viewName="TodoMobOptionView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :autosave="false" 
+            :viewtag="viewtag"
+            :showBusyIndicator="true"
+            updateAction="Update"
+            removeAction="Remove"
+            loaddraftAction="GetDraft"
+            loadAction="Get"
+            createAction="Create"
+            WFSubmitAction=""
+            WFStartAction=""
+            style='' 
+            name="form"  
+            ref='form' 
+            @closeview="closeView($event)">
+        </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+        <div class="option-view-btnbox">
+  <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
+  <ion-button class="option-btn success" @click="save">保存</ion-button> 
+</div>
+
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -26,7 +52,7 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 
-
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({
     components: {
@@ -49,6 +75,14 @@ export default class TodoMobOptionViewBase extends Vue {
      * @memberof TodoMobOptionViewBase
      */
     protected appEntityService: TodoService = new TodoService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type TodoUIService
+     * @memberof TodoMobOptionViewBase
+     */
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 数据变化
@@ -109,6 +143,21 @@ export default class TodoMobOptionViewBase extends Vue {
      * @memberof TodoMobOptionViewBase
      */
     protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof TodoMobOptionViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof TodoMobOptionViewBase
+     */
+    public titleStatus :boolean = true;
 
     /**
      * 视图导航上下文
@@ -174,6 +223,18 @@ export default class TodoMobOptionViewBase extends Vue {
     }
 
     /**
+     * 设置工具栏状态
+     *
+     * @memberof TodoMobOptionViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
      * 容器模型
      *
      * @type {*}
@@ -200,6 +261,13 @@ export default class TodoMobOptionViewBase extends Vue {
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof TodoMobOptionViewBase
+     */
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -264,6 +332,7 @@ export default class TodoMobOptionViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.setViewTitleStatus();
 
     }
 
@@ -285,6 +354,7 @@ export default class TodoMobOptionViewBase extends Vue {
         this.afterMounted();
     }
 
+
     /**
      * 执行mounted后的逻辑
      * 
@@ -296,7 +366,20 @@ export default class TodoMobOptionViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
+        this.thirdPartyInit();
 
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof TodoMobOptionViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
     }
 
     /**
@@ -335,7 +418,9 @@ export default class TodoMobOptionViewBase extends Vue {
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else {
+        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+        }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -374,6 +459,40 @@ export default class TodoMobOptionViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 保存按钮事件
+     *
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
+     */
+    protected save() {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        this.viewState.next({ tag: 'form', action: 'saveandexit', data: datas });
+    }
+
+    /**
+     * 返回按钮事件
+     *
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
+     */
+    protected back(args: any[]) {
+        if (this.viewDefaultUsage === "routerView" ) {
+            this.$store.commit("deletePage", this.$route.fullPath);
+            this.$router.go(-1);
+        } else {
+            this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
+        }
+    }
 
 }
 </script>

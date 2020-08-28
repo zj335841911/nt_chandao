@@ -8,8 +8,92 @@ export default {
 		mobeditview: {
 			caption: '任务',
 		},
+		stopmoboptionview: {
+			caption: '暂停',
+		},
+		cancelmoboptionview: {
+			caption: '取消',
+		},
+		closemoboptionview: {
+			caption: '关闭',
+		},
+		commoboptionview: {
+			caption: '完成',
+		},
 		assmobmdview: {
 			caption: '任务',
+		},
+		moboptionview: {
+			caption: '指派',
+		},
+	},
+	assignformmob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			project: '所属项目', 
+			assignedto: '指派给', 
+			left: '预计剩余', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	completeformmob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			consumed: '之前消耗', 
+			currentconsumed: '本次消耗', 
+			totaltime: '总计耗时', 
+			assignedto: '指派给', 
+			finisheddate: '实际完成', 
+			files: '附件', 
+			comment: '备注', 
+		},
+		uiactions: {
+		},
+	},
+	closepausecancelformmob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
 		},
 	},
 	mobmain_form: {

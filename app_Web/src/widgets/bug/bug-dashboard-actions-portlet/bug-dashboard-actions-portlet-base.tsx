@@ -186,7 +186,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_ubef0a95_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u28b30c8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,7 +203,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_AssingToBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+        curUIService.Bug_AssingToBugCz(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -402,6 +402,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__BUG_EDIT_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
@@ -426,11 +427,11 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_ubef0a95_click",
+        { viewlogicname:"dashboard_sysportlet5_u28b30c8_click",
         text: "指派",
-        iconcls: null,
-        icon: null,
-        noprivdisplaymode: 1,
+        iconcls: "fa fa-hand-o-right",
+        icon: "",
+        noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
@@ -506,8 +507,8 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet5_u9666cf2_click')){
             this.dashboard_sysportlet5_u9666cf2_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_ubef0a95_click')){
-            this.dashboard_sysportlet5_ubef0a95_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u28b30c8_click')){
+            this.dashboard_sysportlet5_u28b30c8_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet5_u18c7ab6_click')){
             this.dashboard_sysportlet5_u18c7ab6_click(null);

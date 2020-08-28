@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -102,7 +103,7 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @memberof BugBuildSubGridView_New_9212
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '提Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提Bug', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'createBugByBuild', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '提Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提Bug', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', uiaction: { tag: 'createBugByBuild', target: 'NONE', class: '' } },
 
     };
 

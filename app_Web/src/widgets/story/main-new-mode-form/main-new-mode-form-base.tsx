@@ -91,11 +91,13 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         sourcenote: null,
         reviewedby: null,
         assignedto: null,
+        neednotreview: null,
         title: null,
         pri: null,
         estimate: null,
         spec: null,
         verify: null,
+        files: null,
         mailto: null,
         keywords: null,
         id: null,
@@ -169,6 +171,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -178,6 +182,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -204,6 +210,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'prodoctname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });
         }
+        if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
     }
 
     /**
@@ -219,6 +228,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('plan')) {
             this.data['plan'] = this.viewparams['plan'];
+        }
+        if (this.data.hasOwnProperty('neednotreview')) {
+            this.data['neednotreview'] = '1';
         }
     }
 }

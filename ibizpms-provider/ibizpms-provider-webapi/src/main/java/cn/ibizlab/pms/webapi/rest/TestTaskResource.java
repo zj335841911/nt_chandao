@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class TestTaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
     @ApiOperation(value = "新建测试版本", tags = {"测试版本" },  notes = "新建测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks")
-    @Transactional
     public ResponseEntity<TestTaskDTO> create(@RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 		testtaskService.create(domain);
@@ -69,7 +67,6 @@ public class TestTaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
     @ApiOperation(value = "更新测试版本", tags = {"测试版本" },  notes = "更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testtasks/{testtask_id}")
-    @Transactional
     public ResponseEntity<TestTaskDTO> update(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
 		TestTask domain  = testtaskMapping.toDomain(testtaskdto);
         domain .setId(testtask_id);
@@ -89,7 +86,6 @@ public class TestTaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
     @ApiOperation(value = "删除测试版本", tags = {"测试版本" },  notes = "删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testtasks/{testtask_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("testtask_id") BigInteger testtask_id) {
          return ResponseEntity.status(HttpStatus.OK).body(testtaskService.remove(testtask_id));
     }
@@ -120,7 +116,6 @@ public class TestTaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Activate-all')")
     @ApiOperation(value = "激活", tags = {"测试版本" },  notes = "激活")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/activate")
-    @Transactional
     public ResponseEntity<TestTaskDTO> activate(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 domain.setId(testtask_id);
@@ -132,7 +127,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
     @ApiOperation(value = "阻塞", tags = {"测试版本" },  notes = "阻塞")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/block")
-    @Transactional
     public ResponseEntity<TestTaskDTO> block(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 domain.setId(testtask_id);
@@ -150,7 +144,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Close-all')")
     @ApiOperation(value = "关闭", tags = {"测试版本" },  notes = "关闭")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/close")
-    @Transactional
     public ResponseEntity<TestTaskDTO> close(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 domain.setId(testtask_id);
@@ -162,7 +155,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
     @ApiOperation(value = "关联测试用例", tags = {"测试版本" },  notes = "关联测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/linkcase")
-    @Transactional
     public ResponseEntity<TestTaskDTO> linkCase(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 domain.setId(testtask_id);
@@ -189,7 +181,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Start-all')")
     @ApiOperation(value = "开始", tags = {"测试版本" },  notes = "开始")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/start")
-    @Transactional
     public ResponseEntity<TestTaskDTO> start(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 domain.setId(testtask_id);
@@ -201,7 +192,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
     @ApiOperation(value = "关联测试用例", tags = {"测试版本" },  notes = "关联测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/unlinkcase")
-    @Transactional
     public ResponseEntity<TestTaskDTO> unlinkCase(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
 domain.setId(testtask_id);
@@ -234,7 +224,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
     @ApiOperation(value = "根据产品建立测试版本", tags = {"测试版本" },  notes = "根据产品建立测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks")
-    @Transactional
     public ResponseEntity<TestTaskDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -258,7 +247,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
     @ApiOperation(value = "根据产品更新测试版本", tags = {"测试版本" },  notes = "根据产品更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testtasks/{testtask_id}")
-    @Transactional
     public ResponseEntity<TestTaskDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -283,7 +271,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
     @ApiOperation(value = "根据产品删除测试版本", tags = {"测试版本" },  notes = "根据产品删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testtasks/{testtask_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testtaskService.remove(testtask_id));
     }
@@ -316,7 +303,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Activate-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/activate")
-    @Transactional
     public ResponseEntity<TestTaskDTO> activateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -328,7 +314,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/block")
-    @Transactional
     public ResponseEntity<TestTaskDTO> blockByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -346,7 +331,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Close-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/close")
-    @Transactional
     public ResponseEntity<TestTaskDTO> closeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -358,7 +342,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/linkcase")
-    @Transactional
     public ResponseEntity<TestTaskDTO> linkCaseByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -391,7 +374,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Start-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/start")
-    @Transactional
     public ResponseEntity<TestTaskDTO> startByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -403,7 +385,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/unlinkcase")
-    @Transactional
     public ResponseEntity<TestTaskDTO> unlinkCaseByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProduct(product_id);
@@ -438,7 +419,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
     @ApiOperation(value = "根据项目建立测试版本", tags = {"测试版本" },  notes = "根据项目建立测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks")
-    @Transactional
     public ResponseEntity<TestTaskDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -462,7 +442,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
     @ApiOperation(value = "根据项目更新测试版本", tags = {"测试版本" },  notes = "根据项目更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testtasks/{testtask_id}")
-    @Transactional
     public ResponseEntity<TestTaskDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -487,7 +466,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
     @ApiOperation(value = "根据项目删除测试版本", tags = {"测试版本" },  notes = "根据项目删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/testtasks/{testtask_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(testtaskService.remove(testtask_id));
     }
@@ -520,7 +498,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Activate-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/activate")
-    @Transactional
     public ResponseEntity<TestTaskDTO> activateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -532,7 +509,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/block")
-    @Transactional
     public ResponseEntity<TestTaskDTO> blockByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -550,7 +526,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Close-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/close")
-    @Transactional
     public ResponseEntity<TestTaskDTO> closeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -562,7 +537,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/linkcase")
-    @Transactional
     public ResponseEntity<TestTaskDTO> linkCaseByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -595,7 +569,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Start-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/start")
-    @Transactional
     public ResponseEntity<TestTaskDTO> startByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);
@@ -607,7 +580,6 @@ domain.setId(testtask_id);
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/unlinkcase")
-    @Transactional
     public ResponseEntity<TestTaskDTO> unlinkCaseByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
         domain.setProject(project_id);

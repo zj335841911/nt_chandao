@@ -6,7 +6,7 @@ import { IbzLibTabExpViewBase } from './ibz-lib-tab-exp-view-base';
 import view_tabexppanel from '@widgets/ibz-lib/tab-exp-viewtabexppanel-tabexppanel/tab-exp-viewtabexppanel-tabexppanel.vue';
 
 /**
- * 用例库分页导航视图视图
+ * 用例库视图
  *
  * @export
  * @class IbzLibTabExpView

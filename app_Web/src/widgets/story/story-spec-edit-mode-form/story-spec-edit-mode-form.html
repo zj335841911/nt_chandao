@@ -10,29 +10,29 @@
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.storyspec_editmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.story.storyspec_editmode_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list-mpicker 
-  v-model="data.reviewedby"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.reviewedby.disabled"
-  tag='UserRealName' 
-  codelistType='DYNAMIC' 
-  valueSeparator=","
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
-
+<dropdown-list 
+    v-model="data.assignedto"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.assignedto.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.notreview.visible" :style="{'width':'150px !important'}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='notreview' :itemRules="this.rules.notreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.notreview')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.notreview.error" :isEmptyCaption="false" labelPos="RIGHT">
-    <app-switch name='notreview' :value="this.data.notreview" @change="($event)=>{this.data.notreview = $event} " :disabled="detailsModel.notreview.disabled" style=""></app-switch>
+<i-col class="form-layout-container" v-show="detailsModel.neednotreview1.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='neednotreview1' :itemRules="this.rules.neednotreview1" class='' :caption="$t('entities.story.storyspec_editmode_form.details.neednotreview1')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.neednotreview1.error" :isEmptyCaption="true" labelPos="RIGHT">
+    <app-switch name='neednotreview1' :value="this.data.neednotreview1" @change="($event)=>{this.data.neednotreview1 = $event} " :disabled="detailsModel.neednotreview1.disabled" style=""></app-switch>
 
 </app-form-item>
 

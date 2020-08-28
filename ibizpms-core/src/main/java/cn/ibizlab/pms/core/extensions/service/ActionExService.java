@@ -1,8 +1,12 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.zentao.filter.ActionSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.ActionServiceImpl;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Action;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -30,6 +34,18 @@ public class ActionExService extends ActionServiceImpl {
     @Transactional
     public Action editComment(Action et) {
         return super.editComment(et);
+    }
+
+    /**
+     * 查询集合 MobType
+     */
+    @Override
+    public Page<Action> searchMobType(ActionSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Action> pages=baseMapper.searchMobType(context.getPages(),context,context.getSelectCond());
+        for(Action action : pages.getRecords()) {
+            action.set("item", historyService.selectByAction(action.getId()));
+        }
+        return new PageImpl<Action>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 }
 

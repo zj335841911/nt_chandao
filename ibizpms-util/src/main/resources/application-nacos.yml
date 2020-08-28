@@ -4,7 +4,6 @@ spring:
     nacos:
       discovery:
         server-addr: 172.16.240.110:8848
-#        server-addr: 172.16.102.211:8848
         enabled: true
 
 eureka:

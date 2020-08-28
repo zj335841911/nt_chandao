@@ -72,6 +72,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		gridview9_storyaffect: {
+			caption: "相关用例",
+      		title: "相关用例",
+		},
 		curtesttaskgridview: {
 			caption: "功能测试",
       		title: "功能测试",
@@ -440,6 +444,17 @@ export default {
 		uiactions: {
 		},
 	},
+	storyaffectcase_grid: {
+		columns: {
+			pri: "P",
+			title: "用例标题",
+			status: "状态",
+			openedby: "由谁创建",
+			lasteditedby: "最后修改者",
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			pri: "P",
@@ -513,7 +528,7 @@ export default {
 			case_mainedit: "编辑",
 			refresh: "刷新",
 			case_newbugbycaseresult: "转Bug",
-			remove: "删除",
+			case_delete: "删除",
 		},
 	},
 	batchnew_grid: {
@@ -599,10 +614,6 @@ export default {
 			caption: "关联用例",
 			tip: "关联用例",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction7: {
 			caption: "导出",
 			tip: "导出",
@@ -623,31 +634,15 @@ export default {
 			caption: "批量新建用例",
 			tip: "批量新建用例",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},
@@ -659,27 +654,19 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
+		deuiaction3_batchnew: {
+			caption: "批量新建用例",
+			tip: "批量新建用例",
+		},
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},

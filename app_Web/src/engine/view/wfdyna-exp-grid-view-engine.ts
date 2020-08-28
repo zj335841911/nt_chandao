@@ -25,6 +25,9 @@ export default class WFDynaExpGridViewEngine extends GridViewEngine {
      */
     public load(opts: any = {},isnotify:boolean=false): void {
         this.view.getWFStepModel().then((res:any) =>{
+            if(!res || res.length === 0) {
+                return;
+            }
             if(!this.view.isformDruipart){
                 super.load(opts);
             }else{

@@ -543,6 +543,14 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("files")
     private String files;
 
+    /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
+
 
     /**
      * 设置 [SEVERITY]

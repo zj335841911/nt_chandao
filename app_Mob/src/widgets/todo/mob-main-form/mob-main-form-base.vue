@@ -276,6 +276,27 @@
 
 
 
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('todo.mobmain_form.details.desc')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-mob-rich-text-editor>
+
+</app-form-item>
+
+
+
 <app-form-group 
     class='' 
     layoutType='TABLE_24COL' 
@@ -646,6 +667,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assignedby: null,
         assigneddate: null,
         assignedto: null,
+        desc: null,
         id: null,
         todo: null,
     };
@@ -783,6 +805,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
+        desc: [
+            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
@@ -914,6 +942,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1124,6 +1154,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1193,6 +1235,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1217,11 +1260,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
     /**
      * 校验全部
+     *
+     * @public
+     * @param {{ filter: string}} { filter}
+     * @returns {void}
+     * @memberof MobMain
      */
-    public async validAll() {
+    public async validAll(filter:string = "defult") {
         let validateState = true;
+        let filterProperty = ""
+        if(filter === 'new'){
+            filterProperty= 'id'
+        }
         for (let item of Object.keys(this.rules)) {
-            if(!await this.validItem(item,this.data[item])){
+            if(!await this.validItem(item,this.data[item]) && item != filterProperty){
                 validateState = false;
             }
         }
@@ -1359,7 +1411,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'pri_item', 'date1_item', 'begin_item', 'end_item', 'type_item', 'status_item', 'assignedby_item', 'assigneddate_item', 'assignedto_item', ];
+        const refArr: Array<string> = ['name_item', 'pri_item', 'date1_item', 'begin_item', 'end_item', 'type_item', 'status_item', 'assignedby_item', 'assigneddate_item', 'assignedto_item', 'desc_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1685,13 +1737,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
         opt.saveEmit = opt.saveEmit === undefined ? true : false;
-        if (!await this.validAll()) {
-            this.$notice.error('值规则校验异常');
-            return Promise.reject();
-        }
+
         const arg: any = { ...opt };
         const data = this.getValues();
         Object.assign(arg, data);
+        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        if (this.data.srfuf =='1'? !await this.validAll():!await this.validAll('new')) {
+            this.$notice.error('值规则校验异常');
+            return Promise.reject();
+        }
         if (isStateNext) {
             this.drcounter = 1;
             if (this.drcounter !== 0) {
@@ -1700,7 +1754,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 return Promise.reject();
             }
         }
-        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        
         if (!action) {
             let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));

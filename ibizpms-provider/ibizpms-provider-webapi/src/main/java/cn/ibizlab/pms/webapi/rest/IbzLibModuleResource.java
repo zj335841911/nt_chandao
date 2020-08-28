@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -50,7 +49,6 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Create-all')")
     @ApiOperation(value = "新建用例库模块", tags = {"用例库模块" },  notes = "新建用例库模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibmodules")
-    @Transactional
     public ResponseEntity<IbzLibModuleDTO> create(@RequestBody IbzLibModuleDTO ibzlibmoduledto) {
         IbzLibModule domain = ibzlibmoduleMapping.toDomain(ibzlibmoduledto);
 		ibzlibmoduleService.create(domain);
@@ -69,7 +67,6 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Update-all')")
     @ApiOperation(value = "更新用例库模块", tags = {"用例库模块" },  notes = "更新用例库模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibmodules/{ibzlibmodule_id}")
-    @Transactional
     public ResponseEntity<IbzLibModuleDTO> update(@PathVariable("ibzlibmodule_id") BigInteger ibzlibmodule_id, @RequestBody IbzLibModuleDTO ibzlibmoduledto) {
 		IbzLibModule domain  = ibzlibmoduleMapping.toDomain(ibzlibmoduledto);
         domain .setId(ibzlibmodule_id);
@@ -89,7 +86,6 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Remove-all')")
     @ApiOperation(value = "删除用例库模块", tags = {"用例库模块" },  notes = "删除用例库模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibmodules/{ibzlibmodule_id}")
-    @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("ibzlibmodule_id") BigInteger ibzlibmodule_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzlibmoduleService.remove(ibzlibmodule_id));
     }
@@ -183,7 +179,6 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Create-all')")
     @ApiOperation(value = "根据用例库建立用例库模块", tags = {"用例库模块" },  notes = "根据用例库建立用例库模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibs/{ibzlib_id}/ibzlibmodules")
-    @Transactional
     public ResponseEntity<IbzLibModuleDTO> createByIbzLib(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @RequestBody IbzLibModuleDTO ibzlibmoduledto) {
         IbzLibModule domain = ibzlibmoduleMapping.toDomain(ibzlibmoduledto);
         domain.setRoot(ibzlib_id);
@@ -207,7 +202,6 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Update-all')")
     @ApiOperation(value = "根据用例库更新用例库模块", tags = {"用例库模块" },  notes = "根据用例库更新用例库模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibs/{ibzlib_id}/ibzlibmodules/{ibzlibmodule_id}")
-    @Transactional
     public ResponseEntity<IbzLibModuleDTO> updateByIbzLib(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzlibmodule_id") BigInteger ibzlibmodule_id, @RequestBody IbzLibModuleDTO ibzlibmoduledto) {
         IbzLibModule domain = ibzlibmoduleMapping.toDomain(ibzlibmoduledto);
         domain.setRoot(ibzlib_id);
@@ -232,7 +226,6 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Remove-all')")
     @ApiOperation(value = "根据用例库删除用例库模块", tags = {"用例库模块" },  notes = "根据用例库删除用例库模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibs/{ibzlib_id}/ibzlibmodules/{ibzlibmodule_id}")
-    @Transactional
     public ResponseEntity<Boolean> removeByIbzLib(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @PathVariable("ibzlibmodule_id") BigInteger ibzlibmodule_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(ibzlibmoduleService.remove(ibzlibmodule_id));
     }

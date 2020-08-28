@@ -35,10 +35,12 @@ public interface IProjectService extends IService<Project>{
     Project getDraft(Project et) ;
     Project activate(Project et) ;
     Project batchUnlinkStory(Project et) ;
+    Project cancelProjectTop(Project et) ;
     boolean checkKey(Project et) ;
     Project close(Project et) ;
     Project linkStory(Project et) ;
     Project manageMembers(Project et) ;
+    Project projectTop(Project et) ;
     Project putoff(Project et) ;
     boolean save(Project et) ;
     void saveBatch(List<Project> list) ;
@@ -52,6 +54,7 @@ public interface IProjectService extends IService<Project>{
     Page<Project> searchCurUser(ProjectSearchContext context) ;
     Page<Project> searchDefault(ProjectSearchContext context) ;
     Page<Project> searchMyProject(ProjectSearchContext context) ;
+    Page<Project> searchStoryProject(ProjectSearchContext context) ;
     List<Project> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
     /**

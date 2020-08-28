@@ -52,6 +52,8 @@ export default {
     modulename1: "所属模块名称",
     project: "项目",
     preversion: "之前的版本",
+    neednotreview: "不需要评审",
+    isfavorites: "是否收藏",
   },
 	views: {
 		pickupgridview4: {
@@ -190,6 +192,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		myfavoritesgridview: {
+			caption: "需求",
+      		title: "story表格视图",
+		},
 		mpickupview: {
 			caption: "关联需求",
       		title: "关联需求",
@@ -286,8 +292,9 @@ export default {
 			id: "编号", 
 			status: "当前状态", 
 			version: "版本#", 
+			assignedto: "由谁评审", 
 			reviewedby: "由谁评审", 
-			notreview: "不需要评审", 
+			neednotreview1: "", 
 			title: "需求名称", 
 			spec: "需求描述", 
 			verify: "验收标准", 
@@ -303,7 +310,9 @@ export default {
 			grouppanel3: "拒绝", 
 			grouppanel1: "分组面板", 
 			tabpage1: "影响项目", 
+			druipart2: "", 
 			tabpage2: "影响Bug", 
+			druipart3: "", 
 			tabpage3: "影响用例", 
 			tabpanel1: "", 
 			druipart1: "", 
@@ -326,6 +335,7 @@ export default {
 			assignedto: "指派给", 
 			version: "版本号", 
 			reviewedby: "由谁评审", 
+			comment: "备注", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -430,11 +440,13 @@ export default {
 			sourcenote: "来源备注", 
 			reviewedby: "由谁评审", 
 			assignedto: "由谁评审", 
+			neednotreview: "", 
 			title: "需求名称", 
 			pri: "优先级", 
 			estimate: "预计", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+			files: "附件", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 
@@ -676,6 +688,8 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
 		},
 	},
 	main_plansub_grid: {
@@ -773,6 +787,8 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
 		},
 	},
 	main_releasesub_grid: {
@@ -823,6 +839,8 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
 		},
 	},
 	default_searchform: {
@@ -853,31 +871,19 @@ export default {
 	editview9toolbar_toolbar: {
 	},
 	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建需求",
+			tip: "新建需求",
+		},
 		deuiaction3_planrelationstory: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
 		},
@@ -899,33 +905,17 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction3: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction4: {
 			caption: "按照计划关联",
 			tip: "按照计划关联",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction5: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -937,33 +927,17 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction3: {
 			caption: "关联需求",
 			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction4: {
 			caption: "按照计划关联",
 			tip: "按照计划关联",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction5: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
@@ -1005,17 +979,9 @@ export default {
 			caption: "新建需求",
 			tip: "新建需求",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction3: {
 			caption: "过滤",
@@ -1041,18 +1007,6 @@ export default {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction3: {
-			caption: "批量移除",
-			tip: "批量移除",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "导出",
 			tip: "导出",
@@ -1063,9 +1017,15 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	myfavoritesgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 		deuiaction1: {
 			caption: "导出",

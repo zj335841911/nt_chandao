@@ -251,10 +251,11 @@ export class ViewTool {
      * @param {*} [UIService] 界面行为服务
      * @memberof ViewTool
      */
-    public static calcActionItemAuthState(data: any, ActionModel: any, UIService: any) {
+    public static calcActionItemAuthState(data: any, ActionModel: any, UIService: any): any[] {
+        let result: any[] = [];
         for (const key in ActionModel) {
             if (!ActionModel.hasOwnProperty(key)) {
-                return;
+                return result;
             }
             const _item = ActionModel[key];
             if (_item && _item['dataaccaction'] && UIService) {
@@ -282,7 +283,9 @@ export class ViewTool {
                     _item.visabled = true;
                     _item.disabled = false;
                 }
+                result.push(dataActionResult);
             }
         }
+        return result;
     }
 }

@@ -3,6 +3,7 @@ import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
+import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
 
 /**
  * 动态代码表服务类
@@ -48,6 +49,8 @@ export class CodeListService {
         UserRealNameProject: new UserRealNameProject(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
+        // 当前产品版本（动态）
+        CurProductBuild: new CurProductBuild(),
     };
 
     /**

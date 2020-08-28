@@ -153,6 +153,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0bd16cd21ee2e8951fb8a86599ac1510',
+            viewmodule: 'ibiz',
+            viewname: 'IbzFavoritesTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a4af2d93ae66c9877ee99bfe7b93d22c',
+                'b7e6268db4bdeb10211fc15383de685d',
+            ],
+        },
+        {
             viewtag: '0bfc1d5ae45c2a74d3b58739784ec7f7',
             viewmodule: 'zentao',
             viewname: 'StoryUsr2MPickupView',
@@ -302,12 +313,33 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '16b54862dad958907853dc7eb084a0c0',
+            viewmodule: 'zentao',
+            viewname: 'DeptPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e644f7976b08c3d7f14fd7e1d5329da8',
+            ],
+        },
+        {
             viewtag: '170c1d558f26cf37236390b28f8aca82',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanCreateView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '174408669d176924efbb3227d0784e93',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_Storyaffect',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {
@@ -380,9 +412,11 @@ export const viewstate: any = {
                 '7af111f4c127f7032c3e12e8c5fc0045',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
+                '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                'e2f8bc0ff75f204383d2a5c15117b476',
                 'e698418f007d36b627d6af23c1042f31',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
@@ -602,6 +636,17 @@ export const viewstate: any = {
                 '97f38c5fa6f63f69e18299306eae9077',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: '3458603afa6fef36eda88e9f794840f5',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_Storyaffect',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -971,6 +1016,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '54c7ba4afb6222c4c0af04a78a0592df',
+                'aad9a5713d6828d3119b811b26915215',
                 '170c1d558f26cf37236390b28f8aca82',
             ],
         },
@@ -1198,6 +1244,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '5c2b20935d511794aeca60376bd81fef',
+            viewmodule: 'zentao',
+            viewname: 'DeptMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bae11f9447355ecc9e2cdff2490e6d11',
+                'a52f8b23a989b8526e4c98c49d73a3d0',
             ],
         },
         {
@@ -1431,6 +1488,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '72a44528b73b17f6e29a3ca59e432d19',
+            viewmodule: 'zentao',
+            viewname: 'UserINFOEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '74e206764fd747fa31467bd5a9f371df',
             viewmodule: 'zentao',
             viewname: 'CaseCurSuitGridView',
@@ -1471,6 +1537,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'af6f4065b0510b7994c3cd2bc6074440',
                 'f8b69912b3ca27b5d083c8fb1971c84a',
             ],
         },
@@ -1482,6 +1549,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd4cb26555e6d81a172652580cf7d9f7f',
+                'e1a0e6c29939260ead53dcd3beb8b736',
             ],
         },
         {
@@ -1654,6 +1722,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '83b1f6c353e9383e36b8d58eec845267',
+            viewmodule: 'zentao',
+            viewname: 'UserEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1949,7 +2026,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7df0f0deee91304e0350f00baa8a92d6',
+                '6c7b582273d0726bcf77214807cfe40c',
+                'fffe78c32fb25b287d0c5165d46f8dd2',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -2103,6 +2181,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a52f8b23a989b8526e4c98c49d73a3d0',
+            viewmodule: 'zentao',
+            viewname: 'DeptInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a694d988e3134a33bb5a99e6e07246f6',
             viewmodule: 'zentao',
             viewname: 'CaseStepCarryOutEditMode',
@@ -2238,6 +2325,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'af6f4065b0510b7994c3cd2bc6074440',
+            viewmodule: 'zentao',
+            viewname: 'ActionOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b03bf2445d2e295fccbb6280b2601248',
             viewmodule: 'zentao',
             viewname: 'TaskPauseTaskView',
@@ -2314,6 +2410,22 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b7e6268db4bdeb10211fc15383de685d',
+            viewmodule: 'Ungroup',
+            viewname: 'StoryMyFavoritesGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5890a810365fec51e801d2cffce44fde',
+                'df5a966e312ca9c5f5a41428bc2e2672',
+                '538555af88ea31549a5bc7dbf1e6286a',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
+                'e54598b1e6d38d7c6ce8231b531b46bd',
+            ],
+        },
+        {
             viewtag: 'b9bdfc0e33d333ade00934745d9dc0ad',
             viewmodule: 'zentao',
             viewname: 'StoryMPickupView',
@@ -2333,6 +2445,17 @@ export const viewstate: any = {
                 '54a5f5fa5f8def88d2aec9c7ee6d85fe',
                 'b9bdfc0e33d333ade00934745d9dc0ad',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: 'bae11f9447355ecc9e2cdff2490e6d11',
+            viewmodule: 'zentao',
+            viewname: 'DeptEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16b54862dad958907853dc7eb084a0c0',
             ],
         },
         {
@@ -2676,6 +2799,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd364bfbf7092ee45cd0acae49fac77ab',
+            viewmodule: 'zentao',
+            viewname: 'UserMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '83b1f6c353e9383e36b8d58eec845267',
+                '72a44528b73b17f6e29a3ca59e432d19',
+            ],
+        },
+        {
             viewtag: 'd4cb26555e6d81a172652580cf7d9f7f',
             viewmodule: 'zentao',
             viewname: 'BranchPMEditView',
@@ -2745,6 +2879,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '3458603afa6fef36eda88e9f794840f5',
+                '174408669d176924efbb3227d0784e93',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -2785,6 +2921,26 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e1a0e6c29939260ead53dcd3beb8b736',
+            viewmodule: 'zentao',
+            viewname: 'BranchPMInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'e2f8bc0ff75f204383d2a5c15117b476',
+            viewmodule: 'zentao',
+            viewname: 'UserTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd364bfbf7092ee45cd0acae49fac77ab',
+                '5c2b20935d511794aeca60376bd81fef',
             ],
         },
         {
@@ -2834,6 +2990,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e644f7976b08c3d7f14fd7e1d5329da8',
+            viewmodule: 'zentao',
+            viewname: 'DeptPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bae11f9447355ecc9e2cdff2490e6d11',
             ],
         },
         {

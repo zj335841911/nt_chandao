@@ -1,5 +1,6 @@
 
 import { Subject } from 'rxjs';
+import { ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -115,7 +116,7 @@ export class BugUsr2GridViewBase extends GridViewBase {
      * @memberof BugUsr2GridView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'buildlinkbugs', target: 'MULTIKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', uiaction: { tag: 'buildlinkbugs', target: 'MULTIKEY', class: '' } },
 
     };
 

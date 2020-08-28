@@ -81,4 +81,8 @@ export class ListListBase extends ListControlBase {
      * @memberof ListListBase
      */
     public minorSortDir: string = '';
+
+
+
+
 }

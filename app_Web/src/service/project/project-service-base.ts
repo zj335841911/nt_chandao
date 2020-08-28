@@ -211,6 +211,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * CancelProjectTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async CancelProjectTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/cancelprojecttop`,data,isloading);
+            return res;
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -263,6 +277,20 @@ export default class ProjectServiceBase extends EntityService {
      */
     public async ManageMembers(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/projects/${context.project}/managemembers`,data,isloading);
+            return res;
+    }
+
+    /**
+     * ProjectTop接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ProjectTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/projecttop`,data,isloading);
             return res;
     }
 
@@ -456,6 +484,21 @@ export default class ProjectServiceBase extends EntityService {
     public async FetchMyProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projects/fetchmyproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchStoryProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchStoryProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchstoryproject`,tempData,isloading);
         return res;
     }
 

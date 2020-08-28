@@ -30,7 +30,7 @@ export default {
 		},
 		tabexpview: {
 			caption: "用例库",
-      		title: "用例库分页导航视图",
+      		title: "用例库",
 		},
 	},
 	desc_form: {
@@ -73,8 +73,11 @@ export default {
 		columns: {
 			id: "编号",
 			name: "名称",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        ibzlib_editlib: "编辑",
+        ibzlib_delete: "删除",
 		},
 	},
 	default_searchform: {
@@ -91,23 +94,15 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

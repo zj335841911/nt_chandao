@@ -37,6 +37,8 @@ export default {
     casecnt: "用例数",
     srfcount: "属性",
     mobimage: "移动端图片",
+    order1: "排序",
+    istop: "是否置顶",
   },
 	views: {
 		testtabexpview: {
@@ -349,13 +351,19 @@ export default {
 			caption: "管理",
 			tip: "管理",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	testleftsidebarlistviewlist_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "置顶",
+			tip: "置顶",
+		},
+		deuiaction2: {
+			caption: "取消置顶",
+			tip: "取消置顶",
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
@@ -367,23 +375,25 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	leftsidebarlistviewlist_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "置顶",
+			tip: "置顶",
+		},
+		deuiaction2: {
+			caption: "取消置顶",
+			tip: "取消置顶",
 		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "Export",

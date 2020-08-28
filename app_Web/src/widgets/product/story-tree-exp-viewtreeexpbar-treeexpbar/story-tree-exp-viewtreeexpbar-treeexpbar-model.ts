@@ -123,6 +123,12 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'istop',
+      },
     ]
   }
 

@@ -1,7 +1,7 @@
 import { Route } from 'vue-router';
 import qs from 'qs';
 import { Util } from '@/ibiz-core/utils';
-
+import { ThirdPartyService } from '@ibiz-core'
 export class ViewTool {
 
     /**
@@ -13,6 +13,16 @@ export class ViewTool {
      * @memberof ViewTool
      */
     private static readonly instance: ViewTool = new ViewTool();
+
+    /**
+     * 第三方服务
+     *
+     * @private
+
+     * @type {ViewTool}
+     * @memberof ViewTool
+     */
+    private thirdPartyService:ThirdPartyService = ThirdPartyService.getInstance();
 
     /**
      * Creates an instance of ViewTool.
@@ -368,5 +378,44 @@ export class ViewTool {
                 }
             }
         }
+    }
+
+
+    /**
+     * 设置第三方服务视图标题
+     * 
+     * @param {string} [title] 传入标题
+     * @memberof ViewTool
+     */
+    public setViewTitleOfThirdParty(title:string) {
+        this.thirdPartyService.setTitle(title);
+    }
+
+    /**
+     * 获取第三方服务名称
+     * 
+     * @memberof ViewTool    
+     */
+    public getThirdPartyName(): any {
+        return this.thirdPartyService.platform;
+    }
+
+    /**
+     * 设置第三方导航栏返回事件
+     * 
+     * @param {Function} [event] 传入事件
+     * @memberof ViewTool 
+     */
+    public setThirdPartyEvent(event:Function): void {
+        this.thirdPartyService.setBackEvent(event);
+    }
+
+    /**
+     * 退出第三方
+     * 
+     * @memberof ViewTool 
+     */
+    public ThirdPartyClose() {
+        this.thirdPartyService.close();
     }
 }

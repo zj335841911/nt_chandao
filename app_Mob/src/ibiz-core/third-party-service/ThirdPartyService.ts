@@ -152,4 +152,34 @@ export class ThirdPartyService {
         }
     }
 
+    /**
+     * 设置第三方标题
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setTitle(title:string){
+        if (this.isDingTalk()) {
+            this.dd.setTitle(title);
+        } else if (this.isWeChat()) {
+            this.weChat.setTitle(title);
+        }
+    }
+
+    /**
+     * 设置第三方容器导航栏返回事件
+     *
+     * @static
+     * @returns {DingTalkService}
+     * @memberof DingTalkService
+     */
+    public setBackEvent(event:Function){
+        if (this.isDingTalk()) {
+            this.dd.setBackEvent(event);
+        } else if (this.isWeChat()) {
+            this.weChat.setBackEvent(event);
+        }
+    }
+
 }

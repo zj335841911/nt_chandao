@@ -11,6 +11,7 @@ import liquibase.pro.packaged.A;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
@@ -38,9 +39,16 @@ public class OUSyncJob implements ApplicationRunner {
     IDeptService deptService;
     @Autowired
     ICompanyService companyService;
+
+    @Value("${pms.batchsync.ou:false}")
+    private boolean batchUpdate;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
+        if(batchUpdate) {
+            this.syncAccount();
+        }
+    }
+    public void syncAccount(){
         try {
             Thread.sleep(10000);
             JSONObject jo= new JSONObject();
@@ -48,6 +56,7 @@ public class OUSyncJob implements ApplicationRunner {
             jo.put("depts",deptService.list());
             jo.put("emps",userService.list());
             Long start = new Date().getTime();
+            log.info("sycn:[{}]",jo);
             if(feignClient.sync(jo)){
                 log.info("向[OU]同步用户资源成功");
             }else{
@@ -60,6 +69,5 @@ public class OUSyncJob implements ApplicationRunner {
             ex.printStackTrace();
             log.error(String.format("向[OU]同步用户资源失败，请检查[OU]服务是否正常! [%s]",ex));
         }
-
     }
 }

@@ -187,17 +187,9 @@ export default {
 			caption: "添加产品",
 			tip: "添加产品",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction1: {
 			caption: "导出",

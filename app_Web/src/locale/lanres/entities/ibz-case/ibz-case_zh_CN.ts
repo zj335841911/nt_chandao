@@ -220,32 +220,24 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	neweditviewtoolbar_toolbar: {
 		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction3_create: {
 			caption: "新建",
 			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
 		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	neweditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	editviewtoolbar_toolbar: {

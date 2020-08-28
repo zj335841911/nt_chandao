@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
-          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh">
+          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
                     <app-list-index :items="items" @clickItem="item_click"></app-list-index>
 
           </van-pull-refresh>
@@ -244,6 +244,21 @@ export default class MobBase extends Vue implements ControlInterface {
     */
     @Prop() public opendata?: Function; 
 
+    /**
+    * 是否能下拉刷新
+    *
+    * @type {Function}
+    * @memberof Mob
+    */
+    @Prop({ default: true }) public isEnableRefresh?: Boolean;
+
+    /**
+    * 是否能长按
+    *
+    * @type {Function}
+    * @memberof Mob
+    */
+    @Prop({ default: true }) public isEnableChoose?: Boolean;
 
     /**
     * 当前选中数组
@@ -770,7 +785,9 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public created() {
-        this.onPress();
+        if (this.isEnableChoose) {
+           this.onPress();
+        }
         this.afterCreated();
     }
 

@@ -1,18 +1,18 @@
 <template>
     <div class="app-data-upload-view">
-        <el-row style="margin-top:24px" :gutter="20">
+        <el-row :gutter="20">
             <el-col :span="4">
-                <el-button type="primary" @click="handleUpLoad">{{$t('components.appDataUploadView.selectfile')}}</el-button>
+                <i-button type="primary" @click="handleUpLoad">{{$t('components.appDataUploadView.selectfile')}}</i-button>
                 <input ref="inputUpLoad" type="file" style="display: none" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" @change="importFile"/>
             </el-col>
             <el-col :span="4">
-                <el-button type="primary" @click="uploadServer">{{$t('components.appDataUploadView.uploadserver')}}</el-button>
+                <i-button type="primary" @click="uploadServer">{{$t('components.appDataUploadView.uploadserver')}}</i-button>
             </el-col>
             <el-col :span="16">
                 <div class="import-temp"><span style="cursor: pointer;" @click="downloadTemp">{{$t('components.appDataUploadView.datatemplate')}}</span></div>
             </el-col>
         </el-row>
-        <el-divider></el-divider>
+        <el-divider class="divider-top"></el-divider>
         <el-row style="height:480px;padding: 0px 12px;">
             <div class="data-info-content" >
                 <template v-if="importDataArray.length >0 && isUploading === false">
@@ -27,6 +27,7 @@
                 </template>
             </div>
         </el-row>
+        <el-divider class="divider-bottom"></el-divider>
         <el-row>
             <!-- <el-col :span="4">
             <div class="import-temp">
@@ -38,8 +39,9 @@
                     <span style="cursor: pointer;display: inline-block;" @click="downloadErrorData">{{importErrorData.length >0?"下载导入失败数据":""}}</span>
                 </div>
             </el-col> -->
-            <el-col :span="2" :offset="22">
-                <el-button type="primary" @click="handleOK">{{$t('components.appDataUploadView.confirm')}}</el-button>
+            
+            <el-col :span="2" :offset="22" >
+                <i-button type="primary" @click="handleOK">{{$t('components.appDataUploadView.confirm')}}</i-button>
             </el-col>
         </el-row>
     </div>
