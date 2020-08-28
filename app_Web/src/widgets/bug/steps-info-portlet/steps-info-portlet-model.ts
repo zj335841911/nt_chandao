@@ -210,6 +210,9 @@ export default class StepsInfoModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

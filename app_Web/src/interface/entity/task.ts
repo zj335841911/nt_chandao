@@ -429,4 +429,12 @@ export interface Task {
      * @memberof Task
      */
     ibztaskestimates?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    isfavorites?: any;
 }

@@ -54,6 +54,7 @@ export default {
     taskteams: "项目团队成员",
     modulename1: "所属模块",
     ibztaskestimates: "工时",
+    isfavorites: "是否收藏",
   },
 	views: {
 		subtasknewview: {

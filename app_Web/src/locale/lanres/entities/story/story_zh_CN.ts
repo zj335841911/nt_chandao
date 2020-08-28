@@ -817,6 +817,31 @@ export default {
 		uiactions: {
 		},
 	},
+	myfavoritemain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			prodoctname: "产品名称",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			story_changestorydetail: "变更",
+			story_reviewstory: "评审",
+			story_closestory: "关闭",
+			story_openbaseinfoeditview: "编辑",
+			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
+		},
+	},
 	main9_grid: {
 		columns: {
 			pri: "P",

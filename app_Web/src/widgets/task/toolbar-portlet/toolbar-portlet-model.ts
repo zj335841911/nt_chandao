@@ -174,6 +174,9 @@ export default class ToolbarModel {
       {
         name: 'ibztaskestimates',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

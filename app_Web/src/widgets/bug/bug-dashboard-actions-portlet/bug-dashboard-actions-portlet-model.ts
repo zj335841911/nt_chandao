@@ -210,6 +210,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

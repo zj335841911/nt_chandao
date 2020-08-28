@@ -210,6 +210,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

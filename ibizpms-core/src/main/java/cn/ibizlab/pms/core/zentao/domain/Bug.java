@@ -516,6 +516,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "mobimage")
     @JsonProperty("mobimage")
     private String mobimage;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private String isfavorites;
 
     /**
      * 

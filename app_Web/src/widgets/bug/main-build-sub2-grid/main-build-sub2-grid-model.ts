@@ -86,6 +86,11 @@ export default class Main_BuildSub2Model {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',

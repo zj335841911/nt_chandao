@@ -12,8 +12,8 @@ export default {
   },
 	views: {
 		tabexpview: {
-			caption: "收藏",
-      		title: "收藏分页导航视图",
+			caption: "我的收藏",
+      		title: "我的收藏",
 		},
 	},
 };

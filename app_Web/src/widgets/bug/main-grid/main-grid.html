@@ -152,7 +152,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.main_grid.columns.uagridcolumn1')" :width="160"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.main_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.main_grid.columns.uagridcolumn1')}}
@@ -182,6 +182,16 @@
                           <divider v-show="scope.row.Copy.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Copy.visabled" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.bug.main_grid.uiactions.copy')">
                             <i class='fa fa-copy'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.BugFavorites.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.BugFavorites.visabled" :disabled="scope.row.BugFavorites.disabled" @click="uiAction(scope.row, 'BugFavorites', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_bugfavorites')">
+                            <i class='fa fa-star-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.BugNFavorites.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.BugNFavorites.visabled" :disabled="scope.row.BugNFavorites.disabled" @click="uiAction(scope.row, 'BugNFavorites', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_bugnfavorites')">
+                            <i class='fa fa-star'></i>
                             
                           </a>
                         </div>

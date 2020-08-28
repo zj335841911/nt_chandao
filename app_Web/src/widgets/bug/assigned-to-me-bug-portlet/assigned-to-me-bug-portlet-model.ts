@@ -210,6 +210,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

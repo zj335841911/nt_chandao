@@ -41,9 +41,6 @@ public class StoryStoryNFavoritesLogicImpl implements IStoryStoryNFavoritesLogic
            kieSession=kieContainer.newKieSession();
            kieSession.insert(et); 
            kieSession.setGlobal("storystorynfavoritesdefault",et);
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  storystorynfavoritesibzfavorites =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
-           kieSession.insert(storystorynfavoritesibzfavorites); 
-           kieSession.setGlobal("storystorynfavoritesibzfavorites",storystorynfavoritesibzfavorites);
            kieSession.setGlobal("iBzSysStoryDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.storystorynfavorites");

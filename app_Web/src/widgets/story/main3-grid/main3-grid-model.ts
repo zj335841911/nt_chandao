@@ -76,14 +76,14 @@ export default class Main3Model {
           dataType: 'ACID',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'assignedto',
@@ -109,6 +109,11 @@ export default class Main3Model {
           name: 'duplicatestory',
           prop: 'duplicatestory',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'story',

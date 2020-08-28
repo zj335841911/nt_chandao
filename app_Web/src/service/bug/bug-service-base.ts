@@ -1,6 +1,8 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
 import GetModuleBranchLogic from '@/service/bug/get-module-branch-logic';
+import SendNoticeLogic from '@/service/bug/send-notice-logic';
+import SendTodoTaskLogic from '@/service/bug/send-todo-task-logic';
 
 
 
@@ -95,7 +97,10 @@ export default class BugServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && true){
@@ -109,7 +114,10 @@ export default class BugServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && true){
@@ -123,7 +131,10 @@ export default class BugServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && true){
@@ -137,7 +148,10 @@ export default class BugServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         let masterData:any = {};
@@ -150,7 +164,10 @@ export default class BugServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/bugs`,data,isloading);
-        
+            let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
         return res;
     }
 
@@ -211,21 +228,41 @@ export default class BugServiceBase extends EntityService {
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.bug){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let res:any = Http.getInstance().delete(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let res:any = Http.getInstance().delete(`/stories/${context.story}/bugs/${context.bug}`,isloading);
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let res:any = Http.getInstance().delete(`/products/${context.product}/bugs/${context.bug}`,isloading);
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
             let res:any = Http.getInstance().delete(`/bugs/${context.bug}`,isloading);
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -318,31 +355,46 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/activate`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/activate`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
-            let res:any = Http.getInstance().post(`/bugs/${context.bug}/activate`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/activate`,data,isloading);    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -360,31 +412,61 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/assignto`,data,isloading);
-            
+                let sendtodotask:SendTodoTaskLogic = new SendTodoTaskLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendtodotask.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/assignto`,data,isloading);
-            
+                let sendtodotask:SendTodoTaskLogic = new SendTodoTaskLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendtodotask.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/assignto`,data,isloading);
-            
+                let sendtodotask:SendTodoTaskLogic = new SendTodoTaskLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendtodotask.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/assignto`,data,isloading);
-            
+                let sendtodotask:SendTodoTaskLogic = new SendTodoTaskLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendtodotask.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
-            let res:any = Http.getInstance().post(`/bugs/${context.bug}/assignto`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/assignto`,data,isloading);    let sendtodotask:SendTodoTaskLogic = new SendTodoTaskLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendtodotask.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -427,6 +509,90 @@ export default class BugServiceBase extends EntityService {
             return res;
         }
             let res:any = Http.getInstance().post(`/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+    }
+
+    /**
+     * BugFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async BugFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/bugfavorites`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/bugfavorites`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/bugfavorites`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/bugfavorites`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/bugfavorites`,data,isloading);
+            return res;
+    }
+
+    /**
+     * BugNFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async BugNFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/bugnfavorites`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/bugnfavorites`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/bugnfavorites`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/bugnfavorites`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/bugnfavorites`,data,isloading);
             return res;
     }
 
@@ -612,31 +778,46 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/close`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/close`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
-            let res:any = Http.getInstance().post(`/bugs/${context.bug}/close`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/close`,data,isloading);    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -654,31 +835,46 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/confirm`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/confirm`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
-            let res:any = Http.getInstance().post(`/bugs/${context.bug}/confirm`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/confirm`,data,isloading);    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -906,31 +1102,46 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/resolve`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/resolve`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
-            let res:any = Http.getInstance().post(`/bugs/${context.bug}/resolve`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/resolve`,data,isloading);    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -993,31 +1204,46 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/tostory`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/tostory`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.story && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/tostory`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
         if(context.product && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/tostory`,data,isloading);
-            
+                let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
         }
-            let res:any = Http.getInstance().post(`/bugs/${context.bug}/tostory`,data,isloading);
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/tostory`,data,isloading);    let sendnotice:SendNoticeLogic = new SendNoticeLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res))});
+            let returndata:any = await sendnotice.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:returndata};
+
             return res;
     }
 
@@ -1200,6 +1426,41 @@ export default class BugServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/bugs/fetchdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 

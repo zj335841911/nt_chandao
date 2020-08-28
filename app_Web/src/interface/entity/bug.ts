@@ -525,4 +525,12 @@ export interface Bug {
      * @memberof Bug
      */
     mobimage?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    isfavorites?: any;
 }

@@ -6,7 +6,6 @@
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="storystorynfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
-        <tns:global identifier="storystorynfavoritesibzfavorites" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storystorynfavoritesrawsqlcall1" id="E6A106BC-39C7-48A5-B00E-148D1A577734" implementation="http://www.jboss.org/drools/rule" name="取消收藏"/>
      <endEvent id="E6A106BC-39C7-48A5-B00E-148D1A577734_End" name="End"/>

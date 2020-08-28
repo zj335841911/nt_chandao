@@ -210,6 +210,9 @@ export default class ActionHistoryListModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

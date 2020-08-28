@@ -5,6 +5,7 @@ import { VueLifeCycleProcessing } from '@/studio-core';
 import { TabExpViewtabexppanelTabexppanelBase } from './tab-exp-viewtabexppanel-tabexppanel-base';
 import view_tabviewpanel from '@widgets/ibz-favorites/tab-exp-viewtabviewpanel-tabviewpanel/tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/ibz-favorites/tab-exp-viewtabviewpanel2-tabviewpanel/tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+import view_tabviewpanel3 from '@widgets/ibz-favorites/tab-exp-viewtabviewpanel3-tabviewpanel/tab-exp-viewtabviewpanel3-tabviewpanel.vue';
  
 
 /**
@@ -18,6 +19,7 @@ import view_tabviewpanel2 from '@widgets/ibz-favorites/tab-exp-viewtabviewpanel2
     components: {
         view_tabviewpanel, 
         view_tabviewpanel2, 
+        view_tabviewpanel3, 
          
     }
 })

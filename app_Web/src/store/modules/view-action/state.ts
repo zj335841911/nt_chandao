@@ -159,8 +159,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'a4af2d93ae66c9877ee99bfe7b93d22c',
+                '14f00c25c80cfa8ec6c94ad76e82cf16',
                 'b7e6268db4bdeb10211fc15383de685d',
+                '82b045705ced7d1c938a0df4a58046ca',
             ],
         },
         {
@@ -289,6 +290,21 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: '14f00c25c80cfa8ec6c94ad76e82cf16',
+            viewmodule: 'ibiz',
+            viewname: 'BugMyFavoriteGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '1540523a668e920d831510cfbec2c5e2',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {
@@ -1722,6 +1738,23 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '82b045705ced7d1c938a0df4a58046ca',
+            viewmodule: 'ibiz',
+            viewname: 'TaskMyFavoriteGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                '21e00a7239d9737bbfda5c1608b4129c',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
+                'abca63015fc84466991c6479f955f6d0',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+                '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
             ],
         },
         {

@@ -210,6 +210,9 @@ export default class DashboardBugLifeModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

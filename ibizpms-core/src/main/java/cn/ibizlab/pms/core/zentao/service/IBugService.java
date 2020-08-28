@@ -36,6 +36,8 @@ public interface IBugService extends IService<Bug>{
     Bug activate(Bug et) ;
     Bug assignTo(Bug et) ;
     Bug batchUnlinkBug(Bug et) ;
+    Bug bugFavorites(Bug et) ;
+    Bug bugNFavorites(Bug et) ;
     Bug buildBatchUnlinkBug(Bug et) ;
     Bug buildLinkBug(Bug et) ;
     Bug buildUnlinkBug(Bug et) ;
@@ -56,6 +58,7 @@ public interface IBugService extends IService<Bug>{
     Page<Bug> searchBuildLinkResolvedBugs(BugSearchContext context) ;
     Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;
+    Page<Bug> searchMyFavorites(BugSearchContext context) ;
     Page<Bug> searchReleaseBugs(BugSearchContext context) ;
     Page<Bug> searchReleaseLeftBugs(BugSearchContext context) ;
     Page<Bug> searchReleaseLinkableLeftBug(BugSearchContext context) ;

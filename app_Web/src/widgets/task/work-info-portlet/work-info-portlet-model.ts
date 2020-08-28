@@ -174,6 +174,9 @@ export default class WorkInfoModel {
       {
         name: 'ibztaskestimates',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

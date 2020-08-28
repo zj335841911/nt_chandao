@@ -174,6 +174,9 @@ export default class MainInfoModel {
       {
         name: 'ibztaskestimates',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

@@ -71,7 +71,23 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdate__MSDenyLogic update__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateTemp__MSDenyLogic updatetemp__msdenyLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateTempMajor__MSDenyLogic updatetempmajor__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemove__MSDenyLogic remove__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemoveTemp__MSDenyLogic removetemp__msdenyLogic;
 
     @Autowired
     @Lazy
@@ -80,6 +96,14 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskResetTaskestimateLogic resettaskestimateLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskFavoritesLogic taskfavoritesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskCancleFavoritesLogic taskcanclefavoritesLogic;
 
     protected int batchSize = 500;
 
@@ -338,6 +362,20 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         return et;
     }
 
+    @Override
+    @Transactional
+    public Task taskFavorites(Task et) {
+        taskfavoritesLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Task taskNFavorites(Task et) {
+        taskcanclefavoritesLogic.execute(et);
+         return et ;
+    }
+
 
 	@Override
     public List<Task> selectByModule(BigInteger id) {
@@ -414,6 +452,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     public Page<Task> searchDefaultRow(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefaultRow(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<Task> searchMyFavorites(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

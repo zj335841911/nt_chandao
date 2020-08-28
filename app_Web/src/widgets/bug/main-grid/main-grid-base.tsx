@@ -207,6 +207,62 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_udd304f5_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_BugFavorites(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u9e18a05_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_BugNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
      * 拷贝
      *
      * @param {any[]} args 当前数据
@@ -246,7 +302,9 @@ export class MainGridBase extends GridControlBase {
         ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
         CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'}
+        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
+        BugFavorites: { name: 'BugFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        BugNFavorites: { name: 'BugNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -524,6 +582,12 @@ export class MainGridBase extends GridControlBase {
         }
         if(Object.is('Copy', tag)) {
             this.grid_uagridcolumn1_u386df94_click(row, tag, $event);
+        }
+        if(Object.is('BugFavorites', tag)) {
+            this.grid_uagridcolumn1_udd304f5_click(row, tag, $event);
+        }
+        if(Object.is('BugNFavorites', tag)) {
+            this.grid_uagridcolumn1_u9e18a05_click(row, tag, $event);
         }
     }
 }

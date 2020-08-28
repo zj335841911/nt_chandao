@@ -453,6 +453,81 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-lib-module-edit-view/ibz-lib-module-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-my-favorite-grid-view/bug-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-my-favorite-grid-view/bug-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-my-favorite-grid-view/bug-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-my-favorite-grid-view/bug-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-my-favorite-grid-view/bug-my-favorite-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
                         caption: 'entities.bug.views.pickupgridview.title',
@@ -9626,6 +9701,66 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.task.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-my-favorite-grid-view/task-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.task.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-my-favorite-grid-view/task-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.task.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-my-favorite-grid-view/task-my-favorite-grid-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/myfavoritegridview/:myfavoritegridview?',
+                    meta: {
+                        caption: 'entities.task.views.myfavoritegridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myfavoritegridview', parameterName: 'myfavoritegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-my-favorite-grid-view/task-my-favorite-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_mecretae/:gridview9_mecretae?',

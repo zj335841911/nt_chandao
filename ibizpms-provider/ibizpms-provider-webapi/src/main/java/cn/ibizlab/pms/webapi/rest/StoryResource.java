@@ -476,7 +476,7 @@ domain.setId(story_id);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-StoryNFavorites-all')")
-    @ApiOperation(value = "需求收藏", tags = {"需求" },  notes = "需求收藏")
+    @ApiOperation(value = "取消收藏", tags = {"需求" },  notes = "取消收藏")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storynfavorites")
     public ResponseEntity<StoryDTO> storyNFavorites(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);

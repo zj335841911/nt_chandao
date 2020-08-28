@@ -70,15 +70,15 @@ export default class ProjectStoryModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'openedby',
@@ -129,6 +129,11 @@ export default class ProjectStoryModel {
           name: 'duplicatestory',
           prop: 'duplicatestory',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'story',

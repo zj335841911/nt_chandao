@@ -136,12 +136,6 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
-            },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
-            },
             keyPSDEField: 'ibzmyterritory',
             majorPSDEField: 'realname',
             isLoadDefault: true,
@@ -202,37 +196,5 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
     public list_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'load', $event);
     }
-
-    /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof IbzMyTerritoryListView9
-     */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof IbzMyTerritoryListView9
-     */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
 
 }

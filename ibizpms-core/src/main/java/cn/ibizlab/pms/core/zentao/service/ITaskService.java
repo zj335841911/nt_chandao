@@ -47,9 +47,12 @@ public interface ITaskService extends IService<Task>{
     boolean save(Task et) ;
     void saveBatch(List<Task> list) ;
     Task start(Task et) ;
+    Task taskFavorites(Task et) ;
+    Task taskNFavorites(Task et) ;
     Page<Task> searchByModule(TaskSearchContext context) ;
     Page<Task> searchDefault(TaskSearchContext context) ;
     Page<Task> searchDefaultRow(TaskSearchContext context) ;
+    Page<Task> searchMyFavorites(TaskSearchContext context) ;
     Page<Task> searchProjectTASK(TaskSearchContext context) ;
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;

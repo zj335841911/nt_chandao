@@ -160,8 +160,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "0b1b51910ca13751bfd6d356dcadbbce"
         },
         "ibzfavoritestabexpview": {
-            "title": "收藏分页导航视图",
-            "caption": "收藏",
+            "title": "我的收藏",
+            "caption": "我的收藏",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "ibiz",
             "viewname": "IbzFavoritesTabExpView",
@@ -270,6 +270,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseLinkCaseGridView",
             "viewtag": "14d95e9a02db631c2b9af47641fcec4e"
+        },
+        "bugmyfavoritegridview": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugMyFavoriteGridView",
+            "viewtag": "14f00c25c80cfa8ec6c94ad76e82cf16"
         },
         "bugmaindashboardview": {
             "title": "Bug数据看板视图",
@@ -1486,6 +1494,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskActiviteOptionView",
             "viewtag": "81ca65108f3533b513676d2c95b50096"
+        },
+        "taskmyfavoritegridview": {
+            "title": "task表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TaskMyFavoriteGridView",
+            "viewtag": "82b045705ced7d1c938a0df4a58046ca"
         },
         "groupmaingridview": {
             "title": "群组表格视图",
