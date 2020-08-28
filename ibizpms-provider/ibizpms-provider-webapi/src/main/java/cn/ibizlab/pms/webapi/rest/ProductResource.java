@@ -142,7 +142,7 @@ domain.setId(product_id);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-ProductTop-all')")
-    @ApiOperation(value = "取消置顶", tags = {"产品" },  notes = "取消置顶")
+    @ApiOperation(value = "置顶", tags = {"产品" },  notes = "置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/producttop")
     public ResponseEntity<ProductDTO> productTop(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);

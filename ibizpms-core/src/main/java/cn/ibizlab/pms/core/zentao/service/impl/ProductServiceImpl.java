@@ -104,6 +104,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductCancelProductTopLogic cancelproducttopLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductProductTopLogic producttopLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -205,7 +209,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public Product productTop(Product et) {
-        cancelproducttopLogic.execute(et);
+        producttopLogic.execute(et);
          return et ;
     }
 
