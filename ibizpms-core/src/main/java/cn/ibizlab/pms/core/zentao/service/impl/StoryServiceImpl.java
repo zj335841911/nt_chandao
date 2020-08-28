@@ -87,6 +87,10 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IStoryprojectUnlinkStorysLogic projectunlinkstorysLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryFavoritesLogic storyfavoritesLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -508,6 +512,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void saveBatch(List<Story> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public Story storyFavorites(Story et) {
+        storyfavoritesLogic.execute(et);
+         return et ;
     }
 
         @Override
