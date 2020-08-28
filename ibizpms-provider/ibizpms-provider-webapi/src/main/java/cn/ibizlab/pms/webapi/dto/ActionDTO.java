@@ -171,14 +171,6 @@ public class ActionDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DATE]
-     */
-    public void setDate(Timestamp  date){
-        this.date = date ;
-        this.modify("date",date);
-    }
-
-    /**
      * 设置 [PRODUCT]
      */
     public void setProduct(String  product){
