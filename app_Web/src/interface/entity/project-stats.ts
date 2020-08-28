@@ -205,4 +205,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     status?: any;
+
+    /**
+     * 项目排序
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    order1?: any;
+
+    /**
+     * 是否置顶
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    istop?: any;
 }

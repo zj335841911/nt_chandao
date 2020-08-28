@@ -29,6 +29,8 @@ export default {
     status: "状态",
     code: "产品代号",
     type: "产品类型",
+    order1: "产品排序",
+    istop: "是否置顶",
   },
 	views: {
 		allgridview: {
