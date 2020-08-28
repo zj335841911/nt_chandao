@@ -18,20 +18,26 @@
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by order1  desc , id   desc
      </select>
 
     <!--数据集合[NoOpenProduct]-->
 	 <select id="searchNoOpenProduct"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="NoOpenProduct" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by order1  desc , id   desc
      </select>
 
     <!--数据集合[TaskTime]-->
