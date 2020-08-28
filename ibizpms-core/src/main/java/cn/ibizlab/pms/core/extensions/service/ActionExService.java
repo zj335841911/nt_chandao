@@ -25,13 +25,6 @@ public class ActionExService extends ActionServiceImpl {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
     }
 
-    @Override
-    @Transactional
-    public boolean create(Action et) {
-        super.comment(et);
-        return true;
-    }
-
     /**
      * 自定义行为[EditComment]用户扩展
      * @param et
