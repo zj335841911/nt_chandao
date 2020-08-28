@@ -287,28 +287,14 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'bug-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.bug.views.maindashboardview.title'),
-            placement: 'DRAWER_TOP',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 
