@@ -143,4 +143,6 @@ export class ExpListBase extends ListControlBase {
      * @memberof ExpListBase
      */
     public minorSortPSDEF: string = 'id';
+
+
 }

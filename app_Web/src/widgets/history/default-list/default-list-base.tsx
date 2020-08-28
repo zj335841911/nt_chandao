@@ -89,4 +89,6 @@ export class DEFAULTListBase extends ListControlBase {
      * @memberof DEFAULTListBase
      */
     public minorSortPSDEF: string = 'id';
+
+
 }

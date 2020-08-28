@@ -163,4 +163,6 @@ export class TestSidebarListBase extends ListControlBase {
      * @memberof TestSidebarListBase
      */
     public minorSortPSDEF: string = 'id';
+
+
 }

@@ -81,4 +81,6 @@ export class MyWorkListBase extends ListControlBase {
      * @memberof MyWorkListBase
      */
     public minorSortDir: string = '';
+
+
 }
