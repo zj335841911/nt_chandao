@@ -107,5 +107,7 @@ export const AppComponents = {
         v.component('app-history-list',() => import('@/components/app-history-list/app-history-list.vue'));
         // 富文本
         v.component('app-mob-rich-text-editor',() => import('@/components/app-mob-rich-text-editor/app-mob-rich-text-editor.vue'));
+        // 列表项插件
+        v.component('app-list-index-text',() => import('@/components/app-list-index-text/app-list-index-text.vue'));
     },
 };
