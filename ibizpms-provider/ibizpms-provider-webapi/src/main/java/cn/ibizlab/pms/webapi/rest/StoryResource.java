@@ -475,6 +475,17 @@ domain.setId(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-StoryNFavorites-all')")
+    @ApiOperation(value = "需求收藏", tags = {"需求" },  notes = "需求收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storynfavorites")
+    public ResponseEntity<StoryDTO> storyNFavorites(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+domain.setId(story_id);
+        domain = storyService.storyNFavorites(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-UnlinkStory-all')")
     @ApiOperation(value = "计划解除关联需求", tags = {"需求" },  notes = "计划解除关联需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/unlinkstory")
@@ -1223,6 +1234,17 @@ domain.setId(story_id);
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.storyFavorites(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-StoryNFavorites-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/storynfavorites")
+    public ResponseEntity<StoryDTO> storyNFavoritesByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.storyNFavorites(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }

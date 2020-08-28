@@ -91,6 +91,10 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryFavoritesLogic storyfavoritesLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryNFavoritesLogic storynfavoritesLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -518,6 +522,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Transactional
     public Story storyFavorites(Story et) {
         storyfavoritesLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Story storyNFavorites(Story et) {
+        storynfavoritesLogic.execute(et);
          return et ;
     }
 

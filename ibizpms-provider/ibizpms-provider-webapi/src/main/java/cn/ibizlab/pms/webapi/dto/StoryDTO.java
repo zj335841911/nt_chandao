@@ -453,6 +453,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("neednotreview")
     private String neednotreview;
 
+    /**
+     * 属性 [ISFAVORITES]
+     *
+     */
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private Integer isfavorites;
+
 
     /**
      * 设置 [ASSIGNEDTO]
