@@ -174,6 +174,9 @@ export default class BaseInfoModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

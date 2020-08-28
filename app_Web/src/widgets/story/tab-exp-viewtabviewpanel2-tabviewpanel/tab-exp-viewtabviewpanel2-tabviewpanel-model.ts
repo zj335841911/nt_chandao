@@ -174,6 +174,9 @@ export default class TabExpViewtabviewpanel2Model {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

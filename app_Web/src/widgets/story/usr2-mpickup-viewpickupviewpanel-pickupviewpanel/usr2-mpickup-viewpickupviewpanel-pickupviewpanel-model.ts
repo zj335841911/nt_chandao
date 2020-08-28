@@ -174,6 +174,9 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

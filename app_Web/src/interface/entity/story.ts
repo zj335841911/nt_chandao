@@ -429,4 +429,12 @@ export interface Story {
      * @memberof Story
      */
     neednotreview?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    isfavorites?: any;
 }

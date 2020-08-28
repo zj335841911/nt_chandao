@@ -53,6 +53,7 @@ export default {
     project: "项目",
     preversion: "之前的版本",
     neednotreview: "不需要评审",
+    isfavorites: "是否收藏",
   },
 	views: {
 		pickupgridview4: {
@@ -683,6 +684,8 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
 		},
 	},
 	main_plansub_grid: {
@@ -780,6 +783,8 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
 		},
 	},
 	main_releasesub_grid: {
@@ -830,6 +835,8 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
+			story_storyfavorites: "收藏",
+			story_storynfavorites: "取消收藏",
 		},
 	},
 	default_searchform: {

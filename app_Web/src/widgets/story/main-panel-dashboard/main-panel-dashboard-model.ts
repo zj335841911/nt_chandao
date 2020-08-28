@@ -174,6 +174,9 @@ export default class MainPanelModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

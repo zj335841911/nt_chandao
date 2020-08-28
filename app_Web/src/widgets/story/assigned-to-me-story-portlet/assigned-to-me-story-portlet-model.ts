@@ -174,6 +174,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

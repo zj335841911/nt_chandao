@@ -174,6 +174,9 @@ export default class StoryRelatedModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

@@ -174,6 +174,9 @@ export default class MPickupView2pickupviewpanelModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

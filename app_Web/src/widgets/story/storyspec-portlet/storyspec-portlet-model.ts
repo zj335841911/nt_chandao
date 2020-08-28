@@ -174,6 +174,9 @@ export default class StoryspecModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

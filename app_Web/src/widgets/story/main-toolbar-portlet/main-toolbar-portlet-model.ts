@@ -174,6 +174,9 @@ export default class MainToolbarModel {
       {
         name: 'neednotreview',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 
