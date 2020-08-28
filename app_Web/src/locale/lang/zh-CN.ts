@@ -12,6 +12,7 @@ import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
+import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
@@ -312,6 +313,7 @@ export default {
         subproductplan: subproductplan_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
+        ibzfavorites: ibzfavorites_zh_CN,
         branch: branch_zh_CN,
         productstats: productstats_zh_CN,
         ibzprojectmember: ibzprojectmember_zh_CN,

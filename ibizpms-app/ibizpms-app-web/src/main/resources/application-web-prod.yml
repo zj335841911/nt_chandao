@@ -63,6 +63,10 @@ zuul:
       path: /usertpls/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_favorites:
+      path: /ibzfavorites/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_branch:
       path: /branches/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

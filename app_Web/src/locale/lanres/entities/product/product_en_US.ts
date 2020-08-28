@@ -356,6 +356,16 @@ export default {
 			tip: "刷新",
 		},
 	},
+	testleftsidebarlistviewlist_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "置顶",
+			tip: "置顶",
+		},
+		deuiaction2: {
+			caption: "取消置顶",
+			tip: "取消置顶",
+		},
+	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
 			caption: "管理",

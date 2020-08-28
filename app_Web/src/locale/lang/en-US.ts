@@ -12,6 +12,7 @@ import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
+import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
 import productstats_en_US from '@locale/lanres/entities/product-stats/product-stats_en_US';
 import ibzprojectmember_en_US from '@locale/lanres/entities/ibz-project-member/ibz-project-member_en_US';
@@ -313,6 +314,7 @@ export default {
         subproductplan: subproductplan_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
+        ibzfavorites: ibzfavorites_en_US,
         branch: branch_en_US,
         productstats: productstats_en_US,
         ibzprojectmember: ibzprojectmember_en_US,
