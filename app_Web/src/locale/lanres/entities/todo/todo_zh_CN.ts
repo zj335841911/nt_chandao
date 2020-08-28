@@ -208,7 +208,7 @@ export default {
 			story: "待办名称", 
 			bug: "待办名称", 
 			name: "待办名称", 
-			formitem1: "描述", 
+			desc: "描述", 
 			status: "状态", 
 			begin: "起止时间", 
 			end: "~", 

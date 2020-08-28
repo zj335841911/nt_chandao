@@ -134,7 +134,7 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'formitem1',
+        name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',
       },

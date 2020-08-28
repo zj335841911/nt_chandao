@@ -98,7 +98,7 @@ export class MainEditFormBase extends EditFormControlBase {
         story: null,
         bug: null,
         name: null,
-        formitem1: null,
+        desc: null,
         status: null,
         begin: null,
         end: null,
@@ -207,7 +207,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         name: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem1: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
