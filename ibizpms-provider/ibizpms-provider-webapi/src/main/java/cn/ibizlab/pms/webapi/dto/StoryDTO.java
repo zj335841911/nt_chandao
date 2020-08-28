@@ -459,7 +459,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isfavorites")
     @JsonProperty("isfavorites")
-    private Integer isfavorites;
+    private String isfavorites;
 
 
     /**

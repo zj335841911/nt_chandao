@@ -435,7 +435,7 @@ public class Story extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "isfavorites")
     @JsonProperty("isfavorites")
-    private Integer isfavorites;
+    private String isfavorites;
 
     /**
      * 
