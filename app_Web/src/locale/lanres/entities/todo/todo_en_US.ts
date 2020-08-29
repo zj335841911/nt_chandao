@@ -45,11 +45,15 @@ export default {
 		},
 		closeview: {
 			caption: "关闭",
-      		title: "关闭表单视图",
+      		title: "关闭",
 		},
 		desceditview9: {
 			caption: "基本信息",
       		title: "待办事宜表编辑视图",
+		},
+		finishview: {
+			caption: "完成",
+      		title: "完成",
 		},
 		todocreateview: {
 			caption: "待办事宜表",
@@ -70,6 +74,10 @@ export default {
 		dashboardview: {
 			caption: "待办事宜表",
       		title: "待办事宜表数据看板视图",
+		},
+		activiteview: {
+			caption: "激活",
+      		title: "激活",
 		},
 	},
 	dashboardmain_form: {
@@ -144,6 +152,38 @@ export default {
 			begin: "起止时间", 
 			end: "~", 
 			lbldisabledate: "", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	finishfrom_form: {
+		details: {
+			rawitem1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	activitefrom_form: {
+		details: {
+			rawitem1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
 			id: "编号", 
 		},
 		uiactions: {

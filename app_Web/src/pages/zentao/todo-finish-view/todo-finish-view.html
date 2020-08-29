@@ -1,4 +1,4 @@
-<studio-view viewName="todocloseview" viewTitle="关闭" class='deoptview todo-close-view'>
+<studio-view viewName="todofinishview" viewTitle="完成" class='deoptview todo-finish-view'>
     <template slot='title'>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
@@ -9,7 +9,7 @@
                     :autosave="false" 
                     :viewtag="viewtag"
                     :showBusyIndicator="true"
-                    updateAction="Close"
+                    updateAction="Finish"
                     removeAction="Remove"
                     loaddraftAction="GetDraft"
                     loadAction="Get"

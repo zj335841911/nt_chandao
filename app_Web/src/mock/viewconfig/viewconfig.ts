@@ -1304,7 +1304,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "72a44528b73b17f6e29a3ca59e432d19"
         },
         "todocloseview": {
-            "title": "关闭表单视图",
+            "title": "关闭",
             "caption": "关闭",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
@@ -1478,6 +1478,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseGridView9",
             "viewtag": "7f9b2e4d5b622528df75121b824b6fcc"
+        },
+        "todofinishview": {
+            "title": "完成",
+            "caption": "完成",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoFinishView",
+            "viewtag": "807a419a917fbfdfa3378d2fac6a2785"
         },
         "ibzlibcasestepsinfogridview9": {
             "title": "用例库用例步骤表格视图（主数据）",
@@ -2886,6 +2894,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductLifeRoadMapSListView9",
             "viewtag": "fae08b50e13943a0678a96d852e8808d"
+        },
+        "todoactiviteview": {
+            "title": "激活",
+            "caption": "激活",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoActiviteView",
+            "viewtag": "fbfc7f8548a02caba7db4438e675641b"
         },
         "projectmaintabexpview": {
             "title": "项目",

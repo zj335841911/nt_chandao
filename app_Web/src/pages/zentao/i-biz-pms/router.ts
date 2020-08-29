@@ -410,6 +410,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view9-story-related/bug-grid-view9-story-related.vue'),
                 },
                 {
+                    path: 'todos/:todo?/activiteview/:activiteview?',
+                    meta: {
+                        caption: 'entities.todo.views.activiteview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'activiteview', parameterName: 'activiteview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-activite-view/todo-activite-view.vue'),
+                },
+                {
                     path: 'actions/:action?/projecttrendslistview/:projecttrendslistview?',
                     meta: {
                         caption: 'entities.action.views.projecttrendslistview.title',
@@ -5445,6 +5459,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-edit-view9/story-edit-view9.vue'),
+                },
+                {
+                    path: 'todos/:todo?/finishview/:finishview?',
+                    meta: {
+                        caption: 'entities.todo.views.finishview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'finishview', parameterName: 'finishview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-finish-view/todo-finish-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/maineditview/:maineditview?',

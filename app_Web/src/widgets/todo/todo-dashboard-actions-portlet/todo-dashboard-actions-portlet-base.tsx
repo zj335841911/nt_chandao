@@ -338,26 +338,6 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
 
 
     /**
-     * 刷新
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof TodoDashboardViewBase
-     */
-    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.refresh && xData.refresh instanceof Function) {
-            xData.refresh(args);
-        } else if (_this.refresh && _this.refresh instanceof Function) {
-            _this.refresh(args);
-        }
-    }
-
-    /**
      * 长度
      *
      * @type {number}

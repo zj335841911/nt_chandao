@@ -7,19 +7,19 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
 
 /**
- * 关闭视图基类
+ * 完成视图基类
  *
  * @export
- * @class TodoCloseViewBase
+ * @class TodoFinishViewBase
  * @extends {OptionViewBase}
  */
-export class TodoCloseViewBase extends OptionViewBase {
+export class TodoFinishViewBase extends OptionViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     protected appDeName: string = 'todo';
 
@@ -28,7 +28,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -37,7 +37,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     protected appDeMajor: string = 'name';
 
@@ -45,7 +45,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * 实体服务对象
      *
      * @type {TodoService}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     protected appEntityService: TodoService = new TodoService;
 
@@ -53,7 +53,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * 实体权限服务对象
      *
      * @type TodoUIService
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     public appUIService: TodoUIService = new TodoUIService(this.$store);
 
@@ -63,7 +63,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {Array<*>}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */    
     protected counterServiceArray: Array<any> = [];
 
@@ -72,12 +72,12 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.todo.views.closeview.caption',
-        srfTitle: 'entities.todo.views.closeview.title',
-        srfSubTitle: 'entities.todo.views.closeview.subtitle',
+        srfCaption: 'entities.todo.views.finishview.caption',
+        srfTitle: 'entities.todo.views.finishview.title',
+        srfSubTitle: 'entities.todo.views.finishview.subtitle',
         dataInfo: ''
     }
 
@@ -86,7 +86,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -106,7 +106,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = '734c2c8a05995eaad9f9a0028e9b9def';
+	protected viewtag: string = '807a419a917fbfdfa3378d2fac6a2785';
 
 
     /**
@@ -114,7 +114,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
 
@@ -122,7 +122,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -140,7 +140,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     public form_save($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -151,7 +151,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     public form_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -162,7 +162,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TodoCloseViewBase
+     * @memberof TodoFinishViewBase
      */
     public form_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'load', $event);

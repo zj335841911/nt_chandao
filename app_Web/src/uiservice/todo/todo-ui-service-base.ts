@@ -93,11 +93,13 @@ export default class TodoUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'closeview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'desceditview9',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'finishview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'todocreateview',srfappde:'todos'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'todos'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'activiteview',srfappde:'todos'});
     }
 
     /**
@@ -118,7 +120,7 @@ export default class TodoUIServiceBase extends UIService {
      * @memberof  TodoUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'DELETE':1,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'DELETE':1,'ACTIVATE':1,'UPDATE':1,}));
         this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'TOBUG':1,'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'TOTASK':1,'DELETE':1,}));
         this.allDeMainStateOPPrivsMap.set('done',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1,}));
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1,}));
@@ -792,7 +794,8 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_finishCz(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_finishCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -814,49 +817,27 @@ export default class TodoUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TodoService =  new TodoService();
-            curService.Finish(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '完成成功！' });
-
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                if (_this.Refresh && _this.Refresh instanceof Function) {
-                    _this.Refresh(_args,context, params, $event, xData,actionContext);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'todo-finish-view', 
+                height: 400, 
+                width: 400,  
+                title: actionContext.$t('entities.todo.views.finishview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**
@@ -977,8 +958,8 @@ export default class TodoUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'todo-close-view', 
-                height: 600, 
-                width: 800,  
+                height: 400, 
+                width: 400,  
                 title: actionContext.$t('entities.todo.views.closeview.title'),
             };
             openPopupModal(view, data);
@@ -1063,7 +1044,8 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_activateCz(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_activateCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -1085,49 +1067,27 @@ export default class TodoUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TodoService =  new TodoService();
-            curService.Activate(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '激活成功！' });
-
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                if (_this.Refresh && _this.Refresh instanceof Function) {
-                    _this.Refresh(_args,context, params, $event, xData,actionContext);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'todo-activite-view', 
+                height: 400, 
+                width: 400,  
+                title: actionContext.$t('entities.todo.views.activiteview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 

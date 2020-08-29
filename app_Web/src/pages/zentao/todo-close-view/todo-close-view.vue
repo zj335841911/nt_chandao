@@ -6,7 +6,7 @@ import { TodoCloseViewBase } from './todo-close-view-base';
 import view_form from '@widgets/todo/close-form-form/close-form-form.vue';
 
 /**
- * 关闭表单视图视图
+ * 关闭视图
  *
  * @export
  * @class TodoCloseView
