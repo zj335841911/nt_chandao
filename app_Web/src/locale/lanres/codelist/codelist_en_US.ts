@@ -636,6 +636,10 @@ export default {
     ProjectProductPlan: {
         "empty": "",
     },
+    NeedNotReview: {
+        "0": "不需要评审",
+        "empty": ""
+    },
     TestQuickpacket: {
         "ALL": "全部",
         "ICREATE": "待测测试单",

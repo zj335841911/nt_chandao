@@ -216,6 +216,54 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof Main_NewModeEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
+            let ret = false;
+            const _neednotreview = this.data.neednotreview;
+            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    /**
      * 新建默认值
      * @memberof Main_NewModeEditFormBase
      */

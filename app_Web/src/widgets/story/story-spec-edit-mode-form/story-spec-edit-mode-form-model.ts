@@ -76,7 +76,9 @@ export default class StorySpec_EditModeModel {
         dataType: 'SMCODELIST',
       },
       {
-        name: 'neednotreview1',
+        name: 'neednotreview',
+        prop: 'neednotreview',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'title',

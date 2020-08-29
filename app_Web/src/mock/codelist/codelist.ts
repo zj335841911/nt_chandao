@@ -4792,6 +4792,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "NeedNotReview",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "不需要评审",
+                text: "不需要评审",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "TestQuickpacket",
         emptytext: "未定义",
         "codelisttype":"static",
