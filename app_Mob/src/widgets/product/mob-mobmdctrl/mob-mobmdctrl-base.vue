@@ -9,7 +9,7 @@
                   </template>
                 </ion-list>
                 <ion-list class="items">
-                  <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                  <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ProductTop.visabled" :disabled="item.ProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u1f01c30', item)"><ion-icon v-if="item.ProductTop.icon" :name="item.ProductTop.icon"></ion-icon>置顶</ion-item-option>
                             <ion-item-option v-show="item.CancelProductTop.visabled" :disabled="item.CancelProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u8d9e94f', item)"><ion-icon v-if="item.CancelProductTop.icon" :name="item.CancelProductTop.icon"></ion-icon>取消置顶</ion-item-option>
@@ -864,6 +864,7 @@ export default class MobBase extends Vue implements ControlInterface {
         }
         this.items.forEach((item:any)=>{
             Object.assign(item,this.getActionState(item));    
+            this.setSlidingDisabled(item);
         });
         return response;
     }
@@ -1174,6 +1175,21 @@ export default class MobBase extends Vue implements ControlInterface {
         let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
+    }
+
+    /**
+    * 判断列表项左滑右滑禁用状态
+    *
+    * @memberof MobBase
+    */
+    public setSlidingDisabled(item:any){
+        item.sliding_disabled = true;
+        Object.keys(this.ActionModel).forEach((key,index) => {
+           if(item[key].visabled && item.sliding_disabled ){
+             item.sliding_disabled = false;
+           }
+        })
+
     }
 }
 </script>

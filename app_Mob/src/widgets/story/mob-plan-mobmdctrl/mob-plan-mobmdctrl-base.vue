@@ -8,7 +8,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                    <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon" :name="item.UnlinkStoryMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
@@ -28,7 +28,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon" :name="item.UnlinkStoryMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
@@ -795,6 +795,7 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
         }
         this.items.forEach((item:any)=>{
             Object.assign(item,this.getActionState(item));    
+            this.setSlidingDisabled(item);
         });
         return response;
     }
@@ -1093,6 +1094,21 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
         let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
+    }
+
+    /**
+    * 判断列表项左滑右滑禁用状态
+    *
+    * @memberof Mob_PlanBase
+    */
+    public setSlidingDisabled(item:any){
+        item.sliding_disabled = true;
+        Object.keys(this.ActionModel).forEach((key,index) => {
+           if(item[key].visabled && item.sliding_disabled ){
+             item.sliding_disabled = false;
+           }
+        })
+
     }
 }
 </script>
