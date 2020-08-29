@@ -187,7 +187,7 @@ export default class TodoMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TodoMobMDViewBase
      */
-    protected navParam: any = { 'n_date_noteq': '2030-01-01', 'n_account_eq': '%srfloginname%', 'n_cycle_eq': '0' };
+    protected navParam: any = { 'n_account_eq': '%srfloginname%', 'n_cycle_eq': '0' };
 
     /**
      * 视图模型数据
