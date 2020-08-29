@@ -1207,6 +1207,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseBatchNewGridView",
             "viewtag": "66769499a681f12bd2ebff8859f1d4ea"
         },
+        "buildeditformeditview": {
+            "title": "版本编辑视图",
+            "caption": "版本",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BuildEditFormEditView",
+            "viewtag": "68f49a558ebf0e2566be65fc74f13fdd"
+        },
         "taskestimateeditgridview9": {
             "title": "任务预计表格视图",
             "caption": "工时",

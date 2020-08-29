@@ -15,8 +15,13 @@ export default {
     project: "所属项目",
     productname: "产品名称",
     ids: "Bug版本健值",
+    files: "附件",
   },
 	views: {
+		editformeditview: {
+			caption: "版本",
+      		title: "版本编辑视图",
+		},
 		maingridview: {
 			caption: "版本",
       		title: "版本表格视图",
@@ -36,6 +41,8 @@ export default {
 	},
 	main_form: {
 		details: {
+			druipart2: "", 
+			grouppanel2: "附件", 
 			group1: "基本信息", 
 			druipart1: "", 
 			grouppanel1: "历史记录", 
@@ -53,6 +60,33 @@ export default {
 			date: "打包日期", 
 			scmpath: "源代码地址", 
 			filepath: "下载地址", 
+			desc: "描述", 
+			id: "id", 
+			product: "产品", 
+		},
+		uiactions: {
+		},
+	},
+	editform_form: {
+		details: {
+			grouppanel2: "分组面板", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "名称编号", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			project: "所属项目", 
+			productname: "产品", 
+			name: "名称编号", 
+			builder: "构建者", 
+			date: "打包日期", 
+			scmpath: "源代码地址", 
+			filepath: "下载地址", 
+			files: "上传发行包", 
 			desc: "描述", 
 			id: "id", 
 			product: "产品", 
@@ -110,6 +144,12 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
+		},
+	},
+	editformeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	editviewtoolbar_toolbar: {

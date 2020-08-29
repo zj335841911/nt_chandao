@@ -1389,6 +1389,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '68f49a558ebf0e2566be65fc74f13fdd',
+            viewmodule: 'zentao',
+            viewname: 'BuildEditFormEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7df0f0deee91304e0350f00baa8a92d6',
+            ],
+        },
+        {
             viewtag: '6991c25388155df89dc9c44eeb11ad90',
             viewmodule: 'zentao',
             viewname: 'TaskEstimateEditGridView9',
@@ -1702,6 +1712,7 @@ export const viewstate: any = {
                 '4d32793fc57ec1ae930a18608526d00e',
                 'fffe78c32fb25b287d0c5165d46f8dd2',
                 'a74d54220e97fb172fdb2117118f665d',
+                '68f49a558ebf0e2566be65fc74f13fdd',
             ],
         },
         {
@@ -2262,6 +2273,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
                 '6c7b582273d0726bcf77214807cfe40c',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],

@@ -4238,6 +4238,50 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/builds/:build?/editformeditview/:editformeditview?',
+                    meta: {
+                        caption: 'entities.build.views.editformeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editformeditview', parameterName: 'editformeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-edit-form-edit-view/build-edit-form-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/builds/:build?/editformeditview/:editformeditview?',
+                    meta: {
+                        caption: 'entities.build.views.editformeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editformeditview', parameterName: 'editformeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-edit-form-edit-view/build-edit-form-edit-view.vue'),
+                },
+                {
+                    path: 'builds/:build?/editformeditview/:editformeditview?',
+                    meta: {
+                        caption: 'entities.build.views.editformeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editformeditview', parameterName: 'editformeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-edit-form-edit-view/build-edit-form-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/maintabexpview/:maintabexpview?',
                     meta: {
                         caption: 'entities.product.views.maintabexpview.title',

@@ -89,6 +89,7 @@ export default class BuildUIServiceBase extends UIService {
      * @memberof  BuildUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'editformeditview',srfappde:'builds'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'builds'});
         this.allViewMap.set(':',{viewname:'mainview',srfappde:'builds'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'builds'});
@@ -366,10 +367,10 @@ export default class BuildUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'build-edit-view', 
+                viewname: 'build-edit-form-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.build.views.editview.title'),
+                title: actionContext.$t('entities.build.views.editformeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

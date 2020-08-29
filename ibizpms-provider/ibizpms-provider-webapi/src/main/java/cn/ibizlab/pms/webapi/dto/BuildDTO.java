@@ -145,6 +145,14 @@ public class BuildDTO extends DTOBase implements Serializable {
     @JsonProperty("ids")
     private String ids;
 
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+
 
     /**
      * 设置 [NAME]

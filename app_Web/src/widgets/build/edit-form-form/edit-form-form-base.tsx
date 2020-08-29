@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
-import MainService from './main-form-service';
+import EditFormService from './edit-form-form-service';
 import BuildUIService from '@/uiservice/build/build-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainEditFormBase}
+ * @extends {EditFormEditFormBase}
  */
-export class MainEditFormBase extends EditFormControlBase {
+export class EditFormEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainEditFormBase
+     * @type {EditFormService}
+     * @memberof EditFormEditFormBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: EditFormService = new EditFormService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {BuildService}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     public appEntityService: BuildService = new BuildService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     protected appDeName: string = 'build';
 
@@ -55,7 +55,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     protected appDeLogicName: string = 'build';
 
@@ -63,24 +63,15 @@ export class MainEditFormBase extends EditFormControlBase {
      * 界面UI服务对象
      *
      * @type {BuildUIService}
-     * @memberof MainBase
+     * @memberof EditFormBase
      */  
     public appUIService:BuildUIService = new BuildUIService(this.$store);
-
-    /**
-     * 关系界面数量
-     *
-     * @protected
-     * @type {number}
-     * @memberof MainEditFormBase
-     */
-    protected drCount: number = 2;
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -90,12 +81,14 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        project: null,
         productname: null,
         name: null,
         builder: null,
         date: null,
         scmpath: null,
         filepath: null,
+        files: null,
         desc: null,
         id: null,
         product: null,
@@ -106,16 +99,32 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     public rules: any = {
+        productname: [
+            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+        ],
+        name: [
+            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
+        ],
+        builder: [
+            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'blur' },
+        ],
+        date: [
+            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainBase
+     * @memberof EditFormBase
      */
     public deRules:any = {
     };
@@ -124,18 +133,12 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     public detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.build.editform_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel2: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.build.main_form', extractMode: 'ITEM', details: [] } }),
-
-        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.build.main_form', extractMode: 'ITEM', details: [] } }),
-
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.build.main_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.build.editform_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -153,6 +156,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         name: new FormItemModel({ caption: '名称编号', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -165,6 +170,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         filepath: new FormItemModel({ caption: '下载地址', detailType: 'FORMITEM', name: 'filepath', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        files: new FormItemModel({ caption: '上传发行包', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
@@ -175,7 +182,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
     /**
      * 新建默认值
-     * @memberof MainEditFormBase
+     * @memberof EditFormEditFormBase
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('builder')) {
