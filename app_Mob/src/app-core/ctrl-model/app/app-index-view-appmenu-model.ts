@@ -26,7 +26,7 @@ export class AppIndexViewModel {
 	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
-	iconcls: 'filing',
+	iconcls: 'heart-circle',
 	icon: '',
 	textcls: '',
 	appfunctag: '_2',

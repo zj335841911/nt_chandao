@@ -22,7 +22,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
-	iconcls: 'filing',
+	iconcls: 'heart-circle',
 	icon: '',
 	textcls: '',
 	appfunctag: '_2',
