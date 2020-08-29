@@ -13,11 +13,27 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="11" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.title.visible"  :lg="9" :size="9" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
                 </div>
+                
+                
+                </ion-col>
+                <ion-col v-show="detailsModel.button2.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-button">
+                    <ion-button  @click="button2_click($event)" >
+                    <ion-icon name="star"></ion-icon>
+                    取消收藏
+                </ion-button>
+                
+                
+                </ion-col>
+                <ion-col v-show="detailsModel.button1.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-button">
+                    <ion-button  @click="button1_click($event)" >
+                    <ion-icon name="star-outline"></ion-icon>
+                    收藏
+                </ion-button>
                 
                 
                 </ion-col>
@@ -62,6 +78,15 @@
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.stage" :context="context" :value="data.stage" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__stage"></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.isfavorites.visible"  :size="12" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <span class="app-form-hidden" style="display: none;">{{data.isfavorites}}</span>
                 </div>
                 
                 
@@ -199,6 +224,68 @@ export default class MobBase extends Vue implements ControlInterface {
     
 
     /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Mdctrl_itempanelBase
+     */
+    protected async mdctrl_itempanel_button2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_StoryNFavorites(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Mdctrl_itempanelBase
+     */
+    protected async mdctrl_itempanel_button1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_StoryFavorites(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
      * 关闭视图
      *
      * @param {any[]} args
@@ -288,6 +375,24 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     @Prop() protected item?: any;
 
+	/**
+	 * 面板 取消收藏 事件
+	 *
+	 * @memberof @memberof Mob
+	 */
+    protected button2_click($event: any): void {
+        this.mdctrl_itempanel_button2_click(null, null, $event);
+
+    }
+	/**
+	 * 面板 收藏 事件
+	 *
+	 * @memberof @memberof Mob
+	 */
+    protected button1_click($event: any): void {
+        this.mdctrl_itempanel_button1_click(null, null, $event);
+
+    }
 
     /**
      * 数据加载
@@ -330,6 +435,24 @@ export default class MobBase extends Vue implements ControlInterface {
                 
 
 
+        if (Object.is(name, '') || Object.is(name, 'isfavorites')) {
+            let ret = false;
+            const _isfavorites = this.data.isfavorites;
+            if (this.$verify.testCond(this.data.isfavorites, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.button2.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'isfavorites')) {
+            let ret = false;
+            const _isfavorites = this.data.isfavorites;
+            if (this.$verify.testCond(this.data.isfavorites, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.button1.setVisible(ret);
+        }
+
         if (Object.is(name, '') || Object.is(name, 'assignedto')) {
             let ret = false;
             const _assignedto = this.data.assignedto;
@@ -361,6 +484,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -374,6 +498,10 @@ export default class MobBase extends Vue implements ControlInterface {
 , 
         title: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'title', panel: this, visible: true  })
 , 
+        button2: new PanelButtonModel({ caption: '取消收藏', itemType: 'BUTTON', name: 'button2', panel: this, visible: true  })
+, 
+        button1: new PanelButtonModel({ caption: '收藏', itemType: 'BUTTON', name: 'button1', panel: this, visible: true  })
+, 
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
 , 
         rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem3', panel: this, visible: true  })
@@ -385,6 +513,8 @@ export default class MobBase extends Vue implements ControlInterface {
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
         stage: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'stage', panel: this, visible: true  })
+, 
+        isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'isfavorites', panel: this, visible: false  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 
