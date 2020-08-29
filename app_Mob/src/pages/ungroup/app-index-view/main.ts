@@ -51,7 +51,10 @@ Vue.prototype.$pathToRegExp = pathToRegExp;
 Vue.use(AppComponents);
 Vue.use(PageComponents);
 Vue.use(UserComponent);
-
+//富文本
+import 'quill/dist/quill.snow.css'
+import VueQuillEditor from 'vue-quill-editor'
+Vue.use(VueQuillEditor);
 router.beforeEach((to: any, from: any, next: any) => {
     if (to.meta && !to.meta.ignoreAddPage) {
         router.app.$store.commit('addPage', to);
