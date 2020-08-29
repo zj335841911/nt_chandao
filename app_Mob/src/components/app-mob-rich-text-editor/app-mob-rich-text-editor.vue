@@ -1,5 +1,7 @@
 <template>
-    <div>暂不支持</div>
+<div>
+  <div v-html="reValue"></div><ion-icon name="options-outline" @click="open"></ion-icon>
+</div>
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
@@ -12,14 +14,14 @@ export default class AppRichTextEditor extends Vue {
      * @type {string}
      * @memberof AppInput
      */
-    @Prop() public value?: string;
+    @Prop() public value?: any;
 
 
     get reValue(){
       return this.value;
     }
     set reValue(value:any){
-      
+      this.$emit("change", value);
     }
     /**
      * 类型
@@ -37,18 +39,6 @@ export default class AppRichTextEditor extends Vue {
      */
     @Prop() public placeholder?:string;   
     
-    /**
-     * change事件
-     *
-     * @memberof AppInput
-     */
-    public change(value: any) {
-      // console.log(value)
-        this.$emit("change", value.html);
-    }
-
-
-
     public messages = "";
 
     public   onEditorBlur(){}
@@ -57,15 +47,22 @@ export default class AppRichTextEditor extends Vue {
 
      public onEditorReady(){}
 
+     public open(){
+       this.openPopupModal({ viewname: 'app-rich-text', title: 'app-rich-text'},{},{value:this.value});
+     }
+
+    private async openPopupModal(view: any, context: any, param: any): Promise<any> {
+        const result: any = await this.$appmodal.openModal(view, context, param);
+        if (result || Object.is(result.ret, 'OK')) {
+            this.reValue = result.datas[0];
+        }
+    }
+
+    public openViewClose(result: any) {
+       
+    }
 
 }
 </script>
 <style lang="less">
-.quill-editor{
-    -webkit-touch-callout: text !important;
-    -webkit-user-select: text !important;
-    -khtml-user-select: text !important;
-    -moz-user-select :text !important;
-    -ms-user-select: text !important;
-}
 </style>

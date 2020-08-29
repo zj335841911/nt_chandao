@@ -3,23 +3,25 @@
         <div class="app-mob-mdctrl-mdctrl">
           <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
                 <ion-list class="items">
-                <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <app-list-index-text :item="item" @clickItem="item_click"></app-list-index-text>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
-                </template>
-            </ion-list>
-            <ion-list class="items">
-                <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                    <app-list-index-text :item="item" @clickItem="item_click"></app-list-index-text>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                    <app-list-index-text :item="item" @clickItem="item_click"></app-list-index-text>
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
-                    <app-list-index-text :item="item" @clickItem="item_click"></app-list-index-text>
-                </template>
-                <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
+                  <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
+                      <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"    @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                  </template>
+                </ion-list>
+                <ion-list class="items">
+                  <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                    <ion-item>
+                      <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
+                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                          <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px); "      @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      </template>
+                      <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
+                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      </template>
+                      <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
+                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      </template>
+                                      <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
                     <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
                         <van-panel :title="item.srfmajortext ">
                             <div class="van-cell van-panel__header" >
@@ -44,7 +46,7 @@
                         </van-panel>
                     </li>
                 </template>
-                <template v-else>
+                      <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
                             <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
@@ -57,14 +59,16 @@
                             <ion-radio slot="end" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
-                </template>
-            </ion-list>
-            <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
-                <ion-infinite-scroll-content
-                    loadingSpinner="bubbles"
-                    loadingText="正在加载数据">
-                </ion-infinite-scroll-content>
-            </ion-infinite-scroll>    
+                      </template>
+                    </ion-item>
+                  </ion-item-sliding>
+                </ion-list>
+                <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
+                    <ion-infinite-scroll-content
+                        loadingSpinner="bubbles"
+                        loadingText="正在加载数据">
+                    </ion-infinite-scroll-content>
+                </ion-infinite-scroll>    
 
           </van-pull-refresh>
         </div>

@@ -63,6 +63,9 @@ export class MobModel {
       {
         name: 'productname',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 
