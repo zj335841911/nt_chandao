@@ -386,6 +386,17 @@ export default class TodoUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Todo_close(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确定要关闭这条待办吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -512,6 +523,17 @@ export default class TodoUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Todo_delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确定要删除这条待办吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -853,6 +875,17 @@ export default class TodoUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Todo_activate(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确定要激活这条待办吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -978,6 +1011,17 @@ export default class TodoUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Todo_finish(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确定这条待办已经完成了吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
