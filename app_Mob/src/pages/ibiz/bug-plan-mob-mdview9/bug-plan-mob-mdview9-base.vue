@@ -594,6 +594,8 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @memberof BugPlanMobMDView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
+            this.$viewTool.ThirdPartyClose();
+            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;

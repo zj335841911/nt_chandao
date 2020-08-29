@@ -617,6 +617,8 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+            this.$viewTool.ThirdPartyClose();
+            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;

@@ -415,6 +415,8 @@ export default class TaskMobOptionViewBase extends Vue {
      * @memberof TaskMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+            this.$viewTool.ThirdPartyClose();
+            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;
