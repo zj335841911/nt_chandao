@@ -90,11 +90,13 @@ export default class TestModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testmodules'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'testmodules'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testmodules'});
         this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'testmodules'});
         this.allViewMap.set(':',{viewname:'gridviewmain',srfappde:'testmodules'});
         this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'testmodules'});
         this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'testmodules'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'testmodules'});
     }
 
     /**

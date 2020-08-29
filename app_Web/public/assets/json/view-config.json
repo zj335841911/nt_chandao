@@ -439,6 +439,16 @@
         "viewtag": "1c4104beb7e8515d20d03262732ba4f8",
         "memo": ""
     },
+    "testmodulepickupgridview": {
+        "title": "测试模块选择表格视图",
+        "caption": "测试模块",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestModulePickupGridView",
+        "viewfilename": "test-module-pickup-grid-view",
+        "viewtag": "1cd7fbb3fdd5fa489e87d4cffa01e993",
+        "memo": ""
+    },
     "producttestgridview": {
         "title": "所有产品",
         "caption": "测试",
@@ -3317,6 +3327,16 @@
         "viewname": "ProjectStatsGridView9",
         "viewfilename": "project-stats-grid-view9",
         "viewtag": "e8e346e34ba5e02170fe3bcea7e6ec7f",
+        "memo": ""
+    },
+    "testmodulepickupview": {
+        "title": "测试模块数据选择视图",
+        "caption": "测试模块",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestModulePickupView",
+        "viewfilename": "test-module-pickup-view",
+        "viewtag": "e8f1c11c602bd6b01d2df8dc223ca941",
         "memo": ""
     },
     "buildeditview": {

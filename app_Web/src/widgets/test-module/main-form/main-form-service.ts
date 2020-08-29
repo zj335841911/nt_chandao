@@ -2,6 +2,7 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TestModuleService from '@/service/test-module/test-module-service';
 import MainModel from './main-form-model';
+import ProductService from '@/service/product/product-service';
 
 
 /**
@@ -40,6 +41,14 @@ export default class MainService extends ControlService {
         super(opts);
         this.model = new MainModel();
     }
+
+    /**
+     * 产品服务对象
+     *
+     * @type {ProductService}
+     * @memberof MainService
+     */
+    public productService: ProductService = new ProductService();
 
     /**
      * 处理数据
@@ -82,6 +91,12 @@ export default class MainService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        }
+        if (Object.is(serviceName, 'TestModuleService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.appEntityService.FetchDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'testmodule');
+        }
 
         return Promise.reject([])
     }

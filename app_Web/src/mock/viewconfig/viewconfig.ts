@@ -359,6 +359,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugPickupGridView4",
             "viewtag": "1c4104beb7e8515d20d03262732ba4f8"
         },
+        "testmodulepickupgridview": {
+            "title": "测试模块选择表格视图",
+            "caption": "测试模块",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestModulePickupGridView",
+            "viewtag": "1cd7fbb3fdd5fa489e87d4cffa01e993"
+        },
         "producttestgridview": {
             "title": "所有产品",
             "caption": "测试",
@@ -2662,6 +2670,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectStatsGridView9",
             "viewtag": "e8e346e34ba5e02170fe3bcea7e6ec7f"
+        },
+        "testmodulepickupview": {
+            "title": "测试模块数据选择视图",
+            "caption": "测试模块",
+            "viewtype": "DEPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestModulePickupView",
+            "viewtag": "e8f1c11c602bd6b01d2df8dc223ca941"
         },
         "buildeditview": {
             "title": "版本编辑视图",
