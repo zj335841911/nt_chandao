@@ -10,6 +10,11 @@
                 </ion-list>
                 <ion-list class="items">
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.ProjectTop.visabled" :disabled="item.ProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'u4186bd7', item)"><ion-icon v-if="item.ProjectTop.icon" :name="item.ProjectTop.icon"></ion-icon>置顶</ion-item-option>
+                            <ion-item-option v-show="item.CancelProjectTop.visabled" :disabled="item.CancelProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'ua7fd566', item)"><ion-icon v-if="item.CancelProjectTop.icon" :name="item.CancelProjectTop.icon"></ion-icon>取消置顶</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u02bc474', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                        </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
@@ -200,6 +205,99 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u4186bd7_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_ProjectTop(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ua7fd566_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_CancelProjectTop(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u02bc474_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -921,6 +1019,15 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'u4186bd7')) {
+            this.mdctrl_u4186bd7_click();
+        }
+        if (Object.is(tag, 'ua7fd566')) {
+            this.mdctrl_ua7fd566_click();
+        }
+        if (Object.is(tag, 'u02bc474')) {
+            this.mdctrl_u02bc474_click();
+        }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -1016,6 +1123,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'fa fa-hand-o-up'},
+        CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'fa fa-hand-o-down'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', target: 'SINGLEKEY',icon:'close'},
+        Exit: { name: 'Exit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: '',icon:'fa fa-sign-out'}
     };
 
     /**

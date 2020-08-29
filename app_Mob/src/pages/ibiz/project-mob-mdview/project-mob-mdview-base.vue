@@ -37,7 +37,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchCurUser" 
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
