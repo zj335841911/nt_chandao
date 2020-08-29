@@ -45,7 +45,7 @@ public class BugExService extends BugServiceImpl {
 //    @Transactional
     public Bug assignTo(Bug et) {
         Bug bug = super.assignTo(et);
-        // dingTalkMsgService.send(bug,"maindashboardview");
+        dingTalkMsgService.send(bug,"maindashboardview");
         return bug;
     }
     /**

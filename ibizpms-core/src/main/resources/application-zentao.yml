@@ -24,6 +24,7 @@ ibiz:
     service:
       uaa: ibzuaa-apipms
       ou: ibzou-apipms
+      notify: ibznotify-api
   cacheLevel: L2
 spring:
   servlet:
@@ -40,3 +41,9 @@ pms:
     ou: false
     #同步权限资源。
     uaa: true
+  #消息推送相关
+  message:
+    # 域名首页, 比如:http://ibizpmsh5.ibizlab.cn
+    homepage:
+      mob: http://ibizpmsh5.ibizlab.cn
+      pc: http://ibizpmspc.ibizlab.cn

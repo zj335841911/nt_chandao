@@ -4,23 +4,33 @@ import cn.ibizlab.pms.util.client.IBZNotifyFeignClient;
 import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import liquibase.pro.packaged.A;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import java.math.BigInteger;
 import java.net.URLEncoder;
 
+@Slf4j
 @Component
-public class DingTalkMsgService {
+public class DingTalkMsgService implements IMsgService {
     @Autowired
     private IBZNotifyFeignClient feignClient;
     @Autowired
     private MsgDestParser destParser;
-//  TODO 发送地址（临时）   http://172.16.240.110:10120/#/ibizpms/bugs/432/maindashboardview
-   // public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/ibizpms/%s/%s/%s";
-public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/viewshell/null/%s/%s/%s/%s/mobeditview";
+    @Value("${pms.message.homepage.pc:}")
+    private String redirectURLPC;
+    @Value("${pms.message.homepage.mob:}")
+    private String redirectURLMOB;
+    //发送地址
+    public static final String urltempl_pc="%s/#/ibizpms/%s/%s/%s";
+//    public static final String urltempl_mob="%s/#/viewshell/null/%s/%s/%s/%s/mobeditview";
+    public static final String urltempl_mob="%s/#/viewshell/null/%s/%s/%s/mobeditview";
 
+    @Override
     public void send(EntityBase et, String mainDataView){
         //当前操作人相关信息，userid、姓名
         String name = AuthenticationUser.getAuthenticationUser().getPersonname();
@@ -32,21 +42,26 @@ public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/viewshell/nul
 
 
         //生成重定向地址
-        String redirect_url = String.format(urltempl,className+"s",id,mainDataView);
-
+        String redirect_url_pc = String.format(urltempl_pc,redirectURLPC,className+"s",id,mainDataView);
+        String redirect_url_mob = String.format(urltempl_mob,redirectURLMOB,className+"s",id,mainDataView);
         //发送通知格式
         String msgtitle = "PMS代办通知";
-//        String content = "有人在 【BUG #id 标题】 @了你，请注意查看。";
+        //内容模板： "有人在 【BUG #id 标题】 @了你，请注意查看。";
         String contentTempl  = "%s在 【%s #%d %s】 @了你，请注意查看。";
 
         String content = String.format(contentTempl,name,className.toUpperCase(),id,title);
         String taskUserIds = destParser.getTaskUserIds(et);
         String noticeUserIds = destParser.getNoticeUserIds(et);
         if(!StringUtils.isEmpty(taskUserIds)) {
-            sendTask(taskUserIds, redirect_url, msgtitle, content);
+            //分别发送PC、MOB通知
+            sendTask(taskUserIds, redirect_url_pc, "(PC)"+msgtitle, content);
+            sendTask(taskUserIds, redirect_url_mob, "(MOB)"+msgtitle, content);
+            log.info("成功发送代办任务。");
         }
         if(!StringUtils.isEmpty(noticeUserIds)){
-            sendLinkMessage(noticeUserIds,redirect_url,msgtitle,content);
+            sendLinkMessage(noticeUserIds,redirect_url_pc,msgtitle,content);
+            sendLinkMessage(noticeUserIds,redirect_url_mob,msgtitle,content);
+            log.info("成功发送链接通知。");
         }
     }
 
@@ -57,8 +72,9 @@ public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/viewshell/nul
      * @param title   标题
      * @param content   正文
      */
+    @Override
     public void sendLinkMessage(String userids,String redirectUrl,String title,String content){
-
+        log.debug("redirectURL:[{}]",redirectUrl);
         JSONObject message = new JSONObject();
         message.put("templateid","pms");
         message.put("msgtypes","64");       //TODO 类型：钉钉消息
@@ -67,7 +83,7 @@ public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/viewshell/nul
         message.put("content",content);
         String encodeUrl = URLEncoder.encode(redirectUrl);
         message.put("url","dingtalk://dingtalkclient/page/link?url="+encodeUrl+"&pc_slide=false");
-       // feignClient.sendDingTalkLinkMsg(message);
+        feignClient.sendDingTalkLinkMsg(message);
     }
 
 
@@ -80,15 +96,16 @@ public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/viewshell/nul
      * @return  返回生成的代办任务id
      */
     public String sendTask(String userids,String redirectUrl,String title,String content){
+        log.debug("redirectURL:[{}]",redirectUrl);
+        log.debug("userid:[{}]",userids);
         JSONObject message = new JSONObject();
-
         message.put("userids",userids);
         message.put("templateid","pms");
         message.put("title",title);
         message.put("content",content);
         String encodeUrl = URLEncoder.encode(redirectUrl);
         message.put("url","dingtalk://dingtalkclient/page/link?url="+encodeUrl+"&pc_slide=false");
-        // String taskId = feignClient.createDingTalkWorkRecord(message);
+        String taskId = feignClient.createDingTalkWorkRecord(message);
         return "";
     }
 
