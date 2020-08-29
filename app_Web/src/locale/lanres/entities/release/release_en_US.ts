@@ -41,6 +41,34 @@ export default {
       		title: "发布编辑视图",
 		},
 	},
+	main_form: {
+		details: {
+			group1: "基本信息", 
+			druipart2: "", 
+			grouppanel1: "附件", 
+			druipart1: "", 
+			grouppanel2: "历史记录", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "ID", 
+			srfmajortext: "发布名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品名称", 
+			name: "发布名称", 
+			buildname: "版本", 
+			status: "状态", 
+			date: "发布日期", 
+			desc: "描述", 
+			id: "ID", 
+			product: "产品", 
+			build: "版本", 
+		},
+		uiactions: {
+		},
+	},
 	editform_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -94,34 +122,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
-		details: {
-			group1: "基本信息", 
-			druipart2: "", 
-			grouppanel1: "附件", 
-			druipart1: "", 
-			grouppanel2: "历史记录", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "ID", 
-			srfmajortext: "发布名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			productname: "产品名称", 
-			name: "发布名称", 
-			buildname: "版本", 
-			status: "状态", 
-			date: "发布日期", 
-			desc: "描述", 
-			id: "ID", 
-			product: "产品", 
-			build: "版本", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -139,6 +139,12 @@ export default {
         release_terminal: "停止维护",
         release_quickedit: "编辑",
         release_remove: "删除",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	quickcreateviewtoolbar_toolbar: {
@@ -159,12 +165,6 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };

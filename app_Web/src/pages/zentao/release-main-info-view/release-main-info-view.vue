@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ReleaseMainInfoViewBase } from './release-main-info-view-base';
-import view_form from '@widgets/release/edit-form-form/edit-form-form.vue';
+import view_form from '@widgets/release/main-form/main-form.vue';
 
 /**
  * 发布编辑视图视图

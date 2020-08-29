@@ -365,7 +365,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '770a170098d148e438a7666b248e6519',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -2058,6 +2058,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '6c7b582273d0726bcf77214807cfe40c',
+                'fffe78c32fb25b287d0c5165d46f8dd2',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -2089,7 +2093,16 @@ export const viewstate: any = {
             refviews: [
                 'ed51615a22255e84a3b276815ef5c96e',
                 'ceb630b252aac50781a373e0bef90eb2',
-                '983aa1b77ca021f30978523ddef010a0',
+                '9ddace1c12afee8da3f0254a05ba141a',
+            ],
+        },
+        {
+            viewtag: '9ddace1c12afee8da3f0254a05ba141a',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2250,7 +2263,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
-                '770a170098d148e438a7666b248e6519',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {

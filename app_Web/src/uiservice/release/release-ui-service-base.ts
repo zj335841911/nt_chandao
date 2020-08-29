@@ -319,10 +319,10 @@ export default class ReleaseUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'release-main-info-view', 
+                viewname: 'release-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.release.views.maininfoview.title'),
+                title: actionContext.$t('entities.release.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
