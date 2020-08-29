@@ -2007,6 +2007,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseStepMainGridView9_EditMode",
             "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e"
         },
+        "actionaddcommenthistorylistview": {
+            "title": "历史记录",
+            "caption": "系统日志",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ActionAddCommentHistoryListView",
+            "viewtag": "aeee411b8bffcf0c30d65557a8deeeee"
+        },
         "actionoptionview": {
             "title": "添加备注",
             "caption": "添加备注",

@@ -248,12 +248,6 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.story.main_newmode_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"story",objectid:"0",version:"1"}' :exportparams='{objecttype:"story",objectid:"0",version:"1"}'  style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.story.main_newmode_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     

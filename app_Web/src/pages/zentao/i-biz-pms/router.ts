@@ -2344,6 +2344,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view/test-report-edit-view.vue'),
                 },
                 {
+                    path: 'actions/:action?/addcommenthistorylistview/:addcommenthistorylistview?',
+                    meta: {
+                        caption: 'entities.action.views.addcommenthistorylistview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'addcommenthistorylistview', parameterName: 'addcommenthistorylistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-add-comment-history-list-view/action-add-comment-history-list-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
                         caption: 'entities.casestep.views.maingridview9.title',

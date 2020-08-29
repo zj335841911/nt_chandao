@@ -94,6 +94,7 @@ export default class ActionUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'projecttrendslistview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'projecttrendslistview9',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'producttrendslistview9',srfappde:'actions'});
+        this.allViewMap.set(':',{viewname:'addcommenthistorylistview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'optionview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'alltrendslistview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'producttrendslistview',srfappde:'actions'});

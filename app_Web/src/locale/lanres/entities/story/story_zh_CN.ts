@@ -446,7 +446,6 @@ export default {
 			estimate: "预计", 
 			spec: "需求描述", 
 			verify: "验收标准", 
-			files: "附件", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 

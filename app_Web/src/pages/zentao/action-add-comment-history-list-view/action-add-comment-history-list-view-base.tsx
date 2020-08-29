@@ -13,16 +13,16 @@ import CodeListService from "@service/app/codelist-service";
  * 历史记录视图基类
  *
  * @export
- * @class ActionHistoryListViewBase
+ * @class ActionAddCommentHistoryListViewBase
  * @extends {ListViewBase}
  */
-export class ActionHistoryListViewBase extends ListViewBase {
+export class ActionAddCommentHistoryListViewBase extends ListViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     protected appDeName: string = 'action';
 
@@ -31,7 +31,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -40,7 +40,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     protected appDeMajor: string = 'comment';
 
@@ -48,7 +48,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * 实体服务对象
      *
      * @type {ActionService}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     protected appEntityService: ActionService = new ActionService;
 
@@ -56,7 +56,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * 实体权限服务对象
      *
      * @type ActionUIService
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public appUIService: ActionUIService = new ActionUIService(this.$store);
 
@@ -66,7 +66,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {Array<*>}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */    
     protected counterServiceArray: Array<any> = [];
 
@@ -75,7 +75,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof ActionHistoryListViewBase
+	 * @memberof ActionAddCommentHistoryListViewBase
 	 */
     protected customViewNavContexts: any = {
         'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
@@ -86,7 +86,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof ActionHistoryListViewBase
+	 * @memberof ActionAddCommentHistoryListViewBase
 	 */
     protected customViewParams: any = {
         'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
@@ -98,12 +98,12 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.action.views.historylistview.caption',
-        srfTitle: 'entities.action.views.historylistview.title',
-        srfSubTitle: 'entities.action.views.historylistview.subtitle',
+        srfCaption: 'entities.action.views.addcommenthistorylistview.caption',
+        srfTitle: 'entities.action.views.addcommenthistorylistview.title',
+        srfSubTitle: 'entities.action.views.addcommenthistorylistview.subtitle',
         dataInfo: ''
     }
 
@@ -112,12 +112,25 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     protected containerModel: any = {
         view_history: { name: 'history', type: 'LIST' },
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_list: { name: 'list', type: 'LIST' },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ActionAddCommentHistoryListView
+     */
+    public toolBarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '添加备注', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加备注', iconcls: 'fa fa-twitch', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'AddComment', target: 'NONE', class: '' } },
+
+    };
+
 
 
 	/**
@@ -127,7 +140,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = '770a170098d148e438a7666b248e6519';
+	protected viewtag: string = 'aeee411b8bffcf0c30d65557a8deeeee';
 
 
     /**
@@ -135,7 +148,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public engine: ListViewEngine = new ListViewEngine();
 
@@ -143,7 +156,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -162,11 +175,24 @@ export class ActionHistoryListViewBase extends ListViewBase {
     }
 
     /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ActionAddCommentHistoryListViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+    }
+
+    /**
      * list 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public list_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'selectionchange', $event);
@@ -177,7 +203,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public list_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'beforeload', $event);
@@ -188,7 +214,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public list_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'rowdblclick', $event);
@@ -199,7 +225,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public list_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'remove', $event);
@@ -210,10 +236,39 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ActionHistoryListViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
     public list_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.list;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ActionUIService  = new ActionUIService();
+        curUIService.Action_AddComment(datas,contextJO, paramJO,  $event, xData,this,"Action");
     }
 
     /**
@@ -224,7 +279,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ActionHistoryListView
+     * @memberof ActionAddCommentHistoryListView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -276,7 +331,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ActionHistoryListView
+     * @memberof ActionAddCommentHistoryListView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
