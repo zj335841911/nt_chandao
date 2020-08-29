@@ -313,7 +313,7 @@ public class Product extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "istop")
     @JsonProperty("istop")
-    private Integer istop;
+    private String istop;
 
     /**
      * 产品线

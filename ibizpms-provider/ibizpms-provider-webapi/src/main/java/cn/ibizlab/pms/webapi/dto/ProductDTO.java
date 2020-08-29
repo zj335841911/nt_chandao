@@ -327,7 +327,7 @@ public class ProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "istop")
     @JsonProperty("istop")
-    private Integer istop;
+    private String istop;
 
 
     /**

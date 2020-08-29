@@ -11,9 +11,45 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
-//逻辑处理节点[状态[已挂起]拒绝[更新项目周期及可用工作日]操作]
-rule "denybysuspended"
-ruleflow-group "projectupdateprojectcycle__msdenydenybysuspended"
+//逻辑处理节点[状态[已挂起_已置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybysuspended_1"
+ruleflow-group "projectupdateprojectcycle__msdenydenybysuspended_1"
+    when
+    then
+    update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
+    update(projectupdateprojectcycle__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已挂起_未置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybysuspended_0"
+ruleflow-group "projectupdateprojectcycle__msdenydenybysuspended_0"
+    when
+    then
+    update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
+    update(projectupdateprojectcycle__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未开始_未置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybywait_0"
+ruleflow-group "projectupdateprojectcycle__msdenydenybywait_0"
+    when
+    then
+    update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
+    update(projectupdateprojectcycle__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未开始_已置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybywait_1"
+ruleflow-group "projectupdateprojectcycle__msdenydenybywait_1"
+    when
+    then
+    update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
+    update(projectupdateprojectcycle__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_已置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybydoing_1"
+ruleflow-group "projectupdateprojectcycle__msdenydenybydoing_1"
     when
     then
     update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
@@ -27,27 +63,27 @@ ruleflow-group "projectupdateprojectcycle__msdenybegin"
     then
     end
 
-//逻辑处理节点[状态[未开始]拒绝[更新项目周期及可用工作日]操作]
-rule "denybywait"
-ruleflow-group "projectupdateprojectcycle__msdenydenybywait"
+//逻辑处理节点[状态[进行中_未置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybydoing_0"
+ruleflow-group "projectupdateprojectcycle__msdenydenybydoing_0"
     when
     then
     update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
     update(projectupdateprojectcycle__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[进行中]拒绝[更新项目周期及可用工作日]操作]
-rule "denybydoing"
-ruleflow-group "projectupdateprojectcycle__msdenydenybydoing"
+//逻辑处理节点[状态[已关闭_已置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybyclosed_1"
+ruleflow-group "projectupdateprojectcycle__msdenydenybyclosed_1"
     when
     then
     update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值
     update(projectupdateprojectcycle__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已关闭]拒绝[更新项目周期及可用工作日]操作]
-rule "denybyclosed"
-ruleflow-group "projectupdateprojectcycle__msdenydenybyclosed"
+//逻辑处理节点[状态[已关闭_未置顶]拒绝[更新项目周期及可用工作日]操作]
+rule "denybyclosed_0"
+ruleflow-group "projectupdateprojectcycle__msdenydenybyclosed_0"
     when
     then
     update(projectupdateprojectcycle__msdenytemp);//更新fact中变量值

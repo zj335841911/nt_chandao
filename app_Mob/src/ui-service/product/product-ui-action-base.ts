@@ -53,7 +53,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  ProductUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status'];
+    public mainStateFields:Array<any> = ['status','istop'];
 
     /**
      * 主状态集合Map
@@ -104,8 +104,10 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('closed','closed');
-        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('closed__0','closed__0');
+        this.allDeMainStateMap.set('closed__1','closed__1');
+        this.allDeMainStateMap.set('normal__0','normal__0');
+        this.allDeMainStateMap.set('normal__1','normal__1');
     }
 
     /**
@@ -114,8 +116,10 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROD_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('normal__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('normal__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,}));
     }
 
     /**

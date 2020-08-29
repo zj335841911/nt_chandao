@@ -8,63 +8,111 @@
         <tns:global identifier="projectupdateprojectcycle__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         <tns:global identifier="projectupdateprojectcycle__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybysuspended" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended" implementation="http://www.jboss.org/drools/rule" name="状态[已挂起]拒绝[更新项目周期及可用工作日]操作"/>
-     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_End" name="End"/>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybysuspended_1" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1" implementation="http://www.jboss.org/drools/rule" name="状态[已挂起_已置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybysuspended_0" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0" implementation="http://www.jboss.org/drools/rule" name="状态[已挂起_未置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybywait_0" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0" implementation="http://www.jboss.org/drools/rule" name="状态[未开始_未置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybywait_1" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1" implementation="http://www.jboss.org/drools/rule" name="状态[未开始_已置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybydoing_1" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_已置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1_End"/>
      <startEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__BEGIN" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybywait" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait" implementation="http://www.jboss.org/drools/rule" name="状态[未开始]拒绝[更新项目周期及可用工作日]操作"/>
-     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_End" name="End"/>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybydoing" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing" implementation="http://www.jboss.org/drools/rule" name="状态[进行中]拒绝[更新项目周期及可用工作日]操作"/>
-     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_End" name="End"/>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybyclosed" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭]拒绝[更新项目周期及可用工作日]操作"/>
-     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_End" name="End"/>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybydoing_0" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_未置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybyclosed_1" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_已置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenydenybyclosed_0" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_未置顶]拒绝[更新项目周期及可用工作日]操作"/>
+     <endEvent id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0_End" name="End"/>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0_End_Line" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0_End"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenyget" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateprojectcycle__msdenypreparetemp" id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
      <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__PREPARETEMP" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__BEGIN" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__PREPARETEMP">
      </sequenceFlow>
      <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__PREPARETEMP" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET">
      </sequenceFlow>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed">
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $projectupdateprojectcycle__msdenytemp:Project();
             $projectupdateprojectcycle__msdenydefault:Project();
             eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
-                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","closed")))
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing">
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $projectupdateprojectcycle__msdenytemp:Project();
             $projectupdateprojectcycle__msdenydefault:Project();
             eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
-                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","doing")))
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended">
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_0">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $projectupdateprojectcycle__msdenytemp:Project();
             $projectupdateprojectcycle__msdenydefault:Project();
             eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
-                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","suspended")))
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait">
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__doing_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $projectupdateprojectcycle__msdenytemp:Project();
             $projectupdateprojectcycle__msdenydefault:Project();
             eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
-                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","wait")))
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $projectupdateprojectcycle__msdenytemp:Project();
+            $projectupdateprojectcycle__msdenydefault:Project();
+            eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","suspended"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__suspended_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $projectupdateprojectcycle__msdenytemp:Project();
+            $projectupdateprojectcycle__msdenydefault:Project();
+            eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","suspended"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $projectupdateprojectcycle__msdenytemp:Project();
+            $projectupdateprojectcycle__msdenydefault:Project();
+            eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__wait_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $projectupdateprojectcycle__msdenytemp:Project();
+            $projectupdateprojectcycle__msdenydefault:Project();
+            eval($projectupdateprojectcycle__msdenytemp==projectupdateprojectcycle__msdenytemp && $projectupdateprojectcycle__msdenydefault==projectupdateprojectcycle__msdenydefault);
+                eval((RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($projectupdateprojectcycle__msdenytemp.get("ISTOP"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
     <exclusiveGateway id="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET_End_Line"></exclusiveGateway>
-    <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed-gatewayline" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET"></sequenceFlow>
+    <sequenceFlow id="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__closed_0-gatewayline" sourceRef="206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET"></sequenceFlow>
     <sequenceFlow id="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET_End_Line" sourceRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET" targetRef="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET_End"/>
     <endEvent id="gateway-206ACF15-3BC5-4954-9835-D669EACC5EBC__MSDENY__GET_End" name="End"/>
     </process>
