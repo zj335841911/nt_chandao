@@ -16,4 +16,19 @@ public class IBZNotifyFallback implements IBZNotifyFeignClient {
 	public Boolean createMsgTemplate(JSONObject template) {
 		return null;
 	}
+
+	@Override
+	public Long sendDingTalkLinkMsg(JSONObject msg) {
+		return null;
+	}
+
+	@Override
+	public String createDingTalkWorkRecord(JSONObject msg) {
+		return null;
+	}
+
+	@Override
+	public Boolean finishDingTalkWorkRecord(JSONObject msg) {
+		return null;
+	}
 }
