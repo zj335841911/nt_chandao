@@ -28,7 +28,7 @@ export default class APPListIndexText extends Vue{
          * @type {Number}
          * @memberof APPListIndexText
          */
-        @Prop() public index?:number;
+        @Prop() public index!:number;
 
         /**
          * 颜色数组
@@ -54,8 +54,8 @@ export default class APPListIndexText extends Vue{
          * @type {Array<any>}
          * @memberof APPListIndexText
          */
-        @Watch("items")
-        onItemsChange(){
+        @Watch("item")
+        onItemChange(){
             this.getIndexText();
         }
 
@@ -66,7 +66,7 @@ export default class APPListIndexText extends Vue{
          * @memberof APPListIndexText
          */
         public getIndexText(){
-            let item = this.item;
+            let item:any = this.item;
             if(item.srfmajortext){
                item.indexText = item.srfmajortext[0];
             }
