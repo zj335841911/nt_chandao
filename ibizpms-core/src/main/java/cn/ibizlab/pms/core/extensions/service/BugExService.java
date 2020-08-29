@@ -1,14 +1,14 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.util.message.DingTalkMsgService;
 import cn.ibizlab.pms.core.zentao.service.impl.BugServiceImpl;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
-import java.util.*;
 
 /**
  * 实体[Bug] 自定义服务对象
@@ -33,15 +33,20 @@ public class BugExService extends BugServiceImpl {
     public Bug activate(Bug et) {
         return super.activate(et);
     }
+
+    @Autowired
+    DingTalkMsgService dingTalkMsgService;
     /**
      * 自定义行为[AssignTo]用户扩展
      * @param et
      * @return
      */
     @Override
-    @Transactional
+//    @Transactional
     public Bug assignTo(Bug et) {
-        return super.assignTo(et);
+        Bug bug = super.assignTo(et);
+        dingTalkMsgService.send(bug,"maindashboardview");
+        return bug;
     }
     /**
      * 自定义行为[BatchUnlinkBug]用户扩展
