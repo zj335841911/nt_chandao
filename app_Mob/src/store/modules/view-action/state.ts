@@ -72,6 +72,7 @@ export const viewstate: any = {
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
                 '1afb3df498f4daa660709cca53ece0b2',
+                '5d43b04926a6169dfa0d6e8c35d1918b',
             ],
         },
         {
@@ -255,6 +256,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5d43b04926a6169dfa0d6e8c35d1918b',
+            viewmodule: 'ibiz',
+            viewname: 'IbzFavoritesMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6e91454cb4217d3aa1260161a539c803',
+                'c55172fa3818041e87a38262949c0c96',
+            ],
+        },
+        {
             viewtag: '69a540ab88c1edd1da7f89cebe5f4588',
             viewmodule: 'ibiz',
             viewname: 'BugMobEditView',
@@ -296,6 +308,16 @@ export const viewstate: any = {
                 '0741315806513b247c661851d7746f51',
                 '5a5215f43247569540ff912edf51eb09',
                 '58f89fab47964b5ad5b6b0f2021b188b',
+            ],
+        },
+        {
+            viewtag: '6e91454cb4217d3aa1260161a539c803',
+            viewmodule: 'ibiz',
+            viewname: 'TaskFavoriteMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
@@ -509,6 +531,16 @@ export const viewstate: any = {
             viewtag: 'b5a98ab9e5bc86d5b61c77273225f276',
             viewmodule: 'zentao',
             viewname: 'StoryMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
+            viewtag: 'c55172fa3818041e87a38262949c0c96',
+            viewmodule: 'ibiz',
+            viewname: 'StoryFavoriteMobMDView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -11,6 +11,9 @@ export default {
 		mobmdview: {
 			caption: '需求',
 		},
+		favoritemobmdview: {
+			caption: '需求',
+		},
 		mobeditview: {
 			caption: '需求',
 		},
@@ -43,6 +46,8 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	favoritemobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewrighttoolbar_toolbar: {
 	},

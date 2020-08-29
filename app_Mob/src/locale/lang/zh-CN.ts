@@ -1,4 +1,5 @@
 import user_zh_CN from '@locale/lanres/user/user_zh_CN';
+import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
@@ -70,6 +71,7 @@ export default {
                 menuitem12: '更多',
             },
             appindexview: {
+                menuitem5: '收藏',
                 menuitem1: '产品',
                 menuitem2: '项目',
                 menuitem3: '测试',
@@ -153,6 +155,7 @@ export default {
         }
     },
     user: user_zh_CN,
+    ibzfavorites: ibzfavorites_zh_CN,
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
     task: task_zh_CN,

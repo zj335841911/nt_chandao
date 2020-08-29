@@ -15,6 +15,9 @@ export default {
 		closemoboptionview: {
 			caption: '关闭',
 		},
+		favoritemobmdview: {
+			caption: '任务',
+		},
 		commoboptionview: {
 			caption: '完成',
 		},
@@ -128,6 +131,8 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	favoritemobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewrighttoolbar_toolbar: {
 	},
