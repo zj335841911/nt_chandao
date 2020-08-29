@@ -415,8 +415,6 @@ export default class TodoMobOptionViewBase extends Vue {
      * @memberof TodoMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-            this.$viewTool.ThirdPartyClose();
-            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;

@@ -513,8 +513,6 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
-            this.$viewTool.ThirdPartyClose();
-            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;

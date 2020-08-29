@@ -520,8 +520,6 @@ export default class ActionMobMDView9Base extends Vue {
      * @memberof ActionMobMDView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
-            this.$viewTool.ThirdPartyClose();
-            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;

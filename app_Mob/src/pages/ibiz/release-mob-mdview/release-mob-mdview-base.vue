@@ -588,8 +588,6 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-            this.$viewTool.ThirdPartyClose();
-            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;

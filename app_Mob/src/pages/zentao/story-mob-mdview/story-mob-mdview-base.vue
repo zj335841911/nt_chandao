@@ -588,8 +588,6 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-            this.$viewTool.ThirdPartyClose();
-            return;
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.$viewTool.ThirdPartyClose();
             return;
