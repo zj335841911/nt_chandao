@@ -90,7 +90,7 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   public mounted() {
-    this.resloutValue = JSON.parse(this._viewparams).value;
+    this.resloutValue = JSON.parse(this._viewparams).value?JSON.parse(this._viewparams).value:"";
   }
 
   /**
@@ -156,7 +156,6 @@ export default class AppRichTextEditor extends Vue {
         if (response && response.data && response.status === 200) {
           let data: any = response.data;
           if (process.env.NODE_ENV === "development") {
-            this.devFiles.push(Object.assign({}, data, { url: file.content }));
             this.dataProcess(Object.assign({}, data, { url: file.content }));
           }
         } else {
@@ -174,46 +173,13 @@ export default class AppRichTextEditor extends Vue {
   private dataProcess(file: any): void {
     let _uploadUrl = `${Environment.BaseUrl}${Environment.UploadFile}`;
     this.uploadUrl = _uploadUrl;
-    if (process.env.NODE_ENV === "development") {
-      let index = this.devFiles.findIndex((devFile: any) =>
-        Object.is(devFile.id, file.id)
-      );
-      if (index !== -1) {
-        file.url = this.devFiles[index].url;
-        file.isImage = true;
-      }
-    }
     let _downloadUrl = `${this.downloadUrl}/${file.id}`;
     file.isImage = true;
     file.url = _downloadUrl;
-    this.resloutValue = '<img src="' + file.url + '" alt="">';
+    this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="">';
   }
 }
 </script>
 <style lang="less">
-.richtext{
-.quill-editor {
-  -webkit-touch-callout: text !important;
-  -webkit-user-select: text !important;
-  -khtml-user-select: text !important;
-  -moz-user-select: text !important;
-  -ms-user-select: text !important;
-}
-.richtext {
-  height: calc(100% - 10vh);
-}
-.quill-editor-button {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  ion-button {
-    width: 48%;
-  }
-}
-.ql-container {
-  height: calc(100% - 65px);
-}
-}
-
+@import './app-rich-text.less';
 </style>
