@@ -1523,6 +1523,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '734c2c8a05995eaad9f9a0028e9b9def',
+            viewmodule: 'zentao',
+            viewname: 'TodoCloseView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '74e206764fd747fa31467bd5a9f371df',
             viewmodule: 'zentao',
             viewname: 'CaseCurSuitGridView',
@@ -3179,6 +3188,7 @@ export const viewstate: any = {
                 '10ec8362fe511f35dcf896a048770011',
                 '7c7a1fdf074c475a128c920a952762fa',
                 'b5709ef6b436135e1738304e61b5f200',
+                '734c2c8a05995eaad9f9a0028e9b9def',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
                 '770a170098d148e438a7666b248e6519',
             ],

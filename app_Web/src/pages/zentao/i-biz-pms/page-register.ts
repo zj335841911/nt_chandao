@@ -148,6 +148,7 @@ export const PageComponents = {
         Vue.component('story-edit-view', () => import('@pages/zentao/story-edit-view/story-edit-view.vue'));
         Vue.component('test-task-grid-view', () => import('@pages/zentao/test-task-grid-view/test-task-grid-view.vue'));
         Vue.component('branch-pminfo-edit-view', () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'));
+        Vue.component('todo-close-view', () => import('@pages/zentao/todo-close-view/todo-close-view.vue'));
         Vue.component('burn-chart-view', () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'));
         Vue.component('task-main-detail-view9', () => import('@pages/zentao/task-main-detail-view9/task-main-detail-view9.vue'));
         Vue.component('story-pickup-grid-view2', () => import('@pages/zentao/story-pickup-grid-view2/story-pickup-grid-view2.vue'));

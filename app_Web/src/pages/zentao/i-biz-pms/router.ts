@@ -5841,6 +5841,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/closeview/:closeview?',
+                    meta: {
+                        caption: 'entities.todo.views.closeview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'closeview', parameterName: 'closeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
+                },
+                {
                     path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
                     meta: {
                         caption: 'entities.burn.views.chartview.title',

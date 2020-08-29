@@ -91,6 +91,7 @@ export default class TodoUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'baseeditview9',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'closeview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'desceditview9',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'todocreateview',srfappde:'todos'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'todos'});
@@ -642,6 +643,17 @@ export default class TodoUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Todo_deleteCz(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确定要删除这条待办吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -676,7 +688,7 @@ export default class TodoUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
+                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
 
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
@@ -926,7 +938,8 @@ export default class TodoUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Todo_closeCz(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Todo_closeCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -948,49 +961,27 @@ export default class TodoUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TodoService =  new TodoService();
-            curService.Close(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '关闭成功！' });
-
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                if (_this.Refresh && _this.Refresh instanceof Function) {
-                    _this.Refresh(_args,context, params, $event, xData,actionContext);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'todo-close-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.todo.views.closeview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**

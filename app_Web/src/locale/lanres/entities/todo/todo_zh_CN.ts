@@ -42,6 +42,10 @@ export default {
 			caption: "指派给",
       		title: "指派表单视图",
 		},
+		closeview: {
+			caption: "关闭",
+      		title: "关闭表单视图",
+		},
 		desceditview9: {
 			caption: "基本信息",
       		title: "待办事宜表编辑视图",
@@ -139,6 +143,22 @@ export default {
 			begin: "起止时间", 
 			end: "~", 
 			lbldisabledate: "", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	closeform_form: {
+		details: {
+			rawitem1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
 			id: "编号", 
 		},
 		uiactions: {

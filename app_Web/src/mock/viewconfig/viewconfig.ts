@@ -1303,6 +1303,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserINFOEditView",
             "viewtag": "72a44528b73b17f6e29a3ca59e432d19"
         },
+        "todocloseview": {
+            "title": "关闭表单视图",
+            "caption": "关闭",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoCloseView",
+            "viewtag": "734c2c8a05995eaad9f9a0028e9b9def"
+        },
         "casecursuitgridview": {
             "title": "功能测试",
             "caption": "功能测试",
