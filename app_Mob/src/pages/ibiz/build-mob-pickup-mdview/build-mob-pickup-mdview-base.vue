@@ -459,11 +459,13 @@ export default class BuildMobPickupMDViewBase extends Vue {
      * @memberof BuildMobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+            return;
+        }
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
-            this.$viewTool.ThirdPartyClose();
         }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
