@@ -833,7 +833,7 @@ export default class TodoUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'todo-finish-view', 
-                height: 400, 
+                height: 200, 
                 width: 400,  
                 title: actionContext.$t('entities.todo.views.finishview.title'),
             };
@@ -958,7 +958,7 @@ export default class TodoUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'todo-close-view', 
-                height: 400, 
+                height: 200, 
                 width: 400,  
                 title: actionContext.$t('entities.todo.views.closeview.title'),
             };
@@ -1083,7 +1083,7 @@ export default class TodoUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'todo-activite-view', 
-                height: 400, 
+                height: 200, 
                 width: 400,  
                 title: actionContext.$t('entities.todo.views.activiteview.title'),
             };
