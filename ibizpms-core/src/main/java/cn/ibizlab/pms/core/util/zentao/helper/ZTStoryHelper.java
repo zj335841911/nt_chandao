@@ -278,6 +278,7 @@ final public class ZTStoryHelper {
         ACTION_PARAMS_CREATE.put("keywords", null);
         ACTION_PARAMS_CREATE.put("type", "story");
         ACTION_PARAMS_CREATE.put("assignedTo", null);
+        ACTION_PARAMS_CREATE.put("needNotReview", null);
 
         // EDIT
         ACTION_PARAMS_EDIT.put("product", 0);
@@ -305,6 +306,7 @@ final public class ZTStoryHelper {
         ACTION_PARAMS_CHANGE.put("title", null);
         ACTION_PARAMS_CHANGE.put("assignedTo", null);
         ACTION_PARAMS_CHANGE.put("comment", null);
+        ACTION_PARAMS_CHANGE.put("needNotReview[]", null);
 
         // REVIEW
         ACTION_PARAMS_REVIEW.put("result", null);

@@ -18,7 +18,8 @@ public class DingTalkMsgService {
     @Autowired
     private MsgDestParser destParser;
 //  TODO 发送地址（临时）   http://172.16.240.110:10120/#/ibizpms/bugs/432/maindashboardview
-    public static final String urltempl="http://172.16.240.110:10120/#/ibizpms/%s/%s/%s";
+   // public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/ibizpms/%s/%s/%s";
+public static final String urltempl="http://ibizpmsh5.ibizlab.cn/#/viewshell/null/%s/%s/%s/%s/mobeditview";
 
     public void send(EntityBase et, String mainDataView){
         //当前操作人相关信息，userid、姓名
@@ -66,7 +67,7 @@ public class DingTalkMsgService {
         message.put("content",content);
         String encodeUrl = URLEncoder.encode(redirectUrl);
         message.put("url","dingtalk://dingtalkclient/page/link?url="+encodeUrl+"&pc_slide=false");
-        feignClient.sendDingTalkLinkMsg(message);
+       // feignClient.sendDingTalkLinkMsg(message);
     }
 
 
@@ -87,8 +88,8 @@ public class DingTalkMsgService {
         message.put("content",content);
         String encodeUrl = URLEncoder.encode(redirectUrl);
         message.put("url","dingtalk://dingtalkclient/page/link?url="+encodeUrl+"&pc_slide=false");
-        String taskId = feignClient.createDingTalkWorkRecord(message);
-        return taskId;
+        // String taskId = feignClient.createDingTalkWorkRecord(message);
+        return "";
     }
 
 }
