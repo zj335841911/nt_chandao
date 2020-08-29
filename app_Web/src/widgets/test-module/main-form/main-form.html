@@ -33,15 +33,21 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.testmodule.main_form.details.branch')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.branch.error" :isEmptyCaption="true" labelPos="LEFT">
-    <input-box 
-    v-model="data.branch"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.branch.disabled" 
-    type='number' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.branch"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ PRODUCT:"%root%" }' 
+    :localParam ='{ product:"%root%" }' 
+    :disabled="detailsModel.branch.disabled"
+    valueType="number"
+    tag='ProductBranch'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
