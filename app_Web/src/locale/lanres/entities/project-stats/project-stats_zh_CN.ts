@@ -25,6 +25,8 @@ export default {
     yesterdayrbugcnt: "昨天解决Bug数",
     end: "截止日期",
     status: "状态",
+    order1: "项目排序",
+    istop: "是否置顶",
   },
 	views: {
 		allgridview: {

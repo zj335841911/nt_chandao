@@ -53,7 +53,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  BugUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status'];
+    public mainStateFields:Array<any> = ['status','isfavorites'];
 
     /**
      * 主状态集合Map
@@ -106,9 +106,12 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('active','active');
-        this.allDeMainStateMap.set('closed','closed');
-        this.allDeMainStateMap.set('resolved','resolved');
+        this.allDeMainStateMap.set('active__0','active__0');
+        this.allDeMainStateMap.set('active__1','active__1');
+        this.allDeMainStateMap.set('closed__0','closed__0');
+        this.allDeMainStateMap.set('closed__1','closed__1');
+        this.allDeMainStateMap.set('resolved__0','resolved__0');
+        this.allDeMainStateMap.set('resolved__1','resolved__1');
     }
 
     /**
@@ -117,9 +120,12 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('resolved',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
     }
 
     /**

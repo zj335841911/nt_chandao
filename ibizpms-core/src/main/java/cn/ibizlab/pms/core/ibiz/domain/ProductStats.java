@@ -246,6 +246,20 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 产品排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
+    /**
+     * 是否置顶
+     */
+    @TableField(exist = false)
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
 
 
 

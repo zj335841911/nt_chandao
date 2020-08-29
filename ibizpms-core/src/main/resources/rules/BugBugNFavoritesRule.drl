@@ -17,7 +17,7 @@ ruleflow-group "bugbugnfavoritesrawsqlcall1"
     Map param =new HashMap();
     param.put("param0",curuser.getSessionParams().get("srfloginname"));
     param.put("param1",bugbugnfavoritesdefault.get("id"));
-    String strSql="delete from T_IBZ_FAVORITES where type = 'story' and account = #{et.param0} and t.objectid = #{et.param1}";
+    String strSql="delete from T_IBZ_FAVORITES where type = 'bug' and account = #{et.param0} and objectid = #{et.param1}";
     iBzSysBugDefaultService.execute(strSql,param);//SQL调用
     update(bugbugnfavoritesdefault);//更新fact中变量值
     end

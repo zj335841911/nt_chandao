@@ -174,6 +174,9 @@ export class MobModel {
       {
         name: 'ibztaskestimates',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

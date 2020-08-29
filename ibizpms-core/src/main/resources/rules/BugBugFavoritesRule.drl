@@ -18,7 +18,7 @@ ruleflow-group "bugbugfavoritesprepareparam1"
     then
     bugbugfavoritesibzfavorites.set("objectid",bugbugfavoritesdefault.get("id"));
     bugbugfavoritesibzfavorites.set("account",curuser.getSessionParams().get("srfloginname"));
-    bugbugfavoritesibzfavorites.set("type","story");
+    bugbugfavoritesibzfavorites.set("type","bug");
     update(bugbugfavoritesibzfavorites);//更新fact中变量值
     update(bugbugfavoritesdefault);//更新fact中变量值
     end
