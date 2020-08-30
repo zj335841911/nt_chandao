@@ -1,6 +1,7 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.util.message.DingTalkMsgService;
+import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.service.impl.BugServiceImpl;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,7 @@ public class BugExService extends BugServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Bug activate(Bug et) {
         return super.activate(et);
     }
@@ -42,11 +44,10 @@ public class BugExService extends BugServiceImpl {
      * @return
      */
     @Override
-//    @Transactional
+    @Transactional
+    @SendMessage
     public Bug assignTo(Bug et) {
-        Bug bug = super.assignTo(et);
-        dingTalkMsgService.send(bug,"maindashboardview");
-        return bug;
+        return super.assignTo(et);
     }
     /**
      * 自定义行为[BatchUnlinkBug]用户扩展
@@ -95,6 +96,7 @@ public class BugExService extends BugServiceImpl {
      */
     @Override
     @Transactional
+
     public Bug close(Bug et) {
         return super.close(et);
     }
@@ -105,6 +107,7 @@ public class BugExService extends BugServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Bug confirm(Bug et) {
         return super.confirm(et);
     }
@@ -165,6 +168,7 @@ public class BugExService extends BugServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Bug resolve(Bug et) {
         return super.resolve(et);
     }
@@ -187,6 +191,20 @@ public class BugExService extends BugServiceImpl {
     @Transactional
     public Bug unlinkBug(Bug et) {
         return super.unlinkBug(et);
+    }
+
+    @Override
+    @Transactional
+//    @SendMessage
+    public boolean create(Bug et){
+        return  super.create(et);
+    }
+
+    @Override
+    @SendMessage
+    @Transactional
+    public boolean update(Bug et){
+        return super.update(et);
     }
 }
 

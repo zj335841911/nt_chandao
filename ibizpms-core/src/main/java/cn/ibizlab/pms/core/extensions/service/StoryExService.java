@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
@@ -38,6 +39,7 @@ public class StoryExService extends StoryServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Story assignTo(Story et) {
         return super.assignTo(et);
     }
@@ -156,6 +158,7 @@ public class StoryExService extends StoryServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Story review(Story et) {
         return super.review(et);
     }
@@ -175,6 +178,7 @@ public class StoryExService extends StoryServiceImpl {
 
     @Override
     @Transactional
+    @SendMessage
     public boolean create(Story et) {
         et.setReviewedby(et.getAssignedto());
         return super.create(et);
@@ -324,6 +328,19 @@ public class StoryExService extends StoryServiceImpl {
         }
         et.set("ztrst", rst);
         return et;
+    }
+    @Override
+    @Transactional
+    @SendMessage
+    public boolean update(Story et){
+        return super.update(et);
+    }
+
+    @Override
+    @Transactional
+    @SendMessage
+    public Story activate(Story et) {
+        return super.activate(et);
     }
 }
 
