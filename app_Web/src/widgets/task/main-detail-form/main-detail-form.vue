@@ -20,3 +20,6 @@ import { MainDetailEditFormBase } from './main-detail-form-base';
 @VueLifeCycleProcessing()
 export default class MainDetailEditForm extends MainDetailEditFormBase { }
 </script>
+<style lang='less'>
+@import './main-detail-form.less';
+</style>

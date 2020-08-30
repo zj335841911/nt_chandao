@@ -92,9 +92,10 @@ export class MainDetailEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         parent: null,
+        id: null,
+        name: null,
         story: null,
         desc: null,
-        id: null,
         task:null,
     };
 
@@ -159,11 +160,13 @@ export class MainDetailEditFormBase extends EditFormControlBase {
 
         parent: new FormItemModel({ caption: '父任务', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+
+        name: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
 
@@ -198,6 +201,7 @@ export class MainDetailEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
 
 
 

@@ -56,11 +56,6 @@ export default class MainInfoModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'name',
-        prop: 'name',
-        dataType: 'TEXT',
-      },
-      {
         name: 'projectname',
         prop: 'projectname',
         dataType: 'PICKUPTEXT',
