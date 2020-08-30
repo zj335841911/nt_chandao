@@ -83,29 +83,13 @@ public class MsgDestParser {
      * @return 发送者id集合，多个用分号（,）隔开
      */
     public String getNoticeUserIds(EntityBase et) {
-//        String mailto = null;
-//        if (et instanceof Story) {
-//            Story story = (Story) et;
-//            mailto = story.getMailto();
-//        } else if (et instanceof Bug) {
-//            Bug bug = (Bug) et;
-//            mailto = bug.getMailto();
-//        }
+
         String mailto = et.get("mailto")==null?null:String.valueOf(et.get("mailto"));
 
         String ids = queryIds(getAccountSet(mailto));
         log.info("发送通知IDs:[{}]", ids);
         return ids;
     }
-
-//    private String queryId(String account) {
-//        if (StringUtils.isEmpty(account))
-//            return null;
-//        User dest = userService.getOne(new QueryWrapper<User>().eq("account", account), false);
-//        if (dest != null && dest.getId() != null)
-//            return dest.getId().toString();
-//        return null;
-//    }
 
     private String queryIds(Set<String> accountList) {
         if (CollectionUtils.isEmpty(accountList))

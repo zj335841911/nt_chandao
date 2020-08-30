@@ -62,32 +62,4 @@ public class SendMessageAspect {
         }
     }
 
-//    private void sendMessage() {
-//
-//    }
-//
-//    @Autowired
-//    IBugService bugService;
-//
-//    private boolean isChanged(ProceedingJoinPoint joinPoint, Object returnedValue) {
-//        Object[] args = joinPoint.getArgs();
-//        if (args != null || args.length != 1 || !(args[0] instanceof EntityBase))
-//            return false;
-//
-//        if (returnedValue.getClass() != args[0].getClass())
-//            return false;
-//
-//        if (returnedValue instanceof Bug) {
-//            Bug pageBug = (Bug) args[0];
-//            BigInteger id = pageBug.get();
-//            Bug srcBug = bugService.get(id);
-//
-//            boolean assignToHasChanged = equals(srcBug)
-//
-//            EntityBase et = (EntityBase) args[0];
-//            dingTalkMsgService.send(et, "maindashboardview");
-//        }
-//        return false;
-//    }
-
 }
