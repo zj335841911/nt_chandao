@@ -90,6 +90,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'productplans'});
+        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'productplans'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'productplans'});
     }
 
@@ -113,6 +114,56 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('chlid',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_CHILD_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
         this.allDeMainStateOPPrivsMap.set('parent',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_DELETE_BUT':0,}));
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProductPlanUIService
+     */
+    public async ProductPlan_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
     }
 
 

@@ -2,6 +2,9 @@
 export default {
 // test
 	views: {
+		newmobeditview: {
+			caption: '需求',
+		},
 		mobmdview9: {
 			caption: '需求',
 		},
@@ -16,6 +19,40 @@ export default {
 		},
 		mobeditview: {
 			caption: '需求',
+		},
+	},
+	mobnewform_form: {
+		details: {
+			group1: '需求基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			product: '所属产品', 
+			module: '所属模块', 
+			prodoctname: '所属产品', 
+			branch: '平台/分支', 
+			modulename: '所属模块', 
+			plan: '计划', 
+			source: '需求来源', 
+			sourcenote: '来源备注', 
+			reviewedby: '由谁评审', 
+			assignedto: '由谁评审', 
+			neednotreview: '', 
+			title: '需求名称', 
+			pri: '优先级', 
+			estimate: '预计', 
+			spec: '需求描述', 
+			verify: '验收标准', 
+			mailto: '抄送给', 
+			keywords: '关键词', 
+			id: '编号', 
+		},
+		uiactions: {
 		},
 	},
 	mobmain_form: {
@@ -43,7 +80,17 @@ export default {
 		uiactions: {
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建需求',
+			tip: 'deuiaction1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

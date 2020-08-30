@@ -1,0 +1,568 @@
+<template>
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupview': true, 'product-mob-pickup-view': true }">
+    
+    <ion-header>
+                <van-search
+    v-model="quickValue"
+    :placeholder="$t('app.fastsearch')"
+    @input="quickValueChange($event)"
+  />
+
+    </ion-header>
+
+
+    <ion-content>
+                <view_pickupviewpanel
+            :viewState="viewState"
+            viewName="ProductMobPickupView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :isSingleSelect="isSingleSelect"
+            :isShowButtons="isShowButtons"
+            name="pickupviewpanel"  
+            ref='pickupviewpanel' 
+            @selectionchange="pickupviewpanel_selectionchange($event)"  
+            @load="pickupviewpanel_load($event)"  
+            @closeview="closeView($event)">
+        </view_pickupviewpanel>
+    </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+        <ion-toolbar style="text-align: center;" class="mobpickupview_button">
+    <ion-button @click="onClickCancel" color="light">{{$t('app.button.cancel')}}</ion-button>
+    <ion-button @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
+</ion-toolbar>
+
+    </ion-footer>
+</ion-page>
+</template>
+
+<script lang='ts'>
+import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Subject } from 'rxjs';
+import GlobalUiService from '@/global-ui-service/global-ui-service';
+import ProductService from '@/app-core/service/product/product-service';
+
+import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
+import ProductUIService from '@/ui-service/product/product-ui-action';
+
+@Component({
+    components: {
+    },
+})
+export default class ProductMobPickupViewBase extends Vue {
+
+    /**
+     * 全局 ui 服务
+     *
+     * @type {GlobalUiService}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductService}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMobPickupViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
+
+    /**
+     * 数据变化
+     *
+     * @param {*} val
+     * @returns {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    @Emit() 
+    protected viewDatasChange(val: any):any {
+        return val;
+    }
+
+    /**
+     * 视图上下文
+     *
+     * @type {string}
+     * @memberof ProductMobPickupViewBase
+     */
+    @Prop() protected _context!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {string}
+     * @memberof ProductMobPickupViewBase
+     */
+    @Prop() protected _viewparams!: string;
+
+    /**
+     * 视图默认使用
+     *
+     * @type {boolean}
+     * @memberof ProductMobPickupViewBase
+     */
+    @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
+
+	/**
+	 * 视图标识
+	 *
+	 * @type {string}
+	 * @memberof ProductMobPickupViewBase
+	 */
+	protected viewtag: string = '61b907edfc7822d020b6b2c2246ee8e0';
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected context: any = {};
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof ProductMobPickupViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
+     * 视图导航上下文
+     *
+     * @protected
+     * @type {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected navContext: any = {};
+
+    /**
+     * 视图导航参数
+     *
+     * @protected
+     * @type {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected navParam: any = {};
+
+    /**
+     * 视图模型数据
+     *
+     * @type {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected model: any = {
+        srfTitle: '产品移动端数据选择视图',
+        srfCaption: 'product.views.mobpickupview.caption',
+        srfSubCaption: '',
+        dataInfo: '',
+        iconcls: '',
+        icon: ''
+    }
+
+    /**
+     * 视图上下文变化
+     *
+     * @param {string} newVal
+     * @param {string} oldVal
+     * @memberof  ProductMobPickupViewBase
+     */
+    @Watch('_context')
+    on_context(newVal: string, oldVal: string) {
+        const _this: any = this;
+        this.parseViewParam();
+        if (!Object.is(newVal, oldVal) && _this.engine) {
+            this.$nextTick(()=>{_this.engine.load();})
+        }
+        
+    }
+
+    /**
+     * 视图参数变化
+     *
+     * @param {string} newVal
+     * @param {string} oldVal
+     * @returns
+     * @memberof IBizChart
+     */
+    @Watch('_viewparams')
+    on_viewparams(newVal: string, oldVal: string) {
+        this.parseViewParam();
+    }
+
+    /**
+     * 设置工具栏状态
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
+     * 容器模型
+     *
+     * @type {*}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected containerModel: any = {
+        view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
+        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
+        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
+        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
+        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
+        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
+        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+    };
+
+    /**
+     * 视图状态订阅对象
+     *
+     * @type {Subject<{action: string, data: any}>}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected viewState: Subject<ViewState> = new Subject();
+
+
+    /**
+     * 是否显示标题
+     *
+     * @type {string}
+     * @memberof ProductMobPickupViewBase
+     */
+    @Prop({default:true}) protected showTitle?: boolean;
+
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    public toolbarModelList:any = []
+
+    /**
+     * 解析视图参数
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    protected parseViewParam(): void {
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
+        this.context = { ...context };
+        this.viewparams = { ...param }
+    }
+
+    /**
+     * 是否显示返回按钮
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof ProductMobPickupViewBase
+     */
+    get isShowBackButton(): boolean {
+        // 存在路由，非路由使用，嵌入
+        if (this.viewDefaultUsage === "indexView") {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof ProductMobPickupViewBase
+     */
+    protected engine: MobPickupViewEngine = new MobPickupViewEngine();
+
+    /**
+     * 引擎初始化
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            pickupviewpanel: this.$refs.pickupviewpanel,
+            keyPSDEField: 'product',
+            majorPSDEField: 'name',
+            isLoadDefault: true,
+        });
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    protected created() {
+        this.afterCreated();
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    public activated() {
+        this.afterMounted();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     * @memberof ProductMobPickupViewBase
+     */    
+    protected afterCreated(){
+        const secondtag = this.$util.createUUID();
+        this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
+        this.viewtag = secondtag;
+        this.parseViewParam();
+        this.setViewTitleStatus();
+
+    }
+
+    /**
+     * 销毁之前
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    protected beforeDestroy() {
+        this.$store.commit('viewaction/removeView', this.viewtag);
+    }
+
+    /**
+     * Vue声明周期(组件初始化完毕)
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    protected mounted() {
+        this.afterMounted();
+    }
+
+
+    /**
+     * 执行mounted后的逻辑
+     * 
+     * @memberof ProductMobPickupViewBase
+     */
+    protected afterMounted(){
+        const _this: any = this;
+        _this.engineInit();
+        if (_this.loadModel && _this.loadModel instanceof Function) {
+            _this.loadModel();
+        }
+        this.thirdPartyInit();
+
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof ProductMobPickupViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
+    }
+
+    /**
+     * 销毁视图回调
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    protected destroyed(){
+        this.afterDestroyed();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     * 
+     * @memberof ProductMobPickupViewBase
+     */
+    protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
+
+    }
+
+    /**
+     * pickupviewpanel 部件 selectionchange 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobPickupViewBase
+     */
+    protected pickupviewpanel_selectionchange($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', $event);
+    }
+
+    /**
+     * pickupviewpanel 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobPickupViewBase
+     */
+    protected pickupviewpanel_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('pickupviewpanel', 'load', $event);
+    }
+
+
+    /**
+     * 关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProductMobPickupViewBase
+     */
+    protected async closeView(args: any[]): Promise<any> {
+        if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.$viewTool.ThirdPartyClose();
+            return;
+        }
+        if (this.viewDefaultUsage === "routerView" ) {
+            this.$store.commit("deletePage", this.$route.fullPath);
+            this.$router.go(-1);
+        }else{
+            this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
+        }
+        
+    }
+
+    /**
+     * 刷新数据
+     *
+     * @readonly
+     * @type {(number | null)}
+     * @memberof ProductMobPickupViewBase
+     */
+    get refreshdata(): number | null {
+        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
+    }
+
+    /**
+     * 监控数据变化
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @returns
+     * @memberof ProductMobPickupViewBase
+     */
+    @Watch('refreshdata')
+    onRefreshData(newVal: any, oldVal: any) {
+        if (newVal === null || newVal === undefined) {
+            return;
+        }
+        if (newVal === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.onRefreshView && _this.onRefreshView instanceof Function) {
+            _this.onRefreshView();
+        }
+    }
+
+
+    /**
+     * 视图选中数据
+     *
+     * @type {any[]}
+     * @memberof ProductMobPickupView
+     */
+    public viewSelections: any[] = [];
+
+    /**
+     * 是否显示按钮
+     *
+     * @type {boolean}
+     * @memberof ProductMobPickupView
+     */
+    @Prop({default: true}) public isShowButtons!: boolean;
+
+    /**
+     * 是否单选
+     *
+     * @type {boolean}
+     * @memberof ProductMobPickupView
+     */
+    public isSingleSelect: boolean = true;
+
+    /**
+     * 确定
+     *
+     * @memberof ProductMobPickupView
+     */
+    public onClickOk(): void {
+        this.viewDatasChange(this.viewSelections);
+        this.$emit('close', this.viewSelections);
+    }
+
+    /**
+     * 取消
+     *
+     * @memberof ProductMobPickupView
+     */
+    public onClickCancel(): void {
+        this.$emit('close', null);
+    }
+
+    /**
+     * 快速搜索值
+     *
+     * @memberof ProductMobPickupView
+     */
+    public quickValue = "";
+
+    /**
+     * 快速搜索
+     *
+     * @memberof ProductMobPickupView
+     */
+    public async quickValueChange(event: any) {
+        const pickupviewpanel: any = this.$refs.pickupviewpanel;
+        if (pickupviewpanel) {
+            let response = await pickupviewpanel.quickSearch(this.quickValue);
+            if (response) {
+                
+            }
+        }
+    }
+
+}
+</script>
+
+<style lang='less'>
+@import './product-mob-pickup-view.less';
+</style>

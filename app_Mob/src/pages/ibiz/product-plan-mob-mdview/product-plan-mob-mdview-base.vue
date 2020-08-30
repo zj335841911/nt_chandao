@@ -39,6 +39,18 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
+                <div v-show="!showCheack" class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+            {{$t('productplan.mobmdviewrighttoolbar_toolbar.deuiaction1.caption')}}    
+            </ion-fab-button>
+        
+            </ion-fab>
+            </div>
+        </div>
         
     </ion-footer>
 </ion-page>
@@ -270,7 +282,33 @@ export default class ProductPlanMobMDViewBase extends Vue {
     * @memberof ProductPlanMobMDView
     */
     public righttoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobMDView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobMDView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = true;
+        if(this.righttoolbarModels){
+            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
+                return this.righttoolbarModels[tbitem].visabled === false;
+            })
+        }
+        return toolBarVisable;
+    }
 
     
 
@@ -484,6 +522,51 @@ export default class ProductPlanMobMDViewBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductPlanMobMDViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanMobMDViewBase
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('productplan_ui_action');
+        if (curUIService) {
+            curUIService.ProductPlan_MobCreate(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 打开新建数据视图

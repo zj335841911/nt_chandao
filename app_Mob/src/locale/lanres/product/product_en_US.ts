@@ -5,8 +5,14 @@ export default {
 		prodmobtabexpview: {
 			caption: '产品详情',
 		},
+		mobpickupmdview: {
+			caption: '产品',
+		},
 		mobtabexpview: {
 			caption: '测试详情',
+		},
+		mobpickupview: {
+			caption: '产品',
 		},
 		testmobmdview: {
 			caption: '测试',
@@ -22,6 +28,9 @@ export default {
 		},
 		closemobeditview: {
 			caption: '关闭产品',
+		},
+		newmobeditview: {
+			caption: '产品',
 		},
 	},
 	mobmain_form: {
@@ -76,6 +85,34 @@ export default {
 		uiactions: {
 		},
 	},
+	mobnewfrom_form: {
+		details: {
+			grouppanel3: '分组面板', 
+			grouppanel1: '分组面板', 
+			group1: 'product基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '产品名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '产品名称', 
+			code: '产品代号', 
+			line: '产品线', 
+			linename: '产品线', 
+			po: '产品负责人', 
+			qd: '测试负责人', 
+			rd: '发布负责人', 
+			type: '产品类型', 
+			desc: '产品描述	', 
+			acl: '访问控制', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
 	closemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -96,6 +133,16 @@ export default {
 			tip: 'deuiaction2',
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: 'deuiaction1',
+		},
 	},
 };

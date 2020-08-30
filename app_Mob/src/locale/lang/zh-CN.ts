@@ -6,8 +6,10 @@ import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
+import productline_zh_CN from '@locale/lanres/product-line/product-line_zh_CN';
 import release_zh_CN from '@locale/lanres/release/release_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
+import productmodule_zh_CN from '@locale/lanres/product-module/product-module_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import todo_zh_CN from '@locale/lanres/todo/todo_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
@@ -162,8 +164,10 @@ export default {
     product: product_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,
+    productline: productline_zh_CN,
     release: release_zh_CN,
     taskteam: taskteam_zh_CN,
+    productmodule: productmodule_zh_CN,
     project: project_zh_CN,
     todo: todo_zh_CN,
     story: story_zh_CN,

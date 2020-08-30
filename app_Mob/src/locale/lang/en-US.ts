@@ -6,8 +6,10 @@ import task_en_US from '@locale/lanres/task/task_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
+import productline_en_US from '@locale/lanres/product-line/product-line_en_US';
 import release_en_US from '@locale/lanres/release/release_en_US';
 import taskteam_en_US from '@locale/lanres/task-team/task-team_en_US';
+import productmodule_en_US from '@locale/lanres/product-module/product-module_en_US';
 import project_en_US from '@locale/lanres/project/project_en_US';
 import todo_en_US from '@locale/lanres/todo/todo_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
@@ -161,8 +163,10 @@ export default {
     product: product_en_US,
     action: action_en_US,
     casestep: casestep_en_US,
+    productline: productline_en_US,
     release: release_en_US,
     taskteam: taskteam_en_US,
+    productmodule: productmodule_en_US,
     project: project_en_US,
     todo: todo_en_US,
     story: story_en_US,
