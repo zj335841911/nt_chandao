@@ -115,6 +115,13 @@ public class CaseStep extends EntityMP implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
+    /**
+     * 执行编号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "runid")
+    @JsonProperty("runid")
+    private Integer runid;
 
     /**
      * 

@@ -85,4 +85,12 @@ export interface IBZCaseStep {
      * @memberof IBZCaseStep
      */
     files?: any;
+
+    /**
+     * 执行编号
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    runid?: any;
 }

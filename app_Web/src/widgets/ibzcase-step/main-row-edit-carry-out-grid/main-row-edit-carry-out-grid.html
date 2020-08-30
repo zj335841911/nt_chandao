@@ -23,6 +23,18 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('runid')">
+                <el-table-column show-overflow-tooltip :prop="'runid'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.runid')" :width="60"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.runid')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.runid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('desc')">
                 <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">

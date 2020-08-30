@@ -230,9 +230,9 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			parent: "父任务", 
+			story: "相关需求", 
 			id: "", 
 			name: "", 
-			story: "相关需求", 
 			desc: "任务描述", 
 		},
 		uiactions: {

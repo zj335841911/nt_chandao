@@ -61,6 +61,11 @@ export default class MainDetailModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
@@ -69,11 +74,6 @@ export default class MainDetailModel {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
-      },
-      {
-        name: 'story',
-        prop: 'story',
-        dataType: 'PICKUP',
       },
       {
         name: 'desc',

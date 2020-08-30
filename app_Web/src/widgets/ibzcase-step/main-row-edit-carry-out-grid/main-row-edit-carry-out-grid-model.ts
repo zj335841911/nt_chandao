@@ -77,6 +77,11 @@ export default class Main_RowEdit_CarryOutModel {
           dataType: 'ACID',
         },
         {
+          name: 'runid',
+          prop: 'runid',
+          dataType: 'INT',
+        },
+        {
           name: 'version',
           prop: 'version',
           dataType: 'PICKUPDATA',

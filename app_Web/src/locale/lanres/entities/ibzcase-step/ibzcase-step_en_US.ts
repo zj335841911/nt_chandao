@@ -11,6 +11,7 @@ export default {
     reals: "实际情况",
     steps: "测试结果",
     files: "附件",
+    runid: "执行编号",
   },
 	views: {
 		carryouteditmode: {
@@ -33,6 +34,7 @@ export default {
 	},
 	main_rowedit_carryout_grid: {
 		columns: {
+			runid: "编号",
 			desc: "步骤",
 			expect: "预期",
 			steps: "测试结果",

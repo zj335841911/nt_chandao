@@ -104,6 +104,14 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JsonProperty("files")
     private String files;
 
+    /**
+     * 属性 [RUNID]
+     *
+     */
+    @JSONField(name = "runid")
+    @JsonProperty("runid")
+    private Integer runid;
+
 
     /**
      * 设置 [TYPE]
