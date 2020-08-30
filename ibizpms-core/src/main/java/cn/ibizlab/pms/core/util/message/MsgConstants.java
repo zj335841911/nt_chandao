@@ -24,7 +24,7 @@ public class MsgConstants implements InitializingBean {
 
     public static String MESSAGE_TYPE;
     /**
-     * 代办相关消息：
+     * 待办相关消息：
      * 内容格式：有一条 【BUG #id 标题】 待处理，请注意查看。
      */
     public static String TASK_TITLE = "PMS";

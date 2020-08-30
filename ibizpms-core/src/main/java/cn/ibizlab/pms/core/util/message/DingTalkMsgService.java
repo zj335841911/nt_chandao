@@ -89,13 +89,13 @@ public class DingTalkMsgService implements IMsgService {
 
 
     /**
-     * 发送Dingding代办任务。
+     * 发送Dingding待办任务。
      *
-     * @param userids     代办发送用户id （IBZUserId）
+     * @param userids     待办发送用户id （IBZUserId）
      * @param redirectUrl 链接地址，比如： http://ibizpmspc.ibizlab.cn/#/ibizpms/bugs/250/maindashboardview
-     * @param title       代办通知标题
-     * @param content     代办通知内容
-     * @return 返回生成的代办任务id
+     * @param title       待办通知标题
+     * @param content     待办通知内容
+     * @return 返回生成的待办任务id
      */
     @Override
     public String sendTask(String userids, String redirectUrl, String title, String content) {
@@ -113,7 +113,7 @@ public class DingTalkMsgService implements IMsgService {
             String taskId = feignClient.createDingTalkWorkRecord(message);
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("发送代办任务失败,数据[{}],原因为:[{}]", message, e);
+            log.error("发送待办任务失败,数据[{}],原因为:[{}]", message, e);
         }
         return "";
 

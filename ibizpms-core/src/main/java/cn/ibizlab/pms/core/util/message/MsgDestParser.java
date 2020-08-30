@@ -21,7 +21,7 @@ import java.util.*;
 
 /**
  * 解析业务实体中的发件人信息，
- * 包括 代办发送、消息发送等。
+ * 包括 待办发送、消息发送等。
  */
 @Slf4j
 @Component
@@ -33,7 +33,7 @@ public class MsgDestParser {
     }
 
     /**
-     * 获取代办人员列表
+     * 获取待办人员列表
      *
      * @param et 业务实体
      * @return 发送者id集合，多个用分号（,）隔开
@@ -72,7 +72,7 @@ public class MsgDestParser {
         }
 
         String ids = queryIds(accounts);
-        log.info("发送代办IDs：[{}]", ids);
+        log.info("发送待办IDs：[{}]", ids);
         return String.join(",", ids);
     }
 

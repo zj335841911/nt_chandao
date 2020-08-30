@@ -46,7 +46,7 @@ public class BugsendTodoTaskLogicImpl implements IBugsendTodoTaskLogic{
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.bugsendtodotask");
 
         }catch(Exception e){
-            throw new RuntimeException("执行[发送代办任务]处理逻辑发生异常"+e);
+            throw new RuntimeException("执行[发送待办任务]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null)
             kieSession.destroy();
