@@ -128,6 +128,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'projectplanview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'projecteditview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'mainview_link',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_child',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'main2gridview',srfappde:'stories'});

@@ -156,6 +156,10 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
+		maindashboardview_link: {
+			caption: "Bug",
+      		title: "Bug数据看板视图",
+		},
 		editview_4791: {
 			caption: "Bug",
       		title: "Bug",

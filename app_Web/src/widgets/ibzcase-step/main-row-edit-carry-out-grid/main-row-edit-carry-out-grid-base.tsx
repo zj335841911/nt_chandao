@@ -125,14 +125,6 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'runid',
-            label: '编号',
-            langtag: 'entities.ibzcasestep.main_rowedit_carryout_grid.columns.runid',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
             name: 'desc',
             label: '步骤',
             langtag: 'entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc',
@@ -233,7 +225,6 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      * @memberof Main_RowEdit_CarryOutBase
      */
     public hasRowEdit: any = {
-        'runid':false,
         'desc':false,
         'expect':false,
         'steps':true,

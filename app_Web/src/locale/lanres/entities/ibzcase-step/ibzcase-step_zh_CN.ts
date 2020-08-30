@@ -33,7 +33,6 @@ export default {
 	},
 	main_rowedit_carryout_grid: {
 		columns: {
-			runid: "编号",
 			desc: "步骤",
 			expect: "预期",
 			steps: "测试结果",

@@ -212,6 +212,10 @@ export default {
 			caption: "需求",
       		title: "需求",
 		},
+		mainview_link: {
+			caption: "需求",
+      		title: "需求数据看板视图",
+		},
 		gridview9_child: {
 			caption: "细分需求",
       		title: "细分需求",

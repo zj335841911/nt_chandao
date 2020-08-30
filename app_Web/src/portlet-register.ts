@@ -77,6 +77,10 @@ export const  PortletComponent = {
         v.component('app-ibz-case-case-info-portlet', IbzCaseCaseInfo);
         v.component('app-ibz-case-case-new-edit-portlet', IbzCaseCaseNewEdit);
         v.component('app-action-action-history-portlet', ActionActionHistory);
+        v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
+        v.component('app-todo-todoaction-portlet', TodoTodoaction);
+        v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
+        v.component('app-todo-todo-base-portlet', TodoTodoBase);
         v.component('app-story-storyspec-portlet', StoryStoryspec);
         v.component('app-story-main-toolbar-portlet', StoryMainToolbar);
         v.component('app-story-base-info-portlet', StoryBaseInfo);
@@ -115,10 +119,6 @@ export const  PortletComponent = {
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
         v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
-        v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
-        v.component('app-todo-todoaction-portlet', TodoTodoaction);
-        v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
-        v.component('app-todo-todo-base-portlet', TodoTodoBase);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
         v.component('case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);

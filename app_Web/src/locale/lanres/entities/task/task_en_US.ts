@@ -85,6 +85,10 @@ export default {
 			caption: "任务",
       		title: "任务表格视图",
 		},
+		maindashboardview_link: {
+			caption: "任务",
+      		title: "任务主数据看板视图",
+		},
 		closetaskview: {
 			caption: "关闭任务",
       		title: "关闭任务",

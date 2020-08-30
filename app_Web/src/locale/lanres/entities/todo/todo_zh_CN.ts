@@ -38,6 +38,10 @@ export default {
 			caption: "基本信息",
       		title: "待办事宜表编辑视图",
 		},
+		dashboardview_link: {
+			caption: "待办事宜表",
+      		title: "待办事宜表数据看板视图",
+		},
 		assigntoview: {
 			caption: "指派给",
       		title: "指派表单视图",

@@ -90,6 +90,7 @@ export default class TodoUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'baseeditview9',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'dashboardview_link',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'closeview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'desceditview9',srfappde:'todos'});
