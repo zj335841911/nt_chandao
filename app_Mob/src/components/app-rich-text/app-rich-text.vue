@@ -1,12 +1,14 @@
 <template>
-  <div class="richtext">
+  <div class="richtext" >
     <quill-editor
+    v-if="parmRead"
       class="ql-editor quill-editor"
       v-model="resloutValue"
       ref="myQuillEditor"
       :options="editorOption"
     ></quill-editor>
     <ion-toolbar class="quill-editor-button">
+      <div v-html="resloutValue"></div>
       <van-uploader v-show="false" :after-read="afterRead" ref="upload" />
       <ion-button @click="onClickCancel" color="light">{{$t('app.button.cancel')}}</ion-button>
       <ion-button @click="onClickOk">{{$t('app.button.confirm')}}</ion-button>
@@ -58,6 +60,14 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   @Prop() protected _viewparams!: string;
+
+  /**
+   * 参数是否准备完毕
+   *
+   * @type {string}
+   * @memberof AppRichTextEditor
+   */
+  public parmRead = false;
 
   /**
    * 上传文件路径
@@ -114,6 +124,7 @@ export default class AppRichTextEditor extends Vue {
       this.uploadUrl = parm.uploadUrl?parm.uploadUrl:"";
       this.export_params =  parm.export_params?parm.export_params:{};
     }
+    this.parmRead = true;
   }
 
   /**
@@ -204,7 +215,6 @@ export default class AppRichTextEditor extends Vue {
     }
     file.url = _downloadUrl;
     this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="'+file.filename+'">';
-    console.log("结果",this.resloutValue);
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="app-mob-rich-text-editor" @click="open">
-    <div v-html="reValue"></div>
+    <div class="rich-text-editor-info" v-html="reValue"></div>
     <ion-icon class="app-mob-rich-text-editor-icon" v-if="!reValue" name="options-outline" @click.stop="open"></ion-icon>
   </div>
 </template>
