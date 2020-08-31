@@ -742,6 +742,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '396ab8c5ef500f859d6591e77f094ecd',
+            viewmodule: 'zentao',
+            viewname: 'ProjectPlanAddEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '3a8aaf8bc175455ca2be6ace38f821a1',
             viewmodule: 'zentao',
             viewname: 'TaskTodoEditView',
@@ -1798,6 +1807,7 @@ export const viewstate: any = {
                 'b9bdfc0e33d333ade00934745d9dc0ad',
                 'aad9a5713d6828d3119b811b26915215',
                 '08ca1b1e6234a0d038e1fbf52478ea7f',
+                '396ab8c5ef500f859d6591e77f094ecd',
                 '21d716ac12c793af54b112a5a3599674',
             ],
         },

@@ -112,6 +112,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                          <a v-show="scope.row.AddProject.visabled" :disabled="scope.row.AddProject.disabled" @click="uiAction(scope.row, 'AddProject', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_addproject')">
+                            <i class='fa fa-plus'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.RelationStory.visabled" type='vertical'></divider>
                           <a v-show="scope.row.RelationStory.visabled" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationstory')">
                             <i class='fa fa-link'></i>
                             

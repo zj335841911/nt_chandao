@@ -5796,6 +5796,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-edit-view/story-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/branches/:branch?/pminfoeditview/:pminfoeditview?',
+                    meta: {
+                        caption: 'entities.branch.views.pminfoeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'branches', parameterName: 'branch' },
+                            { pathName: 'pminfoeditview', parameterName: 'pminfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'),
+                },
+                {
+                    path: 'branches/:branch?/pminfoeditview/:pminfoeditview?',
+                    meta: {
+                        caption: 'entities.branch.views.pminfoeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'branches', parameterName: 'branch' },
+                            { pathName: 'pminfoeditview', parameterName: 'pminfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.testtask.views.gridview.title',
@@ -5838,35 +5867,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-task-grid-view/test-task-grid-view.vue'),
-                },
-                {
-                    path: 'products/:product?/branches/:branch?/pminfoeditview/:pminfoeditview?',
-                    meta: {
-                        caption: 'entities.branch.views.pminfoeditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pminfoeditview', parameterName: 'pminfoeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'),
-                },
-                {
-                    path: 'branches/:branch?/pminfoeditview/:pminfoeditview?',
-                    meta: {
-                        caption: 'entities.branch.views.pminfoeditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pminfoeditview', parameterName: 'pminfoeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'),
                 },
                 {
                     path: 'todos/:todo?/closeview/:closeview?',
@@ -6637,6 +6637,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-pickup-view/product-pickup-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/planaddeditview/:planaddeditview?',
+                    meta: {
+                        caption: 'entities.project.views.planaddeditview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'planaddeditview', parameterName: 'planaddeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-plan-add-edit-view/project-plan-add-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testmaindashboardview/:testmaindashboardview?',
