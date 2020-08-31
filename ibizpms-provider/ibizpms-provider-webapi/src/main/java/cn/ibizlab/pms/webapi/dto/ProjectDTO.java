@@ -460,7 +460,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "istop")
     @JsonProperty("istop")
-    private String istop;
+    private Integer istop;
 
 
     /**
