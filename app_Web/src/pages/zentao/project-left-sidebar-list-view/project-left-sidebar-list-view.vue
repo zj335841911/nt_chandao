@@ -59,5 +59,17 @@ export default class ProjectLeftSidebarListView extends ProjectLeftSidebarListVi
         openIndexViewTab(data);
     }
 
+    /**
+     * 生命周期
+     *
+     * @memberof ProjectLeftSidebarListView
+     */ 
+    public mounted() {
+        super.mounted();
+        this.$acc.commandLocal(() => {
+            this.engine.load();
+        }, 'remove', this.appDeName);
+    }
+
 }
 </script>
