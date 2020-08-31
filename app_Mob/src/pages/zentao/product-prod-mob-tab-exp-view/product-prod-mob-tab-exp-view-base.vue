@@ -14,23 +14,18 @@
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
-                              <ion-icon name="paper"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                              <ion-icon name="star-outline"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                              <ion-icon name="list"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                              <ion-icon name="flag"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                              <ion-icon name="bug"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             Bug</ion-segment-button>
                         </ion-segment>
