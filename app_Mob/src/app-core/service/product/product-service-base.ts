@@ -229,6 +229,20 @@ export class ProductServiceBase extends EntityService {
     }
 
     /**
+     * MobProductCounter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async MobProductCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/products/${context.product}/mobproductcounter`,data,isloading);
+            return res;
+    }
+
+    /**
      * ProductTop接口方法
      *
      * @param {*} [context={}]
@@ -349,5 +363,17 @@ export class ProductServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/products/fetchstorycurproject`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * ReturnEdit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async ReturnEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }

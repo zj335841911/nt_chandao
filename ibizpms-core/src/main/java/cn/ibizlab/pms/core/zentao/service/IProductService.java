@@ -37,6 +37,7 @@ public interface IProductService extends IService<Product>{
     Product cancelProductTop(Product et) ;
     boolean checkKey(Product et) ;
     Product close(Product et) ;
+    Product mobProductCounter(Product et) ;
     Product productTop(Product et) ;
     boolean save(Product et) ;
     void saveBatch(List<Product> list) ;

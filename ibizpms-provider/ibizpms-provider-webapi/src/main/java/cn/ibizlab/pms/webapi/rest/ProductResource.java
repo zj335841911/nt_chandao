@@ -141,6 +141,17 @@ domain.setId(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")
+    @ApiOperation(value = "产品移动端计数器方法", tags = {"产品" },  notes = "产品移动端计数器方法")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/mobproductcounter")
+    public ResponseEntity<ProductDTO> mobProductCounter(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+        Product domain = productMapping.toDomain(productdto);
+domain.setId(product_id);
+        domain = productService.mobProductCounter(domain);
+        productdto = productMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-ProductTop-all')")
     @ApiOperation(value = "置顶", tags = {"产品" },  notes = "置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/producttop")
