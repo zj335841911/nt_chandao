@@ -1,30 +1,18 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    createman: "建立人",
+    ibzfavoritesid: "收藏标识",
+    createdate: "建立时间",
+    ibzfavoritesname: "收藏名称",
+    updateman: "更新人",
+    updatedate: "更新时间",
+    objectid: "数据对象标识",
+    account: "收藏用户",
+    type: "类型",
+  },
+	views: {
+		mobtabexpview: {
+			caption: '收藏',
+		},
+	},
+};

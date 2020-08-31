@@ -1,30 +1,28 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    path: "path",
+    deleted: "逻辑删除标志",
+    name: "名称",
+    branch: "branch",
+    ibizshort: "简称",
+    order: "排序值",
+    grade: "grade",
+    type: "类型（story）",
+    owner: "owner",
+    isleaf: "叶子模块",
+    id: "id",
+    collector: "collector",
+    root: "产品",
+    parent: "id",
+    rootname: "所属产品",
+    parentname: "上级模块",
+  },
+	views: {
+		mobpickupview: {
+			caption: '需求模块',
+		},
+		mobpickupmdview: {
+			caption: '需求模块',
+		},
+	},
+};

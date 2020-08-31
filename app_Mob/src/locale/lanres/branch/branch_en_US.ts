@@ -1,30 +1,9 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    name: "名称",
+    deleted: "已删除",
+    id: "编号",
+    order: "排序",
+    product: "所属产品",
+  },
+};

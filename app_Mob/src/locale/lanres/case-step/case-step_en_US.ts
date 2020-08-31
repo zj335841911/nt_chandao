@@ -1,30 +1,20 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    type: "用例步骤类型",
+    id: "编号",
+    desc: "步骤",
+    expect: "预期",
+    version: "用例版本",
+    ibizcase: "用例",
+    parent: "分组用例步骤的组编号",
+    reals: "实际情况",
+    steps: "测试结果",
+    files: "附件",
+    runid: "执行编号",
+  },
+	views: {
+		mobmdview9: {
+			caption: '用例步骤',
+		},
+	},
+};

@@ -1,30 +1,38 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    password: "密码",
+    address: "通讯地址",
+    weixin: "微信",
+    dingding: "钉钉",
+    fails: "fails",
+    slack: "slack",
+    ranzhi: "ranzhi",
+    account: "账户",
+    locked: "locked",
+    avatar: "avatar",
+    scorelevel: "scoreLevel",
+    realname: "真实姓名",
+    zipcode: "zipcode",
+    dept: "所属部门",
+    commiter: "源代码账户",
+    role: "职位",
+    deleted: "逻辑删除标志",
+    last: "最后登录",
+    clientstatus: "clientStatus",
+    skype: "skype",
+    whatsapp: "whatsapp",
+    score: "score",
+    gender: "性别",
+    mobile: "手机",
+    clientlang: "clientLang",
+    visits: "访问次数",
+    join: "入职日期",
+    email: "邮箱",
+    ip: "ip",
+    birthday: "birthday",
+    nickname: "nickname",
+    phone: "电话",
+    id: "ID",
+    qq: "QQ",
+  },
+};

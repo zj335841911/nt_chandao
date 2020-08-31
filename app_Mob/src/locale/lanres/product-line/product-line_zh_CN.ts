@@ -1,30 +1,18 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    productlinename: "产品线名称",
+    productlineid: "产品线标识",
+    updateman: "更新人",
+    updatedate: "更新时间",
+    createdate: "建立时间",
+    createman: "建立人",
+  },
+	views: {
+		mobpickupmdview: {
+			caption: '产品线',
+		},
+		mobpickupview: {
+			caption: '产品线',
+		},
+	},
+};

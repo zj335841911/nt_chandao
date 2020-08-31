@@ -1,30 +1,22 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    extra: "附加值",
+    objecttype: "对象类型",
+    id: "id",
+    comment: "备注",
+    read: "已读",
+    action: "动作",
+    date: "日期",
+    product: "产品",
+    objectid: "对象ID",
+    actor: "操作者",
+    project: "项目",
+    lastcomment: "备注",
+    actionmanner: "操作方式",
+  },
+	views: {
+		mobmdview9: {
+			caption: '通用',
+		},
+	},
+};

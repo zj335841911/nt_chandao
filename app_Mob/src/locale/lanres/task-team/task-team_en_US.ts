@@ -1,30 +1,24 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
-Encountered "obj", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    <EMPTY_DIRECTIVE_END>
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+export default {
+  fields: {
+    role: "角色",
+    root: "编号",
+    limited: "受限用户",
+    total: "总计可用",
+    username: "用户",
+    order: "排序",
+    days: "可用工日",
+    type: "团队类型",
+    estimate: "最初预计",
+    account: "用户",
+    consumed: "总计消耗",
+    id: "编号",
+    join: "加盟日",
+    hours: "可用工时/天",
+    left: "预计剩余",
+  },
+	views: {
+		mobmdview9: {
+			caption: '任务团队',
+		},
+	},
+};
