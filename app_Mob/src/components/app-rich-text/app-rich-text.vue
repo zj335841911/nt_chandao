@@ -178,9 +178,9 @@ export default class AppRichTextEditor extends Vue {
       .then((response: any) => {
         if (response && response.data && response.status === 200) {
           let data: any = response.data;
-          if (process.env.NODE_ENV === "development") {
+          // if (process.env.NODE_ENV === "development") {
             this.dataProcess(Object.assign({}, data, { url: file.content }));
-          }
+          // }
         } else {
         }
       })
