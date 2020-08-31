@@ -241,7 +241,9 @@ public class TaskExService extends TaskServiceImpl {
     public Page<Task> searchByModule(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
-            task.set("items", this.selectByParent(task.getId()));
+            TaskSearchContext taskSearchContext = new TaskSearchContext();
+            taskSearchContext.setN_parent_eq(task.getId());
+            task.set("items", this.searchDefault(taskSearchContext).getContent());
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
