@@ -533,4 +533,28 @@ export interface Bug {
      * @memberof Bug
      */
     isfavorites?: any;
+
+    /**
+     * 版本名称
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    buildname?: any;
+
+    /**
+     * 版本项目
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    buildproject?: any;
+
+    /**
+     * 创建版本
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    createbuild?: any;
 }

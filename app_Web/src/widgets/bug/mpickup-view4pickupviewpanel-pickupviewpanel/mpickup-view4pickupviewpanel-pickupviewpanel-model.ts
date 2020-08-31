@@ -213,6 +213,15 @@ export default class MPickupView4pickupviewpanelModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'buildproject',
+      },
+      {
+        name: 'createbuild',
+      },
     ]
   }
 

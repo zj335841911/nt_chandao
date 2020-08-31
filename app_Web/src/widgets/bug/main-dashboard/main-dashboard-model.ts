@@ -213,6 +213,15 @@ export default class MainModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'buildproject',
+      },
+      {
+        name: 'createbuild',
+      },
     ]
   }
 

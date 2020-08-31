@@ -95,6 +95,9 @@ export class ResolveEditFormBase extends EditFormControlBase {
         id: null,
         resolution: null,
         resolvedbuild: null,
+        buildproject: null,
+        buildname: null,
+        createbuild: null,
         resolveddate: null,
         assignedto: null,
         project: null,
@@ -114,6 +117,18 @@ export class ResolveEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
         ],
+        resolvedbuild: [
+            { required: true, type: 'string', message: '解决版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '解决版本 值不能为空', trigger: 'blur' },
+        ],
+        buildproject: [
+            { required: true, type: 'string', message: '解决版本/所属项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '解决版本/所属项目 值不能为空', trigger: 'blur' },
+        ],
+        buildname: [
+            { required: true, type: 'string', message: '版本名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '版本名称 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -132,6 +147,10 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     public detailsModel: any = {
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.resolve_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.resolve_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.resolve_form', extractMode: 'ITEM', details: [] } }),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -164,7 +183,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
 
         resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        buildproject: new FormItemModel({ caption: '解决版本/所属项目', detailType: 'FORMITEM', name: 'buildproject', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        buildname: new FormItemModel({ caption: '版本名称', detailType: 'FORMITEM', name: 'buildname', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        createbuild: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'createbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         resolveddate: new FormItemModel({ caption: '解决日期', detailType: 'FORMITEM', name: 'resolveddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -177,6 +202,125 @@ export class ResolveEditFormBase extends EditFormControlBase {
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof ResolveEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'createbuild')) {
+            this.onFormItemValueChange({ name: 'resolvedbuild', value: null });
+        }
+        if (Object.is(name, 'createbuild')) {
+            this.onFormItemValueChange({ name: 'buildproject', value: null });
+        }
+        if (Object.is(name, 'createbuild')) {
+            this.onFormItemValueChange({ name: 'buildname', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof ResolveEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'createbuild')) {
+            let ret = true;
+            const _createbuild = this.data.createbuild;
+            if (this.$verify.testCond(_createbuild, 'EQ', '1')) {
+                ret = false;
+            }
+            this.rules.resolvedbuild.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'createbuild')) {
+            let ret = false;
+            const _createbuild = this.data.createbuild;
+            if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.resolvedbuild.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'createbuild')) {
+            let ret = true;
+            const _createbuild = this.data.createbuild;
+            if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
+                ret = false;
+            }
+            this.rules.buildproject.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'createbuild')) {
+            let ret = false;
+            const _createbuild = this.data.createbuild;
+            if (this.$verify.testCond(_createbuild, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.buildproject.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'createbuild')) {
+            let ret = true;
+            const _createbuild = this.data.createbuild;
+            if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
+                ret = false;
+            }
+            this.rules.buildname.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'createbuild')) {
+            let ret = false;
+            const _createbuild = this.data.createbuild;
+            if (this.$verify.testCond(_createbuild, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.buildname.setVisible(ret);
+        }
+
+
+
+
+
+
+
+    }
 
     /**
      * 更新默认值
