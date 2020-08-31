@@ -5,6 +5,7 @@ import UserService from '@/service/user/user-service';
 import UserExpService from './user-exp-treeview-service';
 import CompanyUIService from '@/uiservice/company/company-ui-service';
 import UserUIService from '@/uiservice/user/user-ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -354,6 +355,17 @@ export class UserExpTreeBase extends MainControlBase {
      */
     @Provide()
     public expandedKeys: string[] = [];
+
+    /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof UserExpBase
+     */
+     public actionModel: any = {
+        Company_deuiaction1: {name:'deuiaction1',nodeOwner:'Company',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        Company_deuiaction2: {name:'deuiaction2',nodeOwner:'Company',type: 'DEUIACTION', tag: 'EditDept', actiontarget: 'NONE', noprivdisplaymode:2, visabled: true, disabled: false},
+    }
 
     /**
      * 选中数据变更事件
@@ -779,7 +791,7 @@ export class UserExpTreeBase extends MainControlBase {
      */
     public showContext(data:any,event:any){
         let _this:any = this;
-        this.copyActionModel = Util.deepCopy(this.actionModel);
+        this.copyActionModel = this.$util.deepCopy(this.actionModel);
         this.computeNodeState(data,data.nodeType,data.appEntityName).then((res:any) => {
            (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
         });
@@ -801,10 +813,10 @@ export class UserExpTreeBase extends MainControlBase {
         let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
             if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = Util.deepCopy(this.context);
+                let tempContext:any = this.$util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await this.appEntityService.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
+                let uiservice:any = await this.appUIService.getService(appEntityName);
                 let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{

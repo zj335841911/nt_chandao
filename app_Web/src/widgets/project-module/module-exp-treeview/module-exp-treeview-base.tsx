@@ -5,6 +5,7 @@ import ProjectModuleService from '@/service/project-module/project-module-servic
 import ModuleExpService from './module-exp-treeview-service';
 import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -794,6 +795,28 @@ export class ModuleExpTreeBase extends MainControlBase {
     public expandedKeys: string[] = [];
 
     /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof ModuleExpBase
+     */
+     public actionModel: any = {
+        ZT_PRODUCT_deuiaction1: {name:'deuiaction1',nodeOwner:'ZT_PRODUCT',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        MODULE2_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE2',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__UNIVERSALEDIT', visabled: true, disabled: false},
+        MODULE2_deuiaction2: {name:'deuiaction2',nodeOwner:'MODULE2',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__UNIVERSALEDIT', visabled: true, disabled: false},
+        ROOTMODULE_deuiaction2: {name:'deuiaction2',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__UNIVERSALEDIT', visabled: true, disabled: false},
+        MODULE_deuiaction2: {name:'deuiaction2',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        ProjectModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ProjectModule',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__UNIVERSALEDIT', visabled: true, disabled: false},
+        ProjectModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ProjectModule',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        Root_NoBranch_deuiaction1: {name:'deuiaction1',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__UNIVERSALEDIT', visabled: true, disabled: false},
+        Root_NoBranch_deuiaction2: {name:'deuiaction2',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+    }
+
+    /**
      * 选中数据变更事件
      *
      * @public
@@ -1394,7 +1417,7 @@ export class ModuleExpTreeBase extends MainControlBase {
      */
     public showContext(data:any,event:any){
         let _this:any = this;
-        this.copyActionModel = Util.deepCopy(this.actionModel);
+        this.copyActionModel = this.$util.deepCopy(this.actionModel);
         this.computeNodeState(data,data.nodeType,data.appEntityName).then((res:any) => {
            (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
         });
@@ -1416,10 +1439,10 @@ export class ModuleExpTreeBase extends MainControlBase {
         let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
             if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = Util.deepCopy(this.context);
+                let tempContext:any = this.$util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await this.appEntityService.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
+                let uiservice:any = await this.appUIService.getService(appEntityName);
                 let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{

@@ -4,6 +4,7 @@ import { Watch, MainControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import ExpService from './exp-treeview-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -523,6 +524,21 @@ export class ExpTreeBase extends MainControlBase {
      */
     @Provide()
     public expandedKeys: string[] = [];
+
+    /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof ExpBase
+     */
+     public actionModel: any = {
+        BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        Root_NoBranch_deuiaction1: {name:'deuiaction1',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        BRANCH_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCH',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+    }
 
     /**
      * 选中数据变更事件
@@ -1059,7 +1075,7 @@ export class ExpTreeBase extends MainControlBase {
      */
     public showContext(data:any,event:any){
         let _this:any = this;
-        this.copyActionModel = Util.deepCopy(this.actionModel);
+        this.copyActionModel = this.$util.deepCopy(this.actionModel);
         this.computeNodeState(data,data.nodeType,data.appEntityName).then((res:any) => {
            (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
         });
@@ -1081,10 +1097,10 @@ export class ExpTreeBase extends MainControlBase {
         let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
             if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = Util.deepCopy(this.context);
+                let tempContext:any = this.$util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await this.appEntityService.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
+                let uiservice:any = await this.appUIService.getService(appEntityName);
                 let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{

@@ -4,6 +4,7 @@ import { Watch, MainControlBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import TaskModuleExpService from './task-module-exp-treeview-service';
 import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -566,6 +567,22 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     public expandedKeys: string[] = [];
 
     /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof TaskModuleExpBase
+     */
+     public actionModel: any = {
+        ZT_PRODUCT_deuiaction1: {name:'deuiaction1',nodeOwner:'ZT_PRODUCT',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        Root_NoBranch_deuiaction1: {name:'deuiaction1',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ProjectModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ProjectModule',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+    }
+
+    /**
      * 选中数据变更事件
      *
      * @public
@@ -1123,7 +1140,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      */
     public showContext(data:any,event:any){
         let _this:any = this;
-        this.copyActionModel = Util.deepCopy(this.actionModel);
+        this.copyActionModel = this.$util.deepCopy(this.actionModel);
         this.computeNodeState(data,data.nodeType,data.appEntityName).then((res:any) => {
            (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
         });
@@ -1145,10 +1162,10 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
             if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = Util.deepCopy(this.context);
+                let tempContext:any = this.$util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await this.appEntityService.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
+                let uiservice:any = await this.appUIService.getService(appEntityName);
                 let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{
