@@ -1,8 +1,58 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @getLogicNameLanguage field.getPSDEFi...  [in template "TEMPLCODE_en_US" at line 8, column 56]
-----
+export default {
+  fields: {
+    id: "",
+    deleted: "",
+    storycnt: "",
+    productplancnt: "",
+    releasecnt: "",
+    waitstorycnt: "",
+    plannedstorycnt: "",
+    developingstorycnt: "",
+    testingstorycnt: "",
+    releasedstorycnt: "",
+    unendproductplancnt: "",
+    resprojectcnt: "",
+    undoneresprojectcnt: "",
+    normalreleasecnt: "",
+    activestorycnt: "",
+    activebugcnt: "",
+    name: "",
+    assigntomebugcnt: "",
+    notclosedbugcnt: "",
+    bugcnt: "",
+    unconfirmbugcnt: "",
+    yesterdayclosedbugcnt: "",
+    yesterdayconfirmbugcnt: "",
+    yesterdayresolvedbugcnt: "",
+    postponedprojectcnt: "",
+    currproject: "",
+    status: "",
+    code: "",
+    type: "",
+    order1: "",
+    istop: "",
+  },
+	views: {
+		mobmdview: {
+			caption: '产品',
+		},
+		mobtabexpview: {
+			caption: '产品详情',
+		},
+		testmobmdview: {
+			caption: '产品',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '新建',
+			tip: '新建',
+		},
+	},
+	testmobmdviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '新建',
+			tip: '新建',
+		},
+	},
+};

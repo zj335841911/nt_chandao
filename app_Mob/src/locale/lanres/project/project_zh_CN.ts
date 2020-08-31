@@ -1,8 +1,188 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @getLogicNameLanguage field.getPSDEFi...  [in template "TEMPLCODE_en_US" at line 8, column 56]
-----
+export default {
+  fields: {
+    openedversion: "",
+    begin: "",
+    acl: "",
+    deleted: "",
+    desc: "",
+    pm: "",
+    id: "",
+    name: "",
+    substatus: "",
+    order: "",
+    rd: "",
+    whitelist: "",
+    pri: "",
+    end: "",
+    canceleddate: "",
+    code: "",
+    catid: "",
+    statge: "",
+    canceledby: "",
+    iscat: "",
+    openeddate: "",
+    closedby: "",
+    type: "",
+    po: "",
+    status: "",
+    days: "",
+    team: "",
+    closeddate: "",
+    openedby: "",
+    qd: "",
+    parentname: "",
+    parent: "",
+    taskcnt: "",
+    bugcnt: "",
+    storycnt: "",
+    products: "",
+    branchs: "",
+    plans: "",
+    srfarray: "",
+    comment: "",
+    period: "",
+    account: "",
+    join: "",
+    hours: "",
+    role: "",
+    totalconsumed: "",
+    totalwh: "",
+    totalleft: "",
+    totalestimate: "",
+    totalhours: "",
+    mobimage: "",
+    accounts: "",
+    order1: "",
+    istop: "",
+  },
+	views: {
+		mobeditview: {
+			caption: '项目',
+		},
+		supmobeditview: {
+			caption: '挂起',
+		},
+		mobtabexpview: {
+			caption: '项目详情',
+		},
+		activitemobeditview: {
+			caption: '激活',
+		},
+		closemobeditview: {
+			caption: '关闭',
+		},
+		mobmdview: {
+			caption: '项目',
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '项目基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '项目编号', 
+			srfmajortext: '项目名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '项目名称', 
+			pm: '项目负责人', 
+			po: '产品负责人', 
+			qd: '测试负责人', 
+			rd: '发布负责人', 
+			begin: '开始时间', 
+			end: '结束日期', 
+			status: '项目状态', 
+			id: '项目编号', 
+		},
+		uiactions: {
+		},
+	},
+	activitemob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: 'project基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '项目编号', 
+			srfmajortext: '项目名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			begin: '开始时间', 
+			end: '结束日期', 
+			comment: '备注', 
+			mobimage: '移动端图片', 
+			id: '项目编号', 
+		},
+		uiactions: {
+		},
+	},
+	suspendnclosemob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: 'project基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '项目编号', 
+			srfmajortext: '项目名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			comment: '备注', 
+			mobimage: '', 
+			id: '项目编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
+	activitemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	supmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	closemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		items1: {
+			caption: '更多',
+			tip: '更多',
+		},
+		deuiaction1: {
+			caption: '激活',
+			tip: '激活',
+		},
+		deuiaction2: {
+			caption: '挂起',
+			tip: '挂起',
+		},
+		deuiaction3: {
+			caption: '关闭',
+			tip: '关闭',
+		},
+		deuiaction4: {
+			caption: '删除',
+			tip: '删除',
+		},
+	},
+};

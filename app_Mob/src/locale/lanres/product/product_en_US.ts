@@ -1,8 +1,187 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @getLogicNameLanguage field.getPSDEFi...  [in template "TEMPLCODE_en_US" at line 9, column 56]
-----
+export default {
+  fields: {
+    qd: "",
+    acl: "",
+    name: "",
+    id: "",
+    deleted: "",
+    whitelist: "",
+    rd: "",
+    order: "",
+    type: "",
+    po: "",
+    desc: "",
+    status: "",
+    createdby: "",
+    createdversion: "",
+    substatus: "",
+    code: "",
+    createddate: "",
+    linename: "",
+    line: "",
+    activebugcnt: "",
+    productplancnt: "",
+    releasecnt: "",
+    activestorycnt: "",
+    unconfirmbugcnt: "",
+    notclosedbugcnt: "",
+    comment: "",
+    relatedbugcnt: "",
+    changedstorycnt: "",
+    draftstorycnt: "",
+    closedstorycnt: "",
+    relatedprojects: "",
+    doccnt: "",
+    buildcnt: "",
+    casecnt: "",
+    srfcount: "",
+    mobimage: "",
+    order1: "",
+    istop: "",
+  },
+	views: {
+		prodmobtabexpview: {
+			caption: '产品详情',
+		},
+		mobpickupmdview: {
+			caption: '产品',
+		},
+		mobtabexpview: {
+			caption: '测试详情',
+		},
+		mobpickupview: {
+			caption: '产品',
+		},
+		testmobmdview: {
+			caption: '测试',
+		},
+		mobeditview: {
+			caption: '产品',
+		},
+		mobchartview: {
+			caption: '产品',
+		},
+		mobmdview: {
+			caption: '产品',
+		},
+		closemobeditview: {
+			caption: '关闭产品',
+		},
+		newmobeditview: {
+			caption: '产品',
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '产品基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '产品名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '产品名称', 
+			status: '状态', 
+			type: '产品类型', 
+			po: '产品负责人', 
+			qd: '测试负责人', 
+			rd: '发布负责人', 
+			productplancnt: '计划总数', 
+			activestorycnt: '激活需求数', 
+			buildcnt: 'BUILD数', 
+			relatedbugcnt: '相关Bug数', 
+			unconfirmbugcnt: '未确认Bug数', 
+			activebugcnt: '未解决Bug数', 
+			notclosedbugcnt: '未关闭Bug数', 
+			casecnt: '用例数', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobclose_form: {
+		details: {
+			group1: '产品基本信息', 
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '产品名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			comment: '备注', 
+			mobimage: '', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobnewfrom_form: {
+		details: {
+			grouppanel3: '分组面板', 
+			grouppanel1: '分组面板', 
+			group1: 'product基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '产品名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '产品名称', 
+			code: '产品代号', 
+			line: '产品线', 
+			linename: '产品线', 
+			po: '产品负责人', 
+			qd: '测试负责人', 
+			rd: '发布负责人', 
+			type: '产品类型', 
+			desc: '产品描述	', 
+			acl: '访问控制', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	closemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		items1: {
+			caption: '更多',
+			tip: 'items1',
+		},
+		deuiaction1: {
+			caption: '关闭',
+			tip: 'deuiaction1',
+		},
+		deuiaction2: {
+			caption: '删除',
+			tip: 'deuiaction2',
+		},
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: 'deuiaction1',
+		},
+	},
+};
