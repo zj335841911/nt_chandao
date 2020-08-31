@@ -166,7 +166,6 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   protected afterRead(file: any, detail: any): void {
-    alert(this.uploadUrl)
     const params = new FormData();
     params.append("file", file.file, file.file.name);
     const config = {
