@@ -51,7 +51,7 @@ public class IBZ_LOGINResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/ibz_logins/{ibz_login_id}/getuser")
     public ResponseEntity<IBZ_LOGINDTO> getUser(@PathVariable("ibz_login_id") BigInteger ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
         IBZ_LOGIN domain = ibz_loginMapping.toDomain(ibz_logindto);
-domain.setId(ibz_login_id);
+        domain.setId(ibz_login_id);
         domain = ibz_loginService.getUser(domain);
         ibz_logindto = ibz_loginMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibz_logindto);
@@ -62,7 +62,7 @@ domain.setId(ibz_login_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/ibz_logins/{ibz_login_id}/ztlogin")
     public ResponseEntity<IBZ_LOGINDTO> ztlogin(@PathVariable("ibz_login_id") BigInteger ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
         IBZ_LOGIN domain = ibz_loginMapping.toDomain(ibz_logindto);
-domain.setId(ibz_login_id);
+        domain.setId(ibz_login_id);
         domain = ibz_loginService.ztlogin(domain);
         ibz_logindto = ibz_loginMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibz_logindto);

@@ -118,7 +118,7 @@ public class TodoResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/activate")
     public ResponseEntity<TodoDTO> activate(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
-domain.setId(todo_id);
+        domain.setId(todo_id);
         domain = todoService.activate(domain);
         tododto = todoMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(tododto);
@@ -129,7 +129,7 @@ domain.setId(todo_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/assignto")
     public ResponseEntity<TodoDTO> assignTo(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
-domain.setId(todo_id);
+        domain.setId(todo_id);
         domain = todoService.assignTo(domain);
         tododto = todoMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(tododto);
@@ -146,7 +146,7 @@ domain.setId(todo_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/close")
     public ResponseEntity<TodoDTO> close(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
-domain.setId(todo_id);
+        domain.setId(todo_id);
         domain = todoService.close(domain);
         tododto = todoMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(tododto);
@@ -157,7 +157,7 @@ domain.setId(todo_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/finish")
     public ResponseEntity<TodoDTO> finish(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
-domain.setId(todo_id);
+        domain.setId(todo_id);
         domain = todoService.finish(domain);
         tododto = todoMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(tododto);

@@ -124,7 +124,7 @@ public class ProductStatsResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}/getteststats")
     public ResponseEntity<ProductStatsDTO> getTestStats(@PathVariable("productstats_id") BigInteger productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
         ProductStats domain = productstatsMapping.toDomain(productstatsdto);
-domain.setId(productstats_id);
+        domain.setId(productstats_id);
         domain = productstatsService.getTestStats(domain);
         productstatsdto = productstatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productstatsdto);

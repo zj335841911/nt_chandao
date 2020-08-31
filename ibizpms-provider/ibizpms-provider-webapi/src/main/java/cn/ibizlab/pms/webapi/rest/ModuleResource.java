@@ -124,7 +124,7 @@ public class ModuleResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fix")
     public ResponseEntity<ModuleDTO> fix(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
         Module domain = moduleMapping.toDomain(moduledto);
-domain.setId(module_id);
+        domain.setId(module_id);
         domain = moduleService.fix(domain);
         moduledto = moduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(moduledto);

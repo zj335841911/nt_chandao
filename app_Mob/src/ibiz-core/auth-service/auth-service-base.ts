@@ -232,6 +232,9 @@ export class AuthService {
      * @memberof AuthService
      */
     public getMenusPermission(item: any): boolean {
+        if(!this.$store.getters['authresource/getEnablePermissionValid']) {
+            return true;
+        }
         return this.$store.getters['authresource/getAuthMenu'](item);
     }
 
@@ -243,6 +246,9 @@ export class AuthService {
      * @memberof AuthService
      */
     public getResourcePermission(tag: any): boolean {
+        if(!this.$store.getters['authresource/getEnablePermissionValid']) {
+            return true;
+        }
         return this.$store.getters['authresource/getResourceData'](tag);
     }
 

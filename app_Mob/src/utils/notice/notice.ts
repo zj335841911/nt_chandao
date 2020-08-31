@@ -94,15 +94,16 @@ export class Notice {
                 message: message,
                 buttons: [
                     {
-                        text: '确认',
-                        handler: () => {
-                            resolve(true);
-                        }
-                    },
-                    {
                         text: '取消',
                         handler: () => {
                             resolve(false);
+                        }
+                    },
+                    {
+                        text: '确认',
+                        cssClass: 'secondary',
+                        handler: () => {
+                            resolve(true);
                         }
                     },
                 ],

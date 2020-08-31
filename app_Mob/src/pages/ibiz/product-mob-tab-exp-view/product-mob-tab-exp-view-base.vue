@@ -13,11 +13,22 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel">Bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">功能测试</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">测试单</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">套件</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            详情</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">
+                            <ion-icon name="ionic-bug"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            Bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            功能测试</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            测试单</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            套件</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

@@ -119,7 +119,7 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activate")
     public ResponseEntity<BugDTO> activate(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.activate(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -130,7 +130,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/assignto")
     public ResponseEntity<BugDTO> assignTo(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.assignTo(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -141,7 +141,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/batchunlinkbug")
     public ResponseEntity<BugDTO> batchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.batchUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -152,7 +152,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/bugfavorites")
     public ResponseEntity<BugDTO> bugFavorites(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.bugFavorites(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -163,7 +163,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/bugnfavorites")
     public ResponseEntity<BugDTO> bugNFavorites(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.bugNFavorites(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -174,7 +174,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildbatchunlinkbug")
     public ResponseEntity<BugDTO> buildBatchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.buildBatchUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -185,7 +185,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildlinkbug")
     public ResponseEntity<BugDTO> buildLinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.buildLinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -196,7 +196,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildunlinkbug")
     public ResponseEntity<BugDTO> buildUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.buildUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -213,7 +213,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/close")
     public ResponseEntity<BugDTO> close(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.close(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -224,7 +224,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/confirm")
     public ResponseEntity<BugDTO> confirm(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.confirm(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -235,7 +235,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/linkbug")
     public ResponseEntity<BugDTO> linkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.linkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -246,7 +246,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaasebatchunlinkbug")
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaaseBatchUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -257,7 +257,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbybug")
     public ResponseEntity<BugDTO> releaseLinkBugbyBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaseLinkBugbyBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -268,7 +268,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbyleftbug")
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaseLinkBugbyLeftBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -279,7 +279,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaseunlinkbug")
     public ResponseEntity<BugDTO> releaseUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaseUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -290,7 +290,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/resolve")
     public ResponseEntity<BugDTO> resolve(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.resolve(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -316,7 +316,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/tostory")
     public ResponseEntity<BugDTO> toStory(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.toStory(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -327,7 +327,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/unlinkbug")
     public ResponseEntity<BugDTO> unlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.unlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
