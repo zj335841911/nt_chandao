@@ -352,4 +352,16 @@ export default class ProductServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/products/fetchstorycurproject`,tempData,isloading);
         return res;
     }
+
+    /**
+     * ReturnEdit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async ReturnEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }
