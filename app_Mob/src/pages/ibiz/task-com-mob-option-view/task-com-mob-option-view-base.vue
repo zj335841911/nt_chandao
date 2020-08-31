@@ -415,16 +415,16 @@ export default class TaskComMobOptionViewBase extends Vue {
      * @memberof TaskComMobOptionViewBase
      */
     public quitFun() {
-        if (!localStorage.getItem("firstQuit")) {  // 首次返回时
+        if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
             // 缓存首次返回的时间
-            window.localStorage.setItem("firstQuit", new Date().getTime().toString());
+            window.sessionStorage.setItem("firstQuit", new Date().getTime().toString());
             // 提示再按一次退出
             this.$toast("再按一次退出");
             // 两秒后清除缓存（与提示的持续时间一致）
-            setTimeout(() => {window.localStorage.removeItem("firstQuit")}, 2000);
+            setTimeout(() => {window.sessionStorage.removeItem("firstQuit")}, 2000);
         } else {
             // 获取首次返回时间
-            let firstQuitTime: any = localStorage.getItem("firstQuit");
+            let firstQuitTime: any = sessionStorage.getItem("firstQuit");
             // 如果时间差小于两秒 直接关闭
             if (new Date().getTime() - firstQuitTime < 2000) {
                 this.$viewTool.ThirdPartyClose();
