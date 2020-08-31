@@ -444,7 +444,7 @@ export default class ProductPlanUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.project.views.planaddeditview.title'),
-                placement: 'DRAWER_LEFT',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
