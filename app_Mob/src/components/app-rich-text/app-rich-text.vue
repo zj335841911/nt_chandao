@@ -8,7 +8,6 @@
       :options="editorOption"
     ></quill-editor>
     <ion-toolbar class="quill-editor-button">
-      <div v-html="resloutValue"></div>
       <van-uploader v-show="false" :after-read="afterRead" ref="upload" />
       <ion-button @click="onClickCancel" color="light">{{$t('app.button.cancel')}}</ion-button>
       <ion-button @click="onClickOk">{{$t('app.button.confirm')}}</ion-button>
