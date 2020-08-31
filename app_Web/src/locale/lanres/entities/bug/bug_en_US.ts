@@ -357,7 +357,7 @@ export default {
 			resolution: "解决方案", 
 			resolvedbuild: "解决版本", 
 			buildproject: "解决版本/所属项目", 
-			buildname: "版本名称", 
+			buildname: "", 
 			createbuild: "", 
 			resolveddate: "解决日期", 
 			assignedto: "指派给", 

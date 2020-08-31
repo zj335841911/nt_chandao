@@ -74,14 +74,15 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
-    <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.bug.resolve_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 7, offset: 0 }" :xl="{ span: 7, offset: 0 }">
+    <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.bug.resolve_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box 
     v-model="data.buildname"  
     @enter="onEnter($event)"  
      unit=""  
     :disabled="detailsModel.buildname.disabled" 
     type='text' 
+    placeholder="新版本名称"
     style="">
 </input-box>
 

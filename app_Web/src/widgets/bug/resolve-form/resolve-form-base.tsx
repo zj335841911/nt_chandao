@@ -126,8 +126,8 @@ export class ResolveEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '解决版本/所属项目 值不能为空', trigger: 'blur' },
         ],
         buildname: [
-            { required: true, type: 'string', message: '版本名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '版本名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -187,7 +187,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
 
         buildproject: new FormItemModel({ caption: '解决版本/所属项目', detailType: 'FORMITEM', name: 'buildproject', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        buildname: new FormItemModel({ caption: '版本名称', detailType: 'FORMITEM', name: 'buildname', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        buildname: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'buildname', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         createbuild: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'createbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
