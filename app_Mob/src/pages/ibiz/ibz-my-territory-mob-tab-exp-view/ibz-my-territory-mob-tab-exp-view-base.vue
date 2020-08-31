@@ -14,7 +14,7 @@
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
-                            <ion-icon name="ionic-cafe"></ion-icon>
+                              <ion-icon name="cafe"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">

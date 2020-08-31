@@ -17,7 +17,7 @@
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
-                            <ion-icon name="ionic-bug"></ion-icon>
+                              <ion-icon name="bug"></ion-icon>
                             <ion-badge v-if="false" color="danger">2</ion-badge>
                             Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
