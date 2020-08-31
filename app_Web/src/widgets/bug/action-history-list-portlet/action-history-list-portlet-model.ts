@@ -213,6 +213,15 @@ export default class ActionHistoryListModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'buildproject',
+      },
+      {
+        name: 'createbuild',
+      },
     ]
   }
 

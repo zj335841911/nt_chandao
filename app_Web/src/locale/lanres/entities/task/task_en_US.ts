@@ -224,7 +224,7 @@ export default {
 			grouppanel4: "附件", 
 			druipart1: "", 
 			grouppanel1: "子任务", 
-			group1: "task基本信息", 
+			group1: "任务描述", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 

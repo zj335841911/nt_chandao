@@ -1,4 +1,8 @@
 export default {
+    BugCreateResolve: {
+        "1": "创建",
+        "empty": ""
+    },
     Testresult__result: {
         "n/a": "忽略",
         "pass": "通过",
@@ -781,6 +785,9 @@ export default {
         "normal": "未关闭",
         "closed": "已关闭",
         "empty": ""
+    },
+    CurProductProject: {
+        "empty": "",
     },
     Bug__quickpacket: {
         "All": "所有",

@@ -67,6 +67,9 @@ export default {
     files: "附件",
     mobimage: "移动端图片",
     isfavorites: "是否收藏",
+    buildname: "版本名称",
+    buildproject: "版本项目",
+    createbuild: "创建版本",
   },
 	views: {
 		plansubgridview: {
@@ -334,6 +337,8 @@ export default {
 	},
 	resolve_form: {
 		details: {
+			grouppanel2: "分组面板", 
+			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
 			druipart1: "", 
 			grouppanel6: "历史记录", 
@@ -351,6 +356,9 @@ export default {
 			id: "Bug编号", 
 			resolution: "解决方案", 
 			resolvedbuild: "解决版本", 
+			buildproject: "解决版本/所属项目", 
+			buildname: "版本名称", 
+			createbuild: "", 
 			resolveddate: "解决日期", 
 			assignedto: "指派给", 
 			project: "所属项目", 

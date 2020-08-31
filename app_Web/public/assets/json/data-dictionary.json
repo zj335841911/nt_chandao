@@ -1,5 +1,23 @@
  [
         {
+        "srfkey": "BugCreateResolve",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "创建",
+                "text": "创建",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Testresult__result",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -6473,6 +6491,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "CurProductProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Project",
+        "appdedataset":"FetchCurProduct",
+        "items": []
     }, 
     {
         "srfkey": "Bug__quickpacket",
