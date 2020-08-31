@@ -324,13 +324,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
     protected engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
-                this.opendata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
-            },
             mdctrl: this.$refs.mdctrl,
-            newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
-                this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
-            },
             keyPSDEField: 'projectteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
@@ -482,42 +476,6 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
-    }
-
-
-    /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [contextJO={}]
-     * @param {*} [paramJO={}]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @param {*} [container]
-     * @param {string} [srfParentDeName]
-     * @returns {Promise<any>}
-     * @memberof ProjectTeamMobMDView
-     */
-    public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
-    }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [contextJO={}]
-     * @param {*} [paramJO={}]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @param {*} [container]
-     * @param {string} [srfParentDeName]
-     * @returns {Promise<any>}
-     * @memberof ProjectTeamMobMDView
-     */
-    public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
     }
 
 

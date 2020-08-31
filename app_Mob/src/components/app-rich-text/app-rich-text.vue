@@ -65,7 +65,7 @@ export default class AppRichTextEditor extends Vue {
    * @type {string}
    * @memberof AppRichTextEditor
    */
-  public uploadUrl = Environment.UploadFile;
+  protected uploadUrl :string = "";
 
   /**
    * 下载路径
@@ -74,6 +74,14 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
+
+  /**
+   * 下载参数
+   *
+   * @type {string}
+   * @memberof AppRichTextEditor
+   */
+  public export_params:any = {};
 
   /**
    * 双向绑定值
@@ -90,7 +98,22 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   public mounted() {
-    this.resloutValue = JSON.parse(this._viewparams).value?JSON.parse(this._viewparams).value:"";
+    this.getParms();
+  }
+
+  /**
+   * 获取模态参数
+   *
+   * @type {string}
+   * @memberof AppRichTextEditor
+   */
+  public getParms(){
+    let parm :any= JSON.parse(this._viewparams);
+    if(parm){
+      this.resloutValue = parm.value?parm.value:"";
+      this.uploadUrl = parm.uploadUrl?parm.uploadUrl:"";
+      this.export_params =  parm.export_params?parm.export_params:{};
+    }
   }
 
   /**
@@ -143,6 +166,7 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   protected afterRead(file: any, detail: any): void {
+    alert(this.uploadUrl)
     const params = new FormData();
     params.append("file", file.file, file.file.name);
     const config = {
@@ -171,12 +195,16 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   private dataProcess(file: any): void {
-    let _uploadUrl = `${Environment.BaseUrl}${Environment.UploadFile}`;
-    this.uploadUrl = _uploadUrl;
+    console.log(file);
     let _downloadUrl = `${this.downloadUrl}/${file.id}`;
-    file.isImage = true;
+    if (!Object.is(this.export_params.exportContextStr, '')) {
+      _downloadUrl = `${_downloadUrl}?${this.export_params.exportContextStr}`;
+    }
+    if(!Object.is(this.export_params.exportParamStr, '')){
+      _downloadUrl += `&${this.export_params.exportParamStr}`;
+    }
     file.url = _downloadUrl;
-    this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="">';
+    this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="'+file.filename+'">';
   }
 }
 </script>

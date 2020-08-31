@@ -17,9 +17,11 @@ import todo_zh_CN from '@locale/lanres/todo/todo_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
+import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
+import projectmodule_zh_CN from '@locale/lanres/project-module/project-module_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
 import testtask_zh_CN from '@locale/lanres/test-task/test-task_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/test-suite/test-suite_zh_CN';
@@ -177,9 +179,11 @@ export default {
     story: story_zh_CN,
     ibzmyterritory: ibzmyterritory_zh_CN,
     case: case_zh_CN,
+    testmodule: testmodule_zh_CN,
     productplan: productplan_zh_CN,
     projectstats: projectstats_zh_CN,
     bug: bug_zh_CN,
+    projectmodule: projectmodule_zh_CN,
     productstats: productstats_zh_CN,
     testtask: testtask_zh_CN,
     testsuite: testsuite_zh_CN,

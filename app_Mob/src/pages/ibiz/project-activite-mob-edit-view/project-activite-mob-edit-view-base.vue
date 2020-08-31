@@ -305,10 +305,13 @@ export default class ProjectActiviteMobEditViewBase extends Vue {
      * @memberof ProjectActiviteMobEditView 
      */
     get getToolBarLimit() {
-        let toolBarVisable:boolean = true;
+        let toolBarVisable:boolean = false;
         if(this.righttoolbarModels){
-            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem].visabled === false;
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
             })
         }
         return toolBarVisable;

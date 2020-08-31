@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as dd from 'dingtalk-jsapi';
-
+import {  Util } from '@/ibiz-core/utils';
 /**
  * 钉钉服务
  *
@@ -186,9 +186,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private navBack(){
-        var u = navigator.userAgent;
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-        if(isAndroid){
+        if(Util.isAndroid()){
             document.addEventListener('backbutton', (e:any)=> {
                 e.preventDefault();
                 this.backEvent();

@@ -16,6 +16,20 @@
 
 
     <ion-content>
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_dashboard
             :viewState="viewState"
             viewName="AppPortalView"  
@@ -264,6 +278,19 @@ export default class AppPortalViewBase extends Vue {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof AppPortalViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        setTimeout(() => {
+            $event.srcElement.complete();
+        }, 2000);
     }
 
 

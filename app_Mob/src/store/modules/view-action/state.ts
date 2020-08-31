@@ -388,6 +388,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '5cfddd273247bd1dc4c940fae4671f14',
+                'd7bae89174844115043a363160868b7a',
             ],
         },
         {
@@ -694,6 +695,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'd7bae89174844115043a363160868b7a',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '61b907edfc7822d020b6b2c2246ee8e0',
+                '85742d38f356f400b16652a3f7ae714b',
             ],
         },
         {

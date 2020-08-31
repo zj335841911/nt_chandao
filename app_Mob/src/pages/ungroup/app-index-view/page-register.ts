@@ -13,6 +13,7 @@ export const PageComponents = {
         Vue.component('bug-mob-mdview', () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'));
         Vue.component('product-plan-mob-edit-view', () => import('@pages/ibiz/product-plan-mob-edit-view/product-plan-mob-edit-view.vue'));
         Vue.component('bug-ass-mob-mdview', () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'));
+        Vue.component('build-mob-pickup-mdview', () => import('@pages/ibiz/build-mob-pickup-mdview/build-mob-pickup-mdview.vue'));
         Vue.component('todo-new-mob-edit-view', () => import('@pages/ibiz/todo-new-mob-edit-view/todo-new-mob-edit-view.vue'));
         Vue.component('product-mob-pickup-view', () => import('@pages/ibiz/product-mob-pickup-view/product-mob-pickup-view.vue'));
         Vue.component('ibz-my-territory-mob-tab-exp-view', () => import('@pages/ibiz/ibz-my-territory-mob-tab-exp-view/ibz-my-territory-mob-tab-exp-view.vue'));
@@ -54,6 +55,7 @@ export const PageComponents = {
         Vue.component('project-mob-edit-view', () => import('@pages/ibiz/project-mob-edit-view/project-mob-edit-view.vue'));
         Vue.component('project-activite-mob-edit-view', () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'));
         Vue.component('story-favorite-mob-mdview', () => import('@pages/ibiz/story-favorite-mob-mdview/story-favorite-mob-mdview.vue'));
+        Vue.component('release-new-mob-edit-view', () => import('@pages/zentao/release-new-mob-edit-view/release-new-mob-edit-view.vue'));
         Vue.component('product-test-mob-mdview', () => import('@pages/zentao/product-test-mob-mdview/product-test-mob-mdview.vue'));
         Vue.component('product-mob-mdview', () => import('@pages/ibiz/product-mob-mdview/product-mob-mdview.vue'));
         Vue.component('module-mob-pickup-view', () => import('@pages/ibiz/module-mob-pickup-view/module-mob-pickup-view.vue'));
@@ -66,5 +68,6 @@ export const PageComponents = {
         Vue.component('release-mob-edit-view', () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'));
         Vue.component('ibz-favorites-mob-tab-exp-view', () => import('@pages/ibiz/ibz-favorites-mob-tab-exp-view/ibz-favorites-mob-tab-exp-view.vue'));
         Vue.component('test-suite-mob-edit-view', () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'));
+        Vue.component('build-mob-pickup-view', () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'));
     }
 };

@@ -45,7 +45,8 @@
         
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-            {{$t('productplan.mobmdviewrighttoolbar_toolbar.deuiaction1.caption')}}    
+                <ion-icon name="add"></ion-icon>
+                
             </ion-fab-button>
         
             </ion-fab>
@@ -282,7 +283,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
     * @memberof ProductPlanMobMDView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
 
     };
 
@@ -301,10 +302,13 @@ export default class ProductPlanMobMDViewBase extends Vue {
      * @memberof ProductPlanMobMDView 
      */
     get getToolBarLimit() {
-        let toolBarVisable:boolean = true;
+        let toolBarVisable:boolean = false;
         if(this.righttoolbarModels){
-            toolBarVisable = !Object.keys(this.righttoolbarModels).every((tbitem:any)=>{
-                return this.righttoolbarModels[tbitem].visabled === false;
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
             })
         }
         return toolBarVisable;
