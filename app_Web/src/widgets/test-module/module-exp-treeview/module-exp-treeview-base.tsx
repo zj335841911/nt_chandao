@@ -1212,9 +1212,26 @@ export class ModuleExpTreeBase extends MainControlBase {
      */
     public showContext(data:any,event:any){
         let _this:any = this;
-        this.copyActionModel = this.$util.deepCopy(this.actionModel);
-        this.computeNodeState(data,data.nodeType,data.appEntityName).then((res:any) => {
-           (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+        this.copyActionModel = {};
+        const tags: string[] = data.id.split(';');
+        Object.values(this.actionModel).forEach((item:any) =>{
+            if(Object.is(item.nodeOwner,tags[0])){
+                this.copyActionModel[item.name] = item;
+            }
+        })
+        if(Object.keys(this.copyActionModel).length === 0){
+            return;
+        }
+        this.computeNodeState(data,data.nodeType,data.appEntityName).then((result:any) => {
+            let flag:boolean = false;
+            if(Object.values(result).length>0){
+                flag =Object.values(result).some((item:any) =>{
+                    return item.visabled === true;
+                })
+            }
+            if(flag){
+                (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+            }
         });
     }
 
