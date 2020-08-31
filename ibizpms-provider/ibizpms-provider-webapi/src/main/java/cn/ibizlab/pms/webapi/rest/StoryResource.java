@@ -118,7 +118,7 @@ public class StoryResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/activate")
     public ResponseEntity<StoryDTO> activate(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.activate(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -129,7 +129,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/assignto")
     public ResponseEntity<StoryDTO> assignTo(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.assignTo(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -140,7 +140,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchassignto")
     public ResponseEntity<StoryDTO> batchAssignTo(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchAssignTo(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -151,7 +151,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchchangebranch")
     public ResponseEntity<StoryDTO> batchChangeBranch(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchChangeBranch(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -162,7 +162,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchchangemodule")
     public ResponseEntity<StoryDTO> batchChangeModule(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchChangeModule(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -173,7 +173,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchchangeplan")
     public ResponseEntity<StoryDTO> batchChangePlan(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchChangePlan(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -184,7 +184,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchchangestage")
     public ResponseEntity<StoryDTO> batchChangeStage(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchChangeStage(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -195,7 +195,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchclose")
     public ResponseEntity<StoryDTO> batchClose(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchClose(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -206,7 +206,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchreview")
     public ResponseEntity<StoryDTO> batchReview(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchReview(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -217,7 +217,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/batchunlinkstory")
     public ResponseEntity<StoryDTO> batchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.batchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -228,7 +228,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugtostory")
     public ResponseEntity<StoryDTO> bugToStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.bugToStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -239,7 +239,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/buildbatchunlinkstory")
     public ResponseEntity<StoryDTO> buildBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.buildBatchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -250,7 +250,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/buildlinkstory")
     public ResponseEntity<StoryDTO> buildLinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.buildLinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -261,7 +261,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/buildunlinkstory")
     public ResponseEntity<StoryDTO> buildUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.buildUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -272,7 +272,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/buildunlinkstorys")
     public ResponseEntity<StoryDTO> buildUnlinkStorys(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.buildUnlinkStorys(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -283,7 +283,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/change")
     public ResponseEntity<StoryDTO> change(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.change(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -300,7 +300,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/close")
     public ResponseEntity<StoryDTO> close(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.close(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -311,7 +311,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/getstoryspec")
     public ResponseEntity<StoryDTO> getStorySpec(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.getStorySpec(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -322,7 +322,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/getstoryspecs")
     public ResponseEntity<StoryDTO> getStorySpecs(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.getStorySpecs(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -333,7 +333,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/importplanstories")
     public ResponseEntity<StoryDTO> importPlanStories(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.importPlanStories(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -344,7 +344,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/linkstory")
     public ResponseEntity<StoryDTO> linkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.linkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -355,7 +355,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectbatchunlinkstory")
     public ResponseEntity<StoryDTO> projectBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.projectBatchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -366,7 +366,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectlinkstory")
     public ResponseEntity<StoryDTO> projectLinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.projectLinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -377,7 +377,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectunlinkstory")
     public ResponseEntity<StoryDTO> projectUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.projectUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -388,7 +388,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectunlinkstorys")
     public ResponseEntity<StoryDTO> projectUnlinkStorys(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.projectUnlinkStorys(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -399,7 +399,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/releasebatchunlinkstory")
     public ResponseEntity<StoryDTO> releaseBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.releaseBatchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -410,7 +410,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/releaselinkstory")
     public ResponseEntity<StoryDTO> releaseLinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.releaseLinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -421,7 +421,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/releaseunlinkstory")
     public ResponseEntity<StoryDTO> releaseUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.releaseUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -432,7 +432,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/resetreviewedby")
     public ResponseEntity<StoryDTO> resetReviewedBy(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.resetReviewedBy(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -443,7 +443,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/review")
     public ResponseEntity<StoryDTO> review(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.review(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -469,7 +469,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storyfavorites")
     public ResponseEntity<StoryDTO> storyFavorites(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.storyFavorites(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -480,7 +480,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storynfavorites")
     public ResponseEntity<StoryDTO> storyNFavorites(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.storyNFavorites(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -491,7 +491,7 @@ domain.setId(story_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/unlinkstory")
     public ResponseEntity<StoryDTO> unlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-domain.setId(story_id);
+        domain.setId(story_id);
         domain = storyService.unlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);

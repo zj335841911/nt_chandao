@@ -13,11 +13,25 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">计划</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">BUG</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">
+                            <ion-icon name="ionic-briefcase"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            详情</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            <ion-icon name="ionic-text"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">
+                            <ion-icon name="ionic-reorder"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            计划</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            发布</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            <ion-icon name="ionic-bug"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            BUG</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

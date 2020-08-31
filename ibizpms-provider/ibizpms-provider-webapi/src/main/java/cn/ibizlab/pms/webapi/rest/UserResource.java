@@ -124,7 +124,7 @@ public class UserResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}/getbycommiter")
     public ResponseEntity<UserDTO> getByCommiter(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
-domain.setId(user_id);
+        domain.setId(user_id);
         domain = userService.getByCommiter(domain);
         userdto = userMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(userdto);
@@ -150,7 +150,7 @@ domain.setId(user_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccount")
     public ResponseEntity<UserDTO> syncAccount(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
-domain.setId(user_id);
+        domain.setId(user_id);
         domain = userService.syncAccount(domain);
         userdto = userMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(userdto);

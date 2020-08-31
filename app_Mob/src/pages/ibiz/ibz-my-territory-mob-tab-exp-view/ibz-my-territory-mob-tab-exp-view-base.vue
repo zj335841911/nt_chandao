@@ -13,10 +13,19 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">任务</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">Bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">待办</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">
+                            <ion-icon name="ionic-android"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            任务</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            Bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            待办</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
