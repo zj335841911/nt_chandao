@@ -1,27 +1,2 @@
-
-export default {
-  fields: {
-    join: "",
-    account: "",
-    hours: "",
-    left: "",
-    days: "",
-    id: "",
-    consumed: "",
-    order: "",
-    estimate: "",
-    limited: "",
-    role: "",
-    type: "",
-    total: "",
-    root: "",
-    username: "",
-  },
-	views: {
-		mobmdview: {
-			caption: '项目团队',
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 10, column 110:
+#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)

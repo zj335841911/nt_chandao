@@ -1,27 +1,2 @@
-
-export default {
-  fields: {
-    root: "",
-    grade: "",
-    type: "",
-    name: "",
-    order: "",
-    owner: "",
-    id: "",
-    collector: "",
-    ibizshort: "",
-    path: "",
-    deleted: "",
-    parentname: "",
-    branch: "",
-    parent: "",
-  },
-	views: {
-		mobpickupview: {
-			caption: '模块',
-		},
-		mobpickupmdview: {
-			caption: '模块',
-		},
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 10, column 110:
+#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)

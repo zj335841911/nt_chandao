@@ -1,23 +1,2 @@
-
-export default {
-  fields: {
-    extra: "",
-    objecttype: "",
-    id: "",
-    comment: "",
-    read: "",
-    action: "",
-    date: "",
-    product: "",
-    objectid: "",
-    actor: "",
-    project: "",
-    lastcomment: "",
-    actionmanner: "",
-  },
-	views: {
-		mobmdview9: {
-			caption: '通用',
-		},
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 10, column 110:
+#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)

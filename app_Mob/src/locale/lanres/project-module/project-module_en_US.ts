@@ -1,21 +1,2 @@
-
-export default {
-  fields: {
-    type: "",
-    collector: "",
-    id: "",
-    deleted: "",
-    isleaf: "",
-    path: "",
-    owner: "",
-    ibizshort: "",
-    name: "",
-    grade: "",
-    order: "",
-    branch: "",
-    parent: "",
-    root: "",
-    rootname: "",
-    parentname: "",
-  },
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 10, column 110:
+#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
