@@ -64,6 +64,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0e2762177f3bf384b00d863798bd744c',
+            viewmodule: 'ibiz',
+            viewname: 'ModuleMobPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fd484663c277cb177eecbeb36b7c3e6c',
+            ],
+        },
+        {
             viewtag: '14e4dca3deb3c35a8ccd12baf10c3d9c',
             viewmodule: 'ibiz',
             viewname: 'TodoNewMobEditView',
@@ -693,7 +703,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'cf9c89f414fccc3284362e09ae506d64',
+                '0e2762177f3bf384b00d863798bd744c',
             ],
         },
         {
@@ -795,6 +805,15 @@ export const viewstate: any = {
             refviews: [
                 '1820afe6869fbb5e9b01ce076933efca',
                 '15c27e8cd95482a59fd899c6841e3ec4',
+            ],
+        },
+        {
+            viewtag: 'fd484663c277cb177eecbeb36b7c3e6c',
+            viewmodule: 'ibiz',
+            viewname: 'ModuleMobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
     ],

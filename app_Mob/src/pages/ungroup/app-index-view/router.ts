@@ -1528,6 +1528,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-module-mob-pickup-mdview/product-module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'modules/:module?/mobpickupmdview',
+                    meta: {
+                        caption: 'module.views.mobpickupmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'modules', parameterName: 'module' },
+                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/assmobmdview',
                     meta: {
                         caption: 'story.views.assmobmdview.caption',
@@ -1619,19 +1632,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'),
-                },
-                {
-                    path: 'productlines/:productline?/mobpickupview',
-                    meta: {
-                        caption: 'productline.views.mobpickupview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'productlines', parameterName: 'productline' },
-                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-line-mob-pickup-view/product-line-mob-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmobmdview',
@@ -1869,19 +1869,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
                 },
                 {
-                    path: 'productlines/:productline?/mobpickupmdview',
-                    meta: {
-                        caption: 'productline.views.mobpickupmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'productlines', parameterName: 'productline' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-line-mob-pickup-mdview/product-line-mob-pickup-mdview.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
@@ -2085,6 +2072,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-mob-mdview/product-mob-mdview.vue'),
+                },
+                {
+                    path: 'modules/:module?/mobpickupview',
+                    meta: {
+                        caption: 'module.views.mobpickupview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'modules', parameterName: 'module' },
+                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/module-mob-pickup-view/module-mob-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/closemobeditview',

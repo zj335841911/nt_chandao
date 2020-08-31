@@ -108,8 +108,8 @@
     :isEmptyCaption="false">
         <app-mob-picker
     name='linename'
-    deMajorField='productlinename'
-    deKeyField='productlineid'
+    deMajorField='modulename'
+    deKeyField='moduleid'
     valueitem='line' 
     editortype="" 
     style=""  
@@ -122,9 +122,9 @@
     :itemParam='{ }' 
     :disabled="detailsModel.linename.disabled"
     :service="service"
-    :acParams="{ serviceName: 'productline', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
     :value="data.linename" 
-    :pickupView="{ viewname: 'product-line-mob-pickup-view', title: '产品线移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'productlines', parameterName: 'productline' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    :pickupView="{ viewname: 'module-mob-pickup-view', title: '模块移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-picker>
 

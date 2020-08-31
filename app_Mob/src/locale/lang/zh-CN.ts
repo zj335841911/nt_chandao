@@ -4,6 +4,7 @@ import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
+import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
@@ -163,6 +164,7 @@ export default {
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
     task: task_zh_CN,
+    module: module_zh_CN,
     product: product_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,

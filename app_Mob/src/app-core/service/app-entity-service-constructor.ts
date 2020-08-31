@@ -22,6 +22,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('projectteam', () => import('@/app-core/service/project-team/project-team-service'));
         this.allService.set('build', () => import('@/app-core/service/build/build-service'));
         this.allService.set('task', () => import('@/app-core/service/task/task-service'));
+        this.allService.set('module', () => import('@/app-core/service/module/module-service'));
         this.allService.set('product', () => import('@/app-core/service/product/product-service'));
         this.allService.set('action', () => import('@/app-core/service/action/action-service'));
         this.allService.set('casestep', () => import('@/app-core/service/case-step/case-step-service'));

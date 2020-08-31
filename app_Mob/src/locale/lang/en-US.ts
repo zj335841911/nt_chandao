@@ -4,6 +4,7 @@ import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
+import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
@@ -162,6 +163,7 @@ export default {
     projectteam: projectteam_en_US,
     build: build_en_US,
     task: task_en_US,
+    module: module_en_US,
     product: product_en_US,
     action: action_en_US,
     casestep: casestep_en_US,
