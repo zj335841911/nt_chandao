@@ -299,5 +299,8 @@ export class NewPlanEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('end')) {
             this.data['end'] = this.viewparams['end'];
         }
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'sprint';
+        }
     }
 }
