@@ -1,3 +1,4 @@
+import branch_en_US from '@locale/lanres/branch/branch_en_US';
 import user_en_US from '@locale/lanres/user/user_en_US';
 import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US';
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
@@ -155,6 +156,7 @@ export default {
             5005: 'Data deletion failed'
         }
     },
+    branch: branch_en_US,
     user: user_en_US,
     ibzfavorites: ibzfavorites_en_US,
     projectteam: projectteam_en_US,

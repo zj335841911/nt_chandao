@@ -5,6 +5,7 @@ import './login/login';
 import './upload/upload';
 
 // 实体级接口对象
+import './entity/branchs/branchs';
 import './entity/users/users';
 import './entity/ibz-favoritess/ibz-favoritess';
 import './entity/project-teams/project-teams';

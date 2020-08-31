@@ -1,3 +1,4 @@
+import BranchService from '../service/branch/branch-service';
 /**
  * 代码表--产品平台（动态）
  *
@@ -86,18 +87,62 @@ export default class ProductBranch {
     public queryParamNames:any ={
     }
 
+    /**
+     * 产品的分支和平台信息应用实体服务对象
+     *
+     * @type {BranchService}
+     * @memberof ProductBranch
+     */
+    public branchService: BranchService = new BranchService();
 
+
+    /**
+     * 处理数据
+     *
+     * @public
+     * @param {any[]} items
+     * @returns {any[]}
+     * @memberof ProductBranch
+     */
+    public doItems(items: any[]): any[] {
+        let _items: any[] = [];
+        items.forEach((item: any) => {
+            let itemdata:any = {};
+            Object.assign(itemdata,{id:item.id});
+            Object.assign(itemdata,{value:item.id});
+            Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
+            
+            _items.push(itemdata);
+        });
+        return _items;
+    }
 
     /**
      * 获取数据项
      *
+     * @param {*} context
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof ProductBranch
      */
-    public getItems(data: any={}, isloading?: boolean): Promise<any> {
-        return Promise.reject([]);
+    public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
+        return new Promise((resolve, reject) => {
+            data = this.handleQueryParam(data);
+            const promise: Promise<any> = this.branchService.FetchCurProduct(context, data, isloading);
+            promise.then((response: any) => {
+                if (response && response.status === 200) {
+                    const data =  response.data;
+                    resolve(this.doItems(data));
+                } else {
+                    resolve([]);
+                }
+            }).catch((response: any) => {
+                console.error(response);
+                reject(response);
+            });
+        });
     }
 
     /**

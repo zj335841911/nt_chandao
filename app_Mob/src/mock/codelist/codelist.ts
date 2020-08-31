@@ -2379,8 +2379,8 @@ const datas: Array<any> = [
         "srfkey": "ProductBranch",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
         "items": []
     },
     {
