@@ -257,7 +257,7 @@ export class UserExpTreeBase extends MainControlBase {
      * @type any
      * @memberof UserExpBase
      */
-    public copyActionModel:any;
+    public copyActionModel: any = {};
 
     /**
      * 选中值变化
@@ -744,11 +744,11 @@ export class UserExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.company_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         
                         维护部门
                     </dropdown-item>
@@ -815,7 +815,7 @@ export class UserExpTreeBase extends MainControlBase {
             if(service['Get'] && service['Get'] instanceof Function){
                 let tempContext:any = this.$util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
-                let targetData = await this.appEntityService.Get(tempContext,{}, false);
+                let targetData = await service.Get(tempContext,{}, false);
                 let uiservice:any = await this.appUIService.getService(appEntityName);
                 let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;

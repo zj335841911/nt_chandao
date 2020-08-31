@@ -695,7 +695,7 @@ export class ModuleExpTreeBase extends MainControlBase {
      * @type any
      * @memberof ModuleExpBase
      */
-    public copyActionModel:any;
+    public copyActionModel: any = {};
 
     /**
      * 选中值变化
@@ -1214,7 +1214,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.zt_product_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1234,7 +1234,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1254,11 +1254,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module2_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1278,7 +1278,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1298,11 +1298,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1322,11 +1322,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1346,11 +1346,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.projectmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1370,11 +1370,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1441,7 +1441,7 @@ export class ModuleExpTreeBase extends MainControlBase {
             if(service['Get'] && service['Get'] instanceof Function){
                 let tempContext:any = this.$util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
-                let targetData = await this.appEntityService.Get(tempContext,{}, false);
+                let targetData = await service.Get(tempContext,{}, false);
                 let uiservice:any = await this.appUIService.getService(appEntityName);
                 let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
