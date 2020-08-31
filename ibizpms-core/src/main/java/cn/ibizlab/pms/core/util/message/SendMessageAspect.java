@@ -58,7 +58,8 @@ public class SendMessageAspect {
             }
             return returnedValue;
         } catch (Throwable throwable) {
-            return null;
+            log.error("message aop errror:",throwable);
+            throw throwable;
         }
     }
 
