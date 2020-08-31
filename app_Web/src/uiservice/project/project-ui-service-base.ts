@@ -89,28 +89,28 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'storyeditview9',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects',component:'project-story-medit-view9'});
+        this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects',component:'project-task-tree-exp-view'});
+        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects',component:'project-test-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects',component:'project-edit-view-putoff'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects',component:'project-main-my-grid-view'});
+        this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects',component:'project-burn-down-chart-view'});
+        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects',component:'project-list-exp-view'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects',component:'project-pickup-grid-view'});
+        this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects',component:'project-edit-view-activate'});
+        this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects',component:'project-cur-product-grid-view'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects',component:'project-pickup-view'});
+        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects',component:'project-main-view-edit'});
+        this.allViewMap.set(':',{viewname:'storyeditview9',srfappde:'projects',component:'project-story-edit-view9'});
+        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects',component:'project-left-sidebar-list-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects',component:'project-grid-view'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects',component:'project-main-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects',component:'project-edit-view-close'});
+        this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects',component:'project-grid-view9-un-closed'});
+        this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects',component:'project-edit-view-suspend'});
+        this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects',component:'project-dashboard-info-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects',component:'project-edit-view'});
+        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects',component:'project-main-tab-exp-view'});
     }
 
     /**

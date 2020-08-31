@@ -89,12 +89,12 @@ export default class UserUIServiceBase extends UIService {
      * @memberof  UserUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'users'});
-        this.allViewMap.set(':',{viewname:'infoeditview',srfappde:'users'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'users'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'users'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'users'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'users'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'users',component:'user-pickup-view'});
+        this.allViewMap.set(':',{viewname:'infoeditview',srfappde:'users',component:'user-infoedit-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'users',component:'user-edit-view'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'users',component:'user-pickup-grid-view'});
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'users',component:'user-main-grid-view'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'users',component:'user-tree-exp-view'});
     }
 
     /**

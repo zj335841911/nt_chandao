@@ -89,7 +89,7 @@ export default class SubTaskUIServiceBase extends UIService {
      * @memberof  SubTaskUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'subtasknewview',srfappde:'subtasks'});
+        this.allViewMap.set(':',{viewname:'subtasknewview',srfappde:'subtasks',component:'task-sub-task-new-view'});
     }
 
     /**

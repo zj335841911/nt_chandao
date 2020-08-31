@@ -111,6 +111,22 @@ export class IBizPMSBase extends Vue {
   protected viewparams: any = {};
 
   /**
+   * 是否支持应用切换
+   *
+   * @type {boolean}
+   * @memberof IBizPMSBase
+   */
+  public isEnableAppSwitch: boolean = false;
+
+  /**
+   * 抽屉状态
+   *
+   * @type {boolean}
+   * @memberof IBizPMSBase
+   */
+  public contextMenuDragVisiable: boolean = false;
+
+  /**
    * 注册底部项
    *
    * @memberof IBizPMSBase
@@ -308,6 +324,7 @@ export class IBizPMSBase extends Vue {
           <app-header>
             <template slot="header_left">
               <div class="title">
+                { this.isEnableAppSwitch ? <span class="menuicon" on-click={() => this.contextMenuDragVisiable = !this.contextMenuDragVisiable}><icon type="md-menu" />&nbsp;</span> : null}
                 iBiz软件生产管理
               </div>
             </template>
@@ -318,13 +335,14 @@ export class IBizPMSBase extends Vue {
             </template>
           </app-header>
           <view_appmenu ref='appmenu'/>
+          {this.isEnableAppSwitch ? <context-menu-drag contextMenuDragVisiable={this.contextMenuDragVisiable}></context-menu-drag> : null}
         </template>
         <app-content>
           {this.left_exp.items ? <template slot="content_left">
             {leftContent}
           </template> : null}
           {styleMode === 'DEFAULT' ? <tab-page-exp ref="tabExp"></tab-page-exp> : null}
-          <div class="view-warp">
+          <div class="view-warp" on-click={() => this.contextMenuDragVisiable = false}>
             <app-keep-alive routerList={this.appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
             </app-keep-alive>

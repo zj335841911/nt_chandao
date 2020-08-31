@@ -89,16 +89,16 @@ export default class ActionUIServiceBase extends UIService {
      * @memberof  ActionUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'myalltrendslistview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'historylistview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'projecttrendslistview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'projecttrendslistview9',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'producttrendslistview9',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'addcommenthistorylistview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'alltrendslistview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'producttrendslistview',srfappde:'actions'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'actions'});
+        this.allViewMap.set(':',{viewname:'myalltrendslistview',srfappde:'actions',component:'action-my-all-trends-list-view'});
+        this.allViewMap.set(':',{viewname:'historylistview',srfappde:'actions',component:'action-history-list-view'});
+        this.allViewMap.set(':',{viewname:'projecttrendslistview',srfappde:'actions',component:'action-project-trends-list-view'});
+        this.allViewMap.set(':',{viewname:'projecttrendslistview9',srfappde:'actions',component:'action-project-trends-list-view9'});
+        this.allViewMap.set(':',{viewname:'producttrendslistview9',srfappde:'actions',component:'action-product-trends-list-view9'});
+        this.allViewMap.set(':',{viewname:'addcommenthistorylistview',srfappde:'actions',component:'action-add-comment-history-list-view'});
+        this.allViewMap.set(':',{viewname:'optionview',srfappde:'actions',component:'action-option-view'});
+        this.allViewMap.set(':',{viewname:'alltrendslistview',srfappde:'actions',component:'action-all-trends-list-view'});
+        this.allViewMap.set(':',{viewname:'producttrendslistview',srfappde:'actions',component:'action-product-trends-list-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'actions',component:'action-edit-view'});
     }
 
     /**

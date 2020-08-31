@@ -274,6 +274,7 @@ export default class ModuleExpService extends ControlService {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -353,6 +354,7 @@ export default class ModuleExpService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"branch" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -503,6 +505,7 @@ export default class ModuleExpService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"testmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -637,6 +640,7 @@ export default class ModuleExpService extends ControlService {
             Object.assign(treeNode, {navigateParams: {n_parent_eq:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -745,6 +749,7 @@ export default class ModuleExpService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"testmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -879,6 +884,7 @@ export default class ModuleExpService extends ControlService {
             Object.assign(treeNode, {navigateParams: {n_branch_noteq:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -970,6 +976,7 @@ export default class ModuleExpService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"testmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1226,7 +1233,7 @@ export default class ModuleExpService extends ControlService {
             }
 		}else{
 			// 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
-			if(context[(curNavData.value).toLowerCase()]){
+			if(context[(curNavData.value).toLowerCase()] != null){
 				Object.defineProperty(tempData, item.toLowerCase(), {
 					value: context[(curNavData.value).toLowerCase()],
 					writable : true,
@@ -1234,7 +1241,7 @@ export default class ModuleExpService extends ControlService {
 					configurable : true
 				});
 			}else{
-				if(viewparams[(curNavData.value).toLowerCase()]){
+				if(viewparams[(curNavData.value).toLowerCase()] != null){
 					Object.defineProperty(tempData, item.toLowerCase(), {
 						value: viewparams[(curNavData.value).toLowerCase()],
 						writable : true,

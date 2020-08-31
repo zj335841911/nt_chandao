@@ -89,11 +89,11 @@ export default class BuildUIServiceBase extends UIService {
      * @memberof  BuildUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'editformeditview',srfappde:'builds'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'builds'});
-        this.allViewMap.set(':',{viewname:'mainview',srfappde:'builds'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'builds'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'builds'});
+        this.allViewMap.set(':',{viewname:'editformeditview',srfappde:'builds',component:'build-edit-form-edit-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'builds',component:'build-main-grid-view'});
+        this.allViewMap.set(':',{viewname:'mainview',srfappde:'builds',component:'build-main-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'builds',component:'build-edit-view'});
+        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'builds',component:'build-main-tab-exp-view'});
     }
 
     /**

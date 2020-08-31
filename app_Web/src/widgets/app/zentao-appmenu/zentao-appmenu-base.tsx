@@ -24,36 +24,28 @@ export class ZentaoBase extends Vue {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {
-                case 'Auto8': 
-                    this.clickAuto8(item); break;
-                case 'Auto5': 
-                    this.clickAuto5(item); break;
-                case 'Auto2': 
-                    this.clickAuto2(item); break;
-                case '_5': 
-                    this.click_5(item); break;
-                case 'Auto6': 
-                    this.clickAuto6(item); break;
-                case '_4': 
-                    this.click_4(item); break;
-                case 'Auto10': 
-                    this.clickAuto10(item); break;
-                case 'Auto9': 
-                    this.clickAuto9(item); break;
                 case 'Auto11': 
                     this.clickAuto11(item); break;
+                case 'Auto5': 
+                    this.clickAuto5(item); break;
+                case 'Auto8': 
+                    this.clickAuto8(item); break;
                 case '_2': 
                     this.click_2(item); break;
                 case 'Auto15': 
                     this.clickAuto15(item); break;
+                case 'Auto2': 
+                    this.clickAuto2(item); break;
                 case 'Auto19': 
                     this.clickAuto19(item); break;
+                case 'Auto6': 
+                    this.clickAuto6(item); break;
                 case 'Auto1': 
                     this.clickAuto1(item); break;
-                case '_6': 
-                    this.click_6(item); break;
-                case '_3': 
-                    this.click_3(item); break;
+                case 'Auto10': 
+                    this.clickAuto10(item); break;
+                case 'Auto9': 
+                    this.clickAuto9(item); break;
                 default:
                     judge = false;
                     console.warn('未指定应用功能');
@@ -65,18 +57,18 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * iBiz软件生产管理
+     * 测试边栏
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public clickAuto8(item: any = {}) {
+    public clickAuto11(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'products', parameterName: 'product' },
-            { pathName: 'htmlview', parameterName: 'htmlview' },
+            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -111,154 +103,18 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * 左边栏产品列表视图
+     * iBiz软件生产管理
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public clickAuto2(item: any = {}) {
+    public clickAuto8(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'products', parameterName: 'product' },
-            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * todo主数据视图（链接）
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public click_5(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'todos', parameterName: 'todo' },
-            { pathName: 'dashboardview_link', parameterName: 'dashboardview_link' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * 打开项目主页
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto6(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'projectportalview', parameterName: 'projectportalview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * task主数据视图（链接）
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public click_4(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * 我的地盘
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto10(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-            { pathName: 'tabexpview', parameterName: 'tabexpview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * 打开测试主页
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto9(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'testportalview', parameterName: 'testportalview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * 测试边栏
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto11(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+            { pathName: 'htmlview', parameterName: 'htmlview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -316,6 +172,29 @@ export class ZentaoBase extends Vue {
     }
     
     /**
+     * 左边栏产品列表视图
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto2(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
      * 用户管理
      *
      * @param {*} [item={}]
@@ -328,6 +207,28 @@ export class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'users', parameterName: 'user' },
             { pathName: 'treeexpview', parameterName: 'treeexpview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * 打开项目主页
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto6(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projectportalview', parameterName: 'projectportalview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -361,18 +262,18 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * story主数据视图（链接）
+     * 我的地盘
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_6(item: any = {}) {
+    public clickAuto10(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'mainview_link', parameterName: 'mainview_link' },
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'tabexpview', parameterName: 'tabexpview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -384,18 +285,17 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * bug主数据视图（链接）
+     * 打开测试主页
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_3(item: any = {}) {
+    public clickAuto9(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+            { pathName: 'testportalview', parameterName: 'testportalview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

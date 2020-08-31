@@ -89,9 +89,9 @@ export default class ProductLifeUIServiceBase extends UIService {
      * @memberof  ProductLifeUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'roadmaplistview',srfappde:'productlives'});
-        this.allViewMap.set(':',{viewname:'roadmaplistview9',srfappde:'productlives'});
-        this.allViewMap.set(':',{viewname:'roadmapslistview9',srfappde:'productlives'});
+        this.allViewMap.set(':',{viewname:'roadmaplistview',srfappde:'productlives',component:'product-life-road-map-list-view'});
+        this.allViewMap.set(':',{viewname:'roadmaplistview9',srfappde:'productlives',component:'product-life-road-map-list-view9'});
+        this.allViewMap.set(':',{viewname:'roadmapslistview9',srfappde:'productlives',component:'product-life-road-map-slist-view9'});
     }
 
     /**

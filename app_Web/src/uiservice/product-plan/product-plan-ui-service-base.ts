@@ -89,11 +89,11 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'productplans'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans'});
+        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans',component:'product-plan-main-tab-exp'});
+        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans',component:'product-plan-main-edit-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans',component:'product-plan-grid-view'});
+        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'productplans',component:'product-plan-project-grid-view9'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans',component:'product-plan-edit-view'});
     }
 
     /**

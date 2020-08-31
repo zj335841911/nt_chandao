@@ -89,36 +89,36 @@ export default class TaskUIServiceBase extends UIService {
      * @memberof  TaskUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'assigntaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'tasks'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maindashboardview_link',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'closetaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'tasktypeganttview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'workhoursview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'kanbanview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'wheditview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'myfavoritegridview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'activationtaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'gridview9_project',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'workinfoeditview9',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'canceltaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'opentaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'pausetaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'donetaskview',srfappde:'tasks'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'maindetailview9',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'forwardview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'assigntaskview',srfappde:'tasks',component:'task-assign-task-view'});
+        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'tasks',component:'task-main-edit-view'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'tasks',component:'task-main-my-grid-view'});
+        this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks',component:'task-main-grid-view9-child'});
+        this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks',component:'task-main-info-view9'});
+        this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'tasks',component:'task-todo-edit-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks',component:'task-grid-view'});
+        this.allViewMap.set(':',{viewname:'maindashboardview_link',srfappde:'tasks',component:'task-main-dashboard-view-link'});
+        this.allViewMap.set(':',{viewname:'closetaskview',srfappde:'tasks',component:'task-close-task-view'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks',component:'task-main-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'tasks',component:'task-grid-view9-story-related'});
+        this.allViewMap.set(':',{viewname:'tasktypeganttview',srfappde:'tasks',component:'task-task-type-gantt-view'});
+        this.allViewMap.set(':',{viewname:'workhoursview',srfappde:'tasks',component:'task-work-hours-view'});
+        this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks',component:'task-pivot-table-view'});
+        this.allViewMap.set(':',{viewname:'kanbanview',srfappde:'tasks',component:'task-kanban-view'});
+        this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks',component:'task-grid-view9-assigned-to-me'});
+        this.allViewMap.set(':',{viewname:'wheditview',srfappde:'tasks',component:'task-whedit-view'});
+        this.allViewMap.set(':',{viewname:'myfavoritegridview',srfappde:'tasks',component:'task-my-favorite-grid-view'});
+        this.allViewMap.set(':',{viewname:'activationtaskview',srfappde:'tasks',component:'task-activation-task-view'});
+        this.allViewMap.set(':',{viewname:'gridview9_project',srfappde:'tasks',component:'task-grid-view9-project'});
+        this.allViewMap.set(':',{viewname:'workinfoeditview9',srfappde:'tasks',component:'task-work-info-edit-view9'});
+        this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'tasks',component:'task-main-grid-view-by-module'});
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'tasks',component:'task-main-grid-view'});
+        this.allViewMap.set(':',{viewname:'canceltaskview',srfappde:'tasks',component:'task-cancel-task-view'});
+        this.allViewMap.set(':',{viewname:'opentaskview',srfappde:'tasks',component:'task-open-task-view'});
+        this.allViewMap.set(':',{viewname:'pausetaskview',srfappde:'tasks',component:'task-pause-task-view'});
+        this.allViewMap.set(':',{viewname:'donetaskview',srfappde:'tasks',component:'task-done-task-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'tasks',component:'task-edit-view'});
+        this.allViewMap.set(':',{viewname:'maindetailview9',srfappde:'tasks',component:'task-main-detail-view9'});
+        this.allViewMap.set(':',{viewname:'forwardview',srfappde:'tasks',component:'task-forward-view'});
     }
 
     /**

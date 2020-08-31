@@ -89,7 +89,7 @@ export default class IbzFavoritesUIServiceBase extends UIService {
      * @memberof  IbzFavoritesUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzfavorites'});
+        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzfavorites',component:'ibz-favorites-tab-exp-view'});
     }
 
     /**

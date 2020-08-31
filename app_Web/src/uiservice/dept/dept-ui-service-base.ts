@@ -89,11 +89,11 @@ export default class DeptUIServiceBase extends UIService {
      * @memberof  DeptUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'depts'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'depts'});
-        this.allViewMap.set(':',{viewname:'infoeditview',srfappde:'depts'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'depts'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'depts'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'depts',component:'dept-pickup-view'});
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'depts',component:'dept-main-grid-view'});
+        this.allViewMap.set(':',{viewname:'infoeditview',srfappde:'depts',component:'dept-info-edit-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'depts',component:'dept-edit-view'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'depts',component:'dept-pickup-grid-view'});
     }
 
     /**

@@ -308,6 +308,7 @@ export default class TaskModuleExpService extends ControlService {
             Object.assign(treeNode, {navigateParams: {module:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -401,6 +402,7 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"branch" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -546,6 +548,7 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, {navigateParams: {module:"0"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"projectproduct" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -708,6 +711,7 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, {navigateParams: {module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"projectmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -839,6 +843,7 @@ export default class TaskModuleExpService extends ControlService {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -931,6 +936,7 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, {navigateParams: {module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1098,6 +1104,7 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, {navigateParams: {module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"projectmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1254,6 +1261,7 @@ export default class TaskModuleExpService extends ControlService {
                         Object.assign(treeNode, {navigateParams: {module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1510,7 +1518,7 @@ export default class TaskModuleExpService extends ControlService {
             }
 		}else{
 			// 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
-			if(context[(curNavData.value).toLowerCase()]){
+			if(context[(curNavData.value).toLowerCase()] != null){
 				Object.defineProperty(tempData, item.toLowerCase(), {
 					value: context[(curNavData.value).toLowerCase()],
 					writable : true,
@@ -1518,7 +1526,7 @@ export default class TaskModuleExpService extends ControlService {
 					configurable : true
 				});
 			}else{
-				if(viewparams[(curNavData.value).toLowerCase()]){
+				if(viewparams[(curNavData.value).toLowerCase()] != null){
 					Object.defineProperty(tempData, item.toLowerCase(), {
 						value: viewparams[(curNavData.value).toLowerCase()],
 						writable : true,
