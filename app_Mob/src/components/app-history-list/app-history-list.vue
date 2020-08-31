@@ -3,7 +3,7 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer">{{item.info}}</div>
+            <div class="footer" v-for="i in item.items" :key="i">{{i}}</div>
       </div>
     </div>
     <div class="button">
@@ -96,10 +96,23 @@ export default class APPHistoryList extends Vue {
     public handler(){
       if (this.items != undefined) {
         this.items.forEach((v:any)=>{
+          let file:string = "";
+          let method:string = "";
+          if(v.objecttype){
+
+          }
           if(v.actions){
             let info:any = this.getCodeList(this.codeListAAA.actions.tag,'STATIC',v.actions);
               v.method = info.text;
-              v.info =info.text
+              method = info.text;
+              
+          }
+          if(v.item){
+            v.items = [];
+            v.item.forEach((i:any) => {
+              file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
+              v.items.push(method + file + '旧值为'+'"'+ i.old +'"'+ '新值为' +'"'+ i.ibiznew+'"');
+            });
           }
         })
       }
