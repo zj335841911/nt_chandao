@@ -1,4 +1,4 @@
-import { Environment } from './../environments/environment';
+import { Environment } from '@/environments/environment';
 
 /**
  * 添加代码表

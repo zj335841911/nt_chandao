@@ -204,6 +204,7 @@ export default class AppRichTextEditor extends Vue {
     }
     file.url = _downloadUrl;
     this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="'+file.filename+'">';
+    console.log("结果",this.resloutValue);
   }
 }
 </script>
