@@ -1,51 +1,30 @@
-export default {
-  fields: {
-    fails: "",
-    address: "",
-    password: "",
-    weixin: "",
-    dingding: "",
-    account: "",
-    ranzhi: "",
-    slack: "",
-    realname: "",
-    locked: "",
-    scorelevel: "",
-    avatar: "",
-    zipcode: "",
-    dept: "",
-    commiter: "",
-    deleted: "",
-    last: "",
-    skype: "",
-    score: "",
-    whatsapp: "",
-    visits: "",
-    mobile: "",
-    clientlang: "",
-    join: "",
-    ip: "",
-    email: "",
-    nickname: "",
-    phone: "",
-    birthday: "",
-    id: "",
-    qq: "",
-    gender: "",
-    role: "",
-    clientstatus: "",
-    mytasks: "",
-    mybugs: "",
-    myebugs: "",
-    mystorys: "",
-    products: "",
-    eprojects: "",
-    projects: "",
-    myetasks: "",
-  },
-	views: {
-		mobtabexpview: {
-			caption: '我的地盘',
-		},
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
+Encountered "obj", but was expecting one of:
+    ".."
+    <DOT_DOT_LESS>
+    "..*"
+    ">"
+    <EMPTY_DIRECTIVE_END>
+    "."
+    "["
+    "("
+    "?"
+    "!"
+    <TERMINATING_EXCLAM>
+    "??"
+    "+"
+    "-"
+    "*"
+    "/"
+    "%"
+    "!="
+    "="
+    "=="
+    ">="
+    <ESCAPED_GTE>
+    ">"
+    <ESCAPED_GT>
+    <LESS_THAN_EQUALS>
+    <LESS_THAN>
+    <AND>
+    <OR>

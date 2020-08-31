@@ -1,58 +1,30 @@
-export default {
-  fields: {
-    id: "",
-    deleted: "",
-    storycnt: "",
-    productplancnt: "",
-    releasecnt: "",
-    waitstorycnt: "",
-    plannedstorycnt: "",
-    developingstorycnt: "",
-    testingstorycnt: "",
-    releasedstorycnt: "",
-    unendproductplancnt: "",
-    resprojectcnt: "",
-    undoneresprojectcnt: "",
-    normalreleasecnt: "",
-    activestorycnt: "",
-    activebugcnt: "",
-    name: "",
-    assigntomebugcnt: "",
-    notclosedbugcnt: "",
-    bugcnt: "",
-    unconfirmbugcnt: "",
-    yesterdayclosedbugcnt: "",
-    yesterdayconfirmbugcnt: "",
-    yesterdayresolvedbugcnt: "",
-    postponedprojectcnt: "",
-    currproject: "",
-    status: "",
-    code: "",
-    type: "",
-    order1: "",
-    istop: "",
-  },
-	views: {
-		mobmdview: {
-			caption: '产品',
-		},
-		mobtabexpview: {
-			caption: '产品详情',
-		},
-		testmobmdview: {
-			caption: '产品',
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '新建',
-			tip: '新建',
-		},
-	},
-	testmobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '新建',
-			tip: '新建',
-		},
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
+Encountered "obj", but was expecting one of:
+    ".."
+    <DOT_DOT_LESS>
+    "..*"
+    ">"
+    <EMPTY_DIRECTIVE_END>
+    "."
+    "["
+    "("
+    "?"
+    "!"
+    <TERMINATING_EXCLAM>
+    "??"
+    "+"
+    "-"
+    "*"
+    "/"
+    "%"
+    "!="
+    "="
+    "=="
+    ">="
+    <ESCAPED_GTE>
+    ">"
+    <ESCAPED_GT>
+    <LESS_THAN_EQUALS>
+    <LESS_THAN>
+    <AND>
+    <OR>

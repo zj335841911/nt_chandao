@@ -1,93 +1,30 @@
-export default {
-  fields: {
-    lastediteddate: "",
-    scripteddate: "",
-    color: "",
-    path: "",
-    openeddate: "",
-    lastrunresult: "",
-    linkcase: "",
-    order: "",
-    howrun: "",
-    version: "",
-    scriptedby: "",
-    openedby: "",
-    type: "",
-    status: "",
-    auto: "",
-    frequency: "",
-    title: "",
-    lasteditedby: "",
-    reviewedby: "",
-    deleted: "",
-    revieweddate: "",
-    pri: "",
-    stage: "",
-    scriptlocation: "",
-    lastrundate: "",
-    keywords: "",
-    scriptstatus: "",
-    frame: "",
-    substatus: "",
-    id: "",
-    precondition: "",
-    lastrunner: "",
-    fromcaseversion: "",
-    storyversion: "",
-    fromcaseid: "",
-    branch: "",
-    frombug: "",
-    story: "",
-    product: "",
-    lib: "",
-    module: "",
-    modulename: "",
-    storyname: "",
-    productname: "",
-    casesteps: "",
-    tobugcnt: "",
-    resultcnt: "",
-    stepcnt: "",
-    comment: "",
-    resultfalicnt: "",
-    status1: "",
-    assignedto: "",
-    task: "",
-    libname: "",
-  },
-	views: {
-		mobmdview: {
-			caption: '测试用例',
-		},
-		mobeditview: {
-			caption: '测试用例',
-		},
-	},
-	mobmain_form: {
-		details: {
-			druipart1: '', 
-			group1: '测试用例基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '用例编号', 
-			srfmajortext: '用例标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			title: '用例标题', 
-			type: '用例类型', 
-			stage: '适用阶段', 
-			precondition: '前置条件', 
-			id: '用例编号', 
-			version: '用例版本', 
-			keywords: '关键词', 
-		},
-		uiactions: {
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
+Encountered "obj", but was expecting one of:
+    ".."
+    <DOT_DOT_LESS>
+    "..*"
+    ">"
+    <EMPTY_DIRECTIVE_END>
+    "."
+    "["
+    "("
+    "?"
+    "!"
+    <TERMINATING_EXCLAM>
+    "??"
+    "+"
+    "-"
+    "*"
+    "/"
+    "%"
+    "!="
+    "="
+    "=="
+    ">="
+    <ESCAPED_GTE>
+    ">"
+    <ESCAPED_GT>
+    <LESS_THAN_EQUALS>
+    <LESS_THAN>
+    <AND>
+    <OR>

@@ -1,60 +1,30 @@
-export default {
-  fields: {
-    name: "",
-    builder: "",
-    desc: "",
-    id: "",
-    deleted: "",
-    scmpath: "",
-    filepath: "",
-    stories: "",
-    bugs: "",
-    date: "",
-    product: "",
-    branch: "",
-    project: "",
-    productname: "",
-    ids: "",
-    files: "",
-  },
-	views: {
-		mobpickupmdview: {
-			caption: '版本',
-		},
-		mobmdview: {
-			caption: '版本',
-		},
-		mobeditview: {
-			caption: '版本',
-		},
-		mobpickupview: {
-			caption: '版本',
-		},
-		mobmpickupview: {
-			caption: '版本',
-		},
-	},
-	mobmain_form: {
-		details: {
-			group1: '版本基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'id', 
-			srfmajortext: '名称编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '名称编号', 
-			date: '打包日期', 
-			builder: '构建者', 
-			id: 'id', 
-		},
-		uiactions: {
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
-};
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 48, column 18:
+Encountered "obj", but was expecting one of:
+    ".."
+    <DOT_DOT_LESS>
+    "..*"
+    ">"
+    <EMPTY_DIRECTIVE_END>
+    "."
+    "["
+    "("
+    "?"
+    "!"
+    <TERMINATING_EXCLAM>
+    "??"
+    "+"
+    "-"
+    "*"
+    "/"
+    "%"
+    "!="
+    "="
+    "=="
+    ">="
+    <ESCAPED_GTE>
+    ">"
+    <ESCAPED_GT>
+    <LESS_THAN_EQUALS>
+    <LESS_THAN>
+    <AND>
+    <OR>
