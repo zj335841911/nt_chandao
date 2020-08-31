@@ -15,6 +15,24 @@ export class AppIndexViewModel {
      */
     private items: any[] = [
         {
+	id: 'E66AC904-6EB8-44A1-B59E-B1BE817CC8B3',
+	name: 'menuitem5',
+	text: '收藏',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '收藏',
+	expanded: false,
+	separator: false,
+	hidden: false,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: 'heart-circle',
+	icon: '',
+	textcls: '',
+	appfunctag: '_2',
+	resourcetag: '',
+},
+        {
 	id: '53549F95-1F2F-44E3-8943-0789AC42088D',
 	name: 'menuitem1',
 	text: '产品',
@@ -146,6 +164,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
+            ],
+        },
+        {
+            appfunctag: '_2',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'ibz-favorites-mob-tab-exp-view', 
+            codename: 'ibzfavoritesmobtabexpview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/ibzfavorites/:ibzfavorites?/mobtabexpview/:mobtabexpview?',
+            parameters: [
+                { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
+                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
             ],
         },
 	];

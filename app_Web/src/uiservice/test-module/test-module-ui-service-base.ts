@@ -89,12 +89,14 @@ export default class TestModuleUIServiceBase extends UIService {
      * @memberof  TestModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testmodules'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testmodules'});
-        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'testmodules'});
-        this.allViewMap.set(':',{viewname:'gridviewmain',srfappde:'testmodules'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'testmodules'});
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'testmodules'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testmodules',component:'test-module-edit-view'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'testmodules',component:'test-module-pickup-grid-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testmodules',component:'test-module-grid-view'});
+        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'testmodules',component:'test-module-grid-view-branch'});
+        this.allViewMap.set(':',{viewname:'gridviewmain',srfappde:'testmodules',component:'test-module-grid-view-main'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'testmodules',component:'test-module-tree-exp-view'});
+        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'testmodules',component:'test-module-quick-cfg-view'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'testmodules',component:'test-module-pickup-view'});
     }
 
     /**

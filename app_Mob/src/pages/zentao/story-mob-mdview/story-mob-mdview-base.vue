@@ -39,6 +39,19 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
+                <div v-show="!showCheack" class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+                <ion-icon name="add"></ion-icon>
+                
+            </ion-fab-button>
+        
+            </ion-fab>
+            </div>
+        </div>
         
     </ion-footer>
 </ion-page>
@@ -270,7 +283,36 @@ export default class StoryMobMDViewBase extends Vue {
     * @memberof StoryMobMDView
     */
     public righttoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
 
     
 
@@ -484,6 +526,51 @@ export default class StoryMobMDViewBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryMobMDViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobMDViewBase
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_MobCreate(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 打开新建数据视图
@@ -582,17 +669,43 @@ export default class StoryMobMDViewBase extends Vue {
 
 
     /**
+     * 第三方关闭视图
+     *
+     * @param {any[]} args
+     * @memberof StoryMobMDViewBase
+     */
+    public quitFun() {
+        if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
+            // 缓存首次返回的时间
+            window.sessionStorage.setItem("firstQuit", new Date().getTime().toString());
+            // 提示再按一次退出
+            this.$toast("再按一次退出");
+            // 两秒后清除缓存（与提示的持续时间一致）
+            setTimeout(() => {window.sessionStorage.removeItem("firstQuit")}, 2000);
+        } else {
+            // 获取首次返回时间
+            let firstQuitTime: any = sessionStorage.getItem("firstQuit");
+            // 如果时间差小于两秒 直接关闭
+            if (new Date().getTime() - firstQuitTime < 2000) {
+                this.$viewTool.ThirdPartyClose();
+            }
+        }
+    }
+    
+    /**
      * 关闭视图
      *
      * @param {any[]} args
      * @memberof StoryMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.quitFun();
+            return;
+        }
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
-            this.$viewTool.ThirdPartyClose();
         }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }

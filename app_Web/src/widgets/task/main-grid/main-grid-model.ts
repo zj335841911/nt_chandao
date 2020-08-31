@@ -65,15 +65,15 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'id',
@@ -114,6 +114,11 @@ export default class MainModel {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'deadline',

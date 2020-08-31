@@ -89,11 +89,11 @@ export default class IbzMyTerritoryUIServiceBase extends UIService {
      * @memberof  IbzMyTerritoryUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzmyterritories'});
-        this.allViewMap.set(':',{viewname:'mywork',srfappde:'ibzmyterritories'});
-        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzmyterritories'});
-        this.allViewMap.set(':',{viewname:'listview',srfappde:'ibzmyterritories'});
-        this.allViewMap.set(':',{viewname:'listview9',srfappde:'ibzmyterritories'});
+        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'mywork',srfappde:'ibzmyterritories',component:'ibz-my-territory-my-work'});
+        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzmyterritories',component:'ibz-my-territory-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'listview',srfappde:'ibzmyterritories',component:'ibz-my-territory-list-view'});
+        this.allViewMap.set(':',{viewname:'listview9',srfappde:'ibzmyterritories',component:'ibz-my-territory-list-view9'});
     }
 
     /**

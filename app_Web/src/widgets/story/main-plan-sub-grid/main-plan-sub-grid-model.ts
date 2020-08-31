@@ -126,6 +126,11 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

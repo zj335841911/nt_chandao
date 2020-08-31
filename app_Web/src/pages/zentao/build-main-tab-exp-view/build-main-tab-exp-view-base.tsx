@@ -77,7 +77,8 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
         'srfparentkey': { isRawValue: false, value: 'build' },
-        'project': { isRawValue: false, value: 'project' }
+        'project': { isRawValue: false, value: 'project' },
+        'objecttype': { isRawValue: true, value: 'build' }
     };
 
     /**

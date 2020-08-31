@@ -174,6 +174,9 @@ export default class AssignToMeModel {
       {
         name: 'ibztaskestimates',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

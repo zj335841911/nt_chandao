@@ -60,6 +60,9 @@ export class MobModel {
       {
         name: 'ids',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

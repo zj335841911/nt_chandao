@@ -119,7 +119,7 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activate")
     public ResponseEntity<BugDTO> activate(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.activate(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -130,7 +130,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/assignto")
     public ResponseEntity<BugDTO> assignTo(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.assignTo(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -141,8 +141,30 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/batchunlinkbug")
     public ResponseEntity<BugDTO> batchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.batchUnlinkBug(domain);
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "Bug收藏", tags = {"Bug" },  notes = "Bug收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavorites(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.bugFavorites(domain);
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "取消收藏", tags = {"Bug" },  notes = "取消收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavorites(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.bugNFavorites(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -152,7 +174,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildbatchunlinkbug")
     public ResponseEntity<BugDTO> buildBatchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.buildBatchUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -163,7 +185,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildlinkbug")
     public ResponseEntity<BugDTO> buildLinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.buildLinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -174,7 +196,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildunlinkbug")
     public ResponseEntity<BugDTO> buildUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.buildUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -191,7 +213,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/close")
     public ResponseEntity<BugDTO> close(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.close(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -202,7 +224,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/confirm")
     public ResponseEntity<BugDTO> confirm(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.confirm(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -213,7 +235,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/linkbug")
     public ResponseEntity<BugDTO> linkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.linkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -224,7 +246,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaasebatchunlinkbug")
     public ResponseEntity<BugDTO> releaaseBatchUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaaseBatchUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -235,7 +257,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbybug")
     public ResponseEntity<BugDTO> releaseLinkBugbyBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaseLinkBugbyBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -246,7 +268,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbyleftbug")
     public ResponseEntity<BugDTO> releaseLinkBugbyLeftBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaseLinkBugbyLeftBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -257,7 +279,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaseunlinkbug")
     public ResponseEntity<BugDTO> releaseUnlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.releaseUnlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -268,7 +290,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/resolve")
     public ResponseEntity<BugDTO> resolve(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.resolve(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -294,7 +316,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/tostory")
     public ResponseEntity<BugDTO> toStory(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.toStory(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -305,7 +327,7 @@ domain.setId(bug_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/unlinkbug")
     public ResponseEntity<BugDTO> unlinkBug(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
-domain.setId(bug_id);
+        domain.setId(bug_id);
         domain = bugService.unlinkBug(domain);
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
@@ -392,6 +414,27 @@ domain.setId(bug_id);
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchDefault(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "获取我的收藏", tags = {"Bug" } ,notes = "获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchMyFavorites(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "查询我的收藏", tags = {"Bug" } ,notes = "查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchMyFavorites(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -609,6 +652,28 @@ domain.setId(bug_id);
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
         domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProduct(product_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProduct(product_id);
+        domain = bugService.bugNFavorites(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -875,6 +940,29 @@ domain.setId(bug_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品获取我的收藏", tags = {"Bug" } ,notes = "根据产品获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品查询我的收藏", tags = {"Bug" } ,notes = "根据产品查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreleasebugs")
@@ -1099,6 +1187,28 @@ domain.setId(bug_id);
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
         domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.bugNFavorites(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -1365,6 +1475,29 @@ domain.setId(bug_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据需求获取我的收藏", tags = {"Bug" } ,notes = "根据需求获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByStory(@PathVariable("story_id") BigInteger story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据需求查询我的收藏", tags = {"Bug" } ,notes = "根据需求查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByStory(@PathVariable("story_id") BigInteger story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据需求获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchreleasebugs")
@@ -1589,6 +1722,28 @@ domain.setId(bug_id);
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
         domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProject(project_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProject(project_id);
+        domain = bugService.bugNFavorites(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -1855,6 +2010,29 @@ domain.setId(bug_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据项目获取我的收藏", tags = {"Bug" } ,notes = "根据项目获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据项目查询我的收藏", tags = {"Bug" } ,notes = "根据项目查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据项目获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchreleasebugs")
@@ -2079,6 +2257,28 @@ domain.setId(bug_id);
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
         domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.bugNFavorites(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -2342,6 +2542,29 @@ domain.setId(bug_id);
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品需求获取我的收藏", tags = {"Bug" } ,notes = "根据产品需求获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品需求查询我的收藏", tags = {"Bug" } ,notes = "根据产品需求查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

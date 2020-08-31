@@ -429,4 +429,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     ibztaskestimates?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    isfavorites?: any;
 }

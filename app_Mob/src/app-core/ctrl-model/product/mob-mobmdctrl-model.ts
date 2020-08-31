@@ -18,6 +18,9 @@ export class MobModel {
 				name: 'name',
 			},
 			{
+				name: 'istop',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

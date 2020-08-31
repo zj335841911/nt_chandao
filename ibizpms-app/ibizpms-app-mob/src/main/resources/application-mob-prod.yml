@@ -7,8 +7,16 @@ logging:
 #zuul网关路由设置
 zuul:
   routes:
+    zt_branch:
+      path: /branches/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_user:
       path: /users/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_favorites:
+      path: /ibzfavorites/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_projectteam:
@@ -23,6 +31,10 @@ zuul:
       path: /tasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_module:
+      path: /modules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_product:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -35,12 +47,20 @@ zuul:
       path: /casesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_productline:
+      path: /productlines/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_release:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_taskteam:
       path: /taskteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_productmodule:
+      path: /productmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_project:
@@ -63,6 +83,10 @@ zuul:
       path: /cases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_testmodule:
+      path: /testmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_productplan:
       path: /productplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -73,6 +97,10 @@ zuul:
       stripPrefix: false
     zt_bug:
       path: /bugs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_projectmodule:
+      path: /projectmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productstats:

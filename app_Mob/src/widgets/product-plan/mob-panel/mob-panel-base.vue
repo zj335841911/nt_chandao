@@ -1,7 +1,7 @@
 <template>
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
-        <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container mob_list_card">
+        <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.title.visible"  :lg="12" :size="12" style="" class="app-layoutpanel-field">

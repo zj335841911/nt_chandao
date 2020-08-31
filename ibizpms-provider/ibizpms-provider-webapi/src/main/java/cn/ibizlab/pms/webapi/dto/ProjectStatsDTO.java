@@ -225,6 +225,22 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("status")
     private String status;
 
+    /**
+     * 属性 [ORDER1]
+     *
+     */
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
+
+    /**
+     * 属性 [ISTOP]
+     *
+     */
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
+
 
     /**
      * 设置 [NAME]

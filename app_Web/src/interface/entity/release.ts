@@ -133,4 +133,12 @@ export interface Release {
      * @memberof Release
      */
     productname?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    files?: any;
 }

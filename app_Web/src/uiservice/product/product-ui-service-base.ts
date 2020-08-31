@@ -53,7 +53,7 @@ export default class ProductUIServiceBase extends UIService {
      * 
      * @memberof  ProductUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status'];
+    public mainStateFields:Array<any> = ['status','istop'];
 
     /**
      * 主状态集合Map
@@ -89,31 +89,31 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'expeditview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'htmlview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'testdashboardview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'testgridview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'chartview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'gridview_unclosed',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'storytreeexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'casetreeexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'testleftsidebarlistview',srfappde:'products'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'products'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'dashboardinfomainview9',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'testlistexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'mytesttabexpview',srfappde:'products'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'bugtreeexpview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'products',component:'product-test-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'expeditview',srfappde:'products',component:'product-exp-edit-view'});
+        this.allViewMap.set(':',{viewname:'htmlview',srfappde:'products',component:'product-html-view'});
+        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'products',component:'product-project-grid-view9'});
+        this.allViewMap.set(':',{viewname:'testdashboardview',srfappde:'products',component:'product-test-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'testgridview',srfappde:'products',component:'product-test-grid-view'});
+        this.allViewMap.set(':',{viewname:'chartview',srfappde:'products',component:'product-chart-view'});
+        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'products',component:'product-edit-view-close'});
+        this.allViewMap.set(':',{viewname:'gridview_unclosed',srfappde:'products',component:'product-grid-view-un-closed'});
+        this.allViewMap.set(':',{viewname:'storytreeexpview',srfappde:'products',component:'product-story-tree-exp-view'});
+        this.allViewMap.set(':',{viewname:'casetreeexpview',srfappde:'products',component:'product-case-tree-exp-view'});
+        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'products',component:'product-main-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'testleftsidebarlistview',srfappde:'products',component:'product-test-left-sidebar-list-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'products',component:'product-grid-view'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'products',component:'product-pickup-view'});
+        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'products',component:'product-left-sidebar-list-view'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'products',component:'product-pickup-grid-view'});
+        this.allViewMap.set(':',{viewname:'dashboardinfomainview9',srfappde:'products',component:'product-dashboard-info-main-view9'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'products',component:'product-main-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'products',component:'product-main-view-edit'});
+        this.allViewMap.set(':',{viewname:'testlistexpview',srfappde:'products',component:'product-test-list-exp-view'});
+        this.allViewMap.set(':',{viewname:'mytesttabexpview',srfappde:'products',component:'product-my-test-tab-exp-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'products',component:'product-edit-view'});
+        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'products',component:'product-list-exp-view'});
+        this.allViewMap.set(':',{viewname:'bugtreeexpview',srfappde:'products',component:'product-bug-tree-exp-view'});
     }
 
     /**
@@ -122,8 +122,10 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('closed','closed');
-        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('closed__0','closed__0');
+        this.allDeMainStateMap.set('closed__1','closed__1');
+        this.allDeMainStateMap.set('normal__0','normal__0');
+        this.allDeMainStateMap.set('normal__1','normal__1');
     }
 
     /**
@@ -132,8 +134,10 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROD_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('normal',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('normal__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('normal__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,}));
     }
 
     /**
@@ -201,6 +205,43 @@ export default class ProductUIServiceBase extends UIService {
             });
         };
         backend();
+    }
+
+    /**
+     * 退出
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Product_ReturnEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { product: '%product%' });
+        Object.assign(params, { id: '%product%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
     }
 
     /**
@@ -672,8 +713,8 @@ export default class ProductUIServiceBase extends UIService {
                 } else {
                     _args = [...args];
                 }
-                if (_this.Exit && _this.Exit instanceof Function) {
-                    _this.Exit(_args,context, params, $event, xData,actionContext);
+                if (this.Product_ReturnEdit && this.Product_ReturnEdit instanceof Function) {
+                    this.Product_ReturnEdit(_args,context, params, $event, xData,actionContext);
                 }
                 return response;
             }).catch((response: any) => {

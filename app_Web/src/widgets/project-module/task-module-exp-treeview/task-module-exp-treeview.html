@@ -22,7 +22,7 @@
         :filter-node-method="filterNode"
         >
             <template slot-scope="{ node, data }">
-                <context-menu :contextMenuStyle="{width: '100%'}" :data="node" :renderContent="renderContextMenu.bind(_self)">
+                <context-menu :ref='data.id'  :isBlocked="true" :contextMenuStyle="{width: '100%'}" :data="node" :renderContent="($event) => renderContextMenu($event)" @showContext="showContext(data,$event)">
                 <tooltip transfer style="width: 100%;" max-width="2000" placement="right">
                     <div class="tree-node" @dblclick="doDefaultAction(node)">
                         <span class="icon">

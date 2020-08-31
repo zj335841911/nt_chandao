@@ -152,6 +152,13 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "ids")
     @JsonProperty("ids")
     private String ids;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 

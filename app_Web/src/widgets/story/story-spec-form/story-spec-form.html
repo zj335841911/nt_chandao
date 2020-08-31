@@ -20,7 +20,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='panelitem-20px' :caption="$t('entities.story.storyspec_form.details.title')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"

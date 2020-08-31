@@ -503,6 +503,18 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * ReturnEdit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ReturnEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * UpdateCycle接口方法
      *
      * @param {*} [context={}]

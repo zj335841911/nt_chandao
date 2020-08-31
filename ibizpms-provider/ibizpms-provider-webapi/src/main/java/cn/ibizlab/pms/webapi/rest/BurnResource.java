@@ -124,7 +124,7 @@ public class BurnResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/burns/{burn_id}/computeburn")
     public ResponseEntity<BurnDTO> computeBurn(@PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
-domain.setId(burn_id);
+        domain.setId(burn_id);
         domain = burnService.computeBurn(domain);
         burndto = burnMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(burndto);

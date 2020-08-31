@@ -432,17 +432,43 @@ export default class ProductMobChartViewBase extends Vue {
 
 
     /**
+     * 第三方关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProductMobChartViewBase
+     */
+    public quitFun() {
+        if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
+            // 缓存首次返回的时间
+            window.sessionStorage.setItem("firstQuit", new Date().getTime().toString());
+            // 提示再按一次退出
+            this.$toast("再按一次退出");
+            // 两秒后清除缓存（与提示的持续时间一致）
+            setTimeout(() => {window.sessionStorage.removeItem("firstQuit")}, 2000);
+        } else {
+            // 获取首次返回时间
+            let firstQuitTime: any = sessionStorage.getItem("firstQuit");
+            // 如果时间差小于两秒 直接关闭
+            if (new Date().getTime() - firstQuitTime < 2000) {
+                this.$viewTool.ThirdPartyClose();
+            }
+        }
+    }
+    
+    /**
      * 关闭视图
      *
      * @param {any[]} args
      * @memberof ProductMobChartViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.quitFun();
+            return;
+        }
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
-            this.$viewTool.ThirdPartyClose();
         }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }

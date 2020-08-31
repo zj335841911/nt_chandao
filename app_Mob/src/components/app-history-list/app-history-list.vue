@@ -3,7 +3,7 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer">{{item.info}}</div>
+            <div class="footer" v-for="i in item.items" :key="i">{{i}}</div>
       </div>
     </div>
     <div class="button">
@@ -35,7 +35,7 @@ export default class APPHistoryList extends Vue {
      * @type {Array}
      * @memberof APPHistoryList
      */
-    @Prop() public items!: Array<any>;
+    @Prop() public items?: Array<any>;
 
     /**
      * 传入数据itemNameDetail
@@ -64,6 +64,11 @@ export default class APPHistoryList extends Vue {
      */
     @Watch('items',{immediate: true, deep: true})
     itemsChange(){
+      if (this.items!=undefined && this.items.length !== 0) {
+        this.text = '查看更多记录';
+      } else {
+        this.text = '暂无更多记录';
+      }
       this.handler();
       this.setHeight();
     }
@@ -89,14 +94,29 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     public handler(){
-      this.items.forEach((v:any)=>{
-        if(v.actions){
-          let info:any = this.getCodeList(this.codeListAAA.actions.tag,'STATIC',v.actions);
-            v.method = info.text;
-            v.info = info.text;
-        }
-      })
-    }    
+      if (this.items != undefined) {
+        this.items.forEach((v:any)=>{
+          let file:string = "";
+          let method:string = "";
+          if(v.objecttype){
+
+          }
+          if(v.actions){
+            let info:any = this.getCodeList(this.codeListAAA.actions.tag,'STATIC',v.actions);
+              v.method = info.text;
+              method = info.text;
+              
+          }
+          if(v.item){
+            v.items = [];
+            v.item.forEach((i:any) => {
+              file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
+              v.items.push(method + file + '旧值为'+'"'+ i.old +'"'+ '新值为' +'"'+ i.ibiznew+'"');
+            });
+          }
+        })
+      }
+    }     
 
     /**
      * 按钮文本
@@ -167,13 +187,18 @@ export default class APPHistoryList extends Vue {
           let ite:any =  document.querySelectorAll('.oneitem');
           this.startHeig = 0;
           this.endHeig = 0;
-          for(let i = 0; i <= this.num; i++){
-            this.startHeig += ite[i].offsetHeight;
-          }
-          for(let i = 0; i < ite.length; i++){
-            this.endHeig += ite[i].offsetHeight + 20;
-          }
+            for(let i = 0; i <= this.num; i++){
+              if (ite[i] != undefined) {
+                this.startHeig += ite[i].offsetHeight;
+              }
+            }
+            for(let i = 0; i < ite.length; i++){
+              if (ite[i] != undefined) {              
+              this.endHeig += ite[i].offsetHeight + 20;
+              }
+            }  
           ele.style.height = this.isShow?this.endHeig+'px':  + this.startHeig+'px';
+
     }
 
     /**
@@ -193,11 +218,14 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     public setHeight(){
+
       let ele:any =  document.querySelector('.onecontent');
       let ite:any =  this.$refs.oneitem;
       if (ite !== undefined) {
         for(let i:any = 0; i <= this.num; i++){
-          this.startHeig += ite[i].offsetHeight;
+          if (ite[i] !== undefined) {
+            this.startHeig += ite[i].offsetHeight;
+          }
         }
       }
       if(ele && ele.style){

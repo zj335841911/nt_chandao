@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.service.impl.TodoServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -34,6 +35,7 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Todo activate(Todo et) {
         return super.activate(et);
     }
@@ -44,6 +46,7 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Todo assignTo(Todo et) {
         return super.assignTo(et);
     }
@@ -64,11 +67,14 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Todo finish(Todo et) {
         return super.finish(et);
     }
 
     @Override
+    @Transactional
+//    @SendMessage
     public boolean create(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -86,6 +92,8 @@ public class TodoExService extends TodoServiceImpl {
     }
 
     @Override
+    @Transactional
+    @SendMessage
     public boolean update(Todo et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();

@@ -324,13 +324,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
     protected engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
-                this.opendata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
-            },
             mdctrl: this.$refs.mdctrl,
-            newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
-                this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
-            },
             keyPSDEField: 'projectteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
@@ -486,41 +480,29 @@ export default class ProjectTeamMobMDViewBase extends Vue {
 
 
     /**
-     * 打开新建数据视图
+     * 第三方关闭视图
      *
      * @param {any[]} args
-     * @param {*} [contextJO={}]
-     * @param {*} [paramJO={}]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @param {*} [container]
-     * @param {string} [srfParentDeName]
-     * @returns {Promise<any>}
-     * @memberof ProjectTeamMobMDView
+     * @memberof ProjectTeamMobMDViewBase
      */
-    public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+    public quitFun() {
+        if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
+            // 缓存首次返回的时间
+            window.sessionStorage.setItem("firstQuit", new Date().getTime().toString());
+            // 提示再按一次退出
+            this.$toast("再按一次退出");
+            // 两秒后清除缓存（与提示的持续时间一致）
+            setTimeout(() => {window.sessionStorage.removeItem("firstQuit")}, 2000);
+        } else {
+            // 获取首次返回时间
+            let firstQuitTime: any = sessionStorage.getItem("firstQuit");
+            // 如果时间差小于两秒 直接关闭
+            if (new Date().getTime() - firstQuitTime < 2000) {
+                this.$viewTool.ThirdPartyClose();
+            }
+        }
     }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [contextJO={}]
-     * @param {*} [paramJO={}]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @param {*} [container]
-     * @param {string} [srfParentDeName]
-     * @returns {Promise<any>}
-     * @memberof ProjectTeamMobMDView
-     */
-    public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
-    }
-
-
+    
     /**
      * 关闭视图
      *
@@ -528,11 +510,13 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * @memberof ProjectTeamMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.quitFun();
+            return;
+        }
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
-            this.$viewTool.ThirdPartyClose();
         }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }

@@ -89,10 +89,10 @@ export default class ProductStatsUIServiceBase extends UIService {
      * @memberof  ProductStatsUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'allgridview',srfappde:'productstats'});
-        this.allViewMap.set(':',{viewname:'testeditview9',srfappde:'productstats'});
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'productstats'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'productstats'});
+        this.allViewMap.set(':',{viewname:'allgridview',srfappde:'productstats',component:'product-stats-allgrid-view'});
+        this.allViewMap.set(':',{viewname:'testeditview9',srfappde:'productstats',component:'product-stats-test-edit-view9'});
+        this.allViewMap.set(':',{viewname:'editview9',srfappde:'productstats',component:'product-stats-edit-view9'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'productstats',component:'product-stats-grid-view9'});
     }
 
     /**

@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -47,9 +48,12 @@ public interface ITaskService extends IService<Task>{
     boolean save(Task et) ;
     void saveBatch(List<Task> list) ;
     Task start(Task et) ;
+    Task taskFavorites(Task et) ;
+    Task taskNFavorites(Task et) ;
     Page<Task> searchByModule(TaskSearchContext context) ;
     Page<Task> searchDefault(TaskSearchContext context) ;
     Page<Task> searchDefaultRow(TaskSearchContext context) ;
+    Page<Task> searchMyFavorites(TaskSearchContext context) ;
     Page<Task> searchProjectTASK(TaskSearchContext context) ;
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;

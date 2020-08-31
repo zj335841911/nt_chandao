@@ -97,7 +97,6 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         estimate: null,
         spec: null,
         verify: null,
-        files: null,
         mailto: null,
         keywords: null,
         id: null,
@@ -183,8 +182,6 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -213,6 +210,53 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'neednotreview')) {
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof Main_NewModeEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
+            let ret = false;
+            const _neednotreview = this.data.neednotreview;
+            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
+
+
+
+
+
+
+
+
+
+
     }
 
     /**

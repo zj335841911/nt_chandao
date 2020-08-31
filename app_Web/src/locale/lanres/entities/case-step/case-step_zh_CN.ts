@@ -10,6 +10,7 @@ export default {
     reals: "实际情况",
     steps: "测试结果",
     files: "附件",
+    runid: "执行编号",
   },
 	views: {
 		gridview9: {

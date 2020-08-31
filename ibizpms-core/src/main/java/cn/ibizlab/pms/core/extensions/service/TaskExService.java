@@ -1,6 +1,7 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
@@ -37,6 +38,7 @@ public class TaskExService extends TaskServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Task activate(Task et) {
         return super.activate(et);
     }
@@ -47,6 +49,7 @@ public class TaskExService extends TaskServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Task assignTo(Task et) {
         return super.assignTo(et);
     }
@@ -97,6 +100,7 @@ public class TaskExService extends TaskServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Task finish(Task et) {
         return super.finish(et);
     }
@@ -157,12 +161,14 @@ public class TaskExService extends TaskServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Task start(Task et) {
         return super.start(et);
     }
 
     @Override
     @Transactional
+//    @SendMessage
     public boolean create(Task et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -196,6 +202,7 @@ public class TaskExService extends TaskServiceImpl {
 
     @Override
     @Transactional
+    @SendMessage
     public boolean update(Task et) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -234,7 +241,9 @@ public class TaskExService extends TaskServiceImpl {
     public Page<Task> searchByModule(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
-            task.set("items", this.selectByParent(task.getId()));
+            TaskSearchContext taskSearchContext = new TaskSearchContext();
+            taskSearchContext.setN_parent_eq(task.getId());
+            task.set("items", this.searchDefault(taskSearchContext).getContent());
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
@@ -246,8 +255,9 @@ public class TaskExService extends TaskServiceImpl {
     public Page<Task> searchProjectTASK(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTASK(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
-
-            task.set("items", this.selectByParent(task.getId()));
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setN_parent_eq(task.getId());
+            task.set("items", this.searchDefault(context1).getContent());
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }

@@ -327,6 +327,25 @@ export default class ZentaoModel {
         	resourcetag: '',
         }
         ,
+                {
+        	id: '040DDDF0-C6D9-4250-832D-0435289C137D',
+        	name: 'menuitem13',
+        	text: '隐藏菜单项',
+        	type: 'MENUITEM',
+        	counterid: '',
+        	tooltip: '隐藏菜单项',
+        	expanded: false,
+        	separator: false,
+        	hidden: true,
+        	hidesidebar: false,
+        	opendefault: false,
+        	iconcls: '',
+        	icon: '',
+        	textcls: '',
+        	appfunctag: '',
+        	resourcetag: '',
+        }
+        ,
     ];
 
 	/**

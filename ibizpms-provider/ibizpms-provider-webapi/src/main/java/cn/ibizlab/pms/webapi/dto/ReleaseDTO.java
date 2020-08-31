@@ -153,6 +153,14 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @JsonProperty("productname")
     private String productname;
 
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+
 
     /**
      * 设置 [STORIES]

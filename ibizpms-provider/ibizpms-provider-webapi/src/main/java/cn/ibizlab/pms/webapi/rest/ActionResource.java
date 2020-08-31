@@ -124,7 +124,7 @@ public class ActionResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/comment")
     public ResponseEntity<ActionDTO> comment(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
-domain.setId(action_id);
+        domain.setId(action_id);
         domain = actionService.comment(domain);
         actiondto = actionMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(actiondto);
@@ -135,7 +135,7 @@ domain.setId(action_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/editcomment")
     public ResponseEntity<ActionDTO> editComment(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
-domain.setId(action_id);
+        domain.setId(action_id);
         domain = actionService.editComment(domain);
         actiondto = actionMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(actiondto);

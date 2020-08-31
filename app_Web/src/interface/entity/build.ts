@@ -125,4 +125,12 @@ export interface Build {
      * @memberof Build
      */
     ids?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    files?: any;
 }

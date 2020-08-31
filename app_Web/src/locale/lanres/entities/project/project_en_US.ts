@@ -77,6 +77,10 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
+		planaddeditview: {
+			caption: "项目",
+      		title: "项目编辑视图（计划添加）",
+		},
 		burndownchartview: {
 			caption: "项目",
       		title: "燃尽图",
@@ -291,6 +295,39 @@ export default {
 		uiactions: {
 		},
 	},
+	newplan_form: {
+		details: {
+			grouppanel2: "分组面板", 
+			grouppanel1: "分组面板", 
+			group1: "project基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "项目名称", 
+			code: "项目代号", 
+			begin: "开始时间", 
+			end: "至", 
+			period: "", 
+			days: "可用工作日", 
+			team: "团队名称", 
+			type: "项目类型", 
+			srfarray: "关联数据数组", 
+			products: "关联产品", 
+			branchs: "关联产品平台集合", 
+			plans: "关联计划", 
+			formitemex2: "", 
+			desc: "项目描述", 
+			acl: "访问控制", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
 	newform_form: {
 		details: {
 			grouppanel2: "分组面板", 
@@ -411,6 +448,12 @@ export default {
 		},
 	},
 	mainview_edittoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	planaddeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

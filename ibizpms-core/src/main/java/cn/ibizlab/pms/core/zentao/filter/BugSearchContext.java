@@ -337,6 +337,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().like("branchname", n_branchname_like);
         }
     }
+	private String n_buildproject_eq;//[版本项目]
+	public void setN_buildproject_eq(String n_buildproject_eq) {
+        this.n_buildproject_eq = n_buildproject_eq;
+        if(!ObjectUtils.isEmpty(this.n_buildproject_eq)){
+            this.getSearchCond().eq("buildproject", n_buildproject_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

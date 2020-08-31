@@ -76,6 +76,21 @@ export default class ResolveModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'buildproject',
+        prop: 'buildproject',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'buildname',
+        prop: 'buildname',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'createbuild',
+        prop: 'createbuild',
+        dataType: 'INT',
+      },
+      {
         name: 'resolveddate',
         prop: 'resolveddate',
         dataType: 'DATETIME',

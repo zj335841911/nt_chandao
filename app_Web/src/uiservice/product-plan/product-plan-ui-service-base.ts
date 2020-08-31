@@ -89,11 +89,11 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'productplans'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans'});
+        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans',component:'product-plan-main-tab-exp'});
+        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans',component:'product-plan-main-edit-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans',component:'product-plan-grid-view'});
+        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'productplans',component:'product-plan-project-grid-view9'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans',component:'product-plan-edit-view'});
     }
 
     /**
@@ -380,6 +380,70 @@ export default class ProductPlanUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.productplan.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 添加项目
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductPlan_AddProject(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PLANID:"%id%",END:"%end%",PRODUCT:"%product%",BEGIN:"%begin%",BRANCH:"%branch%"});
+        Object.assign(params,{product:"%product%",planid:"%id%",branch:"%branch%",end:"%end%",begin:"%begin%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productplan: '%productplan%' });
+        Object.assign(params, { id: '%productplan%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'project-plan-add-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.project.views.planaddeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

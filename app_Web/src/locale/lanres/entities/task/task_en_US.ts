@@ -54,6 +54,7 @@ export default {
     taskteams: "项目团队成员",
     modulename1: "所属模块",
     ibztaskestimates: "工时",
+    isfavorites: "是否收藏",
   },
 	views: {
 		assigntaskview: {
@@ -83,6 +84,10 @@ export default {
 		gridview: {
 			caption: "任务",
       		title: "任务表格视图",
+		},
+		maindashboardview_link: {
+			caption: "任务",
+      		title: "任务主数据看板视图",
 		},
 		closetaskview: {
 			caption: "关闭任务",
@@ -119,6 +124,10 @@ export default {
 		wheditview: {
 			caption: "工时",
       		title: "工时",
+		},
+		myfavoritegridview: {
+			caption: "任务",
+      		title: "task表格视图",
 		},
 		activationtaskview: {
 			caption: "激活任务",
@@ -215,7 +224,7 @@ export default {
 			grouppanel4: "附件", 
 			druipart1: "", 
 			grouppanel1: "子任务", 
-			group1: "task基本信息", 
+			group1: "任务描述", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 
@@ -227,8 +236,9 @@ export default {
 			srfsourcekey: "", 
 			parent: "父任务", 
 			story: "相关需求", 
+			id: "", 
+			name: "", 
 			desc: "任务描述", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -469,7 +479,6 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			name: "任务名称", 
 			projectname: "所属项目", 
 			modulename1: "所属模块", 
 			storyname: "相关需求", 
@@ -588,6 +597,8 @@ export default {
         task_donetask: "完成",
         task_mainedit: "编辑",
         task_newsubtask: "子任务",
+        task_taskfavorites: "收藏",
+        task_tasknfavorites: "取消收藏",
 		},
 	},
 	pivottable_grid: {
@@ -617,6 +628,33 @@ export default {
 			projectname: "所属项目",
 		},
 		uiactions: {
+		},
+	},
+	myfavoritemain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        task_assigntask: "指派",
+        task_starttask: "开始",
+        task_closetask: "关闭",
+        task_donetask: "完成",
+        task_mainedit: "编辑",
+        task_newsubtask: "子任务",
+        task_taskfavorites: "收藏",
+        task_tasknfavorites: "取消收藏",
 		},
 	},
 	projectrelated_grid: {
@@ -698,6 +736,16 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	myfavoritegridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	todoeditviewtoolbar_toolbar: {

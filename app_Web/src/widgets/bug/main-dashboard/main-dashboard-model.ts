@@ -210,6 +210,18 @@ export default class MainModel {
       {
         name: 'mobimage',
       },
+      {
+        name: 'isfavorites',
+      },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'buildproject',
+      },
+      {
+        name: 'createbuild',
+      },
     ]
   }
 

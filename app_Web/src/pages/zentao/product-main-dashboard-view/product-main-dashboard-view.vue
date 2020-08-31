@@ -18,5 +18,15 @@ import view_dashboard from '@widgets/product/main-dashboard/main-dashboard.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductMainDashboardView extends ProductMainDashboardViewBase { }
+export default class ProductMainDashboardView extends ProductMainDashboardViewBase {
+        /**
+     * 关闭
+     *
+     * @param {*} $event
+     * @memberof ProjectMainDashboardViewBase
+     */
+    public closeView($event: any) {
+        this.$emit('closeview', $event)
+    }
+}
 </script>

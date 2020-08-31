@@ -89,8 +89,8 @@ export default class ProjectProductUIServiceBase extends UIService {
      * @memberof  ProjectProductUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'planlistview9',srfappde:'projectproducts'});
-        this.allViewMap.set(':',{viewname:'listview9',srfappde:'projectproducts'});
+        this.allViewMap.set(':',{viewname:'planlistview9',srfappde:'projectproducts',component:'project-product-plan-list-view9'});
+        this.allViewMap.set(':',{viewname:'listview9',srfappde:'projectproducts',component:'project-product-list-view9'});
     }
 
     /**

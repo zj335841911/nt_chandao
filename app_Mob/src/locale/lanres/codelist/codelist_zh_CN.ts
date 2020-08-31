@@ -1,4 +1,8 @@
 export default {
+    Date_disable: {
+        'on': '待定',
+        empty: '',
+    },
     Product__status: {
         'normal': '正常',
         'closed': '结束',
@@ -197,6 +201,22 @@ export default {
         'others': '其他',
         empty: '',
     },
+    Product__acl: {
+        'open': '默认设置(有产品视图权限，即可访问)',
+        'private': '私有产品(相关负责人和项目团队成员才能访问)',
+        'custom': '自定义白名单(团队成员和白名单的成员可以访问)',
+        empty: '',
+    },
+    Zt__delta: {
+        '7': '一星期',
+        '14': '两星期',
+        '31': '一个月',
+        '62': '两个月',
+        '93': '三个月',
+        '186': '半年',
+        '365': '一年',
+        empty: '按时间段',
+    },
     TestCaseStatusGrid: {
         'wait': '未开始',
         'normal': '正常',
@@ -304,6 +324,9 @@ export default {
         'terminate': '停止维护',
         empty: '',
     },
+    CurProductPlan: {
+        empty: '',
+    },
     Type: {
         'custom': '自定义',
         'bug': 'Bug',
@@ -372,6 +395,9 @@ export default {
     UserRealName: {
         empty: '',
     },
+    ProductBranch: {
+        empty: '',
+    },
     CurProductBuild: {
         empty: '',
     },
@@ -379,6 +405,10 @@ export default {
         'normal': '正常',
         'branch': '多分支',
         'platform': '多平台',
+        empty: '',
+    },
+    NeedNotReviewNew: {
+        '1': '不需要评审',
         empty: '',
     },
     Bug__severity_mob: {
@@ -455,6 +485,23 @@ export default {
         'pass': '通过',
         'fail': '失败',
         'blocked': '阻塞',
+        empty: '',
+    },
+    Story__source: {
+        'customer': '客户',
+        'user': '用户',
+        'po': '产品经理',
+        'market': '市场',
+        'service': '客服',
+        'operation': '运营',
+        'support': '技术支持',
+        'competitor': '竞争对手',
+        'partner': '合作伙伴',
+        'dev': '开发人员',
+        'tester': '测试人员',
+        'bug': 'Bug',
+        'forum': '论坛',
+        'other': '其它',
         empty: '',
     },
     Task__status: {

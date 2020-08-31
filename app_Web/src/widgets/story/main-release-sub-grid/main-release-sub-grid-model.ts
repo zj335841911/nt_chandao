@@ -91,14 +91,19 @@ export default class Main_ReleaseSubModel {
           dataType: 'TEXT',
         },
         {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'duplicatestory',
           prop: 'duplicatestory',
           dataType: 'PICKUP',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'story',

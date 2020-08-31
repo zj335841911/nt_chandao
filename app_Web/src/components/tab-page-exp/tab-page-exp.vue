@@ -9,7 +9,7 @@
                     <template v-for="(item, index) of appService.navHistory.historyList">
                         <Tag ref="tagElement" :key="item.tag + index" :class="isActive(item) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(item)" @on-close="onClose(item)">
                             <div class="tag-text">
-                                <div :title="item.title" style="max-width: 300px;">
+                                <div :title="item.title" style="max-width: 400px;">
                                     <i v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')" :class="item.meta.iconCls"></i>
                                     <img v-else :src="item.meta.imgPath" class="text-icon" />
                                     &nbsp;{{item.title}}

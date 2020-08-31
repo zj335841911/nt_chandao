@@ -16,6 +16,7 @@ export class CounterServiceConstructor extends ServiceConstructorBase {
      * @memberof CounterServiceConstructor
      */
     protected init(): void {
+        this.allService.set('productmobcounter', () => import('@/app-core/counter/product-mob-counter/product-mob-counter-counter'));
     }
 
 }

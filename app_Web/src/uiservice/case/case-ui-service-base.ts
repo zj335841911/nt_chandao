@@ -89,33 +89,33 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'linkcasegridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'gridview9_my',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyaffect',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'curtesttaskgridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'tobugeditview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'testmaindashboardview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'maininfoeditview9',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'testmaindetaileditview9',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'mainnewview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'batchnewgridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'testoptionview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'exceditview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'mainmynewgridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'suitelinkcasegridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'testtaskexceditview',srfappde:'cases'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases',component:'case-edit-view'});
+        this.allViewMap.set(':',{viewname:'linkcasegridview',srfappde:'cases',component:'case-link-case-grid-view'});
+        this.allViewMap.set(':',{viewname:'optionview',srfappde:'cases',component:'case-option-view'});
+        this.allViewMap.set(':',{viewname:'gridview9_my',srfappde:'cases',component:'case-grid-view9-my'});
+        this.allViewMap.set(':',{viewname:'gridview9_storyaffect',srfappde:'cases',component:'case-grid-view9-storyaffect'});
+        this.allViewMap.set(':',{viewname:'curtesttaskgridview',srfappde:'cases',component:'case-cur-test-task-grid-view'});
+        this.allViewMap.set(':',{viewname:'tobugeditview',srfappde:'cases',component:'case-to-bug-edit-view'});
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases',component:'case-main-grid-view'});
+        this.allViewMap.set(':',{viewname:'testmaindashboardview',srfappde:'cases',component:'case-test-main-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'maininfoeditview9',srfappde:'cases',component:'case-main-info-edit-view9'});
+        this.allViewMap.set(':',{viewname:'testmaindetaileditview9',srfappde:'cases',component:'case-test-main-detail-edit-view9'});
+        this.allViewMap.set(':',{viewname:'mainnewview',srfappde:'cases',component:'case-main-new-view'});
+        this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'cases',component:'case-grid-view9-story-related'});
+        this.allViewMap.set(':',{viewname:'batchnewgridview',srfappde:'cases',component:'case-batch-new-grid-view'});
+        this.allViewMap.set(':',{viewname:'testoptionview',srfappde:'cases',component:'case-test-option-view'});
+        this.allViewMap.set(':',{viewname:'exceditview',srfappde:'cases',component:'case-exc-edit-view'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases',component:'case-main-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases',component:'case-cur-suit-grid-view'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases',component:'case-grid-view9'});
+        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases',component:'case-main-edit-view'});
+        this.allViewMap.set(':',{viewname:'mainmynewgridview',srfappde:'cases',component:'case-main-my-new-grid-view'});
+        this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases',component:'case-main-detail-edit-view9'});
+        this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases',component:'case-grid-view9-me-cretae'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'cases',component:'case-main-my-grid-view'});
+        this.allViewMap.set(':',{viewname:'suitelinkcasegridview',srfappde:'cases',component:'casesuite-link-case-grid-view'});
+        this.allViewMap.set(':',{viewname:'testtaskexceditview',srfappde:'cases',component:'case-test-task-exc-edit-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases',component:'case-grid-view'});
     }
 
     /**

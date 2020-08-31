@@ -65,6 +65,10 @@ export default {
     modulename1: "模块名称",
     files: "附件",
     mobimage: "移动端图片",
+    isfavorites: "是否收藏",
+    buildname: "版本名称",
+    buildproject: "版本项目",
+    createbuild: "创建版本",
   },
 	views: {
 		plansubgridview: {
@@ -82,6 +86,10 @@ export default {
 		maineditview: {
 			caption: "Bug编辑",
       		title: "Bug编辑",
+		},
+		myfavoritegridview: {
+			caption: "Bug",
+      		title: "bug表格视图",
 		},
 		maindashboardview: {
 			caption: "Bug",
@@ -150,6 +158,10 @@ export default {
 		usr2gridview: {
 			caption: "Bug",
       		title: "Bug表格视图",
+		},
+		maindashboardview_link: {
+			caption: "Bug",
+      		title: "Bug数据看板视图",
 		},
 		editview_4791: {
 			caption: "Bug",
@@ -324,6 +336,8 @@ export default {
 	},
 	resolve_form: {
 		details: {
+			grouppanel2: "分组面板", 
+			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
 			druipart1: "", 
 			grouppanel6: "历史记录", 
@@ -341,6 +355,9 @@ export default {
 			id: "Bug编号", 
 			resolution: "解决方案", 
 			resolvedbuild: "解决版本", 
+			buildproject: "解决版本/所属项目", 
+			buildname: "", 
+			createbuild: "", 
 			resolveddate: "解决日期", 
 			assignedto: "指派给", 
 			project: "所属项目", 
@@ -723,6 +740,8 @@ export default {
 			bug_closebug: "关闭",
 			bug_mainedit: "编辑",
 			copy: "拷贝",
+			bug_bugfavorites: "收藏",
+			bug_bugnfavorites: "取消收藏",
 		},
 	},
 	main_buildsub2_grid: {
@@ -807,6 +826,31 @@ export default {
 			status: "Bug状态",
 		},
 		uiactions: {
+		},
+	},
+	favoritemain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			confirmed: "确认",
+			productname: "产品",
+			projectname: "项目",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			resolution: "方案",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			bug_confirmbug: "确认",
+			bug_resolvebug: "解决",
+			bug_closebug: "关闭",
+			bug_mainedit: "编辑",
+			copy: "拷贝",
+			bug_bugfavorites: "收藏",
+			bug_bugnfavorites: "取消收藏",
 		},
 	},
 	main2_grid: {
@@ -926,6 +970,16 @@ export default {
 		},
 	},
 	testreportsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

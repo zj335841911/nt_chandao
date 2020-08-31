@@ -433,6 +433,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 case 'Auto20': 
                     this.clickAuto20(item);
                     return;
+                case '_2': 
+                    this.click_2(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
@@ -519,6 +522,27 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 我的收藏
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected click_2(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

@@ -118,7 +118,7 @@ public class TestTaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/activate")
     public ResponseEntity<TestTaskDTO> activate(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-domain.setId(testtask_id);
+        domain.setId(testtask_id);
         domain = testtaskService.activate(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -129,7 +129,7 @@ domain.setId(testtask_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/block")
     public ResponseEntity<TestTaskDTO> block(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-domain.setId(testtask_id);
+        domain.setId(testtask_id);
         domain = testtaskService.block(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -146,7 +146,7 @@ domain.setId(testtask_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/close")
     public ResponseEntity<TestTaskDTO> close(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-domain.setId(testtask_id);
+        domain.setId(testtask_id);
         domain = testtaskService.close(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -157,7 +157,7 @@ domain.setId(testtask_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/linkcase")
     public ResponseEntity<TestTaskDTO> linkCase(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-domain.setId(testtask_id);
+        domain.setId(testtask_id);
         domain = testtaskService.linkCase(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -183,7 +183,7 @@ domain.setId(testtask_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/start")
     public ResponseEntity<TestTaskDTO> start(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-domain.setId(testtask_id);
+        domain.setId(testtask_id);
         domain = testtaskService.start(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -194,7 +194,7 @@ domain.setId(testtask_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/unlinkcase")
     public ResponseEntity<TestTaskDTO> unlinkCase(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-domain.setId(testtask_id);
+        domain.setId(testtask_id);
         domain = testtaskService.unlinkCase(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);

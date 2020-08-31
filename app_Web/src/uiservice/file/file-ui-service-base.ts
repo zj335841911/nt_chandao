@@ -89,7 +89,7 @@ export default class FileUIServiceBase extends UIService {
      * @memberof  FileUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'listview9',srfappde:'files'});
+        this.allViewMap.set(':',{viewname:'listview9',srfappde:'files',component:'file-list-view9'});
     }
 
     /**

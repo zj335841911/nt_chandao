@@ -53,7 +53,7 @@ export default class ProjectUIServiceBase extends UIService {
      * 
      * @memberof  ProjectUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status'];
+    public mainStateFields:Array<any> = ['status','istop'];
 
     /**
      * 主状态集合Map
@@ -89,28 +89,29 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'storyeditview9',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects',component:'project-story-medit-view9'});
+        this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects',component:'project-task-tree-exp-view'});
+        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects',component:'project-test-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects',component:'project-edit-view-putoff'});
+        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects',component:'project-main-my-grid-view'});
+        this.allViewMap.set(':',{viewname:'planaddeditview',srfappde:'projects',component:'project-plan-add-edit-view'});
+        this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects',component:'project-burn-down-chart-view'});
+        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects',component:'project-list-exp-view'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects',component:'project-pickup-grid-view'});
+        this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects',component:'project-edit-view-activate'});
+        this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects',component:'project-cur-product-grid-view'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects',component:'project-pickup-view'});
+        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects',component:'project-main-view-edit'});
+        this.allViewMap.set(':',{viewname:'storyeditview9',srfappde:'projects',component:'project-story-edit-view9'});
+        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects',component:'project-left-sidebar-list-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects',component:'project-grid-view'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects',component:'project-main-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects',component:'project-edit-view-close'});
+        this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects',component:'project-grid-view9-un-closed'});
+        this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects',component:'project-edit-view-suspend'});
+        this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects',component:'project-dashboard-info-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects',component:'project-edit-view'});
+        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects',component:'project-main-tab-exp-view'});
     }
 
     /**
@@ -119,10 +120,14 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('closed','closed');
-        this.allDeMainStateMap.set('doing','doing');
-        this.allDeMainStateMap.set('suspended','suspended');
-        this.allDeMainStateMap.set('wait','wait');
+        this.allDeMainStateMap.set('closed__0','closed__0');
+        this.allDeMainStateMap.set('closed__1','closed__1');
+        this.allDeMainStateMap.set('doing__0','doing__0');
+        this.allDeMainStateMap.set('doing__1','doing__1');
+        this.allDeMainStateMap.set('suspended__0','suspended__0');
+        this.allDeMainStateMap.set('suspended__1','suspended__1');
+        this.allDeMainStateMap.set('wait__0','wait__0');
+        this.allDeMainStateMap.set('wait__1','wait__1');
     }
 
     /**
@@ -131,10 +136,14 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('suspended',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_START_BUT':0,'TOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'NOTOP':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'SRFUR__PROJ_START_BUT':0,'TOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_START_BUT':0,'SRFUR__PROJ_ACTIVATION_BUT':0,'NOTOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_START_BUT':0,'TOP':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'TOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROJ_ACTIVATION_BUT':0,}));
     }
 
     /**
@@ -210,8 +219,8 @@ export default class ProjectUIServiceBase extends UIService {
                 } else {
                     _args = [...args];
                 }
-                if (_this.Exit && _this.Exit instanceof Function) {
-                    _this.Exit(_args,context, params, $event, xData,actionContext);
+                if (this.Project_ReturnEdit && this.Project_ReturnEdit instanceof Function) {
+                    this.Project_ReturnEdit(_args,context, params, $event, xData,actionContext);
                 }
                 return response;
             }).catch((response: any) => {
@@ -582,6 +591,43 @@ export default class ProjectUIServiceBase extends UIService {
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
+    }
+
+    /**
+     * 退出
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Project_ReturnEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { project: '%project%' });
+        Object.assign(params, { id: '%project%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
     }
 
     /**

@@ -317,4 +317,15 @@ export class Util {
         return schema.validate({ [property]: value })
     }
 
+    /**
+     * 当前用户设备是否为安卓
+     * 
+     * @returns {boolean}
+     * @memberof Util
+     */
+    public static isAndroid() :boolean{
+        let u :any= navigator.userAgent;
+        return  u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    }
+
 }

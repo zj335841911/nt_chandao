@@ -1,7 +1,7 @@
 <template>
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
-        <ion-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container mob_list_card">
+        <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
@@ -62,6 +62,15 @@
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.stage" :context="context" :value="data.stage" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__stage"></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.isfavorites.visible"  :size="12" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <span class="app-form-hidden" style="display: none;">{{data.isfavorites}}</span>
                 </div>
                 
                 
@@ -361,6 +370,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -385,6 +395,8 @@ export default class MobBase extends Vue implements ControlInterface {
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'status', panel: this, visible: true  })
 , 
         stage: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'stage', panel: this, visible: true  })
+, 
+        isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'isfavorites', panel: this, visible: false  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 

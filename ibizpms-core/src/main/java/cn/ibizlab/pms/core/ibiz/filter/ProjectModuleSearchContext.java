@@ -55,6 +55,20 @@ public class ProjectModuleSearchContext extends QueryWrapperContext<ProjectModul
             this.getSearchCond().eq("root", n_root_eq);
         }
     }
+	private String n_rootname_eq;//[所属项目]
+	public void setN_rootname_eq(String n_rootname_eq) {
+        this.n_rootname_eq = n_rootname_eq;
+        if(!ObjectUtils.isEmpty(this.n_rootname_eq)){
+            this.getSearchCond().eq("rootname", n_rootname_eq);
+        }
+    }
+	private String n_rootname_like;//[所属项目]
+	public void setN_rootname_like(String n_rootname_like) {
+        this.n_rootname_like = n_rootname_like;
+        if(!ObjectUtils.isEmpty(this.n_rootname_like)){
+            this.getSearchCond().like("rootname", n_rootname_like);
+        }
+    }
 	private String n_parentname_eq;//[上级模块]
 	public void setN_parentname_eq(String n_parentname_eq) {
         this.n_parentname_eq = n_parentname_eq;

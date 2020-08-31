@@ -66,14 +66,19 @@ export default class MainDetailModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'desc',
-        prop: 'desc',
-        dataType: 'LONGTEXT',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'name',
+        prop: 'name',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'task',

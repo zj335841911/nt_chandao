@@ -89,8 +89,8 @@ export default class IBZCaseStepUIServiceBase extends UIService {
      * @memberof  IBZCaseStepUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'carryouteditmode',srfappde:'ibzcasesteps'});
-        this.allViewMap.set(':',{viewname:'maingridview9_editmode',srfappde:'ibzcasesteps'});
+        this.allViewMap.set(':',{viewname:'carryouteditmode',srfappde:'ibzcasesteps',component:'case-step-carry-out-edit-mode'});
+        this.allViewMap.set(':',{viewname:'maingridview9_editmode',srfappde:'ibzcasesteps',component:'case-step-main-grid-view9-edit-mode'});
     }
 
     /**

@@ -6,7 +6,7 @@ import { IbzFavoritesTabExpViewBase } from './ibz-favorites-tab-exp-view-base';
 import view_tabexppanel from '@widgets/ibz-favorites/tab-exp-viewtabexppanel-tabexppanel/tab-exp-viewtabexppanel-tabexppanel.vue';
 
 /**
- * 收藏分页导航视图视图
+ * 我的收藏视图
  *
  * @export
  * @class IbzFavoritesTabExpView

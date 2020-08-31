@@ -7,7 +7,7 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 import IbzFavoritesUIService from '@/uiservice/ibz-favorites/ibz-favorites-ui-service';
 
 /**
- * 收藏分页导航视图视图基类
+ * 我的收藏视图基类
  *
  * @export
  * @class IbzFavoritesTabExpViewBase

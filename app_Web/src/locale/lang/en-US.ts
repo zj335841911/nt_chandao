@@ -202,6 +202,7 @@ export default {
                 menuitem6: "测试",
                 bottom_exp: "底部导航区",
                 footer_center: "底部中间菜单",
+                menuitem13: "隐藏菜单项",
             },
         },
         formpage:{

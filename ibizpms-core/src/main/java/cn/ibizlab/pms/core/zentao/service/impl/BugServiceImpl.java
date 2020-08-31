@@ -21,6 +21,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
@@ -83,7 +84,23 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBugsendNoticeLogic sendnoticeLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IBugGetProductsLogic getproductsLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBugsendTodoTaskLogic sendtodotaskLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBugBugFavoritesLogic bugfavoritesLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBugBugNFavoritesLogic bugnfavoritesLogic;
 
     protected int batchSize = 500;
 
@@ -197,6 +214,20 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Bug bugFavorites(Bug et) {
+        bugfavoritesLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Bug bugNFavorites(Bug et) {
+        bugnfavoritesLogic.execute(et);
+         return et ;
     }
 
         @Override
@@ -578,6 +609,15 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     public Page<Bug> searchDefault(BugSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<Bug> searchMyFavorites(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

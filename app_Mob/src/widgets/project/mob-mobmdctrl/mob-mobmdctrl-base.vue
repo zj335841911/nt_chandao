@@ -2,7 +2,78 @@
     <div  class="app-mob-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
           <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
-                    <app-list-index :items="items" @clickItem="item_click"></app-list-index>
+                <ion-list class="items">
+                  <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
+                      <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"    @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                  </template>
+                </ion-list>
+                <ion-list class="items">
+                  <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.ProjectTop.visabled" :disabled="item.ProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'u4186bd7', item)"><ion-icon v-if="item.ProjectTop.icon" :name="item.ProjectTop.icon"></ion-icon>置顶</ion-item-option>
+                            <ion-item-option v-show="item.CancelProjectTop.visabled" :disabled="item.CancelProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'ua7fd566', item)"><ion-icon v-if="item.CancelProjectTop.icon" :name="item.CancelProjectTop.icon"></ion-icon>取消置顶</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u02bc474', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                        </ion-item-options>
+                    <ion-item>
+                      <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
+                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                          <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px); "      @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      </template>
+                      <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
+                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      </template>
+                      <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
+                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      </template>
+                                      <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
+                    <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
+                        <van-panel :title="item.srfmajortext ">
+                            <div class="van-cell van-panel__header" >
+                                <div class="van-cell__title time">
+                                    <div class="van-cell__label">
+                                        {{ item.starttime }}
+                                    </div>
+                                </div>
+                                <div class="van-cell__title subtitle">
+                                    <span>步骤</span>
+                                    <div class="van-cell__label">
+                                        {{ item.wfstep }}
+                                    </div>
+                                </div>
+                                <div class="van-cell__title content" >
+                                    <span>{{item.startusername}}</span>
+                                    <div class="van-cell__label">
+                                        {{ item.documentcentername }}
+                                    </div>
+                                </div>
+                            </div>
+                        </van-panel>
+                    </li>
+                </template>
+                      <template v-else>
+                    <ion-list  v-model="selectedArray"   v-if="isMutli">
+                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
+                            <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
+                            <ion-label>{{item.name}}</ion-label>
+                        </ion-item>
+                    </ion-list>
+                    <ion-radio-group  :value="selectedValue" v-if="!isMutli">
+                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
+                            <ion-label>{{item.name}}</ion-label>
+                            <ion-radio slot="end" :value="item.srfkey"></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                      </template>
+                    </ion-item>
+                  </ion-item-sliding>
+                </ion-list>
+                <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
+                    <ion-infinite-scroll-content
+                        loadingSpinner="bubbles"
+                        loadingText="正在加载数据">
+                    </ion-infinite-scroll-content>
+                </ion-infinite-scroll>    
 
           </van-pull-refresh>
         </div>
@@ -134,6 +205,99 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u4186bd7_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_ProjectTop(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ua7fd566_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_CancelProjectTop(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u02bc474_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -468,7 +632,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @param {object} 
     * @memberof Mob
     */
-    public sort: any = { sort:'id,desc'};
+    public sort: any = { };
     
     /**
     * 底部改变状态
@@ -668,6 +832,7 @@ export default class MobBase extends Vue implements ControlInterface {
         }
         this.items.forEach((item:any)=>{
             Object.assign(item,this.getActionState(item));    
+            this.setSlidingDisabled(item);
         });
         return response;
     }
@@ -855,6 +1020,15 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'u4186bd7')) {
+            this.mdctrl_u4186bd7_click();
+        }
+        if (Object.is(tag, 'ua7fd566')) {
+            this.mdctrl_ua7fd566_click();
+        }
+        if (Object.is(tag, 'u02bc474')) {
+            this.mdctrl_u02bc474_click();
+        }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -950,6 +1124,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-up'},
+        CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-down'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', target: 'SINGLEKEY',icon:'close'},
+        Exit: { name: 'Exit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: '',icon:'fa fa-sign-out'}
     };
 
     /**
@@ -962,6 +1140,21 @@ export default class MobBase extends Vue implements ControlInterface {
         let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
+    }
+
+    /**
+    * 判断列表项左滑右滑禁用状态
+    *
+    * @memberof MobBase
+    */
+    public setSlidingDisabled(item:any){
+        item.sliding_disabled = true;
+        Object.keys(this.ActionModel).forEach((key,index) => {
+           if(item[key].visabled && item.sliding_disabled ){
+             item.sliding_disabled = false;
+           }
+        })
+
     }
 }
 </script>

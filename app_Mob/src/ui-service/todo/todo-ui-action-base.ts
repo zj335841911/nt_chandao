@@ -113,7 +113,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
      * @memberof  TodoUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'DELETE':1,}));
+        this.allDeMainStateOPPrivsMap.set('closed',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'DELETE':1,'ACTIVATE':1,'UPDATE':1,}));
         this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'TOBUG':1,'UPDATE':1,'ASSIGNTO':1,'FINISH':1,'TOTASK':1,'DELETE':1,}));
         this.allDeMainStateOPPrivsMap.set('done',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'DELETE':1,'CLOSE':1,'ACTIVATE':1,'UPDATE':1,}));
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1,}));
@@ -520,13 +520,13 @@ export default class TodoUIActionBase extends EntityUIActionBase {
             }
         })
         for (let i = 0; i <= 1; i++) {
-            let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
+            let strTag:string = (curData[this.mainStateFields[0]] != null && curData[this.mainStateFields[0]] !== "")?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
                 for (let j = 0; j <= 1; j++) {
-                    let strTag2:string = (curData[this.mainStateFields[1]])?`${strTag}__${(j == 0) ? curData[this.mainStateFields[1]] : ""}`:strTag;
+                    let strTag2:string = (curData[this.mainStateFields[1]] != null && curData[this.mainStateFields[1]] !== "")?`${strTag}__${(j == 0) ? curData[this.mainStateFields[1]] : ""}`:strTag;
                     if (this.mainStateFields.length >= 3) {
                         for (let k = 0; k <= 1; k++) {
-                            let strTag3:string = (curData[this.mainStateFields[2]])?`${strTag2}__${(k == 0) ? curData[this.mainStateFields[2]] : ""}`:strTag2;
+                            let strTag3:string = (curData[this.mainStateFields[2]] != null && curData[this.mainStateFields[2]] !== "")?`${strTag2}__${(k == 0) ? curData[this.mainStateFields[2]] : ""}`:strTag2;
                             // 判断是否存在
                             return this.allDeMainStateMap.get(strTag3);
                         }

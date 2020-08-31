@@ -8,6 +8,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
+        srfkey: "BugCreateResolve",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "创建",
+                text: "创建",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testresult__result",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -4792,6 +4809,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "NeedNotReview",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "不需要评审",
+                text: "不需要评审",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "TestQuickpacket",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -5936,6 +5970,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "CurProductProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Project",
+        "appdedataset":"FetchCurProduct",
+        "items": []
     },
     {
         srfkey: "Bug__quickpacket",

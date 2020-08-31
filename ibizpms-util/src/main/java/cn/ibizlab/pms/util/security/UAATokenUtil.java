@@ -68,7 +68,6 @@ public class UAATokenUtil implements AuthTokenUtil, Serializable {
 
     public Claims getAllClaimsFromToken(String token) {
         PublicKey publicKey = getPublicKey(getPublicKeyString());
-        System.out.println("UAATokenUtil token:"+ token);
         return Jwts.parser()
                 .setSigningKey(publicKey)
                 .parseClaimsJws(token)

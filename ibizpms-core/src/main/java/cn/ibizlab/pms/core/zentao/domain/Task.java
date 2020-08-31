@@ -418,6 +418,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "modulename1")
     @JsonProperty("modulename1")
     private String modulename1;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private String isfavorites;
 
     /**
      * 

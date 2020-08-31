@@ -5,6 +5,20 @@ import Mock from 'mockjs'
 
 const datas: Array<any> = [
         {
+        srfkey: 'Date_disable',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'on',
+                label: '待定',
+                text: '待定',
+                value: 'on',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Product__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1210,6 +1224,90 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Product__acl',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'open',
+                label: '默认设置(有产品视图权限，即可访问)',
+                text: '默认设置(有产品视图权限，即可访问)',
+                value: 'open',
+                disabled: false,
+            },
+            {
+                id: 'private',
+                label: '私有产品(相关负责人和项目团队成员才能访问)',
+                text: '私有产品(相关负责人和项目团队成员才能访问)',
+                value: 'private',
+                disabled: false,
+            },
+            {
+                id: 'custom',
+                label: '自定义白名单(团队成员和白名单的成员可以访问)',
+                text: '自定义白名单(团队成员和白名单的成员可以访问)',
+                value: 'custom',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Zt__delta',
+        emptytext: '按时间段',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '7',
+                label: '一星期',
+                text: '一星期',
+                value: '7',
+                disabled: false,
+            },
+            {
+                id: '14',
+                label: '两星期',
+                text: '两星期',
+                value: '14',
+                disabled: false,
+            },
+            {
+                id: '31',
+                label: '一个月',
+                text: '一个月',
+                value: '31',
+                disabled: false,
+            },
+            {
+                id: '62',
+                label: '两个月',
+                text: '两个月',
+                value: '62',
+                disabled: false,
+            },
+            {
+                id: '93',
+                label: '三个月',
+                text: '三个月',
+                value: '93',
+                disabled: false,
+            },
+            {
+                id: '186',
+                label: '半年',
+                text: '半年',
+                value: '186',
+                disabled: false,
+            },
+            {
+                id: '365',
+                label: '一年',
+                text: '一年',
+                value: '365',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'TestCaseStatusGrid',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1876,6 +1974,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "CurProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: 'Type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2270,6 +2376,14 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        "srfkey": "ProductBranch",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
         "srfkey": "CurProductBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -2301,6 +2415,20 @@ const datas: Array<any> = [
                 label: '多平台',
                 text: '多平台',
                 value: 'platform',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'NeedNotReviewNew',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '不需要评审',
+                text: '不需要评审',
+                value: '1',
                 disabled: false,
             },
         ]
@@ -2735,6 +2863,111 @@ const datas: Array<any> = [
                 label: '阻塞',
                 text: '阻塞',
                 value: 'blocked',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Story__source',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'customer',
+                label: '客户',
+                text: '客户',
+                value: 'customer',
+                disabled: false,
+            },
+            {
+                id: 'user',
+                label: '用户',
+                text: '用户',
+                value: 'user',
+                disabled: false,
+            },
+            {
+                id: 'po',
+                label: '产品经理',
+                text: '产品经理',
+                value: 'po',
+                disabled: false,
+            },
+            {
+                id: 'market',
+                label: '市场',
+                text: '市场',
+                value: 'market',
+                disabled: false,
+            },
+            {
+                id: 'service',
+                label: '客服',
+                text: '客服',
+                value: 'service',
+                disabled: false,
+            },
+            {
+                id: 'operation',
+                label: '运营',
+                text: '运营',
+                value: 'operation',
+                disabled: false,
+            },
+            {
+                id: 'support',
+                label: '技术支持',
+                text: '技术支持',
+                value: 'support',
+                disabled: false,
+            },
+            {
+                id: 'competitor',
+                label: '竞争对手',
+                text: '竞争对手',
+                value: 'competitor',
+                disabled: false,
+            },
+            {
+                id: 'partner',
+                label: '合作伙伴',
+                text: '合作伙伴',
+                value: 'partner',
+                disabled: false,
+            },
+            {
+                id: 'dev',
+                label: '开发人员',
+                text: '开发人员',
+                value: 'dev',
+                disabled: false,
+            },
+            {
+                id: 'tester',
+                label: '测试人员',
+                text: '测试人员',
+                value: 'tester',
+                disabled: false,
+            },
+            {
+                id: 'bug',
+                label: 'Bug',
+                text: 'Bug',
+                value: 'bug',
+                disabled: false,
+            },
+            {
+                id: 'forum',
+                label: '论坛',
+                text: '论坛',
+                value: 'forum',
+                disabled: false,
+            },
+            {
+                id: 'other',
+                label: '其它',
+                text: '其它',
+                value: 'other',
                 disabled: false,
             },
         ]

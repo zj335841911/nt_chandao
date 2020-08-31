@@ -85,4 +85,12 @@ export interface CaseStep {
      * @memberof CaseStep
      */
     files?: any;
+
+    /**
+     * 执行编号
+     *
+     * @returns {*}
+     * @memberof CaseStep
+     */
+    runid?: any;
 }

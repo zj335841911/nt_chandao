@@ -95,4 +95,43 @@ export default class ProjectService extends ProjectServiceBase {
         });
         return res;
     }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().get(`/projects/getdraft`,isloading);
+        if(context.end && context.begin) {
+            let begin: Date = new Date(context.begin);
+            let end: Date = new Date(context.end);
+
+            let period = Math.floor((end.getTime() - begin.getTime())/(1000 * 60 * 60 *24)) + 1;
+            let days: number = 0;
+            let curWeek: number = begin.getDay();
+            begin.setDate(begin.getDate() + period);
+            for(; period > 0; period--, curWeek++) {
+                curWeek = curWeek > 6 ? (curWeek - 7) : curWeek;
+                if(curWeek > 0 && curWeek < 6) {
+                    days++;
+                }
+            }
+
+            res.data.days = days;
+
+        }
+        if(context.planid) {
+            let srfarray: any = [{plans: context.planid,branchs: context.branch,products:context.product}];
+            res.data.srfarray = srfarray;
+        }
+        res.data.project = data.project;
+        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+        return res;
+    }
 }

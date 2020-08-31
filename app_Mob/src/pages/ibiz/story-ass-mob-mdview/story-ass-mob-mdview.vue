@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryAssMobMDViewBase from './story-ass-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/story/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/story/ass-mob-mobmdctrl/ass-mob-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 

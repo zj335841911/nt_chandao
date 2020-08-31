@@ -35,6 +35,10 @@ export default {
 			caption: "系统日志",
       		title: "产品动态",
 		},
+		addcommenthistorylistview: {
+			caption: "系统日志",
+      		title: "历史记录",
+		},
 		optionview: {
 			caption: "添加备注",
       		title: "添加备注",
@@ -93,7 +97,7 @@ export default {
 			saveandexit: "保存并关闭",
 		},
 	},
-	historylistviewtoolbar_toolbar: {
+	addcommenthistorylistviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "添加备注",
 			tip: "添加备注",

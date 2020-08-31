@@ -60,6 +60,9 @@ export default class MainTabExpViewtabviewpanel3Model {
       {
         name: 'ids',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

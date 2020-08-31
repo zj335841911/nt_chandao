@@ -89,9 +89,9 @@ export default class ProjectModuleUIServiceBase extends UIService {
      * @memberof  ProjectModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'projectmodules'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'projectmodules'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'projectmodules'});
+        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'projectmodules',component:'project-module-quick-cfg-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'projectmodules',component:'project-module-main-grid-view'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'projectmodules',component:'project-module-tree-exp-view'});
     }
 
     /**

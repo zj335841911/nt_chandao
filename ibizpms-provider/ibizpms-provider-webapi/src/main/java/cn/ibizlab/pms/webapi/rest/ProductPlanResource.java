@@ -118,7 +118,7 @@ public class ProductPlanResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/batchunlinkbug")
     public ResponseEntity<ProductPlanDTO> batchUnlinkBug(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-domain.setId(productplan_id);
+        domain.setId(productplan_id);
         domain = productplanService.batchUnlinkBug(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -129,7 +129,7 @@ domain.setId(productplan_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/batchunlinkstory")
     public ResponseEntity<ProductPlanDTO> batchUnlinkStory(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-domain.setId(productplan_id);
+        domain.setId(productplan_id);
         domain = productplanService.batchUnlinkStory(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -146,7 +146,7 @@ domain.setId(productplan_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/linkbug")
     public ResponseEntity<ProductPlanDTO> linkBug(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-domain.setId(productplan_id);
+        domain.setId(productplan_id);
         domain = productplanService.linkBug(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -157,7 +157,7 @@ domain.setId(productplan_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/linkstory")
     public ResponseEntity<ProductPlanDTO> linkStory(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-domain.setId(productplan_id);
+        domain.setId(productplan_id);
         domain = productplanService.linkStory(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -183,7 +183,7 @@ domain.setId(productplan_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/unlinkbug")
     public ResponseEntity<ProductPlanDTO> unlinkBug(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-domain.setId(productplan_id);
+        domain.setId(productplan_id);
         domain = productplanService.unlinkBug(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -194,7 +194,7 @@ domain.setId(productplan_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/unlinkstory")
     public ResponseEntity<ProductPlanDTO> unlinkStory(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-domain.setId(productplan_id);
+        domain.setId(productplan_id);
         domain = productplanService.unlinkStory(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);

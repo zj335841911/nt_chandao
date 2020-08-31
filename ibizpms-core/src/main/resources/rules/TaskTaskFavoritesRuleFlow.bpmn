@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.tasktaskfavorites" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.tasktaskfavorites">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="tasktaskfavoritesibzfavorites" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
+        <tns:global identifier="tasktaskfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        </extensionElements>
+     <startEvent id="5695e20f6116aa2fe68a6be49eb0885d" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskfavoritesprepareparam1" id="99732b274e1284ad50c01c1d09775364" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskfavoritesdeaction1" id="12b040ced461f792bb621933d26514ff" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
+     <endEvent id="12b040ced461f792bb621933d26514ff_End" name="End"/>
+     <sequenceFlow id="12b040ced461f792bb621933d26514ff_End_Line" sourceRef="12b040ced461f792bb621933d26514ff" targetRef="12b040ced461f792bb621933d26514ff_End"/>
+     <sequenceFlow id="acdc43018e6e0c12ea5046935ae285ea" sourceRef="5695e20f6116aa2fe68a6be49eb0885d" targetRef="99732b274e1284ad50c01c1d09775364">
+     </sequenceFlow>
+     <sequenceFlow id="5999ffb261848a9eb96ac208561d1c1a" sourceRef="99732b274e1284ad50c01c1d09775364" targetRef="12b040ced461f792bb621933d26514ff">
+     </sequenceFlow>
+    </process>
+</definitions>
+

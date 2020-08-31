@@ -89,7 +89,7 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
      * @memberof  IbzProjectMemberUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'ibzprojectmembers'});
+        this.allViewMap.set(':',{viewname:'editview9',srfappde:'ibzprojectmembers',component:'ibz-project-member-edit-view9'});
     }
 
     /**

@@ -46,6 +46,9 @@ export class MobModel {
         name: 'files',
       },
       {
+        name: 'runid',
+      },
+      {
         name: 'case',
         prop: 'id',
         dataType: 'FONTKEY',

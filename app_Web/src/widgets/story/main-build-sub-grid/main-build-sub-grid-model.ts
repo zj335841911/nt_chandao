@@ -121,6 +121,11 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

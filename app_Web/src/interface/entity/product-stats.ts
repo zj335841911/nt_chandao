@@ -237,4 +237,20 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     type?: any;
+
+    /**
+     * 产品排序
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    order1?: any;
+
+    /**
+     * 是否置顶
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    istop?: any;
 }

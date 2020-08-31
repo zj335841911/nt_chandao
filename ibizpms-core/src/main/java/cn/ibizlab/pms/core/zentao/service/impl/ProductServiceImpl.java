@@ -21,6 +21,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Product;
@@ -99,6 +100,14 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductUpdate__MSDenyLogic update__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductRemove__MSDenyLogic remove__msdenyLogic;
 
     @Autowired
     @Lazy
@@ -203,6 +212,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             et = this.get(rst.getEtId());
         }
         et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Product mobProductCounter(Product et) {
+        //自定义代码
         return et;
     }
 

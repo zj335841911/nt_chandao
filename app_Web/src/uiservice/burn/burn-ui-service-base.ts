@@ -89,7 +89,7 @@ export default class BurnUIServiceBase extends UIService {
      * @memberof  BurnUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'chartview',srfappde:'burns'});
+        this.allViewMap.set(':',{viewname:'chartview',srfappde:'burns',component:'burn-chart-view'});
     }
 
     /**

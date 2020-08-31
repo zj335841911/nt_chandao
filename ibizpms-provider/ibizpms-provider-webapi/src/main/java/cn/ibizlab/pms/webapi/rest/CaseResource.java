@@ -130,7 +130,7 @@ public class CaseResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/confirmchange")
     public ResponseEntity<CaseDTO> confirmChange(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.confirmChange(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -141,7 +141,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/confirmstorychange")
     public ResponseEntity<CaseDTO> confirmstorychange(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.confirmstorychange(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -152,7 +152,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/getbytesttask")
     public ResponseEntity<CaseDTO> getByTestTask(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.getByTestTask(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -163,7 +163,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/linkcase")
     public ResponseEntity<CaseDTO> linkCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.linkCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -174,7 +174,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/runcase")
     public ResponseEntity<CaseDTO> runCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.runCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -185,7 +185,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/runcases")
     public ResponseEntity<CaseDTO> runCases(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.runCases(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -211,7 +211,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testruncase")
     public ResponseEntity<CaseDTO> testRunCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.testRunCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -222,7 +222,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testruncases")
     public ResponseEntity<CaseDTO> testRunCases(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.testRunCases(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -233,7 +233,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testsuitelinkcase")
     public ResponseEntity<CaseDTO> testsuitelinkCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.testsuitelinkCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -244,7 +244,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinkcase")
     public ResponseEntity<CaseDTO> unlinkCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.unlinkCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -255,7 +255,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinkcases")
     public ResponseEntity<CaseDTO> unlinkCases(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.unlinkCases(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -266,7 +266,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinksuitecase")
     public ResponseEntity<CaseDTO> unlinkSuiteCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.unlinkSuiteCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
@@ -277,7 +277,7 @@ domain.setId(case_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinksuitecases")
     public ResponseEntity<CaseDTO> unlinkSuiteCases(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-domain.setId(case_id);
+        domain.setId(case_id);
         domain = caseService.unlinkSuiteCases(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);

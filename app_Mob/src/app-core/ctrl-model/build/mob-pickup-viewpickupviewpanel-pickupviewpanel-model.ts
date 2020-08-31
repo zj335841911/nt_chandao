@@ -60,6 +60,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'ids',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

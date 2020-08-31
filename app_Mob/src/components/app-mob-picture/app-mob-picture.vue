@@ -141,7 +141,7 @@ export default class AppMobPicture extends Vue {
                 'Content-Type': 'multipart/form-data'
             }
         }
-        Loading.show('上传中');
+
         Axios.post(this.uploadUrl, params, config).then((response: any) => {
             Loading.hidden();
             if (response && response.data && response.status === 200) {
@@ -154,7 +154,7 @@ export default class AppMobPicture extends Vue {
                 this.onError(response, file, this.files);
             }
         }).catch((response: any) => {
-            Loading.hidden();
+
             this.onError(response, file, this.files);
         });
     }

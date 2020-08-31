@@ -89,11 +89,11 @@ export default class ProductModuleUIServiceBase extends UIService {
      * @memberof  ProductModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'productmodules'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules'});
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'productmodules'});
+        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'productmodules',component:'product-module-grid-view-branch'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules',component:'product-module-grid-view'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules',component:'product-module-tree-exp-view'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules',component:'product-module-edit-view'});
+        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'productmodules',component:'product-module-quick-cfg-view'});
     }
 
     /**

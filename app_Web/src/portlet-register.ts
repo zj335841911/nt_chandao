@@ -39,8 +39,8 @@ import ProjectProjectStatusBar from '@/widgets/project/project-status-bar-portle
 import ProductLifeGetRoadmaps from '@/widgets/product-life/get-roadmaps-portlet/get-roadmaps-portlet.vue';
 import TaskToolbar from '@/widgets/task/toolbar-portlet/toolbar-portlet.vue';
 import TaskMainInfo from '@/widgets/task/main-info-portlet/main-info-portlet.vue';
-import TaskMainDetail from '@/widgets/task/main-detail-portlet/main-detail-portlet.vue';
 import TaskWorkInfo from '@/widgets/task/work-info-portlet/work-info-portlet.vue';
+import TaskMainDetail from '@/widgets/task/main-detail-portlet/main-detail-portlet.vue';
 import TestSuiteCurSuitCaseGridView from '@/widgets/test-suite/cur-suit-case-grid-view-portlet/cur-suit-case-grid-view-portlet.vue';
 import TestSuiteMainInfoView from '@/widgets/test-suite/main-info-view-portlet/main-info-view-portlet.vue';
 import TestSuiteTestSuiteQuickAction from '@/widgets/test-suite/test-suite-quick-action-portlet/test-suite-quick-action-portlet.vue';
@@ -77,6 +77,10 @@ export const  PortletComponent = {
         v.component('app-ibz-case-case-info-portlet', IbzCaseCaseInfo);
         v.component('app-ibz-case-case-new-edit-portlet', IbzCaseCaseNewEdit);
         v.component('app-action-action-history-portlet', ActionActionHistory);
+        v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
+        v.component('app-todo-todoaction-portlet', TodoTodoaction);
+        v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
+        v.component('app-todo-todo-base-portlet', TodoTodoBase);
         v.component('app-story-storyspec-portlet', StoryStoryspec);
         v.component('app-story-main-toolbar-portlet', StoryMainToolbar);
         v.component('app-story-base-info-portlet', StoryBaseInfo);
@@ -115,10 +119,6 @@ export const  PortletComponent = {
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
         v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
-        v.component('app-todo-todo-desc-portlet', TodoTodoDesc);
-        v.component('app-todo-todoaction-portlet', TodoTodoaction);
-        v.component('app-todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
-        v.component('app-todo-todo-base-portlet', TodoTodoBase);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
         v.component('case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
@@ -150,8 +150,8 @@ export const  PortletComponent = {
         v.component('product-life-get-roadmaps-portlet', ProductLifeGetRoadmaps);
         v.component('task-toolbar-portlet', TaskToolbar);
         v.component('task-main-info-portlet', TaskMainInfo);
-        v.component('task-main-detail-portlet', TaskMainDetail);
         v.component('task-work-info-portlet', TaskWorkInfo);
+        v.component('task-main-detail-portlet', TaskMainDetail);
         v.component('test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
         v.component('test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);

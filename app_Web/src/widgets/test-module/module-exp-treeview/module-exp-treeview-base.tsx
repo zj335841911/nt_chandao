@@ -4,6 +4,7 @@ import { Watch, MainControlBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
 import ModuleExpService from './module-exp-treeview-service';
 import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -542,6 +543,14 @@ export class ModuleExpTreeBase extends MainControlBase {
     @Prop() public selectedData?: string;
 
     /**
+     * 备份行为模型
+     * 
+     * @type any
+     * @memberof ModuleExpBase
+     */
+    public copyActionModel: any = {};
+
+    /**
      * 选中值变化
      *
      * @param {*} newVal
@@ -637,6 +646,24 @@ export class ModuleExpTreeBase extends MainControlBase {
      */
     @Provide()
     public expandedKeys: string[] = [];
+
+    /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof ModuleExpBase
+     */
+     public actionModel: any = {
+        BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:1, dataaccaction:'SRFUR__TESTMOD_OQCVIEW_BUT', visabled: true, disabled: false},
+        ROOTMODULE_deuiaction2: {name:'deuiaction2',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:1, dataaccaction:'SRFUR__TESTMOD_OQCVIEW_BUT', visabled: true, disabled: false},
+        MODULE_deuiaction2: {name:'deuiaction2',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        Root_NoBranch_deuiaction1: {name:'deuiaction1',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'OpenQuickCfgView', actiontarget: 'SINGLEKEY', noprivdisplaymode:1, dataaccaction:'SRFUR__TESTMOD_OQCVIEW_BUT', visabled: true, disabled: false},
+        Root_NoBranch_deuiaction2: {name:'deuiaction2',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        BRANCH_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCH',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+    }
 
     /**
      * 选中数据变更事件
@@ -1030,7 +1057,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1050,7 +1077,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1070,11 +1097,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name="deuiaction2">
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1094,11 +1121,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name="deuiaction2">
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1118,11 +1145,11 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-edit'></i>
                         编辑
                     </dropdown-item>
-                            <dropdown-item name="deuiaction2">
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1142,7 +1169,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1174,6 +1201,67 @@ export class ModuleExpTreeBase extends MainControlBase {
             const tags: string[] = data.id.split(';');
         }
         this.$emit('nodedblclick', this.selectedNodes);
+    }
+
+    /**
+     * 显示上下文菜单
+     * 
+     * @param data 节点数据
+     * @param event 事件源
+     * @memberof ModuleExpBase
+     */
+    public showContext(data:any,event:any){
+        let _this:any = this;
+        this.copyActionModel = {};
+        const tags: string[] = data.id.split(';');
+        Object.values(this.actionModel).forEach((item:any) =>{
+            if(Object.is(item.nodeOwner,tags[0])){
+                this.copyActionModel[item.name] = item;
+            }
+        })
+        if(Object.keys(this.copyActionModel).length === 0){
+            return;
+        }
+        this.computeNodeState(data,data.nodeType,data.appEntityName).then((result:any) => {
+            let flag:boolean = false;
+            if(Object.values(result).length>0){
+                flag =Object.values(result).some((item:any) =>{
+                    return item.visabled === true;
+                })
+            }
+            if(flag){
+                (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+            }
+        });
+    }
+
+    /**
+     * 计算节点右键权限
+     *
+     * @param {*} node 节点数据
+     * @param {*} nodeType 节点类型
+     * @param {*} appEntityName 应用实体名称  
+     * @returns
+     * @memberof ModuleExpBase
+     */
+    public async computeNodeState(node:any,nodeType:string,appEntityName:string) {
+        if(Object.is(nodeType,"STATIC")){
+            return this.copyActionModel;
+        }
+        let service:any = await this.appEntityService.getService(appEntityName);
+        if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
+            if(service['Get'] && service['Get'] instanceof Function){
+                let tempContext:any = this.$util.deepCopy(this.context);
+                tempContext[appEntityName] = node.srfkey;
+                let targetData = await service.Get(tempContext,{}, false);
+                let uiservice:any = await this.appUIService.getService(appEntityName);
+                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                return this.copyActionModel;
+            }else{
+                console.warn("获取数据异常");
+                return this.copyActionModel;
+            }
+        }
     }
 
 }

@@ -13,11 +13,25 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">计划</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">BUG</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">
+                              <ion-icon name="briefcase"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            详情</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                              <ion-icon name="text"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">
+                              <ion-icon name="reorder"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            计划</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            发布</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                              <ion-icon name="bug"></ion-icon>
+                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            BUG</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -492,17 +506,43 @@ this.getLocalStorage();
 
 
     /**
+     * 第三方关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProductStatsMobTabExpViewBase
+     */
+    public quitFun() {
+        if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
+            // 缓存首次返回的时间
+            window.sessionStorage.setItem("firstQuit", new Date().getTime().toString());
+            // 提示再按一次退出
+            this.$toast("再按一次退出");
+            // 两秒后清除缓存（与提示的持续时间一致）
+            setTimeout(() => {window.sessionStorage.removeItem("firstQuit")}, 2000);
+        } else {
+            // 获取首次返回时间
+            let firstQuitTime: any = sessionStorage.getItem("firstQuit");
+            // 如果时间差小于两秒 直接关闭
+            if (new Date().getTime() - firstQuitTime < 2000) {
+                this.$viewTool.ThirdPartyClose();
+            }
+        }
+    }
+    
+    /**
      * 关闭视图
      *
      * @param {any[]} args
      * @memberof ProductStatsMobTabExpViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
+            this.quitFun();
+            return;
+        }
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        } else if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
-            this.$viewTool.ThirdPartyClose();
         }else{
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }

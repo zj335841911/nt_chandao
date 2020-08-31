@@ -102,7 +102,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u54e15b4_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ua4b1799_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +119,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_edit1(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_edit1Cz(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -130,7 +130,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ue607227_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ucdbdc4c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +147,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_delete(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_deleteCz(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -158,7 +158,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u0459568_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u1453337_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +175,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_assignTo(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_assignToCz(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -186,7 +186,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u4d009c6_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ud54a71d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,7 +203,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_finish(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_finishCz(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -214,7 +214,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ua103298_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u04ff79f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -231,7 +231,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_activate(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_activateCz(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -242,7 +242,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_uad9b866_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ud97be75_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -259,7 +259,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TodoUIService  = new TodoUIService();
-        curUIService.Todo_close(datas,contextJO, paramJO,  $event, xData,this,"Todo");
+        curUIService.Todo_closeCz(datas,contextJO, paramJO,  $event, xData,this,"Todo");
     }
 
     /**
@@ -369,61 +369,61 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u54e15b4_click",
+        { viewlogicname:"dashboard_sysportlet2_ua4b1799_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'UPDATE',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ue607227_click",
+        { viewlogicname:"dashboard_sysportlet2_ucdbdc4c_click",
         text: "删除",
-        iconcls: "fa fa-trash",
+        iconcls: "fa fa-remove",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'DELETE',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u0459568_click",
+        { viewlogicname:"dashboard_sysportlet2_u1453337_click",
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'ASSIGNTO',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u4d009c6_click",
+        { viewlogicname:"dashboard_sysportlet2_ud54a71d_click",
         text: "完成",
         iconcls: "fa fa-check-square-o",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'FINISH',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ua103298_click",
+        { viewlogicname:"dashboard_sysportlet2_u04ff79f_click",
         text: "激活",
-        iconcls: "fa fa-plane",
+        iconcls: "fa fa-magic",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'ACTIVATE',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_uad9b866_click",
+        { viewlogicname:"dashboard_sysportlet2_ud97be75_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction:'CLOSE',
         actiontarget:'SINGLEKEY',
         visabled:true,
@@ -431,9 +431,9 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         },
         { viewlogicname:"dashboard_sysportlet2_u1e6202a_click",
         text: "转Bug",
-        iconcls: null,
-        icon: null,
-        noprivdisplaymode: 1,
+        iconcls: "fa fa-bug",
+        icon: "",
+        noprivdisplaymode: 2,
         dataaccaction:'TOBUG',
         actiontarget:'SINGLEKEY',
         visabled:true,
@@ -441,9 +441,9 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         },
         { viewlogicname:"dashboard_sysportlet2_u5b0a56a_click",
         text: "转任务",
-        iconcls: null,
-        icon: null,
-        noprivdisplaymode: 1,
+        iconcls: "fa fa-tasks",
+        icon: "",
+        noprivdisplaymode: 2,
         dataaccaction:'TOTASK',
         actiontarget:'SINGLEKEY',
         visabled:true,
@@ -460,23 +460,23 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet2_u6e9117d_click')){
             this.dashboard_sysportlet2_u6e9117d_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u54e15b4_click')){
-            this.dashboard_sysportlet2_u54e15b4_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ua4b1799_click')){
+            this.dashboard_sysportlet2_ua4b1799_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ue607227_click')){
-            this.dashboard_sysportlet2_ue607227_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ucdbdc4c_click')){
+            this.dashboard_sysportlet2_ucdbdc4c_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u0459568_click')){
-            this.dashboard_sysportlet2_u0459568_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u1453337_click')){
+            this.dashboard_sysportlet2_u1453337_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u4d009c6_click')){
-            this.dashboard_sysportlet2_u4d009c6_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ud54a71d_click')){
+            this.dashboard_sysportlet2_ud54a71d_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ua103298_click')){
-            this.dashboard_sysportlet2_ua103298_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u04ff79f_click')){
+            this.dashboard_sysportlet2_u04ff79f_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_uad9b866_click')){
-            this.dashboard_sysportlet2_uad9b866_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ud97be75_click')){
+            this.dashboard_sysportlet2_ud97be75_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_u1e6202a_click')){
             this.dashboard_sysportlet2_u1e6202a_click(null);

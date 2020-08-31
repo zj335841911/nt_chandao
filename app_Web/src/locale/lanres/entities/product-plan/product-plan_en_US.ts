@@ -112,6 +112,7 @@ export default {
 			actions: "操作",
 		},
 		uiactions: {
+        productplan_addproject: "添加项目",
         productplan_relationstory: "关联需求",
         productplan_relationbug: "关联Bug",
         productplan_mainedit: "编辑",

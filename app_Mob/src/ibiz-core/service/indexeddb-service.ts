@@ -27,7 +27,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         if (IndexedDBService.instance) {
             return IndexedDBService.instance;
         }
-        super('Aug 28, 2020');
+        super('Aug 31, 2020');
     }
 
     /**
@@ -37,23 +37,30 @@ export class IndexedDBService extends IndexedDBServiceBase {
      * @memberof IndexedDBServiceBase
      */
     protected entityConfigInit(): void {
+        this.entityConfigs.push({ name: 'branch', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'user', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzfavorites', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'build', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'task', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'module', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'action', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'casestep', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'productline', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'release', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'taskteam', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'productmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'project', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'todo', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'story', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibzmyterritory', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'case', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'testmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productplan', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectstats', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'bug', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'projectmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productstats', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'testtask', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'testsuite', keyPath: 'srfsessionkey' });

@@ -118,7 +118,7 @@ public class ProductResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cancelproducttop")
     public ResponseEntity<ProductDTO> cancelProductTop(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
-domain.setId(product_id);
+        domain.setId(product_id);
         domain = productService.cancelProductTop(domain);
         productdto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
@@ -135,8 +135,19 @@ domain.setId(product_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/close")
     public ResponseEntity<ProductDTO> close(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
-domain.setId(product_id);
+        domain.setId(product_id);
         domain = productService.close(domain);
+        productdto = productMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")
+    @ApiOperation(value = "产品移动端计数器方法", tags = {"产品" },  notes = "产品移动端计数器方法")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/mobproductcounter")
+    public ResponseEntity<ProductDTO> mobProductCounter(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+        Product domain = productMapping.toDomain(productdto);
+        domain.setId(product_id);
+        domain = productService.mobProductCounter(domain);
         productdto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
     }
@@ -146,7 +157,7 @@ domain.setId(product_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/producttop")
     public ResponseEntity<ProductDTO> productTop(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
-domain.setId(product_id);
+        domain.setId(product_id);
         domain = productService.productTop(domain);
         productdto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);

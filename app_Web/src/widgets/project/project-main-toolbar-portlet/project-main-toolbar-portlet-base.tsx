@@ -236,25 +236,6 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
     }
 
     /**
-     * 返回
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectMainDashboardViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
-
-    /**
      * 长度
      *
      * @type {number}

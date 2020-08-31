@@ -34,6 +34,13 @@ public class ModuleSearchContext extends QueryWrapperContext<Module> {
             this.getSearchCond().eq("root", n_root_eq);
         }
     }
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
 	private String n_name_like;//[模块名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;

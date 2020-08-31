@@ -118,7 +118,7 @@ public class ReleaseResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/activate")
     public ResponseEntity<ReleaseDTO> activate(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.activate(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -129,7 +129,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/batchunlinkbug")
     public ResponseEntity<ReleaseDTO> batchUnlinkBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.batchUnlinkBug(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -140,7 +140,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/changestatus")
     public ResponseEntity<ReleaseDTO> changeStatus(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.changeStatus(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -157,7 +157,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkbug")
     public ResponseEntity<ReleaseDTO> linkBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.linkBug(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -168,7 +168,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkbugbybug")
     public ResponseEntity<ReleaseDTO> linkBugbyBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.linkBugbyBug(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -179,7 +179,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkbugbyleftbug")
     public ResponseEntity<ReleaseDTO> linkBugbyLeftBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.linkBugbyLeftBug(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -190,7 +190,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/linkstory")
     public ResponseEntity<ReleaseDTO> linkStory(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.linkStory(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -216,7 +216,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/terminate")
     public ResponseEntity<ReleaseDTO> terminate(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.terminate(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
@@ -227,7 +227,7 @@ domain.setId(release_id);
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/unlinkbug")
     public ResponseEntity<ReleaseDTO> unlinkBug(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
-domain.setId(release_id);
+        domain.setId(release_id);
         domain = releaseService.unlinkBug(domain);
         releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);

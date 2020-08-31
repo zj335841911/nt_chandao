@@ -23,6 +23,10 @@ export default {
 			caption: "测试模块",
       		title: "测试模块编辑视图",
 		},
+		pickupgridview: {
+			caption: "测试模块",
+      		title: "测试模块选择表格视图",
+		},
 		gridview: {
 			caption: "测试模块",
       		title: "测试模块表格视图",
@@ -43,13 +47,15 @@ export default {
 			caption: "测试模块",
       		title: "需求模块",
 		},
+		pickupview: {
+			caption: "测试模块",
+      		title: "测试模块数据选择视图",
+		},
 	},
 	main_form: {
 		details: {
 			group1: "测试模块基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "id", 
 			srfmajortext: "名称", 
@@ -57,7 +63,16 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			rootname: "所属产品", 
+			branch: "", 
+			path: "path", 
+			root: "编号", 
+			parentname: "上级模块", 
+			name: "名称", 
+			short: "简称", 
+			order: "排序值", 
 			id: "id", 
+			parent: "id", 
 		},
 		uiactions: {
 		},
@@ -82,6 +97,19 @@ export default {
 		},
 		uiactions: {
         remove: "Remove",
+		},
+	},
+	main_grid: {
+		columns: {
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
 		},
 	},
 	gridviewbranchtoolbar_toolbar: {

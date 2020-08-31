@@ -668,6 +668,7 @@ export default class MobBase extends Vue implements ControlInterface {
         }
         this.items.forEach((item:any)=>{
             Object.assign(item,this.getActionState(item));    
+            this.setSlidingDisabled(item);
         });
         return response;
     }
@@ -962,6 +963,21 @@ export default class MobBase extends Vue implements ControlInterface {
         let tempActionModel:any = JSON.parse(JSON.stringify(this.ActionModel));
         this.$viewTool.calcActionItemAuthState(data,tempActionModel,this.deUIService);
         return tempActionModel;
+    }
+
+    /**
+    * 判断列表项左滑右滑禁用状态
+    *
+    * @memberof MobBase
+    */
+    public setSlidingDisabled(item:any){
+        item.sliding_disabled = true;
+        Object.keys(this.ActionModel).forEach((key,index) => {
+           if(item[key].visabled && item.sliding_disabled ){
+             item.sliding_disabled = false;
+           }
+        })
+
     }
 }
 </script>
