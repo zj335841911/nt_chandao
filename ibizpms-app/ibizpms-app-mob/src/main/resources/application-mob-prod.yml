@@ -83,6 +83,10 @@ zuul:
       path: /cases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_testmodule:
+      path: /testmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_productplan:
       path: /productplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -93,6 +97,10 @@ zuul:
       stripPrefix: false
     zt_bug:
       path: /bugs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_projectmodule:
+      path: /projectmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productstats:
