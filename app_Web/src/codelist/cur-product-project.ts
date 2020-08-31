@@ -108,10 +108,10 @@ export default class CurProductProject {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.name});
-            Object.assign(itemdata,{value:item.name});
-            Object.assign(itemdata,{text:item.id});
-            Object.assign(itemdata,{label:item.id});
+            Object.assign(itemdata,{id:item.id});
+            Object.assign(itemdata,{value:item.id});
+            Object.assign(itemdata,{text:item.name});
+            Object.assign(itemdata,{label:item.name});
             
             _items.push(itemdata);
         });

@@ -204,6 +204,24 @@ export class ResolveEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof ResolveEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'createbuild')) {
+            this.onFormItemValueChange({ name: 'resolvedbuild', value: null });
+        }
+        if (Object.is(name, 'createbuild')) {
+            this.onFormItemValueChange({ name: 'buildproject', value: null });
+        }
+        if (Object.is(name, 'createbuild')) {
+            this.onFormItemValueChange({ name: 'buildname', value: null });
+        }
+    }
+
+    /**
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }

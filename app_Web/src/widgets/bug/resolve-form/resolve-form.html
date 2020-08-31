@@ -55,7 +55,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.buildproject.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='buildproject' :itemRules="this.rules.buildproject" class='' :caption="$t('entities.bug.resolve_form.details.buildproject')" uiStyle="DEFAULT" :labelWidth="200" :isShowCaption="true" :error="detailsModel.buildproject.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='buildproject' :itemRules="this.rules.buildproject" class='' :caption="$t('entities.bug.resolve_form.details.buildproject')" uiStyle="DEFAULT" :labelWidth="160" :isShowCaption="true" :error="detailsModel.buildproject.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.buildproject"
