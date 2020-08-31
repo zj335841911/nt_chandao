@@ -287,4 +287,20 @@ export class NewPlanEditFormBase extends EditFormControlBase {
             this.updateFormItems('UpdateProjectCycle', this.data, details, true);
         }
     }
+
+    /**
+     * 新建默认值
+     * @memberof NewPlanEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('begin')) {
+            this.data['begin'] = this.viewparams['begin'];
+        }
+        if (this.data.hasOwnProperty('end')) {
+            this.data['end'] = this.viewparams['end'];
+        }
+        if (this.data.hasOwnProperty('days')) {
+            this.data['days'] = this.viewparams['days'];
+        }
+    }
 }
