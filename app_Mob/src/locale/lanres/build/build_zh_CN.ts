@@ -1,42 +1,8 @@
-export default {
-	views: {
-		mobpickupmdview: {
-			caption: '版本',
-		},
-		mobmdview: {
-			caption: '版本',
-		},
-		mobeditview: {
-			caption: '版本',
-		},
-		mobpickupview: {
-			caption: '版本',
-		},
-		mobmpickupview: {
-			caption: '版本',
-		},
-	},
-	mobmain_form: {
-		details: {
-			group1: '版本基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'id', 
-			srfmajortext: '名称编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '名称编号', 
-			date: '打包日期', 
-			builder: '构建者', 
-			id: 'id', 
-		},
-		uiactions: {
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
-};
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @getLogicNameLanguage field.getPSDEFi...  [in template "TEMPLCODE_en_US" at line 7, column 56]
+----

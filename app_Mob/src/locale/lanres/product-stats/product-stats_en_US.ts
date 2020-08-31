@@ -1,27 +1,8 @@
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-export default {
-// test
-	views: {
-		mobmdview: {
-			caption: '产品',
-		},
-		mobtabexpview: {
-			caption: '产品详情',
-		},
-		testmobmdview: {
-			caption: '产品',
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'New',
-			tip: 'tbitem1',
-		},
-	},
-	testmobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'New',
-			tip: 'tbitem1',
-		},
-	},
-};
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @getLogicNameLanguage field.getPSDEFi...  [in template "TEMPLCODE_en_US" at line 8, column 56]
+----
