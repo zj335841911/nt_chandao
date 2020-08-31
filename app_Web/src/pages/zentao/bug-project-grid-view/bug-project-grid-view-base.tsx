@@ -399,8 +399,8 @@ export class BugProjectGridViewBase extends GridViewBase {
             { pathName: 'bugs', parameterName: 'bug' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -416,8 +416,9 @@ export class BugProjectGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.bug.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 
