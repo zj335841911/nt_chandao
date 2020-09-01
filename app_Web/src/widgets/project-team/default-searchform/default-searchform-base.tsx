@@ -75,8 +75,8 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @memberof DefaultSearchFormBase
      */
     public data: any = {
-        n_dept_eq: null,
-        n_managemembers_eq: null,
+        n_account_like: null,
+        n_root_eq: null,
     };
 
     /**
@@ -88,9 +88,9 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_dept_eq: new FormItemModel({ caption: '选择部门', detailType: 'FORMITEM', name: 'n_dept_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_account_like: new FormItemModel({ caption: '用户(文本包含(%))', detailType: 'FORMITEM', name: 'n_account_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_managemembers_eq: new FormItemModel({ caption: '复制团队', detailType: 'FORMITEM', name: 'n_managemembers_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_root_eq: new FormItemModel({ caption: '项目编号(等于(=))', detailType: 'FORMITEM', name: 'n_root_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 }

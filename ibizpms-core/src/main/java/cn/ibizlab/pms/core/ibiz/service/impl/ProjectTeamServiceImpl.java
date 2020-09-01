@@ -166,6 +166,38 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         this.remove(new QueryWrapper<ProjectTeam>().eq("root",id));
     }
 
+    @Autowired
+    @Lazy
+    IProjectTeamService proxyService;
+	@Override
+    public void saveByRoot(BigInteger id,List<ProjectTeam> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<ProjectTeam> _update=new ArrayList<ProjectTeam>();
+        List<ProjectTeam> _create=new ArrayList<ProjectTeam>();
+        for(ProjectTeam before:selectByRoot(id)){
+            delIds.add(before.getId());
+        }
+        for(ProjectTeam sub:list) {
+            sub.setRoot(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            proxyService.updateBatch(_update);
+        if(_create.size()>0)
+            proxyService.createBatch(_create);
+        if(delIds.size()>0)
+            proxyService.removeBatch(delIds);
+	}
+
 
     /**
      * 查询集合 DEFAULT

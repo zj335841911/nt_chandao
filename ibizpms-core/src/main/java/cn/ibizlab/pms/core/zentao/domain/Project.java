@@ -457,6 +457,14 @@ public class Project extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.Project ibizparent;
 
 
+    /**
+     * 项目团队
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibiz.domain.ProjectTeam> projectteam;
+
 
     /**
      * 设置 [当前系统版本]

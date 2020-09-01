@@ -134,7 +134,7 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * todo主数据视图（链接）
+     * todo主数据视图（链接）
      *
      * @param {*} [item={}]
      * @memberof Zentao
@@ -179,7 +179,7 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * task主数据视图（链接）
+     * task主数据视图（链接）
      *
      * @param {*} [item={}]
      * @memberof Zentao
@@ -339,7 +339,7 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * story主数据视图（链接）
+     * story主数据视图（链接）
      *
      * @param {*} [item={}]
      * @memberof Zentao

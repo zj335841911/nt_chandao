@@ -67,30 +67,6 @@ export class ProjectMGEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProjectMGEditViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'MANAGEMEMBERS': { isRawValue: false, value: 'managemembers' },
-        'DEPT': { isRawValue: false, value: 'dept' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProjectMGEditViewBase
-	 */
-    protected customViewParams: any = {
-        'managemembers': { isRawValue: false, value: 'managemembers' },
-        'dept': { isRawValue: false, value: 'dept' }
-    };
-
     /**
      * 视图模型数据
      *

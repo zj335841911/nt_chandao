@@ -42,6 +42,7 @@ public interface IProjectTeamService extends IService<ProjectTeam>{
     Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) ;
     List<ProjectTeam> selectByRoot(BigInteger id) ;
     void removeByRoot(BigInteger id) ;
+    void saveByRoot(BigInteger id,List<ProjectTeam> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -6,41 +6,17 @@
   </div>
   <div class="form-content">
                   
-          <i-col class="form-layout-container" v-show="detailsModel.n_dept_eq.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-              <app-form-item name='n_dept_eq' :itemRules="this.rules.n_dept_eq" class='' :caption="$t('entities.projectteam.default_searchform.details.n_dept_eq')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.n_dept_eq.error" :isEmptyCaption="false" labelPos="LEFT">
-              
-          <dropdown-list 
-              v-model="data.n_dept_eq"
-              :data="data"
-              :context="context"
-              :viewparams="viewparams"
-              :localContext ='{ }' 
-              :localParam ='{ }' 
-              :disabled="detailsModel.n_dept_eq.disabled"
-              valueType="string"
-              tag='RealDept'
-              codelistType='DYNAMIC'
-              placeholder='请选择...'
-              style="width:100px;"
-          />
-          </app-form-item>
+          <i-col class="form-layout-container" v-show="detailsModel.n_account_like.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+              <app-form-item name='n_account_like' :itemRules="this.rules.n_account_like" class='' :caption="$t('entities.projectteam.default_searchform.details.n_account_like')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_account_like.error" :isEmptyCaption="false" labelPos="LEFT">
+              <input-box 
+              v-model="data.n_account_like"  
+              @enter="onEnter($event)"  
+                
+              :disabled="detailsModel.n_account_like.disabled" 
+              type='text' 
+              style="width:100px;">
+          </input-box>
           
-          </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.n_managemembers_eq.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-              <app-form-item name='n_managemembers_eq' :itemRules="this.rules.n_managemembers_eq" class='' :caption="$t('entities.projectteam.default_searchform.details.n_managemembers_eq')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.n_managemembers_eq.error" :isEmptyCaption="false" labelPos="LEFT">
-              
-          <dropdown-list 
-              v-model="data.n_managemembers_eq"
-              :data="data"
-              :context="context"
-              :viewparams="viewparams"
-              :localContext ='{ }' 
-              :localParam ='{ }' 
-              :disabled="detailsModel.n_managemembers_eq.disabled"
-              valueType="string"
-              placeholder='请选择...'
-              style="width:100px;"
-          />
           </app-form-item>
           
           </i-col>

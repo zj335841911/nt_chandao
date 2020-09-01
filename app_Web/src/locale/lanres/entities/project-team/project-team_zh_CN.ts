@@ -52,6 +52,15 @@ export default {
 			projectteam_removemember: "移除成员",
 		},
 	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+			n_account_like: "用户(文本包含(%))", 
+			n_root_eq: "项目编号(等于(=))", 
+		},
+		uiactions: {
+		},
+	},
 	maingridview_editrowtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
