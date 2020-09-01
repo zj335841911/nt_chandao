@@ -105,18 +105,30 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      * @memberof StoryKanBan
      */
     public detailsModel: any = {
-        title: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        pri: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        status: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        button1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        srfkey: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        story: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        title: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'title', panel: this })
+,
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
+,
+        pri: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'pri', panel: this })
+,
+        status: new PanelFieldModel({ caption: '状态', itemType: 'FIELD',visible: true, disabled: false, name: 'status', panel: this })
+,
+        estimate: new PanelFieldModel({ caption: 'h', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
+,
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem2', panel: this })
+,
+        button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'ProjectUnlinkStory',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__STORY_UNLP_BUT',visabled: true,disabled: false} })
+,
+        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
+,
+        container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container1', panel: this })
+,
+        srfkey: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'srfkey', panel: this })
+,
+        story: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'story', panel: this })
+,
+        container3: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
+,
     };
 
     /**
