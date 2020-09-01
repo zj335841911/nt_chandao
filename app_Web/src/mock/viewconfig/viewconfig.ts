@@ -287,6 +287,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugMainDashboardView",
             "viewtag": "1540523a668e920d831510cfbec2c5e2"
         },
+        "projectmgeditview": {
+            "title": "项目编辑视图（团队管理）",
+            "caption": "团队管理",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectMGEditView",
+            "viewtag": "15859f5ecc4a3f3e02dac44d1de521af"
+        },
         "deptpickupview": {
             "title": "部门数据选择视图",
             "caption": "部门",

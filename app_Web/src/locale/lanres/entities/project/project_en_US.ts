@@ -67,6 +67,10 @@ export default {
 			caption: "项目",
       		title: "项目任务导航视图",
 		},
+		mgeditview: {
+			caption: "团队管理",
+      		title: "项目编辑视图（团队管理）",
+		},
 		testtabexpview: {
 			caption: "测试",
       		title: "项目分页导航视图（测试）",
@@ -358,6 +362,25 @@ export default {
 			formitemex2: "", 
 			desc: "项目描述", 
 			acl: "访问控制", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
+	projectmg_form: {
+		details: {
+			rawitem1: "", 
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			dept: "选择部门", 
+			managemembers: "复制团队", 
 			id: "项目编号", 
 		},
 		uiactions: {

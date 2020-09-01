@@ -64,17 +64,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '06ac640ed0240503d1d42ecd9a090787',
-            viewmodule: 'ibiz',
-            viewname: 'ProjectStatsALLGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '85ee867b09a2d6303c061d91374ec975',
-                'f83dac873b9215483c4bb91673284b41',
-            ],
-        },
-        {
             viewtag: '07004de8a7d23e97b76460f888c8b290',
             viewmodule: 'zentao',
             viewname: 'BugPlanSubGridView',
@@ -326,6 +315,16 @@ export const viewstate: any = {
                 '443935a0b9d0fa8daf3131956a8bacc9',
                 'ec9a5987de12c718961f243f4034efea',
                 'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
+            viewtag: '15859f5ecc4a3f3e02dac44d1de521af',
+            viewmodule: 'zentao',
+            viewname: 'ProjectMGEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ac21af5f9696e38031a7c2291ed02d64',
             ],
         },
         {
@@ -1702,8 +1701,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '15859f5ecc4a3f3e02dac44d1de521af',
                 'f83dac873b9215483c4bb91673284b41',
-                '06ac640ed0240503d1d42ecd9a090787',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],
         },

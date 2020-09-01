@@ -91,6 +91,7 @@ export default class ProjectUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects',component:'project-story-medit-view9'});
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects',component:'project-task-tree-exp-view'});
+        this.allViewMap.set(':',{viewname:'mgeditview',srfappde:'projects',component:'project-mgedit-view'});
         this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects',component:'project-test-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects',component:'project-edit-view-putoff'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects',component:'project-main-my-grid-view'});
@@ -397,15 +398,26 @@ export default class ProjectUIServiceBase extends UIService {
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'projectstats', parameterName: 'projectstats' },
-            { pathName: 'allgridview', parameterName: 'allgridview' },
+            { pathName: 'projects', parameterName: 'project' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'project-mgedit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.project.views.mgeditview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
     }
 
     /**
