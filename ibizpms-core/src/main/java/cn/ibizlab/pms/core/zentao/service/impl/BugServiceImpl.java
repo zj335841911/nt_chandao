@@ -411,21 +411,21 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     /**
  * 发送消息通知。
  */
-@Override
-public void sendMessage(Bug et) {
-  	Bug dbet = this.get(et.getId());
- 	String pcLinkView = "maindashboardview_link";
-  	String mobLinkView = "mobeditview";
+	@Override
+	public void sendMessage(Bug et) {
+  		Bug dbet = this.get(et.getId());
+ 		String pcLinkView = "maindashboardview_link";
+  		String mobLinkView = "mobeditview";
   
   	//assignedto has changed
   	if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
             et.getExtensionparams().put("assignedToChanged",false);
   	
-  	cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
-  	if(dingTalkMsgService!=null){
-        dingTalkMsgService.send(et, "Bug", pcLinkView, mobLinkView);
+  		cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
+  		if(dingTalkMsgService!=null){
+        	dingTalkMsgService.send(et, "Bug", pcLinkView, mobLinkView);
+		}
 	}
-}
         @Override
     @Transactional
     public Bug toStory(Bug et) {
