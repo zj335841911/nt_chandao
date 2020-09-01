@@ -177,6 +177,12 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

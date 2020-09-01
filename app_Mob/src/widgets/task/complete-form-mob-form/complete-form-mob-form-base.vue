@@ -137,6 +137,7 @@
     :error="detailsModel.finisheddate.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.finisheddate" 
     :disabled="detailsModel.finisheddate.disabled"

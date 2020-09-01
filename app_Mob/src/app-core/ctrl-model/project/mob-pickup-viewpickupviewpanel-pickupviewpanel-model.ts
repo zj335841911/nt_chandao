@@ -177,6 +177,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

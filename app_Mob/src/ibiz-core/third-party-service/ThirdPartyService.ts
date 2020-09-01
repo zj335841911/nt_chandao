@@ -39,6 +39,10 @@ export class ThirdPartyService {
      * @memberof ThirdPartyService
      */
     public weChat: WeChatService = WeChatService.getInstance();
+
+
+    private backEvent:Array<Function> = [];
+
     /**
      * 是否已经初始化
      *
@@ -49,6 +53,7 @@ export class ThirdPartyService {
     public get isInit(): boolean {
         return this.dd.isInit || this.weChat.isInit;
     }
+
     /**
      * Creates an instance of ThirdPartyService.
      * @memberof ThirdPartyService
@@ -166,6 +171,7 @@ export class ThirdPartyService {
             this.weChat.setTitle(title);
         }
     }
+    
 
     /**
      * 设置第三方容器导航栏返回事件
@@ -175,11 +181,28 @@ export class ThirdPartyService {
      * @memberof DingTalkService
      */
     public setBackEvent(event:Function){
+        this.backEvent.push(event);
         if (this.isDingTalk()) {
-            this.dd.setBackEvent(event);
+            this.dd.setBackEvent(this.backEvent);
         } else if (this.isWeChat()) {
-            this.weChat.setBackEvent(event);
+            this.weChat.setBackEvent(this.backEvent);
         }
+    }
+    
+    /**
+     * 第三方容器导航销毁返回事件
+     */
+    public destroyBackEvent() {
+        this.backEvent = (this.backEvent.slice(0,-1) as any);
+        alert(this.backEvent.length);
+        if(!this.backEvent){
+            return
+        }
+        if (this.isDingTalk()) {
+            this.dd.setBackEvent(this.backEvent);
+        } else if (this.isWeChat()) {
+            this.weChat.setBackEvent(this.backEvent);
+        } 
     }
 
 }

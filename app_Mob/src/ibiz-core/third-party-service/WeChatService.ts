@@ -228,7 +228,7 @@ export class WeChatService {
      * @returns {DingTalkService}
      * @memberof DingTalkService
      */
-    public setBackEvent(event:Function){
-        this.backEvent = event;
+    public setBackEvent(event:Array<Function>){
+        this.backEvent = event[event.length -1];
     }
 }

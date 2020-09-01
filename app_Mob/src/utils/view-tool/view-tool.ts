@@ -418,4 +418,11 @@ export class ViewTool {
     public ThirdPartyClose() {
         this.thirdPartyService.close();
     }
+
+    /**
+     * 销毁第三方导航返回事件
+     */
+    public destroyBackEvent() {
+        this.thirdPartyService.destroyBackEvent();
+    }
 }

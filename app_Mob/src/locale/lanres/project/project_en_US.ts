@@ -54,6 +54,8 @@ export default {
     accounts: "项目团队相关成员",
     order1: "项目排序",
     istop: "是否置顶",
+    dept: "选择部门",
+    managemembers: "复制团队",
   },
 	views: {
 		mobeditview: {

@@ -211,6 +211,8 @@ export class DingTalkService {
      */
     private backEvent:Function = ()=>{};
 
+
+
     /**
      * 设置钉钉导航栏返回事件
      *
@@ -218,7 +220,8 @@ export class DingTalkService {
      * @returns {DingTalkService}
      * @memberof DingTalkService
      */
-    public setBackEvent(event:Function){
-        this.backEvent = event;
+    public setBackEvent(event:Array<Function>){
+        this.backEvent = event[event.length -1];
     }
+
 }

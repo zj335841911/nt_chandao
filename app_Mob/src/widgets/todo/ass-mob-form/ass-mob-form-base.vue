@@ -62,6 +62,7 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.date" 
     :disabled="detailsModel.date.disabled"
