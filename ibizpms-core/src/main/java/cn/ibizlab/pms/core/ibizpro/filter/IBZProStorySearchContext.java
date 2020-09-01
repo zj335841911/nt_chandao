@@ -48,6 +48,13 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("storymodule", n_storymodule_eq);
         }
     }
+	private BigInteger n_pmsstory_eq;//[编号]
+	public void setN_pmsstory_eq(BigInteger n_pmsstory_eq) {
+        this.n_pmsstory_eq = n_pmsstory_eq;
+        if(!ObjectUtils.isEmpty(this.n_pmsstory_eq)){
+            this.getSearchCond().eq("pmsstory", n_pmsstory_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

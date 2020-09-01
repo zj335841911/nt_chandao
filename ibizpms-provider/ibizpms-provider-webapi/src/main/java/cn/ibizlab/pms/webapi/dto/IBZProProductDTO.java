@@ -90,6 +90,14 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     @JsonProperty("psobjectid")
     private String psobjectid;
 
+    /**
+     * 属性 [PMSPRODUCT]
+     *
+     */
+    @JSONField(name = "pmsproduct")
+    @JsonProperty("pmsproduct")
+    private BigInteger pmsproduct;
+
 
     /**
      * 设置 [IBZPRO_PRODUCTNAME]
@@ -113,6 +121,14 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     public void setPsobjectid(String  psobjectid){
         this.psobjectid = psobjectid ;
         this.modify("psobjectid",psobjectid);
+    }
+
+    /**
+     * 设置 [PMSPRODUCT]
+     */
+    public void setPmsproduct(BigInteger  pmsproduct){
+        this.pmsproduct = pmsproduct ;
+        this.modify("pmsproduct",pmsproduct);
     }
 
 

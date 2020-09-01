@@ -52,6 +52,9 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
     protected int batchSize = 500;
 
@@ -172,6 +175,16 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     @Override
     public void removeByStorymodule(String ibzprostorymoduleid) {
         this.remove(new QueryWrapper<IBZProStory>().eq("storymodule",ibzprostorymoduleid));
+    }
+
+	@Override
+    public List<IBZProStory> selectByPmsstory(BigInteger id) {
+        return baseMapper.selectByPmsstory(id);
+    }
+
+    @Override
+    public void removeByPmsstory(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStory>().eq("pmsstory",id));
     }
 
 

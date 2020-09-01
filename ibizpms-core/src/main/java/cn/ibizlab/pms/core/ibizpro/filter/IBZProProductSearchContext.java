@@ -41,6 +41,13 @@ public class IBZProProductSearchContext extends QueryWrapperContext<IBZProProduc
             this.getSearchCond().eq("pssystype", n_pssystype_eq);
         }
     }
+	private BigInteger n_pmsproduct_eq;//[编号]
+	public void setN_pmsproduct_eq(BigInteger n_pmsproduct_eq) {
+        this.n_pmsproduct_eq = n_pmsproduct_eq;
+        if(!ObjectUtils.isEmpty(this.n_pmsproduct_eq)){
+            this.getSearchCond().eq("pmsproduct", n_pmsproduct_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

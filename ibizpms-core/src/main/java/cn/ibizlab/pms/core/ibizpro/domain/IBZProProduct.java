@@ -104,6 +104,21 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @JSONField(name = "psobjectid")
     @JsonProperty("psobjectid")
     private String psobjectid;
+    /**
+     * 编号
+     */
+    @TableField(value = "pmsproduct")
+    @JSONField(name = "pmsproduct")
+    @JsonProperty("pmsproduct")
+    private BigInteger pmsproduct;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Product ztProduct;
 
 
 
@@ -129,6 +144,14 @@ public class IBZProProduct extends EntityMP implements Serializable {
     public void setPsobjectid(String psobjectid){
         this.psobjectid = psobjectid ;
         this.modify("psobjectid",psobjectid);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setPmsproduct(BigInteger pmsproduct){
+        this.pmsproduct = pmsproduct ;
+        this.modify("pmsproduct",pmsproduct);
     }
 
 
