@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as wx from 'weixin-js-sdk';
 
 /**
  * 惬意微信服务
@@ -16,6 +17,7 @@ export class WeChatService {
      * @memberof WeChatService
      */
     private static readonly instance: WeChatService = new WeChatService();
+    
     /**
      * 用户信息缓存key
      *
@@ -24,6 +26,7 @@ export class WeChatService {
      * @memberof WeChatService
      */
     private readonly infoName: string = "UserInfo";
+
     /**
      * 企业corpId
      *
@@ -32,6 +35,7 @@ export class WeChatService {
      * @memberof WeChatService
      */
     private readonly appId: string = "ww41b9cbca11ed5dbb";
+
     /**
      * 微信SDK
      *
@@ -39,7 +43,8 @@ export class WeChatService {
      * @type {*}
      * @memberof WeChatService
      */
-    protected wx: any = null;
+    protected wx: any = wx;
+
     /**
      * 是否初始化
      *

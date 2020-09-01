@@ -13,7 +13,10 @@
                         <ion-input clear-input required type="password" debounce="100" :value="password" @ionChange="($event) => password = $event.detail.value"></ion-input>
                     </ion-item>
                     <div class="ion-padding button">
-                        <ion-button expand="block" :disabled="isLoadding" class="ion-no-margin" @click="login">{{$t('submit')}}</ion-button>
+                        <ion-button expand="block" :disabled="isLoadding" class="ion-no-margin" @click="realLogin">{{$t('submit')}}</ion-button>
+                    </div>
+                    <div class="visitor">
+                        <ion-button expand="block" color="medium" size="small" fill="clear" class="ion-visitor" @click="login('1314')">以游客身份登录</ion-button>
                     </div>
                 </form>
                 <!-- <div class="thirdParty">
@@ -133,7 +136,7 @@ export default class Login extends Vue {
      *
      * @memberof Login
      */
-    public login() {
+    public login(url:any) {
         let token = localStorage.getItem('token');
         let user = localStorage.getItem('user');
         if(token){
@@ -150,7 +153,7 @@ export default class Login extends Vue {
             this.$notice.error(`${this.$t('passwordtipinfo')}`);
             return;
         }
-        const post: Promise<any> = this.$http.post(Environment.RemoteLogin, { loginname: this.username, password: this.password });
+        const post: Promise<any> = this.$http.post(url, { loginname: this.username, password: this.password });
         this.isLoadding = true;
         post.then((response: any) => {
             if (response && response.status === 200) {
@@ -169,6 +172,17 @@ export default class Login extends Vue {
             this.$notice.error(error?error.error.message:"登录异常");
         });
     }
+
+    /**
+     * 真正登录
+     *
+     * @memberof Login
+     */
+    public realLogin(){
+      this.login(Environment.RemoteLogin);
+    }
+
+
 }
 </script>
 
