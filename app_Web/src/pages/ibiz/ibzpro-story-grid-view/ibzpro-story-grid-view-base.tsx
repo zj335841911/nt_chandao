@@ -104,31 +104,16 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @memberof IBZProStoryGridView
      */
     public toolBarModels: any = {
-        tbitem3: { name: 'tbitem3', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+        deuiaction3_push: { name: 'deuiaction3_push', caption: '推送', 'isShowCaption': false, 'isShowIcon': true, tooltip: '推送', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Push', target: 'SINGLEKEY', class: '' } },
 
-        tbitem4: { name: 'tbitem4', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
+        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
-        tbitem6: { name: 'tbitem6', caption: '拷贝', 'isShowCaption': true, 'isShowIcon': true, tooltip: '拷贝', iconcls: 'fa fa-copy', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'Copy', target: 'SINGLEKEY', class: '' } },
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        tbitem7: {  name: 'tbitem7', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem8: { name: 'tbitem8', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
-
-        tbitem9: {  name: 'tbitem9', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem13: { name: 'tbitem13', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
-
-        tbitem10: {  name: 'tbitem10', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '',
-    model: {
-        tbitem21: { name: 'tbitem21', caption: '导出数据模型', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportModel', target: '', class: '' } },
-
-        tbitem23: { name: 'tbitem23', caption: '数据导入', 'isShowCaption': true, 'isShowIcon': true, tooltip: '数据导入', iconcls: 'fa fa-upload', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Import', target: '', class: '' } },
-
-    }
-}, 
-        tbitem17: {  name: 'tbitem17', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem19: { name: 'tbitem19', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
-
-        tbitem18: { name: 'tbitem18', caption: '帮助', 'isShowCaption': true, 'isShowIcon': true, tooltip: '帮助', iconcls: 'fa fa-question', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Help', target: '', class: '' } },
+        seperator3: {  name: 'seperator3', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
+        deuiaction4: { name: 'deuiaction4', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -184,44 +169,17 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @memberof IBZProStoryGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'tbitem3')) {
-            this.toolbar_tbitem3_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction3_push')) {
+            this.toolbar_deuiaction3_push_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'tbitem4')) {
-            this.toolbar_tbitem4_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'tbitem5')) {
-            this.toolbar_tbitem5_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'tbitem6')) {
-            this.toolbar_tbitem6_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem24')) {
-            this.toolbar_tbitem24_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem25')) {
-            this.toolbar_tbitem25_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem8')) {
-            this.toolbar_tbitem8_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem13')) {
-            this.toolbar_tbitem13_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem11')) {
-            this.toolbar_tbitem11_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem21')) {
-            this.toolbar_tbitem21_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem23')) {
-            this.toolbar_tbitem23_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem19')) {
-            this.toolbar_tbitem19_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem18')) {
-            this.toolbar_tbitem18_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.toolbar_deuiaction4_click(null, '', $event2);
         }
     }
 
@@ -321,7 +279,36 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_tbitem3_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction3_push_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IBZProStoryUIService  = new IBZProStoryUIService();
+        curUIService.IBZProStory_Push(datas,contextJO, paramJO,  $event, xData,this,"IBZProStory");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -349,7 +336,7 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_tbitem4_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -366,7 +353,7 @@ export class IBZProStoryGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
     }
 
     /**
@@ -377,147 +364,7 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_tbitem5_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.View(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem6_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem24_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem25_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem8_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem13_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -535,146 +382,6 @@ export class IBZProStoryGridViewBase extends GridViewBase {
         }
         // 界面行为
         this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem11_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Print(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem21_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ExportModel(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem23_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Import(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem19_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem18_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Help(datas, contextJO,paramJO,  $event, xData,this,"IBZProStory");
     }
 
     /**
@@ -771,7 +478,7 @@ export class IBZProStoryGridViewBase extends GridViewBase {
         }
     }
     /**
-     * 编辑
+     * 刷新
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -781,130 +488,14 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof IBZProStoryGridViewBase
      */
-    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
+    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { ibzprostory: args[0].ibzprostory })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (_this.refresh && _this.refresh instanceof Function) {
+            _this.refresh(args);
         }
     }
-    /**
-     * 查看
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public View(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { ibzprostory: args[0].ibzprostory })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 拷贝
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { ibzprostory: args[0].ibzprostory });
-            }
-            if(!params) params = {};
-            Object.assign(params,{copymode:true});
-            _this.newdata([{ ...data }], params, $event, xData);
-        } else {
-            Object.assign(this.viewparams,{copymode:true});
-        }
-    }
-    /**
-     * 行编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public ToggleRowEdit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        xData.actualIsOpenEdit = !xData.actualIsOpenEdit;
-    }
-    /**
-     * 新建行
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        const data: any = {};
-        if (_this.hasOwnProperty('newRow') && _this.newRow instanceof Function) {
-            _this.newRow([{ ...data }], params, $event, xData);
-        } else if(xData.newRow && xData.newRow instanceof Function) {
-            xData.newRow([{ ...data }], params, $event, xData);
-        }else{
-            _this.$Notice.error({ title: '错误', desc: 'newRow 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
-
     /**
      * 导出
      *
@@ -922,86 +513,5 @@ export class IBZProStoryGridViewBase extends GridViewBase {
             return ;
         }
         xData.exportExcel($event.exportparms);
-    }
-    /**
-     * 打印
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public Print(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        let _this:any = this;
-        if (!xData || !(xData.print instanceof Function) || !$event) {
-            return ;
-        }
-        xData.print();
-    }
-    /**
-     * 导出数据模型
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public ExportModel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '导出数据模型未支持' });
-    }
-    /**
-     * 数据导入
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public Import(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.importExcel instanceof Function) || !$event) {
-            return ;
-        }
-        xData.importExcel(params);
-    }
-    /**
-     * 过滤
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (_this.hasOwnProperty('isExpandSearchForm')) {
-            _this.isExpandSearchForm = !_this.isExpandSearchForm;
-        }
-    }
-    /**
-     * 帮助
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IBZProStoryGridViewBase
-     */
-    public Help(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '帮助未支持' });
     }
 }
