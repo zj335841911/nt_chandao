@@ -24,6 +24,19 @@ public class DingTalkMsgService implements IMsgService {
 
     @Override
     public void send(EntityBase et, String mainDataView) {
+        this.send(et, et.getClass().getSimpleName().toUpperCase(), mainDataView, "mobeditview");
+    }
+
+    /**
+     * 发送通知
+     *
+     * @param et          业务数据
+     * @param logicName   业务实体名称
+     * @param pcDataView  PC端主数据视图名
+     * @param mobDataView MOB端主数据视图名
+     */
+    @Override
+    public void send(EntityBase et, String logicName, String pcDataView, String mobDataView) {
         //当前操作人相关信息，userid、姓名
         String name = AuthenticationUser.getAuthenticationUser().getPersonname();
 
@@ -31,20 +44,20 @@ public class DingTalkMsgService implements IMsgService {
         String className = et.getClass().getSimpleName().toLowerCase();
         BigInteger id = (BigInteger) et.get("id");
         String title = (String) et.get("title");
-        if(StringUtils.isEmpty(title)){
-            title = (String)et.get("name");
+        if (StringUtils.isEmpty(title)) {
+            title = (String) et.get("name");
         }
 
         //生成重定向地址
-        String redirect_url_pc = String.format(MsgConstants.URL_TEMP_PC, MsgConstants.REDIRECT_HOMEPAGE_PC, Inflector.getInstance().pluralize(className), id, mainDataView);
-        String redirect_url_mob = String.format(MsgConstants.URL_TEMP_MOB, MsgConstants.REDIRECT_HOMEPAGE_MOB, Inflector.getInstance().pluralize(className), id);
+        String redirect_url_pc = String.format(MsgConstants.URL_TEMP_PC, MsgConstants.REDIRECT_HOMEPAGE_PC, Inflector.getInstance().pluralize(className), id, pcDataView);
+        String redirect_url_mob = String.format(MsgConstants.URL_TEMP_MOB, MsgConstants.REDIRECT_HOMEPAGE_MOB, Inflector.getInstance().pluralize(className), id, mobDataView);
 
         String taskUserIds = destParser.getTaskUserIds(et);
         String noticeUserIds = destParser.getNoticeUserIds(et);
 
         if (!StringUtils.isEmpty(taskUserIds)) {
             //分别发送PC、MOB通知
-            String content = String.format(MsgConstants.TASK_CONTENT_TMPL, className.toUpperCase(), id, title);
+            String content = String.format(MsgConstants.TASK_CONTENT_TMPL, logicName, id, title);
 
             sendTask(taskUserIds, redirect_url_pc, "(PC)" + MsgConstants.TASK_TITLE, content);
             sendTask(taskUserIds, redirect_url_mob, "(MOB)" + MsgConstants.TASK_TITLE, content);
@@ -53,7 +66,7 @@ public class DingTalkMsgService implements IMsgService {
 
         if (!StringUtils.isEmpty(noticeUserIds)) {
             //分别发送PC、MOB通知
-            String content = String.format(MsgConstants.NOTICE_CONTENT_TMPL, name, className.toUpperCase(), id, title);
+            String content = String.format(MsgConstants.NOTICE_CONTENT_TMPL, name, logicName, id, title);
             sendLinkMessage(noticeUserIds, redirect_url_pc, "(PC)" + MsgConstants.NOTICE_TITLE, content);
             sendLinkMessage(noticeUserIds, redirect_url_mob, "(MOB)" + MsgConstants.NOTICE_TITLE, content);
             log.info("成功发送链接通知。");
@@ -79,7 +92,7 @@ public class DingTalkMsgService implements IMsgService {
         message.put("content", content);
         String encodeUrl = URLEncoder.encode(redirectUrl);
         message.put("url", "dingtalk://dingtalkclient/page/link?url=" + encodeUrl + "&pc_slide=false");
-        try{
+        try {
             feignClient.sendDingTalkLinkMsg(message);
         } catch (Exception e) {
             e.printStackTrace();
