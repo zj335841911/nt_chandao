@@ -3,7 +3,15 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer" v-for="i in item.items" :key="i">{{i}}</div>
+            <div class="footer" v-for="i in item.items" :key="i"> 
+              <strong>{{item.actor}}</strong> 
+              {{item.method}} 
+              <span v-if="item.actions !== 'closed'">
+              <strong>{{item.file}}</strong>
+              <strong v-html="item.comment" class="comment"></strong>
+              {{i}}
+              </span>
+            </div>
       </div>
     </div>
     <div class="button">
@@ -96,6 +104,7 @@ export default class APPHistoryList extends Vue {
     public handler(){
       if (this.items != undefined) {
         this.items.forEach((v:any)=>{
+          console.log('item',v);
           let file:string = "";
           let method:string = "";
           if(v.objecttype){
@@ -105,14 +114,17 @@ export default class APPHistoryList extends Vue {
             let info:any = this.getCodeList(this.codeListAAA.actions.tag,'STATIC',v.actions);
               v.method = info.text;
               method = info.text;
-              
           }
           if(v.item){
             v.items = [];
             v.item.forEach((i:any) => {
-              file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
-              v.items.push(method + file + '旧值为'+'"'+ i.old +'"'+ '新值为' +'"'+ i.ibiznew+'"');
+              v.file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
+              v.items.push( '旧值为'+'"'+ i.old +'"'+ ',新值为' +'"'+ i.ibiznew+'"');
             });
+          }
+          if(v.item.length == 0){
+            v.items = [];
+            v.items.push('');
           }
         })
       }
