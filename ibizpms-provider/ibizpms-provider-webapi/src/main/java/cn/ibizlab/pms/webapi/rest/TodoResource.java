@@ -178,6 +178,28 @@ public class TodoResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMessage-all')")
+    @ApiOperation(value = "行为", tags = {"待办事宜表" },  notes = "行为")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/sendmessage")
+    public ResponseEntity<TodoDTO> sendMessage(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
+        Todo domain = todoMapping.toDomain(tododto);
+        domain.setId(todo_id);
+        domain = todoService.sendMessage(domain);
+        tododto = todoMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(tododto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMsgPreProcess-all')")
+    @ApiOperation(value = "发送消息前置处理", tags = {"待办事宜表" },  notes = "发送消息前置处理")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/sendmsgpreprocess")
+    public ResponseEntity<TodoDTO> sendMsgPreProcess(@PathVariable("todo_id") BigInteger todo_id, @RequestBody TodoDTO tododto) {
+        Todo domain = todoMapping.toDomain(tododto);
+        domain.setId(todo_id);
+        domain = todoService.sendMsgPreProcess(domain);
+        tododto = todoMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(tododto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"待办事宜表" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchdefault")

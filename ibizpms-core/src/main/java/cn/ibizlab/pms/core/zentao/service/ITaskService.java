@@ -47,6 +47,8 @@ public interface ITaskService extends IService<Task>{
     Task restart(Task et) ;
     boolean save(Task et) ;
     void saveBatch(List<Task> list) ;
+    Task sendMessage(Task et) ;
+    Task sendMsgPreProcess(Task et) ;
     Task start(Task et) ;
     Task taskFavorites(Task et) ;
     Task taskNFavorites(Task et) ;

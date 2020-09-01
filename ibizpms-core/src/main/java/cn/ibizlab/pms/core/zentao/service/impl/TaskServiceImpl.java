@@ -350,6 +350,35 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         saveOrUpdateBatch(list,batchSize);
     }
 
+      /**
+   * 发送消息通知。
+   */
+	@Override
+	public Task sendMessage(Task et) {
+ 		String pcLinkView = "maindashboardview_link";
+  		String mobLinkView = "mobeditview";
+  	
+  		cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
+  		if(dingTalkMsgService!=null){
+        	dingTalkMsgService.send(et, "任务", pcLinkView, mobLinkView);
+		}
+	  	return et;
+	}
+      /**
+   * 发送消息前置处理逻辑。
+   */
+	@Override
+	public Task sendMsgPreProcess(Task et) {
+	  	Task dbet = this.get(et.getId());
+	  
+  		//assignedto has changed
+  		if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
+            	et.getExtensionparams().put("assignedToChanged",false);
+	  	
+	  	//mailto filter duplicated
+	  	
+	  	return et;
+	}
         @Override
     @Transactional
     public Task start(Task et) {

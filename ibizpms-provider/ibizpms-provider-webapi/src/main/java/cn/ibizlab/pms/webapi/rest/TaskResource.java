@@ -257,6 +257,28 @@ public class TaskResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMessage-all')")
+    @ApiOperation(value = "行为", tags = {"任务" },  notes = "行为")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/sendmessage")
+    public ResponseEntity<TaskDTO> sendMessage(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.sendMessage(domain);
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
+    @ApiOperation(value = "发送消息前置处理", tags = {"任务" },  notes = "发送消息前置处理")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/sendmsgpreprocess")
+    public ResponseEntity<TaskDTO> sendMsgPreProcess(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.sendMsgPreProcess(domain);
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "开始", tags = {"任务" },  notes = "开始")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/start")
@@ -649,6 +671,28 @@ public class TaskResource {
         }
         taskService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMessage-all')")
+    @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/sendmessage")
+    public ResponseEntity<TaskDTO> sendMessageByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.sendMessage(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/sendmsgpreprocess")
+    public ResponseEntity<TaskDTO> sendMsgPreProcessByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.sendMsgPreProcess(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
@@ -1059,6 +1103,28 @@ public class TaskResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMessage-all')")
+    @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/sendmessage")
+    public ResponseEntity<TaskDTO> sendMessageByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setProject(project_id);
+        domain = taskService.sendMessage(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/sendmsgpreprocess")
+    public ResponseEntity<TaskDTO> sendMsgPreProcessByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setProject(project_id);
+        domain = taskService.sendMsgPreProcess(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/start")
@@ -1465,6 +1531,28 @@ public class TaskResource {
         }
         taskService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMessage-all')")
+    @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/sendmessage")
+    public ResponseEntity<TaskDTO> sendMessageByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.sendMessage(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/sendmsgpreprocess")
+    public ResponseEntity<TaskDTO> sendMsgPreProcessByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.sendMsgPreProcess(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")

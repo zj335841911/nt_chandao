@@ -67,6 +67,8 @@ public interface IStoryService extends IService<Story>{
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
+    Story sendMessage(Story et) ;
+    Story sendMsgPreProcess(Story et) ;
     Story storyFavorites(Story et) ;
     Story storyNFavorites(Story et) ;
     Story unlinkStory(Story et) ;
