@@ -60,9 +60,6 @@ export class MobModel {
       {
         name: 'username',
       },
-      {
-        name: 'srfuf',
-      },
     ]
   }
 
