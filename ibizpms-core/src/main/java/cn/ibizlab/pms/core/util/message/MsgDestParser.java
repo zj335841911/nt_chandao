@@ -39,20 +39,23 @@ public class MsgDestParser {
      * @return 发送者id集合，多个用分号（,）隔开
      */
     public String getTaskUserIds(EntityBase et) {
+        String assignedto = null;
+        if( et.getExtensionparams().get("assignedToChanged") != null  && !(Boolean)et.getExtensionparams().get("assignedToChanged")){
+            log.info("指派人未发生改变，不再重复发送请求, 当前指派人:[{}]",et.get("assignedto"));
+        }else{
+            assignedto = et.get("assignedto")==null?null:String.valueOf(et.get("assignedto"));
+        }
+
         Set<String> accounts = null;
-        if (et instanceof Story) {
+        if (et instanceof Story ) {
             Story story = (Story) et;
-            String assignedto = story.getAssignedto();
             String reviewedby = story.getReviewedby();
             accounts = getAccountSet(assignedto, reviewedby);
-
         } else if (et instanceof Bug) {
-            Bug bug = (Bug) et;
-            String assignedto = bug.getAssignedto();
             accounts = getAccountSet(assignedto);
         } else if (et instanceof Task){
             Task task = (Task)et;
-            String assignedto = task.getAssignedto();
+//            String assignedto = task.getAssignedto();
             accounts = getAccountSet(assignedto);
 
             //TODO 多人任务。
@@ -66,8 +69,6 @@ public class MsgDestParser {
 //            }
 
         }else if (et instanceof Todo){
-            Todo todo = (Todo)et;
-            String assignedto = todo.getAssignedto();
             accounts = getAccountSet(assignedto);
         }
 

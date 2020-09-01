@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MsgConstants implements InitializingBean {
-    @Value("${pms.message.homepage.pc:}")
+    @Value("${ibiz.message.homepage.pc:}")
     private String redirectURLPC;
-    @Value("${pms.message.homepage.mob:}")
+    @Value("${ibiz.message.homepage.mob:}")
     private String redirectURLMOB;
 
-    @Value("${pms.message.type:}")
+    @Value("${ibiz.message.type:}")
     private String messageType;
 
     //消息发送地址
