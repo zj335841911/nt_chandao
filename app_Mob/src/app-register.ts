@@ -103,8 +103,6 @@ export const AppComponents = {
         // 主题切换组件
         v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
-        // 下拉列表组件
-        v.component('app-history-list',() => import('@/components/app-history-list/app-history-list.vue'));
         // 富文本项
         v.component('app-mob-rich-text-editor',() => import('@/components/app-mob-rich-text-editor/app-mob-rich-text-editor.vue'));
         // 列表项插件

@@ -164,6 +164,12 @@ export default {
         'closed': '已关闭',
         empty: '',
     },
+    Project__type: {
+        'sprint': '短期项目',
+        'waterfall': '长期项目',
+        'ops': '运维项目',
+        empty: '',
+    },
     Story__status: {
         'draft': '草稿',
         'active': '激活',

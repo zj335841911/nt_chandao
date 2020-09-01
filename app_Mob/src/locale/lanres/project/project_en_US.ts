@@ -193,4 +193,28 @@ export default {
 			tip: 'deuiaction4',
 		},
 	},
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_manager: {
+			caption: '管理',
+			tip: 'deuiaction3_manager',
+		},
+		deuiaction3_create: {
+			caption: '新建',
+			tip: 'deuiaction3_create',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: 'deuiaction2',
+		},
+	},
+	leftsidebarlistviewlist_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '置顶',
+			tip: 'deuiaction1',
+		},
+		deuiaction2: {
+			caption: '取消置顶',
+			tip: 'deuiaction2',
+		},
+	},
 };

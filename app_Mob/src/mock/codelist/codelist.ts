@@ -898,6 +898,34 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Project__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'sprint',
+                label: '短期项目',
+                text: '短期项目',
+                value: 'sprint',
+                disabled: false,
+            },
+            {
+                id: 'waterfall',
+                label: '长期项目',
+                text: '长期项目',
+                value: 'waterfall',
+                disabled: false,
+            },
+            {
+                id: 'ops',
+                label: '运维项目',
+                text: '运维项目',
+                value: 'ops',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__status',
         emptytext: '未定义',
         "codelisttype":"static",

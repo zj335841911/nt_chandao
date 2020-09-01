@@ -69,6 +69,28 @@ export default class GlobalUiServiceBase extends UIActionBase {
 
 
     /**
+     * 刷新
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async Refresh(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _this: any = this;
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (container.refresh && container.refresh instanceof Function) {
+            container.refresh(args);
+        }
+    }
+
+    /**
      * 新建
      *
      * @param {any[]} args 数据
