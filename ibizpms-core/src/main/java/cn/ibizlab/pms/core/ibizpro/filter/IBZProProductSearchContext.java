@@ -34,6 +34,13 @@ public class IBZProProductSearchContext extends QueryWrapperContext<IBZProProduc
             this.getSearchCond().like("ibzpro_productname", n_ibzpro_productname_like);
         }
     }
+	private String n_pssystype_eq;//[生产体系类型]
+	public void setN_pssystype_eq(String n_pssystype_eq) {
+        this.n_pssystype_eq = n_pssystype_eq;
+        if(!ObjectUtils.isEmpty(this.n_pssystype_eq)){
+            this.getSearchCond().eq("pssystype", n_pssystype_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

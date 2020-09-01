@@ -5,17 +5,27 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="IBZProStoryModuleResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYMODULEID`, t1.`IBZPRO_STORYMODULENAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORYMODULE` t1  ) t1 where ibzpro_storymoduleid=#{id}]]>
+        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYMODULEID`, t1.`IBZPRO_STORYMODULENAME`, t1.`PRODUCT`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORYMODULE` t1  ) t1 where ibzpro_storymoduleid=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="IBZProStoryModuleResultMap" type="cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule" autoMapping="true">
         <id property="ibzprostorymoduleid" column="ibzpro_storymoduleid" /><!--主键字段映射-->
 		<result property="ibzprostorymodulename" column="ibzpro_storymodulename" />
+		<result property="product" column="product" />
             
 		
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="ibzproProduct" javaType="cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct" column="product" select="cn.ibizlab.pms.core.ibizpro.mapper.IBZProProductMapper.selectById" fetchType="lazy"></association>
     </resultMap>
 
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_PRODUCT] -->
+	 <select id="selectByProduct" resultMap="IBZProStoryModuleResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  product=#{ibzpro_productid}
+     </select>
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibizpro.filter.IBZProStoryModuleSearchContext"  resultMap="IBZProStoryModuleResultMap">
@@ -28,12 +38,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYMODULEID`, t1.`IBZPRO_STORYMODULENAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORYMODULE` t1  
+		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYMODULEID`, t1.`IBZPRO_STORYMODULENAME`, t1.`PRODUCT`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORYMODULE` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYMODULEID`, t1.`IBZPRO_STORYMODULENAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORYMODULE` t1  
+		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYMODULEID`, t1.`IBZPRO_STORYMODULENAME`, t1.`PRODUCT`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORYMODULE` t1  
 			]]>
     </sql>
 </mapper>

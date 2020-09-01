@@ -90,6 +90,21 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
+    /**
+     * 产品（开发系统）标识
+     */
+    @TableField(value = "product")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private String product;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct;
 
 
 
@@ -99,6 +114,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setIbzprostorymodulename(String ibzprostorymodulename){
         this.ibzprostorymodulename = ibzprostorymodulename ;
         this.modify("ibzpro_storymodulename",ibzprostorymodulename);
+    }
+
+    /**
+     * 设置 [产品（开发系统）标识]
+     */
+    public void setProduct(String product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 

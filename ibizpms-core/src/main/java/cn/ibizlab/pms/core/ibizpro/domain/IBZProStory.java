@@ -90,6 +90,36 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+    /**
+     * 产品（开发系统）标识
+     */
+    @TableField(value = "product")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private String product;
+    /**
+     * 需求模块标识
+     */
+    @TableField(value = "storymodule")
+    @JSONField(name = "storymodule")
+    @JsonProperty("storymodule")
+    private String storymodule;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule ibzproStorymodule;
 
 
 
@@ -99,6 +129,22 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setIbzprostoryname(String ibzprostoryname){
         this.ibzprostoryname = ibzprostoryname ;
         this.modify("ibzpro_storyname",ibzprostoryname);
+    }
+
+    /**
+     * 设置 [产品（开发系统）标识]
+     */
+    public void setProduct(String product){
+        this.product = product ;
+        this.modify("product",product);
+    }
+
+    /**
+     * 设置 [需求模块标识]
+     */
+    public void setStorymodule(String storymodule){
+        this.storymodule = storymodule ;
+        this.modify("storymodule",storymodule);
     }
 
 
