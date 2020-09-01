@@ -125,5 +125,18 @@ public class MsgDestParser {
         }
         return set;
     }
+
+    public static boolean equalsInValue(Object db,Object page){
+        if(StringUtils.isEmpty(db)){
+            if(StringUtils.isEmpty(page)) {
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return db.equals(page);
+        }
+    }
+
 }
 
