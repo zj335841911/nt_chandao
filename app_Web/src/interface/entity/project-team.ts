@@ -125,12 +125,4 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     username?: any;
-
-    /**
-     * 属性
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    srfuf?: any;
 }

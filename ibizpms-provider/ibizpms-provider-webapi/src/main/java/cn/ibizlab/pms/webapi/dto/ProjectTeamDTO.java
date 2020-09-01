@@ -145,14 +145,6 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     @JsonProperty("username")
     private String username;
 
-    /**
-     * 属性 [SRFUF]
-     *
-     */
-    @JSONField(name = "srfuf")
-    @JsonProperty("srfuf")
-    private String srfuf;
-
 
     /**
      * 设置 [JOIN]

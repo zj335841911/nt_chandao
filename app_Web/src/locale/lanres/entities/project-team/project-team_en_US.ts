@@ -16,7 +16,6 @@ export default {
     total: "总计可用",
     root: "项目编号",
     username: "用户",
-    srfuf: "属性",
   },
 	views: {
 		maingridview: {
