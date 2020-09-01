@@ -60,11 +60,6 @@ export class MobModel {
       {
         name: 'username',
       },
-      {
-        name: 'project',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

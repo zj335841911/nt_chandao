@@ -1,5 +1,5 @@
 <template>
-    <div  class="app-mob-mdctrl productmodule ">
+    <div  class="app-mob-mdctrl productmodule-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
           <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
             <ion-list class="items">
@@ -12,7 +12,7 @@
                         <ion-item>
                             <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
-                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="name" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="item.srfkey" major="name" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                                 <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>
@@ -30,7 +30,7 @@
                         <ion-item>
                             <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
-                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="name" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="item.srfkey" major="name" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                             <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>                      
