@@ -845,6 +845,18 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * vue 生命周期 activated
+     *
+     * @memberof Mob
+     */
+    public activated() {
+        this.items.forEach((item:any)=>{
+            let curr:any = this.$refs[item.srfkey];
+            curr[0].close();
+        })
+    }
+
+    /**
      * 列表项左滑右滑触发行为
      *
      * @param {*} $event 点击鼠标事件

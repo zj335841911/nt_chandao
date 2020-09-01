@@ -55,20 +55,6 @@ public class ProjectTeamSearchContext extends QueryWrapperContext<ProjectTeam> {
             this.getSearchCond().eq("root", n_root_eq);
         }
     }
-	private String n_dept_eq;//[选择部门]
-	public void setN_dept_eq(String n_dept_eq) {
-        this.n_dept_eq = n_dept_eq;
-        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
-            this.getSearchCond().eq("dept", n_dept_eq);
-        }
-    }
-	private String n_managemembers_eq;//[复制团队]
-	public void setN_managemembers_eq(String n_managemembers_eq) {
-        this.n_managemembers_eq = n_managemembers_eq;
-        if(!ObjectUtils.isEmpty(this.n_managemembers_eq)){
-            this.getSearchCond().eq("managemembers", n_managemembers_eq);
-        }
-    }
 
     /**
 	 * 启用快速搜索

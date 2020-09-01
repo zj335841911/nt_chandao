@@ -8,7 +8,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><ion-icon v-if="item.UnlinkBugMob.icon" :name="item.UnlinkBugMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
@@ -28,7 +28,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><ion-icon v-if="item.UnlinkBugMob.icon" :name="item.UnlinkBugMob.icon"></ion-icon>移除关联</ion-item-option>
                         </ion-item-options>
@@ -969,6 +969,18 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
             this.viewStateEvent.unsubscribe();
         }
         window.removeEventListener('contextmenu',()=>{});
+    }
+
+    /**
+     * vue 生命周期 activated
+     *
+     * @memberof Mob_Plan
+     */
+    public activated() {
+        this.items.forEach((item:any)=>{
+            let curr:any = this.$refs[item.srfkey];
+            curr[0].close();
+        })
     }
 
     /**

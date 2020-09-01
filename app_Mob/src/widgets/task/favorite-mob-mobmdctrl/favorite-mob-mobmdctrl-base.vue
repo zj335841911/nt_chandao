@@ -8,7 +8,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.TaskFavorites.visabled" :disabled="item.TaskFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u328fb2e', item)"><ion-icon v-if="item.TaskFavorites.icon" :name="item.TaskFavorites.icon"></ion-icon>收藏</ion-item-option>
                             <ion-item-option v-show="item.TaskNFavorites.visabled" :disabled="item.TaskNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u38879de', item)"><ion-icon v-if="item.TaskNFavorites.icon" :name="item.TaskNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
@@ -29,7 +29,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="(item, index) in items" @click="item_click(item)" :key="index" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.TaskFavorites.visabled" :disabled="item.TaskFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u328fb2e', item)"><ion-icon v-if="item.TaskFavorites.icon" :name="item.TaskFavorites.icon"></ion-icon>收藏</ion-item-option>
                             <ion-item-option v-show="item.TaskNFavorites.visabled" :disabled="item.TaskNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u38879de', item)"><ion-icon v-if="item.TaskNFavorites.icon" :name="item.TaskNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
@@ -1002,6 +1002,18 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
             this.viewStateEvent.unsubscribe();
         }
         window.removeEventListener('contextmenu',()=>{});
+    }
+
+    /**
+     * vue 生命周期 activated
+     *
+     * @memberof FavoriteMOB
+     */
+    public activated() {
+        this.items.forEach((item:any)=>{
+            let curr:any = this.$refs[item.srfkey];
+            curr[0].close();
+        })
     }
 
     /**

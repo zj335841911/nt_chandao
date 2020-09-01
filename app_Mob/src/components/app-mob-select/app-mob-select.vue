@@ -206,7 +206,7 @@ export default class AppSelect extends Vue {
         if(!bcancel){
             return
         }
-        let response: any = await this.codeListService.getItems(this.tag, this.isCache, param.context, param.param);
+        let response: any = await this.codeListService.getItems(this.tag,  param.context, param.param);
         if (response) {
             this.overload = true;
             this.options = response
