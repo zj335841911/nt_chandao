@@ -155,7 +155,7 @@ export default class AppSpan extends Vue {
         if (!this.isCached) {
             // Loading.show(this.$t('app.loadding'));
         }
-        let response: any = await  this.codeListService.getItems(this.tag, this.isCache, { ...this.context }, this.queryParam);
+        let response: any = await  this.codeListService.getItems(this.tag,  { ...this.context }, this.queryParam);
         if (!this.isCached) {
             // Loading.hidden();
         }

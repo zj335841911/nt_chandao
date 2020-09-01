@@ -31,7 +31,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.begin.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.begin.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.begin" :context="context" :value="data.begin" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="BeginendDropList"></app-mob-span>
@@ -40,7 +40,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :offset="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :offset="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Todo__status"></app-mob-span>
