@@ -56,8 +56,8 @@ export default {
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
-			n_account_like: "用户(文本包含(%))", 
-			n_root_eq: "项目编号(等于(=))", 
+			dept: "选择部门", 
+			teams: "复制团队", 
 		},
 		uiactions: {
 		},

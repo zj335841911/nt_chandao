@@ -488,6 +488,21 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchProjectTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchprojectteam`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchStoryProject接口方法
      *
      * @param {*} [context={}]

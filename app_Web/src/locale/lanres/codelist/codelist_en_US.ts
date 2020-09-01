@@ -418,6 +418,9 @@ export default {
         "released": "已发布",
         "empty": ""
     },
+    ProjectTeam: {
+        "empty": "",
+    },
     UserRealNameTaskTeam: {
         "empty": "",
     },

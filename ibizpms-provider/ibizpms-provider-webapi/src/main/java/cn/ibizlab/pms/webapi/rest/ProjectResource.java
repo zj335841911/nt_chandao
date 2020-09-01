@@ -382,6 +382,27 @@ public class ProjectResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchProjectTeam-all')")
+	@ApiOperation(value = "获取项目团队", tags = {"项目" } ,notes = "获取项目团队")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchprojectteam")
+	public ResponseEntity<List<ProjectDTO>> fetchProjectTeam(ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchProjectTeam(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchProjectTeam-all')")
+	@ApiOperation(value = "查询项目团队", tags = {"项目" } ,notes = "查询项目团队")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchprojectteam")
+	public ResponseEntity<Page<ProjectDTO>> searchProjectTeam(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchProjectTeam(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchStoryProject-all')")
 	@ApiOperation(value = "获取需求影响项目", tags = {"项目" } ,notes = "获取需求影响项目")
     @RequestMapping(method= RequestMethod.GET , value="/projects/fetchstoryproject")

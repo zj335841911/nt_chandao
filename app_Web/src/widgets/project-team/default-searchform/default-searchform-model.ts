@@ -26,14 +26,10 @@ export default class DefaultModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_account_like',
-        prop: 'account',
-        dataType: 'TEXT',
+        name: 'dept',
       },
       {
-        name: 'n_root_eq',
-        prop: 'root',
-        dataType: 'PICKUP',
+        name: 'teams',
       },
       {
         name: 'project',

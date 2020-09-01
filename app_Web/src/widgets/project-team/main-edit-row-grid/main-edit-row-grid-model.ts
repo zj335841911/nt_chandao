@@ -97,14 +97,12 @@ export default class Main_EditRowModel {
           prop: 'id',
         },
       {
-        name: 'n_account_like',
-        prop: 'n_account_like',
-        dataType: 'TEXT',
+        name: 'dept',
+        prop: 'dept',
       },
       {
-        name: 'n_root_eq',
-        prop: 'n_root_eq',
-        dataType: 'PICKUP',
+        name: 'teams',
+        prop: 'teams',
       },
       {
         name: 'project',

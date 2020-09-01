@@ -6,17 +6,41 @@
   </div>
   <div class="form-content">
                   
-          <i-col class="form-layout-container" v-show="detailsModel.n_account_like.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-              <app-form-item name='n_account_like' :itemRules="this.rules.n_account_like" class='' :caption="$t('entities.projectteam.default_searchform.details.n_account_like')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_account_like.error" :isEmptyCaption="false" labelPos="LEFT">
-              <input-box 
-              v-model="data.n_account_like"  
-              @enter="onEnter($event)"  
-                
-              :disabled="detailsModel.n_account_like.disabled" 
-              type='text' 
-              style="width:100px;">
-          </input-box>
+          <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+              <app-form-item name='dept' :itemRules="this.rules.dept" class='' :caption="$t('entities.projectteam.default_searchform.details.dept')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.dept.error" :isEmptyCaption="false" labelPos="LEFT">
+              
+          <dropdown-list 
+              v-model="data.dept"
+              :data="data"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="detailsModel.dept.disabled"
+              tag='RealDept'
+              codelistType='DYNAMIC'
+              placeholder='选择一个部门的成员'
+              
+          />
+          </app-form-item>
           
+          </i-col>
+          <i-col class="form-layout-container" v-show="detailsModel.teams.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+              <app-form-item name='teams' :itemRules="this.rules.teams" class='' :caption="$t('entities.projectteam.default_searchform.details.teams')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.teams.error" :isEmptyCaption="false" labelPos="LEFT">
+              
+          <dropdown-list 
+              v-model="data.teams"
+              :data="data"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ N_ID_NOTEQ:"%project%" }' 
+              :localParam ='{ n_id_noteq:"%project%" }' 
+              :disabled="detailsModel.teams.disabled"
+              tag='ProjectTeam'
+              codelistType='DYNAMIC'
+              placeholder='选择一个团队'
+              
+          />
           </app-form-item>
           
           </i-col>
