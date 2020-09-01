@@ -91,6 +91,17 @@ export default class Main_EditRowModel {
           name: 'projectteam',
           prop: 'id',
         },
+      {
+        name: 'n_dept_eq',
+        prop: 'n_dept_eq',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'n_managemembers_eq',
+        prop: 'n_managemembers_eq',
+        dataType: 'SSCODELIST',
+      },
+
         {
           name:'size',
           prop:'size'

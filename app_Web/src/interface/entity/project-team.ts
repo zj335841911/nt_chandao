@@ -125,4 +125,20 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     username?: any;
+
+    /**
+     * 选择部门
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    dept?: any;
+
+    /**
+     * 复制团队
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    managemembers?: any;
 }
