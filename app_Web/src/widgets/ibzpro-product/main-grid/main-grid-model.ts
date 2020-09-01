@@ -68,6 +68,11 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'ibzproproduct',
           prop: 'ibzpro_productid',
         },

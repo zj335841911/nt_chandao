@@ -77,4 +77,28 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     pmsstory?: any;
+
+    /**
+     * 需求
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    pmsstoryname?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    productname?: any;
+
+    /**
+     * 需求模块
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    storymodulename?: any;
 }

@@ -84,13 +84,16 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         pmsstory: null,
         product: null,
+        productname: null,
+        storymodulename: null,
+        pmsstoryname: null,
         ibzpro_storyname: null,
         storymodule: null,
-        ibzpro_storyid: null,
         createman: null,
         createdate: null,
         updateman: null,
         updatedate: null,
+        ibzpro_storyid: null,
         ibzprostory:null,
     };
 
@@ -147,11 +150,15 @@ export class MainEditFormBase extends EditFormControlBase {
 
         product: new FormItemModel({ caption: '产品（开发系统）标识', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        storymodulename: new FormItemModel({ caption: '需求模块', detailType: 'FORMITEM', name: 'storymodulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        pmsstoryname: new FormItemModel({ caption: '需求', detailType: 'FORMITEM', name: 'pmsstoryname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         ibzpro_storyname: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'ibzpro_storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         storymodule: new FormItemModel({ caption: '需求模块标识', detailType: 'FORMITEM', name: 'storymodule', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        ibzpro_storyid: new FormItemModel({ caption: '需求标识', detailType: 'FORMITEM', name: 'ibzpro_storyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         createman: new FormItemModel({ caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -160,6 +167,8 @@ export class MainEditFormBase extends EditFormControlBase {
         updateman: new FormItemModel({ caption: '更新人', detailType: 'FORMITEM', name: 'updateman', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         updatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        ibzpro_storyid: new FormItemModel({ caption: '需求标识', detailType: 'FORMITEM', name: 'ibzpro_storyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };

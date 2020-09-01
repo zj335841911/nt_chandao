@@ -69,4 +69,20 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     pmsstorymodule?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    productname?: any;
+
+    /**
+     * 模块
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    pmsstorymodulename?: any;
 }

@@ -83,6 +83,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         ibzpro_productname: null,
+        productname: null,
         pssystype: null,
         pmsproduct: null,
         ibzpro_productid: null,
@@ -144,6 +145,8 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         ibzpro_productname: new FormItemModel({ caption: '产品（开发系统）名称', detailType: 'FORMITEM', name: 'ibzpro_productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         pssystype: new FormItemModel({ caption: '生产体系类型', detailType: 'FORMITEM', name: 'pssystype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

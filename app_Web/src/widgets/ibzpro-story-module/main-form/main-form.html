@@ -16,7 +16,57 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprostorymodule.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.ibzpro_storymodulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.productname.disabled"
+  name='productname'
+  deMajorField='ibzpro_productname'
+  deKeyField='ibzproproduct'
+  :service="service"
+  :acParams="{ serviceName: 'IBZProProductService', interfaceName: 'FetchDefault'}"
+  valueitem='product' 
+  :value="data.productname" 
+  editortype="dropdown"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.pmsstorymodulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='pmsstorymodulename' :itemRules="this.rules.pmsstorymodulename" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.pmsstorymodulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.pmsstorymodulename.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.pmsstorymodulename.disabled"
+  name='pmsstorymodulename'
+  deMajorField='name'
+  deKeyField='module'
+  :service="service"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+  valueitem='pmsstorymodule' 
+  :value="data.pmsstorymodulename" 
+  editortype="dropdown"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.ibzpro_storymodulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='ibzpro_storymodulename' :itemRules="this.rules.ibzpro_storymodulename" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.ibzpro_storymodulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.ibzpro_storymodulename.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.ibzpro_storymodulename"  

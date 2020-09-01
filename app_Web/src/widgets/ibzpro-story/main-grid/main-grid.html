@@ -23,15 +23,15 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('product')">
-                <el-table-column show-overflow-tooltip :prop="'product'" :label="$t('entities.ibzprostory.main_grid.columns.product')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('productname')">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibzprostory.main_grid.columns.productname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzprostory.main_grid.columns.product')}}
+                        {{$t('entities.ibzprostory.main_grid.columns.productname')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.product}}</span>
+                        <span>{{row.productname}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -47,15 +47,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('storymodule')">
-                <el-table-column show-overflow-tooltip :prop="'storymodule'" :label="$t('entities.ibzprostory.main_grid.columns.storymodule')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('storymodulename')">
+                <el-table-column show-overflow-tooltip :prop="'storymodulename'" :label="$t('entities.ibzprostory.main_grid.columns.storymodulename')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzprostory.main_grid.columns.storymodule')}}
+                        {{$t('entities.ibzprostory.main_grid.columns.storymodulename')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.storymodule}}</span>
+                        <span>{{row.storymodulename}}</span>
                     </template>
                 </el-table-column>
             </template>

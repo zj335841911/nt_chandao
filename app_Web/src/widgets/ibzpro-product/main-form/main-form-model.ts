@@ -61,6 +61,11 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'pssystype',
         prop: 'pssystype',
         dataType: 'SSCODELIST',

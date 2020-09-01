@@ -101,6 +101,14 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.ibzproproduct.main_grid.columns.productname',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
             name: 'ibzpro_productname',
             label: '产品（开发系统）名称',
             langtag: 'entities.ibzproproduct.main_grid.columns.ibzpro_productname',
@@ -167,6 +175,7 @@ export class MainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'pmsproduct':false,
+        'productname':false,
         'ibzpro_productname':false,
         'pssystype':false,
         'updateman':false,

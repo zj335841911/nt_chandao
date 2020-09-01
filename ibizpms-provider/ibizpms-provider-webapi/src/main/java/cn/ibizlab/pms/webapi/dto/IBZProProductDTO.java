@@ -98,6 +98,14 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     @JsonProperty("pmsproduct")
     private BigInteger pmsproduct;
 
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
 
     /**
      * 设置 [IBZPRO_PRODUCTNAME]

@@ -66,6 +66,21 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'storymodulename',
+        prop: 'storymodulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'pmsstoryname',
+        prop: 'pmsstoryname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'ibzpro_storyname',
         prop: 'ibzprostoryname',
         dataType: 'TEXT',
@@ -74,11 +89,6 @@ export default class MainModel {
         name: 'storymodule',
         prop: 'storymodule',
         dataType: 'PICKUP',
-      },
-      {
-        name: 'ibzpro_storyid',
-        prop: 'ibzprostoryid',
-        dataType: 'GUID',
       },
       {
         name: 'createman',
@@ -99,6 +109,11 @@ export default class MainModel {
         name: 'updatedate',
         prop: 'updatedate',
         dataType: 'DATETIME',
+      },
+      {
+        name: 'ibzpro_storyid',
+        prop: 'ibzprostoryid',
+        dataType: 'GUID',
       },
       {
         name: 'ibzprostory',

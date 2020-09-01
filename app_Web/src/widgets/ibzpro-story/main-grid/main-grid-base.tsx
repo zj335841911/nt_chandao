@@ -93,9 +93,9 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'product',
-            label: '产品（开发系统）标识',
-            langtag: 'entities.ibzprostory.main_grid.columns.product',
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.ibzprostory.main_grid.columns.productname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -109,9 +109,9 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'storymodule',
-            label: '需求模块标识',
-            langtag: 'entities.ibzprostory.main_grid.columns.storymodule',
+            name: 'storymodulename',
+            label: '需求模块',
+            langtag: 'entities.ibzprostory.main_grid.columns.storymodulename',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -174,9 +174,9 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'product':false,
+        'productname':false,
         'pmsstory':false,
-        'storymodule':false,
+        'storymodulename':false,
         'ibzpro_storyname':false,
         'updateman':false,
         'updatedate':false,

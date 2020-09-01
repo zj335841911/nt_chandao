@@ -32,6 +32,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'pmsstorymodulename',
+          prop: 'pmsstorymodulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'updateman',
           prop: 'updateman',
           dataType: 'TEXT',
@@ -42,14 +47,14 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'updatedate',
-          prop: 'updatedate',
-          dataType: 'DATETIME',
-        },
-        {
           name: 'pmsstorymodule',
           prop: 'pmsstorymodule',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'updatedate',
+          prop: 'updatedate',
+          dataType: 'DATETIME',
         },
         {
           name: 'srfmajortext',
@@ -66,6 +71,11 @@ export default class MainModel {
           prop: 'ibzprostorymoduleid',
           dataType: 'GUID',
           isEditable:true
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'ibzprostorymodule',

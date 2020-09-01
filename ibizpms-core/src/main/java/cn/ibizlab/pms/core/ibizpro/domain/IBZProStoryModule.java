@@ -104,6 +104,20 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "pmsstorymodule")
     @JsonProperty("pmsstorymodule")
     private BigInteger pmsstorymodule;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "pmsstorymodulename")
+    @JsonProperty("pmsstorymodulename")
+    private String pmsstorymodulename;
 
     /**
      * 

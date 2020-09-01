@@ -61,6 +61,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Override
     @Transactional
     public boolean create(IBZProStoryModule et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getIbzprostorymoduleid()),et);
@@ -69,12 +70,14 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public void createBatch(List<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProStoryModule et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_storymoduleid",et.getIbzprostorymoduleid())))
             return false;
         CachedBeanCopier.copy(get(et.getIbzprostorymoduleid()),et);
@@ -83,6 +86,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public void updateBatch(List<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -113,6 +117,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public IBZProStoryModule getDraft(IBZProStoryModule et) {
+        fillParentData(et);
         return et;
     }
 
@@ -147,12 +152,14 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public boolean saveBatch(Collection<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -189,6 +196,32 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(IBZProStoryModule et){
+        //实体关系[DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct=et.getIbzproProduct();
+            if(ObjectUtils.isEmpty(ibzproProduct)){
+                cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getProduct());
+                et.setIbzproProduct(majorEntity);
+                ibzproProduct=majorEntity;
+            }
+            et.setProductname(ibzproProduct.getIbzproProductname());
+        }
+        //实体关系[DER1N_IBZPRO_STORYMODULE_ZT_MODULE_PMSSTORYMODULE]
+        if(!ObjectUtils.isEmpty(et.getPmsstorymodule())){
+            cn.ibizlab.pms.core.zentao.domain.Module ztModule=et.getZtModule();
+            if(ObjectUtils.isEmpty(ztModule)){
+                cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getPmsstorymodule());
+                et.setZtModule(majorEntity);
+                ztModule=majorEntity;
+            }
+            et.setPmsstorymodulename(ztModule.getName());
+        }
+    }
 
 
 

@@ -48,6 +48,34 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
             this.getSearchCond().eq("pmsstorymodule", n_pmsstorymodule_eq);
         }
     }
+	private String n_productname_eq;//[产品]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("productname", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("productname", n_productname_like);
+        }
+    }
+	private String n_pmsstorymodulename_eq;//[模块]
+	public void setN_pmsstorymodulename_eq(String n_pmsstorymodulename_eq) {
+        this.n_pmsstorymodulename_eq = n_pmsstorymodulename_eq;
+        if(!ObjectUtils.isEmpty(this.n_pmsstorymodulename_eq)){
+            this.getSearchCond().eq("pmsstorymodulename", n_pmsstorymodulename_eq);
+        }
+    }
+	private String n_pmsstorymodulename_like;//[模块]
+	public void setN_pmsstorymodulename_like(String n_pmsstorymodulename_like) {
+        this.n_pmsstorymodulename_like = n_pmsstorymodulename_like;
+        if(!ObjectUtils.isEmpty(this.n_pmsstorymodulename_like)){
+            this.getSearchCond().like("pmsstorymodulename", n_pmsstorymodulename_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

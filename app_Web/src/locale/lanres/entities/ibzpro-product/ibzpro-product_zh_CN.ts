@@ -9,6 +9,7 @@ export default {
     pssystype: "生产体系类型",
     psobjectid: "生产对象标识",
     pmsproduct: "编号",
+    productname: "产品",
   },
 	views: {
 		gridview: {
@@ -35,6 +36,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			ibzpro_productname: "产品（开发系统）名称", 
+			productname: "产品", 
 			pssystype: "生产体系类型", 
 			pmsproduct: "编号", 
 			ibzpro_productid: "产品（开发系统）标识", 
@@ -50,6 +52,7 @@ export default {
 	main_grid: {
 		columns: {
 			pmsproduct: "编号",
+			productname: "产品",
 			ibzpro_productname: "产品（开发系统）名称",
 			pssystype: "生产体系类型",
 			updateman: "更新人",

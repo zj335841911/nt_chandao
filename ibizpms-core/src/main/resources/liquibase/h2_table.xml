@@ -76,79 +76,12 @@
 
 
     <!--输出实体[IBZPRO_PRODUCT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_product-22-25">
-        <createTable tableName="T_IBZPRO_PRODUCT">
-                <column name="IBZPRO_PRODUCTID" remarks="" type="VARCHAR(100)">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_PRODUCT_IBZPRO_PRODU"/>
-                </column>
-                <column name="CREATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="IBZPRO_PRODUCTNAME" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="UPDATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="PSSYSTYPE" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="PSOBJECTID" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="PMSPRODUCT" remarks="" type="BIGINT">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBZPRO_STORY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_story-21-26">
-        <createTable tableName="T_IBZPRO_STORY">
-                <column name="CREATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="IBZPRO_STORYNAME" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="IBZPRO_STORYID" remarks="" type="VARCHAR(100)">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_STORY_IBZPRO_STORYID"/>
-                </column>
-                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="UPDATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="PRODUCT" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="STORYMODULE" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="PMSSTORY" remarks="" type="BIGINT">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBZPRO_STORYMODULE]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_storymodule-23-27">
-        <createTable tableName="T_IBZPRO_STORYMODULE">
-                <column name="IBZPRO_STORYMODULENAME" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="IBZPRO_STORYMODULEID" remarks="" type="VARCHAR(100)">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_STORYMODULE_IBZPRO_S"/>
-                </column>
-                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="UPDATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="CREATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="PRODUCT" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="PMSSTORYMODULE" remarks="" type="BIGINT">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBZ_LOGIN]数据结构 -->
@@ -419,26 +352,8 @@
         <!--输出实体[ZT_GROUPPRIV]外键关系 -->
         <!--输出实体[ZT_HISTORY]外键关系 -->
         <!--输出实体[IBZPRO_PRODUCT]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_product-22-131">
-       <addForeignKeyConstraint baseColumnNames="PMSPRODUCT" baseTableName="T_IBZPRO_PRODUCT" constraintName="DER1N_IBZPRO_PRODUCT_ZT_PRODUC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
-    </changeSet>
         <!--输出实体[IBZPRO_STORY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_story-21-132">
-       <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBZPRO_STORY" constraintName="DER1N_IBZPRO_STORY_IBZPRO_PROD" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="IBZPRO_PRODUCTID" referencedTableName="T_IBZPRO_PRODUCT" validate="true"/>
-    </changeSet>
-    <changeSet author="zentao" id="fk-ibzpro_story-21-133">
-       <addForeignKeyConstraint baseColumnNames="STORYMODULE" baseTableName="T_IBZPRO_STORY" constraintName="DER1N_IBZPRO_STORY_IBZPRO_STOR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="IBZPRO_STORYMODULEID" referencedTableName="T_IBZPRO_STORYMODULE" validate="true"/>
-    </changeSet>
-    <changeSet author="zentao" id="fk-ibzpro_story-21-134">
-       <addForeignKeyConstraint baseColumnNames="PMSSTORY" baseTableName="T_IBZPRO_STORY" constraintName="DER1N_IBZPRO_STORY_ZT_STORY_PM" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_story" validate="true"/>
-    </changeSet>
         <!--输出实体[IBZPRO_STORYMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_storymodule-23-135">
-       <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBZPRO_STORYMODULE" constraintName="DER1N_IBZPRO_STORYMODULE_IBZPR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="IBZPRO_PRODUCTID" referencedTableName="T_IBZPRO_PRODUCT" validate="true"/>
-    </changeSet>
-    <changeSet author="zentao" id="fk-ibzpro_storymodule-23-136">
-       <addForeignKeyConstraint baseColumnNames="PMSSTORYMODULE" baseTableName="T_IBZPRO_STORYMODULE" constraintName="DER1N_IBZPRO_STORYMODULE_ZT_MO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
-    </changeSet>
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBZ_CASE]外键关系 -->
         <!--输出实体[IBZ_FAVORITES]外键关系 -->

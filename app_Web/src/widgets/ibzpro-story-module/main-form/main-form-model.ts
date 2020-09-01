@@ -66,6 +66,16 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'pmsstorymodulename',
+        prop: 'pmsstorymodulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'ibzpro_storymodulename',
         prop: 'ibzprostorymodulename',
         dataType: 'TEXT',

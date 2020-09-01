@@ -90,6 +90,22 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("pmsstorymodule")
     private BigInteger pmsstorymodule;
 
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
+    /**
+     * 属性 [PMSSTORYMODULENAME]
+     *
+     */
+    @JSONField(name = "pmsstorymodulename")
+    @JsonProperty("pmsstorymodulename")
+    private String pmsstorymodulename;
+
 
     /**
      * 设置 [IBZPRO_STORYMODULENAME]

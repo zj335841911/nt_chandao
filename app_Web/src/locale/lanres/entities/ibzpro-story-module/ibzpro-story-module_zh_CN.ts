@@ -8,6 +8,8 @@ export default {
     createdate: "建立时间",
     product: "产品（开发系统）标识",
     pmsstorymodule: "id",
+    productname: "产品",
+    pmsstorymodulename: "模块",
   },
 	views: {
 		editview: {
@@ -35,6 +37,8 @@ export default {
 			srfsourcekey: "", 
 			product: "产品（开发系统）标识", 
 			pmsstorymodule: "id", 
+			productname: "产品", 
+			pmsstorymodulename: "模块", 
 			ibzpro_storymodulename: "需求模块名称", 
 			createman: "建立人", 
 			createdate: "建立时间", 
@@ -47,8 +51,8 @@ export default {
 	},
 	main_grid: {
 		columns: {
-			product: "产品（开发系统）标识",
-			pmsstorymodule: "id",
+			productname: "产品",
+			pmsstorymodulename: "模块",
 			ibzpro_storymodulename: "需求模块名称",
 			updateman: "更新人",
 			updatedate: "更新时间",

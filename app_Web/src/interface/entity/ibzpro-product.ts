@@ -77,4 +77,12 @@ export interface IBZProProduct {
      * @memberof IBZProProduct
      */
     pmsproduct?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IBZProProduct
+     */
+    productname?: any;
 }

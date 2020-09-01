@@ -35,6 +35,25 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('productname')">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibzproproduct.main_grid.columns.productname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.ibzproproduct.main_grid.columns.productname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="pmsproduct">
+                            <span>{{row.productname}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('ibzpro_productname')">
                 <el-table-column show-overflow-tooltip :prop="'ibzpro_productname'" :label="$t('entities.ibzproproduct.main_grid.columns.ibzpro_productname')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

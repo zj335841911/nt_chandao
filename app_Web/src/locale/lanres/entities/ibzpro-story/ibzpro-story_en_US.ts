@@ -10,6 +10,9 @@ export default {
     product: "产品（开发系统）标识",
     storymodule: "需求模块标识",
     pmsstory: "编号",
+    pmsstoryname: "需求",
+    productname: "产品",
+    storymodulename: "需求模块",
   },
 	views: {
 		gridview: {
@@ -37,22 +40,25 @@ export default {
 			srfsourcekey: "", 
 			pmsstory: "编号", 
 			product: "产品（开发系统）标识", 
+			productname: "产品", 
+			storymodulename: "需求模块", 
+			pmsstoryname: "需求", 
 			ibzpro_storyname: "需求名称", 
 			storymodule: "需求模块标识", 
-			ibzpro_storyid: "需求标识", 
 			createman: "建立人", 
 			createdate: "建立时间", 
 			updateman: "更新人", 
 			updatedate: "更新时间", 
+			ibzpro_storyid: "需求标识", 
 		},
 		uiactions: {
 		},
 	},
 	main_grid: {
 		columns: {
-			product: "产品（开发系统）标识",
+			productname: "产品",
 			pmsstory: "编号",
-			storymodule: "需求模块标识",
+			storymodulename: "需求模块",
 			ibzpro_storyname: "需求名称",
 			updateman: "更新人",
 			updatedate: "更新时间",

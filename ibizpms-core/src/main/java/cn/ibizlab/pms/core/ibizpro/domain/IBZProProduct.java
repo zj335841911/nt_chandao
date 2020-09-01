@@ -111,6 +111,13 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @JSONField(name = "pmsproduct")
     @JsonProperty("pmsproduct")
     private BigInteger pmsproduct;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 

@@ -27,14 +27,14 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'ibzpro_storyname',
-          prop: 'ibzprostoryname',
-          dataType: 'TEXT',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'ibzpro_storyname',
+          prop: 'ibzprostoryname',
+          dataType: 'TEXT',
         },
         {
           name: 'storymodule',
@@ -71,6 +71,16 @@ export default class MainModel {
           prop: 'ibzprostoryid',
           dataType: 'GUID',
           isEditable:true
+        },
+        {
+          name: 'storymodulename',
+          prop: 'storymodulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'ibzprostory',

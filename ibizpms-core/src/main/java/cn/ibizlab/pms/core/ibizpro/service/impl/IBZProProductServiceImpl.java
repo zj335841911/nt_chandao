@@ -61,6 +61,7 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
     @Override
     @Transactional
     public boolean create(IBZProProduct et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getIbzproProductid()),et);
@@ -69,12 +70,14 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
     @Override
     public void createBatch(List<IBZProProduct> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProProduct et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_productid",et.getIbzproProductid())))
             return false;
         CachedBeanCopier.copy(get(et.getIbzproProductid()),et);
@@ -83,6 +86,7 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
     @Override
     public void updateBatch(List<IBZProProduct> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -113,6 +117,7 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
     @Override
     public IBZProProduct getDraft(IBZProProduct et) {
+        fillParentData(et);
         return et;
     }
 
@@ -140,12 +145,14 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
     @Override
     public boolean saveBatch(Collection<IBZProProduct> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IBZProProduct> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -172,6 +179,22 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(IBZProProduct et){
+        //实体关系[DER1N_IBZPRO_PRODUCT_ZT_PRODUCT_PMSPRODUCT]
+        if(!ObjectUtils.isEmpty(et.getPmsproduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztProduct=et.getZtProduct();
+            if(ObjectUtils.isEmpty(ztProduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getPmsproduct());
+                et.setZtProduct(majorEntity);
+                ztProduct=majorEntity;
+            }
+            et.setProductname(ztProduct.getName());
+        }
+    }
 
 
 

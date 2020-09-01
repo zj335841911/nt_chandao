@@ -55,6 +55,48 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("pmsstory", n_pmsstory_eq);
         }
     }
+	private String n_pmsstoryname_eq;//[需求]
+	public void setN_pmsstoryname_eq(String n_pmsstoryname_eq) {
+        this.n_pmsstoryname_eq = n_pmsstoryname_eq;
+        if(!ObjectUtils.isEmpty(this.n_pmsstoryname_eq)){
+            this.getSearchCond().eq("pmsstoryname", n_pmsstoryname_eq);
+        }
+    }
+	private String n_pmsstoryname_like;//[需求]
+	public void setN_pmsstoryname_like(String n_pmsstoryname_like) {
+        this.n_pmsstoryname_like = n_pmsstoryname_like;
+        if(!ObjectUtils.isEmpty(this.n_pmsstoryname_like)){
+            this.getSearchCond().like("pmsstoryname", n_pmsstoryname_like);
+        }
+    }
+	private String n_productname_eq;//[产品]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("productname", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("productname", n_productname_like);
+        }
+    }
+	private String n_storymodulename_eq;//[需求模块]
+	public void setN_storymodulename_eq(String n_storymodulename_eq) {
+        this.n_storymodulename_eq = n_storymodulename_eq;
+        if(!ObjectUtils.isEmpty(this.n_storymodulename_eq)){
+            this.getSearchCond().eq("storymodulename", n_storymodulename_eq);
+        }
+    }
+	private String n_storymodulename_like;//[需求模块]
+	public void setN_storymodulename_like(String n_storymodulename_like) {
+        this.n_storymodulename_like = n_storymodulename_like;
+        if(!ObjectUtils.isEmpty(this.n_storymodulename_like)){
+            this.getSearchCond().like("storymodulename", n_storymodulename_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索
