@@ -144,9 +144,11 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        deResParameters = [
+        if(context.project && true){
+            deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
-        ];
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'projectteams', parameterName: 'projectteam' },
         ];

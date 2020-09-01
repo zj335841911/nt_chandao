@@ -31,11 +31,6 @@ export default class DefaultModel {
       {
         name: 'teams',
       },
-      {
-        name: 'project',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

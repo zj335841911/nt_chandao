@@ -55,6 +55,8 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
+            return res;
     }
 
     /**
@@ -72,6 +74,9 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().get(`/projectteams/${context.projectteam}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -98,6 +103,18 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/projectteams`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -117,6 +134,11 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/projectteams/${context.projectteam}`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -133,6 +155,8 @@ export default class ProjectTeamServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
             return res;
         }
+            let res:any = Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
+            return res;
     }
 
     /**
@@ -150,6 +174,9 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -168,6 +195,10 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+        let res:any = await  Http.getInstance().get(`/projectteams/getdraft`,isloading);
+        res.data.projectteam = data.projectteam;
+        
+        return res;
     }
 
     /**
@@ -187,6 +218,8 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -206,6 +239,11 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/projectteams/${context.projectteam}/save`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -223,6 +261,9 @@ export default class ProjectTeamServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectteams/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -240,5 +281,8 @@ export default class ProjectTeamServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
+        return res;
     }
 }
