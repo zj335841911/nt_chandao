@@ -424,6 +424,13 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * @memberof ProjectTeamMobMDViewBase
      */
     protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
 
     }
 

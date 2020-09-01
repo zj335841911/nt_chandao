@@ -34,6 +34,13 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
             this.getSearchCond().like("ibzpro_storymodulename", n_ibzpro_storymodulename_like);
         }
     }
+	private String n_product_eq;//[产品（开发系统）标识]
+	public void setN_product_eq(String n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("product", n_product_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

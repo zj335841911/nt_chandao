@@ -90,6 +90,20 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
+    /**
+     * 生产体系类型
+     */
+    @TableField(value = "pssystype")
+    @JSONField(name = "pssystype")
+    @JsonProperty("pssystype")
+    private String pssystype;
+    /**
+     * 生产对象标识
+     */
+    @TableField(value = "psobjectid")
+    @JSONField(name = "psobjectid")
+    @JsonProperty("psobjectid")
+    private String psobjectid;
 
 
 
@@ -99,6 +113,22 @@ public class IBZProProduct extends EntityMP implements Serializable {
     public void setIbzproProductname(String ibzproProductname){
         this.ibzproProductname = ibzproProductname ;
         this.modify("ibzpro_productname",ibzproProductname);
+    }
+
+    /**
+     * 设置 [生产体系类型]
+     */
+    public void setPssystype(String pssystype){
+        this.pssystype = pssystype ;
+        this.modify("pssystype",pssystype);
+    }
+
+    /**
+     * 设置 [生产对象标识]
+     */
+    public void setPsobjectid(String psobjectid){
+        this.psobjectid = psobjectid ;
+        this.modify("psobjectid",psobjectid);
     }
 
 

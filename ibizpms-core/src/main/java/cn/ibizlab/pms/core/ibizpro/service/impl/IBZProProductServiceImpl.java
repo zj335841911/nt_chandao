@@ -46,6 +46,12 @@ import org.springframework.util.StringUtils;
 @Service("IBZProProductServiceImpl")
 public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, IBZProProduct> implements IIBZProProductService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
 
     protected int batchSize = 500;
 

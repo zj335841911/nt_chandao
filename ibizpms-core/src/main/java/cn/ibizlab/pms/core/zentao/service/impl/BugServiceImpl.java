@@ -413,7 +413,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
  */
 	@Override
 	public Bug sendMessage(Bug et) {
-  		Bug dbet = this.get(et.getId());
  		String pcLinkView = "maindashboardview_link";
   		String mobLinkView = "mobeditview";
   	
@@ -434,7 +433,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
   		if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
             	et.getExtensionparams().put("assignedToChanged",false);
 	  	
-	  	//mailto filter dumplicated
+	  	//mailto filter duplicated
 	  	
 	  	return et;
 	}

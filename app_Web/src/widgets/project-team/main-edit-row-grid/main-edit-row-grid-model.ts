@@ -88,11 +88,6 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
-          name: 'project',
-          prop: 'root',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'projectteam',
           prop: 'id',
         },
@@ -103,11 +98,6 @@ export default class Main_EditRowModel {
       {
         name: 'teams',
         prop: 'teams',
-      },
-      {
-        name: 'project',
-        prop: 'id',
-        dataType: 'FONTKEY',
       },
 
         {

@@ -1,5 +1,5 @@
 <template>
-    <div  class="app-mob-mdctrl bug ">
+    <div  class="app-mob-mdctrl bug-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
           <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
             <ion-list class="items">
