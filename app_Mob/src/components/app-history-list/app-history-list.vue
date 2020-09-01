@@ -3,19 +3,24 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer" v-for="i in item.items" :key="i"> 
+            <div class="footer"> 
               <strong>{{item.actor}}</strong> 
               {{item.method}} 
               <span v-if="item.actions !== 'closed'">
-              <strong>{{item.file}}</strong>
-              <strong v-html="item.comment" class="comment"></strong>
-              {{i}}
+                <strong>{{item.file}}</strong>
+                <strong v-html="item.comment" class="comment"></strong>
+                <span v-if="item.actions == 'edited'">
+                旧值为<span v-html="item.old"></span>,新值为<span v-html="item.new"></span>
+                </span>
               </span>
             </div>
       </div>
     </div>
-    <div class="button">
+    <div class="button" v-if="items.length > 3">
       <div @click="loadMore"><span>{{text}}</span></div>
+    </div>
+    <div class="zero" v-if="items.length == 0">
+      <div>暂无记录</div>
     </div>
   </div>
 </template>
@@ -104,7 +109,6 @@ export default class APPHistoryList extends Vue {
     public handler(){
       if (this.items != undefined) {
         this.items.forEach((v:any)=>{
-          console.log('item',v);
           let file:string = "";
           let method:string = "";
           if(v.objecttype){
@@ -116,15 +120,11 @@ export default class APPHistoryList extends Vue {
               method = info.text;
           }
           if(v.item){
-            v.items = [];
             v.item.forEach((i:any) => {
               v.file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
-              v.items.push( '旧值为'+'"'+ i.old +'"'+ ',新值为' +'"'+ i.ibiznew+'"');
+              v.old = i.old;
+              v.new = i.ibiznew;
             });
-          }
-          if(v.item.length == 0){
-            v.items = [];
-            v.items.push('');
           }
         })
       }
@@ -199,14 +199,14 @@ export default class APPHistoryList extends Vue {
           let ite:any =  document.querySelectorAll('.oneitem');
           this.startHeig = 0;
           this.endHeig = 0;
-            for(let i = 0; i <= this.num; i++){
+            for(let i = 0; i < this.num; i++){
               if (ite[i] != undefined) {
-                this.startHeig += ite[i].offsetHeight;
+                this.startHeig += ite[i].offsetHeight + 15;
               }
             }
-            for(let i = 0; i < ite.length; i++){
+            for(let i = 0; i <= ite.length; i++){
               if (ite[i] != undefined) {              
-              this.endHeig += ite[i].offsetHeight + 20;
+              this.endHeig += ite[i].offsetHeight + 15;
               }
             }  
           ele.style.height = this.isShow?this.endHeig+'px':  + this.startHeig+'px';
@@ -234,9 +234,9 @@ export default class APPHistoryList extends Vue {
       let ele:any =  document.querySelector('.onecontent');
       let ite:any =  this.$refs.oneitem;
       if (ite !== undefined) {
-        for(let i:any = 0; i <= this.num; i++){
+        for(let i:any = 0; i < this.num; i++){
           if (ite[i] !== undefined) {
-            this.startHeig += ite[i].offsetHeight;
+            this.startHeig += ite[i].offsetHeight + 15;
           }
         }
       }
