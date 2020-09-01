@@ -175,6 +175,28 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.projectteam.main_editrow_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.projectteam.main_editrow_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.NewRow.visabled" :disabled="scope.row.NewRow.disabled" @click="uiAction(scope.row, 'NewRow', $event)" :title="$t('entities.projectteam.main_editrow_grid.uiactions.newrow')">
+                            <i class='fa fa-plus'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.projectteam.main_editrow_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

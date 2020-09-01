@@ -68,12 +68,111 @@ export class Main_EditRowGridBase extends GridControlBase {
     public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u0da0c7a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"ProjectTeam");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uead4c3e_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"ProjectTeam");
+    }
+
+    /**
+     * 新建行
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProjectTeamMainGridView_EditRowBase
+     */
+    public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        const data: any = {};
+        if (_this.hasOwnProperty('newRow') && _this.newRow instanceof Function) {
+            _this.newRow([{ ...data }], params, $event, xData);
+        } else if(xData.newRow && xData.newRow instanceof Function) {
+            xData.newRow([{ ...data }], params, $event, xData);
+        }else{
+            _this.$Notice.error({ title: '错误', desc: 'newRow 视图处理逻辑不存在，请添加!' });
+        }
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProjectTeamMainGridView_EditRowBase
+     */
+    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.remove instanceof Function)) {
+            return ;
+        }
+        xData.remove(args);
+    }
+
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof Main_EditRowBase
      */  
     public ActionModel: any = {
+        NewRow: { name: 'NewRow',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: ''},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -164,6 +263,14 @@ export class Main_EditRowGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: true,
         },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.projectteam.main_editrow_grid.columns.uagridcolumn1',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -228,6 +335,7 @@ export class Main_EditRowGridBase extends GridControlBase {
         'days':true,
         'hours':true,
         'limited':true,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -272,6 +380,24 @@ export class Main_EditRowGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_EditRowGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('NewRow', tag)) {
+            this.grid_uagridcolumn1_u0da0c7a_click(row, tag, $event);
+        }
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_uead4c3e_click(row, tag, $event);
+        }
+    }
 
     /**
      * 表格编辑项值变化

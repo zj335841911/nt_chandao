@@ -34,8 +34,11 @@ export default {
 			days: "可用工日",
 			hours: "可用工时/天",
 			limited: "受限用户",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        newrow: "新建行",
+        remove: "Remove",
 		},
 	},
 	main_grid: {

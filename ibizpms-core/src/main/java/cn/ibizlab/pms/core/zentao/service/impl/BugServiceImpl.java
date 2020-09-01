@@ -422,9 +422,9 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 		}
 	  	return et;
 	}
-    /**
- * 发送消息前置处理逻辑。
- */
+      /**
+   * 发送消息前置处理逻辑。
+   */
 	@Override
 	public Bug sendMsgPreProcess(Bug et) {
 	  	Bug dbet = this.get(et.getId());
