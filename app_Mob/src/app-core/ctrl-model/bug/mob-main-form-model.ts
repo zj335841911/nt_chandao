@@ -101,9 +101,19 @@ export class MobMainModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'resolveddate',
+                prop: 'resolveddate',
+                dataType: 'DATETIME',
+            },
+            {
                 name: 'resolvedby',
                 prop: 'resolvedby',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'steps',
+                prop: 'steps',
+                dataType: 'LONGTEXT',
             },
             {
                 name: 'id',

@@ -91,10 +91,12 @@ export default class StoryUIActionBase extends EntityUIActionBase {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'stories'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'stories'});
+        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'stories'});
     }
 
     /**

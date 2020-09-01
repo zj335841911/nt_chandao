@@ -65,8 +65,14 @@ export default {
 		mobtabexpview: {
 			caption: '项目详情',
 		},
+		mobpickupmdview: {
+			caption: '项目',
+		},
 		activitemobeditview: {
 			caption: '激活',
+		},
+		mobpickupview: {
+			caption: '项目',
 		},
 		closemobeditview: {
 			caption: '关闭',

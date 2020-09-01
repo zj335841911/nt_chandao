@@ -277,6 +277,30 @@
 
 
 <app-form-item 
+    name='resolveddate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="resolveddate_item"  
+    :itemValue="this.data.resolveddate" 
+    v-show="detailsModel.resolveddate.visible" 
+    :itemRules="this.rules.resolveddate" 
+    :caption="$t('bug.mobmain_form.details.resolveddate')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.resolveddate.disabled"
+    :error="detailsModel.resolveddate.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.resolveddate" 
+    :context="context" 
+    :value="data.resolveddate" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='resolvedby' 
     class='' 
     uiStyle="DEFAULT"  
@@ -299,6 +323,27 @@
     :context="context" 
     :value="data.resolvedby" 
     :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='steps' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="steps_item"  
+    :itemValue="this.data.steps" 
+    v-show="detailsModel.steps.visible" 
+    :itemRules="this.rules.steps" 
+    :caption="$t('bug.mobmain_form.details.steps')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.steps.disabled"
+    :error="detailsModel.steps.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{}' :exportparams='{}'  style=""></app-mob-rich-text-editor>
+
 </app-form-item>
 
 
@@ -674,7 +719,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         repotype: null,
         status: null,
         resolution: null,
+        resolveddate: null,
         resolvedby: null,
+        steps: null,
         id: null,
         bug: null,
     };
@@ -818,11 +865,23 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
         ],
+        resolveddate: [
+            { type: 'string', message: '解决日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决日期 值不能为空', trigger: 'blur' },
+        ],
         resolvedby: [
             { type: 'string', message: '解决者 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '解决者 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '解决者 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '解决者 值不能为空', trigger: 'blur' },
+        ],
+        steps: [
+            { type: 'string', message: '重现步骤 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '重现步骤 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
@@ -958,7 +1017,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        resolveddate: new FormItemModel({ caption: '解决日期', detailType: 'FORMITEM', name: 'resolveddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         resolvedby: new FormItemModel({ caption: '解决者', detailType: 'FORMITEM', name: 'resolvedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1181,6 +1244,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 resolveddate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.resolveddate')
+    onResolveddateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolveddate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 resolvedby 值
      *
      * @param {*} newVal
@@ -1190,6 +1265,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.resolvedby')
     onResolvedbyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'resolvedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 steps 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.steps')
+    onStepsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'steps', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1240,6 +1327,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
@@ -1439,7 +1528,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'type_item', 'severity_item', 'pri_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'status_item', 'resolution_item', 'resolvedby_item', ];
+        const refArr: Array<string> = ['title_item', 'type_item', 'severity_item', 'pri_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'status_item', 'resolution_item', 'resolveddate_item', 'resolvedby_item', 'steps_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

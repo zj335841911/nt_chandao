@@ -116,7 +116,7 @@
     :itemParam='{ }' 
     :disabled="detailsModel.modulename.disabled"
     :service="service"
-    :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchStoryModule'}"
     :value="data.modulename" 
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-select-drop-down>
@@ -148,8 +148,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.plan"  
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } '
+    :navigateContext ='{ "n_product_eq": "%product%" } '
+    :navigateParam ='{ "n_product_eq": "%product%" } '
     @change="($event)=>this.data.plan = $event" />
 </app-form-item>
 

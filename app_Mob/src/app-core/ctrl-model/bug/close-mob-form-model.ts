@@ -56,11 +56,6 @@ export class CloseMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
-                name: 'mobimage',
-                prop: 'mobimage',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

@@ -91,8 +91,10 @@ export default class BugUIActionBase extends EntityUIActionBase {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'colsemobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'planmobmdview9',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'bugs'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'bugs'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assigntomobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'bugs'});
@@ -170,6 +172,56 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

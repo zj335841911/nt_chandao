@@ -62,6 +62,9 @@ export default {
 		mobmdview9: {
 			caption: '需求',
 		},
+		mobpickupmdview: {
+			caption: '需求',
+		},
 		assmobmdview: {
 			caption: '需求',
 		},
@@ -72,6 +75,9 @@ export default {
 			caption: '需求',
 		},
 		mobeditview: {
+			caption: '需求',
+		},
+		mobpickupview: {
 			caption: '需求',
 		},
 	},

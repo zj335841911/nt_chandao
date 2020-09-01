@@ -111,44 +111,8 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-textarea  
-    class="app-form-item-textarea" 
-        :value="data.comment" 
-    :disabled="detailsModel.comment.disabled" 
-    @change="($event)=>this.data.comment = $event" />
-</app-form-item>
+        <app-mob-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-mob-rich-text-editor>
 
-
-
-<app-form-item 
-    name='mobimage' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="NONE" 
-    ref="mobimage_item"  
-    :itemValue="this.data.mobimage" 
-    v-show="detailsModel.mobimage.visible" 
-    :itemRules="this.rules.mobimage" 
-    :caption="$t('bug.assigntomob_form.details.mobimage')"  
-    :labelWidth="0"  
-    :isShowCaption="false"
-    :disabled="detailsModel.mobimage.disabled"
-    :error="detailsModel.mobimage.error" 
-    :isEmptyCaption="false">
-        <app-mob-picture 
-    name='mobimage' 
-    style="overflow: auto;"  
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.mobimage" 
-    :disabled="detailsModel.mobimage.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}'
-    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
@@ -518,7 +482,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
         project: null,
         mailto: null,
         comment: null,
-        mobimage: null,
         id: null,
         bug: null,
     };
@@ -625,12 +588,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        mobimage: [
-            { type: 'string', message: '移动端图片 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '移动端图片 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '移动端图片 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '移动端图片 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
@@ -755,8 +712,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mobimage: new FormItemModel({ caption: '移动端图片', detailType: 'FORMITEM', name: 'mobimage', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -907,18 +862,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mobimage 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof AssignToMob
-     */
-    @Watch('data.mobimage')
-    onMobimageChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mobimage', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -966,7 +909,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
@@ -1160,7 +1102,7 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
      * @memberof AssignToMob
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['assignedto_item', 'mailto_item', 'comment_item', 'mobimage_item', ];
+        const refArr: Array<string> = ['assignedto_item', 'mailto_item', 'comment_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

@@ -197,45 +197,8 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.comment" 
-    :disabled="detailsModel.comment.disabled" 
-    @change="($event)=>this.data.comment = $event" />
-</app-form-item>
+        <app-mob-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-mob-rich-text-editor>
 
-
-
-<app-form-item 
-    name='mobimage' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="NONE" 
-    ref="mobimage_item"  
-    :itemValue="this.data.mobimage" 
-    v-show="detailsModel.mobimage.visible" 
-    :itemRules="this.rules.mobimage" 
-    :caption="$t('bug.resolvemob_form.details.mobimage')"  
-    :labelWidth="0"  
-    :isShowCaption="false"
-    :disabled="detailsModel.mobimage.disabled"
-    :error="detailsModel.mobimage.error" 
-    :isEmptyCaption="false">
-        <app-mob-picture 
-    name='mobimage' 
-    style="overflow: auto;"  
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.mobimage" 
-    :disabled="detailsModel.mobimage.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}'
-    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
@@ -610,7 +573,6 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
         project: null,
         files: null,
         comment: null,
-        mobimage: null,
         bug: null,
     };
 
@@ -747,12 +709,6 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
         ],
-        mobimage: [
-            { type: 'string', message: '移动端图片 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '移动端图片 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '移动端图片 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '移动端图片 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -880,8 +836,6 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mobimage: new FormItemModel({ caption: '移动端图片', detailType: 'FORMITEM', name: 'mobimage', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1089,18 +1043,6 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 mobimage 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ResolveMob
-     */
-    @Watch('data.mobimage')
-    onMobimageChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mobimage', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -1137,7 +1079,6 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
@@ -1335,7 +1276,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @memberof ResolveMob
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['resolution_item', 'resolvedbuild_item', 'resolveddate_item', 'assignedto_item', 'files_item', 'comment_item', 'mobimage_item', ];
+        const refArr: Array<string> = ['resolution_item', 'resolvedbuild_item', 'resolveddate_item', 'assignedto_item', 'files_item', 'comment_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

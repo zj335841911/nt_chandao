@@ -1,11 +1,12 @@
 import { HttpResponse } from '@/ibiz-core/utils';
-import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
-import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
-import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
+import  BugModule  from '@/app-core/code-list/bug-module';
+import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
+import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
+import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 
 /**
  * 动态代码表服务类
@@ -43,20 +44,22 @@ export class CodeListService {
      * @memberof CodeListService
      */
     protected allCodeList: any = {
-        // 用户真实名称（动态）（Bug）
-        BugUserRealName: new BugUserRealName(),
-        // 当前用例版本（动态）
-        CurCaseVersion: new CurCaseVersion(),
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
-        // 用户真实名称（项目团队成员）
-        UserRealNameProject: new UserRealNameProject(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
         // 产品平台（动态）
         ProductBranch: new ProductBranch(),
         // 当前产品版本（动态）
         CurProductBuild: new CurProductBuild(),
+        // 所属模板（动态）
+        BugModule: new BugModule(),
+        // 用户真实名称（动态）（Bug）
+        BugUserRealName: new BugUserRealName(),
+        // 当前用例版本（动态）
+        CurCaseVersion: new CurCaseVersion(),
+        // 用户真实名称（项目团队成员）
+        UserRealNameProject: new UserRealNameProject(),
     };
 
     /**

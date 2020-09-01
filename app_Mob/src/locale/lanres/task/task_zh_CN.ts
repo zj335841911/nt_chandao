@@ -71,6 +71,12 @@ export default {
 		closemoboptionview: {
 			caption: '关闭',
 		},
+		mobpickupmdview: {
+			caption: '任务',
+		},
+		mobpickupview: {
+			caption: '任务',
+		},
 		favoritemobmdview: {
 			caption: '任务',
 		},

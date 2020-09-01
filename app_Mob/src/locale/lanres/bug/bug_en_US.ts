@@ -77,10 +77,16 @@ export default {
 		planmobmdview9: {
 			caption: '计划下属',
 		},
+		testmobmdview: {
+			caption: 'Bug',
+		},
 		mobmdview: {
 			caption: 'Bug',
 		},
 		mobeditview: {
+			caption: 'Bug',
+		},
+		newmobeditview: {
 			caption: 'Bug',
 		},
 		confirmmobeditview: {
@@ -114,7 +120,6 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -144,7 +149,9 @@ export default {
 			repotype: '代码类型', 
 			status: 'Bug状态', 
 			resolution: '解决方案', 
+			resolveddate: '解决日期', 
 			resolvedby: '解决者', 
+			steps: '重现步骤', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -169,7 +176,6 @@ export default {
 			pri: '优先级', 
 			mailto: '抄送给', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 			project: '所属项目', 
 			id: 'Bug编号', 
 		},
@@ -195,7 +201,6 @@ export default {
 			project: '所属项目', 
 			mailto: '抄送给', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -225,7 +230,6 @@ export default {
 			project: '所属项目', 
 			files: '附件', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 		},
 		uiactions: {
 		},
@@ -252,7 +256,46 @@ export default {
 			files: '附件', 
 			project: '所属项目', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
+		},
+		uiactions: {
+		},
+	},
+	mobnewfrom_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			grouppanel2: '分组面板', 
+			group1: 'bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			productname: '产品', 
+			branch: '平台/分支', 
+			product: '所属产品', 
+			modulename: '所属模块', 
+			module: '所属模块', 
+			projectname: '项目', 
+			project: '所属项目', 
+			openedbuild: '影响版本', 
+			assignedto: '指派给', 
+			deadline: '截止日期', 
+			type: 'Bug类型', 
+			os: '操作系统', 
+			browser: '浏览器', 
+			title: 'Bug标题', 
+			severity: '严重程度', 
+			pri: '优先级', 
+			steps: '重现步骤', 
+			storyname: '相关需求', 
+			taskname: '相关任务', 
+			mailto: '抄送给', 
+			keywords: '关键词', 
+			id: 'Bug编号', 
 		},
 		uiactions: {
 		},
@@ -292,6 +335,18 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
+	testmobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: 'deuiaction1',
+		},
 	},
 	assmobmdviewrighttoolbar_toolbar: {
 	},
