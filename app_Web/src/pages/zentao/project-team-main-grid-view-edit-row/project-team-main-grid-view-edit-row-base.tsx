@@ -70,6 +70,30 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProjectTeamMainGridView_EditRowBase
+	 */
+    protected customViewNavContexts: any = {
+        'MANAGEMEMBERS': { isRawValue: false, value: 'managemembers' },
+        'DEPT': { isRawValue: false, value: 'dept' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProjectTeamMainGridView_EditRowBase
+	 */
+    protected customViewParams: any = {
+        'managemembers': { isRawValue: false, value: 'managemembers' },
+        'dept': { isRawValue: false, value: 'dept' }
+    };
+
     /**
      * 视图模型数据
      *
