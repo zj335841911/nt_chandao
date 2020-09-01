@@ -17,6 +17,7 @@ export class ThirdPartyService {
      * @memberof ThirdPartyService
      */
     private static readonly instance: ThirdPartyService = new ThirdPartyService();
+
     /**
      * 当前搭载平台
      *
@@ -25,6 +26,7 @@ export class ThirdPartyService {
      * @memberof ThirdPartyService
      */
     public platform: 'WeChat' | 'DingTalk' | null = null;
+
     /**
      * 钉钉服务
      *
@@ -32,6 +34,7 @@ export class ThirdPartyService {
      * @memberof ThirdPartyService
      */
     public dd: DingTalkService = DingTalkService.getInstance();
+
     /**
      * 企业微信服务
      *
@@ -40,8 +43,21 @@ export class ThirdPartyService {
      */
     public weChat: WeChatService = WeChatService.getInstance();
 
-
+    /**
+     * 第三方导航返回事件
+     *
+     * @type {WeChatService}
+     * @memberof ThirdPartyService
+     */
     private backEvent:Array<Function> = [];
+
+    /**
+     * 第三方导航标题
+     *
+     * @type {WeChatService}
+     * @memberof ThirdPartyService
+     */
+    private navTitle:Array<string> = [];
 
     /**
      * 是否已经初始化
@@ -165,6 +181,7 @@ export class ThirdPartyService {
      * @memberof DingTalkService
      */
     public setTitle(title:string){
+        this.navTitle.push(title);
         if (this.isDingTalk()) {
             this.dd.setTitle(title);
         } else if (this.isWeChat()) {
@@ -193,14 +210,16 @@ export class ThirdPartyService {
      * 第三方容器导航销毁返回事件
      */
     public destroyBackEvent() {
-        this.backEvent = (this.backEvent.slice(0,-1) as any);
-        alert(this.backEvent.length);
+        this.backEvent = this.backEvent.slice(0,-1);
+        this.navTitle = this.navTitle.slice(0,-1);
         if(!this.backEvent){
             return
         }
         if (this.isDingTalk()) {
+            this.dd.setTitle(this.navTitle[this.navTitle.length -1]);
             this.dd.setBackEvent(this.backEvent);
         } else if (this.isWeChat()) {
+            this.weChat.setTitle(this.navTitle[this.navTitle.length -1]);
             this.weChat.setBackEvent(this.backEvent);
         } 
     }
