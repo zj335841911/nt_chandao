@@ -416,10 +416,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
   		Bug dbet = this.get(et.getId());
  		String pcLinkView = "maindashboardview_link";
   		String mobLinkView = "mobeditview";
-  
-  	//assignedto has changed
-  	if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
-            et.getExtensionparams().put("assignedToChanged",false);
   	
   		cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
   		if(dingTalkMsgService!=null){
@@ -428,10 +424,12 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 	  	return et;
 	}
     /**
- * 发送消息通知。
+ * 发送消息前置处理逻辑。
  */
 	@Override
-	public Bug sendMessage(Bug et) {
+	public Bug sendMsgPreProcess(Bug et) {
+	  	Bug dbet = this.get(et.getId());
+	  
   		//assignedto has changed
   		if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
             	et.getExtensionparams().put("assignedToChanged",false);
