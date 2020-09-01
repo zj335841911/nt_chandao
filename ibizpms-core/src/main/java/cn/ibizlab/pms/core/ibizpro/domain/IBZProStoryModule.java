@@ -97,6 +97,13 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private String product;
+    /**
+     * id
+     */
+    @TableField(value = "pmsstorymodule")
+    @JSONField(name = "pmsstorymodule")
+    @JsonProperty("pmsstorymodule")
+    private BigInteger pmsstorymodule;
 
     /**
      * 
@@ -105,6 +112,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Module ztModule;
 
 
 
@@ -122,6 +137,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setProduct(String product){
         this.product = product ;
         this.modify("product",product);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setPmsstorymodule(BigInteger pmsstorymodule){
+        this.pmsstorymodule = pmsstorymodule ;
+        this.modify("pmsstorymodule",pmsstorymodule);
     }
 
 

@@ -52,6 +52,9 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
     protected int batchSize = 500;
 
@@ -146,6 +149,16 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
         saveOrUpdateBatch(list,batchSize);
     }
 
+
+	@Override
+    public List<IBZProProduct> selectByPmsproduct(BigInteger id) {
+        return baseMapper.selectByPmsproduct(id);
+    }
+
+    @Override
+    public void removeByPmsproduct(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProProduct>().eq("pmsproduct",id));
+    }
 
 
     /**
