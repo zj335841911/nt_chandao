@@ -437,4 +437,20 @@ export interface Project {
      * @memberof Project
      */
     istop?: any;
+
+    /**
+     * 选择部门
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    dept?: any;
+
+    /**
+     * 复制团队
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    managemembers?: any;
 }

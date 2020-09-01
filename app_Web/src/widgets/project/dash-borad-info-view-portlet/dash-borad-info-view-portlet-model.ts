@@ -177,6 +177,12 @@ export default class DashBoradInfoViewModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

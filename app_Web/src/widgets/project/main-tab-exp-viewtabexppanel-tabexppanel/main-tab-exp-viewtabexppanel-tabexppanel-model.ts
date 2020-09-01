@@ -177,6 +177,12 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

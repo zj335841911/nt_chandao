@@ -177,6 +177,12 @@ export default class TestTabExpViewtabviewpanel2Model {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

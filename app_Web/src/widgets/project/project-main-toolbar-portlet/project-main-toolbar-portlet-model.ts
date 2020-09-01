@@ -177,6 +177,12 @@ export default class ProjectMainToolbarModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

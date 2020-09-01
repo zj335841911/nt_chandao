@@ -177,6 +177,12 @@ export default class ProjectStatusBarModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 

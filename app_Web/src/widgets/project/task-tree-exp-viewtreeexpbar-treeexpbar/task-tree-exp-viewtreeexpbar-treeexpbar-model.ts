@@ -177,6 +177,12 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
     ]
   }
 
