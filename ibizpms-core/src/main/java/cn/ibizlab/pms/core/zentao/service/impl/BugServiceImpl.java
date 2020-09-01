@@ -408,9 +408,9 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         saveOrUpdateBatch(list,batchSize);
     }
 
-    /**
- * 发送消息通知。
- */
+      /**
+   * 发送消息通知。
+   */
 	@Override
 	public Bug sendMessage(Bug et) {
  		String pcLinkView = "maindashboardview_link";
