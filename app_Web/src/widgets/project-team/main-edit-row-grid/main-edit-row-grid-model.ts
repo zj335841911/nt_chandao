@@ -88,18 +88,28 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
+          name: 'project',
+          prop: 'root',
+          dataType: 'FONTKEY',
+        },
+        {
           name: 'projectteam',
           prop: 'id',
         },
       {
-        name: 'n_dept_eq',
-        prop: 'n_dept_eq',
-        dataType: 'SSCODELIST',
+        name: 'n_account_like',
+        prop: 'n_account_like',
+        dataType: 'TEXT',
       },
       {
-        name: 'n_managemembers_eq',
-        prop: 'n_managemembers_eq',
-        dataType: 'SSCODELIST',
+        name: 'n_root_eq',
+        prop: 'n_root_eq',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'project',
+        prop: 'id',
+        dataType: 'FONTKEY',
       },
 
         {

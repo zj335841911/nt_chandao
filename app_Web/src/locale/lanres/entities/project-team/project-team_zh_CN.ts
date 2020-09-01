@@ -15,8 +15,6 @@ export default {
     total: "总计可用",
     root: "项目编号",
     username: "用户",
-    dept: "选择部门",
-    managemembers: "复制团队",
   },
 	views: {
 		maingridview: {
@@ -57,8 +55,8 @@ export default {
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
-			n_dept_eq: "选择部门", 
-			n_managemembers_eq: "复制团队", 
+			n_account_like: "用户(文本包含(%))", 
+			n_root_eq: "项目编号(等于(=))", 
 		},
 		uiactions: {
 		},

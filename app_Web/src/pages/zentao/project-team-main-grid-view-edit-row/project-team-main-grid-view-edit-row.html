@@ -1,4 +1,5 @@
 <studio-view viewName="projectteammaingridview_editrow" viewTitle="项目团队表格视图" class='degridview project-team-main-grid-view-edit-row'>
+    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="用户" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
     <template slot="searchForm">

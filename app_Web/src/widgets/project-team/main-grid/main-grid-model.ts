@@ -83,6 +83,11 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'project',
+          prop: 'root',
+          dataType: 'FONTKEY',
+        },
+        {
           name: 'projectteam',
           prop: 'id',
         },

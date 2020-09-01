@@ -26,14 +26,19 @@ export default class DefaultModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_dept_eq',
-        prop: 'dept',
-        dataType: 'SSCODELIST',
+        name: 'n_account_like',
+        prop: 'account',
+        dataType: 'TEXT',
       },
       {
-        name: 'n_managemembers_eq',
-        prop: 'managemembers',
-        dataType: 'SSCODELIST',
+        name: 'n_root_eq',
+        prop: 'root',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'project',
+        prop: 'id',
+        dataType: 'FONTKEY',
       },
     ]
   }
