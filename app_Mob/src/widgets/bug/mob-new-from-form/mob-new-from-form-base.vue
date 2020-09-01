@@ -82,20 +82,18 @@
     :disabled="detailsModel.branch.disabled"
     :error="detailsModel.branch.error" 
     :isEmptyCaption="false">
-        <app-mob-file-upload 
-    name='branch' 
-    style="overflow: auto;"
-    :multiple="false" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.branch" 
+        <app-mob-select 
+    tag="ProductBranch"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
     :disabled="detailsModel.branch.disabled" 
+    :data="data" 
     :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
-    @formitemvaluechange="onFormItemValueChange" />
+    :viewparams="viewparams"
+    :value="data.branch"  
+    :navigateContext ='{ "product": "%product%" } '
+    :navigateParam ='{ "product": "%product%" } '
+    @change="($event)=>this.data.branch = $event" />
 </app-form-item>
 
 
