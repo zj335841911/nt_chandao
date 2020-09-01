@@ -89,6 +89,9 @@ export default {
 		moboptionview: {
 			caption: '指派',
 		},
+		newmobeditview: {
+			caption: '任务',
+		},
 	},
 	assignformmob_form: {
 		details: {
@@ -159,6 +162,39 @@ export default {
 		uiactions: {
 		},
 	},
+	mobnewfrom_form: {
+		details: {
+			group1: 'task基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			projectname: '所属项目', 
+			project: '所属项目', 
+			module: 'id', 
+			type: '任务类型', 
+			modulename: '所属模块', 
+			allmodules: '所有模块', 
+			assignedto: '指派给', 
+			story: '相关需求', 
+			storyname: '相关需求', 
+			name: '任务名称', 
+			pri: '优先级', 
+			estimate: '预计', 
+			eststarted: '预计开始', 
+			deadline: '截止日期', 
+			desc: '任务描述', 
+			mailto: '抄送给', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
 	mobmain_form: {
 		details: {
 			druipart1: '任务团队', 
@@ -190,7 +226,17 @@ export default {
 		uiactions: {
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

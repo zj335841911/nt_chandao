@@ -34,6 +34,7 @@ export const viewstate: any = {
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
+                'e6b8dc7c5f604f8cc4cabb89752aac17',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
@@ -469,6 +470,15 @@ export const viewstate: any = {
             viewtag: '72d73b7f458439bc2355414e5a810ad5',
             viewmodule: 'ibiz',
             viewname: 'BuildMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '73daedb821777aaf1a46923f595ea272',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectModuleMobPickupMDView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -931,6 +941,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e6b8dc7c5f604f8cc4cabb89752aac17',
+            viewmodule: 'zentao',
+            viewname: 'TaskNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fff6b013908d42dfb7dc46a67e7467b9',
+                'b1c76392040ff2e9ed2e3ae2b0260602',
+                'f48661e4f3797c86502abe30dae2f89f',
+            ],
+        },
+        {
             viewtag: 'e7bc340642f7bc0346a1f220d1523954',
             viewmodule: 'ibiz',
             viewname: 'TaskTeamMobMDView9',
@@ -1006,6 +1028,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'fff6b013908d42dfb7dc46a67e7467b9',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectModuleMobPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '73daedb821777aaf1a46923f595ea272',
             ],
         },
     ],

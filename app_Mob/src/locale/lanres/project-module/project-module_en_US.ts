@@ -17,4 +17,12 @@ export default {
     rootname: "所属项目",
     parentname: "上级模块",
   },
+	views: {
+		mobpickupmdview: {
+			caption: '任务模块',
+		},
+		mobpickupview: {
+			caption: '任务模块',
+		},
+	},
 };

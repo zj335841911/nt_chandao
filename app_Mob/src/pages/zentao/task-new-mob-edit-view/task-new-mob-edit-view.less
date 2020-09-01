@@ -118,59 +118,15 @@ ion-backdrop {
 
 
 
-//排序样式
-.task-mob-mdview-toolbar{
-    z-index:10;
-    .code-box{
-      overflow-x: auto;
-      .ibz-item{
-            --inner-border-width:0;
-            min-width: 50%;
-        }
-    }
-    .view-tool {
-        display: flex;
-        padding: 0 @padding-sm;
-        &-sorts {
-            display: flex;
-            flex-grow: 1;
-            &-item {
-                display: flex;
-                padding-right: @margin-sm;
-                height: 24px;
-                .text {
-                    display: flex;
-                    flex-grow: 1;
-                }
-                .sort-icon {
-                    display: flex;
-                    flex-direction: column;
-                    width: 20px;
-                    padding-left: @padding-base;
-                    justify-content: center;
-                    ion-icon {
-                        font-size: @font-size-xs - 2;
-                    }
-                    .sort-select{
-                      color: #3880ff;;
-                    }
-                }
-            }
-        }
-        &-searchform {
-            display: flex;
-            width: 60px;
-            justify-content: flex-end;
-            align-items: center;
-        }
-    }
-}
-.filter-btn{
-  position: relative;
-    top: 5px;
-}
 
-.batch_btn{
-  display: flex;
-  justify-content: center;
+.task-new-mob-edit-view {
+    .view-footer {
+        text-align: center;
+        border-top: 1px solid #ddd;
+        .van-button {
+            height: 2.5rem;
+            line-height: 2.5rem;
+            width: 40%;
+        }
+    }
 }

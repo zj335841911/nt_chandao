@@ -9,107 +9,141 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('bug.resolvemob_form.details.group1')" 
-    :isShowCaption="false" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('bug.resolvemob_form.details.grouppanel1')" 
+    :caption="$t('task.mobnewfrom_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='resolution' 
+    name='projectname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="resolution_item"  
-    :itemValue="this.data.resolution" 
-    v-show="detailsModel.resolution.visible" 
-    :itemRules="this.rules.resolution" 
-    :caption="$t('bug.resolvemob_form.details.resolution')"  
+    ref="projectname_item"  
+    :itemValue="this.data.projectname" 
+    v-show="detailsModel.projectname.visible" 
+    :itemRules="this.rules.projectname" 
+    :caption="$t('task.mobnewfrom_form.details.projectname')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.resolution.disabled"
-    :error="detailsModel.resolution.error" 
+    :disabled="detailsModel.projectname.disabled"
+    :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Bug__resolution"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.resolution.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.resolution"  
+        <app-mob-select-drop-down 
+    name='projectname' 
+    deMajorField='name'
+    deKeyField='projectid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.resolution = $event" />
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.projectname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'project', interfaceName: 'FetchCurUser'}"
+    :value="data.projectname" 
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='resolvedbuild' 
+    name='type' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="resolvedbuild_item"  
-    :itemValue="this.data.resolvedbuild" 
-    v-show="detailsModel.resolvedbuild.visible" 
-    :itemRules="this.rules.resolvedbuild" 
-    :caption="$t('bug.resolvemob_form.details.resolvedbuild')"  
+    ref="type_item"  
+    :itemValue="this.data.type" 
+    v-show="detailsModel.type.visible" 
+    :itemRules="this.rules.type" 
+    :caption="$t('task.mobnewfrom_form.details.type')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.resolvedbuild.disabled"
-    :error="detailsModel.resolvedbuild.error" 
+    :disabled="detailsModel.type.disabled"
+    :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="CurProductBuild"
-    codeListType="DYNAMIC" 
+    tag="Task__type"
+    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.resolvedbuild.disabled" 
+    :disabled="detailsModel.type.disabled" 
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.resolvedbuild"  
-    :navigateContext ='{ "bugproduct": "%product%", "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%", "bugproduct": "%product%" } '
-    @change="($event)=>this.data.resolvedbuild = $event" />
+    :value="data.type"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.type = $event" />
 </app-form-item>
 
 
 
 <app-form-item 
-    name='resolveddate' 
+    name='modulename' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="resolveddate_item"  
-    :itemValue="this.data.resolveddate" 
-    v-show="detailsModel.resolveddate.visible" 
-    :itemRules="this.rules.resolveddate" 
-    :caption="$t('bug.resolvemob_form.details.resolveddate')"  
+    ref="modulename_item"  
+    :itemValue="this.data.modulename" 
+    v-show="detailsModel.modulename.visible" 
+    :itemRules="this.rules.modulename" 
+    :caption="$t('task.mobnewfrom_form.details.modulename')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.resolveddate.disabled"
-    :error="detailsModel.resolveddate.error" 
+    :disabled="detailsModel.modulename.disabled"
+    :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.resolveddate" 
-    :disabled="detailsModel.resolveddate.disabled"
-    @change="($event)=>this.data.resolveddate = $event"/>
+        <app-mob-select-drop-down 
+    name='modulename' 
+    deMajorField='name'
+    deKeyField='projectmoduleid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ "project": "%project%", "allmodules": "%allmodules%" } '
+    :navigateParam ='{ "project": "%project%", "allmodules": "%allmodules%" } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.modulename.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'projectmodule', interfaceName: 'FetchTaskModules'}"
+    :value="data.modulename" 
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-select-drop-down>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='allmodules' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="RIGHT" 
+    ref="allmodules_item"  
+    :itemValue="this.data.allmodules" 
+    v-show="detailsModel.allmodules.visible" 
+    :itemRules="this.rules.allmodules" 
+    :caption="$t('task.mobnewfrom_form.details.allmodules')"  
+    :labelWidth="80"  
+    :isShowCaption="true"
+    :disabled="detailsModel.allmodules.disabled"
+    :error="detailsModel.allmodules.error" 
+    :isEmptyCaption="false">
+        <app-mob-switch 
+    class="app-form-item-switch" 
+    :value="data.allmodules"  
+    :disabled="detailsModel.allmodules.disabled"
+    @change="($event)=>this.data.allmodules = $event" />
 </app-form-item>
 
 
@@ -123,14 +157,14 @@
     :itemValue="this.data.assignedto" 
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
-    :caption="$t('bug.resolvemob_form.details.assignedto')"  
+    :caption="$t('task.mobnewfrom_form.details.assignedto')"  
     :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="BugUserRealName"
+    tag="UserRealNameProject"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
@@ -144,101 +178,228 @@
 </app-form-item>
 
 
-    
-</app-form-group>
-
-
 
 <app-form-item 
-    name='files' 
+    name='storyname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="files_item"  
-    :itemValue="this.data.files" 
-    v-show="detailsModel.files.visible" 
-    :itemRules="this.rules.files" 
-    :caption="$t('bug.resolvemob_form.details.files')"  
+    ref="storyname_item"  
+    :itemValue="this.data.storyname" 
+    v-show="detailsModel.storyname.visible" 
+    :itemRules="this.rules.storyname" 
+    :caption="$t('task.mobnewfrom_form.details.storyname')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.files.disabled"
-    :error="detailsModel.files.error" 
+    :disabled="detailsModel.storyname.disabled"
+    :error="detailsModel.storyname.error" 
     :isEmptyCaption="false">
-        <app-mob-file-upload 
-    name='files' 
-    style="overflow: auto;" 
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.files" 
-    :disabled="detailsModel.files.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
-    @formitemvaluechange="onFormItemValueChange" />
+        <app-mob-select-drop-down 
+    name='storyname' 
+    deMajorField='title'
+    deKeyField='storyid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ "n_module_eq": "%module%", "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%", "n_module_eq": "%module%" } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.storyname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'story', interfaceName: 'FetchTaskRelatedStory'}"
+    :value="data.storyname" 
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='comment' 
+    name='name' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="comment_item"  
-    :itemValue="this.data.comment" 
-    v-show="detailsModel.comment.visible" 
-    :itemRules="this.rules.comment" 
-    :caption="$t('bug.resolvemob_form.details.comment')"  
+    labelPos="LEFT" 
+    ref="name_item"  
+    :itemValue="this.data.name" 
+    v-show="detailsModel.name.visible" 
+    :itemRules="this.rules.name" 
+    :caption="$t('task.mobnewfrom_form.details.name')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
-    :error="detailsModel.comment.error" 
+    :disabled="detailsModel.name.disabled"
+    :error="detailsModel.name.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-mob-rich-text-editor>
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.name" 
+    :disabled="detailsModel.name.disabled" 
+    @change="($event)=>this.data.name = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='pri' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="pri_item"  
+    :itemValue="this.data.pri" 
+    v-show="detailsModel.pri.visible" 
+    :itemRules="this.rules.pri" 
+    :caption="$t('task.mobnewfrom_form.details.pri')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.pri.disabled"
+    :error="detailsModel.pri.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Task__pri"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.pri.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.pri"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.pri = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='estimate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="estimate_item"  
+    :itemValue="this.data.estimate" 
+    v-show="detailsModel.estimate.visible" 
+    :itemRules="this.rules.estimate" 
+    :caption="$t('task.mobnewfrom_form.details.estimate')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.estimate.disabled"
+    :error="detailsModel.estimate.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.estimate" 
+    :disabled="detailsModel.estimate.disabled" 
+    @change="($event)=>this.data.estimate = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='eststarted' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="eststarted_item"  
+    :itemValue="this.data.eststarted" 
+    v-show="detailsModel.eststarted.visible" 
+    :itemRules="this.rules.eststarted" 
+    :caption="$t('task.mobnewfrom_form.details.eststarted')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.eststarted.disabled"
+    :error="detailsModel.eststarted.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
+    class="app-form-item-datetime" 
+    :value="data.eststarted" 
+    :disabled="detailsModel.eststarted.disabled"
+    @change="($event)=>this.data.eststarted = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='deadline' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="deadline_item"  
+    :itemValue="this.data.deadline" 
+    v-show="detailsModel.deadline.visible" 
+    :itemRules="this.rules.deadline" 
+    :caption="$t('task.mobnewfrom_form.details.deadline')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.deadline.disabled"
+    :error="detailsModel.deadline.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
+    class="app-form-item-datetime" 
+    :value="data.deadline" 
+    :disabled="detailsModel.deadline.disabled"
+    @change="($event)=>this.data.deadline = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('task.mobnewfrom_form.details.desc')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",version:"editor"}' :exportparams='{objecttype:"task",version:"editor"}'  style=""></app-mob-rich-text-editor>
 
 </app-form-item>
 
 
 
-<app-form-group 
+<app-form-item 
+    name='mailto' 
     class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel6.visible" 
-    :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" 
-    :caption="$t('bug.resolvemob_form.details.grouppanel6')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='bug' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='action-mob-mdview9' 
-    paramItem='bug' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('task.mobnewfrom_form.details.mailto')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
+    :isEmptyCaption="false">
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
+    tag="UserRealName"
+    :disabled="detailsModel.mailto.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.mailto"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailto = $event"/>
+</app-form-item>
 
 
     
@@ -256,10 +417,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
-import ResolveMobService from '@/app-core/ctrl-service/bug/resolve-mob-form-service';
+import TaskService from '@/app-core/service/task/task-service';
+import MobNewFromService from '@/app-core/ctrl-service/task/mob-new-from-form-service';
 
-import BugUIService from '@/ui-service/bug/bug-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -270,13 +431,13 @@ import {  Util } from '@/ibiz-core/utils';
     components: {
     }
 })
-export default class ResolveMobBase extends Vue implements ControlInterface {
+export default class MobNewFromBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected name?: string;
 
@@ -284,7 +445,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected viewName!: string;
 
@@ -293,7 +454,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -301,7 +462,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -309,7 +470,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -318,7 +479,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -326,7 +487,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected getControlType(): string {
         return 'FORM'
@@ -336,7 +497,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -345,7 +506,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  ResolveMobBase
+     * @memberof  MobNewFromBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -357,33 +518,33 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {ResolveMobService}
-     * @memberof ResolveMob
+     * @type {MobNewFromService}
+     * @memberof MobNewFrom
      */
-    protected service: ResolveMobService = new ResolveMobService({$store:this.$store});
+    protected service: MobNewFromService = new MobNewFromService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {BugService}
-     * @memberof ResolveMob
+     * @type {TaskService}
+     * @memberof MobNewFrom
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {BugUIService}
-     * @memberof ResolveMobBase
+     * @type {TaskUIService}
+     * @memberof MobNewFromBase
      */  
-    public deUIService:BugUIService = new BugUIService(this.$store);
+    public deUIService:TaskUIService = new TaskUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -394,7 +555,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() srfwfmemo?: string;
 
@@ -402,7 +563,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     public getDatas(): any[] {
         return [this.data];
@@ -412,7 +573,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     public getData(): any {
         return this.data;
@@ -422,7 +583,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -430,7 +591,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -438,7 +599,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -446,7 +607,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected WFStartAction!: string;
     
@@ -454,7 +615,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected updateAction!: string;
     
@@ -462,7 +623,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected removeAction!: string;
     
@@ -470,7 +631,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -478,7 +639,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected loadAction!: string;
     
@@ -486,7 +647,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected createAction!: string;
 
@@ -494,7 +655,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected searchAction!: string;
 
@@ -502,7 +663,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Prop() protected viewtag!: string;
 
@@ -510,7 +671,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected formState: Subject<any> = new Subject();
 
@@ -518,7 +679,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -527,7 +688,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -536,7 +697,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -545,7 +706,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private oldData: any = {};
 
@@ -553,7 +714,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected data: any = {
         srfupdatedate: null,
@@ -564,23 +725,31 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        product: null,
-        id: null,
-        resolution: null,
-        resolvedbuild: null,
-        resolveddate: null,
-        assignedto: null,
+        projectname: null,
         project: null,
-        files: null,
-        comment: null,
-        bug: null,
+        module: null,
+        type: null,
+        modulename: null,
+        allmodules: null,
+        assignedto: null,
+        story: null,
+        storyname: null,
+        name: null,
+        pri: null,
+        estimate: null,
+        eststarted: null,
+        deadline: null,
+        desc: null,
+        mailto: null,
+        id: null,
+        task: null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof ResolveMob
+      * @memberof MobNewFrom
       */
     protected currentAction: string = "";
 
@@ -588,7 +757,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof ResolveMob
+      * @memberof MobNewFrom
       */
     protected drcounter: number = 0;
 
@@ -596,7 +765,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof ResolveMob
+      * @memberof MobNewFrom
       */
     protected saveState:any ;
 
@@ -604,14 +773,14 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected rules: any = {
         srfupdatedate: [
-            { type: 'string', message: '修改日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '修改日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '修改日期 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
         ],
         srforikey: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
@@ -620,16 +789,16 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
-            { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'Bug编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'Bug编号 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
         srfmajortext: [
-            { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
         srftempmode: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
@@ -655,41 +824,11 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        product: [
-            { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'Bug编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'Bug编号 值不能为空', trigger: 'blur' },
-        ],
-        resolution: [
-            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
-        ],
-        resolvedbuild: [
-            { type: 'string', message: '解决版本 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '解决版本 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '解决版本 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '解决版本 值不能为空', trigger: 'blur' },
-        ],
-        resolveddate: [
-            { type: 'string', message: '解决日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '解决日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '解决日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '解决日期 值不能为空', trigger: 'blur' },
-        ],
-        assignedto: [
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        projectname: [
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
+            { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
         project: [
             { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
@@ -697,17 +836,95 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
-        files: [
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        module: [
+            { type: 'number', message: 'id 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: 'id 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
         ],
-        comment: [
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        type: [
+            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'blur' },
+            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+        ],
+        modulename: [
+            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
+        allmodules: [
+            { type: 'string', message: '所有模块 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所有模块 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'blur' },
+        ],
+        assignedto: [
+            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        storyname: [
+            { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        name: [
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
+            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+        ],
+        pri: [
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
+        estimate: [
+            { type: 'number', message: '预计 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '预计 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'blur' },
+        ],
+        eststarted: [
+            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
+        ],
+        deadline: [
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
+        ],
+        desc: [
+            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'blur' },
+        ],
+        mailto: [
+            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
+        ],
+        id: [
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -715,7 +932,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ResolveMobBase
+     * @memberof MobNewFromBase
      */
     public deRules:any = {
     };
@@ -725,7 +942,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof ResolveMobBase
+     * @memberof MobNewFromBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -790,26 +1007,20 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected detailsModel: any = {
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.resolvemob_form', extractMode: 'ITEM', details: [] } })
-, 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel6: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.resolvemob_form', extractMode: 'ITEM', details: [] } })
-, 
-        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.resolvemob_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: 'task基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobnewfrom_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        srfupdatedate: new FormItemModel({ caption: '修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfkey: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        srfmajortext: new FormItemModel({ caption: 'Bug标题', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -819,23 +1030,39 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        resolveddate: new FormItemModel({ caption: '解决日期', detailType: 'FORMITEM', name: 'resolveddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        allmodules: new FormItemModel({ caption: '所有模块', detailType: 'FORMITEM', name: 'allmodules', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        eststarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'eststarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -844,7 +1071,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -856,7 +1083,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -868,7 +1095,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -880,7 +1107,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -892,7 +1119,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -904,7 +1131,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -916,7 +1143,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -928,7 +1155,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -936,75 +1163,15 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 product 值
+     * 监控表单属性 projectname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 id 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ResolveMob
-     */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 resolution 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ResolveMob
-     */
-    @Watch('data.resolution')
-    onResolutionChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'resolution', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 resolvedbuild 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ResolveMob
-     */
-    @Watch('data.resolvedbuild')
-    onResolvedbuildChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'resolvedbuild', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 resolveddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ResolveMob
-     */
-    @Watch('data.resolveddate')
-    onResolveddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'resolveddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assignedto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ResolveMob
-     */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.projectname')
+    onProjectnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'projectname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1012,7 +1179,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     @Watch('data.project')
     onProjectChange(newVal: any, oldVal: any) {
@@ -1020,27 +1187,183 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 files 值
+     * 监控表单属性 module 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
-    @Watch('data.files')
-    onFilesChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
+    @Watch('data.module')
+    onModuleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'module', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 comment 值
+     * 监控表单属性 type 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
-    @Watch('data.comment')
-    onCommentChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
+    @Watch('data.type')
+    onTypeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 modulename 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.modulename')
+    onModulenameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'modulename', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 allmodules 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.allmodules')
+    onAllmodulesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'allmodules', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 storyname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.storyname')
+    onStorynameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storyname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 name 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.name')
+    onNameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'name', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 estimate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.estimate')
+    onEstimateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'estimate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 eststarted 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.eststarted')
+    onEststartedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'eststarted', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 deadline 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.deadline')
+    onDeadlineChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'deadline', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 id 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.id')
+    onIdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1049,9 +1372,15 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'multiple')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
+        if (Object.is(name, 'modulename')) {
+            this.onFormItemValueChange({ name: 'storyname', value: null });
+        }
     }
 
     /**
@@ -1075,7 +1404,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -1095,6 +1424,40 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = true;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = false;
+            }
+            this.rules.assignedto.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.estimate.setDisabled(!ret);
+        }
 
 
 
@@ -1129,7 +1492,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
@@ -1152,7 +1515,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1170,7 +1533,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -1186,7 +1549,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1211,7 +1574,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1227,7 +1590,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1239,7 +1602,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1255,7 +1618,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1273,10 +1636,10 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['resolution_item', 'resolvedbuild_item', 'resolveddate_item', 'assignedto_item', 'files_item', 'comment_item', ];
+        const refArr: Array<string> = ['projectname_item', 'type_item', 'modulename_item', 'allmodules_item', 'assignedto_item', 'storyname_item', 'name_item', 'pri_item', 'estimate_item', 'eststarted_item', 'deadline_item', 'desc_item', 'mailto_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1291,7 +1654,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected getValues(): any {
         return this.data;
@@ -1302,7 +1665,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1320,7 +1683,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1338,7 +1701,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1350,7 +1713,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected created(): void {
         this.afterCreated();
@@ -1359,7 +1722,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ResolveMob
+     *  @memberof MobNewFrom
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1412,7 +1775,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1421,7 +1784,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1436,7 +1799,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof ResolveMob
+     * @memberof @memberof MobNewFrom
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1446,7 +1809,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1469,7 +1832,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1491,7 +1854,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1519,7 +1882,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1531,8 +1894,8 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.bug){
-                Object.assign(this.context, { bug: data.bug });
+            if(data.task){
+                Object.assign(this.context, { task: data.task });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -1553,7 +1916,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -1597,7 +1960,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -1612,7 +1975,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 1;
+            this.drcounter = 0;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1693,7 +2056,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -1716,7 +2079,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -1743,7 +2106,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1783,7 +2146,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected onEnter($event: any): void {
     }
@@ -1794,7 +2157,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -1812,7 +2175,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1831,7 +2194,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1846,7 +2209,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof ResolveMob
+    * @memberof MobNewFrom
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -1869,19 +2232,25 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof ResolveMob
+     * @memberof MobNewFrom
      */
     public createDefault(){                    
+                if (this.data.hasOwnProperty('module')) {
+                    this.data['module'] = this.viewparams['module'];
+                }
+                if (this.data.hasOwnProperty('allmodules')) {
+                    this.data['allmodules'] = '1';
+                }
+                if (this.data.hasOwnProperty('story')) {
+                    this.data['story'] = this.viewparams['story'];
+                }
     }
 
         /**
      * 更新默认值
-     * @memberof ResolveMobBase
+     * @memberof MobNewFromBase
      */
     public updateDefault(){                    
-        if (this.data.hasOwnProperty('resolveddate') && !this.data.resolveddate) {
-            this.data['resolveddate'] = '';
-        }
     }
 
 
@@ -1908,5 +2277,5 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './resolve-mob-form.less';
+@import './mob-new-from-form.less';
 </style>

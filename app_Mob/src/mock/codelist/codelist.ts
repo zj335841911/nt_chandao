@@ -454,6 +454,27 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'YesNo',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '是',
+                text: '是',
+                value: '1',
+                disabled: false,
+            },
+            {
+                id: '0',
+                label: '否',
+                text: '否',
+                value: '0',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__os',
         emptytext: '未定义',
         "codelisttype":"static",

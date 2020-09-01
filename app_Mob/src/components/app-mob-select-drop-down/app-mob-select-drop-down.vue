@@ -1,6 +1,7 @@
 <template>
      <div class="app-mobile-select-drop-down">
-        <ion-icon v-if="curvalue" name="close-outline" @click="clear"></ion-icon>
+        <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+        <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
         <ion-select :value="curvalue"  :disabled="disabled " @ionChange="change" interface="popover">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
