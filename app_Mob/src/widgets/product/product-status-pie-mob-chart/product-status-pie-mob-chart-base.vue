@@ -1,5 +1,5 @@
 <template>
-    <div class="app-data-chart ">
+    <div class="app-data-chart product-chart ">
         <div class="app-charts" :id="chartId" style="height: 50vh;padding: 6px 0;"></div>
   </div>
 </template>

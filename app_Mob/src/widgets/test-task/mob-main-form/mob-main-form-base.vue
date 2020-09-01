@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form testtask-form ">
                 
 
 <app-form-group 

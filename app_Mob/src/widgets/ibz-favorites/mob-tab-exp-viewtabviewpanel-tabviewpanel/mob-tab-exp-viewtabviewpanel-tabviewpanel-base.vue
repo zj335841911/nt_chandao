@@ -1,5 +1,5 @@
 <template>
-    <div class='app-tab-view-panel ' v-if='isActivied' >
+    <div class='app-tab-view-panel ibzfavorites-tabviewpanel ' v-if='isActivied' >
         <story-favorite-mob-mdview 
             :_context="JSON.stringify(_context)" 
             :_viewparams="JSON.stringify(_viewparams)" 

@@ -1,5 +1,5 @@
 <template>
-    <div class='app-tab-view-panel ' v-if='isActivied' >
+    <div class='app-tab-view-panel project-tabviewpanel3 ' v-if='isActivied' >
         <project-team-mob-mdview 
             :_context="JSON.stringify(_context)" 
             :_viewparams="JSON.stringify(_viewparams)" 

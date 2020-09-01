@@ -1,6 +1,6 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet '>
+        <ion-list class='app-mob-portlet  '>
             <ion-list-header class='app-mob-portlet__header'>列表 </ion-list-header>
                 <view_db_appmenu3_appmenu
     :viewState="viewState"

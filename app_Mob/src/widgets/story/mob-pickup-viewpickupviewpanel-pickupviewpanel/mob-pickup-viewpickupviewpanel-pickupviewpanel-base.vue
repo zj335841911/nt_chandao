@@ -1,5 +1,5 @@
 <template>
-    <div class='pickupviewpanel'>
+    <div class='pickupviewpanel story-pickupviewpanel'>
         <component 
             v-if="inited && view.viewname && !Object.is(view.viewname, '')" 
             :is="view.viewname" 

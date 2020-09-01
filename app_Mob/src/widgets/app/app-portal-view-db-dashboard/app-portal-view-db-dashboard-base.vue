@@ -1,5 +1,5 @@
 <template>
-    <ion-grid class="app-mob-dashboard ">
+    <ion-grid class="app-mob-dashboard  ">
             <ion-card>
             <view_db_appmenu1
     :viewState="viewState"
