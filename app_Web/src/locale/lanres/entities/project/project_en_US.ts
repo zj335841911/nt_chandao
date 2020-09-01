@@ -156,6 +156,25 @@ export default {
       		title: "项目",
 		},
 	},
+	projectmg_form: {
+		details: {
+			rawitem1: "", 
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			dept: "选择部门", 
+			managemembers: "复制团队", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
 	putoff_form: {
 		details: {
 			grouppanel2: "分组面板", 
@@ -362,25 +381,6 @@ export default {
 			formitemex2: "", 
 			desc: "项目描述", 
 			acl: "访问控制", 
-			id: "项目编号", 
-		},
-		uiactions: {
-		},
-	},
-	projectmg_form: {
-		details: {
-			rawitem1: "", 
-			druipart1: "", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "项目编号", 
-			srfmajortext: "项目名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			dept: "选择部门", 
-			managemembers: "复制团队", 
 			id: "项目编号", 
 		},
 		uiactions: {

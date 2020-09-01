@@ -144,13 +144,8 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
         const parameters: any[] = [
-            { pathName: 'projectteams', parameterName: 'projectteam' },
+            { pathName: 'projects', parameterName: 'project' },
         ];
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
@@ -166,10 +161,10 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'project-team-main-grid-view-edit-row', 
+                viewname: 'project-mgedit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.projectteam.views.maingridview_editrow.title'),
+                title: actionContext.$t('entities.project.views.mgeditview.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
