@@ -423,7 +423,7 @@ public void sendMessage(Bug et) {
   	
   	cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
   	if(dingTalkMsgService!=null){
-        dingTalkMsgService.send(et,“Bug”,pcLinkView,mobLinkView);
+        dingTalkMsgService.send(et, "Bug", pcLinkView, mobLinkView);
 	}
 }
         @Override
