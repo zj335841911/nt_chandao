@@ -5,6 +5,7 @@ import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
+import ibzprostorymodule_en_US from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_en_US';
 import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
@@ -18,6 +19,7 @@ import productstats_en_US from '@locale/lanres/entities/product-stats/product-st
 import ibzprojectmember_en_US from '@locale/lanres/entities/ibz-project-member/ibz-project-member_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
 import group_en_US from '@locale/lanres/entities/group/group_en_US';
+import ibzproproduct_en_US from '@locale/lanres/entities/ibzpro-product/ibzpro-product_en_US';
 import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
@@ -40,6 +42,7 @@ import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
 import testsuite_en_US from '@locale/lanres/entities/test-suite/test-suite_en_US';
+import ibzprostory_en_US from '@locale/lanres/entities/ibzpro-story/ibzpro-story_en_US';
 import projectteam_en_US from '@locale/lanres/entities/project-team/project-team_en_US';
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_en_US';
@@ -196,6 +199,10 @@ export default {
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
+                menuitem16: "plus",
+                menuitem21: "模块",
+                menuitem17: "需求",
+                menuitem19: "产品",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -313,6 +320,7 @@ export default {
         product: product_en_US,
         taskteam: taskteam_en_US,
         file: file_en_US,
+        ibzprostorymodule: ibzprostorymodule_en_US,
         ibzlibcasesteps: ibzlibcasesteps_en_US,
         ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,
@@ -326,6 +334,7 @@ export default {
         ibzprojectmember: ibzprojectmember_en_US,
         action: action_en_US,
         group: group_en_US,
+        ibzproproduct: ibzproproduct_en_US,
         casestep: casestep_en_US,
         dept: dept_en_US,
         company: company_en_US,
@@ -348,6 +357,7 @@ export default {
         build: build_en_US,
         testresult: testresult_en_US,
         testsuite: testsuite_en_US,
+        ibzprostory: ibzprostory_en_US,
         projectteam: projectteam_en_US,
         testtask: testtask_en_US,
         ibztaskestimate: ibztaskestimate_en_US,

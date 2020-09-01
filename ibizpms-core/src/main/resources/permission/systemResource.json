@@ -248,6 +248,11 @@
        }
         ,
        {
+            "unirescode":"PLUS",
+            "uniresname":"Plus增强权限"
+       }
+        ,
+       {
             "unirescode":"RELEASE_ACTIVE",
             "uniresname":"发布操作列（激活）"
        }
@@ -846,6 +851,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"IBZProStoryModule",
+    "delogicname":"需求模块",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Push" , "name":"推送" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
     "dename":"IbzLibCaseSteps",
     "delogicname":"用例库用例步骤",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
@@ -908,6 +921,14 @@
     "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"IBZProProduct",
+    "delogicname":"产品（开发系统）",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
      }
     ,    {
     "dename":"Dept",
@@ -974,6 +995,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"IBZProStory",
+    "delogicname":"需求",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Push" , "name":"推送" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
     "dename":"TestReport",
     "delogicname":"测试报告",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
@@ -1025,7 +1054,7 @@
             {
                "appid":"Web",
                "appname":"iBiz软件生产管理",
-               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem12" , "name":"我的收藏" },{ "id":"menuitem9" , "name":"我的地盘" },{ "id":"menuitem3" , "name":"产品主页" },{ "id":"menuitem2" , "name":"项目主页" },{ "id":"menuitem1" , "name":"测试主页" },{ "id":"menuitem10" , "name":"用例库" },{ "id":"menuitem11" , "name":"用户" },{ "id":"menuitem7" , "name":"iBiz软件生产管理" }]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" },{ "id":"menuitem6" , "name":"测试" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" },{ "id":"menuitem13" , "name":"bug菜单项" },{ "id":"menuitem14" , "name":"菜单项" },{ "id":"menuitem15" , "name":"菜单项" },{ "id":"menuitem18" , "name":"菜单项" },{ "id":"menuitem20" , "name":"菜单项" }] }]
+               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem12" , "name":"我的收藏" },{ "id":"menuitem9" , "name":"我的地盘" },{ "id":"menuitem3" , "name":"产品主页" },{ "id":"menuitem2" , "name":"项目主页" },{ "id":"menuitem1" , "name":"测试主页" },{ "id":"menuitem10" , "name":"用例库" },{ "id":"menuitem11" , "name":"用户" },{ "id":"menuitem7" , "name":"iBiz软件生产管理" },{ "id":"menuitem16" , "name":"plus" , "items":[{ "id":"menuitem21" , "name":"模块" },{ "id":"menuitem17" , "name":"需求" },{ "id":"menuitem19" , "name":"产品" }]}]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" },{ "id":"menuitem6" , "name":"测试" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" },{ "id":"menuitem13" , "name":"bug菜单项" },{ "id":"menuitem14" , "name":"菜单项" },{ "id":"menuitem15" , "name":"菜单项" },{ "id":"menuitem18" , "name":"菜单项" },{ "id":"menuitem20" , "name":"菜单项" }] }]
             }
             ]
     }
