@@ -119,6 +119,13 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     }
     @Override
     @Transactional
+    public IBZProStoryModule push(IBZProStoryModule et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IBZProStoryModule et) {
         if(!saveOrUpdate(et))
             return false;

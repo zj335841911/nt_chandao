@@ -35,6 +35,7 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
     IBZProStoryModule get(String key) ;
     IBZProStoryModule getDraft(IBZProStoryModule et) ;
     boolean checkKey(IBZProStoryModule et) ;
+    IBZProStoryModule push(IBZProStoryModule et) ;
     boolean save(IBZProStoryModule et) ;
     void saveBatch(List<IBZProStoryModule> list) ;
     Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context) ;
