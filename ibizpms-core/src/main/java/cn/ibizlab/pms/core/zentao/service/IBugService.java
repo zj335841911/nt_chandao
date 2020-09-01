@@ -54,6 +54,7 @@ public interface IBugService extends IService<Bug>{
     boolean save(Bug et) ;
     void saveBatch(List<Bug> list) ;
     Bug sendMessage(Bug et) ;
+    Bug sendMsgPreProcess(Bug et) ;
     Bug toStory(Bug et) ;
     Bug unlinkBug(Bug et) ;
     Page<Bug> searchBuildBugs(BugSearchContext context) ;

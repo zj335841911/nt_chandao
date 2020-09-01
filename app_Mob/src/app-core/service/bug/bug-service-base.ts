@@ -1105,6 +1105,48 @@ export class BugServiceBase extends EntityService {
     }
 
     /**
+     * SendMsgPreProcess接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async SendMsgPreProcess(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/sendmsgpreprocess`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/sendmsgpreprocess`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/sendmsgpreprocess`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/sendmsgpreprocess`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/sendmsgpreprocess`,data,isloading);
+            return res;
+    }
+
+    /**
      * ToStory接口方法
      *
      * @param {*} [context={}]

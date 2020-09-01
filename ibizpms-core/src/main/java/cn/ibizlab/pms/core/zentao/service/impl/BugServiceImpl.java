@@ -412,7 +412,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
  * 发送消息通知。
  */
 	@Override
-	public void sendMessage(Bug et) {
+	public Bug sendMessage(Bug et) {
   		Bug dbet = this.get(et.getId());
  		String pcLinkView = "maindashboardview_link";
   		String mobLinkView = "mobeditview";
@@ -425,6 +425,20 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
   		if(dingTalkMsgService!=null){
         	dingTalkMsgService.send(et, "Bug", pcLinkView, mobLinkView);
 		}
+	  	return et;
+	}
+    /**
+ * 发送消息通知。
+ */
+	@Override
+	public Bug sendMessage(Bug et) {
+  		//assignedto has changed
+  		if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
+            	et.getExtensionparams().put("assignedToChanged",false);
+	  	
+	  	//mailto filter dumplicated
+	  	
+	  	return et;
 	}
         @Override
     @Transactional

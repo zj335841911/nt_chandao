@@ -322,6 +322,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "发送消息前置处理", tags = {"Bug" },  notes = "发送消息前置处理")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcess(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.sendMsgPreProcess(domain);
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "转需求", tags = {"Bug" },  notes = "转需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/tostory")
@@ -844,6 +855,17 @@ public class BugResource {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
         domain = bugService.sendMessage(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProduct(product_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -1394,6 +1416,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/tostory")
@@ -1940,6 +1973,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProject(project_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/tostory")
@@ -2482,6 +2526,17 @@ public class BugResource {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
         domain = bugService.sendMessage(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
