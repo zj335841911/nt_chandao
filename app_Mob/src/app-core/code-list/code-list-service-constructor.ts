@@ -23,6 +23,7 @@ export class CodeListServiceConstructor extends ServiceConstructorBase {
         this.allService.set('BugUserRealName', () => import('@/app-core/code-list/bug-user-real-name'));
         this.allService.set('CurCaseVersion', () => import('@/app-core/code-list/cur-case-version'));
         this.allService.set('UserRealNameProject', () => import('@/app-core/code-list/user-real-name-project'));
+        this.allService.set('CurStory', () => import('@/app-core/code-list/cur-story'));
     }
 
 

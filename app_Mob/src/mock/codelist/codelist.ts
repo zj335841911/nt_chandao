@@ -982,6 +982,41 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Story__review_result',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'pass',
+                label: '确认通过',
+                text: '确认通过',
+                value: 'pass',
+                disabled: false,
+            },
+            {
+                id: 'revert',
+                label: '撤销变更',
+                text: '撤销变更',
+                value: 'revert',
+                disabled: false,
+            },
+            {
+                id: 'clarify',
+                label: '有待明确',
+                text: '有待明确',
+                value: 'clarify',
+                disabled: false,
+            },
+            {
+                id: 'reject',
+                label: '拒绝',
+                text: '拒绝',
+                value: 'reject',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'YesNo2',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2944,6 +2979,14 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "CurStory",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
     },
     {
         srfkey: 'Testrun__result',

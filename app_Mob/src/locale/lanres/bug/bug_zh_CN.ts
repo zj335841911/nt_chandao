@@ -77,8 +77,17 @@ export default {
 		planmobmdview9: {
 			caption: '计划下属',
 		},
+		cmoboptionview: {
+			caption: '确认Bug',
+		},
+		rmoboptionview: {
+			caption: '解决Bug',
+		},
 		testmobmdview: {
 			caption: 'Bug',
+		},
+		acmoboptionview: {
+			caption: '激活Bug',
 		},
 		mobmdview: {
 			caption: 'Bug',
@@ -88,6 +97,9 @@ export default {
 		},
 		newmobeditview: {
 			caption: 'Bug',
+		},
+		assmoboptionview: {
+			caption: '指派Bug',
 		},
 		confirmmobeditview: {
 			caption: 'Bug',
@@ -103,6 +115,9 @@ export default {
 		},
 		activationmobeditview: {
 			caption: 'Bug',
+		},
+		closemoboptionview: {
+			caption: '关闭Bug',
 		},
 	},
 	closemob_form: {
@@ -310,6 +325,22 @@ export default {
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	testmobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+	},
+	assmobmdviewrighttoolbar_toolbar: {
+	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -333,21 +364,5 @@ export default {
 			caption: '保存',
 			tip: '保存',
 		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
-		},
-	},
-	testmobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-	},
-	assmobmdviewrighttoolbar_toolbar: {
 	},
 };

@@ -180,6 +180,13 @@ export default {
         'closed': '已关闭',
         empty: '',
     },
+    Story__review_result: {
+        'pass': '确认通过',
+        'revert': '撤销变更',
+        'clarify': '有待明确',
+        'reject': '拒绝',
+        empty: '',
+    },
     YesNo2: {
         '1': '是',
         '0': '否',
@@ -502,6 +509,9 @@ export default {
         'verified': '已验收',
         'released': '已发布',
         'closed': '已关闭',
+        empty: '',
+    },
+    CurStory: {
         empty: '',
     },
     Testrun__result: {

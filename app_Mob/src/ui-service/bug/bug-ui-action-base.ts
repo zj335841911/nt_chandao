@@ -91,15 +91,20 @@ export default class BugUIActionBase extends EntityUIActionBase {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'colsemobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'planmobmdview9',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'rmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'acmoboptionview',srfappde:'bugs'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'bugs'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'assmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assigntomobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolvemobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'activationmobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'closemoboptionview',srfappde:'bugs'});
     }
 
     /**
@@ -171,7 +176,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
+            { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -274,7 +279,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'assigntomobeditview', parameterName: 'assigntomobeditview' },
+            { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -327,7 +332,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'confirmmobeditview', parameterName: 'confirmmobeditview' },
+            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -438,7 +443,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'resolvemobeditview', parameterName: 'resolvemobeditview' },
+            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -548,7 +553,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'colsemobeditview', parameterName: 'colsemobeditview' },
+            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

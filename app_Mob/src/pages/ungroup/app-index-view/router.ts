@@ -240,6 +240,33 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-tab-exp-view/product-mob-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/asmoboptionview',
+                    meta: {
+                        caption: 'story.views.asmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-as-mob-option-view/story-as-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/asmoboptionview',
+                    meta: {
+                        caption: 'story.views.asmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-as-mob-option-view/story-as-mob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
                     meta: {
                         caption: 'taskteam.views.mobmdview9.caption',
@@ -630,6 +657,76 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/cmoboptionview',
+                    meta: {
+                        caption: 'bug.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-cmob-option-view/bug-cmob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/cmoboptionview',
+                    meta: {
+                        caption: 'bug.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-cmob-option-view/bug-cmob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/cmoboptionview',
+                    meta: {
+                        caption: 'bug.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-cmob-option-view/bug-cmob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/cmoboptionview',
+                    meta: {
+                        caption: 'bug.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-cmob-option-view/bug-cmob-option-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/cmoboptionview',
+                    meta: {
+                        caption: 'bug.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-cmob-option-view/bug-cmob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/mobeditview',
                     meta: {
                         caption: 'productplan.views.mobeditview.caption',
@@ -833,6 +930,76 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-mob-pickup-view/project-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/assmoboptionview',
+                    meta: {
+                        caption: 'bug.views.assmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-option-view/bug-ass-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/assmoboptionview',
+                    meta: {
+                        caption: 'bug.views.assmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-option-view/bug-ass-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/assmoboptionview',
+                    meta: {
+                        caption: 'bug.views.assmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-option-view/bug-ass-mob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/assmoboptionview',
+                    meta: {
+                        caption: 'bug.views.assmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-option-view/bug-ass-mob-option-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/assmoboptionview',
+                    meta: {
+                        caption: 'bug.views.assmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-option-view/bug-ass-mob-option-view.vue'),
+                },
+                {
                     path: 'actions/:action?/mobmdview9',
                     meta: {
                         caption: 'action.views.mobmdview9.caption',
@@ -984,76 +1151,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/build-mob-edit-view/build-mob-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/colsemobeditview',
-                    meta: {
-                        caption: 'bug.views.colsemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'colsemobeditview', parameterName: 'colsemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-colse-mob-edit-view/bug-colse-mob-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/bugs/:bug?/colsemobeditview',
-                    meta: {
-                        caption: 'bug.views.colsemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'colsemobeditview', parameterName: 'colsemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-colse-mob-edit-view/bug-colse-mob-edit-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/bugs/:bug?/colsemobeditview',
-                    meta: {
-                        caption: 'bug.views.colsemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'colsemobeditview', parameterName: 'colsemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-colse-mob-edit-view/bug-colse-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/bugs/:bug?/colsemobeditview',
-                    meta: {
-                        caption: 'bug.views.colsemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'colsemobeditview', parameterName: 'colsemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-colse-mob-edit-view/bug-colse-mob-edit-view.vue'),
-                },
-                {
-                    path: 'bugs/:bug?/colsemobeditview',
-                    meta: {
-                        caption: 'bug.views.colsemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'colsemobeditview', parameterName: 'colsemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-colse-mob-edit-view/bug-colse-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
@@ -1164,76 +1261,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-com-mob-option-view/task-com-mob-option-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/confirmmobeditview',
-                    meta: {
-                        caption: 'bug.views.confirmmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'confirmmobeditview', parameterName: 'confirmmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-confirm-mob-edit-view/bug-confirm-mob-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/bugs/:bug?/confirmmobeditview',
-                    meta: {
-                        caption: 'bug.views.confirmmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'confirmmobeditview', parameterName: 'confirmmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-confirm-mob-edit-view/bug-confirm-mob-edit-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/bugs/:bug?/confirmmobeditview',
-                    meta: {
-                        caption: 'bug.views.confirmmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'confirmmobeditview', parameterName: 'confirmmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-confirm-mob-edit-view/bug-confirm-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/bugs/:bug?/confirmmobeditview',
-                    meta: {
-                        caption: 'bug.views.confirmmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'confirmmobeditview', parameterName: 'confirmmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-confirm-mob-edit-view/bug-confirm-mob-edit-view.vue'),
-                },
-                {
-                    path: 'bugs/:bug?/confirmmobeditview',
-                    meta: {
-                        caption: 'bug.views.confirmmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'confirmmobeditview', parameterName: 'confirmmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-confirm-mob-edit-view/bug-confirm-mob-edit-view.vue'),
                 },
                 {
                     path: 'testsuites/:testsuite?/mobmdview',
@@ -1639,74 +1666,144 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-mob-mdview9/case-step-mob-mdview9.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/assigntomobeditview',
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/rmoboptionview',
                     meta: {
-                        caption: 'bug.views.assigntomobeditview.caption',
+                        caption: 'bug.views.rmoboptionview.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'assigntomobeditview', parameterName: 'assigntomobeditview' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/bug-assign-to-mob-edit-view/bug-assign-to-mob-edit-view.vue'),
+                    component: () => import('@pages/ibiz/bug-rmob-option-view/bug-rmob-option-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/bugs/:bug?/assigntomobeditview',
+                    path: 'projects/:project?/bugs/:bug?/rmoboptionview',
                     meta: {
-                        caption: 'bug.views.assigntomobeditview.caption',
+                        caption: 'bug.views.rmoboptionview.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'assigntomobeditview', parameterName: 'assigntomobeditview' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/bug-assign-to-mob-edit-view/bug-assign-to-mob-edit-view.vue'),
+                    component: () => import('@pages/ibiz/bug-rmob-option-view/bug-rmob-option-view.vue'),
                 },
                 {
-                    path: 'stories/:story?/bugs/:bug?/assigntomobeditview',
+                    path: 'stories/:story?/bugs/:bug?/rmoboptionview',
                     meta: {
-                        caption: 'bug.views.assigntomobeditview.caption',
+                        caption: 'bug.views.rmoboptionview.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'assigntomobeditview', parameterName: 'assigntomobeditview' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/bug-assign-to-mob-edit-view/bug-assign-to-mob-edit-view.vue'),
+                    component: () => import('@pages/ibiz/bug-rmob-option-view/bug-rmob-option-view.vue'),
                 },
                 {
-                    path: 'products/:product?/bugs/:bug?/assigntomobeditview',
+                    path: 'products/:product?/bugs/:bug?/rmoboptionview',
                     meta: {
-                        caption: 'bug.views.assigntomobeditview.caption',
+                        caption: 'bug.views.rmoboptionview.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'assigntomobeditview', parameterName: 'assigntomobeditview' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/bug-assign-to-mob-edit-view/bug-assign-to-mob-edit-view.vue'),
+                    component: () => import('@pages/ibiz/bug-rmob-option-view/bug-rmob-option-view.vue'),
                 },
                 {
-                    path: 'bugs/:bug?/assigntomobeditview',
+                    path: 'bugs/:bug?/rmoboptionview',
                     meta: {
-                        caption: 'bug.views.assigntomobeditview.caption',
+                        caption: 'bug.views.rmoboptionview.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'assigntomobeditview', parameterName: 'assigntomobeditview' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/bug-assign-to-mob-edit-view/bug-assign-to-mob-edit-view.vue'),
+                    component: () => import('@pages/ibiz/bug-rmob-option-view/bug-rmob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/acmoboptionview',
+                    meta: {
+                        caption: 'bug.views.acmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-acmob-option-view/bug-acmob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/acmoboptionview',
+                    meta: {
+                        caption: 'bug.views.acmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-acmob-option-view/bug-acmob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/acmoboptionview',
+                    meta: {
+                        caption: 'bug.views.acmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-acmob-option-view/bug-acmob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/acmoboptionview',
+                    meta: {
+                        caption: 'bug.views.acmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-acmob-option-view/bug-acmob-option-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/acmoboptionview',
+                    meta: {
+                        caption: 'bug.views.acmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-acmob-option-view/bug-acmob-option-view.vue'),
                 },
                 {
                     path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
@@ -2047,76 +2144,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-plan-mob-mdview/product-plan-mob-mdview.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/resolvemobeditview',
-                    meta: {
-                        caption: 'bug.views.resolvemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'resolvemobeditview', parameterName: 'resolvemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-resolve-mob-edit-view/bug-resolve-mob-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/bugs/:bug?/resolvemobeditview',
-                    meta: {
-                        caption: 'bug.views.resolvemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'resolvemobeditview', parameterName: 'resolvemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-resolve-mob-edit-view/bug-resolve-mob-edit-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/bugs/:bug?/resolvemobeditview',
-                    meta: {
-                        caption: 'bug.views.resolvemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'resolvemobeditview', parameterName: 'resolvemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-resolve-mob-edit-view/bug-resolve-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/bugs/:bug?/resolvemobeditview',
-                    meta: {
-                        caption: 'bug.views.resolvemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'resolvemobeditview', parameterName: 'resolvemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-resolve-mob-edit-view/bug-resolve-mob-edit-view.vue'),
-                },
-                {
-                    path: 'bugs/:bug?/resolvemobeditview',
-                    meta: {
-                        caption: 'bug.views.resolvemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'resolvemobeditview', parameterName: 'resolvemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-resolve-mob-edit-view/bug-resolve-mob-edit-view.vue'),
-                },
-                {
                     path: 'projects/:project?/supmobeditview',
                     meta: {
                         caption: 'project.views.supmobeditview.caption',
@@ -2240,76 +2267,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/activationmobeditview',
-                    meta: {
-                        caption: 'bug.views.activationmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-activation-mob-edit-view/bug-activation-mob-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/bugs/:bug?/activationmobeditview',
-                    meta: {
-                        caption: 'bug.views.activationmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-activation-mob-edit-view/bug-activation-mob-edit-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/bugs/:bug?/activationmobeditview',
-                    meta: {
-                        caption: 'bug.views.activationmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-activation-mob-edit-view/bug-activation-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/bugs/:bug?/activationmobeditview',
-                    meta: {
-                        caption: 'bug.views.activationmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-activation-mob-edit-view/bug-activation-mob-edit-view.vue'),
-                },
-                {
-                    path: 'bugs/:bug?/activationmobeditview',
-                    meta: {
-                        caption: 'bug.views.activationmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'activationmobeditview', parameterName: 'activationmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-activation-mob-edit-view/bug-activation-mob-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/mobeditview',
@@ -2622,6 +2579,60 @@ const router = new Router({
                     component: () => import('@pages/ibiz/build-mob-mdview/build-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cmoboptionview',
+                    meta: {
+                        caption: 'story.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-cmob-option-view/story-cmob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cmoboptionview',
+                    meta: {
+                        caption: 'story.views.cmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-cmob-option-view/story-cmob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/rmoboptionview',
+                    meta: {
+                        caption: 'story.views.rmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/rmoboptionview',
+                    meta: {
+                        caption: 'story.views.rmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
@@ -2770,6 +2781,76 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
                 },
             ]
         },

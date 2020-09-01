@@ -62,11 +62,23 @@ export default {
 		mobmdview9: {
 			caption: '需求',
 		},
+		rmoboptionview: {
+			caption: '评审',
+		},
 		mobpickupmdview: {
 			caption: '需求',
 		},
+		asmoboptionview: {
+			caption: '指派',
+		},
+		cmoboptionview: {
+			caption: '关闭',
+		},
 		assmobmdview: {
 			caption: '需求',
+		},
+		acmoboptionview: {
+			caption: '激活',
 		},
 		mobmdview: {
 			caption: '需求',
@@ -115,6 +127,77 @@ export default {
 		uiactions: {
 		},
 	},
+	assigntomob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel2: '分组面板', 
+			group1: '需求描述信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignedto: '指派给', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	reviewmob_form: {
+		details: {
+			grouppanel2: '评审通过', 
+			grouppanel3: '拒绝', 
+			grouppanel1: '分组面板', 
+			druipart1: '', 
+			group1: '需求基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			title: '需求名称', 
+			revieweddate: '评审时间', 
+			result: '评审结果', 
+			pri: '优先级', 
+			estimate: '预计工时', 
+			preversion: '之前版本', 
+			closedreason: '拒绝原因', 
+			assignedto: '指派给', 
+			version: '版本号', 
+			reviewedby: '由谁评审', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	closemob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel2: '分组面板', 
+			group1: '需求描述信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			closedreason: '关闭原因', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
 	mobmain_form: {
 		details: {
 			group1: '需求基本信息', 
@@ -135,6 +218,26 @@ export default {
 			closedby: '由谁关闭', 
 			closeddate: '关闭日期	', 
 			closedreason: '关闭原因', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	activitemob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel2: '历史记录', 
+			group1: '需求描述信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignedto: '指派给', 
+			comment: '备注', 
 			id: '编号', 
 		},
 		uiactions: {
