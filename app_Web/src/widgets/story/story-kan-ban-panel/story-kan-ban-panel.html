@@ -70,7 +70,7 @@
                         </i-col>
                               
                         <i-col v-show="detailsModel.button1.visible"  :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-button">
-                            <i-button type="primary" long @click="uiAction(null, 'ProjectUnlinkStory', $event)"  style="height: 24px;">
+                            <i-button :disabled="detailsModel.button1.disabled" type="primary" long @click="uiAction(null, 'ProjectUnlinkStory', $event)"  style="height: 24px;">
                             <i class="fa fa-unlink"></i>
                         </i-button>
                         

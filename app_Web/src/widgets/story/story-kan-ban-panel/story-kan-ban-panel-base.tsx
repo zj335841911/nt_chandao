@@ -4,9 +4,10 @@ import { Watch, PanelControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryKanBanService from './story-kan-ban-panel-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import { FormItemModel } from '@/model/form-detail';
+import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import StoryKanBanModel from './story-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -157,8 +158,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      * @param {*} $event
      * @memberof StoryKanBan
      */
-    public async uiAction(row: any, tag: any, $event: any) {
-        await this.computePanelData();
+    public uiAction(row: any, tag: any, $event: any) {
         if(Object.is('ProjectUnlinkStory', tag)) {
             this.itemlayoutpanel_button1_click(row, tag, $event);
         }

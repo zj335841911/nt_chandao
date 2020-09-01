@@ -4,9 +4,10 @@ import { Watch, PanelControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-panel-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import { FormItemModel } from '@/model/form-detail';
+import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import TaskKanBanModel from './task-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -189,8 +190,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
      * @param {*} $event
      * @memberof TaskKanBan
      */
-    public async uiAction(row: any, tag: any, $event: any) {
-        await this.computePanelData();
+    public uiAction(row: any, tag: any, $event: any) {
         if(Object.is('AssignTask', tag)) {
             this.itemlayoutpanel_button1_click(row, tag, $event);
         }
