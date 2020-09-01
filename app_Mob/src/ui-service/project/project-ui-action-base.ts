@@ -303,16 +303,6 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
         return backend();
     }
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #elseif (item.getFrontProcessType() =...  [in template "TEMPLCODE_en_US" at line 176, column 13]
-----
-无法获取指定应用视图，标识为[ea44d6b3b66033a84c949b1fe4de0171]，请确认实体视图[ZT_PROJECT][项目实体编辑视图]已经添加到应用[iBiz软件生产管理（Mob）]中
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #elseif (item.getFrontProcessType() =...  [in template "TEMPLCODE_en_US" at line 176, column 13]
-----
-无法获取指定应用视图，标识为[36efcb86c1a8b8df51f678dcf4c39693]，请确认实体视图[IBZ_PROJECTSTATS][项目统计实体表格视图(所有项目)]已经添加到应用[iBiz软件生产管理（Mob）]中
     /**
      * 取消置顶
      *
