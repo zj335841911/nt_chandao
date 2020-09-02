@@ -1,8 +1,35 @@
 <template>
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if tabviewpanel.getCounterId?? && ta...  [in template "TEMPLCODE_en_US" at line 12, column 17]
-----
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'ibz-favorites-mob-tab-exp-view': true }">
+    
+    <ion-header>
+                    <ion-toolbar>
+                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel">
+                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            任务</ion-segment-button>
+                        </ion-segment>
+                    </ion-toolbar>
+    </ion-header>
+
+
+    <ion-content>
+                <view_tabexppanel
+            :viewState="viewState"
+            viewName="IbzFavoritesMobTabExpView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :activiedTabViewPanel="activiedTabViewPanel"     
+            @changepanel="changePanel"
+            @counterInit="counterInit"
+            name="tabexppanel"  
+            ref='tabexppanel' 
+            @closeview="closeView($event)">
+        </view_tabexppanel>
+    </ion-content>
+</ion-page>
 </template>
 
 
