@@ -1312,7 +1312,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce"
         },
         "storysubgridview": {
-            "title": "需求表格视图（需求细分）",
+            "title": "需求细分",
             "caption": "需求细分",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",

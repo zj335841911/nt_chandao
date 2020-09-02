@@ -131,7 +131,7 @@ export default {
 		},
 		subgridview: {
 			caption: "需求细分",
-      		title: "需求表格视图（需求细分）",
+      		title: "需求细分",
 		},
 		tabexpview: {
 			caption: "需求",
@@ -690,6 +690,7 @@ export default {
 			estimate: "预计工时",
 			neednotreview: "需要评审",
 			product: "所属产品",
+			parent: "父需求",
 		},
 		uiactions: {
 		},

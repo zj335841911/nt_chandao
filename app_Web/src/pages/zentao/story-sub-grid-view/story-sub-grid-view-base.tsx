@@ -10,7 +10,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 需求表格视图（需求细分）视图基类
+ * 需求细分视图基类
  *
  * @export
  * @class StorySubGridViewBase
@@ -78,7 +78,19 @@ export class StorySubGridViewBase extends GridViewBase {
 	 * @memberof StorySubGridViewBase
 	 */
     protected customViewNavContexts: any = {
+        'PARENT': { isRawValue: false, value: 'id' },
         'PRODUCT': { isRawValue: false, value: 'product' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StorySubGridViewBase
+	 */
+    protected customViewParams: any = {
+        'parent': { isRawValue: false, value: 'id' }
     };
 
     /**

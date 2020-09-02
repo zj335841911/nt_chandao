@@ -129,7 +129,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             label: '需求名称',
             langtag: 'entities.story.substorynew_grid.columns.title',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: true,
         },
         {
@@ -172,6 +172,14 @@ export class SubStoryNewGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: true,
         },
+        {
+            name: 'parent',
+            label: '父需求',
+            langtag: 'entities.story.substorynew_grid.columns.parent',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: true,
+        },
     ]
 
     /**
@@ -190,6 +198,7 @@ export class SubStoryNewGridBase extends GridControlBase {
           pri: new FormItemModel(),
           title: new FormItemModel(),
           plan: new FormItemModel(),
+          parent: new FormItemModel(),
           estimate: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
@@ -234,6 +243,10 @@ export class SubStoryNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属计划 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属计划 值不能为空', trigger: 'blur' },
         ],
+        parent: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '父需求 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '父需求 值不能为空', trigger: 'blur' },
+        ],
         estimate: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计工时 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计工时 值不能为空', trigger: 'blur' },
@@ -259,6 +272,7 @@ export class SubStoryNewGridBase extends GridControlBase {
         'estimate':true,
         'neednotreview':true,
         'product':true,
+        'parent':true,
     };
 
     /**
@@ -311,4 +325,15 @@ export class SubStoryNewGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof SubStoryNewGridBase
+     */
+    public createDefault(row: any): void {
+        if (row.hasOwnProperty('parent')) {
+            row['parent'] = this.viewparams['parent'];
+        }
+    }
 }

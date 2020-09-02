@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * dashboard_sysportlet4部件基类
+ * db_assigntomebugportlet1部件基类
  *
  * @export
  * @class MainControlBase
@@ -127,7 +127,7 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '200px';
+            return '370px';
         }
     }
 

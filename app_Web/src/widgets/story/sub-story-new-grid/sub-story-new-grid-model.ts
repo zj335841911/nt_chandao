@@ -53,6 +53,7 @@ export default class SubStoryNewModel {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'srfmstag',

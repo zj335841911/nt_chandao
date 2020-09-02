@@ -1630,7 +1630,7 @@
         "memo": ""
     },
     "storysubgridview": {
-        "title": "需求表格视图（需求细分）",
+        "title": "需求细分",
         "caption": "需求细分",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
