@@ -52,6 +52,7 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
 
+import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({
@@ -295,6 +296,13 @@ export default class TodoMobOptionViewBase extends Vue {
         return true;
     }
 
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof TodoMobOptionViewBase
+     */
+    protected engine: MobOptionViewEngine = new MobOptionViewEngine();
 
     /**
      * 引擎初始化
@@ -302,6 +310,13 @@ export default class TodoMobOptionViewBase extends Vue {
      * @memberof TodoMobOptionViewBase
      */
     protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            p2k: '0',
+            keyPSDEField: 'todo',
+            majorPSDEField: 'name',
+            isLoadDefault: true,
+        });
     }
 
     /**

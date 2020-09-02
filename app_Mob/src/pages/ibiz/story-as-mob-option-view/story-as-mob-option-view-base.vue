@@ -52,6 +52,7 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
+import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
@@ -295,6 +296,13 @@ export default class StoryAsMobOptionViewBase extends Vue {
         return true;
     }
 
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof StoryAsMobOptionViewBase
+     */
+    protected engine: MobOptionViewEngine = new MobOptionViewEngine();
 
     /**
      * 引擎初始化
@@ -302,6 +310,13 @@ export default class StoryAsMobOptionViewBase extends Vue {
      * @memberof StoryAsMobOptionViewBase
      */
     protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            p2k: '0',
+            keyPSDEField: 'story',
+            majorPSDEField: 'title',
+            isLoadDefault: true,
+        });
     }
 
     /**

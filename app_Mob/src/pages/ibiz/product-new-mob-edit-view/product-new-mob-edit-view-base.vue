@@ -43,19 +43,8 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
-                <ion-icon name="done-all"></ion-icon>
-                
-            </ion-fab-button>
-        
-            </ion-fab>
-            </div>
-        </div>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 33, column 6:
+        #else is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
     </ion-footer>
 </ion-page>
 </template>

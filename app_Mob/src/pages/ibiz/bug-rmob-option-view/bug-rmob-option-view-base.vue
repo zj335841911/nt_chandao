@@ -52,6 +52,7 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 
+import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 @Component({
@@ -295,6 +296,13 @@ export default class BugRMobOptionViewBase extends Vue {
         return true;
     }
 
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof BugRMobOptionViewBase
+     */
+    protected engine: MobOptionViewEngine = new MobOptionViewEngine();
 
     /**
      * 引擎初始化
@@ -302,6 +310,13 @@ export default class BugRMobOptionViewBase extends Vue {
      * @memberof BugRMobOptionViewBase
      */
     protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            p2k: '0',
+            keyPSDEField: 'bug',
+            majorPSDEField: 'title',
+            isLoadDefault: true,
+        });
     }
 
     /**

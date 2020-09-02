@@ -34,41 +34,8 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
-                
-        
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-                <ion-icon name="color-wand"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
-            </ion-fab-button>
-        
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
-                <ion-icon name="pause"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
-            </ion-fab-button>
-        
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3.visabled" :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">
-                <ion-icon name="power"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}    
-            </ion-fab-button>
-        
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction4.visabled" :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">
-                <ion-icon name="close"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}    
-            </ion-fab-button>
-        
-        
-        
-                </ion-fab-list>
-            </ion-fab>
-            </div>
-        </div>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 33, column 6:
+        #else is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
     </ion-footer>
 </ion-page>
 </template>

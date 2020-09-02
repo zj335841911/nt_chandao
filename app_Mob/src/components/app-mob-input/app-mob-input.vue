@@ -40,7 +40,11 @@ export default class AppInput extends Vue {
      * @memberof AppInput
      */
     public change(value: any) {
-        this.$emit("change", value.detail.value);
+        if(this.type == "number"){
+            this.$emit("change",parseInt(value.detail.value));
+        }else{
+            this.$emit("change", value.detail.value);
+        }
     }
 }
 </script>
