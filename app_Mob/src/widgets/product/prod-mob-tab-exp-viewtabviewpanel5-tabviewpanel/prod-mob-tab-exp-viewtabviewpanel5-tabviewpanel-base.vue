@@ -11,7 +11,6 @@
     </div>
 </template>
 
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -23,7 +22,6 @@ import ProdMobTabExpViewtabviewpanel5Service from '@/app-core/ctrl-service/produ
 
 import ProductUIService from '@/ui-service/product/product-ui-action';
 
-import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
 
 
 @Component({
@@ -150,23 +148,6 @@ export default class ProdMobTabExpViewtabviewpanel5Base extends Vue implements C
         _this.$emit('closeview', args);
     }
 
-
-    
-    /**
-     * ProductMobCounterCounterService计数器服务对象
-     *
-     * @type {ProductMobCounterCounterService}
-     * @memberof ProdMobTabExpViewtabviewpanel5
-     */
-    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ProdMobTabExpViewtabviewpanel5
-     */    
-    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice];
 
     /**
      * 面板导航参数
