@@ -11,12 +11,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
     </ion-header>
 
@@ -48,6 +42,49 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+                <ion-fab-list class="fab-list" side="top">
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event)">
+                <ion-icon name="people"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_donetaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_donetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_donetaskmob' }, $event)">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_pausetaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_pausetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausetaskmob' }, $event)">
+                <ion-icon name="pause"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event)">
+                <ion-icon name="power"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closetaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event)">
+                <ion-icon name="backspace"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
+                <ion-icon name="remove"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
+            </ion-fab-button>
+        
+                </ion-fab-list>
+            </ion-fab>
+            </div>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -277,7 +314,46 @@ export default class TaskMobEditViewBase extends Vue {
     * @memberof TaskMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_assigntaskmob: { name: 'deuiaction1_assigntaskmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_donetaskmob: { name: 'deuiaction1_donetaskmob', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_pausetaskmob: { name: 'deuiaction1_pausetaskmob', caption: '暂停', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_canceltaskmob: { name: 'deuiaction1_canceltaskmob', caption: '取消', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', uiaction: { tag: 'CancelTaskMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_closetaskmob: { name: 'deuiaction1_closetaskmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof TaskMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof TaskMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
 
     
 
@@ -500,6 +576,226 @@ export default class TaskMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_assigntaskmob')) {
+            this.righttoolbar_deuiaction1_assigntaskmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_donetaskmob')) {
+            this.righttoolbar_deuiaction1_donetaskmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_pausetaskmob')) {
+            this.righttoolbar_deuiaction1_pausetaskmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_canceltaskmob')) {
+            this.righttoolbar_deuiaction1_canceltaskmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_closetaskmob')) {
+            this.righttoolbar_deuiaction1_closetaskmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_deletemob')) {
+            this.righttoolbar_deuiaction1_deletemob_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_assigntaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_AssignTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_donetaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_DoneTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_pausetaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_PauseTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_canceltaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_CancelTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_closetaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_CloseTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_deletemob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图

@@ -11,12 +11,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
     </ion-header>
 
@@ -48,6 +42,37 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+                <ion-fab-list class="fab-list" side="top">
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)">
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled" :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)">
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled" :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)">
+                <ion-icon name="close"></ion-icon>
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
+                <ion-icon name="remove"></ion-icon>
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
+            </ion-fab-button>
+        
+                </ion-fab-list>
+            </ion-fab>
+            </div>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -277,7 +302,42 @@ export default class StoryMobEditViewBase extends Vue {
     * @memberof StoryMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_assigntomob: { name: 'deuiaction1_assigntomob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ASS_BUT', uiaction: { tag: 'AssignToMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_reviewstorymob: { name: 'deuiaction1_reviewstorymob', caption: '评审', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', uiaction: { tag: 'ReviewStoryMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_closestorymob: { name: 'deuiaction1_closestorymob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', uiaction: { tag: 'CloseStoryMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof StoryMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof StoryMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
 
     
 
@@ -500,6 +560,156 @@ export default class StoryMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_assigntomob')) {
+            this.righttoolbar_deuiaction1_assigntomob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_reviewstorymob')) {
+            this.righttoolbar_deuiaction1_reviewstorymob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_closestorymob')) {
+            this.righttoolbar_deuiaction1_closestorymob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_deletemob')) {
+            this.righttoolbar_deuiaction1_deletemob_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_assigntomob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_AssignToMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_reviewstorymob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_ReviewStoryMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_closestorymob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_CloseStoryMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_deletemob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图

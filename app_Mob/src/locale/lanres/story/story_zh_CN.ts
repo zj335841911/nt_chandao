@@ -200,6 +200,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			group1: '需求基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
@@ -256,6 +258,22 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_assigntomob: {
+			caption: '指派',
+			tip: '指派',
+		},
+		deuiaction1_reviewstorymob: {
+			caption: '评审',
+			tip: '评审',
+		},
+		deuiaction1_closestorymob: {
+			caption: '关闭',
+			tip: '关闭',
+		},
+		deuiaction1_deletemob: {
+			caption: '删除',
+			tip: '删除',
+		},
 	},
 	favoritemobmdviewrighttoolbar_toolbar: {
 	},

@@ -241,6 +241,30 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_assigntaskmob: {
+			caption: '指派',
+			tip: '指派',
+		},
+		deuiaction1_donetaskmob: {
+			caption: '完成',
+			tip: '完成',
+		},
+		deuiaction1_pausetaskmob: {
+			caption: '暂停',
+			tip: '暂停',
+		},
+		deuiaction1_canceltaskmob: {
+			caption: '取消',
+			tip: '取消',
+		},
+		deuiaction1_closetaskmob: {
+			caption: '关闭',
+			tip: '关闭',
+		},
+		deuiaction1_deletemob: {
+			caption: '删除',
+			tip: '删除',
+		},
 	},
 	favoritemobmdviewrighttoolbar_toolbar: {
 	},
