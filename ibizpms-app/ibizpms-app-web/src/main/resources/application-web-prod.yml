@@ -55,6 +55,10 @@ zuul:
       path: /burns/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_substory:
+      path: /substories/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_subproductplan:
       path: /subproductplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
