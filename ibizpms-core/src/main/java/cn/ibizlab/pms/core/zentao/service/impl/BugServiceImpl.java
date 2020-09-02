@@ -428,11 +428,18 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 	@Override
 	public Bug sendMsgPreProcess(Bug et) {
 	  	Bug dbet = this.get(et.getId());
-	  
+        Map<String,Object> params = et.getExtensionparams();
+
   		//assignedto has changed
-  		if(cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto")))
-            	et.getExtensionparams().put("assignedToChanged",false);
-	  	
+  		if(!cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto"))) {
+            params.put("assignedToChanged", true);
+        }
+  		params.put("preassignedto",dbet.get("assignedto"));
+
+        if(!cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("status"),et.get("status"))){
+            params.put("prestatus",dbet.get("status"));
+        }
+
 	  	//mailto filter duplicated
 	  	
 	  	return et;
