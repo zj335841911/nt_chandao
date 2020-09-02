@@ -494,6 +494,11 @@ export default {
         'story': '项目需求',
         empty: '',
     },
+    Task__closed_reason: {
+        'done': '已完成',
+        'cancel': '已取消',
+        empty: '',
+    },
     UserRealNameProject: {
         empty: '',
     },

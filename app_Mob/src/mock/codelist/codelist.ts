@@ -2875,6 +2875,27 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Task__closed_reason',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'done',
+                label: '已完成',
+                text: '已完成',
+                value: 'done',
+                disabled: false,
+            },
+            {
+                id: 'cancel',
+                label: '已取消',
+                text: '已取消',
+                value: 'cancel',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

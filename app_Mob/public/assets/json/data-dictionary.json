@@ -3286,6 +3286,29 @@
         ]
     }, 
     {
+        "srfkey": "Task__closed_reason",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "value": "done",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "cancel",
+                "label": "已取消",
+                "text": "已取消",
+                "value": "cancel",
+                "isValueNumber":false,
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

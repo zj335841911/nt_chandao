@@ -51,6 +51,16 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'projectname',
+                prop: 'projectname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'modulename',
+                prop: 'modulename',
+                dataType: 'PICKUPTEXT',
+            },
+            {
                 name: 'name',
                 prop: 'name',
                 dataType: 'TEXT',
@@ -64,6 +74,11 @@ export class MobMainModel {
                 name: 'assignedto',
                 prop: 'assignedto',
                 dataType: 'TEXT',
+            },
+            {
+                name: 'assigneddate',
+                prop: 'assigneddate',
+                dataType: 'DATETIME',
             },
             {
                 name: 'multiple',
@@ -109,6 +124,31 @@ export class MobMainModel {
                 name: 'deadline',
                 prop: 'deadline',
                 dataType: 'DATE',
+            },
+            {
+                name: 'finishedby',
+                prop: 'finishedby',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'closedby',
+                prop: 'closedby',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'closeddate',
+                prop: 'closeddate',
+                dataType: 'DATETIME',
+            },
+            {
+                name: 'closedreason',
+                prop: 'closedreason',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
             },
             {
                 name: 'id',
