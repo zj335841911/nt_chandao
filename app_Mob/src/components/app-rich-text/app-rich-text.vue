@@ -131,7 +131,7 @@ export default class AppRichTextEditor extends Vue {
   public getParms(){
     let parm :any= JSON.parse(this._viewparams);
     if(parm){
-      this.resloutValue = parm.value?parm.value:"";
+      setTimeout(()=>{this.resloutValue = parm.value?parm.value:""},200)
       this.uploadUrl = parm.uploadUrl?parm.uploadUrl:"";
       this.export_params =  parm.export_params?parm.export_params:{};
     }
