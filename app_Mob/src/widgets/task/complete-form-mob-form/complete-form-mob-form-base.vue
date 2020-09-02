@@ -808,11 +808,11 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        totaltime: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        totaltime: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1072,6 +1072,13 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 
 
 
+
+        if (Object.is(name, 'currentconsumed')) {
+            const details: string[] = ['totaltime'];
+            if(await this.validItem('currentconsumed', this.data['currentconsumed'])){
+                this.updateFormItems('CalcTime', this.data, details, true);
+            }
+        }
     }
 
 
