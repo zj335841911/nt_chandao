@@ -109,6 +109,7 @@ public class DevBootSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/img/**",
                         "/",
                         "webjars/**",
+                        "/**/svg/**",
                         "/swagger-resources/**",
                         "/v2/**"
                 ).permitAll()
