@@ -129,10 +129,6 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
-		subgridview: {
-			caption: "需求细分",
-      		title: "需求细分",
-		},
 		tabexpview: {
 			caption: "需求",
       		title: "需求分页导航视图",
@@ -680,21 +676,6 @@ export default {
 		uiactions: {
 		},
 	},
-	substorynew_grid: {
-		columns: {
-			modulename: "所属模块名称",
-			plan: "所属计划",
-			title: "需求名称",
-			spec: "需求描述",
-			pri: "优先级",
-			estimate: "预计工时",
-			neednotreview: "需要评审",
-			product: "所属产品",
-			parent: "父需求",
-		},
-		uiactions: {
-		},
-	},
 	main3_grid: {
 		columns: {
 			id: "ID",
@@ -913,8 +894,6 @@ export default {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
-	},
-	subgridviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

@@ -165,6 +165,8 @@ export class TestTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
+                this.context.clearAll();
+                Object.assign(this.context, data);
                 this.$forceUpdate();
                 this.initNavParam();
             });

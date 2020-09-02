@@ -56,4 +56,27 @@ export default {
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
   },
+	views: {
+		subgridview: {
+			caption: "需求细分",
+      		title: "需求细分",
+		},
+	},
+	substorynew_grid: {
+		columns: {
+			modulename: "所属模块名称",
+			plan: "所属计划",
+			title: "需求名称",
+			spec: "需求描述",
+			pri: "优先级",
+			estimate: "预计工时",
+			neednotreview: "需要评审",
+			product: "所属产品",
+			parent: "父需求",
+		},
+		uiactions: {
+		},
+	},
+	subgridviewtoolbar_toolbar: {
+	},
 };

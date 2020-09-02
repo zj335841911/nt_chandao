@@ -33,6 +33,18 @@ export class ExpViewBase extends ViewBase {
     }
 
     /**
+     * 视图上下文变化
+     *
+     * @protected
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ExpViewBase
+     */
+    protected viewDataChange(newVal: any, oldVal: any): void {
+        this.loadModel();
+    }
+
+    /**
      * 加载模型
      *
      * @protected

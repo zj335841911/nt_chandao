@@ -20,17 +20,19 @@ const router = new Router({
                     params[routerParamsName] = to.params[routerParamsName];
                 }
                 const url: string = '/appdata';
-                await AuthGuard.getInstance().authGuard(url, params, router);
-                appService.navHistory.indexMeta = {
-                    caption: 'app.views.ibizpms.title',
-                    info:'',
-                    viewType: 'APPINDEX',
-                    parameters: [
-                        { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                    ],
-                    requireAuth: true,
-                };
-                next();
+                const bol = await AuthGuard.getInstance().authGuard(url, params, router);
+                if (bol) {
+                    appService.navHistory.indexMeta = {
+                        caption: 'app.views.ibizpms.title',
+                        info:'',
+                        viewType: 'APPINDEX',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                        ],
+                        requireAuth: true,
+                    };
+                    next();
+                }
             },
             meta: {  
                 caption: 'app.views.ibizpms.title',
@@ -4055,14 +4057,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-start-option-view/test-task-start-option-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/subgridview/:subgridview?',
+                    path: 'products/:product?/stories/:story?/substories/:substory?/subgridview/:subgridview?',
                     meta: {
-                        caption: 'entities.story.views.subgridview.title',
+                        caption: 'entities.substory.views.subgridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'substories', parameterName: 'substory' },
                             { pathName: 'subgridview', parameterName: 'subgridview' },
                         ],
                         requireAuth: true,
@@ -4070,13 +4073,28 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
                 },
                 {
-                    path: 'stories/:story?/subgridview/:subgridview?',
+                    path: 'stories/:story?/substories/:substory?/subgridview/:subgridview?',
                     meta: {
-                        caption: 'entities.story.views.subgridview.title',
+                        caption: 'entities.substory.views.subgridview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'substories', parameterName: 'substory' },
+                            { pathName: 'subgridview', parameterName: 'subgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
+                },
+                {
+                    path: 'substories/:substory?/subgridview/:subgridview?',
+                    meta: {
+                        caption: 'entities.substory.views.subgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'substories', parameterName: 'substory' },
                             { pathName: 'subgridview', parameterName: 'subgridview' },
                         ],
                         requireAuth: true,

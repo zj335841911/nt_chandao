@@ -89,6 +89,7 @@ export default class SubStoryUIServiceBase extends UIService {
      * @memberof  SubStoryUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'subgridview',srfappde:'substories',component:'story-sub-grid-view'});
     }
 
     /**

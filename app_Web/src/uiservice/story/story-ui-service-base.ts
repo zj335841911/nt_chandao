@@ -107,7 +107,6 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'buildsubgridview',srfappde:'stories',component:'story-build-sub-grid-view'});
         this.allViewMap.set(':',{viewname:'mainview9_storyspec',srfappde:'stories',component:'story-main-view9-story-spec'});
         this.allViewMap.set(':',{viewname:'projectmpickupview3',srfappde:'stories',component:'story-project-mpickup-view3'});
-        this.allViewMap.set(':',{viewname:'subgridview',srfappde:'stories',component:'story-sub-grid-view'});
         this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'stories',component:'story-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'stories',component:'story-grid-view9-my-assigned-to-me'});
         this.allViewMap.set(':',{viewname:'curprojectgridview',srfappde:'stories',component:'story-cur-project-grid-view'});
@@ -1472,13 +1471,11 @@ export default class StoryUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
+        deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+        ];
+        const parameters: any[] = [
+            { pathName: 'substories', parameterName: 'substory' },
         ];
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
@@ -1497,7 +1494,7 @@ export default class StoryUIServiceBase extends UIService {
                 viewname: 'story-sub-grid-view', 
                 height: 600, 
                 width: 1200,  
-                title: actionContext.$t('entities.story.views.subgridview.title'),
+                title: actionContext.$t('entities.substory.views.subgridview.title'),
             };
             openPopupModal(view, data);
     }

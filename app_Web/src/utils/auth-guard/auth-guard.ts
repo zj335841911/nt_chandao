@@ -53,7 +53,7 @@ export class AuthGuard {
         try {
             let appContext = {};
             const response = await Http.getInstance().get(url, params);
-            if (response && response.status === 200) {
+            if (response?.status === 200) {
                 let { data }: { data: any } = response;
                 if (data) {
                     // token认证把用户信息放入应用级数据
@@ -75,8 +75,11 @@ export class AuthGuard {
                     router.app.$store.dispatch('authresource/commitAuthData', data);
                 }
                 new AppService().contextStore.appContext = appContext;
+                return true;
+            } else if (response.status === 404) {
+                return true;
             }
-            return true;
+            return false;
         } catch (err) {
             console.warn('应用数据获取异常:', err);
             return false;

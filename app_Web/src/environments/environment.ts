@@ -9,6 +9,8 @@ export const Environment = {
     BaseUrl: '',
     // 系统名称
     SysName: 'pms',
+    // 登录模式，目前支持UAA、CAS、Default
+    LoginMode: 'Default',
     // 远程登录地址，本地开发调试使用
     RemoteLogin: 'ibizutil/login',
     // 文件导出
@@ -20,7 +22,7 @@ export const Environment = {
     //统一地址
     uniteAddress: "http://172.16.100.202:8114",
     // 是否开启权限认证
-    enablePermissionValid:false,
+    enablePermissionValid: false,
     // 是否为开发模式
     devMode: true,
     // 项目模板地址
@@ -39,6 +41,10 @@ export const Environment = {
     ibizlabtUrl: 'https://www.ibizlab.cn',
     // ibiz论坛地址
     ibizbbstUrl: 'https://bbs.ibizlab.cn',
+    // LoginModel=UAA时生效
+    LoginUrl: 'http://wwwts.ibizlab.cn/login',
+    // LoginModel=CAS时生效
+    CasUrl: 'http://passportcs.ibizlab.cn',
     // debug栏打开sln还是mos
     debugOpenMode: 'mos',
     // 默认登录账户与密码

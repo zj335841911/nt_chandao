@@ -165,6 +165,7 @@ export class ExpControlBase extends ControlBase {
      */
     public handleDynamicData(inputArray:Array<any>){
         if(inputArray.length >0){
+            inputArray[0].default = true;
             inputArray.forEach((item:any) =>{
                if(item.data && Object.keys(item.data).length >0){
                    Object.keys(item.data).forEach((name:any) =>{
@@ -199,10 +200,13 @@ export class ExpControlBase extends ControlBase {
             }
             this.quickGroupData = $event.data;
             Object.assign(this.viewparams, $event.data);
-            if(this.isEmitQuickGroupValue){
-                this.onSearch($event);
+        }else{
+            if(this.quickGroupData) {
+                for(let key in this.quickGroupData) {
+                    delete this.viewparams[key];
+                }
             }
         }
-        this.isEmitQuickGroupValue = true;
+        this.onSearch($event);
     }
 }

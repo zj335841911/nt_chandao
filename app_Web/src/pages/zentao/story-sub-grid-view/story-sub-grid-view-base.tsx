@@ -2,10 +2,10 @@
 import { Subject } from 'rxjs';
 import { ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
-import StoryService from '@/service/story/story-service';
-import StoryAuthService from '@/authservice/story/story-auth-service';
+import SubStoryService from '@/service/sub-story/sub-story-service';
+import SubStoryAuthService from '@/authservice/sub-story/sub-story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
-import StoryUIService from '@/uiservice/story/story-ui-service';
+import SubStoryUIService from '@/uiservice/sub-story/sub-story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -24,7 +24,7 @@ export class StorySubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StorySubGridViewBase
      */
-    protected appDeName: string = 'story';
+    protected appDeName: string = 'substory';
 
     /**
      * 应用实体主键
@@ -47,18 +47,18 @@ export class StorySubGridViewBase extends GridViewBase {
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
+     * @type {SubStoryService}
      * @memberof StorySubGridViewBase
      */
-    protected appEntityService: StoryService = new StoryService;
+    protected appEntityService: SubStoryService = new SubStoryService;
 
     /**
      * 实体权限服务对象
      *
-     * @type StoryUIService
+     * @type SubStoryUIService
      * @memberof StorySubGridViewBase
      */
-    public appUIService: StoryUIService = new StoryUIService(this.$store);
+    public appUIService: SubStoryUIService = new SubStoryUIService(this.$store);
 
 
     /**
@@ -101,9 +101,9 @@ export class StorySubGridViewBase extends GridViewBase {
      * @memberof StorySubGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.story.views.subgridview.caption',
-        srfTitle: 'entities.story.views.subgridview.title',
-        srfSubTitle: 'entities.story.views.subgridview.subtitle',
+        srfCaption: 'entities.substory.views.subgridview.caption',
+        srfTitle: 'entities.substory.views.subgridview.title',
+        srfSubTitle: 'entities.substory.views.subgridview.subtitle',
         dataInfo: ''
     }
 
@@ -159,7 +159,7 @@ export class StorySubGridViewBase extends GridViewBase {
         this.engine.init({
             view: this,
             grid: this.$refs.grid,
-            keyPSDEField: 'story',
+            keyPSDEField: 'substory',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -261,7 +261,7 @@ export class StorySubGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"SubStory");
     }
 
     /**
@@ -289,7 +289,7 @@ export class StorySubGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"SubStory");
     }
 
     /**

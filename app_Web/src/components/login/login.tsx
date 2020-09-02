@@ -1,6 +1,8 @@
 import { Vue, Component, Watch } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
 import * as dd from 'dingtalk-jsapi';
+import { Util } from '@/utils';
+import { AppService } from '@/studio-core';
 import './login.less';
 
 /**
@@ -54,6 +56,14 @@ export default class Login extends Vue {
     public rules: any = {};
 
     /**
+     * 应用服务
+     *
+     * @private
+     * @memberof Login
+     */
+    private appService = new AppService();
+
+    /**
      * 设置值规则
      *
      * @memberof Login
@@ -88,14 +98,13 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public mounted() {
-        this.getCookie("loginname");
         setTimeout(() => {
             const el = document.getElementById('app-loading-x');
             if (el) {
                 el.style.display = 'none';
             }
         }, 300);
-        window.addEventListener('keydown', this.onKeyDown);
+        addEventListener('keydown', this.onKeyDown);
     }
 
     /**
@@ -104,7 +113,7 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public destroyed(): void {
-        window.removeEventListener('keydown', this.onKeyDown);
+        removeEventListener('keydown', this.onKeyDown);
     }
 
     /**
@@ -137,9 +146,7 @@ export default class Login extends Vue {
         if (!isExistAndNotEmpty(this.form.loginname) || !isExistAndNotEmpty(this.form.password)) {
             return;
         }
-        const leftTime = new Date();
-        leftTime.setTime(leftTime.getSeconds() - 1000);
-        document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
+        this.appService.clearToken();
         const form: any = this.$refs.loginForm;
         let validatestate: boolean = true;
         form.validate((valid: boolean) => {
@@ -153,11 +160,10 @@ export default class Login extends Vue {
             if (response && response.status === 200) {
                 const data = response.data;
                 if (data && data.token) {
-                    localStorage.setItem('token', data.token);
-                    this.setCookie('ibzuaa-token', data.token, 1);
+                    this.appService.setToken(data.token);
                 }
                 // 设置cookie,保存账号密码7天
-                this.setCookie("loginname", this.form.loginname, 7);
+                Util.setCookie("loginname", this.form.loginname, 7);
                 // 页面回跳
                 if (this.$route.query.redirect) {
                     window.location.href = decodeURIComponent((this.$route.query.redirect as any));
@@ -196,54 +202,19 @@ export default class Login extends Vue {
     }
 
     /**
-     * 设置cookie
-     * 
-     * @memberof Login
-     */
-    public setCookie(name: any, value: any, day: any) {
-        if (day !== 0) { //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
-            let curDate = new Date();
-            let curTamp = curDate.getTime();
-            let curWeeHours = new Date(curDate.toLocaleDateString()).getTime() - 1;
-            let passedTamp = curTamp - curWeeHours;
-            let leftTamp = 24 * 60 * 60 * 1000 - passedTamp;
-            let leftTime = new Date();
-            leftTime.setTime(leftTamp + curTamp);
-            document.cookie = name + "=" + escape(value) + ";expires=" + leftTime.toUTCString();
-        } else {
-            document.cookie = name + "=" + escape(value);
-        }
-    }
-
-    /**
-     * 获取cookie
-     * 
-     * @memberof Login
-     */
-    public getCookie(name: any): any {
-        let arr;
-        let reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg))
-            return unescape(arr[2]);
-        else
-            return null;
-    }
-
-    /**
      * 验证钉钉登录
      *
      * @memberof Login
      */
     public async checkDingDing() {
-        const access_token :any= await this.$http.get(`/uaa/open/dingtalk/access_token`);
-        if(access_token.status == 200 && access_token.data && access_token.data.regionid){
-            const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.regionid });
+        const access_token: any = await this.$http.get(`/uaa/open/dingtalk/access_token`);
+        if (access_token.status == 200 && access_token.data && access_token.data.regionid) {
+            const res: any = await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.regionid });
             if (res && res.code) {
-                const userInfo:any = await this.$http.get(`/uaa/open/dingtalk/auth/${res.code}`);
-                if(userInfo.status == 200 && userInfo.data.token && userInfo.data.user){
-                    localStorage.setItem("token", userInfo.data.token);
-                    this.setCookie('ibzuaa-token', userInfo.data.token, 1);
-                    this.setCookie("loginname", userInfo.data.user.loginname, 7);
+                const userInfo: any = await this.$http.get(`/uaa/open/dingtalk/auth/${res.code}`);
+                if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
+                    this.appService.setToken(userInfo.data.token);
+                    Util.setCookie("loginname", userInfo.data.user.loginname, 7);
                     // 页面回跳
                     if (this.$route.query.redirect) {
                         window.location.href = decodeURIComponent((this.$route.query.redirect as any));
@@ -284,11 +255,10 @@ export default class Login extends Vue {
             if (response && response.status === 200) {
                 const data = response.data;
                 if (data && data.token) {
-                    localStorage.setItem('token', data.token);
-                    this.setCookie('ibzuaa-token', data.token, 1);
+                    this.appService.setToken(data.token);
                 }
                 // 设置cookie,保存账号密码7天
-                this.setCookie("loginname", this.form.loginname, 7);
+                Util.setCookie("loginname", this.form.loginname, 7);
                 // 页面回跳
                 if (this.$route.query.redirect) {
                     window.location.href = decodeURIComponent((this.$route.query.redirect as any));
@@ -360,8 +330,8 @@ export default class Login extends Vue {
                                             </small>
                                         </form-item>
                                         <form-item class="submit">
-                                            <i-button type="info" long size="large" on-click={() => this.visitorSubmit()}>游客</i-button>
                                             <i-button type="primary" long size="large" on-click={() => this.handleSubmit()}>登录</i-button>
+                                            <i-button type="info" long size="large" on-click={() => this.visitorSubmit()}>游客</i-button>
                                         </form-item>
                                     </i-form>
                                     <row class="external-account">

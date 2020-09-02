@@ -298,7 +298,7 @@ export class Util {
      * @returns {any}
      * @memberof Util
      */
-    public static formatData(arg: any,parent:any, params: any): any {
+    public static formatData(arg: any, parent: any, params: any): any {
         let _data: any = {};
         Object.keys(params).forEach((name: string) => {
             if (!name) {
@@ -308,11 +308,11 @@ export class Util {
             if (value && value.startsWith('%') && value.endsWith('%')) {
                 const key = value.substring(1, value.length - 1);
                 if (arg && arg.hasOwnProperty(key)) {
-                    if(arg[key] !== null && arg[key] !== undefined){
+                    if (arg[key] !== null && arg[key] !== undefined) {
                         value = arg[key];
-                    }else if(parent[key] !== null && parent[key] !== undefined){
+                    } else if (parent[key] !== null && parent[key] !== undefined) {
                         value = parent[key];
-                    }else{
+                    } else {
                         value = null;
                     }
                 } else {
@@ -335,10 +335,10 @@ export class Util {
      * @param {any} params 附加参数
      * @returns {any}
      * @memberof Util
-     */ 
-    public static computedNavData(data:any,parentContext:any,parentParam:any,params:any):any{
+     */
+    public static computedNavData(data: any, parentContext: any, parentParam: any, params: any): any {
         let _data: any = {};
-        if(params && Object.keys(params).length >0){
+        if (params && Object.keys(params).length > 0) {
             Object.keys(params).forEach((name: string) => {
                 if (!name) {
                     return;
@@ -348,9 +348,9 @@ export class Util {
                     const key = value.substring(1, value.length - 1).toLowerCase();
                     if (data && data.hasOwnProperty(key)) {
                         value = data[key];
-                    }else if(parentContext && parentContext[key]){
+                    } else if (parentContext && parentContext[key]) {
                         value = parentContext[key];
-                    }else if(parentParam && parentParam[key]){
+                    } else if (parentParam && parentParam[key]) {
                         value = parentParam[key];
                     } else {
                         value = null;
@@ -371,7 +371,7 @@ export class Util {
      * @returns {string}
      * @memberof Util
      */
-    public static dateFormat(date: any,fmt: string = "YYYY-mm-dd HH:MM:SS"):string {
+    public static dateFormat(date: any, fmt: string = "YYYY-mm-dd HH:MM:SS"): string {
         let ret;
         const opt: any = {
             "Y+": date.getFullYear().toString(),        // 年
@@ -400,7 +400,7 @@ export class Util {
      * @returns {Object}
      * @memberof Util
      */
-    public static deepObjectMerge(FirstOBJ:any, SecondOBJ:any) {
+    public static deepObjectMerge(FirstOBJ: any, SecondOBJ: any) {
         for (var key in SecondOBJ) {
             FirstOBJ[key] = FirstOBJ[key] && FirstOBJ[key].toString() === "[object Object]" ?
                 this.deepObjectMerge(FirstOBJ[key], SecondOBJ[key]) : FirstOBJ[key] = SecondOBJ[key];
@@ -408,7 +408,7 @@ export class Util {
         return FirstOBJ;
     }
 
-    
+
     /**
      * 表单项校验
      * 
@@ -418,7 +418,7 @@ export class Util {
      * @returns {Promise}
      * @memberof Util
      */
-    public static validateItem(property: string, data:any, rules:any) {
+    public static validateItem(property: string, data: any, rules: any) {
         // 1.获取数值和规则
         const value = data[property];
         const rule = rules[property];
@@ -439,5 +439,75 @@ export class Util {
      */
     public static handleParams(params: any, sep: string) {
         return qs.stringify(params, { delimiter: sep })
+    }
+
+    /**
+     * 设置cookie
+     *
+     * @static
+     * @param {string} name
+     * @param {string} value
+     * @param {number} [day=0]
+     * @param {boolean} [isDomain=false]
+     * @memberof Util
+     */
+    public static setCookie(name: string, value: string, day: number = 0, isDomain: boolean = false): void {
+        let domain = '';
+        // 设置cookie到主域下
+        if (isDomain) {
+            // 是否为ip正则
+            const regExpr = /^(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)$/;
+            // 为ip时忽略
+            if (!regExpr.test(location.hostname)) {
+                const host = location.hostname;
+                if (host.indexOf('.') !== host.lastIndexOf('.')) {
+                    domain = ';domain=' + host.substring(host.indexOf('.'), host.length);
+                }
+            }
+        }
+        if (day !== 0) { //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+            let curDate = new Date();
+            let curTamp = curDate.getTime();
+            let curWeeHours = new Date(curDate.toLocaleDateString()).getTime() - 1;
+            let passedTamp = curTamp - curWeeHours;
+            let leftTamp = 24 * 60 * 60 * 1000 - passedTamp;
+            let leftTime = new Date();
+            leftTime.setTime(leftTamp + curTamp);
+            document.cookie = name + "=" + escape(value) + ";expires=" + leftTime.toUTCString() + domain;
+        } else {
+            document.cookie = name + "=" + escape(value) + domain;
+        }
+    }
+
+    /**
+     * 清除cookie
+     *
+     * @static
+     * @param {string} cookieName
+     * @returns
+     * @memberof Util
+     */
+    public static clearCookie(cookieName: string): void {
+        const date = new Date();
+        date.setTime(date.getTime() - 1);
+        document.cookie = cookieName + "=;expires=" + date.toUTCString() + ";";
+    }
+
+    /**
+     * 获取cookie
+     *
+     * @static
+     * @param {string} name
+     * @return {*}  {*}
+     * @memberof Util
+     */
+    public static getCookie(name: string): string | null {
+        const reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        const arr = document.cookie.match(reg);
+        if (arr && arr.length > 1) {
+            return unescape(arr[2]);
+        } else {
+            return null;
+        }
     }
 }

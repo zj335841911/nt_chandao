@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StorySubGridViewBase } from './story-sub-grid-view-base';
-import view_grid from '@widgets/story/sub-story-new-grid/sub-story-new-grid.vue';
+import view_grid from '@widgets/sub-story/sub-story-new-grid/sub-story-new-grid.vue';
 
 /**
  * 需求细分视图
