@@ -15,22 +15,22 @@
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
                               <ion-icon name="briefcase"></ion-icon>
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                               <ion-icon name="text"></ion-icon>
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
                               <ion-icon name="reorder"></ion-icon>
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                               <ion-icon name="bug"></ion-icon>
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             BUG</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>

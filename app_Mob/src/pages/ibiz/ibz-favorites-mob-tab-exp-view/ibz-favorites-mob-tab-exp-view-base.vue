@@ -5,10 +5,10 @@
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            <ion-badge color="danger">{{counter.counterData.?counter.counterData.:''}}</ion-badge>
+                            
                             任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
