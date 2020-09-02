@@ -49,6 +49,7 @@
 </ion-page>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -57,6 +58,11 @@ import ProductService from '@/app-core/service/product/product-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
+import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
+import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
+import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
+import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
+
 
 @Component({
     components: {
@@ -303,6 +309,71 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
+    
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProdMobTabExpViewtabviewpanel2
+     */
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProdMobTabExpViewtabviewpanel2
+     */    
+    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice,];
+    
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProdMobTabExpViewtabviewpanel3
+     */
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProdMobTabExpViewtabviewpanel3
+     */    
+    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice,];
+    
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProdMobTabExpViewtabviewpanel4
+     */
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProdMobTabExpViewtabviewpanel4
+     */    
+    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice,];
+    
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProdMobTabExpViewtabviewpanel5
+     */
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProdMobTabExpViewtabviewpanel5
+     */    
+    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice,];
     /**
      * 被激活的分页面板
      *

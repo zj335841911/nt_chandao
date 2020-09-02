@@ -31,6 +31,7 @@
 </ion-page>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -39,6 +40,7 @@ import IbzFavoritesService from '@/app-core/service/ibz-favorites/ibz-favorites-
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-action';
+
 
 @Component({
     components: {
@@ -282,6 +284,7 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
     /**
      * 被激活的分页面板
      *

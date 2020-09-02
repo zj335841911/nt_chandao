@@ -46,6 +46,7 @@
 </ion-page>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -54,6 +55,7 @@ import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-te
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+
 
 @Component({
     components: {
@@ -299,6 +301,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
     /**
      * 被激活的分页面板
      *
