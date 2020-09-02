@@ -113,7 +113,7 @@ export class ProductList extends Vue {
      * @memberof ProductList
      */
     protected renderItem(p: Product): any {
-        return <listItem>
+        return <listItem class={{'is-top': p.istop}}>
             <div class="content-wrapper" on-click={(e: any) => this.click(e, p)}>
                 <div class="title">
                     <tag type="border">{p.id}</tag>
