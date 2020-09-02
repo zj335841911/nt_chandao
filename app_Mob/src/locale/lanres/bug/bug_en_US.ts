@@ -172,6 +172,30 @@ export default {
 		uiactions: {
 		},
 	},
+	assigntomob_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			druipart1: '', 
+			grouppanel6: '历史记录', 
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignedto: '指派给', 
+			project: '所属项目', 
+			mailto: '抄送给', 
+			comment: '备注', 
+			id: 'Bug编号', 
+		},
+		uiactions: {
+		},
+	},
 	confirmmob_form: {
 		details: {
 			druipart1: '', 
@@ -197,7 +221,7 @@ export default {
 		uiactions: {
 		},
 	},
-	assigntomob_form: {
+	activationmob_form: {
 		details: {
 			grouppanel1: '分组面板', 
 			druipart1: '', 
@@ -212,11 +236,13 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			assignedto: '指派给', 
-			project: '所属项目', 
-			mailto: '抄送给', 
-			comment: '备注', 
 			id: 'Bug编号', 
+			resolvedbuild: '影响版本', 
+			assignedto: '指派给', 
+			product: '所属产品', 
+			files: '附件', 
+			project: '所属项目', 
+			comment: '备注', 
 		},
 		uiactions: {
 		},
@@ -244,32 +270,6 @@ export default {
 			assignedto: '指派给', 
 			project: '所属项目', 
 			files: '附件', 
-			comment: '备注', 
-		},
-		uiactions: {
-		},
-	},
-	activationmob_form: {
-		details: {
-			grouppanel1: '分组面板', 
-			druipart1: '', 
-			grouppanel6: '历史记录', 
-			group1: 'Bug基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '修改日期', 
-			srforikey: '', 
-			srfkey: 'Bug编号', 
-			srfmajortext: 'Bug标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			id: 'Bug编号', 
-			resolvedbuild: '影响版本', 
-			assignedto: '指派给', 
-			product: '所属产品', 
-			files: '附件', 
-			project: '所属项目', 
 			comment: '备注', 
 		},
 		uiactions: {
@@ -324,6 +324,26 @@ export default {
 	planmobmdview9righttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_assingtobugmob: {
+			caption: '指派',
+			tip: 'deuiaction1_assingtobugmob',
+		},
+		deuiaction1_confirmbugmob: {
+			caption: '确认',
+			tip: 'deuiaction1_confirmbugmob',
+		},
+		deuiaction1_activationmob: {
+			caption: '激活',
+			tip: 'deuiaction1_activationmob',
+		},
+		deuiaction1_resolvebugmob: {
+			caption: '解决',
+			tip: 'deuiaction1_resolvebugmob',
+		},
+		deuiaction1_closebugmob: {
+			caption: '关闭',
+			tip: 'deuiaction1_closebugmob',
+		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},

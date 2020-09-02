@@ -11,12 +11,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
     </ion-header>
 
@@ -48,6 +42,39 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+                <ion-fab-list class="fab-list" side="top">
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled" :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)">
+            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled" :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event)">
+            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_activationmob.visabled" :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)">
+            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled" :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event)">
+            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}    
+            </ion-fab-button>
+        
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled" :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)">
+            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}    
+            </ion-fab-button>
+        
+                </ion-fab-list>
+            </ion-fab>
+            </div>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -277,7 +304,44 @@ export default class BugMobEditViewBase extends Vue {
     * @memberof BugMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_assingtobugmob: { name: 'deuiaction1_assingtobugmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', uiaction: { tag: 'AssingToBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_confirmbugmob: { name: 'deuiaction1_confirmbugmob', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', uiaction: { tag: 'ConfirmBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_activationmob: { name: 'deuiaction1_activationmob', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', uiaction: { tag: 'ActivationMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_resolvebugmob: { name: 'deuiaction1_resolvebugmob', caption: '解决', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', uiaction: { tag: 'ResolveBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_closebugmob: { name: 'deuiaction1_closebugmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugMob', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
 
     
 
@@ -500,6 +564,191 @@ export default class BugMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_assingtobugmob')) {
+            this.righttoolbar_deuiaction1_assingtobugmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_confirmbugmob')) {
+            this.righttoolbar_deuiaction1_confirmbugmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_activationmob')) {
+            this.righttoolbar_deuiaction1_activationmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_resolvebugmob')) {
+            this.righttoolbar_deuiaction1_resolvebugmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_closebugmob')) {
+            this.righttoolbar_deuiaction1_closebugmob_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_assingtobugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_AssingToBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_confirmbugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ConfirmBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_activationmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ActivationMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_resolvebugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_closebugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_CloseBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图
