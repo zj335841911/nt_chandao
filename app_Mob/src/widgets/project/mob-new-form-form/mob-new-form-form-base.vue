@@ -192,11 +192,11 @@
     :error="detailsModel.days.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.days" 
     :disabled="detailsModel.days.disabled" 
-    @change="($event)=>this.data.days = $event" />
+    @change="($event)=>this.data.days = $event"/>
 </app-form-item>
 
 
@@ -241,20 +241,18 @@
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
-        <app-mob-picture 
-    name='type' 
-    style="overflow: auto;" 
-    :multiple="false" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.type" 
+        <app-mob-select 
+    tag="Project__type"
+    codeListType="STATIC" 
+    :isCache="false" 
     :disabled="detailsModel.type.disabled" 
+    :data="data" 
     :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}'
-    @formitemvaluechange="onFormItemValueChange" />
+    :viewparams="viewparams"
+    :value="data.type"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.type = $event" />
 </app-form-item>
 
 
