@@ -307,7 +307,6 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         return true;
     }
 
-
     /**
      * 计数器服务对象集合
      *
@@ -315,6 +314,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
      * @memberof ProductProdMobTabExpView
      */    
     protected counterServiceArray:Array<any> = [];
+
 
     /**
      * 被激活的分页面板
