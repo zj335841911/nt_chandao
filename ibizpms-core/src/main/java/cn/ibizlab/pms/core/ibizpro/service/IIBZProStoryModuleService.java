@@ -41,6 +41,8 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
     Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context) ;
     List<IBZProStoryModule> selectByProduct(String ibzpro_productid) ;
     void removeByProduct(String ibzpro_productid) ;
+    List<IBZProStoryModule> selectByPmsstorymodule(BigInteger id) ;
+    void removeByPmsstorymodule(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

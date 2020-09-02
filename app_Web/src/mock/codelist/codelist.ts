@@ -447,12 +447,37 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "SysOperator",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         "srfkey": "UserRealNameW",
         "emptytext": "未指派",
         "codelisttype":"dynamic",
         "appdataentity":"User",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: "Ibzpro__pssystype",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "iBizSys6",
+                label: "iBizSys6",
+                text: "iBizSys6",
+                "data":"",
+                "codename":"Ibizsys6",
+                value: "iBizSys6",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Bug__os",

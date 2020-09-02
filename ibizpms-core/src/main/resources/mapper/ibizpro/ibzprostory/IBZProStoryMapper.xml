@@ -5,7 +5,7 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="IBZProStoryResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYID`, t1.`IBZPRO_STORYNAME`, t1.`PRODUCT`, t1.`STORYMODULE`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORY` t1  ) t1 where ibzpro_storyid=#{id}]]>
+        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYID`, t1.`IBZPRO_STORYNAME`, t1.`PMSSTORY`, t11.`TITLE` AS `PMSSTORYNAME`, t1.`PRODUCT`, t21.`IBZPRO_PRODUCTNAME` AS `PRODUCTNAME`, t1.`STORYMODULE`, t31.`IBZPRO_STORYMODULENAME` AS `STORYMODULENAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORY` t1  LEFT JOIN zt_story t11 ON t1.PMSSTORY = t11.ID  LEFT JOIN T_IBZPRO_PRODUCT t21 ON t1.PRODUCT = t21.IBZPRO_PRODUCTID  LEFT JOIN T_IBZPRO_STORYMODULE t31 ON t1.STORYMODULE = t31.IBZPRO_STORYMODULEID  ) t1 where ibzpro_storyid=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
@@ -14,12 +14,15 @@
 		<result property="ibzprostoryname" column="ibzpro_storyname" />
 		<result property="product" column="product" />
 		<result property="storymodule" column="storymodule" />
+		<result property="pmsstory" column="pmsstory" />
             
 		
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ibzproProduct" javaType="cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct" column="product" select="cn.ibizlab.pms.core.ibizpro.mapper.IBZProProductMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ibzproStorymodule" javaType="cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule" column="storymodule" select="cn.ibizlab.pms.core.ibizpro.mapper.IBZProStoryModuleMapper.selectById" fetchType="lazy"></association>
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="ztStory" javaType="cn.ibizlab.pms.core.zentao.domain.Story" column="pmsstory" select="cn.ibizlab.pms.core.zentao.mapper.StoryMapper.selectById" fetchType="lazy"></association>
     </resultMap>
 
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_IBZPRO_STORY_IBZPRO_PRODUCT_PRODUCT] -->
@@ -36,6 +39,13 @@
 			 ) t1
 			 where  storymodule=#{ibzprostorymoduleid}
      </select>
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_IBZPRO_STORY_ZT_STORY_PMSSTORY] -->
+	 <select id="selectByPmsstory" resultMap="IBZProStoryResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  pmsstory=#{id}
+     </select>
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibizpro.filter.IBZProStorySearchContext"  resultMap="IBZProStoryResultMap">
@@ -48,12 +58,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYID`, t1.`IBZPRO_STORYNAME`, t1.`PRODUCT`, t1.`STORYMODULE`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORY` t1  
+		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYID`, t1.`IBZPRO_STORYNAME`, t1.`PMSSTORY`, t11.`TITLE` AS `PMSSTORYNAME`, t1.`PRODUCT`, t21.`IBZPRO_PRODUCTNAME` AS `PRODUCTNAME`, t1.`STORYMODULE`, t31.`IBZPRO_STORYMODULENAME` AS `STORYMODULENAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORY` t1  LEFT JOIN zt_story t11 ON t1.PMSSTORY = t11.ID  LEFT JOIN T_IBZPRO_PRODUCT t21 ON t1.PRODUCT = t21.IBZPRO_PRODUCTID  LEFT JOIN T_IBZPRO_STORYMODULE t31 ON t1.STORYMODULE = t31.IBZPRO_STORYMODULEID  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYID`, t1.`IBZPRO_STORYNAME`, t1.`PRODUCT`, t1.`STORYMODULE`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORY` t1  
+		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZPRO_STORYID`, t1.`IBZPRO_STORYNAME`, t1.`PMSSTORY`, t11.`TITLE` AS `PMSSTORYNAME`, t1.`PRODUCT`, t21.`IBZPRO_PRODUCTNAME` AS `PRODUCTNAME`, t1.`STORYMODULE`, t31.`IBZPRO_STORYMODULENAME` AS `STORYMODULENAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZPRO_STORY` t1  LEFT JOIN zt_story t11 ON t1.PMSSTORY = t11.ID  LEFT JOIN T_IBZPRO_PRODUCT t21 ON t1.PRODUCT = t21.IBZPRO_PRODUCTID  LEFT JOIN T_IBZPRO_STORYMODULE t31 ON t1.STORYMODULE = t31.IBZPRO_STORYMODULEID  
 			]]>
     </sql>
 </mapper>

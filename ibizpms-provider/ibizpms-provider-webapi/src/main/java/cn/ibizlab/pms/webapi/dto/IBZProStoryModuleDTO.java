@@ -82,6 +82,30 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("product")
     private String product;
 
+    /**
+     * 属性 [PMSSTORYMODULE]
+     *
+     */
+    @JSONField(name = "pmsstorymodule")
+    @JsonProperty("pmsstorymodule")
+    private BigInteger pmsstorymodule;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
+    /**
+     * 属性 [PMSSTORYMODULENAME]
+     *
+     */
+    @JSONField(name = "pmsstorymodulename")
+    @JsonProperty("pmsstorymodulename")
+    private String pmsstorymodulename;
+
 
     /**
      * 设置 [IBZPRO_STORYMODULENAME]
@@ -97,6 +121,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setProduct(String  product){
         this.product = product ;
         this.modify("product",product);
+    }
+
+    /**
+     * 设置 [PMSSTORYMODULE]
+     */
+    public void setPmsstorymodule(BigInteger  pmsstorymodule){
+        this.pmsstorymodule = pmsstorymodule ;
+        this.modify("pmsstorymodule",pmsstorymodule);
     }
 
 

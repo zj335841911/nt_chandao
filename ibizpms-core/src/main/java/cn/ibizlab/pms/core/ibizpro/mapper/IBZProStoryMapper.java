@@ -66,4 +66,6 @@ public interface IBZProStoryMapper extends BaseMapper<IBZProStory>{
 
     List<IBZProStory> selectByStorymodule(@Param("ibzprostorymoduleid") Serializable ibzprostorymoduleid) ;
 
+    List<IBZProStory> selectByPmsstory(@Param("id") Serializable id) ;
+
 }

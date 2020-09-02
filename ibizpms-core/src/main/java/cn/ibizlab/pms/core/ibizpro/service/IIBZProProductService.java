@@ -38,6 +38,8 @@ public interface IIBZProProductService extends IService<IBZProProduct>{
     boolean save(IBZProProduct et) ;
     void saveBatch(List<IBZProProduct> list) ;
     Page<IBZProProduct> searchDefault(IBZProProductSearchContext context) ;
+    List<IBZProProduct> selectByPmsproduct(BigInteger id) ;
+    void removeByPmsproduct(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

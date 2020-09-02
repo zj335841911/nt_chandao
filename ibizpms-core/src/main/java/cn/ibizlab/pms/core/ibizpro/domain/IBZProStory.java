@@ -104,6 +104,34 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "storymodule")
     @JsonProperty("storymodule")
     private String storymodule;
+    /**
+     * 编号
+     */
+    @TableField(value = "pmsstory")
+    @JSONField(name = "pmsstory")
+    @JsonProperty("pmsstory")
+    private BigInteger pmsstory;
+    /**
+     * 需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "pmsstoryname")
+    @JsonProperty("pmsstoryname")
+    private String pmsstoryname;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 需求模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storymodulename")
+    @JsonProperty("storymodulename")
+    private String storymodulename;
 
     /**
      * 
@@ -120,6 +148,14 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule ibzproStorymodule;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Story ztStory;
 
 
 
@@ -145,6 +181,14 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setStorymodule(String storymodule){
         this.storymodule = storymodule ;
         this.modify("storymodule",storymodule);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setPmsstory(BigInteger pmsstory){
+        this.pmsstory = pmsstory ;
+        this.modify("pmsstory",pmsstory);
     }
 
 

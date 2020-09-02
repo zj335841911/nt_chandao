@@ -52,12 +52,16 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(IBZProStory et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getIbzprostoryid()),et);
@@ -66,12 +70,14 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public void createBatch(List<IBZProStory> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProStory et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_storyid",et.getIbzprostoryid())))
             return false;
         CachedBeanCopier.copy(get(et.getIbzprostoryid()),et);
@@ -80,6 +86,7 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public void updateBatch(List<IBZProStory> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -110,6 +117,7 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public IBZProStory getDraft(IBZProStory et) {
+        fillParentData(et);
         return et;
     }
 
@@ -144,12 +152,14 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public boolean saveBatch(Collection<IBZProStory> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IBZProStory> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -174,6 +184,16 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
         this.remove(new QueryWrapper<IBZProStory>().eq("storymodule",ibzprostorymoduleid));
     }
 
+	@Override
+    public List<IBZProStory> selectByPmsstory(BigInteger id) {
+        return baseMapper.selectByPmsstory(id);
+    }
+
+    @Override
+    public void removeByPmsstory(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStory>().eq("pmsstory",id));
+    }
+
 
     /**
      * 查询集合 数据集
@@ -186,6 +206,42 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(IBZProStory et){
+        //实体关系[DER1N_IBZPRO_STORY_IBZPRO_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct=et.getIbzproProduct();
+            if(ObjectUtils.isEmpty(ibzproProduct)){
+                cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getProduct());
+                et.setIbzproProduct(majorEntity);
+                ibzproProduct=majorEntity;
+            }
+            et.setProductname(ibzproProduct.getIbzproProductname());
+        }
+        //实体关系[DER1N_IBZPRO_STORY_IBZPRO_STORYMODULE_STORYMODULE]
+        if(!ObjectUtils.isEmpty(et.getStorymodule())){
+            cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule ibzproStorymodule=et.getIbzproStorymodule();
+            if(ObjectUtils.isEmpty(ibzproStorymodule)){
+                cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule majorEntity=ibzprostorymoduleService.get(et.getStorymodule());
+                et.setIbzproStorymodule(majorEntity);
+                ibzproStorymodule=majorEntity;
+            }
+            et.setStorymodulename(ibzproStorymodule.getIbzprostorymodulename());
+        }
+        //实体关系[DER1N_IBZPRO_STORY_ZT_STORY_PMSSTORY]
+        if(!ObjectUtils.isEmpty(et.getPmsstory())){
+            cn.ibizlab.pms.core.zentao.domain.Story ztStory=et.getZtStory();
+            if(ObjectUtils.isEmpty(ztStory)){
+                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getPmsstory());
+                et.setZtStory(majorEntity);
+                ztStory=majorEntity;
+            }
+            et.setPmsstoryname(ztStory.getTitle());
+        }
+    }
 
 
 

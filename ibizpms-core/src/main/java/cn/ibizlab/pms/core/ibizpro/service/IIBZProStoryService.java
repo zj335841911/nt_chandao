@@ -43,6 +43,8 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
     void removeByProduct(String ibzpro_productid) ;
     List<IBZProStory> selectByStorymodule(String ibzprostorymoduleid) ;
     void removeByStorymodule(String ibzprostorymoduleid) ;
+    List<IBZProStory> selectByPmsstory(BigInteger id) ;
+    void removeByPmsstory(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

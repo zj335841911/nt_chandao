@@ -41,6 +41,27 @@ public class IBZProProductSearchContext extends QueryWrapperContext<IBZProProduc
             this.getSearchCond().eq("pssystype", n_pssystype_eq);
         }
     }
+	private BigInteger n_pmsproduct_eq;//[编号]
+	public void setN_pmsproduct_eq(BigInteger n_pmsproduct_eq) {
+        this.n_pmsproduct_eq = n_pmsproduct_eq;
+        if(!ObjectUtils.isEmpty(this.n_pmsproduct_eq)){
+            this.getSearchCond().eq("pmsproduct", n_pmsproduct_eq);
+        }
+    }
+	private String n_productname_eq;//[产品]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("productname", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("productname", n_productname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索
