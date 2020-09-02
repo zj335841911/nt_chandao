@@ -10,8 +10,8 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StoryFavorites.visabled" :disabled="item.StoryFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u057ecc2', item)"><ion-icon v-if="item.StoryFavorites.icon" :name="item.StoryFavorites.icon"></ion-icon>收藏</ion-item-option>
-                            <ion-item-option v-show="item.StoryNFavorites.visabled" :disabled="item.StoryNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u5ecce83', item)"><ion-icon v-if="item.StoryNFavorites.icon" :name="item.StoryNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb909cc', item)"><ion-icon v-if="item.StoryFavoritesMob.icon" :name="item.StoryFavoritesMob.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u832a879', item)"><ion-icon v-if="item.StoryNFavoritesMob.icon" :name="item.StoryNFavoritesMob.icon"></ion-icon>取消收藏</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -31,8 +31,8 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StoryFavorites.visabled" :disabled="item.StoryFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u057ecc2', item)"><ion-icon v-if="item.StoryFavorites.icon" :name="item.StoryFavorites.icon"></ion-icon>收藏</ion-item-option>
-                            <ion-item-option v-show="item.StoryNFavorites.visabled" :disabled="item.StoryNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u5ecce83', item)"><ion-icon v-if="item.StoryNFavorites.icon" :name="item.StoryNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb909cc', item)"><ion-icon v-if="item.StoryFavoritesMob.icon" :name="item.StoryFavoritesMob.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u832a879', item)"><ion-icon v-if="item.StoryNFavoritesMob.icon" :name="item.StoryNFavoritesMob.icon"></ion-icon>取消收藏</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -243,7 +243,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u057ecc2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ubb909cc_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -260,7 +260,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
-            curUIService.Story_StoryFavorites(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Story_StoryFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -274,7 +274,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u5ecce83_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u832a879_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -291,7 +291,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
-            curUIService.Story_StoryNFavorites(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Story_StoryNFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1028,11 +1028,11 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u057ecc2')) {
-            this.mdctrl_u057ecc2_click();
+        if (Object.is(tag, 'ubb909cc')) {
+            this.mdctrl_ubb909cc_click();
         }
-        if (Object.is(tag, 'u5ecce83')) {
-            this.mdctrl_u5ecce83_click();
+        if (Object.is(tag, 'u832a879')) {
+            this.mdctrl_u832a879_click();
         }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
@@ -1129,8 +1129,8 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @memberof FavoriteMOBBase
      */  
     public ActionModel:any ={
-        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star-o'},
-        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star'}
+        StoryFavoritesMob: { name: 'StoryFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline'},
+        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star'}
     };
 
     /**

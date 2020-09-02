@@ -10,8 +10,8 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavorites.visabled" :disabled="item.TaskFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u505ec3b', item)"><ion-icon v-if="item.TaskFavorites.icon" :name="item.TaskFavorites.icon"></ion-icon>收藏</ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavorites.visabled" :disabled="item.TaskNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'ud42c2bc', item)"><ion-icon v-if="item.TaskNFavorites.icon" :name="item.TaskNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon" :name="item.TaskFavoritesMob.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon" :name="item.TaskNFavoritesMob.icon"></ion-icon>取消收藏</ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon" :name="item.AssignTaskMob.icon"></ion-icon>指派</ion-item-option>
                             <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u5503b9a', item)"><ion-icon v-if="item.DoneTaskMob.icon" :name="item.DoneTaskMob.icon"></ion-icon>完成</ion-item-option>
                             <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc1096d7', item)"><ion-icon v-if="item.PauseTaskMob.icon" :name="item.PauseTaskMob.icon"></ion-icon>暂停</ion-item-option>
@@ -37,8 +37,8 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavorites.visabled" :disabled="item.TaskFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u505ec3b', item)"><ion-icon v-if="item.TaskFavorites.icon" :name="item.TaskFavorites.icon"></ion-icon>收藏</ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavorites.visabled" :disabled="item.TaskNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'ud42c2bc', item)"><ion-icon v-if="item.TaskNFavorites.icon" :name="item.TaskNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon" :name="item.TaskFavoritesMob.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon" :name="item.TaskNFavoritesMob.icon"></ion-icon>取消收藏</ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon" :name="item.AssignTaskMob.icon"></ion-icon>指派</ion-item-option>
                             <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u5503b9a', item)"><ion-icon v-if="item.DoneTaskMob.icon" :name="item.DoneTaskMob.icon"></ion-icon>完成</ion-item-option>
                             <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc1096d7', item)"><ion-icon v-if="item.PauseTaskMob.icon" :name="item.PauseTaskMob.icon"></ion-icon>暂停</ion-item-option>
@@ -255,7 +255,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u505ec3b_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u78657a8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -272,7 +272,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_TaskFavorites(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_TaskFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -286,7 +286,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ud42c2bc_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u7e33b1f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -303,7 +303,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_TaskNFavorites(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_TaskNFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1226,11 +1226,11 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u505ec3b')) {
-            this.mdctrl_u505ec3b_click();
+        if (Object.is(tag, 'u78657a8')) {
+            this.mdctrl_u78657a8_click();
         }
-        if (Object.is(tag, 'ud42c2bc')) {
-            this.mdctrl_ud42c2bc_click();
+        if (Object.is(tag, 'u7e33b1f')) {
+            this.mdctrl_u7e33b1f_click();
         }
         if (Object.is(tag, 'uaa5b5c3')) {
             this.mdctrl_uaa5b5c3_click();
@@ -1345,8 +1345,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        TaskFavorites: { name: 'TaskFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star-o'},
-        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star'},
+        TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline'},
+        TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star'},
         AssignTaskMob: { name: 'AssignTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY',icon:'people'},
         DoneTaskMob: { name: 'DoneTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY',icon:'checkmark-circle-outline'},
         PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause'},

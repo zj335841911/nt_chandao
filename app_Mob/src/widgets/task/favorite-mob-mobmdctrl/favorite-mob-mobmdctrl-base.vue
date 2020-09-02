@@ -10,8 +10,8 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavorites.visabled" :disabled="item.TaskFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u328fb2e', item)"><ion-icon v-if="item.TaskFavorites.icon" :name="item.TaskFavorites.icon"></ion-icon>收藏</ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavorites.visabled" :disabled="item.TaskNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u38879de', item)"><ion-icon v-if="item.TaskNFavorites.icon" :name="item.TaskNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc540fe', item)"><ion-icon v-if="item.TaskFavoritesMob.icon" :name="item.TaskFavoritesMob.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uf0e6d83', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon" :name="item.TaskNFavoritesMob.icon"></ion-icon>取消收藏</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -31,8 +31,8 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavorites.visabled" :disabled="item.TaskFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u328fb2e', item)"><ion-icon v-if="item.TaskFavorites.icon" :name="item.TaskFavorites.icon"></ion-icon>收藏</ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavorites.visabled" :disabled="item.TaskNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u38879de', item)"><ion-icon v-if="item.TaskNFavorites.icon" :name="item.TaskNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc540fe', item)"><ion-icon v-if="item.TaskFavoritesMob.icon" :name="item.TaskFavoritesMob.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uf0e6d83', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon" :name="item.TaskNFavoritesMob.icon"></ion-icon>取消收藏</ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -243,7 +243,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u328fb2e_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ucc540fe_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -260,7 +260,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_TaskFavorites(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_TaskFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -274,7 +274,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u38879de_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uf0e6d83_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -291,7 +291,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_TaskNFavorites(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_TaskNFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1028,11 +1028,11 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u328fb2e')) {
-            this.mdctrl_u328fb2e_click();
+        if (Object.is(tag, 'ucc540fe')) {
+            this.mdctrl_ucc540fe_click();
         }
-        if (Object.is(tag, 'u38879de')) {
-            this.mdctrl_u38879de_click();
+        if (Object.is(tag, 'uf0e6d83')) {
+            this.mdctrl_uf0e6d83_click();
         }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
@@ -1129,8 +1129,8 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @memberof FavoriteMOBBase
      */  
     public ActionModel:any ={
-        TaskFavorites: { name: 'TaskFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star-o'},
-        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star'}
+        TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline'},
+        TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star'}
     };
 
     /**
