@@ -18,7 +18,6 @@
 
 .app-layoutpanel {
     height: 100%;
-    margin-bottom: 10px;
     > .app-layoutpanel-container {
         height: 100%;
         .app-layoutpanel-rowitem{
@@ -63,10 +62,6 @@
               --inner-padding-end:0;
               --background-activated:white;
             }
-            ion-item-options{
-              margin: 10px 10px 0px 10px;
-              padding-bottom: 10px;
-            }
         }
         .app-mob-mdctrl-refresh{
             height:100%;
@@ -78,4 +73,16 @@
     }
 }
 // 待办事宜表-MOB 样式
-.todo-mdctrl{}
+.todo-mdctrl{
+    .app-mob-mdctrl-item{
+        margin-top: 10px;
+    }
+    ion-item-options{
+      margin: 0 !important;
+      margin-right: 10px !important;
+      padding: 0 !important;
+    }
+    .app-layoutpanel {
+        margin: 0 !important;
+    }
+}
