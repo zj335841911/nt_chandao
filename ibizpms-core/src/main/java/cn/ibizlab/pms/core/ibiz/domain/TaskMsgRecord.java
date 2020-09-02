@@ -126,6 +126,20 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     @JSONField(name = "memo")
     @JsonProperty("memo")
     private String memo;
+    /**
+     * 标题
+     */
+    @TableField(value = "title")
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
+    /**
+     * 重定向地址
+     */
+    @TableField(value = "redirecturl")
+    @JSONField(name = "redirecturl")
+    @JsonProperty("redirecturl")
+    private String redirecturl;
 
 
 
@@ -167,6 +181,22 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     public void setMemo(String memo){
         this.memo = memo ;
         this.modify("memo",memo);
+    }
+
+    /**
+     * 设置 [标题]
+     */
+    public void setTitle(String title){
+        this.title = title ;
+        this.modify("title",title);
+    }
+
+    /**
+     * 设置 [重定向地址]
+     */
+    public void setRedirecturl(String redirecturl){
+        this.redirecturl = redirecturl ;
+        this.modify("redirecturl",redirecturl);
     }
 
 
