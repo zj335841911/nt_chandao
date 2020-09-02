@@ -48,8 +48,19 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 33, column 6:
-        #else is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
+                <div v-show="!showCheack" class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+                <ion-icon name="add"></ion-icon>
+                
+            </ion-fab-button>
+        
+            </ion-fab>
+            </div>
+        </div>
         
     </ion-footer>
 </ion-page>

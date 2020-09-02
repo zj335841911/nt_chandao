@@ -34,8 +34,29 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 33, column 6:
-        #else is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+                <ion-fab-list class="fab-list" side="top">
+                
+        
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
+            </ion-fab-button>
+        
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
+            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
+            </ion-fab-button>
+        
+        
+        
+                </ion-fab-list>
+            </ion-fab>
+            </div>
+        </div>
     </ion-footer>
 </ion-page>
 </template>

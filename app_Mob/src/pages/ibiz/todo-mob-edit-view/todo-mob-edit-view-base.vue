@@ -12,8 +12,10 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
             <ion-buttons slot="end">
-                                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 33, column 6:
-                #else is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
             </ion-buttons>
         </ion-toolbar>
     </ion-header>
