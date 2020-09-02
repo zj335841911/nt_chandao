@@ -323,12 +323,6 @@ export default class ProductProdMobTabExpViewBase extends Vue {
      * @memberof ProductProdMobTabExpView
      */    
     public counterserviceInit(){
-    /**
-     * ProductMobCounterCounterService计数器服务对象
-     *
-     * @type {ProductMobCounterCounterService}
-     * @memberof ProductProdMobTabExpView
-     */
     this.ProductMobCountercounterservice = new ProductMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
     }
 
