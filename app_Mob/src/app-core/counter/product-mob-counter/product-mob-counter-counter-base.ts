@@ -45,7 +45,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @param {*} [opts={}]
      * @memberof  ProductMobCounterCounterServiceBase
      */
-    public async fetchCounterData(){
+    public async fetchCounterData(context:any,data:any){
         let _appEntityService:any = await this.appEntityService.getService('product');
         if (_appEntityService['MobProductCounter'] && _appEntityService['MobProductCounter'] instanceof Function) {
             let result = await _appEntityService['MobProductCounter'](context,data, false);
