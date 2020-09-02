@@ -1,6 +1,7 @@
 import { Http,Util } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
 import { CancelProductTopLogic } from './cancel-product-top-logic';
+import { MobProductCounterLogic } from './mob-product-counter-logic';
 import { ProductTopLogic } from './product-top-logic';
 
 
@@ -238,8 +239,9 @@ export class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async MobProductCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/products/${context.product}/mobproductcounter`,data,isloading);
-            return res;
+        let appLogic:MobProductCounterLogic = new MobProductCounterLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**
