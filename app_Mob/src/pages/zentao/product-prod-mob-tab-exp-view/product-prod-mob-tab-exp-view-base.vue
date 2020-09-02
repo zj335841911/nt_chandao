@@ -59,9 +59,6 @@ import ProductService from '@/app-core/service/product/product-service';
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
 import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
-import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
-import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
-import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
 
 
 @Component({

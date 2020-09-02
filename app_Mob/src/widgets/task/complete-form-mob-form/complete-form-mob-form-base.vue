@@ -194,12 +194,8 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.comment" 
-    :disabled="detailsModel.comment.disabled" 
-    @change="($event)=>this.data.comment = $event" />
+        <app-mob-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-mob-rich-text-editor>
+
 </app-form-item>
 
 

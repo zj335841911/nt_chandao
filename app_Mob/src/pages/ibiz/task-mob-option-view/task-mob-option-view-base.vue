@@ -166,7 +166,7 @@ export default class TaskMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobOptionViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
@@ -175,7 +175,7 @@ export default class TaskMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task' };
 
     /**
      * 视图模型数据

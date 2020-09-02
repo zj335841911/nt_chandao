@@ -166,7 +166,7 @@ export default class TaskCancelMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof TaskCancelMobOptionViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
@@ -175,7 +175,7 @@ export default class TaskCancelMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof TaskCancelMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task' };
 
     /**
      * 视图模型数据

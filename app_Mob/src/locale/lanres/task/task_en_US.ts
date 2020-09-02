@@ -199,6 +199,8 @@ export default {
 		details: {
 			druipart1: '任务团队', 
 			grouppanel1: '分组面板', 
+			druipart2: '', 
+			grouppanel2: '历史记录', 
 			group1: '任务基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '最后修改日期', 
