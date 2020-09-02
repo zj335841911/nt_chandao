@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskMobPickupMDViewBase from './task-mob-pickup-mdview-base.vue';
 
-import view_mdctrl from '@widgets/task/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/task/mob-3335-mobmdctrl/mob-3335-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 

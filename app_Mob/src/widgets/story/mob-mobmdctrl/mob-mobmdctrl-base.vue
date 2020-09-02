@@ -9,6 +9,14 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.StoryFavorites.visabled" :disabled="item.StoryFavorites.disabled" color="primary" @click="mdctrl_click($event, 'ud5f4a8c', item)"><ion-icon v-if="item.StoryFavorites.icon" :name="item.StoryFavorites.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavorites.visabled" :disabled="item.StoryNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u6245ac8', item)"><ion-icon v-if="item.StoryNFavorites.icon" :name="item.StoryNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.AssignToMob.visabled" :disabled="item.AssignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u65f4c66', item)"><ion-icon v-if="item.AssignToMob.icon" :name="item.AssignToMob.icon"></ion-icon>指派</ion-item-option>
+                            <ion-item-option v-show="item.ReviewStoryMob.visabled" :disabled="item.ReviewStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'uc40b726', item)"><ion-icon v-if="item.ReviewStoryMob.icon" :name="item.ReviewStoryMob.icon"></ion-icon>评审</ion-item-option>
+                            <ion-item-option v-show="item.CloseStoryMob.visabled" :disabled="item.CloseStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'uded47e9', item)"><ion-icon v-if="item.CloseStoryMob.icon" :name="item.CloseStoryMob.icon"></ion-icon>关闭</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'ud61cd4c', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -26,6 +34,14 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.StoryFavorites.visabled" :disabled="item.StoryFavorites.disabled" color="primary" @click="mdctrl_click($event, 'ud5f4a8c', item)"><ion-icon v-if="item.StoryFavorites.icon" :name="item.StoryFavorites.icon"></ion-icon>收藏</ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavorites.visabled" :disabled="item.StoryNFavorites.disabled" color="primary" @click="mdctrl_click($event, 'u6245ac8', item)"><ion-icon v-if="item.StoryNFavorites.icon" :name="item.StoryNFavorites.icon"></ion-icon>取消收藏</ion-item-option>
+                            <ion-item-option v-show="item.AssignToMob.visabled" :disabled="item.AssignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u65f4c66', item)"><ion-icon v-if="item.AssignToMob.icon" :name="item.AssignToMob.icon"></ion-icon>指派</ion-item-option>
+                            <ion-item-option v-show="item.ReviewStoryMob.visabled" :disabled="item.ReviewStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'uc40b726', item)"><ion-icon v-if="item.ReviewStoryMob.icon" :name="item.ReviewStoryMob.icon"></ion-icon>评审</ion-item-option>
+                            <ion-item-option v-show="item.CloseStoryMob.visabled" :disabled="item.CloseStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'uded47e9', item)"><ion-icon v-if="item.CloseStoryMob.icon" :name="item.CloseStoryMob.icon"></ion-icon>关闭</ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'ud61cd4c', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -224,6 +240,192 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:StoryUIService = new StoryUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ud5f4a8c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_StoryFavorites(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u6245ac8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_StoryNFavorites(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u65f4c66_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_AssignToMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uc40b726_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_ReviewStoryMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uded47e9_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_CloseStoryMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ud61cd4c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -911,18 +1113,6 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             });
         }
-        if (!this.isMutli) {
-            if (this.selectedData && this.selectedData.length > 0) {
-                this.radio = this.selectedData[0].srfkey;
-            }
-        } else {
-            if (this.selectedData && this.selectedData.length > 0) {
-                this.checkboxList = [];
-                this.selectedData.forEach((item: any) => {
-                    this.checkboxList.push(item.srfkey);
-                })
-            }
-        }
     }
 
     /**
@@ -970,6 +1160,24 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'ud5f4a8c')) {
+            this.mdctrl_ud5f4a8c_click();
+        }
+        if (Object.is(tag, 'u6245ac8')) {
+            this.mdctrl_u6245ac8_click();
+        }
+        if (Object.is(tag, 'u65f4c66')) {
+            this.mdctrl_u65f4c66_click();
+        }
+        if (Object.is(tag, 'uc40b726')) {
+            this.mdctrl_uc40b726_click();
+        }
+        if (Object.is(tag, 'uded47e9')) {
+            this.mdctrl_uded47e9_click();
+        }
+        if (Object.is(tag, 'ud61cd4c')) {
+            this.mdctrl_ud61cd4c_click();
+        }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -1065,6 +1273,12 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star-o'},
+        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'fa fa-star'},
+        AssignToMob: { name: 'AssignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ASS_BUT', target: 'SINGLEKEY',icon:''},
+        ReviewStoryMob: { name: 'ReviewStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY',icon:''},
+        CloseStoryMob: { name: 'CloseStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY',icon:'close'},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', target: 'SINGLEKEY',icon:'remove'}
     };
 
     /**
