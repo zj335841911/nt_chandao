@@ -46,17 +46,10 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @memberof  ProductMobCounterCounterServiceBase
      */
     public async fetchCounterData(){
-        this.counterData = {
-            item1:parseInt((Math.random()*10)+''),
-            item2:parseInt((Math.random()*100)+''),
-            item3:parseInt((Math.random()*100)+''),
-            item4:parseInt((Math.random()*100)+''),
-            item5:parseInt((Math.random()*100)+''),
-            item6:parseInt((Math.random()*100)+''),
-            item7:parseInt((Math.random()*100)+''),
-            item8:parseInt((Math.random()*100)+''),
-            item9:parseInt((Math.random()*100)+''),
-            item10:parseInt((Math.random()*100)+'')
+        let _appEntityService:any = await this.appEntityService.getService('product');
+        if (_appEntityService['MobProductCounter'] && _appEntityService['MobProductCounter'] instanceof Function) {
+            let result = await _appEntityService['MobProductCounter'](context,data, false);
+            this.counterData = result.data;
         }
     }
 
