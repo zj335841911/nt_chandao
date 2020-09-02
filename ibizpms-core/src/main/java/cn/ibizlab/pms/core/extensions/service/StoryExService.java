@@ -120,6 +120,7 @@ public class StoryExService extends StoryServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Story change(Story et) {
         return super.change(et);
     }
