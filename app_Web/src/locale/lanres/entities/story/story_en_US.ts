@@ -129,6 +129,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		subgridview: {
+			caption: "需求细分",
+      		title: "需求表格视图（需求细分）",
+		},
 		tabexpview: {
 			caption: "需求",
       		title: "需求分页导航视图",
@@ -676,6 +680,20 @@ export default {
 		uiactions: {
 		},
 	},
+	substorynew_grid: {
+		columns: {
+			modulename: "所属模块名称",
+			plan: "所属计划",
+			title: "需求名称",
+			spec: "需求描述",
+			pri: "优先级",
+			estimate: "预计工时",
+			neednotreview: "需要评审",
+			product: "所属产品",
+		},
+		uiactions: {
+		},
+	},
 	main3_grid: {
 		columns: {
 			id: "ID",
@@ -692,6 +710,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -791,6 +810,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -842,6 +862,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -868,6 +889,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -890,6 +912,8 @@ export default {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
+	},
+	subgridviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

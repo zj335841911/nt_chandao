@@ -4055,6 +4055,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-start-option-view/test-task-start-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/subgridview/:subgridview?',
+                    meta: {
+                        caption: 'entities.story.views.subgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'subgridview', parameterName: 'subgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/subgridview/:subgridview?',
+                    meta: {
+                        caption: 'entities.story.views.subgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'subgridview', parameterName: 'subgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/pivottableview/:pivottableview?',
                     meta: {
                         caption: 'entities.task.views.pivottableview.title',

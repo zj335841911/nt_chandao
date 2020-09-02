@@ -8,7 +8,7 @@ import { Environment } from '@/environments/environment';
 
 
 /**
- * db_sysportlet2部件基类
+ * dashboard_sysportlet9部件基类
  *
  * @export
  * @class MainControlBase

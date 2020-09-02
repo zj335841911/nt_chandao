@@ -51,6 +51,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('ibzlib', () => import('@/service/ibz-lib/ibz-lib-service'));
         this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
+        this.allEntityService.set('substory', () => import('@/service/sub-story/sub-story-service'));
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
         this.allEntityService.set('storyspec', () => import('@/service/story-spec/story-spec-service'));
         this.allEntityService.set('usertpl', () => import('@/service/user-tpl/user-tpl-service'));

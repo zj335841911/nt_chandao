@@ -104,7 +104,7 @@ export class IBZProStoryModuleGridViewBase extends GridViewBase {
      * @memberof IBZProStoryModuleGridView
      */
     public toolBarModels: any = {
-        deuiaction3_push: { name: 'deuiaction3_push', caption: '推送', 'isShowCaption': false, 'isShowIcon': true, tooltip: '推送', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Push', target: 'SINGLEKEY', class: '' } },
+        deuiaction3_push: { name: 'deuiaction3_push', caption: '推送', 'isShowCaption': true, 'isShowIcon': true, tooltip: '推送', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Push', target: 'SINGLEKEY', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },

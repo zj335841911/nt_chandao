@@ -10,6 +10,7 @@ import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
+import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
@@ -215,6 +216,8 @@ export default {
                 menuitem18: "菜单项",
                 menuitem20: "菜单项",
             },
+            main: {
+            },
         },
         formpage:{
             error: "Error",
@@ -325,6 +328,7 @@ export default {
         ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
+        substory: substory_en_US,
         subproductplan: subproductplan_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,

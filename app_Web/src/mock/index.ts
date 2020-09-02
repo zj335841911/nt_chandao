@@ -19,6 +19,7 @@ import './entity/ibz-lib-casestepss/ibz-lib-casestepss';
 import './entity/ibz-libs/ibz-libs';
 import './entity/suite-cases/suite-cases';
 import './entity/burns/burns';
+import './entity/sub-storys/sub-storys';
 import './entity/sub-product-plans/sub-product-plans';
 import './entity/story-specs/story-specs';
 import './entity/user-tpls/user-tpls';

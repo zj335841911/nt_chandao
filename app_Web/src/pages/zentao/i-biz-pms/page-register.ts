@@ -100,6 +100,7 @@ export const PageComponents = {
         Vue.component('task-edit-view', () => import('@pages/zentao/task-edit-view/task-edit-view.vue'));
         Vue.component('bug-mpickup-view5', () => import('@pages/zentao/bug-mpickup-view5/bug-mpickup-view5.vue'));
         Vue.component('test-task-start-option-view', () => import('@pages/zentao/test-task-start-option-view/test-task-start-option-view.vue'));
+        Vue.component('story-sub-grid-view', () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'));
         Vue.component('task-pivot-table-view', () => import('@pages/zentao/task-pivot-table-view/task-pivot-table-view.vue'));
         Vue.component('test-task-my-dgrid-view', () => import('@pages/zentao/test-task-my-dgrid-view/test-task-my-dgrid-view.vue'));
         Vue.component('task-team-grid-view9-look', () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'));

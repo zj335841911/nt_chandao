@@ -1535,6 +1535,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6cf95e90393715815492a7e5e6f2a6f3',
+            viewmodule: 'zentao',
+            viewname: 'StorySubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '6d466e003e0479fb8b1a16e49b889dc1',
             viewmodule: 'zentao',
             viewname: 'ActionMyAllTrendsListView',
@@ -2142,6 +2151,7 @@ export const viewstate: any = {
                 '4863a523ac490ebce771717756f0c6a8',
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
+                '6cf95e90393715815492a7e5e6f2a6f3',
             ],
         },
         {
@@ -2158,6 +2168,7 @@ export const viewstate: any = {
                 '4863a523ac490ebce771717756f0c6a8',
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
+                '6cf95e90393715815492a7e5e6f2a6f3',
             ],
         },
         {
@@ -2305,6 +2316,7 @@ export const viewstate: any = {
                 '4863a523ac490ebce771717756f0c6a8',
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
+                '6cf95e90393715815492a7e5e6f2a6f3',
             ],
         },
         {
@@ -2633,6 +2645,7 @@ export const viewstate: any = {
                 '4863a523ac490ebce771717756f0c6a8',
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
+                '6cf95e90393715815492a7e5e6f2a6f3',
             ],
         },
         {
@@ -3081,6 +3094,7 @@ export const viewstate: any = {
                 '4863a523ac490ebce771717756f0c6a8',
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
+                '6cf95e90393715815492a7e5e6f2a6f3',
             ],
         },
         {

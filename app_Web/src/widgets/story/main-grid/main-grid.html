@@ -196,6 +196,11 @@
                             <i class='fa fa-lightbulb-o'></i>
                             
                           </a>
+                          <divider v-show="scope.row.SubStory.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.SubStory.visabled" :disabled="scope.row.SubStory.disabled" @click="uiAction(scope.row, 'SubStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_substory')">
+                            <i class='iconfont studio-icon-subnets'></i>
+                            
+                          </a>
                           <divider v-show="scope.row.StoryFavorites.visabled" type='vertical'></divider>
                           <a v-show="scope.row.StoryFavorites.visabled" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.main_grid.uiactions.story_storyfavorites')">
                             <i class='fa fa-star-o'></i>

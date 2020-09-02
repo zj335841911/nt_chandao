@@ -1311,6 +1311,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseExcEditView",
             "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce"
         },
+        "storysubgridview": {
+            "title": "需求表格视图（需求细分）",
+            "caption": "需求细分",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StorySubGridView",
+            "viewtag": "6cf95e90393715815492a7e5e6f2a6f3"
+        },
         "actionmyalltrendslistview": {
             "title": "系统日志列表视图",
             "caption": "系统日志",

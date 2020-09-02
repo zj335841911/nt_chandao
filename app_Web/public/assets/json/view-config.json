@@ -1629,6 +1629,16 @@
         "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce",
         "memo": ""
     },
+    "storysubgridview": {
+        "title": "需求表格视图（需求细分）",
+        "caption": "需求细分",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StorySubGridView",
+        "viewfilename": "story-sub-grid-view",
+        "viewtag": "6cf95e90393715815492a7e5e6f2a6f3",
+        "memo": ""
+    },
     "actionmyalltrendslistview": {
         "title": "系统日志列表视图",
         "caption": "系统日志",

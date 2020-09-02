@@ -51,6 +51,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzlib', () => import('@/authservice/ibz-lib/ibz-lib-auth-service'));
         this.allAuthService.set('suitecase', () => import('@/authservice/suite-case/suite-case-auth-service'));
         this.allAuthService.set('burn', () => import('@/authservice/burn/burn-auth-service'));
+        this.allAuthService.set('substory', () => import('@/authservice/sub-story/sub-story-auth-service'));
         this.allAuthService.set('subproductplan', () => import('@/authservice/sub-product-plan/sub-product-plan-auth-service'));
         this.allAuthService.set('storyspec', () => import('@/authservice/story-spec/story-spec-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
