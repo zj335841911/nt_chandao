@@ -70,6 +70,7 @@ public class TaskExService extends TaskServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Task close(Task et) {
         return super.close(et);
     }

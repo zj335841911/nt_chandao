@@ -57,6 +57,7 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Todo close(Todo et) {
         return super.close(et);
     }

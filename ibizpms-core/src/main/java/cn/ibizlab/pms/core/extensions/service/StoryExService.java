@@ -131,6 +131,7 @@ public class StoryExService extends StoryServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Story close(Story et) {
         return super.close(et);
     }
