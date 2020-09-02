@@ -919,6 +919,34 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Project__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'sprint',
+                label: '短期项目',
+                text: '短期项目',
+                value: 'sprint',
+                disabled: false,
+            },
+            {
+                id: 'waterfall',
+                label: '长期项目',
+                text: '长期项目',
+                value: 'waterfall',
+                disabled: false,
+            },
+            {
+                id: 'ops',
+                label: '运维项目',
+                text: '运维项目',
+                value: 'ops',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1241,6 +1269,34 @@ const datas: Array<any> = [
         "appdataentity":"User",
         "appdedataset":"FetchBugUser",
         "items": []
+    },
+    {
+        srfkey: 'Project__acl',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'open',
+                label: '默认设置(有项目视图权限，即可访问)',
+                text: '默认设置(有项目视图权限，即可访问)',
+                value: 'open',
+                disabled: false,
+            },
+            {
+                id: 'private',
+                label: '私有项目(只有项目团队成员才能访问)',
+                text: '私有项目(只有项目团队成员才能访问)',
+                value: 'private',
+                disabled: false,
+            },
+            {
+                id: 'custom',
+                label: '自定义白名单(团队成员和白名单的成员可以访问)',
+                text: '自定义白名单(团队成员和白名单的成员可以访问)',
+                value: 'custom',
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: 'Story__type',

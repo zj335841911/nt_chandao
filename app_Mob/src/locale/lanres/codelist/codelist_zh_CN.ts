@@ -169,6 +169,12 @@ export default {
         'closed': '已关闭',
         empty: '',
     },
+    Project__type: {
+        'sprint': '短期项目',
+        'waterfall': '长期项目',
+        'ops': '运维项目',
+        empty: '',
+    },
     Story__status: {
         'draft': '草稿',
         'active': '激活',
@@ -235,6 +241,12 @@ export default {
         empty: '',
     },
     BugUserRealName: {
+        empty: '',
+    },
+    Project__acl: {
+        'open': '默认设置(有项目视图权限，即可访问)',
+        'private': '私有项目(只有项目团队成员才能访问)',
+        'custom': '自定义白名单(团队成员和白名单的成员可以访问)',
         empty: '',
     },
     Story__type: {

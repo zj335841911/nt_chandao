@@ -905,6 +905,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/build-mob-pickup-mdview/build-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'projects/:project?/newmobeditview',
+                    meta: {
+                        caption: 'project.views.newmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-new-mob-edit-view/project-new-mob-edit-view.vue'),
+                },
+                {
                     path: 'todos/:todo?/newmobeditview',
                     meta: {
                         caption: 'todo.views.newmobeditview.caption',
