@@ -290,11 +290,11 @@
     :error="detailsModel.estimate.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.estimate" 
     :disabled="detailsModel.estimate.disabled" 
-    @change="($event)=>this.data.estimate = $event" />
+    @change="($event)=>this.data.estimate = $event"/>
 </app-form-item>
 
 

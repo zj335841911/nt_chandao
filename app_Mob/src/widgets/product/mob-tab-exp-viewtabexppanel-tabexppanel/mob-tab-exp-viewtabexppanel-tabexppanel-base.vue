@@ -206,6 +206,18 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      */    
     protected counterServiceArray:Array<any> = [];
 
+
+    /**
+     * 销毁计数器服务
+     *
+     * @memberof ProductMobTabExpView
+     */   
+    public counterserviceDestroy(){
+        this.counterServiceArray.forEach((item:any)=>{
+            item.destroyCounter();
+        });
+    }
+
     /**
      * 获取多项数据
      *
@@ -294,6 +306,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @memberof MobTabExpViewtabexppanel
      */
     protected afterDestroy() {
+        this.counterserviceDestroy();
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }

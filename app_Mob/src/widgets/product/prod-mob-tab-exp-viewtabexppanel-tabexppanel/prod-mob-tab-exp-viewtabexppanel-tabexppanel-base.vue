@@ -205,7 +205,7 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @type {ProductMobCounterCounterService}
      * @memberof ProdMobTabExpViewtabexppanel
      */
-    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
 
     /**
      * 计数器服务对象集合
@@ -214,6 +214,18 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @memberof ProdMobTabExpViewtabexppanel
      */    
     protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice];
+
+
+    /**
+     * 销毁计数器服务
+     *
+     * @memberof ProductProdMobTabExpView
+     */   
+    public counterserviceDestroy(){
+        this.counterServiceArray.forEach((item:any)=>{
+            item.destroyCounter();
+        });
+    }
 
     /**
      * 获取多项数据
@@ -303,6 +315,7 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @memberof ProdMobTabExpViewtabexppanel
      */
     protected afterDestroy() {
+        this.counterserviceDestroy();
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
