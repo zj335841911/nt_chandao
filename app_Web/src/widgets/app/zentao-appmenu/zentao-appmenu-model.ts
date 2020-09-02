@@ -33,6 +33,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '',
         	resourcetag: '',
+        	authtag:'Web-zentao-top_menus',
         	items: [
                 		        {
                 	id: 'b454720d9937098dbf2a8c63ff255e49',
@@ -53,6 +54,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'ibz-favorites-tab-exp-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem12',
                 }
                 ,
                 		        {
@@ -74,6 +76,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'ibz-my-territory-tab-exp-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem9',
                 }
                 ,
                 		        {
@@ -95,6 +98,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-portal-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem3',
                 }
                 ,
                 		        {
@@ -116,6 +120,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'project-portal-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem2',
                 }
                 ,
                 		        {
@@ -137,6 +142,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'test-portal-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem1',
                 }
                 ,
                 		        {
@@ -158,6 +164,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'ibz-lib-grid-view',
                 	resourcetag: 'IBZ_LIB_M',
+                	authtag:'Web-zentao-menuitem10',
                 }
                 ,
                 		        {
@@ -179,6 +186,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'user-tree-exp-view',
                 	resourcetag: 'IBZ_LIB_M',
+                	authtag:'Web-zentao-menuitem11',
                 }
                 ,
                 		        {
@@ -200,6 +208,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-html-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem7',
                 }
                 ,
                 		        {
@@ -219,6 +228,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: '',
                 	resourcetag: 'PLUS',
+                	authtag:'Web-zentao-menuitem16',
                 	items: [
                         		        {
                         	id: 'A3AFF7A2-3281-408C-91F9-FDC4E87954AA',
@@ -239,6 +249,7 @@ export default class ZentaoModel {
                         	appfuncyype: 'APPVIEW',
                         	viewname: 'ibzpro-product-grid-view',
                         	resourcetag: '',
+                        	authtag:'Web-zentao-menuitem19',
                         }
                         ,
                         		        {
@@ -260,6 +271,7 @@ export default class ZentaoModel {
                         	appfuncyype: 'APPVIEW',
                         	viewname: 'ibzpro-story-module-grid-view',
                         	resourcetag: '',
+                        	authtag:'Web-zentao-menuitem21',
                         }
                         ,
                         		        {
@@ -281,6 +293,7 @@ export default class ZentaoModel {
                         	appfuncyype: 'APPVIEW',
                         	viewname: 'ibzpro-story-grid-view',
                         	resourcetag: '',
+                        	authtag:'Web-zentao-menuitem17',
                         }
                         ,
                 	],
@@ -306,6 +319,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '',
         	resourcetag: '',
+        	authtag:'Web-zentao-left_exp',
         	items: [
                 		        {
                 	id: 'd69dc5da5fec042124ed71785112a2ed',
@@ -326,6 +340,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-left-sidebar-list-view',
                 	resourcetag: 'PRODUCTLEFT',
+                	authtag:'Web-zentao-menuitem4',
                 }
                 ,
                 		        {
@@ -347,6 +362,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'project-left-sidebar-list-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem5',
                 }
                 ,
                 		        {
@@ -368,6 +384,7 @@ export default class ZentaoModel {
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
+                	authtag:'Web-zentao-menuitem6',
                 }
                 ,
         	],
@@ -390,6 +407,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '',
         	resourcetag: '',
+        	authtag:'Web-zentao-bottom_exp',
         }
         ,
                 {
@@ -409,6 +427,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '',
         	resourcetag: '',
+        	authtag:'Web-zentao-footer_center',
         }
         ,
                 {
@@ -430,6 +449,7 @@ export default class ZentaoModel {
         	appfuncyype: 'APPVIEW',
         	viewname: 'bug-main-dashboard-view-link',
         	resourcetag: '',
+        	authtag:'Web-zentao-menuitem13',
         }
         ,
                 {
@@ -451,6 +471,7 @@ export default class ZentaoModel {
         	appfuncyype: 'APPVIEW',
         	viewname: 'bug-main-dashboard-view-link',
         	resourcetag: '',
+        	authtag:'Web-zentao-menuitem14',
         }
         ,
                 {
@@ -472,6 +493,7 @@ export default class ZentaoModel {
         	appfuncyype: 'APPVIEW',
         	viewname: 'task-main-dashboard-view-link',
         	resourcetag: '',
+        	authtag:'Web-zentao-menuitem15',
         }
         ,
                 {
@@ -493,6 +515,7 @@ export default class ZentaoModel {
         	appfuncyype: 'APPVIEW',
         	viewname: 'todo-dashboard-view-link',
         	resourcetag: '',
+        	authtag:'Web-zentao-menuitem18',
         }
         ,
                 {
@@ -514,6 +537,7 @@ export default class ZentaoModel {
         	appfuncyype: 'APPVIEW',
         	viewname: 'story-main-view-link',
         	resourcetag: '',
+        	authtag:'Web-zentao-menuitem20',
         }
         ,
     ];

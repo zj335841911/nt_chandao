@@ -274,4 +274,11 @@ export class ControlBase extends Vue {
         return null;
     }
 
+    /**
+     * 执行搜索
+     *
+     * @memberof ControlBase
+     */
+    public onSearch(args: any): void {
+    }
 }

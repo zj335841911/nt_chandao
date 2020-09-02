@@ -2,7 +2,6 @@ import { Vue } from 'vue-property-decorator';
 import { FooterItemsService } from '@/studio-core/service/FooterItemsService';
 import { AppService } from '@/studio-core/service/app-service/AppService';
 import AppMenusModel from '@/widgets/app/zentao-appmenu/zentao-appmenu-model';
-import { Environment } from '@/environments/environment';
 
 /**
  * 应用首页基类
@@ -256,10 +255,10 @@ export class IBizPMSBase extends Vue {
    * @param {*} data
    * @memberof ZentaoBase
    */
-  public handleMenusResource(inputMenus: Array<any>) {
-    if (Environment.enablePermissionValid) {
-      this.computedEffectiveMenus(inputMenus);
-      this.computeParentMenus(inputMenus);
+  public handleMenusResource(inputMenus: any) {
+    if (inputMenus && inputMenus.items) {
+      this.computedEffectiveMenus(inputMenus.items);
+      this.computeParentMenus(inputMenus.items);
     }
     return inputMenus;
   }
