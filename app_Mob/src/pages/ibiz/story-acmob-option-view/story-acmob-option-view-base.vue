@@ -33,6 +33,9 @@
             style='' 
             name="form"  
             ref='form' 
+            @save="form_save($event)"  
+            @remove="form_remove($event)"  
+            @load="form_load($event)"  
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
@@ -312,6 +315,7 @@ export default class StoryACMobOptionViewBase extends Vue {
     protected engineInit(): void {
         this.engine.init({
             view: this,
+            form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'story',
             majorPSDEField: 'title',
@@ -420,6 +424,39 @@ export default class StoryACMobOptionViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * form 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryACMobOptionViewBase
+     */
+    protected form_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'save', $event);
+    }
+
+    /**
+     * form 部件 remove 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryACMobOptionViewBase
+     */
+    protected form_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'remove', $event);
+    }
+
+    /**
+     * form 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryACMobOptionViewBase
+     */
+    protected form_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'load', $event);
     }
 
 
