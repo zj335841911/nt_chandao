@@ -62,6 +62,13 @@ export default class AppSelect extends Vue {
             devalue = +devalue;
           }
         }
+        if (Object.is(this.codeListType, 'DYNAMIC')) {
+         for(let key in this.options){
+           if (typeof this.options[key].id == 'number') {
+              devalue = +devalue
+           }
+         }
+        }
         this.$emit("change", devalue);
     }
 

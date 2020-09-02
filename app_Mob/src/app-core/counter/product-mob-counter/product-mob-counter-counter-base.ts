@@ -25,7 +25,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
         super(opts);
         this.initCounterData();
         setInterval(() => {
-            this.fetchCounterData();
+            this.fetchCounterData(this.context,this.viewparams);
         }, 60000);
     }
 
@@ -36,7 +36,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @memberof  ProductMobCounterCounterServiceBase
      */
     public initCounterData(){
-        this.fetchCounterData();
+        this.fetchCounterData(this.context,this.viewparams);
     }
 
     /**
@@ -59,7 +59,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @memberof ProductMobCounterCounterServiceBase
      */
     public async refreshData(){
-        const res = await this.fetchCounterData();
+        const res = await this.fetchCounterData(this.context,this.viewparams);
         return res;
     }
 
