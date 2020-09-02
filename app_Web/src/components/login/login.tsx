@@ -274,6 +274,49 @@ export default class Login extends Vue {
     }
 
     /**
+     * 游客访问
+     *
+     * @memberof Login
+     */
+    public visitorSubmit() {
+        const post: Promise<any> = this.$http.post('/login/guest', this.form, true);
+        post.then((response: any) => {
+            if (response && response.status === 200) {
+                const data = response.data;
+                if (data && data.token) {
+                    localStorage.setItem('token', data.token);
+                    this.setCookie('ibzuaa-token', data.token, 1);
+                }
+                // 设置cookie,保存账号密码7天
+                this.setCookie("loginname", this.form.loginname, 7);
+                // 页面回跳
+                if (this.$route.query.redirect) {
+                    window.location.href = decodeURIComponent((this.$route.query.redirect as any));
+                } else {
+                    this.$router.push({ path: '/' });
+                }
+            }
+        }).catch((error: any) => {
+            // 登录提示
+            const data = error.data;
+            if (data && data.message) {
+                this.loginTip = data.message;
+                this.$Message.error({
+                    content: "登录失败，" + data.message,
+                    duration: 5,
+                    closable: true
+                });
+            } else {
+                this.$Message.error({
+                    content: "登录失败",
+                    duration: 5,
+                    closable: true
+                });
+            }
+        });
+    }
+
+    /**
      * 绘制
      *
      * @memberof Login
@@ -317,6 +360,7 @@ export default class Login extends Vue {
                                             </small>
                                         </form-item>
                                         <form-item class="submit">
+                                            <i-button type="info" long size="large" on-click={() => this.visitorSubmit()}>游客</i-button>
                                             <i-button type="primary" long size="large" on-click={() => this.handleSubmit()}>登录</i-button>
                                         </form-item>
                                     </i-form>
