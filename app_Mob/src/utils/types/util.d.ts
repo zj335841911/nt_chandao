@@ -127,6 +127,17 @@ export declare interface Util {
      * @memberof Util
      */
     deepObjectMerge(FirstOBJ:any, SecondOBJ:any) :any;
+
+    /**
+     * 日期格式化
+     *
+     * @static
+     * @param {string} fmt 格式化字符串
+     * @param {any} date 日期对象
+     * @returns {string}
+     * @memberof Util
+     */
+    dateFormat(date: any,fmt?: string):string ;
 }
 
 declare module "vue/types/vue" {
