@@ -1,18 +1,30 @@
 package cn.ibizlab.pms.core.util.message;
 
+import cn.ibizlab.pms.core.ibiz.domain.TaskMsgRecord;
+import cn.ibizlab.pms.core.ibiz.service.ITaskMsgRecordService;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.util.client.IBZNotifyFeignClient;
 import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.Query;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.Nullable;
+import javax.swing.text.html.parser.Entity;
 import java.math.BigInteger;
 import java.net.URLEncoder;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Map;
 
 @Slf4j
 @Component
@@ -21,6 +33,8 @@ public class DingTalkMsgService implements IMsgService {
     private IBZNotifyFeignClient feignClient;
     @Autowired
     private MsgDestParser destParser;
+    @Autowired
+    private ITaskMsgRecordService taskMsgRecordService;
 
     @Override
     public void send(EntityBase et, String mainDataView) {
@@ -52,24 +66,29 @@ public class DingTalkMsgService implements IMsgService {
         String redirect_url_pc = String.format(MsgConstants.URL_TEMP_PC, MsgConstants.REDIRECT_HOMEPAGE_PC, Inflector.getInstance().pluralize(className), id, pcDataView);
         String redirect_url_mob = String.format(MsgConstants.URL_TEMP_MOB, MsgConstants.REDIRECT_HOMEPAGE_MOB, Inflector.getInstance().pluralize(className), id, mobDataView);
 
-        String taskUserIds = destParser.getTaskUserIds(et);
-        String noticeUserIds = destParser.getNoticeUserIds(et);
+        //设置已办
+        String completeUserids = destParser.getCompleteTaskUserIds(et);
+        if(!StringUtils.isEmpty(completeUserids)){
+            completeTask(et, completeUserids);
+        }
 
+        //设置代办
+        String taskUserIds = destParser.getTaskUserIds(et);
         if (!StringUtils.isEmpty(taskUserIds)) {
             //分别发送PC、MOB通知
             String content = String.format(MsgConstants.TASK_CONTENT_TMPL, logicName, id, title);
 
-            sendTask(taskUserIds, redirect_url_pc, "(PC)" + MsgConstants.TASK_TITLE, content);
-            sendTask(taskUserIds, redirect_url_mob, "(MOB)" + MsgConstants.TASK_TITLE, content);
-            log.info("成功发送待办任务。");
+            sendTask(et, taskUserIds, redirect_url_mob, redirect_url_pc, null, content);
+
         }
 
+        //设置通知
+        String noticeUserIds = destParser.getNoticeUserIds(et);
         if (!StringUtils.isEmpty(noticeUserIds)) {
             //分别发送PC、MOB通知
             String content = String.format(MsgConstants.NOTICE_CONTENT_TMPL, name, logicName, id, title);
-            sendLinkMessage(noticeUserIds, redirect_url_pc, "(PC)" + MsgConstants.NOTICE_TITLE, content);
-            sendLinkMessage(noticeUserIds, redirect_url_mob, "(MOB)" + MsgConstants.NOTICE_TITLE, content);
-            log.info("成功发送链接通知。");
+            sendLinkMessage(noticeUserIds, redirect_url_pc, "(PC)" + MsgConstants.APP_NAME, content);
+            sendLinkMessage(noticeUserIds, redirect_url_mob, "(MOB)" + MsgConstants.APP_NAME, content);
         }
     }
 
@@ -91,9 +110,11 @@ public class DingTalkMsgService implements IMsgService {
         message.put("title", title);
         message.put("content", content);
         String encodeUrl = URLEncoder.encode(redirectUrl);
-        message.put("url", "dingtalk://dingtalkclient/page/link?url=" + encodeUrl + "&pc_slide=false");
+
+        message.put("url", String.format("dingtalk://dingtalkclient/page/link?url=%s&pc_slide=%b", encodeUrl, title.contains("(MOB)")));
         try {
             feignClient.sendDingTalkLinkMsg(message);
+            log.info("成功发送链接通知，内容为[{}]。", message);
         } catch (Exception e) {
             e.printStackTrace();
             log.error("发送工作通知失败,数据[{}],原因为:[{}]", message, e);
@@ -104,32 +125,87 @@ public class DingTalkMsgService implements IMsgService {
     /**
      * 发送Dingding待办任务。
      *
-     * @param userids     待办发送用户id （IBZUserId）
-     * @param redirectUrl 链接地址，比如： http://ibizpmspc.ibizlab.cn/#/ibizpms/bugs/250/maindashboardview
-     * @param title       待办通知标题
-     * @param content     待办通知内容
+     * @param userids       待办发送用户id （IBZUserId）
+     * @param redirectUrl   链接地址，比如： http://ibizpmspc.ibizlab.cn/#/ibizpms/bugs/250/maindashboardview
+     * @param pcredirectUrl pc端链接地址，可为空
+     * @param title         待办通知标题
+     * @param content       待办通知内容
      * @return 返回生成的待办任务id
      */
     @Override
-    public String sendTask(String userids, String redirectUrl, String title, String content) {
+    public String sendTask(EntityBase et, String userids, String redirectUrl, @Nullable String pcredirectUrl, String title, String content) {
 
         log.info("redirectURL:[{}]", redirectUrl);
         log.info("userid:[{}]", userids);
         JSONObject message = new JSONObject();
         message.put("userids", userids);
         message.put("templateid", "pms");
-        message.put("title", title);
+        message.put("title", title == null ? MsgConstants.APP_NAME : title);
         message.put("content", content);
-        String encodeUrl = URLEncoder.encode(redirectUrl);
-        message.put("url", "dingtalk://dingtalkclient/page/link?url=" + encodeUrl + "&pc_slide=false");
+        message.put("url", redirectUrl);
+        message.put("pcUrl", pcredirectUrl);
+        String recordids = null;
         try {
-            String taskId = feignClient.createDingTalkWorkRecord(message);
+            recordids = feignClient.createDingTalkWorkRecord(message);
+            log.info("成功发送待办任务,内容为:[{}],记录id为[{}]。", message, recordids);
         } catch (Exception e) {
             e.printStackTrace();
             log.error("发送待办任务失败,数据[{}],原因为:[{}]", message, e);
         }
+
+        //记录待办发送内容。
+        recordTaskMsg(et, recordids, userids, title, content);
         return "";
 
     }
 
+    private void recordTaskMsg(EntityBase et, String recordids, String userids, String title, String content) {
+        if (!StringUtils.isEmpty(recordids)) {
+            String[] recordids_arr = recordids.split(",");
+            String[] userids_arr = userids.split(",");
+            if (recordids_arr.length == userids_arr.length) {
+                for (int i = 0; i < recordids_arr.length; i++) {
+                    TaskMsgRecord taskMsgRecord = new TaskMsgRecord();
+                    taskMsgRecord.setApptaskid(recordids_arr[i]);
+                    taskMsgRecord.setTaskmsgrecordname(content);
+                    taskMsgRecord.setTaskuserid(userids_arr[i]);
+                    taskMsgRecord.setTasktype(et.getClass().getSimpleName());
+                    taskMsgRecord.setDataid(String.valueOf(et.get("id") == null ? null : et.get("id")));
+
+                    boolean created = taskMsgRecordService.create(taskMsgRecord);
+                    if (created) {
+                        log.info("待办消息已记录，[{}]", taskMsgRecord);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void completeTask(EntityBase et, String userids) {
+        if (et == null || StringUtils.isEmpty(userids))
+            return;
+
+        for (String userid : userids.split(",")) {
+            TaskMsgRecord taskMsgRecord = taskMsgRecordService.getOne(Wrappers.<TaskMsgRecord>lambdaQuery()
+                    .eq(TaskMsgRecord::getDataid, et.get("id"))
+                    .eq(TaskMsgRecord::getTaskuserid, userid)
+                    .eq(TaskMsgRecord::getTasktype, et.getClass().getSimpleName())
+                    .orderByDesc(TaskMsgRecord::getCreatedate), false);
+
+            if (taskMsgRecord != null) {
+                JSONObject message = new JSONObject();
+                message.put("userids", userid);
+                message.put("templateid", "pms");
+                message.put("recordid", taskMsgRecord.getApptaskid());
+                Boolean markCompleted = feignClient.finishDingTalkWorkRecord(message);
+
+                if (markCompleted) {
+                    log.info("发送已办成功,内容为[{}]", message);
+                    taskMsgRecordService.remove(taskMsgRecord.getTaskmsgrecordid());
+                }
+            }
+        }
+
+    }
 }
