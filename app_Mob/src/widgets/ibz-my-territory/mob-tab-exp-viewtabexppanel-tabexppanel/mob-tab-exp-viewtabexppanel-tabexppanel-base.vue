@@ -47,6 +47,7 @@
     </span>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -184,6 +185,15 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof MobTabExpViewtabexppanel
+     */    
+    protected counterServiceArray:Array<any> = [];
 
     /**
      * 获取多项数据

@@ -32,6 +32,7 @@
 </template>
 
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -40,7 +41,6 @@ import IbzFavoritesService from '@/app-core/service/ibz-favorites/ibz-favorites-
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-action';
-
 
 @Component({
     components: {
@@ -284,26 +284,6 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         }
         return true;
     }
-
-
-    /**
-     * 计数器服务初始化
-     *
-     * @type {Array<*>}
-     * @memberof IbzFavoritesMobTabExpView
-     */    
-    public counterserviceInit(){
-    }
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof IbzFavoritesMobTabExpView
-     */    
-    protected counterServiceArray:Array<any> = [];
-
-
     /**
      * 被激活的分页面板
      *
@@ -461,7 +441,6 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
-        this.counterserviceInit();
 
     }
 

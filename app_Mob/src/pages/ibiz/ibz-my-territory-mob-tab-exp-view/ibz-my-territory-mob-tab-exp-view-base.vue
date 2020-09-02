@@ -47,6 +47,7 @@
 </template>
 
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -55,7 +56,6 @@ import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-te
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
-
 
 @Component({
     components: {
@@ -301,26 +301,6 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
         }
         return true;
     }
-
-
-    /**
-     * 计数器服务初始化
-     *
-     * @type {Array<*>}
-     * @memberof IbzMyTerritoryMobTabExpView
-     */    
-    public counterserviceInit(){
-    }
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof IbzMyTerritoryMobTabExpView
-     */    
-    protected counterServiceArray:Array<any> = [];
-
-
     /**
      * 被激活的分页面板
      *
@@ -478,7 +458,6 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
-        this.counterserviceInit();
 
     }
 

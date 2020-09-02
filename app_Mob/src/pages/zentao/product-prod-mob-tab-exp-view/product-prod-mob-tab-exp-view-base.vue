@@ -50,6 +50,7 @@
 </template>
 
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -58,8 +59,6 @@ import ProductService from '@/app-core/service/product/product-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
-import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
-
 
 @Component({
     components: {
@@ -306,35 +305,6 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         }
         return true;
     }
-    
-    /**
-     * ProductMobCounterCounterService计数器服务对象
-     *
-     * @type {ProductMobCounterCounterService}
-     * @memberof ProductProdMobTabExpView
-     */
-    protected ProductMobCountercounterservice: any;
-
-
-    /**
-     * 计数器服务初始化
-     *
-     * @type {Array<*>}
-     * @memberof ProductProdMobTabExpView
-     */    
-    public counterserviceInit(){
-    this.ProductMobCountercounterservice = new ProductMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
-    }
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ProductProdMobTabExpView
-     */    
-    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice,];
-
-
     /**
      * 被激活的分页面板
      *
@@ -492,7 +462,6 @@ export default class ProductProdMobTabExpViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
-        this.counterserviceInit();
 
     }
 

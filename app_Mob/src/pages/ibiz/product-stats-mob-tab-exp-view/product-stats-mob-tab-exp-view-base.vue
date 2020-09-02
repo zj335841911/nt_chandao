@@ -54,6 +54,7 @@
 </template>
 
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -62,7 +63,6 @@ import ProductStatsService from '@/app-core/service/product-stats/product-stats-
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
-
 
 @Component({
     components: {
@@ -309,26 +309,6 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
         }
         return true;
     }
-
-
-    /**
-     * 计数器服务初始化
-     *
-     * @type {Array<*>}
-     * @memberof ProductStatsMobTabExpView
-     */    
-    public counterserviceInit(){
-    }
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ProductStatsMobTabExpView
-     */    
-    protected counterServiceArray:Array<any> = [];
-
-
     /**
      * 被激活的分页面板
      *
@@ -486,7 +466,6 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
-        this.counterserviceInit();
 
     }
 

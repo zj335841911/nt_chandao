@@ -50,6 +50,7 @@
 </template>
 
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
@@ -58,7 +59,6 @@ import ProjectService from '@/app-core/service/project/project-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import ProjectUIService from '@/ui-service/project/project-ui-action';
-
 
 @Component({
     components: {
@@ -305,26 +305,6 @@ export default class ProjectMobTabExpViewBase extends Vue {
         }
         return true;
     }
-
-
-    /**
-     * 计数器服务初始化
-     *
-     * @type {Array<*>}
-     * @memberof ProjectMobTabExpView
-     */    
-    public counterserviceInit(){
-    }
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ProjectMobTabExpView
-     */    
-    protected counterServiceArray:Array<any> = [];
-
-
     /**
      * 被激活的分页面板
      *
@@ -482,7 +462,6 @@ export default class ProjectMobTabExpViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
-        this.counterserviceInit();
 
     }
 

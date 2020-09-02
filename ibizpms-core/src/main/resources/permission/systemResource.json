@@ -543,6 +543,11 @@
        }
         ,
        {
+            "unirescode":"STORY_XQXF_BUT",
+            "uniresname":"需求细分"
+       }
+        ,
+       {
             "unirescode":"TASK_COMPLETE_BUT",
             "uniresname":"任务完成"
        }
