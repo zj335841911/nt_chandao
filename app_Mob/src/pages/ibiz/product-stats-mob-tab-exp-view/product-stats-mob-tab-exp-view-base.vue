@@ -1,56 +1,8 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-stats-mob-tab-exp-view': true }">
-    
-    <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
-                    <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                              <ion-icon name="briefcase"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
-                            详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
-                              <ion-icon name="text"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
-                            需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
-                              <ion-icon name="reorder"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
-                            计划</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
-                            发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
-                              <ion-icon name="bug"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
-                            BUG</ion-segment-button>
-                        </ion-segment>
-                    </ion-toolbar>
-    </ion-header>
-
-
-    <ion-content>
-                <view_tabexppanel
-            :viewState="viewState"
-            viewName="ProductStatsMobTabExpView"  
-            :viewparams="viewparams" 
-            :context="context" 
-        :activiedTabViewPanel="activiedTabViewPanel"     
-        @changepanel="changePanel"
-            name="tabexppanel"  
-            ref='tabexppanel' 
-            @closeview="closeView($event)">
-        </view_tabexppanel>
-    </ion-content>
-</ion-page>
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if tabviewpanel.getCounterId?? && ta...  [in template "TEMPLCODE_en_US" at line 12, column 17]
+----
 </template>
 
 
@@ -309,6 +261,26 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
+    /**
+     * 计数器数据
+     *
+     * @type {string}
+     * @memberof  ProductStatsMobTabExpViewBase
+     */
+    public counter:any = {counterData:{}} ;
+
+
+    /**
+     * 计数器初始化
+     *
+     * @type {string}
+     * @memberof  ProductStatsMobTabExpViewBase
+     */
+    private counterInit(value:any) {
+        this.counter = value;
+    }
+
     /**
      * 被激活的分页面板
      *

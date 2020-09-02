@@ -24,7 +24,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
     constructor(opts: any = {}) {
         super(opts);
         this.initCounterData();
-        setInterval(() => {
+        this.timer = setInterval(() => {
             this.fetchCounterData(this.context,this.viewparams);
         }, 60000);
     }

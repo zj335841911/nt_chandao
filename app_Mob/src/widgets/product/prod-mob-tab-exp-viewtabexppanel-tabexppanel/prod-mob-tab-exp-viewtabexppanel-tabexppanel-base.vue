@@ -197,7 +197,6 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
         _this.$emit('closeview', args);
     }
 
-
     
     /**
      * ProductMobCounterCounterService计数器服务对象
@@ -215,6 +214,15 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      */    
     protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice];
 
+    /**
+     * 加载计数器数据
+     *
+     * @param {any[]} args
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public async loadCounterData() {
+       this.$emit("counterInit",this.counterServiceArray[0]);
+    }
 
     /**
      * 销毁计数器服务
@@ -299,6 +307,25 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
             });
         }
     }    
+
+    /**
+     * vue 生命周期
+     *
+     * @returns
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public mounted() {
+        this.afterMounted();
+    }
+    
+    /**
+     * 执行mounted后的逻辑
+     *
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public afterMounted(){
+        this.loadCounterData();
+    }
 
     /**
      * vue 生命周期

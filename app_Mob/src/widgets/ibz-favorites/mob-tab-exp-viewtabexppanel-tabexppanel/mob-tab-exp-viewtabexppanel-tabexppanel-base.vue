@@ -164,7 +164,6 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
     }
 
 
-
     /**
      * 计数器服务对象集合
      *
@@ -173,6 +172,15 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      */    
     protected counterServiceArray:Array<any> = [];
 
+    /**
+     * 加载计数器数据
+     *
+     * @param {any[]} args
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public async loadCounterData() {
+       this.$emit("counterInit",this.counterServiceArray[0]);
+    }
 
     /**
      * 销毁计数器服务
@@ -257,6 +265,25 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
             });
         }
     }    
+
+    /**
+     * vue 生命周期
+     *
+     * @returns
+     * @memberof MobTabExpViewtabexppanel
+     */
+    public mounted() {
+        this.afterMounted();
+    }
+    
+    /**
+     * 执行mounted后的逻辑
+     *
+     * @memberof MobTabExpViewtabexppanel
+     */
+    public afterMounted(){
+        this.loadCounterData();
+    }
 
     /**
      * vue 生命周期
