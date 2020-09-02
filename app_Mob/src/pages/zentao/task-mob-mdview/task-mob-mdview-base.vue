@@ -46,7 +46,7 @@
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
                 <ion-icon name="add"></ion-icon>
-                
+            {{$t('task.mobmdviewrighttoolbar_toolbar.deuiaction1.caption')}}    
             </ion-fab-button>
         
             </ion-fab>
@@ -283,7 +283,7 @@ export default class TaskMobMDViewBase extends Vue {
     * @memberof TaskMobMDView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'CreateMob', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'CreateMob', target: 'NONE' } },
 
     };
 
