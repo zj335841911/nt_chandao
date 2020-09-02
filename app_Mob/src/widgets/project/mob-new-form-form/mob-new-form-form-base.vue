@@ -192,11 +192,11 @@
     :error="detailsModel.days.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.days" 
     :disabled="detailsModel.days.disabled" 
-    @change="($event)=>this.data.days = $event" />
+    @change="($event)=>this.data.days = $event"/>
 </app-form-item>
 
 
