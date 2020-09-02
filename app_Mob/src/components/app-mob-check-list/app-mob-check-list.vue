@@ -1,6 +1,6 @@
 <template>
   <div class="app-mobile-check-list">
-    <ion-icon v-if="curValue"  name="close-outline" @click="clear"></ion-icon>
+    <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
     <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
     <ion-select  ref="checkList" @ionChange="change" multiple="true"   :ok-text="$t('app.button.confirm')" :cancel-text="$t('app.button.cancel')">
       <ion-select-option v-for="option of options" :key="option.value" :value="option.value">{{option.text}}

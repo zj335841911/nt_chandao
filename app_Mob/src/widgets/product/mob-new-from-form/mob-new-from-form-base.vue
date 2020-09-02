@@ -124,7 +124,7 @@
     :service="service"
     :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
     :value="data.linename" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.linename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 

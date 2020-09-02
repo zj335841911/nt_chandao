@@ -61,7 +61,7 @@
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchCurUer'}"
     :value="data.productname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.productname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -131,7 +131,7 @@
     :service="service"
     :acParams="{ serviceName: 'module', interfaceName: 'FetchBugModule'}"
     :value="data.modulename" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.modulename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -170,7 +170,7 @@
     :service="service"
     :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
     :value="data.projectname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.projectname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -513,7 +513,7 @@
     :service="service"
     :acParams="{ serviceName: 'story', interfaceName: 'FetchDefault'}"
     :value="data.storyname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.storyname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -552,7 +552,7 @@
     :service="service"
     :acParams="{ serviceName: 'task', interfaceName: 'FetchDefault'}"
     :value="data.taskname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.taskname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 

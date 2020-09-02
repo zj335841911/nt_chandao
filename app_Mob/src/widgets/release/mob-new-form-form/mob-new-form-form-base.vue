@@ -48,7 +48,7 @@
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
     :value="data.productname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.productname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -156,7 +156,7 @@
     :service="service"
     :acParams="{ serviceName: 'build', interfaceName: 'FetchDefault'}"
     :value="data.buildname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @change="($event)=>this.data.buildname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
