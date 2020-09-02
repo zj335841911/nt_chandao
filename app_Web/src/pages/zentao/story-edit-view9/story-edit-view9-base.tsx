@@ -67,6 +67,28 @@ export class StoryEditView9Base extends EditView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryEditView9Base
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryEditView9Base
+	 */
+    protected customViewParams: any = {
+        'objecttype': { isRawValue: true, value: 'story' }
+    };
+
     /**
      * 视图模型数据
      *
