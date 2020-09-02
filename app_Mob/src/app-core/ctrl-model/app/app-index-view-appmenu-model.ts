@@ -17,10 +17,10 @@ export class AppIndexViewModel {
         {
 	id: 'E66AC904-6EB8-44A1-B59E-B1BE817CC8B3',
 	name: 'menuitem5',
-	text: '收藏1',
+	text: '收藏',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '收藏1',
+	tooltip: '收藏',
 	expanded: false,
 	separator: false,
 	hidden: false,
