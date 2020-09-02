@@ -86,6 +86,12 @@ import { acc } from './message-center/app-communications-center';
 import { AppService } from './service/app-service/AppService';
 import { FooterItemsService } from './service/FooterItemsService';
 import { UIStateService } from './service/UIStateService';
+export {
+    acc,
+    AppService,
+    FooterItemsService,
+    UIStateService
+}
 // 服务 End
 // 指令 Start
 import { NotificationSignal } from './directives/notification-signal/notification-signal';
