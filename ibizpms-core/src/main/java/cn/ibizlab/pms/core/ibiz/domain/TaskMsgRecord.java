@@ -29,7 +29,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
 
 /**
- * 实体[待办消息记录]
+ * 实体[待办消息记录]
  */
 @Getter
 @Setter

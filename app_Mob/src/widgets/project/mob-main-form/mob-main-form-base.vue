@@ -40,6 +40,30 @@
 
 
 <app-form-item 
+    name='code' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="code_item"  
+    :itemValue="this.data.code" 
+    v-show="detailsModel.code.visible" 
+    :itemRules="this.rules.code" 
+    :caption="$t('project.mobmain_form.details.code')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.code.disabled"
+    :error="detailsModel.code.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.code" 
+    :context="context" 
+    :value="data.code" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='pm' 
     class='' 
     uiStyle="DEFAULT"  
@@ -196,6 +220,54 @@
 
 
 <app-form-item 
+    name='days' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="days_item"  
+    :itemValue="this.data.days" 
+    v-show="detailsModel.days.visible" 
+    :itemRules="this.rules.days" 
+    :caption="$t('project.mobmain_form.details.days')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.days.disabled"
+    :error="detailsModel.days.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.days" 
+    :context="context" 
+    :value="data.days" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='team' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="team_item"  
+    :itemValue="this.data.team" 
+    v-show="detailsModel.team.visible" 
+    :itemRules="this.rules.team" 
+    :caption="$t('project.mobmain_form.details.team')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.team.disabled"
+    :error="detailsModel.team.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.team" 
+    :context="context" 
+    :value="data.team" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='status' 
     class='' 
     uiStyle="DEFAULT"  
@@ -218,6 +290,147 @@
     :context="context" 
     :value="data.status" 
     :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='storycnt' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="storycnt_item"  
+    :itemValue="this.data.storycnt" 
+    v-show="detailsModel.storycnt.visible" 
+    :itemRules="this.rules.storycnt" 
+    :caption="$t('project.mobmain_form.details.storycnt')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.storycnt.disabled"
+    :error="detailsModel.storycnt.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.storycnt" 
+    :context="context" 
+    :value="data.storycnt" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='bugcnt' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="bugcnt_item"  
+    :itemValue="this.data.bugcnt" 
+    v-show="detailsModel.bugcnt.visible" 
+    :itemRules="this.rules.bugcnt" 
+    :caption="$t('project.mobmain_form.details.bugcnt')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.bugcnt.disabled"
+    :error="detailsModel.bugcnt.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.bugcnt" 
+    :context="context" 
+    :value="data.bugcnt" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='taskcnt' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="taskcnt_item"  
+    :itemValue="this.data.taskcnt" 
+    v-show="detailsModel.taskcnt.visible" 
+    :itemRules="this.rules.taskcnt" 
+    :caption="$t('project.mobmain_form.details.taskcnt')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.taskcnt.disabled"
+    :error="detailsModel.taskcnt.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.taskcnt" 
+    :context="context" 
+    :value="data.taskcnt" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='totalestimate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="totalestimate_item"  
+    :itemValue="this.data.totalestimate" 
+    v-show="detailsModel.totalestimate.visible" 
+    :itemRules="this.rules.totalestimate" 
+    :caption="$t('project.mobmain_form.details.totalestimate')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.totalestimate.disabled"
+    :error="detailsModel.totalestimate.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.totalestimate" 
+    :context="context" 
+    :value="data.totalestimate" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='totalconsumed' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="totalconsumed_item"  
+    :itemValue="this.data.totalconsumed" 
+    v-show="detailsModel.totalconsumed.visible" 
+    :itemRules="this.rules.totalconsumed" 
+    :caption="$t('project.mobmain_form.details.totalconsumed')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.totalconsumed.disabled"
+    :error="detailsModel.totalconsumed.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.totalconsumed" 
+    :context="context" 
+    :value="data.totalconsumed" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('project.mobmain_form.details.desc')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-mob-rich-text-editor>
+
 </app-form-item>
 
 
@@ -582,13 +795,22 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         name: null,
+        code: null,
         pm: null,
         po: null,
         qd: null,
         rd: null,
         begin: null,
         end: null,
+        days: null,
+        team: null,
         status: null,
+        storycnt: null,
+        bugcnt: null,
+        taskcnt: null,
+        totalestimate: null,
+        totalconsumed: null,
+        desc: null,
         id: null,
         project: null,
     };
@@ -672,6 +894,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '项目名称 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '项目名称 值不能为空', trigger: 'blur' },
         ],
+        code: [
+            { type: 'string', message: '项目代号 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目代号 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
+        ],
         pm: [
             { type: 'string', message: '项目负责人 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '项目负责人 值必须为字符串类型', trigger: 'blur' },
@@ -708,11 +936,59 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
         ],
+        days: [
+            { type: 'number', message: '可用工作日 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '可用工作日 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
+        ],
+        team: [
+            { type: 'string', message: '团队名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '团队名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '团队名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '团队名称 值不能为空', trigger: 'blur' },
+        ],
         status: [
             { type: 'string', message: '项目状态 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '项目状态 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '项目状态 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '项目状态 值不能为空', trigger: 'blur' },
+        ],
+        storycnt: [
+            { type: 'number', message: '需求总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '需求总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '需求总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '需求总数 值不能为空', trigger: 'blur' },
+        ],
+        bugcnt: [
+            { type: 'number', message: 'Bug总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: 'Bug总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: 'Bug总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: 'Bug总数 值不能为空', trigger: 'blur' },
+        ],
+        taskcnt: [
+            { type: 'number', message: '任务总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '任务总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '任务总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '任务总数 值不能为空', trigger: 'blur' },
+        ],
+        totalestimate: [
+            { type: 'number', message: '任务最初预计总工时 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '任务最初预计总工时 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '任务最初预计总工时 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '任务最初预计总工时 值不能为空', trigger: 'blur' },
+        ],
+        totalconsumed: [
+            { type: 'number', message: '任务消耗总工时 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '任务消耗总工时 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '任务消耗总工时 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '任务消耗总工时 值不能为空', trigger: 'blur' },
+        ],
+        desc: [
+            { type: 'string', message: '项目描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目描述 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '项目编号 值必须为数值类型', trigger: 'change' },
@@ -828,6 +1104,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '项目名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        code: new FormItemModel({ caption: '项目代号', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         pm: new FormItemModel({ caption: '项目负责人', detailType: 'FORMITEM', name: 'pm', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         po: new FormItemModel({ caption: '产品负责人', detailType: 'FORMITEM', name: 'po', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -840,7 +1118,23 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        days: new FormItemModel({ caption: '可用工作日', detailType: 'FORMITEM', name: 'days', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        team: new FormItemModel({ caption: '团队名称', detailType: 'FORMITEM', name: 'team', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         status: new FormItemModel({ caption: '项目状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storycnt: new FormItemModel({ caption: '需求总数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        bugcnt: new FormItemModel({ caption: 'Bug总数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        taskcnt: new FormItemModel({ caption: '任务总数', detailType: 'FORMITEM', name: 'taskcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        totalestimate: new FormItemModel({ caption: '任务最初预计总工时', detailType: 'FORMITEM', name: 'totalestimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        totalconsumed: new FormItemModel({ caption: '任务消耗总工时', detailType: 'FORMITEM', name: 'totalconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '项目描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -943,6 +1237,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 code 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.code')
+    onCodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'code', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 pm 值
      *
      * @param {*} newVal
@@ -1015,6 +1321,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 days 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.days')
+    onDaysChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'days', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 team 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.team')
+    onTeamChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'team', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 status 值
      *
      * @param {*} newVal
@@ -1024,6 +1354,78 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.status')
     onStatusChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 storycnt 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.storycnt')
+    onStorycntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storycnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 bugcnt 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.bugcnt')
+    onBugcntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'bugcnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 taskcnt 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.taskcnt')
+    onTaskcntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'taskcnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 totalestimate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.totalestimate')
+    onTotalestimateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'totalestimate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 totalconsumed 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.totalconsumed')
+    onTotalconsumedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'totalconsumed', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1074,6 +1476,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1269,7 +1680,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'pm_item', 'po_item', 'qd_item', 'rd_item', 'begin_item', 'end_item', 'status_item', ];
+        const refArr: Array<string> = ['name_item', 'code_item', 'pm_item', 'po_item', 'qd_item', 'rd_item', 'begin_item', 'end_item', 'days_item', 'team_item', 'status_item', 'storycnt_item', 'bugcnt_item', 'taskcnt_item', 'totalestimate_item', 'totalconsumed_item', 'desc_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

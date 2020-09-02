@@ -98,6 +98,7 @@ export default {
 			activebugcnt: '未解决Bug数', 
 			notclosedbugcnt: '未关闭Bug数', 
 			casecnt: '用例数', 
+			desc: '产品描述	', 
 			id: '编号', 
 		},
 		uiactions: {
