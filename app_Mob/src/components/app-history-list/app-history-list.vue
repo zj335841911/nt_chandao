@@ -201,12 +201,12 @@ export default class APPHistoryList extends Vue {
           this.endHeig = 0;
             for(let i = 0; i < this.num; i++){
               if (ite[i] != undefined) {
-                this.startHeig += ite[i].offsetHeight + 15;
+                this.startHeig += ite[i].offsetHeight + 25;
               }
             }
             for(let i = 0; i <= ite.length; i++){
               if (ite[i] != undefined) {              
-              this.endHeig += ite[i].offsetHeight + 15;
+              this.endHeig += ite[i].offsetHeight + 25;
               }
             }  
           ele.style.height = this.isShow?this.endHeig+'px':  + this.startHeig+'px';
@@ -236,7 +236,7 @@ export default class APPHistoryList extends Vue {
       if (ite !== undefined) {
         for(let i:any = 0; i < this.num; i++){
           if (ite[i] !== undefined) {
-            this.startHeig += ite[i].offsetHeight + 15;
+            this.startHeig += ite[i].offsetHeight + 25;
           }
         }
       }

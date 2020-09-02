@@ -171,6 +171,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '25c88b88ef4d39886b97fe4efd5d6568',
+            viewmodule: 'zentao',
+            viewname: 'ProjectNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '2771dfa8ed94c48f35d293293bfbf6ac',
             viewmodule: 'ibiz',
             viewname: 'BuildMobPickupMDView',
@@ -927,6 +936,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '25c88b88ef4d39886b97fe4efd5d6568',
                 '6adf02d82097636627af57103a3a49fd',
                 '5a5215f43247569540ff912edf51eb09',
             ],

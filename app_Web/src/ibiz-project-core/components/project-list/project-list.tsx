@@ -93,7 +93,7 @@ export class ProjectList extends Vue {
      * @memberof ProjectList
      */
     protected renderItem(p: Project): any {
-        return <listItem>
+        return <listItem class={{'is-top': p.istop}}>
             <div class="content-wrapper" on-click={(e: any) => this.click(e, p)}>
                 <div class="title">
                     <tag type="border">{p.id}</tag>
