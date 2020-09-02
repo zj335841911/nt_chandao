@@ -306,6 +306,14 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         }
         return true;
     }
+    
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProductProdMobTabExpView
+     */
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
 
     /**
      * 计数器服务对象集合
@@ -313,7 +321,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
      * @type {Array<*>}
      * @memberof ProductProdMobTabExpView
      */    
-    protected counterServiceArray:Array<any> = [];
+    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice,];
 
 
     /**
