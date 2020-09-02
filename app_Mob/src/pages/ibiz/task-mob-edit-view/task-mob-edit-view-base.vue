@@ -172,7 +172,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
@@ -181,7 +181,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task' };
 
     /**
      * 视图模型数据

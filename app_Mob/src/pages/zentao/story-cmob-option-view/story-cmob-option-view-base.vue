@@ -175,7 +175,7 @@ export default class StoryCMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof StoryCMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%story%', 'objecttype': 'story' };
 
     /**
      * 视图模型数据

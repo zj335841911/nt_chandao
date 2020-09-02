@@ -175,7 +175,7 @@ export default class StoryACMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof StoryACMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%story%', 'objecttype': 'story' };
 
     /**
      * 视图模型数据
