@@ -62,11 +62,11 @@
     :error="detailsModel.left.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.left" 
     :disabled="detailsModel.left.disabled" 
-    @change="($event)=>this.data.left = $event" />
+    @change="($event)=>this.data.left = $event"/>
 </app-form-item>
 
 

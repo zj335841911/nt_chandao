@@ -31,11 +31,11 @@
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.consumed" 
     :disabled="detailsModel.consumed.disabled" 
-    @change="($event)=>this.data.consumed = $event" />
+    @change="($event)=>this.data.consumed = $event"/>
 </app-form-item>
 
 
@@ -56,11 +56,11 @@
     :error="detailsModel.currentconsumed.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.currentconsumed" 
     :disabled="detailsModel.currentconsumed.disabled" 
-    @change="($event)=>this.data.currentconsumed = $event" />
+    @change="($event)=>this.data.currentconsumed = $event"/>
 </app-form-item>
 
 
@@ -81,11 +81,11 @@
     :error="detailsModel.totaltime.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.totaltime" 
     :disabled="detailsModel.totaltime.disabled" 
-    @change="($event)=>this.data.totaltime = $event" />
+    @change="($event)=>this.data.totaltime = $event"/>
 </app-form-item>
 
 
