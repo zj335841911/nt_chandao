@@ -285,6 +285,16 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         return true;
     }
 
+
+    /**
+     * 计数器服务初始化
+     *
+     * @type {Array<*>}
+     * @memberof IbzFavoritesMobTabExpView
+     */    
+    public counterserviceInit(){
+    }
+
     /**
      * 计数器服务对象集合
      *
@@ -416,7 +426,7 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-this.getLocalStorage();
+        this.getLocalStorage();
 
     }
 
@@ -451,6 +461,7 @@ this.getLocalStorage();
             _this.loadModel();
         }
         this.thirdPartyInit();
+        this.counterserviceInit();
 
     }
 

@@ -313,7 +313,24 @@ export default class ProductProdMobTabExpViewBase extends Vue {
      * @type {ProductMobCounterCounterService}
      * @memberof ProductProdMobTabExpView
      */
-    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService();
+    protected ProductMobCountercounterservice: any;
+
+
+    /**
+     * 计数器服务初始化
+     *
+     * @type {Array<*>}
+     * @memberof ProductProdMobTabExpView
+     */    
+    public counterserviceInit(){
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProductProdMobTabExpView
+     */
+    this.ProductMobCountercounterservice = new ProductMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
+    }
 
     /**
      * 计数器服务对象集合
@@ -446,7 +463,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-this.getLocalStorage();
+        this.getLocalStorage();
 
     }
 
@@ -481,6 +498,7 @@ this.getLocalStorage();
             _this.loadModel();
         }
         this.thirdPartyInit();
+        this.counterserviceInit();
 
     }
 
