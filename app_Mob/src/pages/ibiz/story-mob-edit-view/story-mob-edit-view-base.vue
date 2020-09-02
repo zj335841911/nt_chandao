@@ -172,7 +172,7 @@ export default class StoryMobEditViewBase extends Vue {
      * @type {*}
      * @memberof StoryMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'story', 'srfparentkey': '%story%' };
 
     /**
      * 视图导航参数
@@ -181,7 +181,7 @@ export default class StoryMobEditViewBase extends Vue {
      * @type {*}
      * @memberof StoryMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%story%', 'objecttype': 'story' };
 
     /**
      * 视图模型数据

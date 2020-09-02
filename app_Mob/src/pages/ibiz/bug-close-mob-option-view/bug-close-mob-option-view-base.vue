@@ -175,7 +175,7 @@ export default class BugCloseMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof BugCloseMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%bug%', 'objecttype': 'bug' };
 
     /**
      * 视图模型数据

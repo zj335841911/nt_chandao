@@ -199,7 +199,7 @@ export default class BugMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BugMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'bug', 'srfparentkey': '%bug%' };
 
     /**
      * 视图导航参数
@@ -208,7 +208,7 @@ export default class BugMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BugMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%bug%', 'objecttype': 'bug' };
 
     /**
      * 视图模型数据

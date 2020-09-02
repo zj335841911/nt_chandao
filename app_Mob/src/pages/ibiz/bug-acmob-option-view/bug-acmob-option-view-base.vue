@@ -175,7 +175,7 @@ export default class BugACMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof BugACMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%bug%', 'objecttype': 'bug' };
 
     /**
      * 视图模型数据
