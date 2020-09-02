@@ -134,12 +134,12 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     @JsonProperty("title")
     private String title;
     /**
-     * 重定向地址
+     * 数据标识
      */
-    @TableField(value = "redirecturl")
-    @JSONField(name = "redirecturl")
-    @JsonProperty("redirecturl")
-    private String redirecturl;
+    @TableField(value = "dataid")
+    @JSONField(name = "dataid")
+    @JsonProperty("dataid")
+    private String dataid;
 
 
 
@@ -192,11 +192,11 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [重定向地址]
+     * 设置 [数据标识]
      */
-    public void setRedirecturl(String redirecturl){
-        this.redirecturl = redirecturl ;
-        this.modify("redirecturl",redirecturl);
+    public void setDataid(String dataid){
+        this.dataid = dataid ;
+        this.modify("dataid",dataid);
     }
 
 
