@@ -126,6 +126,10 @@ export class StorySubGridViewBase extends GridViewBase {
      * @memberof StorySubGridView
      */
     public toolBarModels: any = {
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
+
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
+
     };
 
 
@@ -158,6 +162,12 @@ export class StorySubGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
+            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
+                this.opendata(args,fullargs, params, $event, xData);
+            },
+            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
+                this.newdata(args,fullargs, params, $event, xData);
+            },
             grid: this.$refs.grid,
             keyPSDEField: 'substory',
             majorPSDEField: 'title',
@@ -293,6 +303,115 @@ export class StorySubGridViewBase extends GridViewBase {
     }
 
     /**
+     * 打开新建数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @memberof StorySubGridView
+     */
+    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
+        let localContext:any = null;
+        let localViewParam:any =null;
+        const data: any = {};
+        if(args[0].srfsourcekey){
+            data.srfsourcekey = args[0].srfsourcekey;
+        }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
+        }
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        delete tempContext.story;
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        let deResParameters: any[] = [];
+        if(tempContext.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+        const _this: any = this;
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
+        }
+        const view: any = {
+            viewname: 'story-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.story.views.editview.title'),
+            placement: 'DRAWER_RIGHT',
+        };
+        openDrawer(view, data);
+    }
+
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @memberof StorySubGridView
+     */
+    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
+        const localContext: any = null;
+        const localViewParam: any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        let deResParameters: any[] = [];
+        if(tempContext.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+        const _this: any = this;
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
+        }
+        const view: any = {
+            viewname: 'story-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.story.views.editview.title'),
+            placement: 'DRAWER_RIGHT',
+        };
+        openDrawer(view, data);
+    }
+
+
+    /**
      * 新建行
      *
      * @param {any[]} args 当前数据
@@ -334,16 +453,4 @@ export class StorySubGridViewBase extends GridViewBase {
             _this.save();
         }
     }
-
-    /**
-     * 表格行数据默认激活模式
-     * 0 不激活
-     * 1 单击激活
-     * 2 双击激活
-     *
-     * @protected
-     * @type {(0 | 1 | 2)}
-     * @memberof StorySubGridViewBase
-     */
-    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

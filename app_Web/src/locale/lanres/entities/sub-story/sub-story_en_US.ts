@@ -78,5 +78,13 @@ export default {
 		},
 	},
 	subgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
+		},
 	},
 };
