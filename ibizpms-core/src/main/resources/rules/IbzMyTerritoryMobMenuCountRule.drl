@@ -51,7 +51,11 @@ ruleflow-group "ibzmyterritorymobmenucountrawsqlcall4"
     param.put("param3",ibzmyterritorymobmenucountdefault.get("myetasks"));
     param.put("param4",ibzmyterritorymobmenucountdefault.get("mystorys"));
     param.put("param5",ibzmyterritorymobmenucountdefault.get("mystorys"));
-    String strSql="select ((case when #{et.param0} is null then 0 else #{et.param1} end )+ (case when #{et.param2} is null then 0 else #{et.param3} end ) + (case when #{et.param4} is null then 0 else #{et.param5} end )) as MYTERRITORYCNT from dual";
+    param.put("param6",ibzmyterritorymobmenucountdefault.get("mytodocnt"));
+    param.put("param7",ibzmyterritorymobmenucountdefault.get("mytodocnt"));
+    param.put("param8",ibzmyterritorymobmenucountdefault.get("mytodocnt"));
+    param.put("param9",ibzmyterritorymobmenucountdefault.get("mytodocnt"));
+    String strSql="select ((case when #{et.param0} is null then 0 else #{et.param1} end )+ (case when #{et.param2} is null then 0 else #{et.param3} end ) + (case when #{et.param4} is null then 0 else #{et.param5} end ) + (case when #{et.param6} is null then 0 else #{et.param7} end )) as MYTERRITORYCNT from dual";
     java.util.List<JSONObject> entities=iBzSysIbzmyterritoryDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
