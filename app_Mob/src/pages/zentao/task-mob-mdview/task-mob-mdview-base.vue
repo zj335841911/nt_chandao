@@ -607,6 +607,7 @@ export default class TaskMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
+                // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
@@ -663,6 +664,7 @@ export default class TaskMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
+                // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }

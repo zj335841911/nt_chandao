@@ -181,6 +181,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -241,6 +242,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -304,6 +306,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -367,6 +370,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -488,6 +492,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -608,6 +613,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }

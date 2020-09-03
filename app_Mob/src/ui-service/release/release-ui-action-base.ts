@@ -149,6 +149,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
