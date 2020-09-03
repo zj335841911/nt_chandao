@@ -132,7 +132,11 @@ export default class AppRichTextEditor extends Vue {
      * @memberof AppRichTextEditor
      */
     public open(){
-       this.openPopupModal({ viewname: 'app-rich-text', title: 'app-rich-text'},{},{value:this.value,uploadUrl:this.uploadUrl,export_params:this.export_params});
+      if(this.value){
+        const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
+        this.value = this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
+      }
+      this.openPopupModal({ viewname: 'app-rich-text', title: 'app-rich-text'},{},{value:this.value,uploadUrl:this.uploadUrl,export_params:this.export_params});
     }
 
     /**
