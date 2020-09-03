@@ -19,11 +19,12 @@ public class AuthorizationLogin
     @NotBlank(message="用户名不能为空")
     private String loginname;
 
-
-
     @NotBlank(message="密码不能为空")
     private String password;
 
+    private String devslnsysid;
+
+    private String proxyloginname;
 
     public String getUsername()
     {
