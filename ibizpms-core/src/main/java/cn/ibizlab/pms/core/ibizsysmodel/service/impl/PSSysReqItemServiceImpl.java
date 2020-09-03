@@ -236,6 +236,16 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
             this.removeBatch(delIds);
     }
 
+    @Override
+    public void removeByPpssysreqitemid(String devSlnSysId,String pssysreqitemid) {
+        Set<String> delIds=new HashSet<String>();
+        for(PSSysReqItem before:selectByPpssysreqitemid(devSlnSysId,pssysreqitemid)){
+            delIds.add(before.getPssysreqitemid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
 	@Override
     public List<PSSysReqItem> selectByPssysreqmoduleid(String pssysreqmoduleid) {
         PSSysReqItemSearchContext context=new PSSysReqItemSearchContext();
@@ -256,6 +266,16 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     public void removeByPssysreqmoduleid(String pssysreqmoduleid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSysReqItem before:selectByPssysreqmoduleid(pssysreqmoduleid)){
+            delIds.add(before.getPssysreqitemid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
+    @Override
+    public void removeByPssysreqmoduleid(String devSlnSysId,String pssysreqmoduleid) {
+        Set<String> delIds=new HashSet<String>();
+        for(PSSysReqItem before:selectByPssysreqmoduleid(devSlnSysId,pssysreqmoduleid)){
             delIds.add(before.getPssysreqitemid());
         }
         if(delIds.size()>0)

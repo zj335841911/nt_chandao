@@ -236,6 +236,16 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
             this.removeBatch(delIds);
     }
 
+    @Override
+    public void removeByPpssysreqmoduleid(String devSlnSysId,String pssysreqmoduleid) {
+        Set<String> delIds=new HashSet<String>();
+        for(PSSysReqModule before:selectByPpssysreqmoduleid(devSlnSysId,pssysreqmoduleid)){
+            delIds.add(before.getPssysreqmoduleid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
 
 
     /**
