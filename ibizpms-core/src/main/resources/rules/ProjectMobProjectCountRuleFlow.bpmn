@@ -8,8 +8,17 @@
         <tns:global identifier="projectmobprojectcountdefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         </extensionElements>
      <startEvent id="24383164-2065-4DA9-8053-66B2F1D48C52" isInterrupting="true"/>
-     <endEvent id="24383164-2065-4DA9-8053-66B2F1D48C52_End" name="End"/>
-     <sequenceFlow id="24383164-2065-4DA9-8053-66B2F1D48C52_End_Line" sourceRef="24383164-2065-4DA9-8053-66B2F1D48C52" targetRef="24383164-2065-4DA9-8053-66B2F1D48C52_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall1" id="0733D99C-C8E8-4BFB-B77B-553CD743D459" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall3" id="A677837B-0553-46C3-8883-CF3225586054" implementation="http://www.jboss.org/drools/rule" name="获取Bug数"/>
+     <endEvent id="A677837B-0553-46C3-8883-CF3225586054_End" name="End"/>
+     <sequenceFlow id="A677837B-0553-46C3-8883-CF3225586054_End_Line" sourceRef="A677837B-0553-46C3-8883-CF3225586054" targetRef="A677837B-0553-46C3-8883-CF3225586054_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall2" id="6EC04F8B-2ECF-4B29-9316-7925A1431943" implementation="http://www.jboss.org/drools/rule" name="获取任务数"/>
+     <sequenceFlow id="8F4EBB8D-D442-4D42-A46A-F9DED0D877BD" sourceRef="0733D99C-C8E8-4BFB-B77B-553CD743D459" targetRef="6EC04F8B-2ECF-4B29-9316-7925A1431943">
+     </sequenceFlow>
+     <sequenceFlow id="4A71E818-835E-4BA8-BCAF-E6D775F301F2" sourceRef="24383164-2065-4DA9-8053-66B2F1D48C52" targetRef="0733D99C-C8E8-4BFB-B77B-553CD743D459">
+     </sequenceFlow>
+     <sequenceFlow id="02DCC70C-E37B-40A0-B6A1-D8DB0951147C" sourceRef="6EC04F8B-2ECF-4B29-9316-7925A1431943" targetRef="A677837B-0553-46C3-8883-CF3225586054">
+     </sequenceFlow>
     </process>
 </definitions>
 
