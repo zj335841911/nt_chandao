@@ -17,7 +17,7 @@
                             
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
-                            
+                            <ion-badge color="danger">{{counter.counterData.relatedbugcnt?counter.counterData.relatedbugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             
