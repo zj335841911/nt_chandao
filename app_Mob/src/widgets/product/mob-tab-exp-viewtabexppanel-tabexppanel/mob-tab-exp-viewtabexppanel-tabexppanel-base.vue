@@ -70,7 +70,7 @@ import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/product/mob
 
 import ProductUIService from '@/ui-service/product/product-ui-action';
 
-import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
+import  ProductTestMobCounterCounterService  from '@/app-core/counter/product-test-mob-counter/product-test-mob-counter-counter';
 
 
 @Component({
@@ -199,12 +199,12 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
 
     
     /**
-     * ProductMobCounterCounterService计数器服务对象
+     * ProductTestMobCounterCounterService计数器服务对象
      *
-     * @type {ProductMobCounterCounterService}
+     * @type {ProductTestMobCounterCounterService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
+    protected ProductTestMobCountercounterservice: ProductTestMobCounterCounterService = new ProductTestMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
 
     /**
      * 计数器服务对象集合
@@ -212,7 +212,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {Array<*>}
      * @memberof MobTabExpViewtabexppanel
      */    
-    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice];
+    protected counterServiceArray:Array<any> = [this.ProductTestMobCountercounterservice];
 
     /**
      * 加载计数器数据

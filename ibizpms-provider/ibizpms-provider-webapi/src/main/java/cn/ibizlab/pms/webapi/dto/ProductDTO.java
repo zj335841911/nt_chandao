@@ -329,6 +329,22 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("istop")
     private Integer istop;
 
+    /**
+     * 属性 [TESTTASKCNT]
+     *
+     */
+    @JSONField(name = "testtaskcnt")
+    @JsonProperty("testtaskcnt")
+    private Integer testtaskcnt;
+
+    /**
+     * 属性 [TESTSUITECNT]
+     *
+     */
+    @JSONField(name = "testsuitecnt")
+    @JsonProperty("testsuitecnt")
+    private Integer testsuitecnt;
+
 
     /**
      * 设置 [QD]

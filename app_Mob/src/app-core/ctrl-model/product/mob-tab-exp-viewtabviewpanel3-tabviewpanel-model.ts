@@ -129,6 +129,12 @@ export class MobTabExpViewtabviewpanel3Model {
       {
         name: 'istop',
       },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
     ]
   }
 

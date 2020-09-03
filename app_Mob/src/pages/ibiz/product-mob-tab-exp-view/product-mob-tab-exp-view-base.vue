@@ -20,13 +20,13 @@
                             <ion-badge color="danger">{{counter.counterData.relatedbugcnt?counter.counterData.relatedbugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            
+                            <ion-badge color="danger">{{counter.counterData.casecnt?counter.counterData.casecnt:''}}</ion-badge>
                             功能测试</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                            
+                            <ion-badge color="danger">{{counter.counterData.testtaskcnt?counter.counterData.testtaskcnt:''}}</ion-badge>
                             测试单</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                            
+                            <ion-badge color="danger">{{counter.counterData.testsuitecnt?counter.counterData.testsuitecnt:''}}</ion-badge>
                             套件</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
