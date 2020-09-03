@@ -33,6 +33,8 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import cn.ibizlab.pms.core.ibizsysmodel.client.PSSysReqItemFeignClient;
+import cn.ibizlab.pms.util.security.SpringContextHolder;
+import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
 
 /**
  * 实体[系统需求项] 服务对象接口实现
@@ -43,6 +45,18 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Autowired
     PSSysReqItemFeignClient pSSysReqItemFeignClient;
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}")
+    private String serviceName;
+
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:labadmin}")
+    private String loginname;
+
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:labadmin@2018}")
+    private String password;
+    
+    public PSSysReqItemServiceImpl(){
+        pSSysReqItemFeignClient = OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password);
+    }
 
 
     @Override
