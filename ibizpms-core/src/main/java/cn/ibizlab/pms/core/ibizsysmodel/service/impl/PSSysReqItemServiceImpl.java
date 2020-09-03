@@ -33,7 +33,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import cn.ibizlab.pms.core.ibizsysmodel.client.PSSysReqItemFeignClient;
-import org.springframework.context.ApplicationContext;
+import cn.ibizlab.pms.util.security.SpringContextHolder;
 import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
 
 /**
@@ -56,7 +56,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     private String password;
     
     public PSSysReqItemFeignClient getPSSysReqItemFeignClient(String devSlnSysId) {
-        return OutsideAccessorUtils.buildAccessor(applicationContext, PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
+        return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
     }
 
 
