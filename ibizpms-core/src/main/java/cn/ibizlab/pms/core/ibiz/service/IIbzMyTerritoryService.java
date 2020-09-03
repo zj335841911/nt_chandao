@@ -36,6 +36,7 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     IbzMyTerritory getDraft(IbzMyTerritory et) ;
     boolean checkKey(IbzMyTerritory et) ;
     IbzMyTerritory mobMenuCount(IbzMyTerritory et) ;
+    IbzMyTerritory myFavoriteCount(IbzMyTerritory et) ;
     IbzMyTerritory myTerritoryCount(IbzMyTerritory et) ;
     boolean save(IbzMyTerritory et) ;
     void saveBatch(List<IbzMyTerritory> list) ;

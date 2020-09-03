@@ -17,13 +17,13 @@
                             
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            
+                            <ion-badge color="danger">{{counter.counterData.taskcnt?counter.counterData.taskcnt:''}}</ion-badge>
                             任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
                             
                             版本</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                            
+                            <ion-badge color="danger">{{counter.counterData.bugcnt?counter.counterData.bugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             

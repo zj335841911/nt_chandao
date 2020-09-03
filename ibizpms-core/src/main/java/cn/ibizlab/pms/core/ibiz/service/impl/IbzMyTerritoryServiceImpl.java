@@ -53,6 +53,10 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyFavoriteCountLogic myfavoritecountLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyTerritoryCountLogic myterritorycountLogic;
 
     protected int batchSize = 500;
@@ -123,6 +127,13 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Transactional
     public IbzMyTerritory mobMenuCount(IbzMyTerritory et) {
         mobmenucountLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public IbzMyTerritory myFavoriteCount(IbzMyTerritory et) {
+        myfavoritecountLogic.execute(et);
          return et ;
     }
 

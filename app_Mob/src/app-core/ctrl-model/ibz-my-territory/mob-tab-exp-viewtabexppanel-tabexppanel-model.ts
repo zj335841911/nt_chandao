@@ -144,6 +144,21 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'mytodocnt',
       },
+      {
+        name: 'myfavoritestorys',
+      },
+      {
+        name: 'myfavoritebugs',
+      },
+      {
+        name: 'myfavoritetasks',
+      },
+      {
+        name: 'myfavorites',
+      },
+      {
+        name: 'myterritorycnt',
+      },
     ]
   }
 

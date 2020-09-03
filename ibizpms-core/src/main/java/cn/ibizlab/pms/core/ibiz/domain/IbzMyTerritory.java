@@ -356,6 +356,41 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @JSONField(name = "mytodocnt")
     @JsonProperty("mytodocnt")
     private Integer mytodocnt;
+    /**
+     * 我收藏的需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavoritestorys")
+    @JsonProperty("myfavoritestorys")
+    private Integer myfavoritestorys;
+    /**
+     * 我收藏的bugs
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavoritebugs")
+    @JsonProperty("myfavoritebugs")
+    private Integer myfavoritebugs;
+    /**
+     * 我收藏的任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavoritetasks")
+    @JsonProperty("myfavoritetasks")
+    private Integer myfavoritetasks;
+    /**
+     * 我的收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavorites")
+    @JsonProperty("myfavorites")
+    private Integer myfavorites;
+    /**
+     * 我的地盘
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myterritorycnt")
+    @JsonProperty("myterritorycnt")
+    private Integer myterritorycnt;
 
 
 

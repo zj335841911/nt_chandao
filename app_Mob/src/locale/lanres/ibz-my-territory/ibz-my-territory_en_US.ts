@@ -43,6 +43,11 @@ export default {
     projects: "未关闭项目数",
     myetasks: "我的过期任务数",
     mytodocnt: "我的待办数",
+    myfavoritestorys: "我收藏的需求数",
+    myfavoritebugs: "我收藏的bugs",
+    myfavoritetasks: "我收藏的任务",
+    myfavorites: "我的收藏",
+    myterritorycnt: "我的地盘",
   },
 	views: {
 		mobtabexpview: {

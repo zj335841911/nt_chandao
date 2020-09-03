@@ -129,6 +129,16 @@ public class IbzMyTerritoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritorydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MyFavoriteCount-all')")
+    @ApiOperation(value = "我的收藏计数器", tags = {"我的地盘" },  notes = "我的收藏计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/myfavoritecount")
+    public ResponseEntity<IbzMyTerritoryDTO> myFavoriteCount() {
+        IbzMyTerritory domain =new IbzMyTerritory();
+        domain = ibzmyterritoryService.myFavoriteCount(domain);
+        IbzMyTerritoryDTO ibzmyterritorydto = ibzmyterritoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritorydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MyTerritoryCount-all')")
     @ApiOperation(value = "我的地盘移动端计数器", tags = {"我的地盘" },  notes = "我的地盘移动端计数器")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/myterritorycount")
