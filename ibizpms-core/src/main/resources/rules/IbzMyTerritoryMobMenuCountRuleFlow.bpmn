@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymobmenucount" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymobmenucount">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="ibzmyterritorymobmenucountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
+        </extensionElements>
+     <startEvent id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" isInterrupting="true"/>
+     <endEvent id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC_End" name="End"/>
+     <sequenceFlow id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC_End_Line" sourceRef="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" targetRef="F32B689E-3B32-4D8E-BC9F-D8FE603102BC_End"/>
+    </process>
+</definitions>
+
