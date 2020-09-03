@@ -14,16 +14,16 @@
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
-                            
+                            <ion-badge color="danger">{{counter.counterData.mystorys?counter.counterData.mystorys:''}}</ion-badge>
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            
+                            <ion-badge color="danger">{{counter.counterData.mytasks?counter.counterData.mytasks:''}}</ion-badge>
                             任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                            
+                            <ion-badge color="danger">{{counter.counterData.mybugs?counter.counterData.mybugs:''}}</ion-badge>
                             Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                            
+                            <ion-badge color="danger">{{counter.counterData.mytodocnt?counter.counterData.mytodocnt:''}}</ion-badge>
                             待办</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>

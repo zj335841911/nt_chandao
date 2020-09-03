@@ -59,6 +59,7 @@ import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-my-terr
 
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
+import  MyMobCounterCounterService  from '@/app-core/counter/my-mob-counter/my-mob-counter-counter';
 
 
 @Component({
@@ -185,6 +186,14 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * MyMobCounterCounterService计数器服务对象
+     *
+     * @type {MyMobCounterCounterService}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    protected MyMobCountercounterservice: MyMobCounterCounterService = new MyMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
 
     /**
      * 计数器服务对象集合
@@ -192,7 +201,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {Array<*>}
      * @memberof MobTabExpViewtabexppanel
      */    
-    protected counterServiceArray:Array<any> = [];
+    protected counterServiceArray:Array<any> = [this.MyMobCountercounterservice];
 
     /**
      * 加载计数器数据
