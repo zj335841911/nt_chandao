@@ -222,6 +222,9 @@ export default class MainModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

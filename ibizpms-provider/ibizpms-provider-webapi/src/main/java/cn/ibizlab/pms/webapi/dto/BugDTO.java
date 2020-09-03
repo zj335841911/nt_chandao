@@ -583,6 +583,14 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("createbuild")
     private Integer createbuild;
 
+    /**
+     * 属性 [OVERDUEBUGS]
+     *
+     */
+    @JSONField(name = "overduebugs")
+    @JsonProperty("overduebugs")
+    private Integer overduebugs;
+
 
     /**
      * 设置 [SEVERITY]

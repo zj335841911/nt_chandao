@@ -6121,7 +6121,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "EXPIREDBUG",
                 label: "过期Bug",
                 text: "过期Bug",
-                "data":{"n_deadline_lt": "%srfcurdate%"},
+                "data":{"n_overduebugs_lt":  0},
                 "codename":"Expiredbug",
                 value: "EXPIREDBUG",
                 "pvalue": "MORE",
