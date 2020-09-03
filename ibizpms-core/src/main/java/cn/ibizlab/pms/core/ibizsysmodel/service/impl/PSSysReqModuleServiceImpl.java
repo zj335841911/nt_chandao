@@ -43,7 +43,7 @@ import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
 @Service
 public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
-    @Autowired
+//    @Autowired
     PSSysReqModuleFeignClient pSSysReqModuleFeignClient;
     
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}")
