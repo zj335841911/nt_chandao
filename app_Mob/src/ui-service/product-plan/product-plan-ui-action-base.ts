@@ -149,7 +149,6 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
-                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
