@@ -49,7 +49,7 @@
         
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
-                <ion-icon name="done-all"></ion-icon>
+                <ion-icon name="checkmark-outline"></ion-icon>
                 
             </ion-fab-button>
         
