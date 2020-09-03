@@ -1,7 +1,7 @@
 <template>
   <div class="app-mob-rich-text-editor" @click="open">
-    <div class="rich-text-editor-info" v-html="reValue"></div>
-    <ion-icon class="app-mob-rich-text-editor-icon" v-if="!reValue" name="options-outline" @click.stop="open"></ion-icon>
+    <div class="rich-text-editor-info" v-html="showVal"></div>
+    <ion-icon class="app-mob-rich-text-editor-icon" v-if="!showVal" name="options-outline" @click.stop="open"></ion-icon>
   </div>
 </template>
 <script lang = 'ts'>
@@ -19,25 +19,18 @@ export default class AppRichTextEditor extends Vue {
      */
     @Prop() public value?: any;
 
-   /**
-     * 绑定值
-     *
-     * @type {string}
-     * @memberof AppRichTextEditor
-     */
-    get reValue(){
-      const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
-      return this.value ? this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`) : "";
-    }
-
+    public showVal:string = "";
+    
     /**
-     * 获取值
+     * 展示的值
      *
      * @type {string}
      * @memberof AppRichTextEditor
      */
-    set reValue(value:any){
-      this.$emit("change", value);
+    @Watch("value")
+    onValueChange(){
+      const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
+      this.showVal = this.value ? this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`) : "";
     }
 
     /**
@@ -138,7 +131,7 @@ export default class AppRichTextEditor extends Vue {
         const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
         curVal = this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
       }
-      this.openPopupModal({ viewname: 'app-rich-text', title: 'app-rich-text'},{},{value:curVal,uploadUrl:this.uploadUrl,export_params:this.export_params});
+      this.openPopupModal({ viewname: 'app-rich-text-pms', title: 'app-rich-text-pms'},{},{value:curVal,uploadUrl:this.uploadUrl,export_params:this.export_params});
     }
 
     /**
@@ -150,7 +143,7 @@ export default class AppRichTextEditor extends Vue {
     private async openPopupModal(view: any, context: any, param: any): Promise<any> {
         const result: any = await this.$appmodal.openModal(view, context, param);
         if (result || Object.is(result.ret, 'OK')) {
-            this.reValue = result.datas[0];
+            this.$emit("change", result.datas[0].backEnd);
         }
     }
 
