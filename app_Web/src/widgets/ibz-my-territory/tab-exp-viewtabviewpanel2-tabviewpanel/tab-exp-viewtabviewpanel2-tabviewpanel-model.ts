@@ -144,6 +144,21 @@ export default class TabExpViewtabviewpanel2Model {
       {
         name: 'mytodocnt',
       },
+      {
+        name: 'myfavoritestorys',
+      },
+      {
+        name: 'myfavoritebugs',
+      },
+      {
+        name: 'myfavoritetasks',
+      },
+      {
+        name: 'myfavorites',
+      },
+      {
+        name: 'myterritorycnt',
+      },
     ]
   }
 
