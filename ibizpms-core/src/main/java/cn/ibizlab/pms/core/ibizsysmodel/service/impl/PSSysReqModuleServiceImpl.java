@@ -46,7 +46,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 //    @Autowired
     PSSysReqModuleFeignClient pSSysReqModuleFeignClient;
     
-    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}")
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:ibizpssysmodelapi-sysmodelapi}")
     private String serviceName;
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:loginname}")
