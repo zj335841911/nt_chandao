@@ -728,7 +728,7 @@ export default class ActionMobMDView9Base extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ActionMobMDView9Base
      */
     public onCategory(value:any){
         this.categoryValue = value;

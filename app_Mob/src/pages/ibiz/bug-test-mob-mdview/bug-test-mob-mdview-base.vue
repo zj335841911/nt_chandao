@@ -897,7 +897,7 @@ export default class BugTestMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof BugTestMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

@@ -721,7 +721,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof CaseStepMobMDView9Base
      */
     public onCategory(value:any){
         this.categoryValue = value;

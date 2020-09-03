@@ -794,7 +794,7 @@ export default class StoryMobMDView9Base extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof StoryMobMDView9Base
      */
     public onCategory(value:any){
         this.categoryValue = value;

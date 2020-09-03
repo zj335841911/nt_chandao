@@ -893,7 +893,7 @@ export default class TaskMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof TaskMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

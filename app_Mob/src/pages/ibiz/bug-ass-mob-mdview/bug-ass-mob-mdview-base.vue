@@ -810,7 +810,7 @@ export default class BugAssMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof BugAssMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

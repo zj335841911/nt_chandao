@@ -798,7 +798,7 @@ export default class TestTaskMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof TestTaskMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

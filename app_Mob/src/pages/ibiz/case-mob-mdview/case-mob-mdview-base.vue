@@ -806,7 +806,7 @@ export default class CaseMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof CaseMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

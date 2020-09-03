@@ -806,7 +806,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof TaskFavoriteMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

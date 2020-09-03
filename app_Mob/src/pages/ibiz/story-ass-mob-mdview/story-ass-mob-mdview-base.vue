@@ -794,7 +794,7 @@ export default class StoryAssMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof StoryAssMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

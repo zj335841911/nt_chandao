@@ -881,7 +881,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ReleaseMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

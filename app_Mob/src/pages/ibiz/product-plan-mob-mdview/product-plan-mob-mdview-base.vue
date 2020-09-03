@@ -881,7 +881,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ProductPlanMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

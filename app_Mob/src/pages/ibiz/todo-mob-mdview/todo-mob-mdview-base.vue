@@ -866,7 +866,7 @@ export default class TodoMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof TodoMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;
