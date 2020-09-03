@@ -522,6 +522,7 @@ export default class BugMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -580,6 +581,7 @@ export default class BugMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
+                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }

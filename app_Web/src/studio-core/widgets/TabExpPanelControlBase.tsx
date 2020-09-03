@@ -104,6 +104,6 @@ export class TabExpPanelControlBase extends ExpControlBase {
             return;
         }
         this.activatedTabViewPanel = $event;
-        this.viewState.next({ tag: this.activatedTabViewPanel, action: this.action, data: {} });
+        this.viewState.next({ tag: this.activatedTabViewPanel, action: this.action, data: this.context });
     }
 }
