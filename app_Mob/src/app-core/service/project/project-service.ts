@@ -13,7 +13,7 @@ export class ProjectService extends ProjectServiceBase {
 
     /**
      * Creates an instance of  ProjectService.
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof  ProjectService
      */
@@ -86,7 +86,7 @@ export class ProjectService extends ProjectServiceBase {
         let year = begin.getFullYear();
         let month = begin.getMonth() + 1;
         let day = begin.getDate();
-      
+
         return new HttpResponse  (200,{ end: `${year}-${month < 10 ? ('0' + month) : month}-${day < 10 ? ('0' + day) : day}`,days: days },null,null) ;;
     }
 

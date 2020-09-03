@@ -15,7 +15,7 @@ module.exports = {
         port: 7111,
         compress: true,
         disableHostCheck: true,
-        // proxy: "http://127.0.0.1:8080/Web",
+        proxy: "http://172.16.240.110:10120",
     },
     pages: {
         index: {

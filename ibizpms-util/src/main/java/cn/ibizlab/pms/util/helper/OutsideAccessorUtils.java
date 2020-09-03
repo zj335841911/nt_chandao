@@ -20,9 +20,6 @@ public class OutsideAccessorUtils {
     private static final Cache<Map<String, Class<?>>, Object> cache = CacheBuilder.newBuilder().weakValues().build();
 
 
-    /**
-     * 常规服务，一般登陆入口服务
-     */
     public static <T> T buildAccessor(ApplicationContext applicationContext, Class<T> accessInterface, boolean https, String serverName) {
         Map pair = new HashMap();
         pair.put(serverName, accessInterface);
@@ -31,16 +28,14 @@ public class OutsideAccessorUtils {
         } catch (ExecutionException e) {
             throw new RuntimeException("");
         }
+
     }
 
-    /**
-     * 系统、需要验证服务
-     */
-    public static <T> T buildAccessor(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password, String devSlnSysId) {
+    public static <T> T buildAccessor(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password) {
         Map pair = new HashMap();
-        pair.put(devSlnSysId, accessInterface);
+        pair.put(serverName, accessInterface);
         try {
-            return (T) cache.get(pair, () -> construct(applicationContext, accessInterface, serverName, https, loginServerName, loginHttps, userName, password, devSlnSysId));
+            return (T) cache.get(pair, () -> construct(applicationContext, accessInterface, serverName, https, loginServerName, loginHttps, userName, password));
         } catch (ExecutionException e) {
             throw new RuntimeException("");
         }
@@ -48,11 +43,11 @@ public class OutsideAccessorUtils {
 
     @SuppressWarnings("unchecked")
     private static <T> T construct(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https) throws Exception {
-        return construct(applicationContext, accessInterface, serverName, https, null, false, null, null,null);
+        return construct(applicationContext, accessInterface, serverName, https, null, false, null, null);
     }
 
     @SuppressWarnings("unchecked")
-    private static <T> T construct(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password, String devSlnSysId) throws Exception {
+    private static <T> T construct(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password) throws Exception {
         Contract contract = (Contract) applicationContext.getBean(Contract.class);
         Encoder encoder = (Encoder) applicationContext.getBean(Encoder.class);
         Decoder decoder = (Decoder) applicationContext.getBean(Decoder.class);
@@ -64,7 +59,7 @@ public class OutsideAccessorUtils {
                     if (response.body() != null) {
                         String targetMsg = null;
                         String body = Util.toString(response.body().asReader());
-                        return new InternalException(body);
+                            return new InternalException(body);
 
 
                     }
@@ -75,7 +70,7 @@ public class OutsideAccessorUtils {
             }
         }).contract(contract).encoder(encoder).decoder(decoder);
         if (StringUtils.isNotBlank(loginServerName)) {
-            PSSysModelRequestInterceptor interceptor = new PSSysModelRequestInterceptor(applicationContext, loginServerName, loginHttps, userName, password,devSlnSysId);
+            PSSysModelRequestInterceptor interceptor = new PSSysModelRequestInterceptor(applicationContext, loginServerName, loginHttps, userName, password);
             builder.requestInterceptor(interceptor);
         }
         return builder.target(accessInterface, https ? "https" : "http" + "://" + serverName);
