@@ -13,7 +13,7 @@ export default class ProjectTeam {
      * @type boolean
      * @memberof ProjectTeam
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间

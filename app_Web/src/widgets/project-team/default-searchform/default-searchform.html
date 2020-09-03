@@ -6,7 +6,7 @@
   </div>
   <div class="form-content">
                   
-          <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 10, offset: 0 }" :xl="{ span: 10, offset: 0 }">
+          <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
               <app-form-item name='dept' :itemRules="this.rules.dept" class='' :caption="$t('entities.projectteam.default_searchform.details.dept')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.dept.error" :isEmptyCaption="false" labelPos="LEFT">
               
           <dropdown-list 
@@ -25,7 +25,7 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.teams.visible" :style="{}"  :lg="{ span: 10, offset: 0 }" :xl="{ span: 10, offset: 0 }">
+          <i-col class="form-layout-container" v-show="detailsModel.teams.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
               <app-form-item name='teams' :itemRules="this.rules.teams" class='' :caption="$t('entities.projectteam.default_searchform.details.teams')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.teams.error" :isEmptyCaption="false" labelPos="LEFT">
               
           <dropdown-list 
