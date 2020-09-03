@@ -208,7 +208,6 @@ export default class AppRichTextEditor extends Vue {
       .then((response: any) => {
         if (response && response.data && response.status === 200) {
           let data: any = response.data;
-          console.log(data)
           // if (process.env.NODE_ENV === "development") {
             this.dataProcess(Object.assign({}, data, { url: file.content }));
           // }
@@ -225,7 +224,6 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   private dataProcess(file: any): void {
-    console.log(file);
     let _downloadUrl = `${this.downloadUrl}/${file.id}`;
     if (!Object.is(this.export_params.exportContextStr, '')) {
       _downloadUrl = `${_downloadUrl}?${this.export_params.exportContextStr}`;
