@@ -10,14 +10,20 @@
      <startEvent id="24383164-2065-4DA9-8053-66B2F1D48C52" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall1" id="0733D99C-C8E8-4BFB-B77B-553CD743D459" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall3" id="A677837B-0553-46C3-8883-CF3225586054" implementation="http://www.jboss.org/drools/rule" name="获取Bug数"/>
-     <endEvent id="A677837B-0553-46C3-8883-CF3225586054_End" name="End"/>
-     <sequenceFlow id="A677837B-0553-46C3-8883-CF3225586054_End_Line" sourceRef="A677837B-0553-46C3-8883-CF3225586054" targetRef="A677837B-0553-46C3-8883-CF3225586054_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall5" id="C6BB72D5-BEE9-459B-99A8-49CD45DAE1F4" implementation="http://www.jboss.org/drools/rule" name="团队成员"/>
+     <endEvent id="C6BB72D5-BEE9-459B-99A8-49CD45DAE1F4_End" name="End"/>
+     <sequenceFlow id="C6BB72D5-BEE9-459B-99A8-49CD45DAE1F4_End_Line" sourceRef="C6BB72D5-BEE9-459B-99A8-49CD45DAE1F4" targetRef="C6BB72D5-BEE9-459B-99A8-49CD45DAE1F4_End"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall2" id="6EC04F8B-2ECF-4B29-9316-7925A1431943" implementation="http://www.jboss.org/drools/rule" name="获取任务数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmobprojectcountrawsqlcall4" id="347EC0D4-83B6-4405-A4E0-0D3F8F8A17DB" implementation="http://www.jboss.org/drools/rule" name="版本数"/>
      <sequenceFlow id="8F4EBB8D-D442-4D42-A46A-F9DED0D877BD" sourceRef="0733D99C-C8E8-4BFB-B77B-553CD743D459" targetRef="6EC04F8B-2ECF-4B29-9316-7925A1431943">
      </sequenceFlow>
      <sequenceFlow id="4A71E818-835E-4BA8-BCAF-E6D775F301F2" sourceRef="24383164-2065-4DA9-8053-66B2F1D48C52" targetRef="0733D99C-C8E8-4BFB-B77B-553CD743D459">
      </sequenceFlow>
+     <sequenceFlow id="E5A24719-3526-44F1-980F-033BCA3714A4" sourceRef="347EC0D4-83B6-4405-A4E0-0D3F8F8A17DB" targetRef="C6BB72D5-BEE9-459B-99A8-49CD45DAE1F4">
+     </sequenceFlow>
      <sequenceFlow id="02DCC70C-E37B-40A0-B6A1-D8DB0951147C" sourceRef="6EC04F8B-2ECF-4B29-9316-7925A1431943" targetRef="A677837B-0553-46C3-8883-CF3225586054">
+     </sequenceFlow>
+     <sequenceFlow id="EF487637-A55E-4964-ABE2-AF1AF0D00CE1" sourceRef="A677837B-0553-46C3-8883-CF3225586054" targetRef="347EC0D4-83B6-4405-A4E0-0D3F8F8A17DB">
      </sequenceFlow>
     </process>
 </definitions>

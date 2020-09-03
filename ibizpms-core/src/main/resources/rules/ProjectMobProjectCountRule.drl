@@ -52,6 +52,24 @@ ruleflow-group "projectmobprojectcountrawsqlcall3"
     update(projectmobprojectcountdefault);//更新fact中变量值
     end
 
+//逻辑处理节点[团队成员]
+rule "rawsqlcall5"
+ruleflow-group "projectmobprojectcountrawsqlcall5"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",projectmobprojectcountdefault.get("id"));
+    String strSql="select count(t1.id) as TEAMCNT from zt_team t1 where t1.root = #{et.param0} and t1.type = 'project'";
+    java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(projectmobprojectcountdefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[获取任务数]
 rule "rawsqlcall2"
 ruleflow-group "projectmobprojectcountrawsqlcall2"
@@ -60,6 +78,24 @@ ruleflow-group "projectmobprojectcountrawsqlcall2"
     Map param =new HashMap();
     param.put("param0",projectmobprojectcountdefault.get("id"));
     String strSql="select count(t1.id) as TASKCNT from zt_task t1 where t1.deleted = '0' and t1.project = #{et.param0}";
+    java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(projectmobprojectcountdefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[版本数]
+rule "rawsqlcall4"
+ruleflow-group "projectmobprojectcountrawsqlcall4"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",projectmobprojectcountdefault.get("id"));
+    String strSql="select count(t1.id) as BUILDCNT from zt_build t1 where t1.deleted = '0' and t1.project = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

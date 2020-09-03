@@ -447,6 +447,20 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "managemembers")
     @JsonProperty("managemembers")
     private String managemembers;
+    /**
+     * 版本总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
+    /**
+     * 团队成员总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "teamcnt")
+    @JsonProperty("teamcnt")
+    private Integer teamcnt;
 
     /**
      * 

@@ -183,6 +183,12 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

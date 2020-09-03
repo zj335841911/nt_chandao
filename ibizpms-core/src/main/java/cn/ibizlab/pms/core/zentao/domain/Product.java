@@ -314,6 +314,20 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "istop")
     @JsonProperty("istop")
     private Integer istop;
+    /**
+     * 测试单数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testtaskcnt")
+    @JsonProperty("testtaskcnt")
+    private Integer testtaskcnt;
+    /**
+     * 套件数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testsuitecnt")
+    @JsonProperty("testsuitecnt")
+    private Integer testsuitecnt;
 
     /**
      * 产品线

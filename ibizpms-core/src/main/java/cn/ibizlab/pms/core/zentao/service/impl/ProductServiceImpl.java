@@ -122,6 +122,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductMobProductTestCounterLogic mobproducttestcounterLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductProductTopLogic producttopLogic;
 
     protected int batchSize = 500;
@@ -226,6 +230,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Transactional
     public Product mobProductCounter(Product et) {
         mobproductcounterLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Product mobProductTestCounter(Product et) {
+        mobproducttestcounterLogic.execute(et);
          return et ;
     }
 
