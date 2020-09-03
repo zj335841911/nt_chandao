@@ -45,6 +45,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Autowired
     PSSysReqItemFeignClient pSSysReqItemFeignClient;
+    
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}")
     private String serviceName;
 
