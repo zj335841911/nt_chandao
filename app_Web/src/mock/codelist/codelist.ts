@@ -6111,7 +6111,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNASSIGNED",
                 label: "未指派",
                 text: "未指派",
-                "data":{"n_assignedto_eq":""},
+                "data":{"n_assignedto_eq":" "},
                 "codename":"Unassigned",
                 value: "UNASSIGNED",
                 "pvalue": "MORE",
