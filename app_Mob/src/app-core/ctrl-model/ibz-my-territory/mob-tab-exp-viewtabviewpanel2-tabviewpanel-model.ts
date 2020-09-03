@@ -141,6 +141,9 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'myetasks',
       },
+      {
+        name: 'mytodocnt',
+      },
     ]
   }
 

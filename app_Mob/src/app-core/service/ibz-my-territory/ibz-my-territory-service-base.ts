@@ -1,5 +1,6 @@
 import { Http,Util } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { MyTerritoryCountLogic } from './my-territory-count-logic';
 
 
 
@@ -151,6 +152,22 @@ export class IbzMyTerritoryServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/ibzmyterritories/${context.ibzmyterritory}/checkkey`,data,isloading);
             return res;
+    }
+
+    /**
+     * MyTerritoryCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MyTerritoryCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/myterritorycount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
     }
 
     /**

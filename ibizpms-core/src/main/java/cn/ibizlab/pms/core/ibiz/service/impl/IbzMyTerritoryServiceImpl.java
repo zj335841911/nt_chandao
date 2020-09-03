@@ -47,6 +47,10 @@ import org.springframework.util.StringUtils;
 public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper, IbzMyTerritory> implements IIbzMyTerritoryService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyTerritoryCountLogic myterritorycountLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -111,6 +115,13 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     public boolean checkKey(IbzMyTerritory et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public IbzMyTerritory myTerritoryCount(IbzMyTerritory et) {
+        myterritorycountLogic.execute(et);
+         return et ;
+    }
+
     @Override
     @Transactional
     public boolean save(IbzMyTerritory et) {

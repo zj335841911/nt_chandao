@@ -35,6 +35,7 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     IbzMyTerritory get(BigInteger key) ;
     IbzMyTerritory getDraft(IbzMyTerritory et) ;
     boolean checkKey(IbzMyTerritory et) ;
+    IbzMyTerritory myTerritoryCount(IbzMyTerritory et) ;
     boolean save(IbzMyTerritory et) ;
     void saveBatch(List<IbzMyTerritory> list) ;
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;

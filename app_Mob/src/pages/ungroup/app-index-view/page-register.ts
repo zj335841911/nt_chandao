@@ -59,6 +59,7 @@ export const PageComponents = {
         Vue.component('task-ass-mob-mdview', () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'));
         Vue.component('product-prod-mob-tab-exp-view', () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'));
         Vue.component('product-plan-mob-mdview', () => import('@pages/ibiz/product-plan-mob-mdview/product-plan-mob-mdview.vue'));
+        Vue.component('task-startmob-option-view', () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'));
         Vue.component('project-sup-mob-edit-view', () => import('@pages/ibiz/project-sup-mob-edit-view/project-sup-mob-edit-view.vue'));
         Vue.component('task-favorite-mob-mdview', () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'));
         Vue.component('task-mob-mdview', () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'));

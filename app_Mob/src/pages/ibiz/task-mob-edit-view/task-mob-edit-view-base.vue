@@ -50,6 +50,11 @@
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
                 <ion-fab-list class="fab-list" side="top">
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_starttaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_starttaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_starttaskmob' }, $event)">
+                <ion-icon name="play"></ion-icon>
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_starttaskmob.caption')}}    
+            </ion-fab-button>
+        
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event)">
                 <ion-icon name="people"></ion-icon>
             {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}    
@@ -314,6 +319,8 @@ export default class TaskMobEditViewBase extends Vue {
     * @memberof TaskMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_starttaskmob: { name: 'deuiaction1_starttaskmob', caption: '开始', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskMob', target: 'SINGLEKEY' } },
+
             deuiaction1_assigntaskmob: { name: 'deuiaction1_assigntaskmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskMob', target: 'SINGLEKEY' } },
 
             deuiaction1_donetaskmob: { name: 'deuiaction1_donetaskmob', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskMob', target: 'SINGLEKEY' } },
@@ -584,6 +591,9 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_starttaskmob')) {
+            this.righttoolbar_deuiaction1_starttaskmob_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_assigntaskmob')) {
             this.righttoolbar_deuiaction1_assigntaskmob_click($event, '', $event2);
         }
@@ -604,6 +614,38 @@ export default class TaskMobEditViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_starttaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_StartTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件

@@ -77,6 +77,9 @@ export default {
 		mobpickupview: {
 			caption: '任务',
 		},
+		startmoboptionview: {
+			caption: '开始',
+		},
 		favoritemobmdview: {
 			caption: '任务',
 		},
@@ -91,6 +94,29 @@ export default {
 		},
 		newmobeditview: {
 			caption: '任务',
+		},
+	},
+	mobstartform_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			realstarted: '实际开始', 
+			consumed: '总计消耗', 
+			left: '预计剩余', 
+			comment: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
 		},
 	},
 	assignformmob_form: {
@@ -249,6 +275,10 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_starttaskmob: {
+			caption: '开始',
+			tip: '开始',
+		},
 		deuiaction1_assigntaskmob: {
 			caption: '指派',
 			tip: '指派',

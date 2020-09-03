@@ -2211,6 +2211,62 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-plan-mob-mdview/product-plan-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/startmoboptionview',
+                    meta: {
+                        caption: 'task.views.startmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/startmoboptionview',
+                    meta: {
+                        caption: 'task.views.startmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/startmoboptionview',
+                    meta: {
+                        caption: 'task.views.startmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/startmoboptionview',
+                    meta: {
+                        caption: 'task.views.startmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/supmobeditview',
                     meta: {
                         caption: 'project.views.supmobeditview.caption',

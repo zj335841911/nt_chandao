@@ -349,6 +349,13 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @JSONField(name = "myetasks")
     @JsonProperty("myetasks")
     private String myetasks;
+    /**
+     * 我的待办数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mytodocnt")
+    @JsonProperty("mytodocnt")
+    private Integer mytodocnt;
 
 
 

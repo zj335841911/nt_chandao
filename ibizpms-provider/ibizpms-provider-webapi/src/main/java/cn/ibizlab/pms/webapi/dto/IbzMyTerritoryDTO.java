@@ -363,6 +363,14 @@ public class IbzMyTerritoryDTO extends DTOBase implements Serializable {
     @JsonProperty("myetasks")
     private String myetasks;
 
+    /**
+     * 属性 [MYTODOCNT]
+     *
+     */
+    @JSONField(name = "mytodocnt")
+    @JsonProperty("mytodocnt")
+    private Integer mytodocnt;
+
 
     /**
      * 设置 [FAILS]
