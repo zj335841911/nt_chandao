@@ -512,14 +512,16 @@ export default class TaskAssMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
             deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.project && true) {
             deResParameters = [
-                // stories
-            { pathName: 'stories', parameterName: 'story' },
+                // projects
+            { pathName: 'projects', parameterName: 'project' },
             ]
         }
         if (context.story && true) {
@@ -574,14 +576,16 @@ export default class TaskAssMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
             deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.project && true) {
             deResParameters = [
-                // stories
-            { pathName: 'stories', parameterName: 'story' },
+                // projects
+            { pathName: 'projects', parameterName: 'project' },
             ]
         }
         if (context.story && true) {

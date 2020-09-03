@@ -601,18 +601,20 @@ export default class BugTestMobMDViewBase extends Vue {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.project && true) {
             deResParameters = [
-                // products
-            { pathName: 'products', parameterName: 'product' },
+                // projects
+            { pathName: 'projects', parameterName: 'project' },
             ]
         }
         if (context.story && true) {
             deResParameters = [
-                // products
-            { pathName: 'products', parameterName: 'product' },
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.product && true) {
@@ -669,18 +671,20 @@ export default class BugTestMobMDViewBase extends Vue {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.project && true) {
             deResParameters = [
-                // products
-            { pathName: 'products', parameterName: 'product' },
+                // projects
+            { pathName: 'projects', parameterName: 'project' },
             ]
         }
         if (context.story && true) {
             deResParameters = [
-                // products
-            { pathName: 'products', parameterName: 'product' },
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.product && true) {

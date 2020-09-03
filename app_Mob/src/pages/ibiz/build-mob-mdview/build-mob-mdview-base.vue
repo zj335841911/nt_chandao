@@ -512,8 +512,8 @@ export default class BuildMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.project && true) {
             deResParameters = [
-                // products
-            { pathName: 'products', parameterName: 'product' },
+                // projects
+            { pathName: 'projects', parameterName: 'project' },
             ]
         }
         if (context.product && true) {
@@ -568,8 +568,8 @@ export default class BuildMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.project && true) {
             deResParameters = [
-                // products
-            { pathName: 'products', parameterName: 'product' },
+                // projects
+            { pathName: 'projects', parameterName: 'project' },
             ]
         }
         if (context.product && true) {
