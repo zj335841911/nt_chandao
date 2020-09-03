@@ -164,14 +164,14 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.testtask.mainedit_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.testtask.mainedit_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
