@@ -509,8 +509,6 @@ export default class StoryAssMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -518,6 +516,7 @@ export default class StoryAssMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -560,8 +559,6 @@ export default class StoryAssMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -569,6 +566,7 @@ export default class StoryAssMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },

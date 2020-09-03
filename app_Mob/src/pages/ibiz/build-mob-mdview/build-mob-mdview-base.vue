@@ -509,17 +509,20 @@ export default class BuildMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //top,0
-                        //context.project && ,0
-                        //top,1
-                        //context.product && ,1
         let deResParameters: any[] = [];
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'builds', parameterName: 'build' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -562,17 +565,20 @@ export default class BuildMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //top,0
-                        //context.project && ,0
-                        //top,1
-                        //context.product && ,1
         let deResParameters: any[] = [];
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'builds', parameterName: 'build' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },

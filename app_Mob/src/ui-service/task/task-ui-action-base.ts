@@ -230,21 +230,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'commoboptionview', parameterName: 'commoboptionview' },
@@ -292,21 +297,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
@@ -407,21 +417,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
@@ -469,21 +484,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
@@ -584,21 +604,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'moboptionview', parameterName: 'moboptionview' },
@@ -643,21 +668,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
@@ -705,21 +735,26 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // stories
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
                 // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },

@@ -146,8 +146,6 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -155,6 +153,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },

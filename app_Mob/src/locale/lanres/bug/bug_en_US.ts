@@ -69,6 +69,7 @@ export default {
     buildName: "版本名称",
     buildproject: "版本项目",
     createbuild: "创建版本",
+    overduebugs: "过期天数",
   },
 	views: {
 		colsemobeditview: {

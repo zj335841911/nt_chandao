@@ -509,21 +509,26 @@ export default class CaseMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.story && ,1
-                        //top,2
-                        //context.product && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -566,21 +571,26 @@ export default class CaseMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.story && ,1
-                        //top,2
-                        //context.product && ,2
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },

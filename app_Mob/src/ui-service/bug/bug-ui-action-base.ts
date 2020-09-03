@@ -168,23 +168,32 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
-                        //top,3
-                        //context.product && ,3
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'acmoboptionview', parameterName: 'acmoboptionview' },
@@ -229,23 +238,32 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
-                        //top,3
-                        //context.product && ,3
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
@@ -293,23 +311,32 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
-                        //top,3
-                        //context.product && ,3
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'assmoboptionview', parameterName: 'assmoboptionview' },
@@ -357,23 +384,32 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
-                        //top,3
-                        //context.product && ,3
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
@@ -479,23 +515,32 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
-                        //top,3
-                        //context.product && ,3
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
@@ -600,23 +645,32 @@ export default class BugUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
-                        //topcontext.product && ,0
-                        //context.product && context.story && ,0
-                        //top,1
-                        //context.project && ,1
-                        //top,2
-                        //context.story && ,2
-                        //top,3
-                        //context.product && ,3
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+                // products
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
                 // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },

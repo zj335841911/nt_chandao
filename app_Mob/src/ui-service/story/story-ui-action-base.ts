@@ -332,8 +332,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -341,6 +339,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
@@ -388,8 +387,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -397,6 +394,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
@@ -439,8 +437,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -448,6 +444,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
@@ -490,8 +487,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -499,6 +494,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'cmoboptionview', parameterName: 'cmoboptionview' },
@@ -601,8 +597,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //top,0
-                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -610,6 +604,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
