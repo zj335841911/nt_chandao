@@ -1,5 +1,5 @@
 <template>
-     <div class="app-mobile-select-drop-down">
+     <div v-if="overload" class="app-mobile-select-drop-down">
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
         <ion-select :value="curvalue"  :disabled="disabled " @ionChange="change" interface="popover">
@@ -246,6 +246,13 @@ export default class AppSelectDropDown extends Vue {
         }
     }
 
+    /**
+     * 加载完成
+     *
+     * @type {*}
+     * @memberof AppSelectDropDown
+     */
+    public overload: boolean = false;
 
     /**
      * vue 生命周期
@@ -314,6 +321,7 @@ export default class AppSelectDropDown extends Vue {
         if (entityService && entityService[this.acParams.interfaceName] && entityService[this.acParams.interfaceName] instanceof Function) {
             const response = await entityService[this.acParams.interfaceName](_context, _param);
             if (response && response.status === 200) {
+                this.overload = true;
                 this.items = response.data;
                 this.result(this.items);
             } else {
