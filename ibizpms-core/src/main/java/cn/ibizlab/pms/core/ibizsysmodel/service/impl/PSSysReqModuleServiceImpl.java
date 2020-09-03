@@ -49,10 +49,10 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}")
     private String serviceName;
 
-    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:labadmin}")
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:loginname}")
     private String loginname;
 
-    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:labadmin@2018}")
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
     
     public PSSysReqModuleServiceImpl(ApplicationContext applicationContext){
