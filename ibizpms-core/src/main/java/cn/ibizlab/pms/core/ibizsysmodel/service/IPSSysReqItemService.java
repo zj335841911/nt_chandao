@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -40,6 +39,23 @@ public interface IPSSysReqItemService{
     void removeByPpssysreqitemid(String pssysreqitemid) ;
     List<PSSysReqItem> selectByPssysreqmoduleid(String pssysreqmoduleid) ;
     void removeByPssysreqmoduleid(String pssysreqmoduleid) ;
+
+    boolean create(String devSlnSysId , PSSysReqItem et) ;
+    void createBatch(String devSlnSysId , List<PSSysReqItem> list) ;
+    boolean update(String devSlnSysId , PSSysReqItem et) ;
+    void updateBatch(String devSlnSysId , List<PSSysReqItem> list) ;
+    boolean remove(String devSlnSysId , String key) ;
+    void removeBatch(String devSlnSysId , Collection<String> idList) ;
+    PSSysReqItem get(String devSlnSysId , String key) ;
+    PSSysReqItem getDraft(String devSlnSysId , PSSysReqItem et) ;
+    boolean checkKey(String devSlnSysId , PSSysReqItem et) ;
+    boolean save(String devSlnSysId , PSSysReqItem et) ;
+    void saveBatch(String devSlnSysId , List<PSSysReqItem> list) ;
+    Page<PSSysReqItem> searchDefault(String devSlnSysId , PSSysReqItemSearchContext context) ;
+    List<PSSysReqItem> selectByPpssysreqitemid(String devSlnSysId , String pssysreqitemid) ;
+    void removeByPpssysreqitemid(String devSlnSysId , String pssysreqitemid) ;
+    List<PSSysReqItem> selectByPssysreqmoduleid(String devSlnSysId , String pssysreqmoduleid) ;
+    void removeByPssysreqmoduleid(String devSlnSysId , String pssysreqmoduleid) ;
 
 }
 
