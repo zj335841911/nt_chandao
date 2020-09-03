@@ -16,3 +16,48 @@ ruleflow-group "ibzmyterritorymobmenucountbegin"
     then
     end
 
+//逻辑处理节点[产品数]
+rule "rawsqlcall1"
+ruleflow-group "ibzmyterritorymobmenucountrawsqlcall1"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",curuser.getSessionParams().get("srfloginname"));
+    param.put("param1",curuser.getSessionParams().get("srfloginname"));
+    param.put("param2",curuser.getSessionParams().get("srfloginname"));
+    param.put("param3",curuser.getSessionParams().get("srfloginname"));
+    param.put("param4",curuser.getSessionParams().get("srfloginname"));
+    String strSql="SELECT 		count( t1.id ) AS PRODUCTS  	FROM 		zt_product t1  	WHERE 		t1.deleted = '0'  		AND ( 			t1.acl = 'open'  			OR t1.CREATEDBY =#{et.param0} 			OR t1.PO = #{et.param1} 			OR t1.RD = #{et.param2}  			OR t1.QD = #{et.param3}  			OR t1.id IN ( 			SELECT 				t.product  			FROM 				zt_projectproduct t  			WHERE 				t.project IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{et.param4} AND t3.type = 'project' )  			)  	)";
+    java.util.List<JSONObject> entities=iBzSysIbzmyterritoryDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            ibzmyterritorymobmenucountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(ibzmyterritorymobmenucountdefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[项目数]
+rule "rawsqlcall2"
+ruleflow-group "ibzmyterritorymobmenucountrawsqlcall2"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",curuser.getSessionParams().get("srfloginname"));
+    param.put("param1",curuser.getSessionParams().get("srfloginname"));
+    param.put("param2",curuser.getSessionParams().get("srfloginname"));
+    param.put("param3",curuser.getSessionParams().get("srfloginname"));
+    param.put("param4",curuser.getSessionParams().get("srfloginname"));
+    param.put("param5",curuser.getSessionParams().get("srfloginname"));
+    String strSql="SELECT 	count( t1.id ) as PROJECTS FROM 	zt_project t1  WHERE 	t1.deleted = '0'  	AND ( 	t1.acl = 'open'  	OR t1.OPENEDBY = #{et.param0}  	OR t1.pm = #{et.param1}  	OR t1.PO = #{et.param2}  	OR t1.RD =#{et.param3}	OR t1.QD = #{et.param4} 	OR ( 	t1.acl = 'private'  	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{et.param5} AND t3.type = 'project' )  	)  	)";
+    java.util.List<JSONObject> entities=iBzSysIbzmyterritoryDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            ibzmyterritorymobmenucountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(ibzmyterritorymobmenucountdefault);//更新fact中变量值
+    end
+

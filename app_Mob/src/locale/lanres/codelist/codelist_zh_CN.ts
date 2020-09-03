@@ -240,6 +240,10 @@ export default {
         '4': '4',
         empty: '',
     },
+    NeedNotReview: {
+        '0': '不需要评审',
+        empty: '',
+    },
     BugUserRealName: {
         empty: '',
     },

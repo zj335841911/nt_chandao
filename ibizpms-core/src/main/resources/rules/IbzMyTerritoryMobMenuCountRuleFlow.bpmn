@@ -8,8 +8,14 @@
         <tns:global identifier="ibzmyterritorymobmenucountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
         </extensionElements>
      <startEvent id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" isInterrupting="true"/>
-     <endEvent id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC_End" name="End"/>
-     <sequenceFlow id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC_End_Line" sourceRef="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" targetRef="F32B689E-3B32-4D8E-BC9F-D8FE603102BC_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall1" id="AF297B88-7F3B-4EAB-8018-0AA6908B2BB8" implementation="http://www.jboss.org/drools/rule" name="产品数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall2" id="4E20378B-6600-49C1-9E82-7D10AA99D9F6" implementation="http://www.jboss.org/drools/rule" name="项目数"/>
+     <endEvent id="4E20378B-6600-49C1-9E82-7D10AA99D9F6_End" name="End"/>
+     <sequenceFlow id="4E20378B-6600-49C1-9E82-7D10AA99D9F6_End_Line" sourceRef="4E20378B-6600-49C1-9E82-7D10AA99D9F6" targetRef="4E20378B-6600-49C1-9E82-7D10AA99D9F6_End"/>
+     <sequenceFlow id="4355A3AA-2CD9-49F4-844A-CA3CB0624C73" sourceRef="AF297B88-7F3B-4EAB-8018-0AA6908B2BB8" targetRef="4E20378B-6600-49C1-9E82-7D10AA99D9F6">
+     </sequenceFlow>
+     <sequenceFlow id="5BF121C2-5DDA-4DCE-9CAA-EC35B8B009B4" sourceRef="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" targetRef="AF297B88-7F3B-4EAB-8018-0AA6908B2BB8">
+     </sequenceFlow>
     </process>
 </definitions>
 

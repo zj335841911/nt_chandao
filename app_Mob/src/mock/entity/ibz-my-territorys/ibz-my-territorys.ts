@@ -233,6 +233,22 @@ mock.onPost(new RegExp(/^\/ibzmyterritories\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$
     return [status, data];
 });
 
+// MobMenuCount
+mock.onPost(new RegExp(/^\/ibzmyterritories\/mobmenucount$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmyterritory 方法: MobMenuCount");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // MobMenuCount
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
 // MyTerritoryCount
 mock.onPost(new RegExp(/^\/ibzmyterritories\/myterritorycount$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmyterritory 方法: MyTerritoryCount");

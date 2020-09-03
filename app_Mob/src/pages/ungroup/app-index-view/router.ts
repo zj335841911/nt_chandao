@@ -2022,6 +2022,33 @@ const router = new Router({
                     component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/changemoboptionview',
+                    meta: {
+                        caption: 'story.views.changemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/changemoboptionview',
+                    meta: {
+                        caption: 'story.views.changemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/assmobmdview',
                     meta: {
                         caption: 'story.views.assmobmdview.caption',

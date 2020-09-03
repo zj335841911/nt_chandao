@@ -155,6 +155,22 @@ export class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * MobMenuCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MobMenuCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/mobmenucount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
+    }
+
+    /**
      * MyTerritoryCount接口方法
      *
      * @param {*} [context={}]

@@ -26,7 +26,7 @@ export default class MyMobCounterCounterServiceBase extends CounterService {
         this.initCounterData();
         this.timer = setInterval(() => {
             this.fetchCounterData(this.context,this.viewparams);
-        }, 60000);
+        }, 5000);
     }
 
     /**

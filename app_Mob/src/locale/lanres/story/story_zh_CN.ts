@@ -86,6 +86,9 @@ export default {
 		favoritemobmdview: {
 			caption: '需求',
 		},
+		changemoboptionview: {
+			caption: '变更',
+		},
 		mobeditview: {
 			caption: '需求',
 		},
@@ -123,6 +126,35 @@ export default {
 			mailto: '抄送给', 
 			keywords: '关键词', 
 			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobchageform_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			druipart1: '', 
+			grouppanel2: '历史记录', 
+			group1: '需求描述信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			status: '当前状态', 
+			version: '版本#', 
+			assignedto: '由谁评审', 
+			reviewedby: '由谁评审', 
+			neednotreview: '需要评审', 
+			title: '需求名称', 
+			spec: '需求描述', 
+			verify: '验收标准', 
+			comment: '备注', 
+			files: '附件', 
 		},
 		uiactions: {
 		},
@@ -268,6 +300,10 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_changestorydetailmob: {
+			caption: '变更',
+			tip: '变更',
+		},
 		deuiaction1_assigntomob: {
 			caption: '指派',
 			tip: '指派',

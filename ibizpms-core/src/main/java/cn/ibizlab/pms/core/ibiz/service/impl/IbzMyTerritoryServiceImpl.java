@@ -49,6 +49,10 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMobMenuCountLogic mobmenucountLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyTerritoryCountLogic myterritorycountLogic;
 
     protected int batchSize = 500;
@@ -115,6 +119,13 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     public boolean checkKey(IbzMyTerritory et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public IbzMyTerritory mobMenuCount(IbzMyTerritory et) {
+        mobmenucountLogic.execute(et);
+         return et ;
+    }
+
     @Override
     @Transactional
     public IbzMyTerritory myTerritoryCount(IbzMyTerritory et) {

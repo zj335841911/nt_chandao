@@ -119,6 +119,16 @@ public class IbzMyTerritoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.checkKey(ibzmyterritoryMapping.toDomain(ibzmyterritorydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MobMenuCount-all')")
+    @ApiOperation(value = "移动端菜单计数器", tags = {"我的地盘" },  notes = "移动端菜单计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/mobmenucount")
+    public ResponseEntity<IbzMyTerritoryDTO> mobMenuCount() {
+        IbzMyTerritory domain =new IbzMyTerritory();
+        domain = ibzmyterritoryService.mobMenuCount(domain);
+        IbzMyTerritoryDTO ibzmyterritorydto = ibzmyterritoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritorydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MyTerritoryCount-all')")
     @ApiOperation(value = "我的地盘移动端计数器", tags = {"我的地盘" },  notes = "我的地盘移动端计数器")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/myterritorycount")
