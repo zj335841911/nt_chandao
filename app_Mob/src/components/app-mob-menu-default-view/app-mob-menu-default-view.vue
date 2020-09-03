@@ -187,7 +187,9 @@ export default class AppMobMenuDefaultView extends Vue {
         const counterServiceConstructor = window.counterServiceConstructor;
         const counterServide = await counterServiceConstructor.getService(this.counterName);
         if (counterServide) {
-            this.counterdata = counterServide.counterData;
+            setTimeout(() => {
+                this.counterdata = counterServide.counterData;
+            }, 1000);
         }
     }
 
