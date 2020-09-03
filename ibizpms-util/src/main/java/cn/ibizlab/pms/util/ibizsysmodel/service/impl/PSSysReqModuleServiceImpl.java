@@ -38,8 +38,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     private String password;
     
     public PSSysReqModuleFeignClient getPSSysReqModuleFeignClient(String devSlnSysId) {
-        return null;
-//        return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
+        return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
     }
 
 
