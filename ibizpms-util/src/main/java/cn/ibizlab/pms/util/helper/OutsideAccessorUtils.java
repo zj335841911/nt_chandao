@@ -31,11 +31,11 @@ public class OutsideAccessorUtils {
 
     }
 
-    public static <T> T buildAccessor(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password) {
+    public static <T> T buildAccessor(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password,String devSlnSysId) {
         Map pair = new HashMap();
-        pair.put(serverName, accessInterface);
+        pair.put(devSlnSysId, accessInterface);
         try {
-            return (T) cache.get(pair, () -> construct(applicationContext, accessInterface, serverName, https, loginServerName, loginHttps, userName, password));
+            return (T) cache.get(pair, () -> construct(applicationContext, accessInterface, serverName, https, loginServerName, loginHttps, userName, password,devSlnSysId));
         } catch (ExecutionException e) {
             throw new RuntimeException("");
         }
@@ -43,11 +43,11 @@ public class OutsideAccessorUtils {
 
     @SuppressWarnings("unchecked")
     private static <T> T construct(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https) throws Exception {
-        return construct(applicationContext, accessInterface, serverName, https, null, false, null, null);
+        return construct(applicationContext, accessInterface, serverName, https, null, false, null, null,null);
     }
 
     @SuppressWarnings("unchecked")
-    private static <T> T construct(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password) throws Exception {
+    private static <T> T construct(ApplicationContext applicationContext, Class<T> accessInterface, String serverName, boolean https, String loginServerName, boolean loginHttps, String userName, String password,String devSlnSysId) throws Exception {
         Contract contract = (Contract) applicationContext.getBean(Contract.class);
         Encoder encoder = (Encoder) applicationContext.getBean(Encoder.class);
         Decoder decoder = (Decoder) applicationContext.getBean(Decoder.class);
@@ -70,7 +70,7 @@ public class OutsideAccessorUtils {
             }
         }).contract(contract).encoder(encoder).decoder(decoder);
         if (StringUtils.isNotBlank(loginServerName)) {
-            PSSysModelRequestInterceptor interceptor = new PSSysModelRequestInterceptor(applicationContext, loginServerName, loginHttps, userName, password);
+            PSSysModelRequestInterceptor interceptor = new PSSysModelRequestInterceptor(applicationContext, loginServerName, loginHttps, userName, password,devSlnSysId);
             builder.requestInterceptor(interceptor);
         }
         return builder.target(accessInterface, https ? "https" : "http" + "://" + serverName);
