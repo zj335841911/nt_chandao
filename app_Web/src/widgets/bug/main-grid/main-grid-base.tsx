@@ -540,7 +540,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealNameW',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
