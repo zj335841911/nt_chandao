@@ -56,7 +56,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     private String password;
     
     public PSSysReqModuleServiceImpl(ApplicationContext applicationContext){
-        pSSysReqModuleFeignClient = OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password);
+        pSSysReqModuleFeignClient = OutsideAccessorUtils.buildAccessor(applicationContext, PSSysReqModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password);
     }
 
 

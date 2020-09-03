@@ -56,7 +56,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     private String password;
     
     public PSSysReqItemServiceImpl(ApplicationContext applicationContext){
-        pSSysReqItemFeignClient = OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password);
+        pSSysReqItemFeignClient = OutsideAccessorUtils.buildAccessor(applicationContext, PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password);
     }
 
 
