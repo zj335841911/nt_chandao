@@ -512,21 +512,17 @@ export default class CaseMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
             deResParameters = [
-                // products
             { pathName: 'products', parameterName: 'product' },
-                // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.story && true) {
             deResParameters = [
-                // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.product && true) {
             deResParameters = [
-                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }
@@ -576,21 +572,17 @@ export default class CaseMobMDViewBase extends Vue {
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
             deResParameters = [
-                // products
             { pathName: 'products', parameterName: 'product' },
-                // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.story && true) {
             deResParameters = [
-                // stories
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
         if (context.product && true) {
             deResParameters = [
-                // products
             { pathName: 'products', parameterName: 'product' },
             ]
         }

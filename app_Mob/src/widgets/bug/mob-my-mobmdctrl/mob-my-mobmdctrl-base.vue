@@ -1237,7 +1237,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @memberof Mob_MyBase
      */  
     public ActionModel:any ={
-        AssingToBugMob: { name: 'AssingToBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', target: 'SINGLEKEY',icon:''},
+        AssingToBugMob: { name: 'AssingToBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', target: 'SINGLEKEY',icon:'fa fa-hand-o-right'},
         ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:''},
         ActivationMob: { name: 'ActivationMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', target: 'SINGLEKEY',icon:''},
         ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:''},
