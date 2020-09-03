@@ -596,11 +596,16 @@ export default class BugTestMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
-                        //,3
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
+                        //top,3
+                        //context.product && ,3
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -649,11 +654,16 @@ export default class BugTestMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
-                        //,3
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
+                        //top,3
+                        //context.product && ,3
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [

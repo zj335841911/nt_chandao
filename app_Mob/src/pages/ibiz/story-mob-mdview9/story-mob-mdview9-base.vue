@@ -501,7 +501,8 @@ export default class StoryMobMDView9Base extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //,0
+                        //top,0
+                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -550,7 +551,8 @@ export default class StoryMobMDView9Base extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-                        //,0
+                        //top,0
+                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [

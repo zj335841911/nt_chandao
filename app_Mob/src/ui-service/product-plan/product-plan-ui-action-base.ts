@@ -146,7 +146,8 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
+                        //context.product && ,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [

@@ -230,10 +230,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -287,10 +291,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -397,10 +405,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -454,10 +466,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -564,10 +580,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -618,10 +638,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -675,10 +699,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-                        //,0
+                        //top,0
                         //context.product && ,0
-                        //,1
-                        //,2
+                        //topcontext.product && ,0
+                        //context.product && context.story && ,0
+                        //top,1
+                        //context.project && ,1
+                        //top,2
+                        //context.story && ,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
