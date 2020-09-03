@@ -11,7 +11,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
         name: 'appmenu',
         items:  [
             {
-	id: 'E66AC904-6EB8-44A1-B59E-B1BE817CC8B3',
+	id: '6221be19414c86117e91659f4a19154b',
 	name: 'menuitem5',
 	text: '收藏',
 	type: 'MENUITEM',
@@ -29,7 +29,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: '53549F95-1F2F-44E3-8943-0789AC42088D',
+	id: 'c1a10404d32addccb3c940e05a11b920',
 	name: 'menuitem1',
 	text: '产品',
 	type: 'MENUITEM',
@@ -47,7 +47,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: 'B578310F-43D0-4142-9323-F619297E717A',
+	id: '62d00b8a490cf4b6ef758c0aa3814494',
 	name: 'menuitem2',
 	text: '项目',
 	type: 'MENUITEM',
@@ -65,7 +65,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: '9218AC38-DA73-4891-B93D-EF38795487C6',
+	id: '0cfef223143b6805dcf2d802b6e79ea0',
 	name: 'menuitem3',
 	text: '测试',
 	type: 'MENUITEM',
@@ -83,7 +83,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: 'ECEF3D08-7FE9-4A0D-9493-9EEEF6BD1CDE',
+	id: '1ebe52baa4573adb6c5d44146d0da6a3',
 	name: 'menuitem4',
 	text: '我的',
 	type: 'MENUITEM',
