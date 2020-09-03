@@ -223,6 +223,13 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     @JsonProperty("pssystemid")
     private String pssystemid;
 
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemname")
+    @JsonProperty("pssystemname")
+    private String pssystemname;
+
 
     /**
      * 
@@ -383,6 +390,14 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     public void setPssystemid(String pssystemid){
         this.pssystemid = pssystemid ;
         this.modify("pssystemid",pssystemid);
+    }
+
+    /**
+     * 设置 [系统]
+     */
+    public void setPssystemname(String pssystemname){
+        this.pssystemname = pssystemname ;
+        this.modify("pssystemname",pssystemname);
     }
 
 
