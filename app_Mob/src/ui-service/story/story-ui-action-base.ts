@@ -332,6 +332,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
+                        //,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -385,6 +386,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
+                        //,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -433,6 +435,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
+                        //,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -481,6 +484,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
+                        //,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -589,6 +593,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
+                        //,0
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [

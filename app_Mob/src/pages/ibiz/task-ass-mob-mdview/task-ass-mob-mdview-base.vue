@@ -509,6 +509,10 @@ export default class TaskAssMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+                        //,0
+                        //context.product && ,0
+                        //,1
+                        //,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [
@@ -557,6 +561,10 @@ export default class TaskAssMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+                        //,0
+                        //context.product && ,0
+                        //,1
+                        //,2
         let deResParameters: any[] = [];
         if (context.story && true) {
             deResParameters = [

@@ -45,13 +45,6 @@ export default class App extends Vue {
 	/**
      * 生命周期
      *
-     *
-     *1
-     *
-     *2
-     *
-     *3
-     *
      * @readonly
      * @memberof App
      */
