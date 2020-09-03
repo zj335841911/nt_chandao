@@ -42,6 +42,7 @@ export default {
     eprojects: "过期项目数",
     projects: "未关闭项目数",
     myetasks: "我的过期任务数",
+    mytodocnt: "我的待办数",
   },
 	views: {
 		tabexpview: {

@@ -141,6 +141,9 @@ export default class HomeModel {
       {
         name: 'myetasks',
       },
+      {
+        name: 'mytodocnt',
+      },
     ]
   }
 

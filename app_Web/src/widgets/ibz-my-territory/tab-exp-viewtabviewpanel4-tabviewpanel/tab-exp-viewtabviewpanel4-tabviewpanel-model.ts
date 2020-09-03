@@ -141,6 +141,9 @@ export default class TabExpViewtabviewpanel4Model {
       {
         name: 'myetasks',
       },
+      {
+        name: 'mytodocnt',
+      },
     ]
   }
 

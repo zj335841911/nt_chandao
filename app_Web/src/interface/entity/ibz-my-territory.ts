@@ -341,4 +341,12 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     myetasks?: any;
+
+    /**
+     * 我的待办数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    mytodocnt?: any;
 }
