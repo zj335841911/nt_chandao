@@ -183,6 +183,12 @@ export default class MainTabExpViewtabviewpanel6Model {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

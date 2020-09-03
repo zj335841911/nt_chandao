@@ -129,6 +129,12 @@ export default class UnClosedProductModel {
       {
         name: 'istop',
       },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
     ]
   }
 

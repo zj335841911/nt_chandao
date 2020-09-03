@@ -183,6 +183,12 @@ export default class MainModel {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

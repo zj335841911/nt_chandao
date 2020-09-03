@@ -183,6 +183,12 @@ export default class ProjectExpViewModel {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

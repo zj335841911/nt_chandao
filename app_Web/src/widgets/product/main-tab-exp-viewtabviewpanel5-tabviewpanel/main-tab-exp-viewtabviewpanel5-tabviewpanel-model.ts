@@ -129,6 +129,12 @@ export default class MainTabExpViewtabviewpanel5Model {
       {
         name: 'istop',
       },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
     ]
   }
 

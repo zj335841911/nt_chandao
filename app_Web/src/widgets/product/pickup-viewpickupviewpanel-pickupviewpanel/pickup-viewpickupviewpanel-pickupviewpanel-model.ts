@@ -129,6 +129,12 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'istop',
       },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
     ]
   }
 

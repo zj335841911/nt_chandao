@@ -183,6 +183,12 @@ export default class DashBoradInfoViewModel {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

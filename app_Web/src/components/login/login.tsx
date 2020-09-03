@@ -167,6 +167,7 @@ export default class Login extends Vue {
                 // 页面回跳
                 if (this.$route.query.redirect) {
                     window.location.href = decodeURIComponent((this.$route.query.redirect as any));
+                    location.reload();
                 } else {
                     this.$router.push({ path: '/' });
                 }
@@ -218,6 +219,7 @@ export default class Login extends Vue {
                     // 页面回跳
                     if (this.$route.query.redirect) {
                         window.location.href = decodeURIComponent((this.$route.query.redirect as any));
+                        location.reload();
                     } else {
                         this.$router.push({ path: '/' });
                     }
@@ -262,6 +264,7 @@ export default class Login extends Vue {
                 // 页面回跳
                 if (this.$route.query.redirect) {
                     window.location.href = decodeURIComponent((this.$route.query.redirect as any));
+                    location.reload();
                 } else {
                     this.$router.push({ path: '/' });
                 }
