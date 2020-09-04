@@ -48,6 +48,17 @@ public class PSSysModelRequestInterceptor implements RequestInterceptor {
         this.psSysModelLoginClient = OutsideAccessorUtils.buildAccessor(applicationContext, PSSysModelLoginClient.class, https, authServiceTag);
     }
 
+    public PSSysModelRequestInterceptor(ApplicationContext applicationContext, String url, String authUser, String authPassword, String devSlnSysId) {
+        this.authServiceTag = url;
+        this.authUser = authUser;
+        this.authPassword = authPassword;
+        this.devSlnSysId = devSlnSysId;
+        this.applicationContext = applicationContext;
+        String strSecret = applicationContext.getEnvironment().getProperty("ibiz.jwt.secret","ibzsecret");
+        authTokenUtil.setSecret(strSecret);
+        this.psSysModelLoginClient = OutsideAccessorUtils.buildAccessorByUrl(applicationContext, PSSysModelLoginClient.class, false, url);
+    }
+
     @Override
     public void apply(RequestTemplate requestTemplate) {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();

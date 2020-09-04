@@ -8,6 +8,7 @@ import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -27,9 +28,12 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
 //    @Autowired
     PSDataEntityFeignClient pSDataEntityFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:ibizpssysmodelapi-sysmodelapi}")
     private String serviceName;
+
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceurl:url}")
+    private String serviceUrl;
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:loginname}")
     private String loginname;
@@ -38,7 +42,13 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     private String password;
     
     public PSDataEntityFeignClient getPSDataEntityFeignClient(String devSlnSysId) {
-        return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
+        if(StringUtils.isNotBlank(serviceName)){
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
+        }else if(StringUtils.isNotBlank(serviceUrl)){
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
+        }else{
+            throw new RuntimeException("缺少平台服务配置信息。");
+        }
     }
 
 
