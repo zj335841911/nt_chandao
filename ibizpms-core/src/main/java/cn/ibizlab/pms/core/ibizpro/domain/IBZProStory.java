@@ -69,6 +69,14 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private BigInteger product;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "ibiz_id")
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
 
     /**
      * 产品
@@ -110,6 +118,14 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setProduct(BigInteger product){
         this.product = product ;
         this.modify("product",product);
+    }
+
+    /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizid(String ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
     }
 
 

@@ -48,6 +48,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("root")
     private BigInteger root;
 
+    /**
+     * 属性 [IBIZ_ID]
+     *
+     */
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
+
 
     /**
      * 设置 [NAME]
@@ -63,6 +71,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setRoot(BigInteger  root){
         this.root = root ;
         this.modify("root",root);
+    }
+
+    /**
+     * 设置 [IBIZ_ID]
+     */
+    public void setIbizid(String  ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
     }
 
 
