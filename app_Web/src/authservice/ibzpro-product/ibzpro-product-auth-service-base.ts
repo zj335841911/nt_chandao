@@ -1,7 +1,7 @@
 import AuthService from '../auth-service';
 
 /**
- * 产品（开发系统）权限服务对象基类
+ * 平台产品权限服务对象基类
  *
  * @export
  * @class IBZProProductAuthServiceBase

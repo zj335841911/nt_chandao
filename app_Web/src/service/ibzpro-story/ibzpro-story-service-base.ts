@@ -29,9 +29,9 @@ export default class IBZProStoryServiceBase extends EntityService {
      */
     public initBasicData(){
         this.APPLYDEKEY ='ibzprostory';
-        this.APPDEKEY = 'ibzprostoryid';
+        this.APPDEKEY = 'id';
         this.APPDENAME = 'ibzprostories';
-        this.APPDETEXT = 'ibzprostoryname';
+        this.APPDETEXT = 'title';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }
@@ -150,20 +150,6 @@ export default class IBZProStoryServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/ibzprostories/${context.ibzprostory}/checkkey`,data,isloading);
-            return res;
-    }
-
-    /**
-     * Push接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof IBZProStoryServiceBase
-     */
-    public async Push(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzprostories/${context.ibzprostory}/push`,data,isloading);
             return res;
     }
 

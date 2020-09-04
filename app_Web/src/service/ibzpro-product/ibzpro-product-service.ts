@@ -3,7 +3,7 @@ import IBZProProductServiceBase from './ibzpro-product-service-base';
 
 
 /**
- * 产品（开发系统）服务对象
+ * 平台产品服务对象
  *
  * @export
  * @class IBZProProductService

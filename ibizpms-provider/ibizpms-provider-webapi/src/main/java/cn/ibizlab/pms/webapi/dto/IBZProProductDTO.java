@@ -25,118 +25,28 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [IBZPRO_PRODUCTID]
+     * 属性 [ID]
      *
      */
-    @JSONField(name = "ibzpro_productid")
-    @JsonProperty("ibzpro_productid")
-    private String ibzproProductid;
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
 
     /**
-     * 属性 [CREATEDATE]
+     * 属性 [NAME]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-
-    /**
-     * 属性 [IBZPRO_PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "ibzpro_productname")
-    @JsonProperty("ibzpro_productname")
-    private String ibzproProductname;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-
-    /**
-     * 属性 [PSSYSTYPE]
-     *
-     */
-    @JSONField(name = "pssystype")
-    @JsonProperty("pssystype")
-    private String pssystype;
-
-    /**
-     * 属性 [PSOBJECTID]
-     *
-     */
-    @JSONField(name = "psobjectid")
-    @JsonProperty("psobjectid")
-    private String psobjectid;
-
-    /**
-     * 属性 [PMSPRODUCT]
-     *
-     */
-    @JSONField(name = "pmsproduct")
-    @JsonProperty("pmsproduct")
-    private BigInteger pmsproduct;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
 
     /**
-     * 设置 [IBZPRO_PRODUCTNAME]
+     * 设置 [NAME]
      */
-    public void setIbzproProductname(String  ibzproProductname){
-        this.ibzproProductname = ibzproProductname ;
-        this.modify("ibzpro_productname",ibzproProductname);
-    }
-
-    /**
-     * 设置 [PSSYSTYPE]
-     */
-    public void setPssystype(String  pssystype){
-        this.pssystype = pssystype ;
-        this.modify("pssystype",pssystype);
-    }
-
-    /**
-     * 设置 [PSOBJECTID]
-     */
-    public void setPsobjectid(String  psobjectid){
-        this.psobjectid = psobjectid ;
-        this.modify("psobjectid",psobjectid);
-    }
-
-    /**
-     * 设置 [PMSPRODUCT]
-     */
-    public void setPmsproduct(BigInteger  pmsproduct){
-        this.pmsproduct = pmsproduct ;
-        this.modify("pmsproduct",pmsproduct);
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
 

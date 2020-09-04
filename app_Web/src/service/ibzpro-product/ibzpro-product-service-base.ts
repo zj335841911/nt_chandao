@@ -4,7 +4,7 @@ import EntityService from '../entity-service';
 
 
 /**
- * 产品（开发系统）服务对象基类
+ * 平台产品服务对象基类
  *
  * @export
  * @class IBZProProductServiceBase
@@ -29,9 +29,9 @@ export default class IBZProProductServiceBase extends EntityService {
      */
     public initBasicData(){
         this.APPLYDEKEY ='ibzproproduct';
-        this.APPDEKEY = 'ibzpro_productid';
+        this.APPDEKEY = 'id';
         this.APPDENAME = 'ibzproproducts';
-        this.APPDETEXT = 'ibzpro_productname';
+        this.APPDETEXT = 'name';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

@@ -25,134 +25,28 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [CREATEDATE]
+     * 属性 [ID]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
 
     /**
-     * 属性 [IBZPRO_STORYNAME]
+     * 属性 [TITLE]
      *
      */
-    @JSONField(name = "ibzprostoryname")
-    @JsonProperty("ibzprostoryname")
-    private String ibzprostoryname;
-
-    /**
-     * 属性 [IBZPRO_STORYID]
-     *
-     */
-    @JSONField(name = "ibzprostoryid")
-    @JsonProperty("ibzprostoryid")
-    private String ibzprostoryid;
-
-    /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [PRODUCT]
-     *
-     */
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private String product;
-
-    /**
-     * 属性 [STORYMODULE]
-     *
-     */
-    @JSONField(name = "storymodule")
-    @JsonProperty("storymodule")
-    private String storymodule;
-
-    /**
-     * 属性 [PMSSTORY]
-     *
-     */
-    @JSONField(name = "pmsstory")
-    @JsonProperty("pmsstory")
-    private BigInteger pmsstory;
-
-    /**
-     * 属性 [PMSSTORYNAME]
-     *
-     */
-    @JSONField(name = "pmsstoryname")
-    @JsonProperty("pmsstoryname")
-    private String pmsstoryname;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-
-    /**
-     * 属性 [STORYMODULENAME]
-     *
-     */
-    @JSONField(name = "storymodulename")
-    @JsonProperty("storymodulename")
-    private String storymodulename;
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
 
 
     /**
-     * 设置 [IBZPRO_STORYNAME]
+     * 设置 [TITLE]
      */
-    public void setIbzprostoryname(String  ibzprostoryname){
-        this.ibzprostoryname = ibzprostoryname ;
-        this.modify("ibzpro_storyname",ibzprostoryname);
-    }
-
-    /**
-     * 设置 [PRODUCT]
-     */
-    public void setProduct(String  product){
-        this.product = product ;
-        this.modify("product",product);
-    }
-
-    /**
-     * 设置 [STORYMODULE]
-     */
-    public void setStorymodule(String  storymodule){
-        this.storymodule = storymodule ;
-        this.modify("storymodule",storymodule);
-    }
-
-    /**
-     * 设置 [PMSSTORY]
-     */
-    public void setPmsstory(BigInteger  pmsstory){
-        this.pmsstory = pmsstory ;
-        this.modify("pmsstory",pmsstory);
+    public void setTitle(String  title){
+        this.title = title ;
+        this.modify("title",title);
     }
 
 

@@ -1,7 +1,7 @@
 import IBZProProductUIServiceBase from './ibzpro-product-ui-service-base';
 
 /**
- * 产品（开发系统）UI服务对象
+ * 平台产品UI服务对象
  *
  * @export
  * @class IBZProProductUIService

@@ -95,7 +95,7 @@ mock.onGet(new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).rep
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -107,7 +107,7 @@ mock.onGet(new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).rep
         });
     }
     let items = mockDatas ? mockDatas : [];
-    let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
     console.groupCollapsed("response数据  status: "+status+" data: ");
     console.table(_items);
     console.groupEnd();
@@ -123,7 +123,7 @@ mock.onPost(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((co
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -149,7 +149,7 @@ mock.onPut(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((con
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -161,10 +161,10 @@ mock.onPut(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((con
         });
     }
     //let items = mockDatas ? mockDatas : [];
-    //let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
       let data = JSON.parse(config.data);
     mockDatas.forEach((item)=>{
-        if(item['ibzprostoryid'] == tempValue['ibzprostoryid'] ){
+        if(item['id'] == tempValue['id'] ){
             for(let value in data){
               if(item.hasOwnProperty(value)){
                   item[value] = data[value];
@@ -203,7 +203,7 @@ mock.onPost(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/))
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -215,48 +215,10 @@ mock.onPost(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/))
         });
     }
     //let items = mockDatas ? mockDatas : [];
-    //let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
       let data = JSON.parse(config.data);
     mockDatas.forEach((item)=>{
-        if(item['ibzprostoryid'] == tempValue['ibzprostoryid'] ){
-            for(let value in data){
-              if(item.hasOwnProperty(value)){
-                  item[value] = data[value];
-              }
-            }
-        }
-    })
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(data);
-    console.groupEnd();
-    console.groupEnd();
-    return [status, data];
-});
-        
-// Push
-mock.onPost(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})\/push$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzprostory 方法: Push");
-    console.table({url:config.url, method: config.method, data:config.data});
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
-    const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})\/push$/).exec(config.url);
-    let tempValue: any = {};
-    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
-        paramArray.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-    }
-    //let items = mockDatas ? mockDatas : [];
-    //let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
-      let data = JSON.parse(config.data);
-    mockDatas.forEach((item)=>{
-        if(item['ibzprostoryid'] == tempValue['ibzprostoryid'] ){
+        if(item['id'] == tempValue['id'] ){
             for(let value in data){
               if(item.hasOwnProperty(value)){
                   item[value] = data[value];
@@ -279,7 +241,7 @@ mock.onPost(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).rep
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -291,10 +253,10 @@ mock.onPost(new RegExp(/^\/ibzprostories\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).rep
         });
     }
     //let items = mockDatas ? mockDatas : [];
-    //let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
       let data = JSON.parse(config.data);
     mockDatas.forEach((item)=>{
-        if(item['ibzprostoryid'] == tempValue['ibzprostoryid'] ){
+        if(item['id'] == tempValue['id'] ){
             for(let value in data){
               if(item.hasOwnProperty(value)){
                   item[value] = data[value];
@@ -369,7 +331,7 @@ mock.onDelete(new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((c
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -381,7 +343,7 @@ mock.onDelete(new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((c
         });
     }
     let items = mockDatas ? mockDatas : [];
-    let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
     console.groupCollapsed("response数据  status: "+status+" data: ");
     console.table(_items?_items:{});
     console.groupEnd();
@@ -397,7 +359,7 @@ mock.onGet(new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((conf
     if (status !== 200) {
         return [status, null];
     }    
-    const paramArray:Array<any> = ['ibzprostoryid'];
+    const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
@@ -409,7 +371,7 @@ mock.onGet(new RegExp(/^\/ibzprostories\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((conf
         });
     }
     let items = mockDatas ? mockDatas : [];
-    let _items = items.find((item: any) => Object.is(item.ibzprostoryid, tempValue.ibzprostoryid));
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
     console.groupCollapsed("response数据  status: "+status+" data: ");
     console.table(_items?_items:{});
     console.groupEnd();
