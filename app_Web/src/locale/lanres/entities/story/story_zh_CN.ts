@@ -425,6 +425,7 @@ export default {
 	},
 	main_newmode_form: {
 		details: {
+			grouppanel1: "分组面板", 
 			group1: "需求基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 

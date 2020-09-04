@@ -21,4 +21,12 @@ export interface IBZProProduct {
      * @memberof IBZProProduct
      */
     name?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof IBZProProduct
+     */
+    ibizid?: any;
 }

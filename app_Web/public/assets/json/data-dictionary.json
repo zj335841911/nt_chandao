@@ -7188,6 +7188,17 @@
         "codelisttype":"static",
         "items": [
              {
+                "id": "iBiz",
+                "label": "iBiz",
+                "text": "iBiz",
+                "data":"",
+                "codename":"Ibiz",
+                "value": "iBiz",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
                 "id": "customer",
                 "label": "客户",
                 "text": "客户",

@@ -6614,6 +6614,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
+                id: "iBiz",
+                label: "iBiz",
+                text: "iBiz",
+                "data":"",
+                "codename":"Ibiz",
+                value: "iBiz",
+                
+                disabled: false,
+            },
+            {
                 id: "customer",
                 label: "客户",
                 text: "客户",

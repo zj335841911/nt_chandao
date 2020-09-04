@@ -21,4 +21,20 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     name?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    root?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    ibizid?: any;
 }

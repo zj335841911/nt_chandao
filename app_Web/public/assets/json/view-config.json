@@ -129,6 +129,16 @@
         "viewtag": "07327890c326f9c806b9343f0c660fc1",
         "memo": "视图参数转换"
     },
+    "ibzprostorygridview": {
+        "title": "需求表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBZProStoryGridView",
+        "viewfilename": "ibzpro-story-grid-view",
+        "viewtag": "077af636991c5ae68e1bc260baffc10f",
+        "memo": ""
+    },
     "producthtmlview": {
         "title": "iBiz软件生产管理",
         "caption": "iBiz软件生产管理",
@@ -1687,6 +1697,16 @@
         "viewname": "CaseCurSuitGridView",
         "viewfilename": "case-cur-suit-grid-view",
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
+        "memo": ""
+    },
+    "ibzprostoryeditview": {
+        "title": "需求编辑视图",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBZProStoryEditView",
+        "viewfilename": "ibzpro-story-edit-view",
+        "viewtag": "75ddfe042245299b90c10c572b3d9436",
         "memo": ""
     },
     "storytabexpview": {
