@@ -20,5 +20,9 @@ window.Environment = {
     // 文件导出
     ExportFile: 'ibizutil/ztdownload',
     // 文件上传
-    UploadFile: 'ibizutil/ztupload'
+    UploadFile: 'ibizutil/ztupload',
+    // 是否开启访客模式
+    VisitorsMode:true,
+    // 访客模式地址
+    VisitorsUrl: '/login/guest'
 }
