@@ -54,7 +54,7 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     public boolean create(IBZProStory et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        CachedBeanCopier.copy(get(et.getIbzprostoryid()),et);
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
@@ -66,9 +66,9 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     @Override
     @Transactional
     public boolean update(IBZProStory et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_storyid",et.getIbzprostoryid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        CachedBeanCopier.copy(get(et.getIbzprostoryid()),et);
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
@@ -79,23 +79,23 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IBZProStory get(String key) {
+    public IBZProStory get(BigInteger key) {
         IBZProStory et = getById(key);
         if(et==null){
             et=new IBZProStory();
-            et.setIbzprostoryid(key);
+            et.setId(key);
         }
         else{
         }
@@ -109,15 +109,8 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public boolean checkKey(IBZProStory et) {
-        return (!ObjectUtils.isEmpty(et.getIbzprostoryid()))&&(!Objects.isNull(this.getById(et.getIbzprostoryid())));
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
-    @Transactional
-    public IBZProStory push(IBZProStory et) {
-        //自定义代码
-        return et;
-    }
-
     @Override
     @Transactional
     public boolean save(IBZProStory et) {
@@ -188,25 +181,6 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
         return true;
     }
 
-    @Override
-    public List<IBZProStory> getIbzprostoryByIds(List<String> ids) {
-         return this.listByIds(ids);
-    }
-
-    @Override
-    public List<IBZProStory> getIbzprostoryByEntities(List<IBZProStory> entities) {
-        List ids =new ArrayList();
-        for(IBZProStory entity : entities){
-            Serializable id=entity.getIbzprostoryid();
-            if(!ObjectUtils.isEmpty(id)){
-                ids.add(id);
-            }
-        }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
-    }
 
 }
 

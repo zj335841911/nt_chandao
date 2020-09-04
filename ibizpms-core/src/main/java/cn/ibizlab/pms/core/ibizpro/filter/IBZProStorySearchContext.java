@@ -27,11 +27,11 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProStory;
 @Data
 public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
 
-	private String n_ibzpro_storyname_like;//[需求名称]
-	public void setN_ibzpro_storyname_like(String n_ibzpro_storyname_like) {
-        this.n_ibzpro_storyname_like = n_ibzpro_storyname_like;
-        if(!ObjectUtils.isEmpty(this.n_ibzpro_storyname_like)){
-            this.getSearchCond().like("ibzpro_storyname", n_ibzpro_storyname_like);
+	private String n_title_like;//[需求名称]
+	public void setN_title_like(String n_title_like) {
+        this.n_title_like = n_title_like;
+        if(!ObjectUtils.isEmpty(this.n_title_like)){
+            this.getSearchCond().like("title", n_title_like);
         }
     }
 
@@ -43,7 +43,7 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("ibzpro_storyname", query)   
+                     wrapper.like("title", query)   
             );
 		 }
 	}

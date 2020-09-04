@@ -29,12 +29,11 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
     void createBatch(List<IBZProStory> list) ;
     boolean update(IBZProStory et) ;
     void updateBatch(List<IBZProStory> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBZProStory get(String key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    IBZProStory get(BigInteger key) ;
     IBZProStory getDraft(IBZProStory et) ;
     boolean checkKey(IBZProStory et) ;
-    IBZProStory push(IBZProStory et) ;
     boolean save(IBZProStory et) ;
     void saveBatch(List<IBZProStory> list) ;
     Page<IBZProStory> searchDefault(IBZProStorySearchContext context) ;
@@ -53,8 +52,6 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
      */
     boolean execute(String sql, Map param);
 
-    List<IBZProStory> getIbzprostoryByIds(List<String> ids) ;
-    List<IBZProStory> getIbzprostoryByEntities(List<IBZProStory> entities) ;
 }
 
 

@@ -78,6 +78,9 @@
     <!--输出实体[IBZPRO_PRODUCT]数据结构 -->
 
 
+    <!--输出实体[IBZPRO_STORY]数据结构 -->
+
+
     <!--输出实体[IBZPRO_STORYMODULE]数据结构 -->
 
 
@@ -90,7 +93,7 @@
 
 
     <!--输出实体[IBZ_FAVORITES]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_favorites-18-29">
+    <changeSet author="zentao" id="tab-ibz_favorites-18-30">
         <createTable tableName="T_IBZ_FAVORITES">
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
@@ -134,7 +137,7 @@
 
 
     <!--输出实体[IBZ_TOP]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_top-16-36">
+    <changeSet author="zentao" id="tab-ibz_top-16-37">
         <createTable tableName="T_IBZ_TOP">
                 <column name="IBZ_TOPID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_TOP_IBZ_TOPID"/>
@@ -352,6 +355,7 @@
         <!--输出实体[ZT_GROUPPRIV]外键关系 -->
         <!--输出实体[ZT_HISTORY]外键关系 -->
         <!--输出实体[IBZPRO_PRODUCT]外键关系 -->
+        <!--输出实体[IBZPRO_STORY]外键关系 -->
         <!--输出实体[IBZPRO_STORYMODULE]外键关系 -->
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBZ_CASE]外键关系 -->
