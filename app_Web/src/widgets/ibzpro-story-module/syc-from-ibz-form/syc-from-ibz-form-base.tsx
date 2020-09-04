@@ -83,6 +83,7 @@ export class SycFromIbzEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         storytype: null,
         ibiz_id: null,
+        productname: null,
         root: null,
         type: null,
         id: null,
@@ -135,6 +136,8 @@ export class SycFromIbzEditFormBase extends EditFormControlBase {
         storytype: new FormItemModel({ caption: '需求模块类型', detailType: 'FORMITEM', name: 'storytype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         ibiz_id: new FormItemModel({ caption: 'IBIZ标识', detailType: 'FORMITEM', name: 'ibiz_id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         root: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'root', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

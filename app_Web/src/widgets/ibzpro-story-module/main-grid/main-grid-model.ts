@@ -34,7 +34,7 @@ export default class MainModel {
         {
           name: 'ibiz_id',
           prop: 'ibizid',
-          dataType: 'TEXT',
+          dataType: 'PICKUPDATA',
         },
         {
           name: 'root',

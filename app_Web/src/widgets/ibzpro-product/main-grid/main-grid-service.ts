@@ -13,7 +13,7 @@ import MainModel from './main-grid-model';
 export default class MainService extends ControlService {
 
     /**
-     * 产品（开发系统）服务对象
+     * 平台产品服务对象
      *
      * @type {IBZProProductService}
      * @memberof MainService
@@ -266,7 +266,7 @@ export default class MainService extends ControlService {
                 if(response.data){
                     Object.assign(response.data,{srfuf:'0'});
                     //仿真主键数据
-                    response.data.ibzpro_productid = Util.createUUID();
+                    response.data.id = Util.createUUID();
                 }
                 this.handleResponse(action, response, true);
                 resolve(response);

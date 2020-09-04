@@ -2,6 +2,7 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import IBZProStoryModuleService from '@/service/ibzpro-story-module/ibzpro-story-module-service';
 import SycFromIbzModel from './syc-from-ibz-form-model';
+import IBZProProductService from '@/service/ibzpro-product/ibzpro-product-service';
 
 
 /**
@@ -40,6 +41,14 @@ export default class SycFromIbzService extends ControlService {
         super(opts);
         this.model = new SycFromIbzModel();
     }
+
+    /**
+     * 平台产品服务对象
+     *
+     * @type {IBZProProductService}
+     * @memberof SycFromIbzService
+     */
+    public ibzproproductService: IBZProProductService = new IBZProProductService();
 
     /**
      * 处理数据
@@ -82,6 +91,9 @@ export default class SycFromIbzService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'IBZProProductService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.ibzproproductService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'ibzproproduct');
+        }
 
         return Promise.reject([])
     }

@@ -24,86 +24,27 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('pmsproduct')">
-                <el-table-column show-overflow-tooltip :prop="'pmsproduct'" :label="$t('entities.ibzproproduct.main_grid.columns.pmsproduct')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.ibzproproduct.main_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzproproduct.main_grid.columns.pmsproduct')}}
+                        {{$t('entities.ibzproproduct.main_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.pmsproduct}}</span>
+                        <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibzproproduct.main_grid.columns.productname')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.ibzproproduct.main_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzproproduct.main_grid.columns.productname')}}
+                        {{$t('entities.ibzproproduct.main_grid.columns.name')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="pmsproduct">
-                            <span>{{row.productname}}</span>
-                        </app-column-link >
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('ibzpro_productname')">
-                <el-table-column show-overflow-tooltip :prop="'ibzpro_productname'" :label="$t('entities.ibzproproduct.main_grid.columns.ibzpro_productname')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.ibzproproduct.main_grid.columns.ibzpro_productname')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.ibzpro_productname}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('pssystype')">
-                <el-table-column show-overflow-tooltip :prop="'pssystype'" :label="$t('entities.ibzproproduct.main_grid.columns.pssystype')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.ibzproproduct.main_grid.columns.pssystype')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.pssystype" tag='Ibzpro__pssystype' codelistType='STATIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('updateman')">
-                <el-table-column show-overflow-tooltip :prop="'updateman'" :label="$t('entities.ibzproproduct.main_grid.columns.updateman')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.ibzproproduct.main_grid.columns.updateman')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.updateman" tag='SysOperator' codelistType='DYNAMIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('updatedate')">
-                <el-table-column show-overflow-tooltip :prop="'updatedate'" :label="$t('entities.ibzproproduct.main_grid.columns.updatedate')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.ibzproproduct.main_grid.columns.updatedate')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.updatedate"></app-format-data>
+                        <span>{{row.name}}</span>
                     </template>
                 </el-table-column>
             </template>

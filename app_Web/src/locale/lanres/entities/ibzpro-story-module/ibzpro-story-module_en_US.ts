@@ -11,6 +11,7 @@ export default {
     path: "路径",
     ibizshort: "简称",
     parent: "id",
+    productname: "产品",
   },
 	views: {
 		editview: {
@@ -39,6 +40,7 @@ export default {
 			srfsourcekey: "", 
 			storytype: "需求模块类型", 
 			ibiz_id: "IBIZ标识", 
+			productname: "产品", 
 			root: "编号", 
 			type: "类型", 
 			id: "id", 

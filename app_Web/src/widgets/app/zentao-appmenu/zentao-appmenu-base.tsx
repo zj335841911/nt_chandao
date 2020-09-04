@@ -24,10 +24,10 @@ export class ZentaoBase extends Vue {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {
-                case 'Auto8': 
-                    this.clickAuto8(item); break;
                 case 'Auto5': 
                     this.clickAuto5(item); break;
+                case 'Auto8': 
+                    this.clickAuto8(item); break;
                 case 'Auto2': 
                     this.clickAuto2(item); break;
                 case '_7': 
@@ -44,6 +44,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto11(item); break;
                 case '_2': 
                     this.click_2(item); break;
+                case '_8': 
+                    this.click_8(item); break;
                 case 'Auto15': 
                     this.clickAuto15(item); break;
                 case '_4': 
@@ -52,8 +54,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto19(item); break;
                 case '_3': 
                     this.click_3(item); break;
-                case '_8': 
-                    this.click_8(item); break;
+                case '_9': 
+                    this.click_9(item); break;
                 case 'Auto1': 
                     this.clickAuto1(item); break;
                 case '_5': 
@@ -69,29 +71,6 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * iBiz软件生产管理
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto8(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'htmlview', parameterName: 'htmlview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
      * 项目边栏
      *
      * @param {*} [item={}]
@@ -104,6 +83,29 @@ export class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'projects', parameterName: 'project' },
             { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * iBiz软件生产管理
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto8(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'htmlview', parameterName: 'htmlview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -297,6 +299,29 @@ export class ZentaoBase extends Vue {
     }
     
     /**
+     * PRO产品
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_8(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzproproducts', parameterName: 'ibzproproduct' },
+            { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
      * 用例库
      *
      * @param {*} [item={}]
@@ -394,7 +419,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_8(item: any = {}) {
+    public click_9(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];

@@ -85,4 +85,12 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     parent?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    productname?: any;
 }

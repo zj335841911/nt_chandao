@@ -104,6 +104,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("parent")
     private BigInteger parent;
 
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
 
     /**
      * 设置 [NAME]
@@ -119,14 +127,6 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setRoot(BigInteger  root){
         this.root = root ;
         this.modify("root",root);
-    }
-
-    /**
-     * 设置 [IBIZ_ID]
-     */
-    public void setIbizid(String  ibizid){
-        this.ibizid = ibizid ;
-        this.modify("ibiz_id",ibizid);
     }
 
     /**

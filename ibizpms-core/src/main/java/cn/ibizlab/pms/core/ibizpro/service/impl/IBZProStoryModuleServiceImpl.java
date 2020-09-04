@@ -60,6 +60,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Override
     @Transactional
     public boolean create(IBZProStoryModule et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -68,12 +69,14 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public void createBatch(List<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProStoryModule et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -82,6 +85,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public void updateBatch(List<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -112,6 +116,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public IBZProStoryModule getDraft(IBZProStoryModule et) {
+        fillParentData(et);
         return et;
     }
 
@@ -139,12 +144,14 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public boolean saveBatch(Collection<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IBZProStoryModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -188,6 +195,23 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(IBZProStoryModule et){
+        //实体关系[DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_ROOT]
+        if(!ObjectUtils.isEmpty(et.getRoot())){
+            cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproproduct=et.getIbzproproduct();
+            if(ObjectUtils.isEmpty(ibzproproduct)){
+                cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getRoot());
+                et.setIbzproproduct(majorEntity);
+                ibzproproduct=majorEntity;
+            }
+            et.setIbizid(ibzproproduct.getIbizid());
+            et.setProductname(ibzproproduct.getName());
+        }
+    }
 
 
 
