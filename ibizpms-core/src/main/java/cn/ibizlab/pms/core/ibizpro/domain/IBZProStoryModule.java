@@ -35,130 +35,35 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZPRO_STORYMODULE",resultMap = "IBZProStoryModuleResultMap")
+@TableName(value = "zt_module",resultMap = "IBZProStoryModuleResultMap")
 public class IBZProStoryModule extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 需求模块名称
-     */
-    @DEField(name = "ibzpro_storymodulename")
-    @TableField(value = "ibzpro_storymodulename")
-    @JSONField(name = "ibzprostorymodulename")
-    @JsonProperty("ibzprostorymodulename")
-    private String ibzprostorymodulename;
-    /**
-     * 需求模块标识
-     */
-    @DEField(name = "ibzpro_storymoduleid" , isKeyField=true)
-    @TableId(value= "ibzpro_storymoduleid",type=IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzprostorymoduleid")
-    @JsonProperty("ibzprostorymoduleid")
-    private String ibzprostorymoduleid;
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "updateman")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "updatedate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "createman" , fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-    /**
-     * 建立时间
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "createdate" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-    /**
-     * 产品（开发系统）标识
-     */
-    @TableField(value = "product")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private String product;
-    /**
      * id
      */
-    @TableField(value = "pmsstorymodule")
-    @JSONField(name = "pmsstorymodule")
-    @JsonProperty("pmsstorymodule")
-    private BigInteger pmsstorymodule;
+    @DEField(isKeyField=true)
+    @TableId(value= "id",type=IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
     /**
-     * 产品
+     * 名称
      */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "pmsstorymodulename")
-    @JsonProperty("pmsstorymodulename")
-    private String pmsstorymodulename;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Module ztModule;
+    @TableField(value = "name")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
 
 
     /**
-     * 设置 [需求模块名称]
+     * 设置 [名称]
      */
-    public void setIbzprostorymodulename(String ibzprostorymodulename){
-        this.ibzprostorymodulename = ibzprostorymodulename ;
-        this.modify("ibzpro_storymodulename",ibzprostorymodulename);
-    }
-
-    /**
-     * 设置 [产品（开发系统）标识]
-     */
-    public void setProduct(String product){
-        this.product = product ;
-        this.modify("product",product);
-    }
-
-    /**
-     * 设置 [id]
-     */
-    public void setPmsstorymodule(BigInteger pmsstorymodule){
-        this.pmsstorymodule = pmsstorymodule ;
-        this.modify("pmsstorymodule",pmsstorymodule);
+    public void setName(String name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
 

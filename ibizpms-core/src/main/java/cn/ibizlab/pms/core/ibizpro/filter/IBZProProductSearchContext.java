@@ -27,39 +27,11 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct;
 @Data
 public class IBZProProductSearchContext extends QueryWrapperContext<IBZProProduct> {
 
-	private String n_ibzpro_productname_like;//[产品（开发系统）名称]
-	public void setN_ibzpro_productname_like(String n_ibzpro_productname_like) {
-        this.n_ibzpro_productname_like = n_ibzpro_productname_like;
-        if(!ObjectUtils.isEmpty(this.n_ibzpro_productname_like)){
-            this.getSearchCond().like("ibzpro_productname", n_ibzpro_productname_like);
-        }
-    }
-	private String n_pssystype_eq;//[生产体系类型]
-	public void setN_pssystype_eq(String n_pssystype_eq) {
-        this.n_pssystype_eq = n_pssystype_eq;
-        if(!ObjectUtils.isEmpty(this.n_pssystype_eq)){
-            this.getSearchCond().eq("pssystype", n_pssystype_eq);
-        }
-    }
-	private BigInteger n_pmsproduct_eq;//[编号]
-	public void setN_pmsproduct_eq(BigInteger n_pmsproduct_eq) {
-        this.n_pmsproduct_eq = n_pmsproduct_eq;
-        if(!ObjectUtils.isEmpty(this.n_pmsproduct_eq)){
-            this.getSearchCond().eq("pmsproduct", n_pmsproduct_eq);
-        }
-    }
-	private String n_productname_eq;//[产品]
-	public void setN_productname_eq(String n_productname_eq) {
-        this.n_productname_eq = n_productname_eq;
-        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
-            this.getSearchCond().eq("productname", n_productname_eq);
-        }
-    }
-	private String n_productname_like;//[产品]
-	public void setN_productname_like(String n_productname_like) {
-        this.n_productname_like = n_productname_like;
-        if(!ObjectUtils.isEmpty(this.n_productname_like)){
-            this.getSearchCond().like("productname", n_productname_like);
+	private String n_name_like;//[产品名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 
@@ -71,7 +43,8 @@ public class IBZProProductSearchContext extends QueryWrapperContext<IBZProProduc
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("ibzpro_productname", query)   
+                     wrapper.like("id", query)   
+                        .or().like("name", query)            
             );
 		 }
 	}

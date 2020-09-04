@@ -5,7 +5,6 @@ import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
-import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
 import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
@@ -20,7 +19,6 @@ import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-st
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
 import group_zh_CN from '@locale/lanres/entities/group/group_zh_CN';
-import ibzproproduct_zh_CN from '@locale/lanres/entities/ibzpro-product/ibzpro-product_zh_CN';
 import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
 import dept_zh_CN from '@locale/lanres/entities/dept/dept_zh_CN';
 import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
@@ -43,7 +41,6 @@ import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
-import ibzprostory_zh_CN from '@locale/lanres/entities/ibzpro-story/ibzpro-story_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/entities/project-team/project-team_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
 import ibztaskestimate_zh_CN from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_zh_CN';
@@ -322,7 +319,6 @@ export default {
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
-        ibzprostorymodule: ibzprostorymodule_zh_CN,
         ibzlibcasesteps: ibzlibcasesteps_zh_CN,
         ibzlib: ibzlib_zh_CN,
         suitecase: suitecase_zh_CN,
@@ -337,7 +333,6 @@ export default {
         ibzprojectmember: ibzprojectmember_zh_CN,
         action: action_zh_CN,
         group: group_zh_CN,
-        ibzproproduct: ibzproproduct_zh_CN,
         casestep: casestep_zh_CN,
         dept: dept_zh_CN,
         company: company_zh_CN,
@@ -360,7 +355,6 @@ export default {
         build: build_zh_CN,
         testresult: testresult_zh_CN,
         testsuite: testsuite_zh_CN,
-        ibzprostory: ibzprostory_zh_CN,
         projectteam: projectteam_zh_CN,
         testtask: testtask_zh_CN,
         ibztaskestimate: ibztaskestimate_zh_CN,

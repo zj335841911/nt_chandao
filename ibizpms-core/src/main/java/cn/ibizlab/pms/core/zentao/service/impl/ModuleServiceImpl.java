@@ -48,9 +48,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy

@@ -129,16 +129,6 @@
         "viewtag": "07327890c326f9c806b9343f0c660fc1",
         "memo": "视图参数转换"
     },
-    "ibzprostorygridview": {
-        "title": "需求表格视图",
-        "caption": "需求",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IBZProStoryGridView",
-        "viewfilename": "ibzpro-story-grid-view",
-        "viewtag": "077af636991c5ae68e1bc260baffc10f",
-        "memo": ""
-    },
     "producthtmlview": {
         "title": "iBiz软件生产管理",
         "caption": "iBiz软件生产管理",
@@ -1029,16 +1019,6 @@
         "viewtag": "46517a803b2470cd0bef27aeda0dbcaf",
         "memo": "临时充当主信息展示页面"
     },
-    "ibzproproductgridview": {
-        "title": "产品（开发系统）表格视图",
-        "caption": "产品（开发系统）",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IBZProProductGridView",
-        "viewfilename": "ibzpro-product-grid-view",
-        "viewtag": "46854d548e698f79dc9b2bda5e5d5331",
-        "memo": ""
-    },
     "ibzlibeditview9": {
         "title": "用例库编辑视图",
         "caption": "用例库",
@@ -1187,16 +1167,6 @@
         "viewname": "ProductPlanSubPlanGridView",
         "viewfilename": "product-plan-sub-plan-grid-view",
         "viewtag": "500950593bf64e5516bdb9b7db29b747",
-        "memo": ""
-    },
-    "ibzprostorymoduleeditview": {
-        "title": "需求模块编辑视图",
-        "caption": "需求模块",
-        "viewtype": "DEEDITVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IBZProStoryModuleEditView",
-        "viewfilename": "ibzpro-story-module-edit-view",
-        "viewtag": "500a15957867996d6e20e7a37db8b004",
         "memo": ""
     },
     "taskclosetaskview": {
@@ -1717,16 +1687,6 @@
         "viewname": "CaseCurSuitGridView",
         "viewfilename": "case-cur-suit-grid-view",
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
-        "memo": ""
-    },
-    "ibzprostoryeditview": {
-        "title": "需求编辑视图",
-        "caption": "需求",
-        "viewtype": "DEEDITVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IBZProStoryEditView",
-        "viewfilename": "ibzpro-story-edit-view",
-        "viewtag": "75ddfe042245299b90c10c572b3d9436",
         "memo": ""
     },
     "storytabexpview": {
@@ -2347,16 +2307,6 @@
         "viewname": "ReleaseGridView",
         "viewfilename": "release-grid-view",
         "viewtag": "9ae49b10ec96e8f7b063be2ed4172247",
-        "memo": ""
-    },
-    "ibzproproducteditview": {
-        "title": "产品（开发系统）编辑视图",
-        "caption": "产品（开发系统）",
-        "viewtype": "DEEDITVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IBZProProductEditView",
-        "viewfilename": "ibzpro-product-edit-view",
-        "viewtag": "9bcbf0cd15b37b97657fec9a157595fe",
         "memo": ""
     },
     "productmoduleeditview": {
@@ -3707,16 +3657,6 @@
         "viewname": "BugBuildSubGridView_Done",
         "viewfilename": "bug-build-sub-grid-view-done",
         "viewtag": "f8ffad31189703973765c5a9c4fc8a5c",
-        "memo": ""
-    },
-    "ibzprostorymodulegridview": {
-        "title": "需求模块表格视图",
-        "caption": "需求模块",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "ibiz",
-        "viewname": "IBZProStoryModuleGridView",
-        "viewfilename": "ibzpro-story-module-grid-view",
-        "viewtag": "f9dd61cc8713a81451f3cb410cf11bbb",
         "memo": ""
     },
     "branchpickupgridview": {

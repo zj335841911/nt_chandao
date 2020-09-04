@@ -46,7 +46,6 @@ export class EntityServiceRegister {
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
         this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
         this.allEntityService.set('file', () => import('@/service/file/file-service'));
-        this.allEntityService.set('ibzprostorymodule', () => import('@/service/ibzpro-story-module/ibzpro-story-module-service'));
         this.allEntityService.set('ibzlibcasesteps', () => import('@/service/ibz-lib-casesteps/ibz-lib-casesteps-service'));
         this.allEntityService.set('ibzlib', () => import('@/service/ibz-lib/ibz-lib-service'));
         this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
@@ -61,7 +60,6 @@ export class EntityServiceRegister {
         this.allEntityService.set('ibzprojectmember', () => import('@/service/ibz-project-member/ibz-project-member-service'));
         this.allEntityService.set('action', () => import('@/service/action/action-service'));
         this.allEntityService.set('group', () => import('@/service/group/group-service'));
-        this.allEntityService.set('ibzproproduct', () => import('@/service/ibzpro-product/ibzpro-product-service'));
         this.allEntityService.set('casestep', () => import('@/service/case-step/case-step-service'));
         this.allEntityService.set('dept', () => import('@/service/dept/dept-service'));
         this.allEntityService.set('company', () => import('@/service/company/company-service'));
@@ -84,7 +82,6 @@ export class EntityServiceRegister {
         this.allEntityService.set('build', () => import('@/service/build/build-service'));
         this.allEntityService.set('testresult', () => import('@/service/test-result/test-result-service'));
         this.allEntityService.set('testsuite', () => import('@/service/test-suite/test-suite-service'));
-        this.allEntityService.set('ibzprostory', () => import('@/service/ibzpro-story/ibzpro-story-service'));
         this.allEntityService.set('projectteam', () => import('@/service/project-team/project-team-service'));
         this.allEntityService.set('testtask', () => import('@/service/test-task/test-task-service'));
         this.allEntityService.set('ibztaskestimate', () => import('@/service/ibztask-estimate/ibztask-estimate-service'));

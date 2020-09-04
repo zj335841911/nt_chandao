@@ -46,7 +46,6 @@ export class UIServiceRegister {
         this.allUIService.set('product', () => import('@/uiservice/product/product-ui-service'));
         this.allUIService.set('taskteam', () => import('@/uiservice/task-team/task-team-ui-service'));
         this.allUIService.set('file', () => import('@/uiservice/file/file-ui-service'));
-        this.allUIService.set('ibzprostorymodule', () => import('@/uiservice/ibzpro-story-module/ibzpro-story-module-ui-service'));
         this.allUIService.set('ibzlibcasesteps', () => import('@/uiservice/ibz-lib-casesteps/ibz-lib-casesteps-ui-service'));
         this.allUIService.set('ibzlib', () => import('@/uiservice/ibz-lib/ibz-lib-ui-service'));
         this.allUIService.set('suitecase', () => import('@/uiservice/suite-case/suite-case-ui-service'));
@@ -61,7 +60,6 @@ export class UIServiceRegister {
         this.allUIService.set('ibzprojectmember', () => import('@/uiservice/ibz-project-member/ibz-project-member-ui-service'));
         this.allUIService.set('action', () => import('@/uiservice/action/action-ui-service'));
         this.allUIService.set('group', () => import('@/uiservice/group/group-ui-service'));
-        this.allUIService.set('ibzproproduct', () => import('@/uiservice/ibzpro-product/ibzpro-product-ui-service'));
         this.allUIService.set('casestep', () => import('@/uiservice/case-step/case-step-ui-service'));
         this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
         this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
@@ -84,7 +82,6 @@ export class UIServiceRegister {
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));
         this.allUIService.set('testresult', () => import('@/uiservice/test-result/test-result-ui-service'));
         this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
-        this.allUIService.set('ibzprostory', () => import('@/uiservice/ibzpro-story/ibzpro-story-ui-service'));
         this.allUIService.set('projectteam', () => import('@/uiservice/project-team/project-team-ui-service'));
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
         this.allUIService.set('ibztaskestimate', () => import('@/uiservice/ibztask-estimate/ibztask-estimate-ui-service'));

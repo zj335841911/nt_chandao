@@ -67,15 +67,8 @@ export default {
         "on": "暂时不设定时间",
         "empty": "",
     },
-    SysOperator: {
-        "empty": "",
-    },
     UserRealNameW: {
         "empty": "未指派",
-    },
-    Ibzpro__pssystype: {
-        "iBizSys6": "iBizSys6",
-        "empty": "",
     },
     Bug__os: {
         "all": "全部",

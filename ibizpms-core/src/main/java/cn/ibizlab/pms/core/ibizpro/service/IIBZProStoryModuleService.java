@@ -29,19 +29,14 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
     void createBatch(List<IBZProStoryModule> list) ;
     boolean update(IBZProStoryModule et) ;
     void updateBatch(List<IBZProStoryModule> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBZProStoryModule get(String key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    IBZProStoryModule get(BigInteger key) ;
     IBZProStoryModule getDraft(IBZProStoryModule et) ;
     boolean checkKey(IBZProStoryModule et) ;
-    IBZProStoryModule push(IBZProStoryModule et) ;
     boolean save(IBZProStoryModule et) ;
     void saveBatch(List<IBZProStoryModule> list) ;
     Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context) ;
-    List<IBZProStoryModule> selectByProduct(String ibzpro_productid) ;
-    void removeByProduct(String ibzpro_productid) ;
-    List<IBZProStoryModule> selectByPmsstorymodule(BigInteger id) ;
-    void removeByPmsstorymodule(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
@@ -57,8 +52,6 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
      */
     boolean execute(String sql, Map param);
 
-    List<IBZProStoryModule> getIbzprostorymoduleByIds(List<String> ids) ;
-    List<IBZProStoryModule> getIbzprostorymoduleByEntities(List<IBZProStoryModule> entities) ;
 }
 
 

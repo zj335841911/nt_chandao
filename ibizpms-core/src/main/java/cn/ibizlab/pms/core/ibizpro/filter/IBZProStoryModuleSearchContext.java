@@ -27,53 +27,11 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule;
 @Data
 public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProStoryModule> {
 
-	private String n_ibzpro_storymodulename_like;//[需求模块名称]
-	public void setN_ibzpro_storymodulename_like(String n_ibzpro_storymodulename_like) {
-        this.n_ibzpro_storymodulename_like = n_ibzpro_storymodulename_like;
-        if(!ObjectUtils.isEmpty(this.n_ibzpro_storymodulename_like)){
-            this.getSearchCond().like("ibzpro_storymodulename", n_ibzpro_storymodulename_like);
-        }
-    }
-	private String n_product_eq;//[产品（开发系统）标识]
-	public void setN_product_eq(String n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("product", n_product_eq);
-        }
-    }
-	private BigInteger n_pmsstorymodule_eq;//[id]
-	public void setN_pmsstorymodule_eq(BigInteger n_pmsstorymodule_eq) {
-        this.n_pmsstorymodule_eq = n_pmsstorymodule_eq;
-        if(!ObjectUtils.isEmpty(this.n_pmsstorymodule_eq)){
-            this.getSearchCond().eq("pmsstorymodule", n_pmsstorymodule_eq);
-        }
-    }
-	private String n_productname_eq;//[产品]
-	public void setN_productname_eq(String n_productname_eq) {
-        this.n_productname_eq = n_productname_eq;
-        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
-            this.getSearchCond().eq("productname", n_productname_eq);
-        }
-    }
-	private String n_productname_like;//[产品]
-	public void setN_productname_like(String n_productname_like) {
-        this.n_productname_like = n_productname_like;
-        if(!ObjectUtils.isEmpty(this.n_productname_like)){
-            this.getSearchCond().like("productname", n_productname_like);
-        }
-    }
-	private String n_pmsstorymodulename_eq;//[模块]
-	public void setN_pmsstorymodulename_eq(String n_pmsstorymodulename_eq) {
-        this.n_pmsstorymodulename_eq = n_pmsstorymodulename_eq;
-        if(!ObjectUtils.isEmpty(this.n_pmsstorymodulename_eq)){
-            this.getSearchCond().eq("pmsstorymodulename", n_pmsstorymodulename_eq);
-        }
-    }
-	private String n_pmsstorymodulename_like;//[模块]
-	public void setN_pmsstorymodulename_like(String n_pmsstorymodulename_like) {
-        this.n_pmsstorymodulename_like = n_pmsstorymodulename_like;
-        if(!ObjectUtils.isEmpty(this.n_pmsstorymodulename_like)){
-            this.getSearchCond().like("pmsstorymodulename", n_pmsstorymodulename_like);
+	private String n_name_like;//[名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 
@@ -85,7 +43,7 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("ibzpro_storymodulename", query)   
+                     wrapper.like("name", query)   
             );
 		 }
 	}
