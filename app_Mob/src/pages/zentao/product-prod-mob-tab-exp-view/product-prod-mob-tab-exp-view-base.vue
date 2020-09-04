@@ -20,10 +20,10 @@
                             <ion-badge color="danger">{{counter.counterData.draftstorycnt?counter.counterData.draftstorycnt:''}}</ion-badge>
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                            
+                            <ion-badge color="danger">{{counter.counterData.productplancnt?counter.counterData.productplancnt:''}}</ion-badge>
                             计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                            
+                            <ion-badge color="danger">{{counter.counterData.releasecnt?counter.counterData.releasecnt:''}}</ion-badge>
                             发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
                             <ion-badge color="danger">{{counter.counterData.relatedbugcnt?counter.counterData.relatedbugcnt:''}}</ion-badge>

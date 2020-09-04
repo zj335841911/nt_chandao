@@ -185,6 +185,17 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-MobProjectCount-all')")
+    @ApiOperation(value = "移动端项目计数器", tags = {"项目" },  notes = "移动端项目计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/mobprojectcount")
+    public ResponseEntity<ProjectDTO> mobProjectCount(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.mobProjectCount(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ProjectTop-all')")
     @ApiOperation(value = "置顶", tags = {"项目" },  notes = "置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projecttop")

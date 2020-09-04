@@ -18,7 +18,7 @@
 
 .app-layoutpanel {
     height: 100%;
-    margin-bottom: 10px;
+    margin: 0 !important;
     > .app-layoutpanel-container {
         height: 100%;
         .app-layoutpanel-rowitem{
@@ -64,8 +64,13 @@
               --background-activated:white;
             }
             ion-item-options{
-              margin: 10px 10px 0px 10px;
-              padding-bottom: 10px;
+                margin: 0 !important;
+                margin-right: 10px !important;
+                padding: 0 !important;
+                border-bottom-width:0px !important;
+            }
+            .app-mob-mdctrl-item{
+                margin-top:10px;
             }
         }
         .app-mob-mdctrl-refresh{
@@ -78,17 +83,4 @@
     }
 }
 // 需求-AssMOB 样式
-.story-mdctrl{
-    .app-mob-mdctrl-item{
-        margin-top: 10px;
-    }
-    ion-item-options{
-      margin: 0 !important;
-      margin-right: 10px !important;
-      padding: 0 !important;
-      border-bottom-width:0px !important;
-    }
-    .app-layoutpanel {
-        margin: 0 !important;
-    }
-}
+.story-mdctrl{}

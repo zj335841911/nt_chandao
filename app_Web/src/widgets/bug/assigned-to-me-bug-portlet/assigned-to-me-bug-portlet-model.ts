@@ -222,6 +222,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

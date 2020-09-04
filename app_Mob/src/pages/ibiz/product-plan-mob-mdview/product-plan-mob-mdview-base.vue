@@ -602,6 +602,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -650,6 +651,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -875,7 +877,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ProductPlanMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

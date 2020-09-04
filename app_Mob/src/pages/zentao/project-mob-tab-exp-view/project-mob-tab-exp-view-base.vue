@@ -17,16 +17,16 @@
                             
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            
+                            <ion-badge color="danger">{{counter.counterData.taskcnt?counter.counterData.taskcnt:''}}</ion-badge>
                             任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                            
+                            <ion-badge color="danger">{{counter.counterData.buildcnt?counter.counterData.buildcnt:''}}</ion-badge>
                             版本</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                            
+                            <ion-badge color="danger">{{counter.counterData.bugcnt?counter.counterData.bugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                            
+                            <ion-badge color="danger">{{counter.counterData.teamcnt?counter.counterData.teamcnt:''}}</ion-badge>
                             团队</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>

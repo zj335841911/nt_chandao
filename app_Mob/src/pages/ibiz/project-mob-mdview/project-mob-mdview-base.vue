@@ -874,7 +874,7 @@ export default class ProjectMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ProjectMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

@@ -41,3 +41,7 @@ export const Environment = {
     // ibiz论坛地址
     ibizbbstUrl: 'https://bbs.ibizlab.cn',
 };
+// 挂载外部配置文件
+if ((window as any).Environment) {
+    Object.assign(Environment, (window as any).Environment);
+}

@@ -50,6 +50,11 @@
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
                 <ion-fab-list class="fab-list" side="top">
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled" :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)">
+                <ion-icon name="swap"></ion-icon>
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}    
+            </ion-fab-button>
+        
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)">
             {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
             </ion-fab-button>
@@ -302,6 +307,8 @@ export default class StoryMobEditViewBase extends Vue {
     * @memberof StoryMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_changestorydetailmob: { name: 'deuiaction1_changestorydetailmob', caption: '变更', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', uiaction: { tag: 'ChangeStoryDetailMob', target: 'SINGLEKEY' } },
+
             deuiaction1_assigntomob: { name: 'deuiaction1_assigntomob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ASS_BUT', uiaction: { tag: 'AssignToMob', target: 'SINGLEKEY' } },
 
             deuiaction1_reviewstorymob: { name: 'deuiaction1_reviewstorymob', caption: '评审', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', uiaction: { tag: 'ReviewStoryMob', target: 'SINGLEKEY' } },
@@ -568,6 +575,9 @@ export default class StoryMobEditViewBase extends Vue {
      * @memberof StoryMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_changestorydetailmob')) {
+            this.righttoolbar_deuiaction1_changestorydetailmob_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_assigntomob')) {
             this.righttoolbar_deuiaction1_assigntomob_click($event, '', $event2);
         }
@@ -582,6 +592,38 @@ export default class StoryMobEditViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_changestorydetailmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_ChangeStoryDetailMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件

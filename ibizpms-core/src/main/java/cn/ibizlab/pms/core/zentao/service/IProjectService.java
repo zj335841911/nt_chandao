@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -41,6 +40,7 @@ public interface IProjectService extends IService<Project>{
     Project close(Project et) ;
     Project linkStory(Project et) ;
     Project manageMembers(Project et) ;
+    Project mobProjectCount(Project et) ;
     Project projectTop(Project et) ;
     Project putoff(Project et) ;
     boolean save(Project et) ;

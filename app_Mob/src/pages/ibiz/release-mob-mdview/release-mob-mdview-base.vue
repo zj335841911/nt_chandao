@@ -602,6 +602,7 @@ export default class ReleaseMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'releases', parameterName: 'release' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -650,6 +651,7 @@ export default class ReleaseMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'releases', parameterName: 'release' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -875,7 +877,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ReleaseMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

@@ -150,6 +150,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'releases', parameterName: 'release' },
             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },

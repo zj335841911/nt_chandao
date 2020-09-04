@@ -363,6 +363,54 @@ public class IbzMyTerritoryDTO extends DTOBase implements Serializable {
     @JsonProperty("myetasks")
     private String myetasks;
 
+    /**
+     * 属性 [MYTODOCNT]
+     *
+     */
+    @JSONField(name = "mytodocnt")
+    @JsonProperty("mytodocnt")
+    private Integer mytodocnt;
+
+    /**
+     * 属性 [MYFAVORITESTORYS]
+     *
+     */
+    @JSONField(name = "myfavoritestorys")
+    @JsonProperty("myfavoritestorys")
+    private Integer myfavoritestorys;
+
+    /**
+     * 属性 [MYFAVORITEBUGS]
+     *
+     */
+    @JSONField(name = "myfavoritebugs")
+    @JsonProperty("myfavoritebugs")
+    private Integer myfavoritebugs;
+
+    /**
+     * 属性 [MYFAVORITETASKS]
+     *
+     */
+    @JSONField(name = "myfavoritetasks")
+    @JsonProperty("myfavoritetasks")
+    private Integer myfavoritetasks;
+
+    /**
+     * 属性 [MYFAVORITES]
+     *
+     */
+    @JSONField(name = "myfavorites")
+    @JsonProperty("myfavorites")
+    private Integer myfavorites;
+
+    /**
+     * 属性 [MYTERRITORYCNT]
+     *
+     */
+    @JSONField(name = "myterritorycnt")
+    @JsonProperty("myterritorycnt")
+    private Integer myterritorycnt;
+
 
     /**
      * 设置 [FAILS]

@@ -37,6 +37,7 @@ import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-favorit
 
 import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-action';
 
+import  MyFavoriteMobCounterCounterService  from '@/app-core/counter/my-favorite-mob-counter/my-favorite-mob-counter-counter';
 
 
 @Component({
@@ -163,6 +164,14 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * MyFavoriteMobCounterCounterService计数器服务对象
+     *
+     * @type {MyFavoriteMobCounterCounterService}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    protected MyFavoriteMobCountercounterservice: MyFavoriteMobCounterCounterService = new MyFavoriteMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
 
     /**
      * 计数器服务对象集合
@@ -170,7 +179,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {Array<*>}
      * @memberof MobTabExpViewtabexppanel
      */    
-    protected counterServiceArray:Array<any> = [];
+    protected counterServiceArray:Array<any> = [this.MyFavoriteMobCountercounterservice];
 
     /**
      * 加载计数器数据

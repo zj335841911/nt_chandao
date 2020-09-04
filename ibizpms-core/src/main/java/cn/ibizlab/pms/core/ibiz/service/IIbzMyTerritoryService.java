@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -35,6 +34,9 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     IbzMyTerritory get(BigInteger key) ;
     IbzMyTerritory getDraft(IbzMyTerritory et) ;
     boolean checkKey(IbzMyTerritory et) ;
+    IbzMyTerritory mobMenuCount(IbzMyTerritory et) ;
+    IbzMyTerritory myFavoriteCount(IbzMyTerritory et) ;
+    IbzMyTerritory myTerritoryCount(IbzMyTerritory et) ;
     boolean save(IbzMyTerritory et) ;
     void saveBatch(List<IbzMyTerritory> list) ;
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;

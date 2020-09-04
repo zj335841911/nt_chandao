@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymyfavoritecount" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymyfavoritecount">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="ibzmyterritorymyfavoritecountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall3" id="70A5EC44-E290-4932-A3DD-596F59772297" implementation="http://www.jboss.org/drools/rule" name="我的收藏任务数"/>
+     <endEvent id="70A5EC44-E290-4932-A3DD-596F59772297_End" name="End"/>
+     <sequenceFlow id="70A5EC44-E290-4932-A3DD-596F59772297_End_Line" sourceRef="70A5EC44-E290-4932-A3DD-596F59772297" targetRef="70A5EC44-E290-4932-A3DD-596F59772297_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall2" id="C9F5BF4A-0921-434D-AEE0-B56D10833533" implementation="http://www.jboss.org/drools/rule" name="我的收藏Bug数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall1" id="B8668DA5-A622-4934-8572-D65567211EA4" implementation="http://www.jboss.org/drools/rule" name="获取我的收藏需求数"/>
+     <startEvent id="1A8E4E70-76A8-47BB-9F8C-ADCCDA0C32EE" isInterrupting="true"/>
+     <sequenceFlow id="95AF21DA-5468-4938-B7E5-BE9A39EB4B73" sourceRef="1A8E4E70-76A8-47BB-9F8C-ADCCDA0C32EE" targetRef="B8668DA5-A622-4934-8572-D65567211EA4">
+     </sequenceFlow>
+     <sequenceFlow id="6E706B7F-BCD7-4CBE-81E8-645999FC6170" sourceRef="B8668DA5-A622-4934-8572-D65567211EA4" targetRef="C9F5BF4A-0921-434D-AEE0-B56D10833533">
+     </sequenceFlow>
+     <sequenceFlow id="C658127D-FC8C-4668-AA51-765C47251960" sourceRef="C9F5BF4A-0921-434D-AEE0-B56D10833533" targetRef="70A5EC44-E290-4932-A3DD-596F59772297">
+     </sequenceFlow>
+    </process>
+</definitions>
+

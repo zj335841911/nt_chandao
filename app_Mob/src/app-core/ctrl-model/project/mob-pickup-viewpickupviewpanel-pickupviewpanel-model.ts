@@ -183,6 +183,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

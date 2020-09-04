@@ -152,6 +152,17 @@ public class ProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductTestCounter-all')")
+    @ApiOperation(value = "移动端测试计数器", tags = {"产品" },  notes = "移动端测试计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/mobproducttestcounter")
+    public ResponseEntity<ProductDTO> mobProductTestCounter(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+        Product domain = productMapping.toDomain(productdto);
+        domain.setId(product_id);
+        domain = productService.mobProductTestCounter(domain);
+        productdto = productMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-ProductTop-all')")
     @ApiOperation(value = "置顶", tags = {"产品" },  notes = "置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/producttop")

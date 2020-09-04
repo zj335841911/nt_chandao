@@ -3,7 +3,7 @@
     <app-mob-menu-ionic-view 
         class="" 
         menuName="appindexview"  
-        counterName=""  
+        counterName="mobmenucounter"  
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)"  
@@ -14,7 +14,7 @@
     <app-mob-menu-list-view 
         class="" 
         menuName="appindexview" 
-        counterName="" 
+        counterName="mobmenucounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)" 
@@ -25,7 +25,7 @@
     <app-mob-menu-swiper-view 
         class="" 
         menuName="appindexview" 
-        counterName="" 
+        counterName="mobmenucounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)" 
@@ -36,7 +36,7 @@
     <app-mob-menu-default-view 
         class="" 
         menuName="appindexview" 
-        counterName="" 
+        counterName="mobmenucounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         v-model="defaultActive"

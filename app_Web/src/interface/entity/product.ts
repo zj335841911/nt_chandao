@@ -309,4 +309,20 @@ export interface Product {
      * @memberof Product
      */
     istop?: any;
+
+    /**
+     * 测试单数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    testtaskcnt?: any;
+
+    /**
+     * 套件数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    testsuitecnt?: any;
 }

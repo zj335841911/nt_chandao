@@ -1263,6 +1263,20 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'NeedNotReview',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '0',
+                label: '不需要评审',
+                text: '不需要评审',
+                value: '0',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

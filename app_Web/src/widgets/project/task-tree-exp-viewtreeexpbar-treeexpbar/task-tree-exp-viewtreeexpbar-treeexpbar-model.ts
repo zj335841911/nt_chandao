@@ -183,6 +183,12 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

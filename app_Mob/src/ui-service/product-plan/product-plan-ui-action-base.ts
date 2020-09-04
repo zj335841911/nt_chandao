@@ -152,6 +152,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },

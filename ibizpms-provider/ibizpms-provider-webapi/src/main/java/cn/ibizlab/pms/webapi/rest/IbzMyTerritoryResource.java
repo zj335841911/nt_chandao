@@ -119,6 +119,36 @@ public class IbzMyTerritoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.checkKey(ibzmyterritoryMapping.toDomain(ibzmyterritorydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MobMenuCount-all')")
+    @ApiOperation(value = "移动端菜单计数器", tags = {"我的地盘" },  notes = "移动端菜单计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/mobmenucount")
+    public ResponseEntity<IbzMyTerritoryDTO> mobMenuCount() {
+        IbzMyTerritory domain =new IbzMyTerritory();
+        domain = ibzmyterritoryService.mobMenuCount(domain);
+        IbzMyTerritoryDTO ibzmyterritorydto = ibzmyterritoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritorydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MyFavoriteCount-all')")
+    @ApiOperation(value = "我的收藏计数器", tags = {"我的地盘" },  notes = "我的收藏计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/myfavoritecount")
+    public ResponseEntity<IbzMyTerritoryDTO> myFavoriteCount() {
+        IbzMyTerritory domain =new IbzMyTerritory();
+        domain = ibzmyterritoryService.myFavoriteCount(domain);
+        IbzMyTerritoryDTO ibzmyterritorydto = ibzmyterritoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritorydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-MyTerritoryCount-all')")
+    @ApiOperation(value = "我的地盘移动端计数器", tags = {"我的地盘" },  notes = "我的地盘移动端计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/myterritorycount")
+    public ResponseEntity<IbzMyTerritoryDTO> myTerritoryCount() {
+        IbzMyTerritory domain =new IbzMyTerritory();
+        domain = ibzmyterritoryService.myTerritoryCount(domain);
+        IbzMyTerritoryDTO ibzmyterritorydto = ibzmyterritoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritorydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Save-all')")
     @ApiOperation(value = "保存我的地盘", tags = {"我的地盘" },  notes = "保存我的地盘")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/save")

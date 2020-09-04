@@ -453,4 +453,20 @@ export interface Project {
      * @memberof Project
      */
     managemembers?: any;
+
+    /**
+     * 版本总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    buildcnt?: any;
+
+    /**
+     * 团队成员总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    teamcnt?: any;
 }

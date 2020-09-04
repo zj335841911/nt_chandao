@@ -602,6 +602,7 @@ export default class StoryMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -650,6 +651,7 @@ export default class StoryMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -875,7 +877,7 @@ export default class StoryMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof StoryMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;

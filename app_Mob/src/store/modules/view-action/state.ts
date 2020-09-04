@@ -33,6 +33,7 @@ export const viewstate: any = {
             refviews: [
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
+                '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 'e6b8dc7c5f604f8cc4cabb89752aac17',
                 '78beacb29481bfa83dfce62ac4bd9d13',
@@ -116,6 +117,7 @@ export const viewstate: any = {
             refviews: [
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
+                '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 'e7bc340642f7bc0346a1f220d1523954',
@@ -360,6 +362,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5417edd9f4126190105417c652149d76',
+            viewmodule: 'ibiz',
+            viewname: 'TaskSTARTMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '58f89fab47964b5ad5b6b0f2021b188b',
             viewmodule: 'ibiz',
             viewname: 'BugMobMDView',
@@ -599,6 +611,7 @@ export const viewstate: any = {
             refviews: [
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
+                '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
@@ -719,6 +732,7 @@ export const viewstate: any = {
                 '95cda0105e1825b7d41889deceb93c23',
                 '6530030850ee815ed2c26f0be4f53bad',
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
+                'cacf8bf823f555d6b1952c3aeddf8223',
             ],
         },
         {
@@ -790,6 +804,7 @@ export const viewstate: any = {
                 '95cda0105e1825b7d41889deceb93c23',
                 '6530030850ee815ed2c26f0be4f53bad',
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
+                'cacf8bf823f555d6b1952c3aeddf8223',
                 '04397afc992f5947c2d1b4250af66e37',
             ],
         },
@@ -842,6 +857,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'cacf8bf823f555d6b1952c3aeddf8223',
+            viewmodule: 'ibiz',
+            viewname: 'StoryChangeMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: 'cf9c89f414fccc3284362e09ae506d64',
             viewmodule: 'ibiz',
             viewname: 'ProductLineMobPickupView',
@@ -861,6 +886,7 @@ export const viewstate: any = {
                 '95cda0105e1825b7d41889deceb93c23',
                 '6530030850ee815ed2c26f0be4f53bad',
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
+                'cacf8bf823f555d6b1952c3aeddf8223',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },

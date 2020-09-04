@@ -10,6 +10,7 @@
         size="mini"
         stripe
         rowKey="id"
+        :height="tableHeight"
         :treeProps="{children: 'items', hasChildren: 'hasChildren'}"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
@@ -96,7 +97,7 @@
                     <template v-slot="{row,column,$index}">
                         <template >
                             <a @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                             </a>
                         </template>
                     </template>

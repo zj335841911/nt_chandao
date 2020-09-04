@@ -38,6 +38,8 @@ export default {
     mobimage: "移动端图片",
     order1: "排序",
     istop: "是否置顶",
+    testtaskcnt: "测试单数",
+    testsuitecnt: "套件数",
   },
 	views: {
 		testtabexpview: {

@@ -22,6 +22,9 @@ public class AuthorizationLogin
     @NotBlank(message="密码不能为空")
     private String password;
 
+    private String devslnsysid;
+
+    private String proxyloginname;
 
     public String getUsername()
     {

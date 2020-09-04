@@ -329,7 +329,6 @@ export class IBizPMSBase extends Vue {
             </template>
             <template slot="header_right">
               <app-header-menus ref="headerMenus" ctrlName="zentao" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
-              <app-lang style='font-size: 15px;padding: 0 10px;'></app-lang>
               <user-info ref="userInfo" ctrlName="zentao" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
             </template>
           </app-header>

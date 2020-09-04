@@ -141,6 +141,24 @@ export default class TabExpViewtabviewpanel5Model {
       {
         name: 'myetasks',
       },
+      {
+        name: 'mytodocnt',
+      },
+      {
+        name: 'myfavoritestorys',
+      },
+      {
+        name: 'myfavoritebugs',
+      },
+      {
+        name: 'myfavoritetasks',
+      },
+      {
+        name: 'myfavorites',
+      },
+      {
+        name: 'myterritorycnt',
+      },
     ]
   }
 

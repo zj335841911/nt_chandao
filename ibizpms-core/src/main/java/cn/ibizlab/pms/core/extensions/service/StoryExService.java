@@ -344,5 +344,32 @@ public class StoryExService extends StoryServiceImpl {
     public Story activate(Story et) {
         return super.activate(et);
     }
+    /**
+     * 查询集合 通过模块查询
+     */
+    @Override
+    public Page<Story> searchByModule(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
+        for(Story story : pages.getRecords()) {
+            StorySearchContext storySearchContext = new StorySearchContext();
+            storySearchContext.setN_parent_eq(story.getId());
+            story.set("items", this.searchDefault(storySearchContext).getContent());
+        }
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 数据查询
+     */
+    @Override
+    public Page<Story> searchParentDefault(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchParentDefault(context.getPages(),context,context.getSelectCond());
+        for(Story story : pages.getRecords()) {
+            StorySearchContext storySearchContext = new StorySearchContext();
+            storySearchContext.setN_parent_eq(story.getId());
+            story.set("items", this.searchDefault(storySearchContext).getContent());
+        }
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 }
 

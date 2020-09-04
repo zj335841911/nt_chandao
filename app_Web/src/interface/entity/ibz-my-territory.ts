@@ -341,4 +341,52 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     myetasks?: any;
+
+    /**
+     * 我的待办数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    mytodocnt?: any;
+
+    /**
+     * 我收藏的需求数
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myfavoritestorys?: any;
+
+    /**
+     * 我收藏的bugs
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myfavoritebugs?: any;
+
+    /**
+     * 我收藏的任务
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myfavoritetasks?: any;
+
+    /**
+     * 我的收藏
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myfavorites?: any;
+
+    /**
+     * 我的地盘
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    myterritorycnt?: any;
 }

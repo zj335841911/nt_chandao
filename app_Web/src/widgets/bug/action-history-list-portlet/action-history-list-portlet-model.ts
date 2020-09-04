@@ -222,6 +222,9 @@ export default class ActionHistoryListModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

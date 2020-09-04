@@ -57,6 +57,8 @@ export default {
     istop: "是否置顶",
     dept: "选择部门",
     managemembers: "复制团队",
+    buildcnt: "版本总数",
+    teamcnt: "团队成员总数",
   },
 	views: {
 		storymeditview9: {

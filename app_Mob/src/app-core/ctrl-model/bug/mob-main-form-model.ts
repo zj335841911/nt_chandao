@@ -51,6 +51,31 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'productname',
+                prop: 'productname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'branchname',
+                prop: 'branchname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'modulename1',
+                prop: 'modulename1',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'projectname',
+                prop: 'projectname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'openedbuild',
+                prop: 'openedbuild',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'title',
                 prop: 'title',
                 dataType: 'TEXT',

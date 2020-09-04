@@ -183,6 +183,12 @@ export default class TestTabExpViewtabviewpanel2Model {
       {
         name: 'managemembers',
       },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
     ]
   }
 

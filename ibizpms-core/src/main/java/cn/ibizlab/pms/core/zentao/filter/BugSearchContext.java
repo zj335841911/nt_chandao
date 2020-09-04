@@ -344,6 +344,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("buildproject", n_buildproject_eq);
         }
     }
+	private Integer n_overduebugs_lt;//[过期天数]
+	public void setN_overduebugs_lt(Integer n_overduebugs_lt) {
+        this.n_overduebugs_lt = n_overduebugs_lt;
+        if(!ObjectUtils.isEmpty(this.n_overduebugs_lt)){
+            this.getSearchCond().lt("overduebugs", n_overduebugs_lt);
+        }
+    }
 
     /**
 	 * 启用快速搜索

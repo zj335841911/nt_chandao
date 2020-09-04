@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import MyTerritoryCountLogic from '@/service/ibz-my-territory/my-territory-count-logic';
 
 
 
@@ -151,6 +152,54 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/ibzmyterritories/${context.ibzmyterritory}/checkkey`,data,isloading);
             return res;
+    }
+
+    /**
+     * MobMenuCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MobMenuCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/mobmenucount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
+    }
+
+    /**
+     * MyFavoriteCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MyFavoriteCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/myfavoritecount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
+    }
+
+    /**
+     * MyTerritoryCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MyTerritoryCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/myterritorycount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
     }
 
     /**
