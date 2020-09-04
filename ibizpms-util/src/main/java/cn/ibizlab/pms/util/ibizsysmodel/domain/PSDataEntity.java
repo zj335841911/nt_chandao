@@ -1,29 +1,15 @@
-package cn.ibizlab.pms.core.ibizsysmodel.domain;
+package cn.ibizlab.pms.util.ibizsysmodel.domain;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.math.BigInteger;
-import java.util.HashMap;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import com.alibaba.fastjson.annotation.JSONField;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.util.ObjectUtils;
-import org.springframework.util.DigestUtils;
-import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
-import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
-import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
-import java.io.Serializable;
-import lombok.*;
-import org.springframework.data.annotation.Transient;
-import cn.ibizlab.pms.util.annotation.Audit;
-
 import cn.ibizlab.pms.util.domain.EntityClient;
+import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * ServiceApi [实体] 对象
@@ -316,7 +302,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     @JSONField(name = "psmodule")
     @JsonProperty("psmodule")
-    private cn.ibizlab.pms.core.ibizsysmodel.domain.PSModule psmodule;
+    private cn.ibizlab.pms.util.ibizsysmodel.domain.PSModule psmodule;
 
 
 

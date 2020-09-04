@@ -1,17 +1,15 @@
-package cn.ibizlab.pms.core.ibizsysmodel.client;
+package cn.ibizlab.pms.util.ibizsysmodel.client;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Collection;
+import cn.ibizlab.pms.util.ibizsysmodel.domain.PSDataEntity;
+import cn.ibizlab.pms.util.ibizsysmodel.filter.PSDataEntitySearchContext;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.*;
-import cn.ibizlab.pms.core.ibizsysmodel.domain.PSDataEntity;
-import cn.ibizlab.pms.core.ibizsysmodel.filter.PSDataEntitySearchContext;
-import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * 实体[PSDataEntity] 服务对象接口
@@ -31,7 +29,7 @@ public interface PSDataEntityFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdataentities/{psdataentityid}")
-    PSDataEntity update(@PathVariable("psdataentityid") String psdataentityid,@RequestBody PSDataEntity psdataentity);
+    PSDataEntity update(@PathVariable("psdataentityid") String psdataentityid, @RequestBody PSDataEntity psdataentity);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdataentities/batch")
     Boolean updateBatch(@RequestBody List<PSDataEntity> psdataentities);
