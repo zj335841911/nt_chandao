@@ -548,7 +548,6 @@ export default {
         empty: '',
     },
     Story__source: {
-        'iBiz': 'iBiz',
         'customer': '客户',
         'user': '用户',
         'po': '产品经理',
@@ -563,6 +562,7 @@ export default {
         'bug': 'Bug',
         'forum': '论坛',
         'other': '其它',
+        'iBiz': 'iBiz',
         empty: '',
     },
     Testcase__pri: {

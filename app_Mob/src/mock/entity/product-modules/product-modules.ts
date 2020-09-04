@@ -493,6 +493,39 @@ mock.onPost(new RegExp(/^\/productmodules\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).re
 });
 
 
+// SyncFromIBIZ
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productmodules\/syncfromibiz$/)).reply((config: any) => {
+    console.groupCollapsed("实体:productmodule 方法: SyncFromIBIZ");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // SyncFromIBIZ
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+// SyncFromIBIZ
+mock.onPost(new RegExp(/^\/productmodules\/syncfromibiz$/)).reply((config: any) => {
+    console.groupCollapsed("实体:productmodule 方法: SyncFromIBIZ");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // SyncFromIBIZ
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+
 // FetchByPath
 mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productmodules\/fetchbypath$/)).reply((config: any) => {
     console.groupCollapsed("实体:productmodule 方法: FetchByPath");

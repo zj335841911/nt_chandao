@@ -147,12 +147,11 @@ public class ProductModuleResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-SyncFromIBIZ-all')")
     @ApiOperation(value = "同步Ibz平台模块", tags = {"需求模块" },  notes = "同步Ibz平台模块")
-	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/syncfromibiz")
-    public ResponseEntity<ProductModuleDTO> syncFromIBIZ(@PathVariable("productmodule_id") BigInteger productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
-        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
-        domain.setId(productmodule_id);
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/syncfromibiz")
+    public ResponseEntity<ProductModuleDTO> syncFromIBIZ() {
+        ProductModule domain =new ProductModule();
         domain = productmoduleService.syncFromIBIZ(domain);
-        productmoduledto = productmoduleMapping.toDto(domain);
+        ProductModuleDTO productmoduledto = productmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
     }
 
@@ -380,12 +379,11 @@ public class ProductModuleResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-SyncFromIBIZ-all')")
     @ApiOperation(value = "根据产品需求模块", tags = {"需求模块" },  notes = "根据产品需求模块")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/syncfromibiz")
-    public ResponseEntity<ProductModuleDTO> syncFromIBIZByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("productmodule_id") BigInteger productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
-        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
-        domain.setRoot(product_id);
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/syncfromibiz")
+    public ResponseEntity<ProductModuleDTO> syncFromIBIZByProduct() {
+        ProductModule domain =new ProductModule();
         domain = productmoduleService.syncFromIBIZ(domain) ;
-        productmoduledto = productmoduleMapping.toDto(domain);
+        ProductModuleDTO productmoduledto = productmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
     }
 

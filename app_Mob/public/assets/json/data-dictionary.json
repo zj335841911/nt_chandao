@@ -3592,14 +3592,6 @@
         "codelisttype":"static",
         "items": [
              {
-                "id": "iBiz",
-                "label": "iBiz",
-                "text": "iBiz",
-                "value": "iBiz",
-                "isValueNumber":false,
-                "disabled": false
-            }
-            , {
                 "id": "customer",
                 "label": "客户",
                 "text": "客户",
@@ -3708,6 +3700,14 @@
                 "label": "其它",
                 "text": "其它",
                 "value": "other",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "iBiz",
+                "label": "iBiz",
+                "text": "iBiz",
+                "value": "iBiz",
                 "isValueNumber":false,
                 "disabled": false
             }
