@@ -3141,13 +3141,6 @@ const datas: Array<any> = [
         "codelisttype":"static",
         items: [
             {
-                id: 'iBiz',
-                label: 'iBiz',
-                text: 'iBiz',
-                value: 'iBiz',
-                disabled: false,
-            },
-            {
                 id: 'customer',
                 label: '客户',
                 text: '客户',
@@ -3243,6 +3236,13 @@ const datas: Array<any> = [
                 label: '其它',
                 text: '其它',
                 value: 'other',
+                disabled: false,
+            },
+            {
+                id: 'iBiz',
+                label: 'iBiz',
+                text: 'iBiz',
+                value: 'iBiz',
                 disabled: false,
             },
         ]

@@ -64,4 +64,6 @@ public interface IBZProStoryModuleMapper extends BaseMapper<IBZProStoryModule>{
 
     List<IBZProStoryModule> selectByRoot(@Param("id") Serializable id) ;
 
+    List<IBZProStoryModule> selectByParent(@Param("id") Serializable id) ;
+
 }

@@ -177,9 +177,6 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'isfavorites',
       },
-      {
-        name: 'ibzsourcenote',
-      },
     ]
   }
 

@@ -93,41 +93,33 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'productname',
-            label: '产品',
-            langtag: 'entities.ibzprostorymodule.main_grid.columns.productname',
+            name: 'id',
+            label: 'id',
+            langtag: 'entities.ibzprostorymodule.main_grid.columns.id',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'pmsstorymodulename',
-            label: '模块',
-            langtag: 'entities.ibzprostorymodule.main_grid.columns.pmsstorymodulename',
+            name: 'name',
+            label: '名称',
+            langtag: 'entities.ibzprostorymodule.main_grid.columns.name',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'ibzpro_storymodulename',
-            label: '需求模块名称',
-            langtag: 'entities.ibzprostorymodule.main_grid.columns.ibzpro_storymodulename',
+            name: 'ibiz_id',
+            label: 'IBIZ标识',
+            langtag: 'entities.ibzprostorymodule.main_grid.columns.ibiz_id',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'updateman',
-            label: '更新人',
-            langtag: 'entities.ibzprostorymodule.main_grid.columns.updateman',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'updatedate',
-            label: '更新时间',
-            langtag: 'entities.ibzprostorymodule.main_grid.columns.updatedate',
+            name: 'root',
+            label: '编号',
+            langtag: 'entities.ibzprostorymodule.main_grid.columns.root',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -154,8 +146,8 @@ export class MainGridBase extends GridControlBase {
      */
     public rules: any = {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '需求模块标识 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '需求模块标识 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -166,11 +158,10 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'productname':false,
-        'pmsstorymodulename':false,
-        'ibzpro_storymodulename':false,
-        'updateman':false,
-        'updatedate':false,
+        'id':false,
+        'name':false,
+        'ibiz_id':false,
+        'root':false,
     };
 
     /**
@@ -196,14 +187,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'updateman',
-                srfkey: 'SysOperator',
-                codelistType : 'DYNAMIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 

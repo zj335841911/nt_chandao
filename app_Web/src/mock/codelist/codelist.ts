@@ -6614,16 +6614,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: "iBiz",
-                label: "iBiz",
-                text: "iBiz",
-                "data":"",
-                "codename":"Ibiz",
-                value: "iBiz",
-                
-                disabled: false,
-            },
-            {
                 id: "customer",
                 label: "客户",
                 text: "客户",
@@ -6763,6 +6753,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "iBiz",
+                label: "iBiz",
+                text: "iBiz",
+                "data":"",
+                "codename":"Ibiz",
+                value: "iBiz",
+                
+                disabled: false,
+            },
         ]
     },
     {
@@ -6807,6 +6807,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Ibizpro_storymodule__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "pmsStoryModule",
+                label: "PMS需求模块",
+                text: "PMS需求模块",
+                "data":"",
+                "codename":"Pmsstorymodule",
+                value: "pmsStoryModule",
+                
+                disabled: false,
+            },
+            {
+                id: "iBizSysModule",
+                label: "iBiz系统模块",
+                text: "iBiz系统模块",
+                "data":"",
+                "codename":"Ibizsysmodule",
+                value: "iBizSysModule",
+                
+                disabled: false,
+            },
+            {
+                id: "iBizReqModule",
+                label: "iBiz需求模块",
+                text: "iBiz需求模块",
+                "data":"",
+                "codename":"Ibizreqmodule",
+                value: "iBizReqModule",
                 
                 disabled: false,
             },

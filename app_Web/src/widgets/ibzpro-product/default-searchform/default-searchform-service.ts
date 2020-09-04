@@ -13,7 +13,7 @@ import DefaultModel from './default-searchform-model';
 export default class DefaultService extends ControlService {
 
     /**
-     * 产品（开发系统）服务对象
+     * 平台产品服务对象
      *
      * @type {IBZProProductService}
      * @memberof DefaultService

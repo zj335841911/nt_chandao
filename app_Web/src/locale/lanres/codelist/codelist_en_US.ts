@@ -882,7 +882,6 @@ export default {
         "empty": ""
     },
     Story__source: {
-        "iBiz": "iBiz",
         "customer": "客户",
         "user": "用户",
         "po": "产品经理",
@@ -897,6 +896,7 @@ export default {
         "bug": "Bug",
         "forum": "论坛",
         "other": "其它",
+        "iBiz": "iBiz",
         "empty": ""
     },
     Testcase__pri: {
@@ -904,6 +904,12 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": ""
+    },
+    Ibizpro_storymodule__type: {
+        "pmsStoryModule": "PMS需求模块",
+        "iBizSysModule": "iBiz系统模块",
+        "iBizReqModule": "iBiz需求模块",
         "empty": ""
     },
     ProjectQuickpacket: {

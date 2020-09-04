@@ -405,7 +405,7 @@ export default class StoryUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:StoryService =  new StoryService();
-            curService.Push(context,data, true).then((response: any) => {
+            curService.ProjectLinkStory(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;

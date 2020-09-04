@@ -70,6 +70,75 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
+    /**
+     * 需求模块类型
+     */
+    @TableField(value = "storytype")
+    @JSONField(name = "storytype")
+    @JsonProperty("storytype")
+    private String storytype;
+    /**
+     * 类型
+     */
+    @DEField(defaultValue = "story")
+    @TableField(value = "type")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
+     * 级别
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "grade")
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
+    /**
+     * 路径
+     */
+    @DEField(defaultValue = "，")
+    @TableField(value = "path")
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
+    /**
+     * 简称
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "short")
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    private String ibizshort;
+    /**
+     * id
+     */
+    @TableField(value = "parent")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private BigInteger parent;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * owner
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "owner")
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+    /**
+     * collector
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "collector")
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    private String collector;
 
     /**
      * 产品
@@ -78,6 +147,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproproduct;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule parentmodule;
 
 
 
@@ -103,6 +180,70 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setIbizid(String ibizid){
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [需求模块类型]
+     */
+    public void setStorytype(String storytype){
+        this.storytype = storytype ;
+        this.modify("storytype",storytype);
+    }
+
+    /**
+     * 设置 [类型]
+     */
+    public void setType(String type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [级别]
+     */
+    public void setGrade(Integer grade){
+        this.grade = grade ;
+        this.modify("grade",grade);
+    }
+
+    /**
+     * 设置 [路径]
+     */
+    public void setPath(String path){
+        this.path = path ;
+        this.modify("path",path);
+    }
+
+    /**
+     * 设置 [简称]
+     */
+    public void setIbizshort(String ibizshort){
+        this.ibizshort = ibizshort ;
+        this.modify("short",ibizshort);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setParent(BigInteger parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
+    }
+
+    /**
+     * 设置 [owner]
+     */
+    public void setOwner(String owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [collector]
+     */
+    public void setCollector(String collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
     }
 
 

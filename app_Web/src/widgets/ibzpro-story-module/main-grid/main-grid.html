@@ -24,65 +24,51 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibzprostorymodule.main_grid.columns.productname')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.ibzprostorymodule.main_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzprostorymodule.main_grid.columns.productname')}}
+                        {{$t('entities.ibzprostorymodule.main_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.productname}}</span>
+                        <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('pmsstorymodulename')">
-                <el-table-column show-overflow-tooltip :prop="'pmsstorymodulename'" :label="$t('entities.ibzprostorymodule.main_grid.columns.pmsstorymodulename')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.ibzprostorymodule.main_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzprostorymodule.main_grid.columns.pmsstorymodulename')}}
+                        {{$t('entities.ibzprostorymodule.main_grid.columns.name')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.pmsstorymodulename}}</span>
+                        <span>{{row.name}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('ibzpro_storymodulename')">
-                <el-table-column show-overflow-tooltip :prop="'ibzpro_storymodulename'" :label="$t('entities.ibzprostorymodule.main_grid.columns.ibzpro_storymodulename')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('ibiz_id')">
+                <el-table-column show-overflow-tooltip :prop="'ibiz_id'" :label="$t('entities.ibzprostorymodule.main_grid.columns.ibiz_id')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzprostorymodule.main_grid.columns.ibzpro_storymodulename')}}
+                        {{$t('entities.ibzprostorymodule.main_grid.columns.ibiz_id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.ibzpro_storymodulename}}</span>
+                        <span>{{row.ibiz_id}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('updateman')">
-                <el-table-column show-overflow-tooltip :prop="'updateman'" :label="$t('entities.ibzprostorymodule.main_grid.columns.updateman')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('root')">
+                <el-table-column show-overflow-tooltip :prop="'root'" :label="$t('entities.ibzprostorymodule.main_grid.columns.root')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.ibzprostorymodule.main_grid.columns.updateman')}}
+                        {{$t('entities.ibzprostorymodule.main_grid.columns.root')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.updateman" tag='SysOperator' codelistType='DYNAMIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('updatedate')">
-                <el-table-column show-overflow-tooltip :prop="'updatedate'" :label="$t('entities.ibzprostorymodule.main_grid.columns.updatedate')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.ibzprostorymodule.main_grid.columns.updatedate')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.updatedate"></app-format-data>
+                        <span>{{row.root}}</span>
                     </template>
                 </el-table-column>
             </template>

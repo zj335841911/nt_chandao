@@ -80,6 +80,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 需求来源
      */
+    @DEField(defaultValue = "iBiz")
     @TableField(value = "source")
     @JSONField(name = "source")
     @JsonProperty("source")
@@ -105,6 +106,13 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "sourcename")
     @JsonProperty("sourcename")
     private String sourcename;
+    /**
+     * 来源对象
+     */
+    @TableField(value = "sourceobject")
+    @JSONField(name = "sourceobject")
+    @JsonProperty("sourceobject")
+    private String sourceobject;
 
     /**
      * 产品
@@ -186,6 +194,14 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setSourcename(String sourcename){
         this.sourcename = sourcename ;
         this.modify("sourcename",sourcename);
+    }
+
+    /**
+     * 设置 [来源对象]
+     */
+    public void setSourceobject(String sourceobject){
+        this.sourceobject = sourceobject ;
+        this.modify("sourceobject",sourceobject);
     }
 
 

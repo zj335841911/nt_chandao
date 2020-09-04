@@ -168,6 +168,13 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public ProductModule syncFromIBIZ(ProductModule et) {
+        //自定义代码
+        return et;
+    }
+
 
 	@Override
     public List<ProductModule> selectByParent(BigInteger id) {

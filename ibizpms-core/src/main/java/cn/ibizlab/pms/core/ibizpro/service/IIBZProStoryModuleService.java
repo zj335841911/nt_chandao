@@ -36,9 +36,12 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
     boolean checkKey(IBZProStoryModule et) ;
     boolean save(IBZProStoryModule et) ;
     void saveBatch(List<IBZProStoryModule> list) ;
+    IBZProStoryModule syncFromIBIZ(IBZProStoryModule et) ;
     Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context) ;
     List<IBZProStoryModule> selectByRoot(BigInteger id) ;
     void removeByRoot(BigInteger id) ;
+    List<IBZProStoryModule> selectByParent(BigInteger id) ;
+    void removeByParent(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

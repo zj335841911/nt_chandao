@@ -58,7 +58,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @type {string}
      * @memberof DefaultSearchFormBase
      */
-    protected appDeLogicName: string = '产品（开发系统）';
+    protected appDeLogicName: string = '平台产品';
 
     /**
      * 界面UI服务对象

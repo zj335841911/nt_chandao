@@ -37,4 +37,76 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     ibizid?: any;
+
+    /**
+     * 需求模块类型
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    storytype?: any;
+
+    /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    type?: any;
+
+    /**
+     * 级别
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    grade?: any;
+
+    /**
+     * 路径
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    path?: any;
+
+    /**
+     * 简称
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    ibizshort?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    parent?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    productname?: any;
+
+    /**
+     * owner
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    owner?: any;
+
+    /**
+     * collector
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    collector?: any;
 }

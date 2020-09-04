@@ -89,6 +89,9 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      * @memberof  IBZProStoryModuleUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-edit-view'});
+        this.allViewMap.set(':',{viewname:'optionview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-option-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-grid-view'});
     }
 
     /**
@@ -105,6 +108,64 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      * @memberof  IBZProStoryModuleUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+    }
+
+    /**
+     * 同步
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async IBZProStoryModule_syncFromIBIZ(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'ibzpro-story-module-option-view', 
+                height: 500, 
+                width: 800,  
+                title: actionContext.$t('entities.ibzprostorymodule.views.optionview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 
