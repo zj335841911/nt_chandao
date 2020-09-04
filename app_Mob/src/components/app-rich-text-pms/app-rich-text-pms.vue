@@ -109,6 +109,15 @@ export default class AppRichTextEditor extends Vue {
   public backEndValue: any = "";
 
   /**
+   * 上传图片成功后的response.data
+   *
+   * @private
+   * @type {Object}
+   * @memberof AppRichTextEditor
+   */
+  public resFile:any;
+
+  /**
    * 生命周期
    *
    * @type {string}
@@ -152,7 +161,12 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   public onClickOk(): void {
-    this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.backEndValue}]);
+    if(this.resFile){
+      this.backEndValue = this.resloutValue.replace(this.resFile.url,"{"+this.resFile.id+this.resFile.ext+"}");
+      this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.backEndValue}]);
+    } else {
+      this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.resloutValue}]);
+    }
   }
 
   /**
@@ -207,9 +221,10 @@ export default class AppRichTextEditor extends Vue {
       .post(this.uploadUrl, params, config)
       .then((response: any) => {
         if (response && response.data && response.status === 200) {
-          let data: any = response.data;
+          // let data: any = response.data;
+          this.resFile = response.data;
           // if (process.env.NODE_ENV === "development") {
-            this.dataProcess(Object.assign({}, data, { url: file.content }));
+            this.dataProcess(Object.assign({}, this.resFile, { url: file.content }));
           // }
         } else {
         }
@@ -233,7 +248,6 @@ export default class AppRichTextEditor extends Vue {
     }
     file.url = _downloadUrl;
     this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="'+file.filename+'">';
-    this.backEndValue = this.resloutValue.replace(file.url,"{"+file.id+file.ext+"}");
   }
 }
 </script>
