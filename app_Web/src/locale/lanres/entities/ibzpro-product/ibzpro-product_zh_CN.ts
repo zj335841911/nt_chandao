@@ -29,6 +29,7 @@ export default {
 			srfsourcekey: "", 
 			id: "编号", 
 			name: "产品名称", 
+			ibiz_id: "IBIZ标识", 
 		},
 		uiactions: {
 		},
