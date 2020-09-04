@@ -145,10 +145,10 @@ export default class AppMobFileUpload extends Vue {
                 'Content-Type': 'multipart/form-data'
             }
         }
-
+        Loading.show();
         Axios.post(this.uploadUrl, params, config).then((response: any) => {
-            Loading.hidden();
             if (response && response.data && response.status === 200) {
+                Loading.hidden();
                 let data: any = response.data;
                 if (process.env.NODE_ENV === 'development') {
                     this.devFiles.push(Object.assign({}, data, {
@@ -157,10 +157,11 @@ export default class AppMobFileUpload extends Vue {
                 }
                 this.onSuccess(data, file, this.files);
             } else {
+                Loading.hidden();
                 this.onError(response, file, this.files);
             }
         }).catch((response: any) => {
-
+            Loading.hidden();
             this.onError(response, file, this.files);
         });
     }
@@ -340,7 +341,7 @@ export default class AppMobFileUpload extends Vue {
                     file.url = this.devFiles[index].url;
                     file.isImage = true;
                 }
-                return;
+                // return;
             }
             
             let _downloadUrl = `${this.downloadUrl}/${file.id}`;
