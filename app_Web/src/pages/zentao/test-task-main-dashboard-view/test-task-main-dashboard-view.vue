@@ -18,5 +18,15 @@ import view_dashboard from '@widgets/test-task/dash-board-dashboard/dash-board-d
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskMainDashboardView extends TestTaskMainDashboardViewBase { }
+export default class TestTaskMainDashboardView extends TestTaskMainDashboardViewBase {
+    /**
+     * 关闭
+     *
+     * @param {*} $event
+     * @memberof ProjectMainDashboardViewBase
+     */
+    public closeView($event: any) {
+        this.$emit('closeview', $event)
+    }
+}
 </script>
