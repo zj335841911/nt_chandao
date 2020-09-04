@@ -1,7 +1,7 @@
 package cn.ibizlab.pms.util.ibizsysmodel.service;
 
-import cn.ibizlab.pms.core.ibizsysmodel.domain.PSDEField;
-import cn.ibizlab.pms.core.ibizsysmodel.filter.PSDEFieldSearchContext;
+import cn.ibizlab.pms.util.ibizsysmodel.domain.PSDEField;
+import cn.ibizlab.pms.util.ibizsysmodel.filter.PSDEFieldSearchContext;
 import org.springframework.data.domain.Page;
 
 import java.util.Collection;
