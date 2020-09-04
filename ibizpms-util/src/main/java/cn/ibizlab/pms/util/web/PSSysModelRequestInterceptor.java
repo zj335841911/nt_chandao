@@ -34,7 +34,7 @@ public class PSSysModelRequestInterceptor implements RequestInterceptor {
     private String devSlnSysId;
     private String token;
 
-    private AuthTokenUtil authTokenUtil = new SimpleTokenUtil();
+    private SimpleTokenUtil authTokenUtil = new SimpleTokenUtil();
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public PSSysModelRequestInterceptor(ApplicationContext applicationContext, String authServiceTag, boolean https, String authUser, String authPassword, String devSlnSysId) {
@@ -43,6 +43,8 @@ public class PSSysModelRequestInterceptor implements RequestInterceptor {
         this.authPassword = authPassword;
         this.devSlnSysId = devSlnSysId;
         this.applicationContext = applicationContext;
+        String strSecret = applicationContext.getEnvironment().getProperty("ibiz.jwt.secret","ibzsecret");
+        authTokenUtil.setSecret(strSecret);
         this.psSysModelLoginClient = OutsideAccessorUtils.buildAccessor(applicationContext, PSSysModelLoginClient.class, https, authServiceTag);
     }
 
