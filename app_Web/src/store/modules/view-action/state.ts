@@ -430,6 +430,7 @@ export const viewstate: any = {
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
+                'f9dd61cc8713a81451f3cb410cf11bbb',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
@@ -1089,6 +1090,15 @@ export const viewstate: any = {
                 '54c7ba4afb6222c4c0af04a78a0592df',
                 'aad9a5713d6828d3119b811b26915215',
                 '170c1d558f26cf37236390b28f8aca82',
+            ],
+        },
+        {
+            viewtag: '500a15957867996d6e20e7a37db8b004',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryModuleEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3488,6 +3498,16 @@ export const viewstate: any = {
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '8af65044ab1633eb5b68d99478e9350f',
+            ],
+        },
+        {
+            viewtag: 'f9dd61cc8713a81451f3cb410cf11bbb',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryModuleGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '500a15957867996d6e20e7a37db8b004',
             ],
         },
         {

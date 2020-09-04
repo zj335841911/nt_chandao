@@ -951,6 +951,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanSubPlanGridView",
             "viewtag": "500950593bf64e5516bdb9b7db29b747"
         },
+        "ibzprostorymoduleeditview": {
+            "title": "需求模块编辑视图",
+            "caption": "需求模块",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProStoryModuleEditView",
+            "viewtag": "500a15957867996d6e20e7a37db8b004"
+        },
         "taskclosetaskview": {
             "title": "关闭任务",
             "caption": "关闭任务",
@@ -2950,6 +2958,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugBuildSubGridView_Done",
             "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
+        },
+        "ibzprostorymodulegridview": {
+            "title": "需求模块表格视图",
+            "caption": "需求模块",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProStoryModuleGridView",
+            "viewtag": "f9dd61cc8713a81451f3cb410cf11bbb"
         },
         "branchpickupgridview": {
             "title": "平台选择表格视图",

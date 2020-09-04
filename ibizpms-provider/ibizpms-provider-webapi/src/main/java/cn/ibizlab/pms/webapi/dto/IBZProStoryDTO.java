@@ -96,6 +96,14 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("sourcename")
     private String sourcename;
 
+    /**
+     * 属性 [SOURCEOBJECT]
+     *
+     */
+    @JSONField(name = "sourceobject")
+    @JsonProperty("sourceobject")
+    private String sourceobject;
+
 
     /**
      * 设置 [TITLE]
@@ -159,6 +167,14 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setSourcename(String  sourcename){
         this.sourcename = sourcename ;
         this.modify("sourcename",sourcename);
+    }
+
+    /**
+     * 设置 [SOURCEOBJECT]
+     */
+    public void setSourceobject(String  sourceobject){
+        this.sourceobject = sourceobject ;
+        this.modify("sourceobject",sourceobject);
     }
 
 

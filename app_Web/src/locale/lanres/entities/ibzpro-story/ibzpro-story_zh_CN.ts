@@ -9,6 +9,7 @@ export default {
     sourcenote: "来源备注",
     sourceid: "来源对象标识",
     sourcename: "来源对象名称",
+    sourceobject: "来源对象",
   },
 	views: {
 		gridview: {

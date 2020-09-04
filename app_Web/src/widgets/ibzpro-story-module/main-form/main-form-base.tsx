@@ -74,7 +74,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public data: any = {
-        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -82,16 +81,10 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        product: null,
-        pmsstorymodule: null,
-        productname: null,
-        pmsstorymodulename: null,
-        ibzpro_storymodulename: null,
-        createman: null,
-        createdate: null,
-        updateman: null,
-        updatedate: null,
-        ibzpro_storymoduleid: null,
+        id: null,
+        root: null,
+        ibiz_id: null,
+        name: null,
         ibzprostorymodule:null,
     };
 
@@ -102,6 +95,10 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        name: [
+            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -128,13 +125,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srfupdatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        srfkey: new FormItemModel({ caption: '需求模块标识', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfkey: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        srfmajortext: new FormItemModel({ caption: '需求模块名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -144,25 +139,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        product: new FormItemModel({ caption: '产品（开发系统）标识', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
-        pmsstorymodule: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'pmsstorymodule', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        root: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'root', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        ibiz_id: new FormItemModel({ caption: 'IBIZ标识', detailType: 'FORMITEM', name: 'ibiz_id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        pmsstorymodulename: new FormItemModel({ caption: '模块', detailType: 'FORMITEM', name: 'pmsstorymodulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        ibzpro_storymodulename: new FormItemModel({ caption: '需求模块名称', detailType: 'FORMITEM', name: 'ibzpro_storymodulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        createman: new FormItemModel({ caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        createdate: new FormItemModel({ caption: '建立时间', detailType: 'FORMITEM', name: 'createdate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        updateman: new FormItemModel({ caption: '更新人', detailType: 'FORMITEM', name: 'updateman', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        updatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        ibzpro_storymoduleid: new FormItemModel({ caption: '需求模块标识', detailType: 'FORMITEM', name: 'ibzpro_storymoduleid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };

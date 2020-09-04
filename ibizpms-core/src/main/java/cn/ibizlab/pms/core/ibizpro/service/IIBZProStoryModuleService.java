@@ -36,6 +36,7 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
     boolean checkKey(IBZProStoryModule et) ;
     boolean save(IBZProStoryModule et) ;
     void saveBatch(List<IBZProStoryModule> list) ;
+    IBZProStoryModule syncFromIBIZ(IBZProStoryModule et) ;
     Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context) ;
     List<IBZProStoryModule> selectByRoot(BigInteger id) ;
     void removeByRoot(BigInteger id) ;

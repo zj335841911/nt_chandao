@@ -54,6 +54,18 @@ export default class IBZProStoryModuleServiceBase extends EntityService {
     }
 
     /**
+     * SyncFromIBIZ接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZProStoryModuleServiceBase
+     */
+    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

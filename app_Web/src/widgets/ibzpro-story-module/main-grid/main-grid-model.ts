@@ -27,59 +27,44 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
-          name: 'pmsstorymodulename',
-          prop: 'pmsstorymodulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'updateman',
-          prop: 'updateman',
+          name: 'ibiz_id',
+          prop: 'ibizid',
           dataType: 'TEXT',
         },
         {
-          name: 'ibzpro_storymodulename',
-          prop: 'ibzprostorymodulename',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pmsstorymodule',
-          prop: 'pmsstorymodule',
+          name: 'root',
+          prop: 'root',
           dataType: 'PICKUP',
         },
         {
-          name: 'updatedate',
-          prop: 'updatedate',
-          dataType: 'DATETIME',
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',
-          prop: 'ibzprostorymodulename',
+          prop: 'name',
           dataType: 'TEXT',
         },
         {
           name: 'srfdataaccaction',
-          prop: 'ibzprostorymoduleid',
-          dataType: 'GUID',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'srfkey',
-          prop: 'ibzprostorymoduleid',
-          dataType: 'GUID',
+          prop: 'id',
+          dataType: 'ACID',
           isEditable:true
         },
         {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
-        },
-        {
           name: 'ibzprostorymodule',
-          prop: 'ibzprostorymoduleid',
+          prop: 'id',
         },
 
         {

@@ -146,6 +146,13 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public IBZProStoryModule syncFromIBIZ(IBZProStoryModule et) {
+        //自定义代码
+        return et;
+    }
+
 
 	@Override
     public List<IBZProStoryModule> selectByRoot(BigInteger id) {

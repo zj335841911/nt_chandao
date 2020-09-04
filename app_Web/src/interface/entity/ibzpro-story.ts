@@ -77,4 +77,12 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     sourcename?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    sourceobject?: any;
 }

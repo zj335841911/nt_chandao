@@ -6312,6 +6312,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-pickup-grid-view4/story-pickup-grid-view4.vue'),
                 },
                 {
+                    path: 'ibzprostorymodules/:ibzprostorymodule?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzprostorymodule.views.gridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-module-grid-view/ibzpro-story-module-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/suitelinkcasegridview/:suitelinkcasegridview?',
                     meta: {
                         caption: 'entities.case.views.suitelinkcasegridview.title',
@@ -11504,6 +11518,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/dept-main-grid-view/dept-main-grid-view.vue'),
+                },
+                {
+                    path: 'ibzprostorymodules/:ibzprostorymodule?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzprostorymodule.views.editview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-module-edit-view/ibzpro-story-module-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/usr2mpickupview/:usr2mpickupview?',

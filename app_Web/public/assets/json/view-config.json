@@ -1179,6 +1179,16 @@
         "viewtag": "500950593bf64e5516bdb9b7db29b747",
         "memo": ""
     },
+    "ibzprostorymoduleeditview": {
+        "title": "需求模块编辑视图",
+        "caption": "需求模块",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBZProStoryModuleEditView",
+        "viewfilename": "ibzpro-story-module-edit-view",
+        "viewtag": "500a15957867996d6e20e7a37db8b004",
+        "memo": ""
+    },
     "taskclosetaskview": {
         "title": "关闭任务",
         "caption": "关闭任务",
@@ -3677,6 +3687,16 @@
         "viewname": "BugBuildSubGridView_Done",
         "viewfilename": "bug-build-sub-grid-view-done",
         "viewtag": "f8ffad31189703973765c5a9c4fc8a5c",
+        "memo": ""
+    },
+    "ibzprostorymodulegridview": {
+        "title": "需求模块表格视图",
+        "caption": "需求模块",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBZProStoryModuleGridView",
+        "viewfilename": "ibzpro-story-module-grid-view",
+        "viewtag": "f9dd61cc8713a81451f3cb410cf11bbb",
         "memo": ""
     },
     "branchpickupgridview": {

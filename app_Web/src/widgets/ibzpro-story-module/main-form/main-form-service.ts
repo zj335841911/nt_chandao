@@ -2,8 +2,6 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import IBZProStoryModuleService from '@/service/ibzpro-story-module/ibzpro-story-module-service';
 import MainModel from './main-form-model';
-import IBZProProductService from '@/service/ibzpro-product/ibzpro-product-service';
-import ModuleService from '@/service/module/module-service';
 
 
 /**
@@ -42,22 +40,6 @@ export default class MainService extends ControlService {
         super(opts);
         this.model = new MainModel();
     }
-
-    /**
-     * 产品（开发系统）服务对象
-     *
-     * @type {IBZProProductService}
-     * @memberof MainService
-     */
-    public ibzproproductService: IBZProProductService = new IBZProProductService();
-
-    /**
-     * 模块服务对象
-     *
-     * @type {ModuleService}
-     * @memberof MainService
-     */
-    public moduleService: ModuleService = new ModuleService();
 
     /**
      * 处理数据
@@ -100,12 +82,6 @@ export default class MainService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'IBZProProductService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.ibzproproductService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'ibzpro_productid', 'ibzproproduct');
-        }
-        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.moduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
-        }
 
         return Promise.reject([])
     }
@@ -187,6 +163,7 @@ export default class MainService extends ControlService {
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        Object.assign(Data,{id: data.id, srffrontuf: '1'});
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -308,7 +285,7 @@ export default class MainService extends ControlService {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         //仿真主键数据
         const PrimaryKey = Util.createUUID();
-        Data.ibzprostorymoduleid = PrimaryKey;
+        Data.id = PrimaryKey;
         Data.ibzprostorymodule = PrimaryKey;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
@@ -319,7 +296,7 @@ export default class MainService extends ControlService {
                 result = this.appEntityService.GetDraft(Context,Data, isloading);
             }
             result.then((response) => {
-                response.data.ibzprostorymoduleid = PrimaryKey;
+                response.data.id = PrimaryKey;
                 this.handleResponse(action, response, true);
                 resolve(response);
             }).catch(response => {
