@@ -6,7 +6,7 @@ import { AssignedToMeBugPortletBase } from './assigned-to-me-bug-portlet-base';
  
 
 /**
- * dashboard_sysportlet4部件
+ * db_assigntomebugportlet1部件
  *
  * @export
  * @class AssignedToMeBugPortlet
