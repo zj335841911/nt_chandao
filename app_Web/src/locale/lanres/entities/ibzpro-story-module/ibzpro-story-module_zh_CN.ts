@@ -11,6 +11,8 @@ export default {
     ibizshort: "简称",
     parent: "id",
     productname: "产品",
+    owner: "owner",
+    collector: "collector",
   },
 	views: {
 		editview: {

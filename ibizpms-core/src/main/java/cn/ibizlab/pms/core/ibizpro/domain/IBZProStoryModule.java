@@ -123,6 +123,22 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     private String productname;
+    /**
+     * owner
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "owner")
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+    /**
+     * collector
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "collector")
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    private String collector;
 
     /**
      * 产品
@@ -212,6 +228,22 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setParent(BigInteger parent){
         this.parent = parent ;
         this.modify("parent",parent);
+    }
+
+    /**
+     * 设置 [owner]
+     */
+    public void setOwner(String owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [collector]
+     */
+    public void setCollector(String collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
     }
 
 

@@ -93,4 +93,20 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     productname?: any;
+
+    /**
+     * owner
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    owner?: any;
+
+    /**
+     * collector
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    collector?: any;
 }

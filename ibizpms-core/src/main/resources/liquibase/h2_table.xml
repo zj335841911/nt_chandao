@@ -866,7 +866,7 @@
 
 
     <!--输出实体[IBZPRO_STORYMODULE]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_storymodule-59-27">
+    <changeSet author="zentao" id="tab-ibzpro_storymodule-61-27">
         <createTable tableName="zt_module">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_STORYMODULE_ID"/>
@@ -888,6 +888,10 @@
                 <column name="SHORT" remarks="" type="VARCHAR(30)">
                 </column>
                 <column name="PARENT" remarks="" type="BIGINT">
+                </column>
+                <column name="OWNER" remarks="" type="VARCHAR(30)">
+                </column>
+                <column name="COLLECTOR" remarks="" type="TEXT(65535)">
                 </column>
         </createTable>
     </changeSet>
@@ -2375,7 +2379,7 @@
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_story" constraintName="DER1N_IBZPRO_STORY_IBZPRO_STOR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_STORYMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_storymodule-59-134">
+    <changeSet author="zentao" id="fk-ibzpro_storymodule-61-134">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZPRO_STORYMODULE_IBZPR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_LOGIN]外键关系 -->
@@ -2429,10 +2433,10 @@
         <!--输出实体[ZT_PRODUCT]外键关系 -->
         <!--输出实体[IBZ_PRODUCTLIFE]外键关系 -->
         <!--输出实体[IBZ_PRODUCTMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_productmodule-186-144">
+    <changeSet author="zentao" id="fk-ibz_productmodule-187-144">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_module" constraintName="DER1N_IBZ_PRODUCTMODULE_IBZ_PR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_productmodule-186-145">
+    <changeSet author="zentao" id="fk-ibz_productmodule-187-145">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_PRODUCTMODULE_ZT_PRO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_PRODUCTPLAN]外键关系 -->

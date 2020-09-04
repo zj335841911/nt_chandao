@@ -112,6 +112,22 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("productname")
     private String productname;
 
+    /**
+     * 属性 [OWNER]
+     *
+     */
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+
+    /**
+     * 属性 [COLLECTOR]
+     *
+     */
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    private String collector;
+
 
     /**
      * 设置 [NAME]
@@ -183,6 +199,22 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setParent(BigInteger  parent){
         this.parent = parent ;
         this.modify("parent",parent);
+    }
+
+    /**
+     * 设置 [OWNER]
+     */
+    public void setOwner(String  owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [COLLECTOR]
+     */
+    public void setCollector(String  collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
     }
 
 
