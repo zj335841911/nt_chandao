@@ -46,6 +46,8 @@ import org.springframework.util.StringUtils;
 @Service("IBZProStoryModuleServiceImpl")
 public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleMapper, IBZProStoryModule> implements IIBZProStoryModuleService {
 
+
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService = this;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
@@ -162,6 +164,16 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Override
     public void removeByRoot(BigInteger id) {
         this.remove(new QueryWrapper<IBZProStoryModule>().eq("root",id));
+    }
+
+	@Override
+    public List<IBZProStoryModule> selectByParent(BigInteger id) {
+        return baseMapper.selectByParent(id);
+    }
+
+    @Override
+    public void removeByParent(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStoryModule>().eq("parent",id));
     }
 
 

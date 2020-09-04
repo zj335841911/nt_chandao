@@ -177,9 +177,6 @@ export class MobModel {
       {
         name: 'isfavorites',
       },
-      {
-        name: 'ibzsourcenote',
-      },
     ]
   }
 
