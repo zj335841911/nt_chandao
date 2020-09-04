@@ -55,6 +55,21 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 编号
+     */
+    @TableField(value = "root")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
+
+    /**
+     * 产品
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproproduct;
 
 
 
@@ -64,6 +79,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setRoot(BigInteger root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 

@@ -40,6 +40,22 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     private String title;
 
+    /**
+     * 属性 [MODULE]
+     *
+     */
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
+
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private BigInteger product;
+
 
     /**
      * 设置 [TITLE]
@@ -47,6 +63,22 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setTitle(String  title){
         this.title = title ;
         this.modify("title",title);
+    }
+
+    /**
+     * 设置 [MODULE]
+     */
+    public void setModule(BigInteger  module){
+        this.module = module ;
+        this.modify("module",module);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(BigInteger  product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 

@@ -34,6 +34,13 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
             this.getSearchCond().like("name", n_name_like);
         }
     }
+	private BigInteger n_root_eq;//[编号]
+	public void setN_root_eq(BigInteger n_root_eq) {
+        this.n_root_eq = n_root_eq;
+        if(!ObjectUtils.isEmpty(this.n_root_eq)){
+            this.getSearchCond().eq("root", n_root_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

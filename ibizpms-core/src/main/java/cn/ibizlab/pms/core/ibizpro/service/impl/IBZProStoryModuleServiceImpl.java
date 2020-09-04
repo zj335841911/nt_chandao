@@ -46,6 +46,12 @@ import org.springframework.util.StringUtils;
 @Service("IBZProStoryModuleServiceImpl")
 public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleMapper, IBZProStoryModule> implements IIBZProStoryModuleService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService ibzproproductService;
 
     protected int batchSize = 500;
 
@@ -140,6 +146,16 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         saveOrUpdateBatch(list,batchSize);
     }
 
+
+	@Override
+    public List<IBZProStoryModule> selectByRoot(BigInteger id) {
+        return baseMapper.selectByRoot(id);
+    }
+
+    @Override
+    public void removeByRoot(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStoryModule>().eq("root",id));
+    }
 
 
     /**

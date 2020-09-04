@@ -54,6 +54,7 @@ export default {
     preversion: "之前的版本",
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
+    ibzsourcenote: "来源备注",
   },
 	views: {
 		newmobeditview: {

@@ -62,4 +62,6 @@ public interface IBZProStoryModuleMapper extends BaseMapper<IBZProStoryModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
+    List<IBZProStoryModule> selectByRoot(@Param("id") Serializable id) ;
+
 }

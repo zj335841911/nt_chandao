@@ -93,29 +93,6 @@
 
 
     <!--输出实体[IBZ_FAVORITES]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_favorites-18-30">
-        <createTable tableName="T_IBZ_FAVORITES">
-                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="IBZ_FAVORITESID" remarks="" type="VARCHAR(100)">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZ_FAVORITES_IBZ_FAVORITES"/>
-                </column>
-                <column name="CREATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="IBZ_FAVORITESNAME" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="UPDATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="OBJECTID" remarks="" type="INT">
-                </column>
-                <column name="ACCOUNT" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="TYPE" remarks="" type="VARCHAR(60)">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBZ_LIB]数据结构 -->
@@ -137,31 +114,6 @@
 
 
     <!--输出实体[IBZ_TOP]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_top-16-37">
-        <createTable tableName="T_IBZ_TOP">
-                <column name="IBZ_TOPID" remarks="" type="VARCHAR(100)">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZ_TOP_IBZ_TOPID"/>
-                </column>
-                <column name="CREATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="IBZ_TOPNAME" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="UPDATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="TYPE" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="OBJECTID" remarks="" type="INT">
-                </column>
-                <column name="OBJECTORDER" remarks="" type="INT">
-                </column>
-                <column name="ACCOUNT" remarks="" type="VARCHAR(60)">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[ZT_IM_CHAT]数据结构 -->
